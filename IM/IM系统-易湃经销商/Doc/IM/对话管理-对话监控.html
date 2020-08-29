@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>对话管理-监控对话</title>
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+<script src="js/jquery-1.6.4.min.js" language="javascript" type="text/javascript"></script>
+<script src="js/public.js" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+<div class="crm">
+<!--头部开始-->
+<div class="head">
+	<!--header开始-->
+	<div class="header">
+    	<div class="logo left"><img src="images/logo.png"  alt="CRM系统logo" /></div>
+         <!--菜单开始-->
+        <div class="menu  ft14">
+            <ul>
+                <li><a   href="#"><img src="images/pic1.png"  border="0"/><br />对话管理</a></li>
+                <li><a  href="#" ><img src="images/pic2.png" border="0" /><br />内容管理</a></li>
+                <li><a  class="cur"  href="#"><img src="images/pic3.png" border="0" /><br />排队管理</a></li>
+                <li><a  href="#"><img src="images/pic4.png" border="0" /><br />高级管理</a></li>
+                <li><a  href="#"><img src="images/pic5.png" border="0" /><br />数据统计</a></li>
+            </ul>
+        </div>
+       
+        <!--菜单结束-->	
+        		<div class="function right">
+                    <ul>
+                        <li><a href="#" class="write">帮助</a></li>
+                        <li><a href="#"  class="write">关于</a></li>
+                        <li><a href="#"  class="write">退出</a></li>
+                    </ul>
+                  <div class="clearfix"></div>
+                    <div class="user_zt right">
+                    	<div class="user left"><img src="images/user.png" width="12" height="14" /> admin</div>
+                        <div class="status right">
+                        	<ul>
+                                <li>
+                                    <ul class="menuUl">
+                                        <li class="position">
+                                        <span class="top_open nav_class" onMouseOver="this.className='nav_class_hover'" onMouseOut="this.className='nav_class'">
+                                            <a href="javascript:;" class="csbg"  title="在线">在线</a>
+                                            <ul class="top_cont nextT">
+                                                <li><a href="#" class="narxtmin">离线</a></li>
+                                                <li class="last"><a href="#" class="narxtmin">忙碌</a></li>
+                                            </ul>
+                                        </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+   </div>
+   <div style="clear:both;"></div>
+    <!--header结束-->
+    <div class="clearfix"></div>
+    <!--子菜单开始-->
+    <div class="mainmenu_bottom">
+    	<ul class="" id="mb1">
+        	<li><a href="#">对话中</a>| </li>
+            <li><a href="#">排队中</a>|  </li>
+            <li><a href="#" class="cur">监控对话</a>| </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!--子菜单结束-->
+</div>
+<!--头部结束-->
+<!--内容开始-->
+<div class="content">
+	<!--查询开始-->
+    	<div class="searchTj">
+        	<ul>
+            <li><label>经销商名称：</label><input name="" type="text"  class="w240"/></li>
+            <li><label>所属大区：</label><select  class="w240"><option>请选择</option><option>智能平台运营支持一部</option></select></li>
+            <li><label>所属城市群：</label><select  class="w240"><option>请选择</option><option>智能平台运营支持一部</option></select></li>
+            </ul>
+            <div class="clearfix"></div>
+            <ul>
+            <li><label>地理位置：</label><select  class="w240" style="width:79px;"><option>请选择</option><option>智能平台运营支持一部</option></select>
+            	<select  class="w240" style="width:79px;"><option>请选择</option><option>智能平台运营支持一部</option></select>
+                <select  class="w240" style="width:79px;"><option>请选择</option><option>智能平台运营支持一部</option></select>
+            </li>
+            <li><label>客服名称：</label><input name="" type="text"  class="w240"/></li>
+             <li><label>连接时间：</label><input name="" type="text"  class="w240" style="width:108px;"/> - <input name="" type="text"  class="w240" style="width:108px;"/></li>
+            
+            <li style="width:80px;"><div class="tjBtn"><input type="button" value="查询"  class="w60"/></div></li>
+          </ul>
+          <div class="clearfix"></div>
+    	</div>
+	<!--查询结束-->
+    <!--列表开始-->
+    <div class="cxList dh_gl" style="margin-top:8px; height:215px; overflow-x:hidden;">
+    	<table border="0" cellspacing="0" cellpadding="0">
+          <th width="30%">经销商名称</th>
+            <th width="11%">地理位置</th>
+            <th width="8%">所属城市群</th>
+            <th width="8%">连接时间</th>
+            <th width="10%">最后消息时间</th>
+            <th width="25%">最近访问页面</th>
+            <th width="7%">操作</th>
+          <tr class="jk_bg">
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td>江苏省 南京市</td>
+            <td>长沙区</td>
+            <td>13:11:06</td>
+            <td>13:11:06</td>
+            <td class="cName">什么是汽车通？</td>
+            <td><div class="btn"><input type="button" value="监控"  class="w60 gray"/></div></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td>江苏省 南京市</td>
+            <td>长沙区</td>
+            <td>13:11:06</td>
+            <td>13:11:06</td>
+            <td class="cName">什么是汽车通？</td>
+            <td><div class="btn"><input type="button" value="监控"  class="w60 gray"/></div></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td>江苏省 南京市</td>
+            <td>长沙区</td>
+            <td>13:11:06</td>
+            <td>13:11:06</td>
+            <td class="cName">什么是汽车通？</td>
+            <td><div class="btn"><input type="button" value="监控"  class="w60 gray"/></div></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td>江苏省 南京市</td>
+            <td>长沙区</td>
+            <td>13:11:06</td>
+            <td>13:11:06</td>
+            <td class="cName">什么是汽车通？</td>
+            <td><div class="btn"><input type="button" value="监控"  class="w60 gray"/></div></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td>江苏省 南京市</td>
+            <td>长沙区</td>
+            <td>13:11:06</td>
+            <td>13:11:06</td>
+            <td class="cName">什么是汽车通？</td>
+            <td><div class="btn"><input type="button" value="监控"  class="w60 gray"/></div></td>
+          </tr>
+        </table>
+    </div>
+    <!--列表结束-->
+    <div class="clearfix"></div>
+    <div class="jk_dh_start">
+    <!--对话列表左开始-->
+	<div class="left dh_list">
+    <!--对话列表-->
+    <div class="dh_info">
+    	<div id="Tab1">
+         <div class="Contentbox Contentbox_dh">
+         	<!--客户信息-->  
+           		<div class="online h50"><img src="images/online.png" width="24" height="24" /><h4>1099924552:北京宏伟恒源汽车销售.</h4><span class="close"><a href="#">关闭</a></span></div>
+                <div class="offline"><img src="images/offline.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>	
+                <div class="queue"><img src="images/queue.png" width="24" height="24" /><h4>1099924552:北京宏伟恒售.</h4><span class="close"><a href="#">关闭</a></span></div>				
+           <div class="clearfix"></div>
+           <!--客户信息-->
+         </div>
+        </div>
+    </div>
+    <!--对话列表-->
+    </div>
+    <!--对话列表左结束-->
+    <!--对话中开始-->
+    <div class="left dh_window">
+      <div class="dialogue">
+            	<p>对话开始于: 09:53</p>
+                <div class="scroll_gd">
+                    <div class="dh1">
+                        <div class="title">北京宏伟恒源汽车销售服务有限公司 <span>说：  09:53:31</span></div>
+                        <div class="dhc">你好，对于易湃系统，我有几点问题想要问</div>
+                    </div>	
+                    <div class="dh1">
+                        <div class="title title2">张莹莹 <span>说： 09:53:31</span></div>
+                        <div class="dhc dhc2">您好，欢迎您访问！请问有什么需要咨询？</div>
+                    </div>
+                    <div class="dh1">
+                        <div class="title">张莹莹  09:53:31</div>
+                        <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                    </div>
+                </div>
+                <div class="endmsg">(发送快捷键：Enter)最后收到消息时间：10:00:09<span class="right btn" style="*margin-top:-20px;"> <input type="button" value="结束"  class="w60 gray"/> </span></div>
+            </div>
+    </div>
+    <!--对话中结束-->
+    </div>
+	<div class="clearfix"></div>
+</div>
+<!--内容结束-->
+<div class="footer mt16">
+信息系统研发中心 任何建议和意见，请发邮件至：<a href="#">ISDC@bitauto.com</a><br />
+CopyRight © 2000-2013 Bitauto,All Rights Reserved 版权所有 北京易车互联信息技术有限公司
+</div>
+</div>
+</body>
+</html>

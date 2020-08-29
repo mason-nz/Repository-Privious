@@ -1,0 +1,1376 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BitAuto.Services.Organization.Remoting</name>
+    </assembly>
+    <members>
+        <member name="T:BitAuto.Services.Organization.Remoting.DepartmentService">
+            <summary>
+            部门操作实现接口
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.IDepartmentService">
+            <summary>
+            部门操作接口
+            </summary>    
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.GetDeptByEmployee(System.String)">
+            <summary>
+            根据员工账号查询员工所属的主部门
+            </summary>
+            <param name="account">域账号</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.GetDeptByEmployeeNumber(System.String)">
+            <summary>
+            根据员工编号查询员工所属的主部门
+            </summary>
+            <param name="employeeNumber">员工编号</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.GetDeptById(System.Int32)">
+            <summary>
+            根据部门Id返回部门信息
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.QueryDeptByName(System.String)">
+            <summary>
+            根据部门名称返回部门信息. 集团公司内部门名称有重名情况，所有返回列表
+            </summary>
+            <param name="deptName">部门名称</param>        
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.QueryDeptByEmployee(System.String,System.Boolean)">
+            <summary>
+            根据员工账号查询员工所属的部门
+            </summary>
+            <param name="account">域账号</param>
+            <param name="filterParttime">是否过滤兼任部门</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.QueryDeptByEmployeeNumber(System.String,System.Boolean)">
+            <summary>
+            根据员工编号查询员工所属的部门
+            </summary>
+            <param name="employeeNumber">员工编号</param>
+            <param name="filterParttime">是否过滤兼任部门</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.GetManagerByDept(System.Int32)">
+            <summary>
+            获取某部门的管理者
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.QueryManagerByDeptName(System.String)">
+            <summary>
+            获取部门的管理者,部门名称可能重名
+            </summary>
+            <param name="deptName">部门名称</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.QuerySubDept(System.Int32,System.Boolean)">
+            <summary>
+            获取部门的下级部门，即下级部门的下级部门也会返回
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeAll">是否包含嵌套下级</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.GetSuperDept(System.Int32)">
+            <summary>
+            获取某部门的直属下级部门
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.QuerySuperDept(System.Int32,System.Boolean)">
+            <summary>
+            获取部门的上级部门，即上级部门的上级部门也会返回
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeAll">是否包含上级的上级</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.GetDepartmentAllFullPath(System.String,System.Boolean)">
+            <summary>
+            获取所有部门的全路径，即从最顶层到叶子节点
+            direction为TRUE时为正向：易车公司-IT运维中心-系统架构部
+            FALSE为反向：数据库管理部-IT运维中心-易车公司
+            </summary>
+            <param name="splite">分隔符：例如'-'</param>
+            <param name="direction">方向：正向反向</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IDepartmentService.GetDepartmentAllFullPath">
+            <summary>
+            获取所有部门的全路径，即从最顶层到叶子节点
+            正向、分隔符'-'：易车公司-IT运维中心-系统架构部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.GetDeptByEmployee(System.String)">
+            <summary>
+            根据员工账号查询员工所属的主部门
+            </summary>
+            <param name="account">域账号</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.GetDeptByEmployeeNumber(System.String)">
+            <summary>
+            根据员工编号查询员工所属的主部门
+            </summary>
+            <param name="employeeNumber">员工编号</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.QueryDeptByEmployee(System.String,System.Boolean)">
+            <summary>
+            根据员工账号查询员工所属的部门
+            </summary>
+            <param name="account">域账号</param>
+            <param name="filterParttime">是否过滤兼任部门</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.QueryDeptByEmployeeNumber(System.String,System.Boolean)">
+            <summary>
+            根据员工编号查询员工所属的部门
+            </summary>
+            <param name="employeeNumber">员工编号</param>
+            <param name="filterParttime">是否过滤兼任部门</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.GetDeptById(System.Int32)">
+            <summary>
+            根据部门Id返回部门信息
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.QueryDeptByName(System.String)">
+            <summary>
+            根据部门名称返回部门信息. 集团公司内部门名称有重名情况，所有返回列表
+            </summary>
+            <param name="deptName">部门名称</param>        
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.GetManagerByDept(System.Int32)">
+            <summary>
+            获取某部门的管理者
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.QueryManagerByDeptName(System.String)">
+            <summary>
+            获取部门的管理者,部门名称可能重名
+            </summary>
+            <param name="deptName">部门名称</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.QuerySubDept(System.Int32,System.Boolean)">
+            <summary>
+            获取部门的下级部门，即下级部门的下级部门也会返回
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeAll">是否包含嵌套下级</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.GetSuperDept(System.Int32)">
+            <summary>
+            获取某部门的直属下级部门
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.QuerySuperDept(System.Int32,System.Boolean)">
+            <summary>
+            获取部门的上级部门，即上级部门的上级部门也会返回
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeAll">是否包含上级的上级</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.GetDepartmentAllFullPath(System.String,System.Boolean)">
+            <summary>
+            获取所有部门的全路径，即从最顶层到叶子节点
+            direction为TRUE时为正向：易车公司-IT运维中心-系统架构部
+            FALSE为反向：数据库管理部-IT运维中心-易车公司
+            </summary>
+            <param name="splite">分隔符：例如'-'</param>
+            <param name="direction">方向：正向反向</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.GetDepartmentAllFullPath">
+            <summary>
+            获取所有部门的全路径，即从最顶层到叶子节点
+            正向、分隔符'-'：易车公司-IT运维中心-系统架构部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.FillDepartmentFullPath(BitAuto.Services.Organization.Remoting.Department)">
+            <summary>
+            给部门填充全路径值
+            </summary>
+            <param name="dept"></param>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.DepartmentService.FillDepartmentFullPath(System.Collections.Generic.IList{BitAuto.Services.Organization.Remoting.Department})">
+            <summary>
+            给部门填充全路径值
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.LoginService">
+            <summary>
+            登录接口实现
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.ILoginService">
+            <summary>
+            登录接口
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.ILoginService.Login(System.String,System.String)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="domainAccount">域账号信息</param>
+            <param name="password">密码</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.LoginService.Login(System.String,System.String)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="domainAccount">域账号信息</param>
+            <param name="password">密码</param>
+            <returns>登录结果,登录结果以枚举显示,分为:成功，密码错误，账号被禁用，用户不存在</returns>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.IOrganizationService">
+            <summary>
+            组织操作接口
+            </summary>    
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.IEmployeeService">
+            <summary>
+            员工操作接口
+            </summary>    
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeByDomainAccount(System.String)">
+            <summary>
+            根据域帐户获取员工信息,域账号精确匹配，只包括在职员工
+            </summary>       
+            <param name="account">域账号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeByDomainAccountWithDimission(System.String)">
+            <summary>
+             根据域账号和状态查找员工信息,域账号精确匹配
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeByEmployeeNumber(System.String)">
+            <summary>
+            根据员工编号查找员工信息，只包括在职员工
+            </summary>       
+            <param name="employeeNumber">员工编号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeByEmployeeNumberWithDimission(System.String)">
+            <summary>
+            根据员工编号和状态查找员工信息
+            </summary>       
+            <param name="employeeNumber">员工编号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByAccountOrCnName(System.String,System.String)">
+            <summary>
+            请调用QueryEmployee替代此接口
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询，只包括在职员工
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployee(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询，只包括在职员工
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByAccountOrCnNameWithDimission(System.String,System.String)">
+            <summary>
+            请调用QueryEmployeeWithDimission替代此接口
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询,并根据状态筛选
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeWithDimission(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询,并根据状态筛选
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByDomainAccount(System.String)">
+            <summary>
+            查询账号名称含有某个关键词的员工，模糊匹配，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByDomainAccountWithDimission(System.String)">
+            <summary>
+            查询账号名称含有某个关键词的员工，模糊匹配。
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByCnName(System.String)">
+            <summary>
+            查询中文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByCnNameWithDimission(System.String)">
+            <summary>
+            查询中文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByEnName(System.String)">
+            <summary>
+            查询英文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByEnNameWithDimission(System.String)">
+            <summary>
+            查询英文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象,并根据员工状态过滤
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByDept(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某一部门下的所有员工，只包括在职员工
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeChildren">是否包含下级部门的员工</param>
+            <param name="filterParttime">是否过滤兼任情况</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByDeptWithDimission(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            根据员工状态查询部门下的员工
+            </summary>
+            <param name="deptId">部门id</param>
+            <param name="includeChildren">是否包括子部门的员工</param>
+            <param name="filterParttime">是否过滤兼职员工</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页序号</param>
+            <param name="count">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByManager(System.String,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某管理者所管理的所有员工，只包括在职员工
+            </summary>
+            <param name="managerAccount">管理者账号</param>
+            <param name="includeChildren">是否包含子部门</param>
+            <param name="filterParttime">是否将部门中兼任的员工去除</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByManagerWithDimission(System.String,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某管理者所管理的所有员工
+            </summary>
+            <param name="managerAccount">管理者账号</param>
+            <param name="includeChildren">是否包含子部门</param>
+            <param name="filterParttime">是否将部门中兼任的员工去除</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeLeader(System.String,BitAuto.Services.Organization.Remoting.MarshLeaderType)">
+            <summary>
+            获取员工的领导
+            </summary>
+            <param name="employeeNumber">工号</param>
+            <param name="type">领导类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeByDepartment(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            获取部门下员工，只包括在职员工
+            </summary>
+            <param name="departmentID">部门ID</param>
+            <param name="includeChildren">是否包括子部门</param>
+            <param name="filterParttime">是否过滤掉兼职员工</param>
+            <param name="pageSize">每页显示量</param>
+            <param name="pageIndex">页序号</param>
+            <param name="count">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.QueryEmployeeByDepartmentWithDimission(System.Int32,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            查询部门下的员工，包括已离职员工
+            </summary>
+            <param name="deptId">部门id</param>
+            <param name="includeChildren">是否包括子部门的员工</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeOnJobByDate(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32@)">
+            <summary>
+            获取在一定时间段某个部门的在职员工列表
+            </summary>
+            <param name="departmentId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="postionType">0全部，1,全职，2: 兼职，3:实习</param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.IEmployeeService.GetEmployeeDimissionByDate(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32@)">
+            <summary>
+            获取在一定时间段某个部门的离职员工列表
+            </summary>
+            <param name="departmentId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="postionType">0全部，1,全职，2: 兼职，3:实习</param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.EmployeeService">
+            <summary>
+            员工操作实现接口
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeByDomainAccount(System.String)">
+            <summary>
+            根据域帐户查找员工信息，只包括在职员工
+            </summary>       
+            <param name="account">域账号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeByDomainAccountWithDimission(System.String)">
+            <summary>
+             根据域账号和状态查找员工信息,域账号精确匹配
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeByEmployeeNumber(System.String)">
+            <summary>
+            根据员工编号查找员工信息，只包括在职员工
+            </summary>       
+            <param name="employeeNumber">员工编号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeByEmployeeNumberWithDimission(System.String)">
+            <summary>
+            根据员工编号和状态查找员工信息
+            </summary>       
+            <param name="employeeNumber">员工编号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByAccountOrCnName(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询，只包括在职员工
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployee(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询，只包括在职员工
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByAccountOrCnNameWithDimission(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询,并根据状态筛选
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeWithDimission(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询,并根据状态筛选
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByDomainAccount(System.String)">
+            <summary>
+            查询账号名称含有某个关键词的员工，模糊匹配，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByDomainAccountWithDimission(System.String)">
+            <summary>
+            查询账号名称含有某个关键词的员工，模糊匹配。
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByCnName(System.String)">
+            <summary>
+            查询中文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByCnNameWithDimission(System.String)">
+            <summary>
+            查询中文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象,并根据员工状态过滤
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByEnName(System.String)">
+            <summary>
+            查询英文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByEnNameWithDimission(System.String)">
+            <summary>
+            查询英文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象,并根据员工状态过滤
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByDept(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某一部门下的所有员工，只包括在职员工
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeChildren">是否包含下级部门的员工</param>
+            <param name="filterParttime">是否过滤兼任情况</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByDeptWithDimission(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            根据员工状态查询部门下的员工
+            </summary>
+            <param name="deptId">部门id</param>
+            <param name="includeChildren">是否包括子部门的员工</param>
+            <param name="filterParttime">是否过滤兼职员工</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页序号</param>
+            <param name="count">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByManager(System.String,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某管理者所管理的所有员工，只包括在职员工
+            </summary>
+            <param name="managerAccount">管理者账号</param>
+            <param name="includeChildren">是否包含子部门</param>
+            <param name="filterParttime">是否将部门中兼任的员工去除</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByManagerWithDimission(System.String,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某管理者所管理的所有员工
+            </summary>
+            <param name="managerAccount">管理者账号</param>
+            <param name="includeChildren">是否包含子部门</param>
+            <param name="filterParttime">是否将部门中兼任的员工去除</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeLeader(System.String,BitAuto.Services.Organization.Remoting.MarshLeaderType)">
+            <summary>
+            获取员工的领导
+            </summary>
+            <param name="employeeNumber">员工号</param>
+            <param name="type">领导类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeByDepartment(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            获取部门下员工，只包括在职员工
+            </summary>
+            <param name="departmentID">部门ID</param>
+            <param name="includeChildren">是否包括子部门</param>
+            <param name="filterParttime">是否过滤掉兼职员工</param>
+            <param name="pageSize">每页显示量</param>
+            <param name="pageIndex">页序号</param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.QueryEmployeeByDepartmentWithDimission(System.Int32,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            查询部门下的员工，包括已离职员工
+            </summary>
+            <param name="deptId">部门id</param>
+            <param name="includeChildren">是否包括子部门的员工</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeOnJobByDate(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32@)">
+            <summary>
+            获取在一定时间段某个部门的在职员工列表
+            </summary>
+            <param name="departmentId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="postionType">0全部，1,全职，2: 兼职，3:实习</param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.EmployeeService.GetEmployeeDimissionByDate(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32@)">
+            <summary>
+            获取在一定时间段某个部门的离职员工列表
+            </summary>
+            <param name="departmentId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="start"></param>
+            <param name="postionType">0全部，1,全职，2: 兼职，3:实习</param>
+            <param name="end"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingEmployeeSimple(BitAuto.Services.Organization.Framework.EmployeeInfo)">
+            <summary>
+            将业务逻辑的员工实体转化为remoting员工实体
+            </summary>
+            <param name="srcEmployee">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingEmployee(BitAuto.Services.Organization.Framework.EmployeeInfo)">
+            <summary>
+            将业务逻辑的员工实体转化为remoting员工实体
+            </summary>
+            <param name="srcEmployee">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingEmployee(System.Collections.Generic.IList{BitAuto.Services.Organization.Framework.EmployeeInfo})">
+            <summary>
+            将业务逻辑的员工实体转化为remoting员工实体
+            </summary>
+            <param name="srcEmployees">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingEmployee(System.Collections.Generic.List{BitAuto.Services.Organization.Framework.EmployeeInfo})">
+            <summary>
+            将业务逻辑的员工实体转化为remoting员工实体
+            </summary>
+            <param name="srcEmployees">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingEmployeeArray(System.Collections.Generic.IList{BitAuto.Services.Organization.Framework.EmployeeInfo})">
+            <summary>
+            将业务逻辑的员工实体转化为remoting员工实体
+            </summary>
+            <param name="srcEmployees">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingDepartmentSimple(BitAuto.Services.Organization.Framework.DepartmentInfo)">
+            <summary>
+            将业务逻辑的部门实体转化为remoting部门实体
+            </summary>
+            <param name="srcDepartment">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingDepartmentSimple(System.Collections.Generic.IList{BitAuto.Services.Organization.Framework.DepartmentInfo})">
+            <summary>
+            将业务逻辑的部门实体转化为remoting部门实体
+            </summary>
+            <param name="srcDepartments">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingDepartment(BitAuto.Services.Organization.Framework.DepartmentInfo)">
+            <summary>
+            将业务逻辑的部门实体转化为remoting部门实体
+            </summary>
+            <param name="srcDepartment">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingDepartmentArray(System.Collections.Generic.IList{BitAuto.Services.Organization.Framework.DepartmentInfo})">
+            <summary>
+            将业务逻辑的部门实体转化为remoting部门实体
+            </summary>
+            <param name="srcDepartments">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Util.ConvertToRemotingDepartment(System.Collections.Generic.IList{BitAuto.Services.Organization.Framework.DepartmentInfo})">
+            <summary>
+            将业务逻辑的部门实体转化为remoting部门实体
+            </summary>
+            <param name="srcDepartments">源实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.MarshLeaderType">
+            <summary>
+            部门领导类型：Master主管领导，Branch分管领导，Director总监
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.MarshLeaderType.None">
+            <summary>
+            未设置
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.MarshLeaderType.Master">
+            <summary>
+            主管领导
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.MarshLeaderType.Branch">
+            <summary>
+            分管领导
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.MarshLeaderType.Director">
+            <summary>
+            总监
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.Department">
+            <summary>
+            部门信息
+            </summary> 
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.Department.organizationService">
+            <summary>
+            组织架构配置节
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.Department.service">
+            <summary>
+            组织服务
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Department.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Department.LoadService">
+            <summary>
+            装载服务实例
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.Department.children">
+            <summary>
+            内部变量
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.DepartmentId">
+            <summary>
+            部门Id
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.ParentId">
+            <summary>
+            上级部门Id
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.Name">
+            <summary>
+            部门名称
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.ShortName">
+            <summary>
+            部门简称
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.EnName">
+            <summary>
+            英文名称
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.Description">
+            <summary>
+            描述
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.Manager">
+            <summary>
+            部门管理者
+            有些部门为临时性部门或者项目组性质，并没有管理者，此时返回其上级部门的管理者
+            </summary>       
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.Parent">
+            <summary>
+            上级部门
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.Children">
+            <summary>
+            直属下级部门
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Department.FullPath">
+            <summary>
+            部门全路径，例如，当前部门为系统架构部，全路径为：
+            系统架构部－IT运维中心－易车集团
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.OrganizationService">
+            <summary>
+            组织结构接口实现
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.OrganizationService.deptService">
+            <summary>
+            部门服务实例
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.OrganizationService.employeeService">
+            <summary>
+            员工服务实例
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.OrganizationService.loginService">
+            <summary>
+            员工服务实例
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.Login(System.String,System.String)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="domainAccount">域账号信息</param>
+            <param name="password">密码</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetDeptByEmployee(System.String)">
+            <summary>
+            根据员工账号查询员工所属的主部门
+            </summary>
+            <param name="account">域账号</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetDeptByEmployeeNumber(System.String)">
+            <summary>
+            根据员工编号查询员工所属的主部门
+            </summary>
+            <param name="employeeNumber">员工编号</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryDeptByEmployee(System.String,System.Boolean)">
+            <summary>
+            根据员工账号查询员工所属的部门
+            </summary>
+            <param name="account">域账号</param>
+            <param name="filterParttime">是否过滤兼任部门</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryDeptByEmployeeNumber(System.String,System.Boolean)">
+            <summary>
+            根据员工编号查询员工所属的部门
+            </summary>
+            <param name="employeeNumber">员工编号</param>
+            <param name="filterParttime">是否过滤兼任部门</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetManagerByDept(System.Int32)">
+            <summary>
+            获取某部门的管理者
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryManagerByDeptName(System.String)">
+            <summary>
+            获取部门的管理者,部门名称可能重名
+            </summary>
+            <param name="deptName">部门名称</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QuerySubDept(System.Int32,System.Boolean)">
+            <summary>
+            获取部门的下级部门，即下级部门的下级部门也会返回
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeAll">是否包含嵌套下级</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetSuperDept(System.Int32)">
+            <summary>
+            获取某部门的直属下级部门
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QuerySuperDept(System.Int32,System.Boolean)">
+            <summary>
+            获取部门的上级部门，即上级部门的上级部门也会返回
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeAll">是否包含上级的上级</param>
+            <returns>部门信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeByDomainAccount(System.String)">
+            <summary>
+            根据域帐户查找员工信息，只包括在职员工
+            </summary>       
+            <param name="account">域账号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeByDomainAccountWithDimission(System.String)">
+            <summary>
+             根据域账号和状态查找员工信息,域账号精确匹配
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeByEmployeeNumber(System.String)">
+            <summary>
+            根据员工编号查找员工信息，只包括在职员工
+            </summary>       
+            <param name="employeeNumber">员工编号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeByEmployeeNumberWithDimission(System.String)">
+            <summary>
+            根据员工编号和状态查找员工信息
+            </summary>       
+            <param name="employeeNumber">员工编号</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByAccountOrCnName(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询，只包括在职员工
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployee(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询，只包括在职员工
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByAccountOrCnNameWithDimission(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询,并根据状态筛选
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeWithDimission(System.String,System.String)">
+            <summary>
+            查询账号名称并且显示名称中含有某个关键词的员工，模糊匹配。
+            如果cnNameKeywords为空，则只对账号进行模糊匹配
+            如果accountKeywords为空，则只对显示名称进行模糊匹配
+            只有两个都不为空，才进行合并查询,并根据状态筛选
+            </summary>
+            <param name="accountKeywords">账号关键词</param>
+            <param name="cnNameKeywords">显示名称关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByDomainAccount(System.String)">
+            <summary>
+            查询账号名称含有某个关键词的员工，模糊匹配，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByDomainAccountWithDimission(System.String)">
+            <summary>
+            查询账号名称含有某个关键词的员工，模糊匹配。
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByCnName(System.String)">
+            <summary>
+            查询中文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByCnNameWithDimission(System.String)">
+            <summary>
+            查询中文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象,并根据员工状态过滤
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByEnName(System.String)">
+            <summary>
+            查询英文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象，只包括在职员工
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByEnNameWithDimission(System.String)">
+            <summary>
+            查询英文名称含有某个关键词的员工，模糊匹配。并且有可能出现重名现象,并根据员工状态过滤
+            </summary>       
+            <param name="keywords">关键词</param>
+            <returns>员工信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryDeptByName(System.String)">
+            <summary>
+            根据部门名称返回部门信息. 集团公司内部门名称有重名情况，所有返回列表
+            </summary>
+            <param name="deptName">部门名称</param>        
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetDeptById(System.Int32)">
+            <summary>
+            根据部门Id返回部门信息
+            </summary>
+            <param name="deptId">部门Id</param>
+            <returns>部门信息</returns>        
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByDept(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某一部门下的所有在职员工
+            </summary>
+            <param name="deptId">部门Id</param>
+            <param name="includeChildren">是否包含下级部门的员工</param>
+            <param name="filterParttime">是否过滤兼任情况</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByDeptWithDimission(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            根据员工状态查询部门下的员工
+            </summary>
+            <param name="deptId">部门id</param>
+            <param name="includeChildren">是否包括子部门的员工</param>
+            <param name="filterParttime">是否过滤兼职员工</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页序号</param>
+             <param name="count">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByManager(System.String,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某管理者所管理的所有在职员工
+            </summary>
+            <param name="managerAccount">管理者账号</param>
+            <param name="includeChildren">是否包含子部门</param>
+            <param name="filterParttime">是否将部门中兼任的员工去除</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeLeader(System.String,BitAuto.Services.Organization.Remoting.MarshLeaderType)">
+            <summary>
+            获取员工领导
+            </summary>
+            <param name="employeeNumber">工号</param>
+            <param name="type">领导类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByManagerWithDimission(System.String,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询某管理者所管理的所有员工
+            </summary>
+            <param name="managerAccount">管理者账号</param>
+            <param name="includeChildren">是否包含子部门</param>
+            <param name="filterParttime">是否将部门中兼任的员工去除</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页索引</param>
+            <param name="employeeCount">员工总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetDepartmentAllFullPath(System.String,System.Boolean)">
+            <summary>
+            获取所有部门的全路径，即从最顶层到叶子节点
+            direction为TRUE时为正向：易车公司-IT运维中心-系统架构部
+            FALSE为反向：数据库管理部-IT运维中心-易车公司
+            </summary>
+            <param name="splite">分隔符：例如'-'</param>
+            <param name="direction">方向：正向反向</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetDepartmentAllFullPath">
+            <summary>
+            获取所有部门的全路径，即从最顶层到叶子节点
+            正向、分隔符'-'：易车公司-IT运维中心-系统架构部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeByDepartment(System.Int32,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            获取部门下在职员工
+            </summary>
+            <param name="departmentID">部门ID</param>
+            <param name="includeChildren">是否包括子部门</param>
+            <param name="filterParttime">是否过滤掉兼职员工</param>
+            <param name="pageSize">每页显示量</param>
+            <param name="pageIndex">页序号</param>
+            <param name="count">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.QueryEmployeeByDepartmentWithDimission(System.Int32,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            查询部门下的员工，包括已离职员工
+            </summary>
+            <param name="deptId">部门id</param>
+            <param name="includeChildren">是否包括子部门的员工</param>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">页序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeOnJobByDate(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32@)">
+            <summary>
+            获取在一定时间段某个部门的在职员工列表
+            </summary>
+            <param name="departmentId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="postionType">1,全职，2: 兼职，3:实习</param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.OrganizationService.GetEmployeeDimissionByDate(System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32@)">
+            <summary>
+            获取在一定时间段某个部门的离职员工列表
+            </summary>
+            <param name="departmentId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="start"></param>
+            <param name="postionType">1,全职，2: 兼职，3:实习</param>
+            <param name="end"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.LoginResult">
+            <summary>
+            登录结果枚举
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.LoginResult.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.LoginResult.UserNotExist">
+            <summary>
+            用户不存在
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.LoginResult.WrongPassword">
+            <summary>
+            密码错误
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.LoginResult.Inactive">
+            <summary>
+            账号被禁用
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.Organization.Remoting.Employee">
+            <summary>
+            员工信息
+            </summary>       
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.Employee.organizationService">
+            <summary>
+            组织架构配置节
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Organization.Remoting.Employee.service">
+            <summary>
+            组织服务
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Employee.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Organization.Remoting.Employee.LoadService">
+            <summary>
+            装载服务实例
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.DomainAccount">
+            <summary>
+            域账号
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.Password">
+            <summary>
+            密码
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.CnName">
+            <summary>
+            中文名称
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.EnName">
+            <summary>
+            英文名称
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.NickName">
+            <summary>
+            昵称
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.EmployeeNumber">
+            <summary>
+            员工编号
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.PostTitle">
+            <summary>
+            职位名称
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.Email">
+            <summary>
+            电子邮件
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.Telephone">
+            <summary>
+            办公电话
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.Mobile">
+            <summary>
+            手机
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.Department">
+            <summary>
+            所属部门
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.Seat">
+            <summary>
+            工位
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.IsActive">
+            <summary>
+            是否禁用
+            </summary>        
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.TitleRank">
+            <summary>
+            职位级别
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.ManagerNumber">
+            <summary>
+            管理者工号
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.Manager">
+            <summary>
+            直接上级领导
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.DimissionDate">
+            <summary>
+            离职日期
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Organization.Remoting.Employee.EntryDate">
+            <summary>
+            入职时间
+            </summary>
+        </member>
+    </members>
+</doc>

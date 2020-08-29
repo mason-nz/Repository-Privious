@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BitAuto.EP.DAS.BLL.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BitAuto.EP.DAS.BLL.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://api.easypass.cn/das/inner/SuperLoginService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BitAuto.Beyond.Easy.DAS.Entity" />
+  <xs:complexType name="OauthAccessToken">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/BitAuto.Beyond.Easy.DAS.Entity" base="q1:OauthAccessTokenEntity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OauthAccessToken" nillable="true" type="tns:OauthAccessToken" />
+</xs:schema>

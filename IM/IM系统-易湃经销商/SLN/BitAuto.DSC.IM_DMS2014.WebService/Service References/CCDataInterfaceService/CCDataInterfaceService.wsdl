@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCallDataHuiMC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="starttime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endtime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentPage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallDataHuiMCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCallDataHuiMCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="totalCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundDataHuiMC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="starttime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endtime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentPage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundDataHuiMCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboundDataHuiMCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="totalCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkOrderInfoHMC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="tns:QueryWorkOrderInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentPage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryWorkOrderInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TagBGID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataSource" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRMCustID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountyID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriorityLevel" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastProcessDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsComplaintType" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkOrderStatus" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceiverID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverDepartName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSales" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttentionCarBrandID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttentionCarSerialID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttentionCarTypeID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttentionCarBrandName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttentionCarSerialName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttentionCarTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelectDealerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelectDealerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsReturnVisit" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NominateActivity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaleCarBrandID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaleCarSerialID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaleCarTypeID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleCarBrandName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleCarSerialName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleCarTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsRevert" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateUserID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyUserID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeginCreateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndCreateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsRevertStr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RightType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustCategoryID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsReCheck" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkCategory" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BGID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SCID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoginID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DemandID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TagID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWorkOrderInfoHMCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorkOrderInfoHMCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="totalCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallDataByCallIDHuiMC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="callid" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallDataByCallIDHuiMCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCallDataByCallIDHuiMCResult" type="tns:CallRecord_ORIG" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallRecord_ORIG">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransferOutTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferInTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CallID" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiemensCallID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GenesysCallID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtensionNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANI" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CallStatus" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SwitchINNum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutBoundType" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SkillGroup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitiatedTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RingingTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstablishedTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerReleaseTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentReleaseTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfterWorkBeginTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfterWorkTime" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConsultTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReconnectCall" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TallTime" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AudioURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateUserID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCallData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="tns:CallRecord_ORIGCondition" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallRecord_ORIGCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BGID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SCID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCallDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCallDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="totalCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallDataByCallID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="callid" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallDataByCallIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCallDataByCallIDResult" type="tns:CallRecord_ORIG" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CCDataInterface_InsertCustData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jsonDataStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CCDataInterface_InsertCustDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CCDataInterface_InsertCustDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CCDataInterface_GetCustHistoryInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="tns:QueryCustHistoryInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentPage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryCustHistoryInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CallRecordID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordType" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConsultID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConsultDataID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionQuality" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastTreatmentTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsComplaint" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessStatus" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessStatusStr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSendEmail" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateUserID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeginTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConsultDCoopType" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCompaintStr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsIsSendEmailStr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RightStr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConsultIDStr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionQualityStr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsForwardingStr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CCDataInterface_GetCustHistoryInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CCDataInterface_GetCustHistoryInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="totalCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeAgentInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeAgentInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeAgentInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustBasicInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustBasicInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustBasicInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddWOrderComeIn_IMGR_URL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="callsource" type="tns:CallSourceEnum" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="csid" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cbsex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="province" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="county" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="businesstype" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="businesstag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="CallSourceEnum">
+        <s:restriction base="s:string">
+          <s:enumeration value="C00_无" />
+          <s:enumeration value="C01_呼入" />
+          <s:enumeration value="C02_呼出" />
+          <s:enumeration value="C03_IM对话" />
+          <s:enumeration value="C04_IM留言" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetAddWOrderComeIn_IMGR_URLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddWOrderComeIn_IMGR_URLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddWOrderComeIn_IMJXS_NC_URL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="callsource" type="tns:CallSourceEnum" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="csid" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cbsex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="province" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="county" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="membercode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddWOrderComeIn_IMJXS_NC_URLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddWOrderComeIn_IMJXS_NC_URLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddWOrderComeIn_IMJXS_SC_URL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="callsource" type="tns:CallSourceEnum" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="csid" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cbsex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="province" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="county" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="membercode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddWOrderComeIn_IMJXS_SC_URLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddWOrderComeIn_IMJXS_SC_URLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCallDataHuiMCSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallDataHuiMC" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataHuiMCSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallDataHuiMCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundDataHuiMCSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInboundDataHuiMC" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundDataHuiMCSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboundDataHuiMCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkOrderInfoHMCSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorkOrderInfoHMC" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkOrderInfoHMCSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorkOrderInfoHMCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataByCallIDHuiMCSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallDataByCallIDHuiMC" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataByCallIDHuiMCSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallDataByCallIDHuiMCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallData" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataByCallIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallDataByCallID" />
+  </wsdl:message>
+  <wsdl:message name="GetCallDataByCallIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallDataByCallIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCDataInterface_InsertCustDataSoapIn">
+    <wsdl:part name="parameters" element="tns:CCDataInterface_InsertCustData" />
+  </wsdl:message>
+  <wsdl:message name="CCDataInterface_InsertCustDataSoapOut">
+    <wsdl:part name="parameters" element="tns:CCDataInterface_InsertCustDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCDataInterface_GetCustHistoryInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:CCDataInterface_GetCustHistoryInfo" />
+  </wsdl:message>
+  <wsdl:message name="CCDataInterface_GetCustHistoryInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:CCDataInterface_GetCustHistoryInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAgentInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAgentInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAgentInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAgentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustBasicInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustBasicInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCustBasicInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustBasicInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddWOrderComeIn_IMGR_URLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddWOrderComeIn_IMGR_URL" />
+  </wsdl:message>
+  <wsdl:message name="GetAddWOrderComeIn_IMGR_URLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddWOrderComeIn_IMGR_URLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddWOrderComeIn_IMJXS_NC_URLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddWOrderComeIn_IMJXS_NC_URL" />
+  </wsdl:message>
+  <wsdl:message name="GetAddWOrderComeIn_IMJXS_NC_URLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddWOrderComeIn_IMJXS_NC_URLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddWOrderComeIn_IMJXS_SC_URLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddWOrderComeIn_IMJXS_SC_URL" />
+  </wsdl:message>
+  <wsdl:message name="GetAddWOrderComeIn_IMJXS_SC_URLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddWOrderComeIn_IMJXS_SC_URLResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CCDataInterfaceServiceSoap">
+    <wsdl:operation name="GetCallDataHuiMC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">惠买车根据业务分组，分类获取一段时间范围内的话务总表数据</wsdl:documentation>
+      <wsdl:input message="tns:GetCallDataHuiMCSoapIn" />
+      <wsdl:output message="tns:GetCallDataHuiMCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundDataHuiMC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">惠买车获取Inbound话务总表数据</wsdl:documentation>
+      <wsdl:input message="tns:GetInboundDataHuiMCSoapIn" />
+      <wsdl:output message="tns:GetInboundDataHuiMCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkOrderInfoHMC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">惠买车获取工单数据</wsdl:documentation>
+      <wsdl:input message="tns:GetWorkOrderInfoHMCSoapIn" />
+      <wsdl:output message="tns:GetWorkOrderInfoHMCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataByCallIDHuiMC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">惠买车根据CallID获取话务总表数据</wsdl:documentation>
+      <wsdl:input message="tns:GetCallDataByCallIDHuiMCSoapIn" />
+      <wsdl:output message="tns:GetCallDataByCallIDHuiMCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据业务分组，分类获取一段时间范围内的话务总表数据</wsdl:documentation>
+      <wsdl:input message="tns:GetCallDataSoapIn" />
+      <wsdl:output message="tns:GetCallDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataByCallID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据CallID获取话务总表数据</wsdl:documentation>
+      <wsdl:input message="tns:GetCallDataByCallIDSoapIn" />
+      <wsdl:output message="tns:GetCallDataByCallIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CCDataInterface_InsertCustData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增客户信息</wsdl:documentation>
+      <wsdl:input message="tns:CCDataInterface_InsertCustDataSoapIn" />
+      <wsdl:output message="tns:CCDataInterface_InsertCustDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CCDataInterface_GetCustHistoryInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IM根据客户号获取业务记录</wsdl:documentation>
+      <wsdl:input message="tns:CCDataInterface_GetCustHistoryInfoSoapIn" />
+      <wsdl:output message="tns:CCDataInterface_GetCustHistoryInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAgentInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IM获取用户信息</wsdl:documentation>
+      <wsdl:input message="tns:GetEmployeeAgentInfoSoapIn" />
+      <wsdl:output message="tns:GetEmployeeAgentInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustBasicInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IM获取客户信息</wsdl:documentation>
+      <wsdl:input message="tns:GetCustBasicInfoSoapIn" />
+      <wsdl:output message="tns:GetCustBasicInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMGR_URL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IM个人版添加工单url（手机号和对话id必填，其他选填，int类型-1代表空）</wsdl:documentation>
+      <wsdl:input message="tns:GetAddWOrderComeIn_IMGR_URLSoapIn" />
+      <wsdl:output message="tns:GetAddWOrderComeIn_IMGR_URLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMJXS_NC_URL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IM经销商版-新车-添加工单url（手机号和对话id必填，其他选填，int类型-1代表空）</wsdl:documentation>
+      <wsdl:input message="tns:GetAddWOrderComeIn_IMJXS_NC_URLSoapIn" />
+      <wsdl:output message="tns:GetAddWOrderComeIn_IMJXS_NC_URLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMJXS_SC_URL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IM经销商版-二手车-添加工单url（手机号和对话id必填，其他选填，int类型-1代表空）</wsdl:documentation>
+      <wsdl:input message="tns:GetAddWOrderComeIn_IMJXS_SC_URLSoapIn" />
+      <wsdl:output message="tns:GetAddWOrderComeIn_IMJXS_SC_URLSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CCDataInterfaceServiceSoap" type="tns:CCDataInterfaceServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCallDataHuiMC">
+      <soap:operation soapAction="http://tempuri.org/GetCallDataHuiMC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundDataHuiMC">
+      <soap:operation soapAction="http://tempuri.org/GetInboundDataHuiMC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkOrderInfoHMC">
+      <soap:operation soapAction="http://tempuri.org/GetWorkOrderInfoHMC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataByCallIDHuiMC">
+      <soap:operation soapAction="http://tempuri.org/GetCallDataByCallIDHuiMC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallData">
+      <soap:operation soapAction="http://tempuri.org/GetCallData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataByCallID">
+      <soap:operation soapAction="http://tempuri.org/GetCallDataByCallID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CCDataInterface_InsertCustData">
+      <soap:operation soapAction="http://tempuri.org/CCDataInterface_InsertCustData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CCDataInterface_GetCustHistoryInfo">
+      <soap:operation soapAction="http://tempuri.org/CCDataInterface_GetCustHistoryInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAgentInfo">
+      <soap:operation soapAction="http://tempuri.org/GetEmployeeAgentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustBasicInfo">
+      <soap:operation soapAction="http://tempuri.org/GetCustBasicInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMGR_URL">
+      <soap:operation soapAction="http://tempuri.org/GetAddWOrderComeIn_IMGR_URL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMJXS_NC_URL">
+      <soap:operation soapAction="http://tempuri.org/GetAddWOrderComeIn_IMJXS_NC_URL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMJXS_SC_URL">
+      <soap:operation soapAction="http://tempuri.org/GetAddWOrderComeIn_IMJXS_SC_URL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CCDataInterfaceServiceSoap12" type="tns:CCDataInterfaceServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCallDataHuiMC">
+      <soap12:operation soapAction="http://tempuri.org/GetCallDataHuiMC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundDataHuiMC">
+      <soap12:operation soapAction="http://tempuri.org/GetInboundDataHuiMC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkOrderInfoHMC">
+      <soap12:operation soapAction="http://tempuri.org/GetWorkOrderInfoHMC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataByCallIDHuiMC">
+      <soap12:operation soapAction="http://tempuri.org/GetCallDataByCallIDHuiMC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallData">
+      <soap12:operation soapAction="http://tempuri.org/GetCallData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallDataByCallID">
+      <soap12:operation soapAction="http://tempuri.org/GetCallDataByCallID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CCDataInterface_InsertCustData">
+      <soap12:operation soapAction="http://tempuri.org/CCDataInterface_InsertCustData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CCDataInterface_GetCustHistoryInfo">
+      <soap12:operation soapAction="http://tempuri.org/CCDataInterface_GetCustHistoryInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAgentInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetEmployeeAgentInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustBasicInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetCustBasicInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMGR_URL">
+      <soap12:operation soapAction="http://tempuri.org/GetAddWOrderComeIn_IMGR_URL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMJXS_NC_URL">
+      <soap12:operation soapAction="http://tempuri.org/GetAddWOrderComeIn_IMJXS_NC_URL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddWOrderComeIn_IMJXS_SC_URL">
+      <soap12:operation soapAction="http://tempuri.org/GetAddWOrderComeIn_IMJXS_SC_URL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CCDataInterfaceService">
+    <wsdl:port name="CCDataInterfaceServiceSoap" binding="tns:CCDataInterfaceServiceSoap">
+      <soap:address location="http://ncc.sys1.bitauto.com/CallRecordService/CCDataInterfaceService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CCDataInterfaceServiceSoap12" binding="tns:CCDataInterfaceServiceSoap12">
+      <soap12:address location="http://ncc.sys1.bitauto.com/CallRecordService/CCDataInterfaceService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

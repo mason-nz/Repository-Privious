@@ -1,0 +1,186 @@
+
+******************************************
+16:11:10 New trace file: traces/ccl_20130125_161110.log
+ RECON Version 2.9.2, Build 2.9.2.0
+ Component Version: 2.8.1.15
+ Component Name: CCL?
+ CAROL Version: 1.0.0.0 [CAROL MMX Edition SR1]
+******************************************
+
+16:11:10 [16:11:10.811]   6372   5 RECON   Socket SO_RCVBUF: 65536 bytes
+16:11:10 [16:11:10.811]   6372   5 RECON   Socket SO_SNDBUF: 65536 bytes
+16:11:10 [16:11:10.811]   6372   5 RECON   Max. SendMsg socket timeouts: [10]
+16:11:10 [16:11:10.811]   6372   4 RECON  Trace Queue init
+16:11:10 [16:11:10.811]   7724   4 RECON  New thread started: TraceQueueThread 0x00001E2C
+16:11:10 [16:11:10.811]   7476   4 RECON  New thread started: TraceMaintenanceThread 0x00001D34
+16:11:10 [16:11:10.811]   7476   5 RECON  TraceMaintenanceThread: first trace maintenace will be performed after 00:54 delay.
+16:11:10 [16:11:10.811]   6372   4 RECON  Sockets description: 
+16:11:10 [16:11:10.811]   6372   4 RECON  Local hostname: 
+16:11:10 [16:11:10.811]   6372   4 RECON  Local IP address: 192.168.3.37
+16:11:10 [16:11:10.811]   6372   4 RECON  New component name: 
+16:11:10 [16:11:10.811]   6372   4 RECON  Registering callback routine
+16:11:10 [16:11:10.811]   6372   4 RECON  ConnectionList init
+16:11:10 [16:11:10.811]   6372   5 RECON  Recon::ListenAdd().
+16:11:10 [16:11:10.811]   6372   5 RECON  Recon::ListenSelected().
+16:11:10 [16:11:10.811]   6372   5 RECON  Recon::Listen().
+16:11:10 [16:11:10.811]   6372   4 RECON  Creating TCP/IP Listener on port 
+16:11:10 [16:11:10.827]   6372   5 RECON  Recon::Start(). Starting Recon thread.
+16:11:10 [16:11:10.827]   7284   4 RECON  New thread started: ReconThread 0x00001C74
+16:11:10 [16:11:10.827]   7284   5 RECON  Recon thread running. 
+16:11:10 [16:11:10.827]   6616   4 RECON  New thread started: ReceiverThread 0x000019D8
+16:11:10 [16:11:10.827]   6372   5 RECON  Recon::ResolveconnectEx(), timeout: 10
+16:11:10 [16:11:10.827]   7028   4 RECON  New thread started: CallbackTimeoutThread 0x00001B74
+16:11:10 [16:11:10.827]   7028   5 RECON  Alarm parameters:  callback_timeout=0,  exit_on_callback_timeout=(null)
+16:11:11 [16:11:11.014]   6372   4 CCL@JA1JT6L03ZG2FDJ Recon initialization was successful.
+16:11:11 [16:11:11.014]   6372   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::R_Initialize() leave.
+16:11:11 [16:11:11.014]   4892   4 RECON  New thread started: ConnectThread 0x0000131C
+16:11:11 [16:11:11.014]   6372   3 CCL@JA1JT6L03ZG2FDJ R_Initialize succeded
+16:11:11 [16:11:11.014]   4892   5 RECON  Recon::TryConnect().
+16:11:11 [16:11:11.014]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - connection is not in the list yet.
+16:11:11 [16:11:11.030]   4892   4 RECON  Connect to addr:192.168.8.221 port:4100 - OK
+16:11:11 [16:11:11.030]   4892   5 RECON   * client socket 1196  SO_RCVBUF=65536 bytes
+16:11:11 [16:11:11.030]   4892   5 RECON   * client socket 1196  SO_SNDBUF=65536 bytes
+16:11:11 [16:11:11.030]   4892   4 RECON  Retrieve ComponentInfo from 
+16:11:11 [16:11:11.030]   4892   4 RECON  ReconConnect::Sending REQ RM_COMP_INFO: MyCompName: CCL@JA1JT6L03ZG2FDJ, HostName: JA1JT6L03ZG2FDJ, uIPA: 620996800, Port: 0, Version: 2.8.1.15
+16:11:11 [16:11:11.030]   4892   4 RECON  ReconConnect::REQ RM_COMP_INFO sent to addr:192.168.8.221 port:4100
+16:11:11 [16:11:11.030]   7284   4 RECON  ReconProcessMsg -> Internal Message received opcode:1  primitive:R  from:CBR1_AGA
+16:11:11 [16:11:11.030]   6616   4 RECON  ReconProcessMsg -> Internal Message received opcode:3  primitive:E  from:CCL@JA1JT6L03ZG2FDJ
+16:11:11 [16:11:11.030]   6616   5 RECON  Recon::CallbackFunction().
+16:11:11 [16:11:11.030]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() enter.
+16:11:11 [16:11:11.030]   6616   4 CCL@JA1JT6L03ZG2FDJ ***EVENT (0):CCL@JA1JT6L03ZG2FDJ OpCode:3
+16:11:11 [16:11:11.030]   6616   4 CCL@JA1JT6L03ZG2FDJ 	-1
+16:11:11 [16:11:11.030]   6616   4 CCL@JA1JT6L03ZG2FDJ 	CBR1_AGA
+16:11:11 [16:11:11.030]   6616   4 CCL@JA1JT6L03ZG2FDJ 	2.9.2.10
+16:11:11 [16:11:11.030]   6616   4 CCL@JA1JT6L03ZG2FDJ 	1
+16:11:11 [16:11:11.030]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() leave.
+16:11:11 [16:11:11.030]   7648   4 CCL@JA1JT6L03ZG2FDJ EVT RM_CONNECTED<3> [CCL@JA1JT6L03ZG2FDJ||CCL@JA1JT6L03ZG2FDJ] {4}
+	(0):-1 (1):CBR1_AGA (2):2.9.2.10 (3):1 
+
+16:11:11 [16:11:11.030]   7648   3 CCL@JA1JT6L03ZG2FDJ recon_OnConnectionEvent: CBR1_AGA (type: CBR) is connected.
+16:11:11 [16:11:11.171]   4892   5 RECON  Recon::TryConnect().
+16:11:11 [16:11:11.171]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:11:11 [16:11:11.311]   6616   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+16:11:11 [16:11:11.311]   6616   5 RECON  Recon::CallbackFunction().
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() enter.
+16:11:11 [16:11:11.311]   6616   4 CCL@JA1JT6L03ZG2FDJ ***EVENT (0):CBR1_AGA OpCode:750
+16:11:11 [16:11:11.311]   6616   4 CCL@JA1JT6L03ZG2FDJ 	CFG
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() leave.
+16:11:11 [16:11:11.311]   7648   4 CCL@JA1JT6L03ZG2FDJ EVT CBR_Connected<750> [CBR1_AGA||CCL@JA1JT6L03ZG2FDJ] {1}
+	(0):CFG 
+
+16:11:11 [16:11:11.311]   6616   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+16:11:11 [16:11:11.311]   6616   5 RECON  Recon::CallbackFunction().
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() enter.
+16:11:11 [16:11:11.311]   6616   4 CCL@JA1JT6L03ZG2FDJ ***EVENT (0):CBR1_AGA OpCode:750
+16:11:11 [16:11:11.311]   6616   4 CCL@JA1JT6L03ZG2FDJ 	TSV
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() leave.
+16:11:11 [16:11:11.311]   6616   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+16:11:11 [16:11:11.311]   6616   5 RECON  Recon::CallbackFunction().
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() enter.
+16:11:11 [16:11:11.311]   6616   4 CCL@JA1JT6L03ZG2FDJ ***EVENT (0):CBR1_AGA OpCode:750
+16:11:11 [16:11:11.311]   6616   4 CCL@JA1JT6L03ZG2FDJ 	STS
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() leave.
+16:11:11 [16:11:11.311]   6616   4 RECON  ReconProcessMsg -> Internal Message received opcode:182  primitive:E  from:CBR1_AGA
+16:11:11 [16:11:11.311]   6616   5 RECON  Recon::CallbackFunction().
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() enter.
+16:11:11 [16:11:11.311]   6616   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() leave.
+16:11:11 [16:11:11.311]   7648   3 CCL@JA1JT6L03ZG2FDJ recon_OnConnectionEvent: CFG (type: CFG) is connected.
+16:11:11 [16:11:11.311]   7648   4 CCL@JA1JT6L03ZG2FDJ EVT CBR_Connected<750> [CBR1_AGA||CCL@JA1JT6L03ZG2FDJ] {1}
+	(0):TSV 
+
+16:11:11 [16:11:11.311]   7648   3 CCL@JA1JT6L03ZG2FDJ recon_OnConnectionEvent: TSV (type: TSV) is connected.
+16:11:11 [16:11:11.311]   7648   4 CCL@JA1JT6L03ZG2FDJ EVT CBR_Connected<750> [CBR1_AGA||CCL@JA1JT6L03ZG2FDJ] {1}
+	(0):STS 
+
+16:11:11 [16:11:11.311]   7648   3 CCL@JA1JT6L03ZG2FDJ recon_OnConnectionEvent: STS (type: STS) is connected.
+16:11:12 [16:11:12.124]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1152 closing
+16:11:12 [16:11:12.124]   4892   4 RECON  Socket 1152 closed
+16:11:14 [16:11:14.671]   7284   5 RECON  ReconProcessMsg -> Internal Message received opcode:10  primitive:E  from:CBR1_AGA
+16:11:22 [16:11:22.171]   4892   5 RECON  Recon::TryConnect().
+16:11:22 [16:11:22.171]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:11:22 [16:11:22.171]   4892   5 RECON  Recon::TryConnect().
+16:11:22 [16:11:22.171]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:11:23 [16:11:23.186]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1152 closing
+16:11:23 [16:11:23.186]   4892   4 RECON  Socket 1152 closed
+16:11:33 [16:11:33.233]   4892   5 RECON  Recon::TryConnect().
+16:11:33 [16:11:33.233]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:11:33 [16:11:33.233]   4892   5 RECON  Recon::TryConnect().
+16:11:33 [16:11:33.233]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:11:34 [16:11:34.343]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1152 closing
+16:11:34 [16:11:34.343]   4892   4 RECON  Socket 1152 closed
+16:11:44 [16:11:44.405]   4892   5 RECON  Recon::TryConnect().
+16:11:44 [16:11:44.405]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:11:44 [16:11:44.405]   4892   5 RECON  Recon::TryConnect().
+16:11:44 [16:11:44.405]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:11:45 [16:11:45.514]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1152 closing
+16:11:45 [16:11:45.514]   4892   4 RECON  Socket 1152 closed
+16:11:47 [16:11:47.968]   7284   5 RECON  ReconProcessMsg -> Internal Message received opcode:10  primitive:E  from:CBR1_AGA
+16:11:55 [16:11:55.577]   4892   5 RECON  Recon::TryConnect().
+16:11:55 [16:11:55.577]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:11:55 [16:11:55.577]   4892   5 RECON  Recon::TryConnect().
+16:11:55 [16:11:55.577]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:11:56 [16:11:56.577]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1152 closing
+16:11:56 [16:11:56.577]   4892   4 RECON  Socket 1152 closed
+16:12:04 [16:12:04.811]   7476   5 RECON  TraceMaintenanceThread: checking lifetime, count: 12, lifetime: 240 h, current max age: 1 h
+16:12:04 [16:12:04.811]   7476   5 RECON  TraceMaintenanceThread: checking storage size, max size: 1073741824, current size: 471219
+16:12:04 [16:12:04.811]   7476   5 RECON  TraceMaintenanceThread: checking drive free space, min free space: 5120 MB, current free space: 182912 MB
+16:12:06 [16:12:06.639]   4892   5 RECON  Recon::TryConnect().
+16:12:06 [16:12:06.639]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:12:06 [16:12:06.639]   4892   5 RECON  Recon::TryConnect().
+16:12:06 [16:12:06.639]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:12:07 [16:12:07.639]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1152 closing
+16:12:07 [16:12:07.639]   4892   4 RECON  Socket 1152 closed
+16:12:17 [16:12:17.702]   4892   5 RECON  Recon::TryConnect().
+16:12:17 [16:12:17.702]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:12:17 [16:12:17.702]   4892   5 RECON  Recon::TryConnect().
+16:12:17 [16:12:17.702]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:12:18 [16:12:18.702]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1144 closing
+16:12:18 [16:12:18.702]   4892   4 RECON  Socket 1144 closed
+16:12:21 [16:12:21.233]   7284   5 RECON  ReconProcessMsg -> Internal Message received opcode:10  primitive:E  from:CBR1_AGA
+16:12:28 [16:12:28.764]   4892   5 RECON  Recon::TryConnect().
+16:12:28 [16:12:28.764]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:12:28 [16:12:28.764]   4892   5 RECON  Recon::TryConnect().
+16:12:28 [16:12:28.764]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:12:29 [16:12:29.764]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1144 closing
+16:12:29 [16:12:29.764]   4892   4 RECON  Socket 1144 closed
+16:12:39 [16:12:39.827]   4892   5 RECON  Recon::TryConnect().
+16:12:39 [16:12:39.827]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:12:39 [16:12:39.827]   4892   5 RECON  Recon::TryConnect().
+16:12:39 [16:12:39.827]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:12:40 [16:12:40.733]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1144 closing
+16:12:40 [16:12:40.733]   4892   4 RECON  Socket 1144 closed
+16:12:50 [16:12:50.796]   4892   5 RECON  Recon::TryConnect().
+16:12:50 [16:12:50.796]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:12:50 [16:12:50.796]   4892   5 RECON  Recon::TryConnect().
+16:12:50 [16:12:50.796]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:12:51 [16:12:51.905]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1144 closing
+16:12:51 [16:12:51.905]   4892   4 RECON  Socket 1144 closed
+16:12:54 [16:12:54.514]   7284   5 RECON  ReconProcessMsg -> Internal Message received opcode:10  primitive:E  from:CBR1_AGA
+16:13:01 [16:13:01.952]   4892   5 RECON  Recon::TryConnect().
+16:13:01 [16:13:01.952]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:13:01 [16:13:01.952]   4892   5 RECON  Recon::TryConnect().
+16:13:01 [16:13:01.952]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:13:02 [16:13:02.968]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1144 closing
+16:13:02 [16:13:02.968]   4892   4 RECON  Socket 1144 closed
+16:13:13 [16:13:13.030]   4892   5 RECON  Recon::TryConnect().
+16:13:13 [16:13:13.030]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:13:13 [16:13:13.030]   4892   5 RECON  Recon::TryConnect().
+16:13:13 [16:13:13.030]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:13:14 [16:13:14.030]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1144 closing
+16:13:14 [16:13:14.030]   4892   4 RECON  Socket 1144 closed
+16:13:24 [16:13:24.093]   4892   5 RECON  Recon::TryConnect().
+16:13:24 [16:13:24.093]   4892   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+16:13:24 [16:13:24.093]   4892   5 RECON  Recon::TryConnect().
+16:13:24 [16:13:24.093]   4892   5 RECON  Connect to addr:192.168.8.221 port:4444 - connection is not in the list yet.
+16:13:25 [16:13:25.093]   4892   2 RECON  Connect to addr:192.168.8.221 port:4444 failed, socket 1144 closing
+16:13:25 [16:13:25.093]   4892   4 RECON  Socket 1144 closed
+16:13:27 [16:13:27.796]   7284   5 RECON  ReconProcessMsg -> Internal Message received opcode:10  primitive:E  from:CBR1_AGA
+16:13:28 [16:13:28.811]   4892   4 RECON  ConnectThread 0x0000131C finished
+16:13:28 [16:13:28.858]   7284   5 RECON  Application closed from console, event: 2.
+16:13:28 [16:13:28.858]   7284   5 RECON  Recon::CallbackFunction().
+16:13:28 [16:13:28.858]   7284   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() enter.
+16:13:28 [16:13:28.858]   7284   5 CCL@JA1JT6L03ZG2FDJ CReconCOM::OnReceiveMessage() leave.
+16:13:28 [16:13:28.858]   7476   4 RECON  TraceMaintenanceThread 0x00001D34 finished
+16:13:28 [16:13:28.858]   7284   4 RECON  ReconThread 0x00001C74 finished
+16:13:28 [16:13:28.858]   6616   4 RECON  ReceiverThreadProc 0x000019D8 finished
+16:13:29 [16:13:29.452]   7724   4 RECON  TraceQueueThread 0x00001E2C finished

@@ -1,0 +1,197 @@
+﻿<link href="../../Content/Css/login.css" rel="stylesheet" type="text/css" />
+<script src="../../Scripts/HighChart/jquery1.8.3.min.js" type="text/javascript"></script>
+<script src="../../Scripts/CommonJS/CookieStuff.js" type="text/javascript"></script>
+<script src="../../Scripts/RSA/BigInt.js" type="text/javascript"></script>
+<script src="../../Scripts/RSA/Barrett.js" type="text/javascript"></script>
+<script src="../../Scripts/RSA/RSA.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var lgnP = {};
+
+
+    lgnP.login = function () {
+
+        $('#liError').html('').attr('class', "");
+
+        if ($('#ckxRememberMe').is(':checked')) {
+            lgnP.RememberMe();
+        }
+        var key = new RSAKeyPair("@ViewBag.strPublicKeyExponent", "", "@ViewBag.strPublicKeyModulus");
+        var pwdRtn = encryptedString(key, $('#password').val().trim());
+
+        var url = "/Partial/Login"; //构造要携带的数据 ;                
+
+        $.post(url, { u: URLencode($('#username').val()), p: URLencode(pwdRtn) }, function (data, textStatus, xhr) {
+            if (textStatus == 'success') {
+                var s = data.ErrorNumber;
+                if (s == '-3') {
+                    var error = $('#liError');
+                    error.html("帐号已停用");
+                    error.attr('class', "error");
+
+                } else if (s == '-2') {
+                    var error = $('#liError');
+                    error.html("帐户未关联或者不存在，请联系管理员");
+                    error.attr('class', "error");
+
+                } else if (s == '-6') {
+                    var error = $('#liError');
+                    error.html("帐户被禁用,请联系管理域帐号的网管");
+                    error.attr('class', "error");
+
+                } else if (s == '-7') {
+                    var error = $('#liError');
+                    error.html("用户不存在,请联系管理域帐号的网管");
+                    error.attr('class', "error");
+                } else if (s == '-8') {
+                    var error = $('#liError');
+                    error.html("密码错误,请联系管理域帐号的网管");
+                    error.attr('class', "error");
+                } else if (s == '-9') {
+                    var error = $('#liError');
+                    error.html("工号与用户帐户不对应,请联系管理域帐号的网管");
+                    error.attr('class', "error");
+                } else if (s == '0') {
+                    //window.location = ""; //data.split(',')[1];
+                    alert("登录成功，请重新发起请求");
+                    try {
+                        $.closePopupLayer('AssignTaskAjaxPopupForSelect', false);
+                    } catch (e) { }
+
+                } else {
+                    var error = $('#liError');
+                    error.html("用户名密码不匹配");
+                    error.attr('class', "error");
+                }
+            } else {
+                //                alert(req.status);
+                //                alert(req.responseText);
+                alert('请求错误');
+            }
+        });
+    };
+
+    lgnP.checklogin = function (form) {
+        if ($('#username').val() == "") {
+            alert("请输入用户登录名");
+            return false;
+        }
+        if ($('#password').val() == "") {
+            alert("请输入用户密码");
+            return false;
+        }
+        return true;
+    }
+
+    lgnP.RememberMe = function () {
+        setCookie('mmploginusername', $('#username').val(), new Date('2100/01/01'));
+    }
+    lgnP.GetLoginUser = function () {
+        if (getCookie('mmploginusername')) {
+            $('#username').val(getCookie('mmploginusername'));
+        }
+    }
+
+    //    function cmdEncrypt() {
+    //        setMaxDigits(129);
+    //        var key = new RSAKeyPair("@ViewBag.strPublicKeyExponent", "", "@ViewBag.strPublicKeyModulus");
+    //        
+    //        var pwdRtn = encryptedString(key, pwdMD5Twice);
+    //        $("#encrypted_pwd").attr("value", pwdRtn);
+    //        $("#formLogin").submit();
+    //        return;
+    //    }
+
+    $(function () {
+        lgnP.GetLoginUser();
+        $('#btnLogin').click(lgnP.login);
+        $('.logo_info').bind("keydown", KeyDown);
+
+        $('#jmpopClose').click(function () {
+            top.$.closePopupLayer('AssignTaskAjaxPopupForSelect', false);
+        });
+        setMaxDigits(129);
+    });
+
+    
+</script>
+<style type="text/css">
+    .logo_info
+    {
+        height: 120px;
+        width: 270px;
+        margin: 0 auto;
+        float: none;
+        clear: both;
+    }
+    #btnLogin
+    {
+        display: inline-block;
+        border: 1px;
+        width: 80px;
+        cursor: pointer;
+        color: #000080;
+        background: url(../../Images/navbg.jpg);
+        text-align: center;
+        vert-align: middle;
+        padding: 3px;
+        margin-left: 10px;
+    }
+    .pop
+    {
+        width: 400px;
+        margin: 20px auto;
+        border: #1aabd8 1px solid;
+        background: #FFF;
+        height: 230px;
+    }
+    .pop .title
+    {
+        background: url(../../Images/navbg.jpg);
+        color: #FFF;
+        border: #09F 1px solid;
+        border-bottom: #09F 1px solid;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        font-size: 14px;
+        font-weight: bolder;
+        padding-left: 10px;
+        margin: 0;
+    }
+    .pop .title span
+    {
+        margin-top: -30px;
+        display: block;
+    }
+    .pop .title a
+    {
+        background: url(../../Images/close.png) no-repeat right transparent;
+        display: block;
+        height: 10px;
+        position: relative;
+        width: 10px;
+        float: right;
+        top: 10px;
+        right: 10px;
+        border: none;
+    }
+</style>
+<div class="pop">
+    <div class="title">
+        用户登录 <span><a href="javascript:void(0)" id="jmpopClose" onclick="javascript:$.closePopupLayer('AssignTaskAjaxPopupForSelect',false);">
+        </a></span>
+    </div>
+    <div class="logo_info">
+        <span id="spanBrower"></span><em id="liError">&nbsp;</em>
+        <ul class="list">
+            <li><i>帐号：</i><input onblur="ChangeText(this);" onclick="RemoveStyleAndText(this);"
+                type="text" id="username" name="username" class="inputborder k205 hui" value="请使用域帐号登录" />
+            </li>
+            <li><i>密码：</i><input name="password" id="password" type="password" class="inputborder k205" /></li>
+            <li class="two">
+                <input name="ckxRememberMe" id="ckxRememberMe" checked="checked" type="checkbox"
+                    style="display: inline-block;" value="" class="fxk" />记住域帐号 <a id="btnLogin">登录</a>
+            </li>
+        </ul>
+    </div>
+</div>

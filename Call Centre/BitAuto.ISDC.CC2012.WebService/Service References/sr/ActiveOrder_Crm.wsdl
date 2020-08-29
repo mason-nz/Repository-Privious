@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetTGCarOrderList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lastMaxId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTGCarOrderListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTGCarOrderListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DasSoapHeader" type="tns:DasSoapHeader" />
+      <s:complexType name="DasSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TokenKey" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="SetTGCarOrderState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OrderID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="State" type="tns:GPOrderTradeState" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="GPOrderTradeState">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="Yes" />
+          <s:enumeration value="No" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SetTGCarOrderStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTGCarOrderStateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTGCarOrderListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTGCarOrderList" />
+  </wsdl:message>
+  <wsdl:message name="GetTGCarOrderListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTGCarOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTGCarOrderListDasSoapHeader">
+    <wsdl:part name="DasSoapHeader" element="tns:DasSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetTGCarOrderStateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTGCarOrderState" />
+  </wsdl:message>
+  <wsdl:message name="SetTGCarOrderStateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTGCarOrderStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTGCarOrderStateDasSoapHeader">
+    <wsdl:part name="DasSoapHeader" element="tns:DasSoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ActiveOrder_CrmSoap">
+    <wsdl:operation name="GetTGCarOrderList">
+      <wsdl:input message="tns:GetTGCarOrderListSoapIn" />
+      <wsdl:output message="tns:GetTGCarOrderListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTGCarOrderState">
+      <wsdl:input message="tns:SetTGCarOrderStateSoapIn" />
+      <wsdl:output message="tns:SetTGCarOrderStateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ActiveOrder_CrmSoap" type="tns:ActiveOrder_CrmSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTGCarOrderList">
+      <soap:operation soapAction="http://tempuri.org/GetTGCarOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTGCarOrderListDasSoapHeader" part="DasSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTGCarOrderState">
+      <soap:operation soapAction="http://tempuri.org/SetTGCarOrderState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetTGCarOrderStateDasSoapHeader" part="DasSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ActiveOrder_CrmSoap12" type="tns:ActiveOrder_CrmSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTGCarOrderList">
+      <soap12:operation soapAction="http://tempuri.org/GetTGCarOrderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTGCarOrderListDasSoapHeader" part="DasSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTGCarOrderState">
+      <soap12:operation soapAction="http://tempuri.org/SetTGCarOrderState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetTGCarOrderStateDasSoapHeader" part="DasSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActiveOrder_Crm">
+    <wsdl:port name="ActiveOrder_CrmSoap" binding="tns:ActiveOrder_CrmSoap">
+      <soap:address location="http://test1.api.dealer.bitauto.com/api/InnerService/ActiveOrder_Crm.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ActiveOrder_CrmSoap12" binding="tns:ActiveOrder_CrmSoap12">
+      <soap12:address location="http://test1.api.dealer.bitauto.com/api/InnerService/ActiveOrder_Crm.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

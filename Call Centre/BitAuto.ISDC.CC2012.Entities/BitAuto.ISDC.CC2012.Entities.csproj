@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A202E96-FCBA-421B-AB34-5E788C2EA40C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.ISDC.CC2012.Entities</RootNamespace>
+    <AssemblyName>BitAuto.ISDC.CC2012.Entities</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Utils">
+      <HintPath>..\..\..\Lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoCall\AutoCall_ACDetail.cs" />
+    <Compile Include="AutoCall\AutoCall_ProjectInfo.cs" />
+    <Compile Include="AutoCall\AutoCall_ProjectInfoStat.cs" />
+    <Compile Include="AutoCall\AutoCall_TaskInfo.cs" />
+    <Compile Include="AutoCall\QueryAutoCall_ACDetail.cs" />
+    <Compile Include="AutoCall\QueryAutoCall_ProjectInfo.cs" />
+    <Compile Include="AutoCall\QueryAutoCall_ProjectInfoStat.cs" />
+    <Compile Include="AutoCall\QueryAutoCall_TaskInfo.cs" />
+    <Compile Include="BlackWhiteList.cs" />
+    <Compile Include="BlackWhiteListOperLogInfo.cs" />
+    <Compile Include="BusinessGroup.cs" />
+    <Compile Include="BusinessGroupLineMapping.cs" />
+    <Compile Include="BusinessReport\QueryProjectReport.cs" />
+    <Compile Include="BusinessReport\QueryReturnVisitReport.cs" />
+    <Compile Include="BuyCarInfo.cs" />
+    <Compile Include="Call\CallEventActionLog.cs" />
+    <Compile Include="CallRecordHabse\CallRecordQuery.cs" />
+    <Compile Include="CallRecordHabse\CallRecordResult.cs" />
+    <Compile Include="CallRecordHabse\HttpHBResult.cs" />
+    <Compile Include="Call\CallRecordInfo.cs" />
+    <Compile Include="Call\CallRecordInfoInfo.cs" />
+    <Compile Include="Call\CallRecord_ORIG.cs" />
+    <Compile Include="Call\CallRecord_ORIG_Authorizer.cs" />
+    <Compile Include="Call\CallRecord_ORIG_Business.cs" />
+    <Compile Include="CallReport\QueryInComingCallDetails.cs" />
+    <Compile Include="CallReport\QueryRoutepoint.cs" />
+    <Compile Include="Call\CallResult_ORIG_TaskInfo.cs" />
+    <Compile Include="Car\CarBrand.cs" />
+    <Compile Include="Car\CarMasterBrand.cs" />
+    <Compile Include="Car\CarSerial.cs" />
+    <Compile Include="ClientLogRequireInfo.cs" />
+    <Compile Include="ClientLogRequireQuery.cs" />
+    <Compile Include="CommonAttachmentInfo.cs" />
+    <Compile Include="CommonFunction.cs" />
+    <Compile Include="Constants\Constant.cs" />
+    <Compile Include="ConsultActivity.cs" />
+    <Compile Include="ConsultDCoop.cs" />
+    <Compile Include="ConsultDFeedback.cs" />
+    <Compile Include="ConsultDOther.cs" />
+    <Compile Include="ConsultNewCar.cs" />
+    <Compile Include="ConsultPFeedback.cs" />
+    <Compile Include="ConsultPOther.cs" />
+    <Compile Include="ConsultPUseCar.cs" />
+    <Compile Include="ConsultSecondCar.cs" />
+    <Compile Include="ConsultSolveUserMapping.cs" />
+    <Compile Include="CRMStopCust\CustLastOperTask.cs" />
+    <Compile Include="CRMStopCust\OrderCRMStopCustTaskInfo.cs" />
+    <Compile Include="CRMStopCust\OrderCRMStopCustTaskOperationLogInfo.cs" />
+    <Compile Include="CRMStopCust\QueryStopCustApply.cs" />
+    <Compile Include="CRMStopCust\StopCustApply.cs" />
+    <Compile Include="CustBase\CustBasicInfo.cs" />
+    <Compile Include="CustomerCallin\CustomerCallInInfo.cs" />
+    <Compile Include="CustomerCallin\CustomerCallInPressKeyInfo.cs" />
+    <Compile Include="CustomerCallin\CustomerVoiceMsgInfo.cs" />
+    <Compile Include="CustomerCallin\QueryCustomerVoiceMsg.cs" />
+    <Compile Include="CustomerCallin\ExclusiveMissedCalls.cs" />
+    <Compile Include="CustBase\CustPhoneVisitBusinessInfo.cs" />
+    <Compile Include="ListenAgentLogInfo.cs" />
+    <Compile Include="OrderInfoHBList.cs" />
+    <Compile Include="ProjectTask\ProjectLogInfo.cs" />
+    <Compile Include="QualityStandard\QS_IM_ResultInfo.cs" />
+    <Compile Include="QualityStandard\QueryQS_IM_Result.cs" />
+    <Compile Include="QualityStandard\QueryQS_ScoreStat.cs" />
+    <Compile Include="QueryBlackWhite.cs" />
+    <Compile Include="QueryBlackWhiteListOperLog.cs" />
+    <Compile Include="QueryBusinessGroup.cs" />
+    <Compile Include="WOrderV2\QueryWOrderBusiTypeInfo.cs" />
+    <Compile Include="WOrderV2\QueryWOrderTag.cs" />
+    <Compile Include="Query\EmployeeAgentExclusive.cs" />
+    <Compile Include="SkillGroup.cs" />
+    <Compile Include="SMSTemplate\CustContactInfo.cs" />
+    <Compile Include="CustCustomTableMapping.cs" />
+    <Compile Include="CustBase\CustEmail.cs" />
+    <Compile Include="CustBase\CustHistoryInfo.cs" />
+    <Compile Include="CustBase\CustHistoryLog.cs" />
+    <Compile Include="CustBase\CustHistoryTemplateMapping.cs" />
+    <Compile Include="CustBase\CustTel.cs" />
+    <Compile Include="DealerBrandInfo.cs" />
+    <Compile Include="CustBase\DealerInfo.cs" />
+    <Compile Include="DefineAttribute.cs" />
+    <Compile Include="EmployeeAgent.cs" />
+    <Compile Include="EmployeeSuper.cs" />
+    <Compile Include="ENUM.cs" />
+    <Compile Include="Exam\ExamBigQuestion.cs" />
+    <Compile Include="Exam\ExamBSQuestionShip.cs" />
+    <Compile Include="Exam\ExamCategory.cs" />
+    <Compile Include="Exam\ExamInfo.cs" />
+    <Compile Include="Exam\ExamOnline.cs" />
+    <Compile Include="Exam\ExamOnlineAnswer.cs" />
+    <Compile Include="Exam\ExamOnlineDetail.cs" />
+    <Compile Include="Exam\ExamPaper.cs" />
+    <Compile Include="Exam\ExamPaperInfo.cs" />
+    <Compile Include="Exam\ExamPerson.cs" />
+    <Compile Include="Exam\ExamScoreManageQuery.cs" />
+    <Compile Include="Exam\MakeUpExamInfo.cs" />
+    <Compile Include="Exam\QueryExamBigQuestion.cs" />
+    <Compile Include="Exam\QueryExamBSQuestionShip.cs" />
+    <Compile Include="Exam\QueryExamCategory.cs" />
+    <Compile Include="Exam\QueryExamInfo.cs" />
+    <Compile Include="Exam\QueryExamOnline.cs" />
+    <Compile Include="Exam\QueryExamOnlineAnswer.cs" />
+    <Compile Include="Exam\QueryExamOnlineDetail.cs" />
+    <Compile Include="Exam\QueryExamPaper.cs" />
+    <Compile Include="Exam\QueryExamPerson.cs" />
+    <Compile Include="Exam\QueryMakeUpExamInfo.cs" />
+    <Compile Include="GroupOrder\GO_FailureReason.cs" />
+    <Compile Include="GroupOrder\GroupOrder.cs" />
+    <Compile Include="GroupOrder\GroupOrderOrg.cs" />
+    <Compile Include="GroupOrder\GroupOrderTask.cs" />
+    <Compile Include="GroupOrder\GroupOrderTaskOperationLog.cs" />
+    <Compile Include="GroupOrder\QueryGO_FailureReason.cs" />
+    <Compile Include="GroupOrder\QueryGroupOrder.cs" />
+    <Compile Include="GroupOrder\QueryGroupOrderOrg.cs" />
+    <Compile Include="GroupOrder\QueryGroupOrderTask.cs" />
+    <Compile Include="GroupOrder\QueryGroupOrderTaskOperationLog.cs" />
+    <Compile Include="IVRSatisfaction.cs" />
+    <Compile Include="KnowledgeLib\KLAnswerOption.cs" />
+    <Compile Include="KnowledgeLib\KLFAQ.cs" />
+    <Compile Include="KnowledgeLib\KLOptionLog.cs" />
+    <Compile Include="KnowledgeLib\KLQAnswer.cs" />
+    <Compile Include="KnowledgeLib\KLQuestion.cs" />
+    <Compile Include="KnowledgeLib\KLRaiseQuestions.cs" />
+    <Compile Include="KnowledgeLib\KLReadTag.cs" />
+    <Compile Include="KnowledgeLib\KLUploadFile.cs" />
+    <Compile Include="KnowledgeLib\KnowledgeCategory.cs" />
+    <Compile Include="KnowledgeLib\KnowledgeLib.cs" />
+    <Compile Include="KnowledgeLib\QueryKLAnswerOption.cs" />
+    <Compile Include="KnowledgeLib\QueryKLFAQ.cs" />
+    <Compile Include="KnowledgeLib\QueryKLFavorites.cs" />
+    <Compile Include="KnowledgeLib\QueryKLOptionLog.cs" />
+    <Compile Include="KnowledgeLib\QueryKLQAnswer.cs" />
+    <Compile Include="KnowledgeLib\QueryKLQuestion.cs" />
+    <Compile Include="KnowledgeLib\QueryKLRaiseQuestions.cs" />
+    <Compile Include="KnowledgeLib\QueryKLReadTag.cs" />
+    <Compile Include="KnowledgeLib\QueryKLUploadFile.cs" />
+    <Compile Include="KnowledgeLib\QueryKnowledgeCategory.cs" />
+    <Compile Include="KnowledgeLib\QueryKnowledgeLib.cs" />
+    <Compile Include="KnowledgeLib\QuerySearchLog.cs" />
+    <Compile Include="KnowledgeLib\SearchLog.cs" />
+    <Compile Include="LeadsTask\LeadsTask.cs" />
+    <Compile Include="LeadsTask\LeadsTaskOperationLog.cs" />
+    <Compile Include="LeadsTask\QueryLeadsTask.cs" />
+    <Compile Include="LeadsTask\QueryLeadsTaskOperationLog.cs" />
+    <Compile Include="NoDealerOrder\ConsultOrderNewCar.cs" />
+    <Compile Include="NoDealerOrder\ConsultOrderRelpaceCar.cs" />
+    <Compile Include="NoDealerOrder\OrderBuyCarInfo.cs" />
+    <Compile Include="NoDealerOrder\OrderNewCar.cs" />
+    <Compile Include="NoDealerOrder\OrderNewCarLog.cs" />
+    <Compile Include="NoDealerOrder\OrderRelpaceCar.cs" />
+    <Compile Include="NoDealerOrder\OrderRelpaceCarLog.cs" />
+    <Compile Include="NoDealerOrder\OrderTask.cs" />
+    <Compile Include="NoDealerOrder\OrderTaskOperationLog.cs" />
+    <Compile Include="NoDealerOrder\QueryConsultOrderNewCar.cs" />
+    <Compile Include="NoDealerOrder\QueryConsultOrderRelpaceCar.cs" />
+    <Compile Include="NoDealerOrder\QueryOrderBuyCarInfo.cs" />
+    <Compile Include="NoDealerOrder\QueryOrderNewCar.cs" />
+    <Compile Include="NoDealerOrder\QueryOrderNewCarLog.cs" />
+    <Compile Include="NoDealerOrder\QueryOrderRelpaceCar.cs" />
+    <Compile Include="NoDealerOrder\QueryOrderRelpaceCarLog.cs" />
+    <Compile Include="NoDealerOrder\QueryOrderTask.cs" />
+    <Compile Include="NoDealerOrder\QueryOrderTaskOperationLog.cs" />
+    <Compile Include="NoDealerOrder\QueryUpdateOrderData.cs" />
+    <Compile Include="NoDealerOrder\UpdateOrderData.cs" />
+    <Compile Include="OtherTemplet\OtherTaskInfo.cs" />
+    <Compile Include="OtherTemplet\OtherTaskWorkOrderMapping.cs" />
+    <Compile Include="OtherTemplet\QueryOtherTaskInfo.cs" />
+    <Compile Include="OtherTemplet\QueryOtherTaskWorkOrderMapping.cs" />
+    <Compile Include="PhoneNumDataDict.cs" />
+    <Compile Include="ProjectTask\CC_MagazineReturn.cs" />
+    <Compile Include="ProjectTask\ExcelCustInfo.cs" />
+    <Compile Include="ProjectTask\ProjectDataSoure.cs" />
+    <Compile Include="ProjectTask\ProjectImportHistory.cs" />
+    <Compile Include="ProjectTask\ProjectInfo.cs" />
+    <Compile Include="ProjectTask\ProjectSurveyMapping.cs" />
+    <Compile Include="ProjectTask\ProjectTaskInfo.cs" />
+    <Compile Include="ProjectTask\ProjectTaskLog.cs" />
+    <Compile Include="ProjectTask\ProjectTask_AdditionalStatus.cs" />
+    <Compile Include="ProjectTask\ProjectTask_AuditContrastInfo.cs" />
+    <Compile Include="ProjectTask\ProjectTask_BusinessScale.cs" />
+    <Compile Include="ProjectTask\ProjectTask_CSTLinkMan.cs" />
+    <Compile Include="ProjectTask\ProjectTask_CSTMember.cs" />
+    <Compile Include="ProjectTask\ProjectTask_CSTMember_Brand.cs" />
+    <Compile Include="ProjectTask\ProjectTask_Cust.cs" />
+    <Compile Include="ProjectTask\ProjectTask_Cust_Brand.cs" />
+    <Compile Include="ProjectTask\ProjectTask_Cust_Contact.cs" />
+    <Compile Include="ProjectTask\ProjectTask_DelCustRelation.cs" />
+    <Compile Include="ProjectTask\ProjectTask_DMSMember.cs" />
+    <Compile Include="ProjectTask\ProjectTask_DMSMember_Brand.cs" />
+    <Compile Include="ProjectTask\ProjectTask_Employee.cs" />
+    <Compile Include="ProjectTask\ProjectTask_MemberContactMapping.cs" />
+    <Compile Include="ProjectTask\ProjectTask_SurveyAnswer.cs" />
+    <Compile Include="ProjectTask\QueryCC_MagazineReturn.cs" />
+    <Compile Include="ProjectTask\QueryExcelCustInfo.cs" />
+    <Compile Include="ProjectTask\QueryProjectDataSoure.cs" />
+    <Compile Include="ProjectTask\QueryProjectImportHistory.cs" />
+    <Compile Include="ProjectTask\QueryProjectInfo.cs" />
+    <Compile Include="ProjectTask\QueryProjectSurveyMapping.cs" />
+    <Compile Include="ProjectTask\QueryProjectTaskInfo.cs" />
+    <Compile Include="ProjectTask\QueryProjectTaskLog.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_AdditionalStatus.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_AuditContrastInfo.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_BusinessScale.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_CSTLinkMan.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_CSTMember.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_CSTMember_Brand.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_Cust.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_Cust_Brand.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_Cust_Contact.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_DelCustRelation.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_DMSMember.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_DMSMember_Brand.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_Employee.cs" />
+    <Compile Include="ProjectTask\QueryProjectTask_SurveyAnswer.cs" />
+    <Compile Include="ProjectTask\QueryTField.cs" />
+    <Compile Include="ProjectTask\QueryTPage.cs" />
+    <Compile Include="ProjectTask\QueryTTable.cs" />
+    <Compile Include="ProjectTask\QueryTType.cs" />
+    <Compile Include="ProjectTask\TField.cs" />
+    <Compile Include="ProjectTask\TPage.cs" />
+    <Compile Include="ProjectTask\TTable.cs" />
+    <Compile Include="ProjectTask\TType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QualityStandard\QS_ApprovalHistory.cs" />
+    <Compile Include="QualityStandard\QS_Category.cs" />
+    <Compile Include="QualityStandard\QS_DeadOrAppraisal.cs" />
+    <Compile Include="QualityStandard\QS_Item.cs" />
+    <Compile Include="QualityStandard\QS_Marking.cs" />
+    <Compile Include="QualityStandard\QS_Result.cs" />
+    <Compile Include="QualityStandard\QS_ResultDetail.cs" />
+    <Compile Include="QualityStandard\QS_RulesRange.cs" />
+    <Compile Include="QualityStandard\QS_RulesTable.cs" />
+    <Compile Include="QualityStandard\QS_Standard.cs" />
+    <Compile Include="QualityStandard\QueryQS_ApprovalHistory.cs" />
+    <Compile Include="QualityStandard\QueryQS_Category.cs" />
+    <Compile Include="QualityStandard\QueryQS_DeadOrAppraisal.cs" />
+    <Compile Include="QualityStandard\QueryQS_Item.cs" />
+    <Compile Include="QualityStandard\QueryQS_Marking.cs" />
+    <Compile Include="QualityStandard\QueryQS_Result.cs" />
+    <Compile Include="QualityStandard\QueryQS_ResultDetail.cs" />
+    <Compile Include="QualityStandard\QueryQS_RulesRange.cs" />
+    <Compile Include="QualityStandard\QueryQS_RulesTable.cs" />
+    <Compile Include="QualityStandard\QueryQS_Standard.cs" />
+    <Compile Include="QueryAgentState.cs" />
+    <Compile Include="CallReport\QueryAgentStateDetail.cs" />
+    <Compile Include="QueryBuyCarInfo.cs" />
+    <Compile Include="QueryCallRecordInfo.cs" />
+    <Compile Include="QueryCallRecord_ORIG.cs" />
+    <Compile Include="QueryCallRecord_ORIG_Business.cs" />
+    <Compile Include="QueryConsultActivity.cs" />
+    <Compile Include="QueryConsultDCoop.cs" />
+    <Compile Include="QueryConsultDFeedback.cs" />
+    <Compile Include="QueryConsultDOther.cs" />
+    <Compile Include="QueryConsultNewCar.cs" />
+    <Compile Include="QueryConsultPFeedback.cs" />
+    <Compile Include="QueryConsultPOther.cs" />
+    <Compile Include="QueryConsultPUseCar.cs" />
+    <Compile Include="QueryConsultSecondCar.cs" />
+    <Compile Include="QueryConsultSolveUserMapping.cs" />
+    <Compile Include="QueryCRMCSTMember.cs" />
+    <Compile Include="QueryCrmCustInfo.cs" />
+    <Compile Include="QueryCRMDMSMember.cs" />
+    <Compile Include="QueryCustBasicInfo.cs" />
+    <Compile Include="SMSTemplate\QueryCustContactInfo.cs" />
+    <Compile Include="QueryCustCustomTableMapping.cs" />
+    <Compile Include="QueryCustEmail.cs" />
+    <Compile Include="QueryCustHistoryInfo.cs" />
+    <Compile Include="QueryCustHistoryLog.cs" />
+    <Compile Include="QueryCustHistoryTemplateMapping.cs" />
+    <Compile Include="QueryCustTel.cs" />
+    <Compile Include="QueryDealerBrandInfo.cs" />
+    <Compile Include="QueryDealerInfo.cs" />
+    <Compile Include="QueryEmployeeAgent.cs" />
+    <Compile Include="QueryEmployeeSuper.cs" />
+    <Compile Include="QueryReturnVisitRecord.cs" />
+    <Compile Include="QuerySendEmailLog.cs" />
+    <Compile Include="QuerySendSMSLog.cs" />
+    <Compile Include="SMSTemplate\QuerySMSSendHistory.cs" />
+    <Compile Include="SMSTemplate\QuerySMSTemplate.cs" />
+    <Compile Include="QueryTaskCurrentSolveUser.cs" />
+    <Compile Include="QueryTemplateCategory.cs" />
+    <Compile Include="QueryTemplateInfo.cs" />
+    <Compile Include="QueryUserActionLog.cs" />
+    <Compile Include="QueryUserDataRigth.cs" />
+    <Compile Include="QueryUserGroupDataRigth.cs" />
+    <Compile Include="ReturnVisit\CRMCustForNextVisit.cs" />
+    <Compile Include="ReturnVisit\ProjectTask_ReturnVisit.cs" />
+    <Compile Include="ReturnVisit\QueryCC_CustUserMapping.cs" />
+    <Compile Include="ReturnVisit\QueryCRMCustForNextVisit.cs" />
+    <Compile Include="ReturnVisit\QueryProjectTask_ReturnVisit.cs" />
+    <Compile Include="SendEmailLog.cs" />
+    <Compile Include="SendSMSLog.cs" />
+    <Compile Include="SMSTemplate\SMSSendHistory.cs" />
+    <Compile Include="SMSTemplate\SMSTemplate.cs" />
+    <Compile Include="STDATA_USER_NOAGG.cs" />
+    <Compile Include="Survey\QuerySurveyAnswer.cs" />
+    <Compile Include="Survey\QuerySurveyCategory.cs" />
+    <Compile Include="Survey\QuerySurveyInfo.cs" />
+    <Compile Include="Survey\QuerySurveyMatrixTitle.cs" />
+    <Compile Include="Survey\QuerySurveyOption.cs" />
+    <Compile Include="Survey\QuerySurveyOptionSkipQuestion.cs" />
+    <Compile Include="Survey\QuerySurveyPerson.cs" />
+    <Compile Include="Survey\QuerySurveyProjectInfo.cs" />
+    <Compile Include="Survey\QuerySurveyQuestion.cs" />
+    <Compile Include="Survey\SurveyAnswer.cs" />
+    <Compile Include="Survey\SurveyCategory.cs" />
+    <Compile Include="Survey\SurveyInfo.cs" />
+    <Compile Include="Survey\SurveyMatrixTitle.cs" />
+    <Compile Include="Survey\SurveyOption.cs" />
+    <Compile Include="Survey\SurveyOptionSkipQuestion.cs" />
+    <Compile Include="Survey\SurveyPerson.cs" />
+    <Compile Include="Survey\SurveyProjectInfo.cs" />
+    <Compile Include="Survey\SurveyQuestion.cs" />
+    <Compile Include="SysRightUserInfo.cs" />
+    <Compile Include="TaskCurrentSolveUser.cs" />
+    <Compile Include="TelNumManage.cs" />
+    <Compile Include="TemplateCategory.cs" />
+    <Compile Include="TemplateInfo.cs" />
+    <Compile Include="UserActionLog.cs" />
+    <Compile Include="UserDataRigth.cs" />
+    <Compile Include="UserGroupDataRigth.cs" />
+    <Compile Include="UserSkillDataRight.cs" />
+    <Compile Include="WOrderV2\QueryWOrderV2DataInfo.cs" />
+    <Compile Include="WOrderV2\WOrderBusiTypeInfo.cs" />
+    <Compile Include="WOrderV2\WOrderDataInfo.cs" />
+    <Compile Include="WOrderV2\WOrderInfoInfo.cs" />
+    <Compile Include="WOrderV2\WOrderProcessInfo.cs" />
+    <Compile Include="WOrderV2\WOrderTagInfo.cs" />
+    <Compile Include="WOrderV2\WOrderToAndCCInfo.cs" />
+    <Compile Include="WorkOrder\QueryWorkOrderCategory.cs" />
+    <Compile Include="WorkOrder\QueryWorkOrderInfo.cs" />
+    <Compile Include="WorkOrder\QueryWorkOrderLog.cs" />
+    <Compile Include="WorkOrder\QueryWorkOrderReceiver.cs" />
+    <Compile Include="WorkOrder\QueryWorkOrderRevert.cs" />
+    <Compile Include="WorkOrder\QueryWorkOrderTag.cs" />
+    <Compile Include="WorkOrder\QueryWorkOrderTagMapping.cs" />
+    <Compile Include="WorkOrder\WorkOrderActivity.cs" />
+    <Compile Include="WorkOrder\WorkOrderCategory.cs" />
+    <Compile Include="WorkOrder\WorkOrderInfo.cs" />
+    <Compile Include="WorkOrder\WorkOrderLog.cs" />
+    <Compile Include="WorkOrder\WorkOrderReceiver.cs" />
+    <Compile Include="WorkOrder\WorkOrderRevert.cs" />
+    <Compile Include="WorkOrder\WorkOrderTag.cs" />
+    <Compile Include="WorkOrder\WorkOrderTagMapping.cs" />
+    <Compile Include="YTGActivity\YTGActivityInfo.cs" />
+    <Compile Include="YTGActivity\YTGActivityTaskInfo.cs" />
+    <Compile Include="YTGActivity\YTGActivityTaskLogInfo.cs" />
+    <Compile Include="YTGActivity\YTGCallResultNoticeInfo.cs" />
+    <Compile Include="YTGActivity\QueryYTGActivityTaskInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

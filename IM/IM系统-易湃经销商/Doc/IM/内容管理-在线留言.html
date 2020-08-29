@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>内容管理-在线留言</title>
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+<script src="js/jquery-1.6.4.min.js" language="javascript" type="text/javascript"></script>
+<script src="js/public.js" language="javascript" type="text/javascript"></script>
+<script src="js/hdm.js" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+<div class="crm">
+<!--头部开始-->
+<div class="head">
+	<!--header开始-->
+	<div class="header">
+    	<div class="logo left"><img src="images/logo.png"  alt="CRM系统logo" /></div>
+         <!--菜单开始-->
+        <div class="menu ft14">
+            <ul>
+                <li><a  href="#"><img src="images/pic1.png"  border="0"/><br />对话管理</a></li>
+                <li><a  class="cur" href="#" ><img src="images/pic2.png" border="0" /><br />内容管理</a></li>
+                <li><a  href="#"><img src="images/pic3.png" border="0" /><br />访客管理</a></li>
+                <li><a  href="#"><img src="images/pic4.png" border="0" /><br />高级管理</a></li>
+                <li><a  href="#"><img src="images/pic5.png" border="0" /><br />数据统计</a></li>
+            </ul>
+        </div>
+       
+        <!--菜单结束-->	
+        		<div class="function right">
+                    <ul>
+                        <li><a href="#" class="write">帮助</a></li>
+                        <li><a href="#"  class="write">关于</a></li>
+                        <li><a href="#"  class="write">退出</a></li>
+                    </ul>
+                  <div class="clearfix"></div>
+                    <div class="user_zt right">
+                    	<div class="user left"><img src="images/user.png" width="12" height="14" /> admin</div>
+                        <div class="status right">
+                        	<ul>
+                                <li>
+                                    <ul class="menuUl">
+                                        <li class="position">
+                                        <span class="top_open nav_class" onMouseOver="this.className='nav_class_hover'" onMouseOut="this.className='nav_class'">
+                                            <a href="javascript:;" class="csbg"  title="在线">在线</a>
+                                            <ul class="top_cont nextT">
+                                                <li><a href="#" class="narxtmin">离线</a></li>
+                                                <li class="last"><a href="#" class="narxtmin">忙碌</a></li>
+                                            </ul>
+                                        </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+   </div>
+   <div style="clear:both;"></div>
+    <!--header结束-->
+   
+    <div class="clearfix"></div>
+    <!--子菜单开始-->
+    <div class="mainmenu_bottom">
+    	<ul class="" id="mb1">
+        	<li><a href="#">聊天记录</a>| </li>
+            <li><a href="#" class="cur" >在线留言</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!--子菜单结束-->
+</div>
+<!--头部结束-->
+<!--内容开始-->
+<div class="content">
+	<!--查询开始-->
+    	<div class="searchTj">
+        	<ul>
+            <li><label>经销商名称：</label><input name="" type="text"  class="w240"/></li>
+            <li><label>所属大区：</label><select  class="w240"><option>请选择</option><option>智能平台运营支持一部</option></select></li>
+            <li><label>所属城市群：</label><input name="" type="text"  class="w240"/></li>
+            <li><label>操作人：</label><input name="" type="text"  class="w240"/></li>
+            <li><label>状态：</label><select  class="w240"><option>新建</option><option>处理</option><option>已完成</option></select></li>
+            <li><label>时间：</label><input name="" type="text"  class="w240" style="width:108px;"/> - <input name="" type="text"  class="w240" style="width:108px;"/></li>
+            <li style="width:80px;"><div class="tjBtn"><input type="button" value="查询"  class="w60"/></div></li>
+          </ul>
+          
+          <div class="clearfix"></div>
+    	</div>
+	<!--查询结束-->
+    <div class="dc"></div>
+    <!--列表开始-->
+    <div class="cxList" style="margin-top:8px; height:auto;">
+    	<table border="0" cellspacing="0" cellpadding="0">
+           <thead>
+            <th colspan="11" style="background:#F9F9F9">
+            <div class="btn btn2 right"><input type="button"  value="导出" class="save w60 gray"/></div>
+            </th>
+          </thead>
+          <tr>
+            <th width="16%">经销商名称</th>
+            <th width="6%">类型</th>
+            <th width="5%">姓名</th>
+            <th width="8%">电话</th>
+            <th width="10%">时间</th>
+            <th width="12%">内容</th>
+            <th width="5%">操作人</th>
+            <th width="10%">操作时间</th>
+            <th width="10%">备注</th>
+            <th width="12%">工单</th>
+            <th width="6%">状态</th>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td ><a href="#">点击添加</a></td>
+            <td ><a href="#">点击添加</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车销售服务有限公司</td>
+            <td >购车咨询</td>
+            <td>张媛五</td>
+            <td>18066610180</td>
+            <td >2014-9-23 19:07:15</td>
+            <td class="cName"><div class="cName2"><a href="#">我想要购买福特汽车我想要购买福特汽车...</a></div></td>
+            <td >张媛</td>
+            <td >2014-9-23 19:07:15</td>
+            <td >后续需要持续跟进</td>
+            <td ><a href="#">IM20140519470698</a></td>
+            <td><select  class="w60"><option>新建</option><option>处理</option><option>已完成</option></select></td>
+          </tr>
+        </table>
+    </div>
+    <!--列表结束-->
+    <!--分页开始-->
+    	 <div class="pagesnew">
+                            <span class="pre">上一页</span>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <span>...</span>
+                            <span><a href="#" class="next">下一页</a></span>
+                            <span>共50页</span>
+                            <span>到第</span><input type="text" value="" /><span>页</span>
+                            <span class="qd_go"><a href="#">GO</a></span>
+                        </div>
+    <!--分页结束-->
+    <div class="clearfix"></div>
+</div>
+<!--内容结束-->
+<div class="footer mt16">
+信息系统研发中心 任何建议和意见，请发邮件至：<a href="#">ISDC@bitauto.com</a><br />
+CopyRight © 2000-2013 Bitauto,All Rights Reserved 版权所有 北京易车互联信息技术有限公司
+</div>
+</div>
+</body>
+</html>

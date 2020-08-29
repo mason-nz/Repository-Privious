@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <script src="../Scripts/HighChart/jquery1.8.3.min.js" type="text/javascript"></script>
+    <script src="../Scripts/HighChart/highcharts.js"></script>
+    <script src="../Scripts/HighChart/highcharts-3d.js"></script>
+
+    <script type="text/javascript">
+
+        var pin1_1 = {
+
+        }
+
+        pin1_1.chartOption = {
+            chart: {
+                type: "bar",
+                shadow: true
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true,
+                        color: "red",
+                        style: {
+                            fontWeight: 'bold'
+                        },
+                        formatter: function () {
+                            return this.key + ' (' + this.y + ')';
+                        }
+                    }
+                }
+            },
+            title: { text: " 线索达人排名", x: -20 },
+            subtitle: { text: "(智能平台运营支持部)", x: -20 },
+            xAxis: {
+                labels: { enabled: false }
+            },
+            yAxis: {
+                title: { text: "" },
+                maxPadding: 0.1,
+                minPadding: 0.1
+            },
+            credits: { enabled: false }
+        };
+
+        $(function () {
+            $('#btnBC').click(function () {
+                //setInterval(pin1_1.GetChart, 5000);
+                pin1_1.GetChart();
+            });
+        });
+
+
+
+        pin1_1.GetChart = function () {
+            $.ajax({
+                url: "/api/APIDemo/GetExpertConnect",
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        pin1_1.chartOption.series = data.data;
+                        //var xA = [];
+                        //for (var i = 0; i < data.data[0].data.length; i++) {
+                        //    xA.push(data.data[0].data.name);
+                        //}
+                        //pin1_1.chartOption.xAxis.categories = xA;
+                        $('#containerBC').highcharts(pin1_1.chartOption);
+                    } else {
+                        alert(data.ErrorMsg);
+                    }
+                },
+                error: function (msg) { console.log(msg); }
+            });
+        };
+
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+
+        var pin1_2 = {
+
+        }
+
+        pin1_2.chartOption = {
+            chart: {
+                type: "column"
+                , options3d: {
+                    enabled: true,
+                    alpha: 5,
+                    beta: 5,
+                    depth: 50,
+                    viewDistance: 50
+                }
+            },
+            legend: { enabled: false },
+            plotOptions: {
+                column: {
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            fontWeight: 'bold'
+                        }
+                    }
+                }
+            },
+            title: { text: "呼出业务队列实时监控" },
+            subtitle: { text: "(智能平台运营支持部)" },
+            xAxis: {
+                labels: { style: { fontWeight: "bolder" } },
+                categories: ["Call", "Free", "Busy", "Online SCR"]
+            },
+            yAxis: {
+                title: { text: "" },
+                maxPadding: 0.1,
+                minPadding: 0.1
+            },
+            credits: { enabled: false }
+        };
+
+        $(function () {
+            $('#btnBQ').click(function () {
+                //setInterval(pin1_2.GetChart, 5000);
+                pin1_2.GetChart();
+            });
+        });
+
+
+
+        pin1_2.GetChart = function () {
+            $.ajax({
+                url: "/api/APIDemo/GetBusinessQueue",
+                //type: "GetCallOut",
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        pin1_2.chartOption.series = data.data;
+                        $('#containerBQ').highcharts(pin1_2.chartOption);
+                    } else {
+                        alert(data.ErrorMsg);
+                    }
+                },
+                error: function (msg) { console.log(msg); }
+            });
+        };
+
+    </script>
+
+
+
+</head>
+<body>
+
+    <h3>呼出业务接通情况实时监控</h3>
+    <button type="button" id="btnBC">接通实时监控</button>
+    <div id="containerBC" style="height: 400px;"></div>
+
+    <h3>呼出队列实时监控</h3>
+    <h4>获取CallOut实时报表</h4>
+    <button type="button" id="btnBQ">队列实时监控</button>
+    <div id="containerBQ" style="height: 400px;"></div>
+
+</body>
+</html>

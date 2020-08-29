@@ -1,0 +1,396 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Top.master.cs" Inherits="BitAuto.ISDC.CC2012.Web.Controls.Top1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+            var monitorPageTimeWeb = new Date().getTime(); //监控页面加载耗时_开始时间
+    </script>
+    <link href="/css/base.css" type="text/css" rel="stylesheet" />
+    <link href="/css/style.css?v=201633123" type="text/css" rel="stylesheet" />
+    <link href="/Css/adtPopup.css" rel="stylesheet" type="text/css" />
+    <script src="/Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.writeln("<s" + "cript type='text/javascript' src='/Js/config.js?r=" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script type="text/javascript">
+        loadJS("common");
+    </script>
+    <script type="text/javascript" charset="utf-8" src="/Js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="/Js/Enum/ShowEnum.js"></script>
+    <script type="text/javascript">
+        loadJS("CTITool");
+    </script>
+    <script src="/Js/json2.js" type="text/javascript"></script>
+    <script src="/Js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("ul[id='ulSecondMenu'] li").each(function () {
+                //如果是1、惠买车菜单
+                if ($(this).attr("moduleid") == "SYS024MOD1010") {
+                    var acontrl = $(this).find("a");
+                    $(acontrl).attr("href", "javascript:void(0)");
+                    $(acontrl).unbind("click").bind("click", function () {
+                        //addWXTUrl('<%=YPFanXianURL%>', '<%=TaskURL%>', '<%=EPEmbedCC_APPID %>');
+                        var obj = new Object();
+                        obj.businessType = 'huimaiche';
+                        obj.YPFanXianURL = '<%=YPFanXianURL%>';
+                        obj.TaskURL = '<%=TaskURL%>';
+                        obj.EPEmbedCC_APPID = '<%=EPEmbedCC_APPID %>';
+                        OtherBusinessLogin(obj);
+                    });
+                }
+                //2、易车车贷
+                else if ($(this).attr("moduleid") == "SYS024MOD1014") {
+                    var acontrl = $(this).find("a");
+                    //$(acontrl).attr("target", "_blank");
+                    $(acontrl).attr("href", "javascript:void(0)");
+                    $(acontrl).unbind("click").bind("click", function () {
+                        //CarFinancialLogin();
+                        var obj = new Object();
+                        obj.businessType = 'yichechedai';
+                        OtherBusinessLogin(obj);
+                    });
+                }
+                //3、精准广告
+                else if ($(this).attr("moduleid") == "SYS024MOD1013") {
+                    var acontrl = $(this).find("a");
+                    $(acontrl).attr("href", "javascript:void(0)");
+                    $(acontrl).unbind("click").bind("click", function () {
+                        //EasySetOffLogin();
+                        var obj = new Object();
+                        obj.businessType = 'jingzhunguanggao';
+                        OtherBusinessLogin(obj);
+                    });
+                }
+                //4、帮买业务
+                else if ($(this).attr("moduleid") == "SYS024MOD1017") {
+                    var acontrl = $(this).find("a");
+                    $(acontrl).attr("href", "javascript:void(0)");
+                    $(acontrl).unbind("click").bind("click", function () {
+                        BangMaiLogin('/CustBaseInfo/GoToTaoCheBZC.aspx?menu=1');
+                    });
+                }
+                //5、商城业务
+                else if ($(this).attr("moduleid") == "SYS024MOD1018") {
+                    var acontrl = $(this).find("a");
+                    $(acontrl).attr("href", "javascript:void(0)");
+                    $(acontrl).unbind("click").bind("click", function () {
+                        ShangChengLogin();
+                    });
+                }
+                //6、易车惠业务
+                else if ($(this).attr("moduleid") == "SYS024MOD1019") {
+                    var acontrl = $(this).find("a");
+                    $(acontrl).attr("href", "javascript:void(0)");
+                    $(acontrl).unbind("click").bind("click", function () {
+                        var obj = new Object();
+                        obj.businessType = 'yichehui';
+                        OtherBusinessLogin(obj);
+                    });
+                }
+                //7、易湃业务
+                else if ($(this).attr("moduleid") == "SYS024MOD1020") {
+                    var acontrl = $(this).find("a");
+                    $(acontrl).attr("href", "javascript:void(0)");
+                    $(acontrl).unbind("click").bind("click", function () {
+                        var obj = new Object();
+                        obj.businessType = 'EasyPass';
+                        OtherBusinessLogin(obj);
+                    });
+                }
+            });
+        });
+        
+    </script>
+    <asp:ContentPlaceHolder ID="head1" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!--head开始-->
+    <div id="head">
+        <div class="left logo">
+            易车客服中心管理系统
+        </div>
+        <div class="right">
+            <a style="line-height: 32px;" class="button profile">
+                <img src="/css/img/huser.png"></a> 您好，<%=Session["truename"].ToString()%>&nbsp;
+            |&nbsp; <a href="/exit.aspx">注销</a>
+            <% if (IsMoniLogin)
+               { %>
+                    |&nbsp; <a href="/loginform.aspx" target="_blank">模拟登陆</a>
+            <% }%>
+        </div>
+        <div class="menu left">
+            <ul id='ulTopMenu'>
+                <asp:Repeater runat="server" ID="parentRpt">
+                    <ItemTemplate>
+                        <li class='<%#Eval("classDesc")%>'><a href='<%#Eval("url")%>'>
+                            <%#Eval("moduleName")%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <%--<li class="index"><a href="#">首&nbsp;&nbsp;&nbsp;页</a></li>
+                    <li class="task"><a href="#">任务列表</a></li>
+                    <li class="custom"><a href="#">客户池</a></li>
+                    <li class="manage"><a href="#">话务管理</a></li>
+                    <li class="knowledge"><a href="#">知识库</a></li>
+                    <li class="highji"><a href="#">高级管理</a></li>--%>
+            </ul>
+        </div>
+    </div>
+    <!--head结束-->
+    <!--左开始-->
+    <div id="sidebar">
+        <asp:Repeater runat="server" ID="childRpt" OnItemDataBound="childRpt_ItemDataBound">
+            <HeaderTemplate>
+                <ul id="ulSecondMenu">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <li moduleid='<%#Eval("moduleid")%>' class='bg4'>
+                    <p class='<%#Eval("classDesc")%>'>
+                        <a href='<%#Eval("url")%>'>
+                            <%#Eval("moduleName")%></a> <span class="right" title='展开'>&and;</span>
+                    </p>
+                    <asp:Repeater runat="server" ID="thirdRpt">
+                        <HeaderTemplate>
+                            <ul class="menu2">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li pid='<%#Eval("pid")%>' class='<%#Eval("classDesc")%>'><a href='<%#Eval("url")%>'>
+                                <%#Eval("moduleName")%></a></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater>
+                </li>
+            </ItemTemplate>
+            <FooterTemplate>
+                </ul>
+            </FooterTemplate>
+        </asp:Repeater>
+        <%--<li class="nosubmenu bg1 current"><a href="#">数据清洗</a>
+                <ul class="menu2">
+                    <li><a href="#">CRM库客户核实</a></li>
+                    <li><a href="#">新增库客户核实</a></li>
+                    <li class="current"><a href="#">会员二次核实</a></li>
+                    <li><a href="#">CRM库客户核实</a></li>
+                    <li><a href="#">新增库客户核实</a></li>
+                    <li><a href="#">会员二次核实</a></li>
+                </ul>
+            </li>
+            <li class="nosubmenu bg2"><a href="#">电话营销</a> </li>
+            <li class="nosubmenu bg3"><a href="#">杂志回访</a></li>
+            <li class="nosubmenu bg4"><a href="#">个人业务</a></li>--%>
+    </div>
+    <!--左结束-->
+    <!--右开始-->
+    <div class="left" id="content">
+        <div class="rC left">
+            <div class="content">
+                <h2>
+                    <asp:Literal ID="litMenuNavTitle" runat="server"></asp:Literal>
+                    <span class="right mr10">当前位置：
+                        <asp:Literal ID="litMenuNav1" runat="server"></asp:Literal>
+                        &gt;
+                        <asp:Literal ID="litMenuNav2" runat="server"></asp:Literal>
+                        <asp:Literal ID="litMenuNav3" runat="server"></asp:Literal>
+                    </span>
+                </h2>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <!--右结束-->
+    <!--底部部分start-->
+    <div id='divMenuBottom'>
+        <div style="padding-top: 120px; clear: both; vertical-align: bottom;
+        padding: 30px 0 0;" class="footer">
+        <p style="color: #999; text-align: center; font-family: 宋体">
+            数据系统中心 任何建议和意见，请进入 <a style="" target="_blank" href="http://sys.bitauto.com/systemManager/AddFeedback.aspx?SysID=SYS011">销售管理系统-反馈中心</a>
+        </p>
+        <p style="color: #999; text-align: center; line-height: 24px; vertical-align: bottom;
+            font-family: 宋体">
+            <span style="font-family: Times New Roman">CopyRight &copy; 2000-<%=DateTime.Now.Year %>
+                Bitauto,All Rights Reserved</span> 版权所有 北京易车互联信息技术有限公司</p>
+    </div>
+    </div>
+    <!--底部部分end-->
+    <script language="javascript" type="text/javascript">
+            window.onload = function () {
+                if (monitorPageTime && monitorPageTime != undefined) {
+                    var t = new Date().getTime() - monitorPageTimeWeb;
+                    $.post("/AjaxServers/LoginManager.ashx", { Action: "StatPageTime", DurationTime: t, CurrentURL: '' + window.location }, function (data) {
+                    });
+                }
+            } 
+    </script>
+</body>
+<script type="text/javascript">
+    var menuHelper = (function () {
+        //加在菜单数据项
+        var LoadMenuNavText = function () {
+            var h2Obj = $('#content div[class="rC left"] div.content > h2');
+            //            var c = $.trim(h2Obj.find('span[class="right mr10"] > [menulevel="3"]').html()); //三级菜单内容
+            //            if (!h2Obj.find('span[class="right mr10"] [menulevel="3"]').size() > 0) {//没有找到三级以上(包含三级)菜单
+            //                c = $.trim(h2Obj.find('span[class="right mr10"] > [menulevel="2"]').html());
+            //                h2Obj.find('span[class="right mr10"]').remove();
+            //            }
+            //            h2Obj.prepend(c);
+
+            if (h2Obj.find('span[class="right mr10"] > [menulevel="3"]').size() <= 0) {
+                h2Obj.find('span[class="right mr10"]').remove();
+            }
+        };
+
+        //初始化一级菜单图标
+        $.each($('#ulTopMenu li'), function (i, n) {
+            switch ($.trim($(n).find('a').html())) {
+                case '任务列表': $(n).addClass('task'); break;
+                case '客户池': $(n).addClass('custom'); break;
+                case '高级管理': $(n).addClass('highji'); break;
+                case '知识&amp;培训': $(n).addClass('knowledge'); break;
+                case '话务管理': $(n).addClass('manage'); break;
+                case '质量管理': $(n).addClass('zhij'); break;
+                case '业务报表': $(n).addClass('ywbb'); break;
+                default: break;
+            }
+        });
+
+        //初始化二级菜单图标
+        $.each($('#ulSecondMenu li'), function (i, n) {
+            switch ($.trim($(n).find('a').html())) {
+                case '个人业务': $(n).addClass('bg4'); break;
+                case '个人用户': $(n).addClass('bg27'); break;
+                case '人员管理': $(n).addClass('bg5'); break;
+                case '操作日志': $(n).addClass('bg6'); break;
+                case '模板管理': $(n).addClass('bg7'); break;
+                case '知识点': $(n).addClass('bg8'); break;
+                case '在线考试': $(n).addClass('bg9'); break;
+                case '团购订单':
+                case '无主订单': $(n).addClass('bg11'); break;
+                case '业务培训': $(n).addClass('bg12'); break;
+                case '问卷调查':
+                case '调查问卷管理': $(n).addClass('bg13'); break;
+                case '来电记录': $(n).addClass('bg14'); break;
+                case '去电记录': $(n).addClass('bg15'); break;
+                case '客户核实':
+                case '数据清洗': $(n).addClass('bg16'); break;
+                case '项目管理': $(n).addClass('bg17'); break;
+                case 'CRM客户': $(n).addClass('bg18'); break;
+                case '易湃会员': $(n).addClass('bg19'); break;
+                case '车商通会员': $(n).addClass('bg20'); break;
+                case '客户回访': $(n).addClass('bg21'); break;
+                case '其他任务': $(n).addClass('bg22'); break;
+                case '录音质检': $(n).addClass('bg23'); break;
+                case '质检统计管理': $(n).addClass('bg24'); break;
+                case '质检评分表管理': $(n).addClass('bg25'); break;
+                case '话务总表': $(n).addClass('bg26'); break;
+                case '实时监控': $(n).addClass('bg29'); break;
+                case '呼出报表': $(n).addClass('bg37'); break;
+                case '工单记录（新）': 
+                case '工单记录': $(n).addClass('bg30'); break;
+                case '惠买车': $(n).addClass('bg31'); break;
+                case '线索邀约': $(n).addClass('bg32'); break;
+                case '需求管理': $(n).addClass('bg33'); break;
+                case '满意度统计': $(n).addClass('bg34'); break;
+                case '状态明细': $(n).addClass('bg35'); break;
+                case '呼入报表': $(n).addClass('bg36'); break;
+                case '热线数据': $(n).addClass('bg38'); break;
+                case 'FAQ': $(n).addClass('bg39'); break;
+                case '个人功能': $(n).addClass('bg40'); break;
+                case '功能管理': $(n).addClass('bg41'); break;
+                case '易团购': $(n).addClass('bg42'); break;
+                case '短信清单': $(n).addClass('bg43'); break;
+                case '易车车贷': $(n).addClass('bg44'); break;
+                case '精准广告': $(n).addClass('bg45'); break;
+                case '短信统计': $(n).addClass('bg46'); break;
+                case '分组管理': $(n).addClass('bg47'); break;
+                case '对话质检': $(n).addClass('bg48'); break;
+                case '黑白名单': $(n).addClass('bg49'); break;
+                case '工作报告': $(n).addClass('bg50'); break;
+                case '帮买业务': $(n).addClass('bg51'); break;
+                case '项目报表': $(n).addClass('bg52'); break;
+                case '客户回访报表': $(n).addClass('bg53'); break;
+                case '直销业务': $(n).addClass('bg54'); break;
+                case '易车惠': $(n).addClass('bg55'); break;
+                case '专属客服管理': $(n).addClass('bg56'); break;
+                case '易湃业务': $(n).addClass('bg57'); break;
+                default: break;
+            }
+        });
+
+        //隐藏当前三级菜单选中之外的三级菜单
+        $.each($('#ulSecondMenu > li > ul.menu2'), function (i, n) {
+            if ($(n).parent().is('[class*="current"]'))
+            { return true; }
+            if ($(n).find('li.current').size() <= 0)
+            { $(n).hide(); }
+        });
+
+        //若三级菜单选中，那么对应二级菜单也应该选中
+        $('#ulSecondMenu > li > ul.menu2 > li.current').parent(':hidden').show().prev('p').addClass('current');
+        //若没有三级菜单，二级菜单右侧的箭头要删除掉
+        $('#ulSecondMenu > li:not(:has("ul.menu2"))').find('p > span.right').remove();
+
+        //绑定二级菜单展开/闭合事件
+        $('#ulSecondMenu > li > p > span').click(function () {
+            //alert('dd');
+            $('#ulSecondMenu > li').not($(this).parent().parent()).removeClass('current');
+            $('#ulSecondMenu > li').not($(this).parent().parent()).find('ul').hide('normal');
+            $(this).parent().parent().addClass('current');
+            if ($(this).parent().next('ul:visible').size() > 0) {
+                $(this).parent().next('ul').hide('normal');
+                $(this).html('&and;').attr('title', '展开');
+
+            }
+            else {
+                $(this).parent().next('ul').show('normal');
+                $(this).html('&or;').attr('title', '收缩');
+            }
+
+        });
+        //从Cookie加载上次点击历史
+        //        if (GetCookie('LeftMenuStatus') == 'hide') {
+        //            $('#divLeftMenu').hide();
+        //            $('div[class="left contentList"]').width(1000);
+        //            $('#divMenuNav').css('background-image', 'url("/css/img/titleBg2.jpg")');
+        //            $('#divMenuBar').attr('title', '展开');
+        //        }
+
+        //绑定菜单bar事件
+        //        $('#divMenuBar').click(function () {
+        //            $('#divLeftMenu').toggle();
+        //            if ($('#divLeftMenu:visible').size() > 0) {
+        //                $('div[class="left contentList"]').width(827);
+        //                $('#divMenuNav').css('background-image', 'url("/css/img/titleBg.jpg")');
+        //                $(this).attr('title', '收缩');
+        //                DelCookie('LeftMenuStatus');
+        //            }
+        //            else {
+        //                $('div[class="left contentList"]').width(1000);
+        //                $('#divMenuNav').css('background-image', 'url("/css/img/titleBg2.jpg")');
+        //                $(this).attr('title', '展开');
+        //                SetCookie('LeftMenuStatus', 'hide');
+        //            }
+        //        });
+        //绑定二级菜单展开关闭事件
+        //        $('#divLeftMenu div[class*="title ft16"]').click(function () {
+        //            $(this).nextAll('ul[pid="' + $(this).attr('moduleid') + '"]').toggle('fast');
+        //        });
+
+        //加在左侧菜单选中样式
+        //$('#divLeftMenu ul li a.active').parent().parent().prevAll('div:first').removeClass('unchoose');
+        //$('#divLeftMenu ul li a.active').parent().parent().prevAll('div:first').find('a').removeClass().addClass('linkWhite');
+        //$('#divLeftMenu div[class="title ft16 unchoose"] a.active').parent().removeClass('unchoose');
+        //$('#divLeftMenu div[class="title ft16"] a.active').removeClass().addClass('linkWhite');
+
+        return {
+            LoadMenuNavText: LoadMenuNavText
+        };
+    })();
+    menuHelper.LoadMenuNavText();
+</script>
+</html>

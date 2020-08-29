@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsertCallRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:CallRecord_ORIG" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallRecord_ORIG">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransferOutTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferInTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CallID" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiemensCallID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GenesysCallID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtensionNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANI" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CallStatus" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SwitchINNum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutBoundType" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SkillGroup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitiatedTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RingingTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstablishedTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerReleaseTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentReleaseTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfterWorkBeginTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfterWorkTime" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConsultTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReconnectCall" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TallTime" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AudioURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateUserID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertCallRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertCallRecordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCallRecordWB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:CallRecord_ORIG" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCallRecordWBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertCallRecordWBResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallRecord_ORIGByCallID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="callid" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallRecord_ORIGByCallIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCallRecord_ORIGByCallIDResult" type="tns:CallRecord_ORIG" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPhoneAndTelIsInBlackList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blackListCheckType" type="tns:BlackListCheckType" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="BlackListCheckType">
+        <s:restriction base="s:string">
+          <s:enumeration value="BT1_CRM" />
+          <s:enumeration value="BT2_CC" />
+          <s:enumeration value="BT3_ALL" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CheckPhoneAndTelIsInBlackListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPhoneAndTelIsInBlackListResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertCallRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCallRecord" />
+  </wsdl:message>
+  <wsdl:message name="InsertCallRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCallRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCallRecordWBSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCallRecordWB" />
+  </wsdl:message>
+  <wsdl:message name="InsertCallRecordWBSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCallRecordWBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallRecord_ORIGByCallIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallRecord_ORIGByCallID" />
+  </wsdl:message>
+  <wsdl:message name="GetCallRecord_ORIGByCallIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallRecord_ORIGByCallIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPhoneAndTelIsInBlackListSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPhoneAndTelIsInBlackList" />
+  </wsdl:message>
+  <wsdl:message name="CheckPhoneAndTelIsInBlackListSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPhoneAndTelIsInBlackListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CallRecordServiceSoap">
+    <wsdl:operation name="InsertCallRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增话务数据</wsdl:documentation>
+      <wsdl:input message="tns:InsertCallRecordSoapIn" />
+      <wsdl:output message="tns:InsertCallRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCallRecordWB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增话务数据WB</wsdl:documentation>
+      <wsdl:input message="tns:InsertCallRecordWBSoapIn" />
+      <wsdl:output message="tns:InsertCallRecordWBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallRecord_ORIGByCallID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据CALLID返回话务实体</wsdl:documentation>
+      <wsdl:input message="tns:GetCallRecord_ORIGByCallIDSoapIn" />
+      <wsdl:output message="tns:GetCallRecord_ORIGByCallIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneAndTelIsInBlackList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">校验电话号码是否黑名单</wsdl:documentation>
+      <wsdl:input message="tns:CheckPhoneAndTelIsInBlackListSoapIn" />
+      <wsdl:output message="tns:CheckPhoneAndTelIsInBlackListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CallRecordServiceSoap" type="tns:CallRecordServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertCallRecord">
+      <soap:operation soapAction="http://tempuri.org/InsertCallRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCallRecordWB">
+      <soap:operation soapAction="http://tempuri.org/InsertCallRecordWB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallRecord_ORIGByCallID">
+      <soap:operation soapAction="http://tempuri.org/GetCallRecord_ORIGByCallID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneAndTelIsInBlackList">
+      <soap:operation soapAction="http://tempuri.org/CheckPhoneAndTelIsInBlackList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CallRecordServiceSoap12" type="tns:CallRecordServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertCallRecord">
+      <soap12:operation soapAction="http://tempuri.org/InsertCallRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCallRecordWB">
+      <soap12:operation soapAction="http://tempuri.org/InsertCallRecordWB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallRecord_ORIGByCallID">
+      <soap12:operation soapAction="http://tempuri.org/GetCallRecord_ORIGByCallID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneAndTelIsInBlackList">
+      <soap12:operation soapAction="http://tempuri.org/CheckPhoneAndTelIsInBlackList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CallRecordService">
+    <wsdl:port name="CallRecordServiceSoap" binding="tns:CallRecordServiceSoap">
+      <soap:address location="http://ncc.sys1.bitauto.com/CallRecordService/CallRecordService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CallRecordServiceSoap12" binding="tns:CallRecordServiceSoap12">
+      <soap12:address location="http://ncc.sys1.bitauto.com/CallRecordService/CallRecordService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

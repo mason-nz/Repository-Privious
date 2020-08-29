@@ -1,0 +1,137 @@
+2016-06-01 10:17:25	info	[专属客服接口] 参数：getAgentIDByCallNo 18611453303 87237788
+2016-06-01 10:17:25	info	[专属客服接口] 参数：getAgentIDByCallNo 18611453303 87237788
+2016-06-01 10:17:25	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:17:25	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:17:26	info	[专属客服接口] 异常：
+2016-06-01 10:17:26	info	对象名 'YCBusiness2015.dbo.EmployeeAgent' 无效。
+2016-06-01 10:17:26	info	[专属客服接口] 异常：
+2016-06-01 10:17:26	info	对象名 'YCBusiness2015.dbo.EmployeeAgent' 无效。
+2016-06-01 10:17:26	info	   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.ISDC.CC2012.Dal.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Dal\HollyData.cs:行号 162
+   在 BitAuto.ISDC.CC2012.BLL.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\HollyData.cs:行号 89
+   在 BitAuto.ISDC.CC2012.WebAPI.Controllers.HollyCRMController.IVR(String method, String callNo, String calledNo) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.WebAPI\Controllers\HollyCRMController.cs:行号 418
+2016-06-01 10:17:26	info	   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.ISDC.CC2012.Dal.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Dal\HollyData.cs:行号 162
+   在 BitAuto.ISDC.CC2012.BLL.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\HollyData.cs:行号 89
+   在 BitAuto.ISDC.CC2012.WebAPI.Controllers.HollyCRMController.IVR(String method, String callNo, String calledNo) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.WebAPI\Controllers\HollyCRMController.cs:行号 418
+2016-06-01 10:19:15	info	[专属客服接口] 参数：getAgentIDByCallNo 18611453303 87237788
+2016-06-01 10:19:15	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:20:09	info	[专属客服接口] 异常：
+2016-06-01 10:20:09	info	对象名 'YCBusiness2015.dbo.EmployeeAgent' 无效。
+2016-06-01 10:20:09	info	   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.ISDC.CC2012.Dal.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Dal\HollyData.cs:行号 162
+   在 BitAuto.ISDC.CC2012.BLL.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\HollyData.cs:行号 89
+   在 BitAuto.ISDC.CC2012.WebAPI.Controllers.HollyCRMController.IVR(String method, String callNo, String calledNo) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.WebAPI\Controllers\HollyCRMController.cs:行号 418
+2016-06-01 10:20:53	info	[专属客服接口] 参数：getAgentIDByCallNo 01068492026 87237722
+2016-06-01 10:20:53	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:20:53	info	[专属客服接口] 异常：
+2016-06-01 10:20:53	info	对象名 'YCBusiness2015.dbo.EmployeeAgent' 无效。
+2016-06-01 10:20:53	info	   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.ISDC.CC2012.Dal.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Dal\HollyData.cs:行号 162
+   在 BitAuto.ISDC.CC2012.BLL.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\HollyData.cs:行号 89
+   在 BitAuto.ISDC.CC2012.WebAPI.Controllers.HollyCRMController.IVR(String method, String callNo, String calledNo) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.WebAPI\Controllers\HollyCRMController.cs:行号 418
+2016-06-01 10:21:19	info	[专属客服接口] 参数：getAgentIDByCallNo 01068492026 87237722
+2016-06-01 10:21:19	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:22:03	info	[专属客服接口] 异常：
+2016-06-01 10:22:03	info	对象名 'YCBusiness2015.dbo.EmployeeAgent' 无效。
+2016-06-01 10:22:03	info	   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.ISDC.CC2012.Dal.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Dal\HollyData.cs:行号 162
+   在 BitAuto.ISDC.CC2012.BLL.HollyData.GetLastAgentIDByORIDNIS(String callNo, String callOutPrefix, DateTime querytime, String& callOutStartTime) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\HollyData.cs:行号 89
+   在 BitAuto.ISDC.CC2012.WebAPI.Controllers.HollyCRMController.IVR(String method, String callNo, String calledNo) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.WebAPI\Controllers\HollyCRMController.cs:行号 418
+2016-06-01 10:26:43	info	[专属客服接口] 参数：getAgentIDByCallNo 01068492026 87237722
+2016-06-01 10:26:43	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:26:43	info	[专属客服接口] CallNo=01068492026,CalledNo=87237722,AgentID=,CallOutStartTime=,CalledNoPrefix=86,QueryCallOutIndate=2016-05-02 00:00:00
+2016-06-01 10:26:59	info	[专属客服接口] 参数：getAgentIDByCallNo 01068492026 87237722
+2016-06-01 10:26:59	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:28:41	info	[专属客服接口] CallNo=01068492026,CalledNo=87237722,AgentID=,CallOutStartTime=,CalledNoPrefix=86,QueryCallOutIndate=2016-05-02 00:00:00
+2016-06-01 10:33:42	info	[专属客服接口] 参数：getAgentIDByCallNo 13146611863 87237722
+2016-06-01 10:33:42	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:33:43	info	[专属客服接口] 主叫号码=13146611863,被叫号码=87237722,专属坐席ID=,上次外呼时间=,被叫号码外呼出局号=86,查询专属坐席时间范围（大于此时间）=2016-05-02 00:00:00
+2016-06-01 10:34:34	info	[专属客服接口] 参数：getAgentIDByCallNo 13167383173 87237722
+2016-06-01 10:34:34	info	[专属客服接口] 读取配置文件，获取热线信息
+2016-06-01 10:34:34	info	[专属客服接口] 主叫号码=13167383173,被叫号码=87237722,专属坐席ID=,上次外呼时间=,被叫号码外呼出局号=86,查询专属坐席时间范围（大于此时间）=2016-05-02 00:00:00

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SuperLoginService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://api.easypass.cn/das/inner/SuperLoginService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://api.easypass.cn/das/inner/SuperLoginService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://api.easypass.cn/das/inner/SuperLoginService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BitAuto.EP.DAS.BLL.Model" />
+      <xsd:import schemaLocation="http://api.easypass.cn/das/inner/SuperLoginService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BitAuto.Beyond.Easy.DAS.Entity" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISuperLoginService_GetAccessToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessToken" />
+  </wsdl:message>
+  <wsdl:message name="ISuperLoginService_GetAccessToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISuperLoginService_GetAccessTokenInType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessTokenInType" />
+  </wsdl:message>
+  <wsdl:message name="ISuperLoginService_GetAccessTokenInType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessTokenInTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISuperLoginService_GetAccessTokenInTypeByDealerId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessTokenInTypeByDealerId" />
+  </wsdl:message>
+  <wsdl:message name="ISuperLoginService_GetAccessTokenInTypeByDealerId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessTokenInTypeByDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISuperLoginService">
+    <wsdl:operation name="GetAccessToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISuperLoginService/GetAccessToken" message="tns:ISuperLoginService_GetAccessToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISuperLoginService/GetAccessTokenResponse" message="tns:ISuperLoginService_GetAccessToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessTokenInType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISuperLoginService/GetAccessTokenInType" message="tns:ISuperLoginService_GetAccessTokenInType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISuperLoginService/GetAccessTokenInTypeResponse" message="tns:ISuperLoginService_GetAccessTokenInType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessTokenInTypeByDealerId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISuperLoginService/GetAccessTokenInTypeByDealerId" message="tns:ISuperLoginService_GetAccessTokenInTypeByDealerId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISuperLoginService/GetAccessTokenInTypeByDealerIdResponse" message="tns:ISuperLoginService_GetAccessTokenInTypeByDealerId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISuperLoginService" type="tns:ISuperLoginService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAccessToken">
+      <soap:operation soapAction="http://tempuri.org/ISuperLoginService/GetAccessToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessTokenInType">
+      <soap:operation soapAction="http://tempuri.org/ISuperLoginService/GetAccessTokenInType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessTokenInTypeByDealerId">
+      <soap:operation soapAction="http://tempuri.org/ISuperLoginService/GetAccessTokenInTypeByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SuperLoginService">
+    <wsdl:port name="BasicHttpBinding_ISuperLoginService" binding="tns:BasicHttpBinding_ISuperLoginService">
+      <soap:address location="http://api.easypass.cn/das/inner/SuperLoginService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

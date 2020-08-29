@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>合力大屏监控-第四屏</title>
+    <link href="../Content/Css/bigscreenReport.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/HighChart/jquery1.8.3.min.js" type="text/javascript"></script>
+    <script src="../Scripts/HighChart/highcharts.js" type="text/javascript"></script>
+    <script src="../Scripts/defineJs/bigscreenReport.js" type="text/javascript"></script>
+    <script src="../Scripts/CommonJS/WebAPI.js" type="text/javascript"></script>
+    <link href="../Content/Css/WebApi.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        //30s刷新
+        var Interval1 = 1000 * 15;
+        //15m刷新
+        var Interval2 = 1000 * 15;
+        //初始化方法
+        $(document).ready(function () {
+            RefeshChart1();
+            RefeshChart2();
+            RefeshChart3();
+            RefeshChart4();
+        });
+
+        //左上
+        function RefeshChart1() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetHotLineRealInfo?hl=" + encodeURI("二手车"),
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_1_1_2().chartOption;
+                        option.series = data.data;
+                        $("#chart1").highcharts(option);
+                    } else {
+                        WebApi.Msg("提示", data.ErrorMsg); ;
+                    }
+                    setTimeout(RefeshChart1, Interval1);
+                },
+                error: function (msg) { }
+            });
+        }
+        //左下
+        function RefeshChart2() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetHotLineRealInfo?hl=" + encodeURI("购车热线"),
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_1_1_2().chartOption;
+                        option.series = data.data;
+                        $("#chart2").highcharts(option);
+                    } else {
+                        WebApi.Msg("提示", data.ErrorMsg); ;
+                    }
+                    setTimeout(RefeshChart2, Interval1);
+                },
+                error: function (msg) { }
+            });
+        }
+        //右上
+        function RefeshChart3() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetHotLineStateInfo?hl=" + encodeURI("二手车"),
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_1_3_4().chartOption;
+                        option.series = data.data;
+                        $("#chart3").highcharts(option);
+                    } else {
+                        WebApi.Msg("提示", data.ErrorMsg); ;
+                    }
+                    setTimeout(RefeshChart3, Interval2);
+                },
+                error: function (msg) { }
+            });
+        }
+        //右下
+        function RefeshChart4() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetHotLineStateInfo?hl=" + encodeURI("购车热线"),
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_1_3_4().chartOption;
+                        option.series = data.data;
+                        $("#chart4").highcharts(option);
+                    } else {
+                        WebApi.Msg("提示", data.ErrorMsg); ;
+                    }
+                    setTimeout(RefeshChart4, Interval2);
+                },
+                error: function (msg) { }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="chart1">
+            <div class="title">
+                二手车（167热线） - 实时队列</div>
+            <div class="chartPic" id="chart1">
+            </div>
+        </div>
+        <div class="chart1 chart2">
+            <div class="title">
+                二手车（167热线） - 指标完成</div>
+            <div class="chartPic" id="chart3">
+            </div>
+        </div>
+        <div class="chart1 chart3">
+            <div class="title">
+                活动热线（130热线） - 实时队列
+            </div>
+            <div class="chartPic" id="chart2">
+            </div>
+        </div>
+        <div class="chart1 chart4">
+            <div class="title">
+                活动热线（130热线） - 指标完成</div>
+            <div class="chartPic" id="chart4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

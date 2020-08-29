@@ -1,0 +1,109 @@
+2014-08-26 10:48:35	error	   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.Utils.Security.DESEncryptor.Decrypt(String encryptedText, String decryptKey)
+   在 BitAuto.YanFa.SysRightManager.Common.UserInfo.IsLogin()不正确的数据。
+
+2014-08-26 10:48:35	error	   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.Utils.Security.DESEncryptor.Decrypt(String encryptedText, String decryptKey)
+   在 BitAuto.YanFa.SysRightManager.Common.UserInfo.IsLogin()不正确的数据。
+
+2014-08-26 10:48:35	error	   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.Utils.Security.DESEncryptor.Decrypt(String encryptedText, String decryptKey)
+   在 BitAuto.YanFa.SysRightManager.Common.UserInfo.IsLogin()不正确的数据。
+
+2014-08-26 10:48:39	error	   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.Utils.Security.DESEncryptor.Decrypt(String encryptedText, String decryptKey)
+   在 BitAuto.YanFa.SysRightManager.Common.UserInfo.IsLogin()不正确的数据。
+
+2014-08-26 10:50:29	info	GetInUseBusinessGroup
+2014-08-26 10:50:29	info	SELECT bg.*,CallNum FROM BusinessGroup as bg Left Join CallDisplay as cd on bg.CDID=cd.CDID where bg.Status=0 AND bg.BGID IN ( SELECT BGID
+                         FROM   dbo.UserGroupDataRigth ugd
+                         WHERE  ugd.UserID =  10658) 
+2014-08-26 10:50:29	info	GetEmployeeAgent
+2014-08-26 10:50:29	info	SELECT  BusinessGroup.* ,
+                                    EmployeeAgent.UserID
+                                    FROM    EmployeeAgent
+                                    INNER JOIN dbo.BusinessGroup ON EmployeeAgent.BGID = BusinessGroup.BGID 
+                                    WHERE BusinessGroup.Status=0 AND EmployeeAgent.UserID=10658
+2014-08-26 10:51:30	info	GetInUseBusinessGroup
+2014-08-26 10:51:30	info	SELECT bg.*,CallNum FROM BusinessGroup as bg Left Join CallDisplay as cd on bg.CDID=cd.CDID where bg.Status=0 AND bg.BGID IN ( SELECT BGID
+                         FROM   dbo.UserGroupDataRigth ugd
+                         WHERE  ugd.UserID =  10658) 
+2014-08-26 10:51:30	info	GetEmployeeAgent
+2014-08-26 10:51:30	info	SELECT  BusinessGroup.* ,
+                                    EmployeeAgent.UserID
+                                    FROM    EmployeeAgent
+                                    INNER JOIN dbo.BusinessGroup ON EmployeeAgent.BGID = BusinessGroup.BGID 
+                                    WHERE BusinessGroup.Status=0 AND EmployeeAgent.UserID=10658
+2014-08-26 10:55:35	info	GetInUseBusinessGroup
+2014-08-26 10:55:35	info	SELECT bg.*,CallNum FROM BusinessGroup as bg Left Join CallDisplay as cd on bg.CDID=cd.CDID where bg.Status=0 AND bg.BGID IN ( SELECT BGID
+                         FROM   dbo.UserGroupDataRigth ugd
+                         WHERE  ugd.UserID =  10658) 
+2014-08-26 10:55:35	info	GetEmployeeAgent
+2014-08-26 10:55:35	info	SELECT  BusinessGroup.* ,
+                                    EmployeeAgent.UserID
+                                    FROM    EmployeeAgent
+                                    INNER JOIN dbo.BusinessGroup ON EmployeeAgent.BGID = BusinessGroup.BGID 
+                                    WHERE BusinessGroup.Status=0 AND EmployeeAgent.UserID=10658
+2014-08-26 10:55:42	info	GetInUseBusinessGroup
+2014-08-26 10:55:42	info	SELECT bg.*,CallNum FROM BusinessGroup as bg Left Join CallDisplay as cd on bg.CDID=cd.CDID where bg.Status=0 AND bg.BGID IN ( SELECT BGID
+                         FROM   dbo.UserGroupDataRigth ugd
+                         WHERE  ugd.UserID =  10658) 
+2014-08-26 10:55:42	info	GetEmployeeAgent
+2014-08-26 10:55:42	info	SELECT  BusinessGroup.* ,
+                                    EmployeeAgent.UserID
+                                    FROM    EmployeeAgent
+                                    INNER JOIN dbo.BusinessGroup ON EmployeeAgent.BGID = BusinessGroup.BGID 
+                                    WHERE BusinessGroup.Status=0 AND EmployeeAgent.UserID=10658
+2014-08-26 10:55:45	info	GetInUseBusinessGroup
+2014-08-26 10:55:45	info	SELECT bg.*,CallNum FROM BusinessGroup as bg Left Join CallDisplay as cd on bg.CDID=cd.CDID where bg.Status=0 AND bg.BGID IN ( SELECT BGID
+                         FROM   dbo.UserGroupDataRigth ugd
+                         WHERE  ugd.UserID =  10658) 
+2014-08-26 10:55:45	info	GetEmployeeAgent
+2014-08-26 10:55:45	info	SELECT  BusinessGroup.* ,
+                                    EmployeeAgent.UserID
+                                    FROM    EmployeeAgent
+                                    INNER JOIN dbo.BusinessGroup ON EmployeeAgent.BGID = BusinessGroup.BGID 
+                                    WHERE BusinessGroup.Status=0 AND EmployeeAgent.UserID=10658
+2014-08-26 10:55:48	info	GetInUseBusinessGroup
+2014-08-26 10:55:48	info	SELECT bg.*,CallNum FROM BusinessGroup as bg Left Join CallDisplay as cd on bg.CDID=cd.CDID where bg.Status=0 AND bg.BGID IN ( SELECT BGID
+                         FROM   dbo.UserGroupDataRigth ugd
+                         WHERE  ugd.UserID =  10658) 
+2014-08-26 10:55:48	info	GetEmployeeAgent
+2014-08-26 10:55:48	info	SELECT  BusinessGroup.* ,
+                                    EmployeeAgent.UserID
+                                    FROM    EmployeeAgent
+                                    INNER JOIN dbo.BusinessGroup ON EmployeeAgent.BGID = BusinessGroup.BGID 
+                                    WHERE BusinessGroup.Status=0 AND EmployeeAgent.UserID=10658
+2014-08-26 13:36:52	error	   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.Utils.Security.DESEncryptor.Decrypt(String encryptedText, String decryptKey)
+   在 BitAuto.YanFa.SysRightManager.Common.UserInfo.IsLogin()不正确的数据。
+
+2014-08-26 13:37:43	error	   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.Utils.Security.DESEncryptor.Decrypt(String encryptedText, String decryptKey)
+   在 BitAuto.YanFa.SysRightManager.Common.UserInfo.IsLogin()不正确的数据。
+
+2014-08-26 19:22:06	error	   在 System.Security.Cryptography.CryptographicException.ThrowCryptogaphicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.Utils.Security.DESEncryptor.Decrypt(String encryptedText, String decryptKey)
+   在 BitAuto.YanFa.SysRightManager.Common.UserInfo.IsLogin()不正确的数据。
+

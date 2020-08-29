@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VerifyFormat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyFormatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerifyFormatResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="outNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyFormatXiAn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyFormatXiAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerifyFormatXiAnResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="outNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VerifyFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyFormat" />
+  </wsdl:message>
+  <wsdl:message name="VerifyFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyFormatXiAnSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyFormatXiAn" />
+  </wsdl:message>
+  <wsdl:message name="VerifyFormatXiAnSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyFormatXiAnResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VerifyPhoneFormatSoap">
+    <wsdl:operation name="VerifyFormat">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证电话号码，若在库中找不到对于关系，会从网上http://sj.kvgo.net下载归属地，存在本地库中</wsdl:documentation>
+      <wsdl:input message="tns:VerifyFormatSoapIn" />
+      <wsdl:output message="tns:VerifyFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyFormatXiAn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证电话号码，若在库中找不到对于关系，会从网上http://sj.kvgo.net下载归属地，存在本地库中</wsdl:documentation>
+      <wsdl:input message="tns:VerifyFormatXiAnSoapIn" />
+      <wsdl:output message="tns:VerifyFormatXiAnSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VerifyPhoneFormatSoap" type="tns:VerifyPhoneFormatSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerifyFormat">
+      <soap:operation soapAction="http://tempuri.org/VerifyFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyFormatXiAn">
+      <soap:operation soapAction="http://tempuri.org/VerifyFormatXiAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VerifyPhoneFormatSoap12" type="tns:VerifyPhoneFormatSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerifyFormat">
+      <soap12:operation soapAction="http://tempuri.org/VerifyFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyFormatXiAn">
+      <soap12:operation soapAction="http://tempuri.org/VerifyFormatXiAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VerifyPhoneFormat">
+    <wsdl:port name="VerifyPhoneFormatSoap" binding="tns:VerifyPhoneFormatSoap">
+      <soap:address location="http://ncc.sys1.bitauto.com/VerifyPhoneFormat.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VerifyPhoneFormatSoap12" binding="tns:VerifyPhoneFormatSoap12">
+      <soap12:address location="http://ncc.sys1.bitauto.com/VerifyPhoneFormat.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

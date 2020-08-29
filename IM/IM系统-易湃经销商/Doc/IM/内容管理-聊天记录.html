@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>内容管理-聊天记录</title>
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+<script src="js/jquery-1.6.4.min.js" language="javascript" type="text/javascript"></script>
+<script src="js/public.js" language="javascript" type="text/javascript"></script>
+<script src="js/hdm.js" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+<div class="crm">
+<!--头部开始-->
+<div class="head">
+	<!--header开始-->
+	<div class="header">
+    	<div class="logo left"><img src="images/logo.png"  alt="CRM系统logo" /></div>
+         <!--菜单开始-->
+        <div class="menu ft14">
+            <ul>
+                <li><a  href="#"><img src="images/pic1.png"  border="0"/><br />对话管理</a></li>
+                <li><a  class="cur"  href="#" ><img src="images/pic2.png" border="0" /><br />内容管理</a></li>
+                <li><a  href="#"><img src="images/pic3.png" border="0" /><br />访客管理</a></li>
+                <li><a  href="#"><img src="images/pic4.png" border="0" /><br />高级管理</a></li>
+                <li><a  href="#"><img src="images/pic5.png" border="0" /><br />数据统计</a></li>
+            </ul>
+        </div>
+       
+        <!--菜单结束-->	
+        		<div class="function right">
+                    <ul>
+                        <li><a href="#" class="write">帮助</a></li>
+                        <li><a href="#"  class="write">关于</a></li>
+                        <li><a href="#"  class="write">退出</a></li>
+                    </ul>
+                  <div class="clearfix"></div>
+                    <div class="user_zt right">
+                    	<div class="user left"><img src="images/user.png" width="12" height="14" /> admin</div>
+                        <div class="status right">
+                        	<ul>
+                                <li>
+                                    <ul class="menuUl">
+                                        <li class="position">
+                                        <span class="top_open nav_class" onMouseOver="this.className='nav_class_hover'" onMouseOut="this.className='nav_class'">
+                                            <a href="javascript:;" class="csbg"  title="在线">在线</a>
+                                            <ul class="top_cont nextT">
+                                                <li><a href="#" class="narxtmin">离线</a></li>
+                                                <li class="last"><a href="#" class="narxtmin">忙碌</a></li>
+                                            </ul>
+                                        </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+   </div>
+   <div style="clear:both;"></div>
+    <!--header结束-->
+   
+    <div class="clearfix"></div>
+    <!--子菜单开始-->
+    <div class="mainmenu_bottom">
+    	<ul class="" id="mb1">
+        	<li><a href="#" class="cur">聊天记录</a>| </li>
+            <li><a href="#" >在线留言</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!--子菜单结束-->
+</div>
+<!--头部结束-->
+<!--内容开始-->
+<div class="content content2">
+	<!--查询开始-->
+    	<div class="searchTj">
+        	<ul>
+            <li><label>经销商名称：</label><input name="" type="text"  class="w240"/></li>
+            <li><label>所属大区：</label><select  class="w240"><option>请选择</option><option>智能平台运营支持一部</option></select></li>
+            <li><label>所属城市群：</label><input name="" type="text"  class="w240"/></li>
+            <li><label>所属客服：</label><input name="" type="text"  class="w240"/></li>
+            <li><label>最后对话时间：</label><input name="" type="text"  class="w240" style="width:108px;"/> - <input name="" type="text"  class="w240" style="width:108px;"/></li>
+            <li><label>工单ID：</label><input name="" type="text"  class="w240"/></li>
+            <li style="width:80px;"><div class="tjBtn"><input type="button" value="查询"  class="w60"/></div></li>
+          </ul>
+          <div class="clearfix"></div>
+    	</div>
+	<!--查询结束-->
+    <!--列表开始-->
+    <div class="cxList online_dh" style="margin-top:8px;">
+    	<table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <th width="44%">经销商名称</th>
+            <th width="20%">最后对话时间</th>
+            <th width="12%">对话时长</th>
+            <th width="22%">客服</th>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+            <td class="cName">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+            <td>2014-9-16 13:51:12</td>
+            <td>32秒</td>
+            <td>张媛（数据系统中心）</td>
+          </tr>
+          <tr>
+          	<td colspan="5">
+            	<!--分页开始-->
+    	 				<div class="pagesnew" style="margin-right:0; margin-bottom:5px;">
+                            <span class="pre">上一页</span>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <span>...</span>
+                            <span><a href="#" class="next">下一页</a></span>
+                            <span>共50页</span>
+                            <span>到第</span><input type="text" value="" /><span>页</span>
+                            <span class="qd_go"><a href="#">GO</a></span>
+                        </div>
+    			<!--分页结束--> 
+            </td>
+          </tr>
+        </table> 
+         
+    </div>
+    <!--列表结束-->
+    <!--信息展示-->
+    <div class="kh_info">
+    	<div id="Tab1">
+        <div class="Menubox">
+        <ul>
+           <li id="one1" onclick="setTab('one',1,4)"  class="hover">客记信息</li>
+           <li id="one2" onclick="setTab('one',2,4)" >对话记录</li>
+           <li id="one3" onclick="setTab('one',3,4)">详细信息</li>  
+           <li id="one4" onclick="setTab('one',4,4)">详细信息</li>  
+        </ul>
+        </div>
+         <div class="Contentbox" style="height:575px;">
+         	<!--客户信息-->  
+           <div id="con_one_1" class="hover">
+           		<table border="0" cellspacing="0" cellpadding="0" class="cusInfo">
+                  <tr>
+                    <th width="20%">经销商名称：</th>
+                    <td width="70%">张家口庞大信诚汽车庞大信诚汽车销售服务有限公司</td>
+                  </tr>
+                  <tr>
+                    <th>易湃会员ID：</th>
+                    <td><a href="#">100018193</a></td>
+                  </tr>
+                   <tr>
+                    <th>所属大区：</th>
+                    <td>北京北方大区</td>
+                  </tr>
+                   <tr>
+                    <th>所属城市群：</th>
+                    <td>石家庄区</td>
+                  </tr>
+                   <tr>
+                    <th>客户分类：</th>
+                    <td>经销商</td>
+                  </tr>
+                   <tr>
+                    <th>姓名：</th>
+                    <td>张媛</td>
+                  </tr>
+                  <tr>
+                    <th>职务：</th>
+                    <td>客户经理</td>
+                  </tr>
+                  <tr>
+                    <th>电话：</th>
+                    <td>13600010002</td>
+                  </tr>
+                  <tr>
+                    <th>所在地区：</th>
+                    <td>陕西省西安市高新区</td>
+                  </tr>
+                  <tr>
+                    <th>联系人邮箱：</th>
+                    <td>zhangyuan5@bitauto.com</td>
+                  </tr>
+                </table>
+           </div>
+           <!--客户信息-->
+           <!--对话记录-->
+           <div id="con_one_2" style="display:none">
+           		<div class="dialogue">
+                	<ul class="search">
+                        <li><label>对话查询：</label><input type="text" value=""  class="w240"/></li>
+                        <li class="btn" style="width:80px;"><input type="button" value="查询"  class="w60"/></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                    <p>对话开始于: 09:53</p>
+                    <div class="">
+                        <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div> 
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>	
+                        <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div>
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>
+                         <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div>
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>
+                         <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div>
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>
+                         <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div>
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>
+                         <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div>
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>
+                         <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div>
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>
+                         <div class="dh1">
+                            <div class="title">张莹莹  09:53:31</div>
+                            <div class="dhc">您好，欢迎您访问！请问有什么需要咨询？</div>
+                        </div>
+                    </div>
+                    <p>结束:10:31:29 </p>
+                    <p>访客关闭对话。 </p>
+                </div>
+                <!--分页开始-->
+    	 				<div class="pagesnew" style="margin-right:0; margin-top:5px;">
+                            <span class="pre">上一页</span>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <span>...</span>
+                            <span><a href="#" class="next">下一页</a></span>
+                            <span>共50页</span>
+                            <span>到第</span><input type="text" value="" /><span>页</span>
+                            <span class="qd_go"><a href="#">GO</a></span>
+                        </div>
+    			<!--分页结束--> 
+           </div>
+           <!--对话记录-->
+           <!--详细信息-->
+           <div id="con_one_3" style="display:none">
+           		<table border="0" cellspacing="0" cellpadding="0" class="cusInfo">
+                  <tr>
+                    <th width="20%">开始时间：</th>
+                    <td width="70%">2014-4-21 16:20:15</td>
+                  </tr>
+                  <tr>
+                    <th>应答于：</th>
+                    <td>2014-4-21 16:40:17</td>
+                  </tr>
+                  <tr>
+                    <th>结束时间：</th>
+                    <td>2014-4-21 16:40:17</td>
+                  </tr>
+                   <tr>
+                    <th>对话时长：</th>
+                    <td>13:11:06</td>
+                  </tr>
+                  <tr>
+                    <th>客服：</th>
+                    <td>张媛（产品部）</td>
+                  </tr>
+                  <tr>
+                    <th>对客服评价：</th>
+                    <td>非常满意</td>
+                  </tr>
+                  <tr>
+                    <th>对产品评价：</th>
+                    <td>非常满意</td>
+                  </tr>
+                  <tr>
+                    <th>满意度评价留言：</th>
+                    <td>服务非常的好，非常满意</td>
+                  </tr>
+                  <tr>
+                    <th>对话类型：</th>
+                    <td>点击咨询图标</td>
+                  </tr>
+                  <tr>
+                    <th>发起页面：</th>
+                    <td>车易通</td>
+                  </tr>
+                </table>
+           </div>
+           <!--详细信息-->
+           <!--工单记录-->
+            <div id="con_one_4" style="display:none">
+            	<table border="0" cellspacing="0" cellpadding="0" class="cusInfo">
+                  <tr>
+                    <th width="20%">工单ID：</th>
+                    <td width="70%"><a href="#">IM20140519470698</a></td>
+                  </tr>
+                  <tr>
+                    <th>工单标题：</th>
+                    <td>关联了需求看一下数据</td>
+                  </tr>
+                  <tr>
+                    <th>提交日期：</th>
+                    <td>2014-05-31</td>
+                  </tr>
+                  <tr>
+                    <th>提交人：</th>
+                    <td>张媛（产品部）</td>
+                  </tr>
+                  <tr>
+                    <th>状态：</th>
+                    <td>待审核</td>
+                  </tr>
+                </table>
+                <table border="0" cellspacing="0" cellpadding="0" class="cusInfo">
+                  <tr>
+                    <th width="20%">工单ID：</th>
+                    <td width="70%"><a href="#">IM20140519470698</a></td>
+                  </tr>
+                  <tr>
+                    <th>工单标题：</th>
+                    <td>关联了需求看一下数据</td>
+                  </tr>
+                  <tr>
+                    <th>提交日期：</th>
+                    <td>2014-05-31</td>
+                  </tr>
+                  <tr>
+                    <th>提交人：</th>
+                    <td>张媛（产品部）</td>
+                  </tr>
+                  <tr>
+                    <th>状态：</th>
+                    <td>待审核</td>
+                  </tr>
+                </table>
+                <!--分页开始-->
+    	 				<div class="pagesnew" style="margin-right:0; margin-top:145px;">
+                            <span class="pre">上一页</span>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <span>...</span>
+                            <span><a href="#" class="next">下一页</a></span>
+                            <span>共50页</span>
+                            <span>到第</span><input type="text" value="" /><span>页</span>
+                            <span class="qd_go"><a href="#">GO</a></span>
+                        </div>
+    			<!--分页结束--> 
+            </div>
+            <!--工单记录-->
+         </div>
+        </div>
+    </div>
+    <!--信息展示-->
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<!--内容结束-->
+<div class="footer mt16">
+信息系统研发中心 任何建议和意见，请发邮件至：<a href="#">ISDC@bitauto.com</a><br />
+CopyRight © 2000-2013 Bitauto,All Rights Reserved 版权所有 北京易车互联信息技术有限公司
+</div>
+</div>
+</body>
+</html>

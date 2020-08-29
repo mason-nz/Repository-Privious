@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chat_Test</title>
+    <script type="text/javascript" language="javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/json2.js"></script>
+    <script type="text/javascript" language="javascript" src="js/AspNetComet.js?v=13"></script>
+    <script type="text/javascript" charset="utf-8" src="http://ip.bitauto.com/iplocation/setcookie.ashx"></script>
+    <script type="text/javascript">
+        var IsModifyed = false; /*当前页是否触发修改点*/
+        $(document).ready(function () {
+            SetBeforeunload(true, function () {
+                $('#message').val('234');
+            });
+            //SetBeforeunload(true);
+        });
+        function StartChat(username) {
+            $.ajax({
+                type: "POST",
+                url: "AjaxServers/Handler.ashx",
+                data: "action=init&username=" + username,
+                success: function (msg) {
+                    var r = JSON.parse(msg);
+                    if (r != null && r.result == 'loginok') {//登录成功之后,r.result为GUID
+                        //window.location = 'Chat.aspx?username=' + username;
+                        Connect(username);
+                    }
+                    else
+                        alert('登录失败：' + r.result);
+                }
+            });
+        }
+    </script>
+    <script language="javascript">
+
+        var defaultChannel = null;
+        var un = '';
+        function Connect(username) {
+            if (defaultChannel == null) {
+                defaultChannel = new AspNetComet("/DefaultChannel.ashx", username, "defaultChannel" + parseInt(Math.random() * 100));
+                defaultChannel.addTimeoutHandler(TimeoutHandler);
+                defaultChannel.addFailureHandler(FailureHandler);
+                defaultChannel.addSuccessHandler(SuccessHandler);
+                defaultChannel.subscribe(); un = username;
+                $('#sm').bind('click', function () {
+                    SendMessage(username == "masj" ? "masj001" : "masj");
+                });
+            }
+        }
+
+        function SuccessHandler(privateToken, alias, message) {
+            document.getElementById("messages").innerHTML += "alias:[" + alias + "]" + message.c.f + ": " + message.c.m + "<br/>";
+        }
+
+        function FailureHandler(privateToken, alias, error) {
+            document.getElementById("messages").innerHTML += "error" + error + "<br/>";
+            alert(error);
+        }
+
+        function TimeoutHandler(privateToken, alias) {
+            //alert("timeout");
+            //document.getElementById("messages").innerHTML += "timeout<br/>";
+        }
+
+
+        function SendMessage(username) {
+            $.ajax({
+                type: "POST",
+                url: "AjaxServers/Handler.ashx",
+                data: "action=sendmessage&username=" + username + "&message=" + $('#message').val(),
+                success: function (msg) {
+                    var r = JSON.parse(msg);
+                    if (r != null && r.result == 'sendok') {//登录成功之后
+
+                        document.getElementById("messages").innerHTML += $('#message').val() + "<br/>";
+                        $('#message').val('');
+                    }
+                    else
+                        alert('Send failed：' + r.result);
+                }
+            });
+
+        }
+        function CloseChat() {
+            $.ajax({
+                type: "POST",
+                url: "AjaxServers/Handler.ashx",
+                data: "action=closechat&username=" + un,
+                success: function (msg) {
+                    var r = JSON.parse(msg);
+                    if (r != null && r.result == 'sendok') {//登录成功之后
+
+                        //document.getElementById("messages").innerHTML += $('#message').val() + "<br/>";
+                        $('#messages').val('');
+                        $('#message').val('');
+                    }
+                    else
+                        alert('CloseChat failed：' + r.result);
+                }
+            });
+
+        }
+
+        function onKeyPress(e) {
+            var keyCode = null;
+
+            if (e.which)
+                keyCode = e.which;
+            else if (e.keyCode)
+                keyCode = e.keyCode;
+
+            if (keyCode == 13) {
+                $('#sm').click();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8" src="http://ip.bitauto.com/iplocation/setcookie.ashx"></script>
+    <input type="button" value='坐席登录' onclick='javascript:StartChat("masj");' />
+    <input type="button" value='在线咨询' onclick='javascript:StartChat("masj001");' />
+    <input type="button" value='关闭聊天' onclick='javascript:CloseChat("masj001");' />
+    <input type="button" value='SetBeforeunload(true)' onclick='javascript:SetBeforeunload(true);' />
+    <input type="button" value='SetBeforeunload(false)' onclick='javascript:SetBeforeunload(false);' />
+    <div>
+        <p>
+            Messages:
+            <div id="messages" style="width: 500px; height: 300px; border: 1px solid silver;
+                overflow: auto">
+            </div>
+            <input type="text" id="message" onkeypress="return onKeyPress(event)"></asp:TextBox>&nbsp;
+            <input type="button" value="Send Message" id="sm" />
+        </p>
+    </div>
+    <textarea disabled="disabled" id="Smessage" style="height: auto; overflow-y: scroll;"
+        onkeypress="return onKeyPress(event)" onclick="ClearTitle()"></textarea>
+        asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/> asdfadsfa
+        sdfa
+        sfda
+        sdfa<br/>
+    <!--<script type="text/javascript">
+    SetBeforeunload(true, function () {
+        $('#message').val('SetBeforeunload');
+    });
+</script>-->
+    <!-- Live800在线客服图标:测试2[浮动图标] 开始-->
+    <!--    <div style='display: none;'>
+        <a href='http://www.live800.com'>web对话</a></div>
+    <script language="javascript" src="http://chat8.live800.com/live800/chatClient/floatButton.js?jid=8588305446&companyID=345711&configID=136877&codeType=custom"></script>
+    <div style='display: none;'>
+        <a href='http://en.live800.com'>live chat</a></div>-->
+    <!-- 在线客服图标:测试2 结束-->
+   
+
+
+    <!-- 易车在线客服图标:[浮动图标] 开始-->
+    <script type="text/javascript">
+
+        try { document.open(); } catch (e) { ; }
+        var bitIM_Config = {
+            "float": 1,
+            "online": "http%3A%2F%2F127.0.0.1:11008%2Fimages%2F2_online.gif",
+            "closeIcon": 0,
+            "floatToRight": 1,
+            "floatTop": 150,
+            "floatSide": 15,
+            "switch": 0
+        };
+        document.write("<scr" + "ipt language=\"javascript\" src=\"js/floatButtonStatic.js\"></scr" + "ipt>");
+    </script>
+    <!-- 易车在线客服图标:[浮动图标] 结束-->
+</body>
+</html>

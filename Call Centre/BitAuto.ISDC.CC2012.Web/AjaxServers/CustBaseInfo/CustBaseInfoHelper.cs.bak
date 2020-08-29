@@ -1,0 +1,1267 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Text.RegularExpressions;
+using System.Data;
+using System.Transactions;
+using System.Text;
+using BitAuto.YanFa.SysRightManager.Common;
+using BitAuto.YanFa.Crm2009.BLL;
+using BitAuto.ISDC.CC2012.WebService;
+
+namespace BitAuto.ISDC.CC2012.Web.AjaxServers.CustBaseInfo
+{
+    public class CustBaseInfoHelper
+    {
+        public HttpRequest Request
+        {
+            get { return HttpContext.Current.Request; }
+        }
+
+        public string Action
+        {
+            get
+            {
+                if (Request["Action"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["Action"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        #region 新增修改客户相关属性
+        public string CheckedInfoStr
+        {
+            get
+            {
+                if (Request["CheckedInfoStr"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["CheckedInfoStr"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        #endregion
+
+        #region 删除客户相关属性
+        public string CustIdStr
+        {
+            get
+            {
+                if (Request["CustIDStr"] != null)
+                {
+                    return HttpUtility.UrlDecode((Request["CustIDStr"] + "").Trim());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        #endregion
+
+        public string TaskID
+        {
+            get
+            {
+                if (Request["TaskID"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["TaskID"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string CustID
+        {
+            get
+            {
+                if (Request["CustID"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["CustID"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string RecID
+        {
+            get
+            {
+                if (Request["RecID"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["RecID"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string TemplateID
+        {
+            get
+            {
+                if (Request["TemplateID"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["TemplateID"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string TemplateIDS
+        {
+            get
+            {
+                if (Request["TemplateIDS"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["TemplateIDS"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string IDS
+        {
+            get
+            {
+                if (Request["IDS"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["IDS"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        #region 转发相关属性
+        public string QuestionQuality
+        {
+            get
+            {
+                if (Request["QuestionQuality"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["QuestionQuality"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string LastTreatmentTime
+        {
+            get
+            {
+                if (Request["LastTreatmentTime"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["LastTreatmentTime"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string IsComplaint
+        {
+            get
+            {
+                if (Request["IsComplaint"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["IsComplaint"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string CurrentSolveUserEIDS
+        {
+            get
+            {
+                if (Request["CurrentSolveUserEIDS"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["CurrentSolveUserEIDS"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
+        #endregion
+
+        public string TCID
+        {
+            get
+            {
+                if (Request["TCID"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["TCID"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
+        #region 发送短信相关属性
+        public string Tels
+        {
+            get
+            {
+                if (Request["Tels"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["Tels"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string SendContent
+        {
+            get
+            {
+                if (Request["SendContent"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["SendContent"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        #endregion
+
+        #region 查询当前受理人相关属性
+        public string CurrentType
+        {
+            get
+            {
+                if (Request["CurrentType"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["CurrentType"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        #endregion
+
+        #region 获取短信类型，相关属性
+        public string Level
+        {
+            get
+            {
+                if (Request["Level"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["Level"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string PID
+        {
+            get
+            {
+                if (Request["PID"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["PID"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string CType
+        {
+            get
+            {
+                if (Request["CType"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["CType"].ToString());
+                }
+                else
+                {
+                    return "1";
+                }
+            }
+        }
+        #endregion
+
+        //省份ID
+        public string AreaID
+        {
+            get
+            {
+                if (Request["AreaID"] != null)
+                {
+                    return HttpUtility.UrlDecode(Request["AreaID"].ToString());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
+        internal void SubmitCheckInfo(bool isUpdate, out string msg)
+        {
+            msg = string.Empty;
+            CheckInfo checkInfo = (CheckInfo)Newtonsoft.Json.JavaScriptConvert.DeserializeObject(CheckedInfoStr, typeof(CheckInfo));
+            Entities.CustBasicInfo custBaseInfo = new Entities.CustBasicInfo();
+            string tels = string.Empty;
+            string emails = string.Empty;
+            Entities.BuyCarInfo buyCarInfo = null;
+            Entities.DealerInfo dealerInfo = null;
+            string errorMsg = string.Empty;
+
+            if (!checkInfo.Validate(isUpdate, out custBaseInfo, out tels, out emails, out buyCarInfo, out dealerInfo, out errorMsg))
+            {
+                msg = "{Result:'no',CustID:'0',ErrorMsg:'" + errorMsg + "'}";
+                return;
+            }
+            if (!string.IsNullOrEmpty(custBaseInfo.CustID))
+            {
+                Entities.CustBasicInfo info = BLL.CustBasicInfo.Instance.GetCustBasicInfo(custBaseInfo.CustID);
+
+                //记录更新之前的信息
+                StringBuilder sbUpdate = new StringBuilder();
+                sbUpdate.Append("修改客户【" + info.CustID + "】:");
+                if (!info.CustName.Equals(custBaseInfo.CustName))
+                {
+                    sbUpdate.Append("把姓名【" + info.CustName + "】修改为【" + custBaseInfo.CustName + "】,");
+                }
+                if (!info.Sex.Equals(custBaseInfo.Sex))
+                {
+                    sbUpdate.Append("把性别" + info.Sex == "1" ? "【男】" : "【女】" + "修改为" + custBaseInfo.Sex == "1" ? "【男】" : "【女】" + ",");
+                }
+                if (!info.ProvinceID.Equals(custBaseInfo.ProvinceID))
+                {
+                    sbUpdate.Append("把区域【" + BLL.Util.GetEnumOptText(typeof(Entities.EnumArea), (int)info.AreaID) + "】修改为【" + BLL.Util.GetEnumOptText(typeof(Entities.EnumArea), (int)custBaseInfo.AreaID) + "】,");
+                }
+                if (!info.ProvinceID.Equals(custBaseInfo.ProvinceID))
+                {
+                    sbUpdate.Append("把省【" + BitAuto.YanFa.Crm2009.BLL.AreaInfo.Instance.GetAreaName(info.ProvinceID.ToString()) + "】修改为【" + BitAuto.YanFa.Crm2009.BLL.AreaInfo.Instance.GetAreaName(custBaseInfo.ProvinceID.ToString()) + "】,");
+                }
+                if (!info.CityID.Equals(custBaseInfo.CityID))
+                {
+                    sbUpdate.Append("把市【" + BitAuto.YanFa.Crm2009.BLL.AreaInfo.Instance.GetAreaName(info.CityID.ToString()) + "】修改为【" + BitAuto.YanFa.Crm2009.BLL.AreaInfo.Instance.GetAreaName(custBaseInfo.CityID.ToString()) + "】,");
+                }
+                if (!info.CountyID.Equals(custBaseInfo.CountyID))
+                {
+                    sbUpdate.Append("把县【" + BitAuto.YanFa.Crm2009.BLL.AreaInfo.Instance.GetAreaName(info.CountyID.ToString()) + "】修改为【" + BitAuto.YanFa.Crm2009.BLL.AreaInfo.Instance.GetAreaName(custBaseInfo.CountyID.ToString()) + "】,");
+                }
+                if (!info.DataSource.Equals(custBaseInfo.DataSource))
+                {
+                    //sbUpdate.Append("把数据来源【" + BLL.Util.GetEnumOptText(typeof(Entities.EnumDataSource), (int)info.DataSource) + "】修改为【" + BLL.Util.GetEnumOptText(typeof(Entities.EnumDataSource), (int)custBaseInfo.DataSource) + "】" + ",");
+                    sbUpdate.Append("把数据来源【" + BLL.Util.GetEnumOptText(typeof(Entities.WorkOrderDataSource), (int)info.DataSource) + "】修改为【" + BLL.Util.GetEnumOptText(typeof(Entities.WorkOrderDataSource), (int)custBaseInfo.DataSource) + "】" + ",");
+                }
+                if (!info.CustCategoryID.Equals(custBaseInfo.CustCategoryID))
+                {
+                    sbUpdate.Append("把客户分类【" + info.CustCategoryID + "】修改为【" + custBaseInfo.CustCategoryID + "】,");
+                }
+                info.Address = custBaseInfo.Address;
+                info.AreaID = custBaseInfo.AreaID;
+                info.CallTime = custBaseInfo.CallTime;
+                info.CityID = custBaseInfo.CityID;
+                info.CountyID = custBaseInfo.CountyID;
+                info.CustCategoryID = custBaseInfo.CustCategoryID;
+                info.CustName = custBaseInfo.CustName;
+                info.DataSource = custBaseInfo.DataSource;
+                info.ModifyTime = DateTime.Now;
+                info.ModifyUserID = BLL.Util.GetLoginUserID();
+                info.ProvinceID = custBaseInfo.ProvinceID;
+                info.Sex = custBaseInfo.Sex;
+                if (isUpdate)
+                {
+                    info.ModifyTime = DateTime.Now;
+                    info.ModifyUserID = BLL.Util.GetLoginUserID();
+                }
+
+                BLL.CustBasicInfo.Instance.Update(info);
+
+                //记录更新之前的电话
+                DataTable dtTel = BLL.CustTel.Instance.GetCustTel(custBaseInfo.CustID);
+                string beforeTel = string.Empty;
+                foreach (DataRow dr in dtTel.Rows)
+                {
+                    beforeTel += dr["Tel"].ToString() + ",";
+                }
+                if (beforeTel.Length > 0)
+                {
+                    beforeTel = beforeTel.Substring(0, beforeTel.Length - 1);
+                }
+                if (!beforeTel.Equals(tels))
+                {
+                    sbUpdate.Append("把电话【" + beforeTel + "】修改为【" + tels + "】,");
+                }
+                //记录更新之后的邮件
+                DataTable dtEmail = BLL.CustEmail.Instance.GetCustEmail(custBaseInfo.CustID);
+                string beforeEmail = string.Empty;
+                foreach (DataRow dr in dtEmail.Rows)
+                {
+                    beforeEmail += dr["Email"] + ",";
+                }
+                if (beforeEmail.Length > 0)
+                {
+                    beforeEmail = beforeEmail.Substring(0, beforeEmail.Length - 1);
+                }
+                if (!beforeEmail.Equals(emails))
+                {
+                    sbUpdate.Append("把邮箱【" + beforeEmail + "】修改为【" + emails + "】,");
+                }
+                //删除电话，重新插入
+                BLL.CustTel.Instance.Delete(custBaseInfo.CustID);
+                foreach (string str in tels.Split(','))
+                {
+                    Entities.CustTel custTelInfo = new Entities.CustTel();
+                    custTelInfo.CreateTime = DateTime.Now;
+                    custTelInfo.CreateUserID = BLL.Util.GetLoginUserID();
+                    custTelInfo.CustID = custBaseInfo.CustID;
+                    custTelInfo.Tel = str;
+                    BLL.CustTel.Instance.Insert(custTelInfo);
+                }
+
+                //删除邮件，重新插入
+                BLL.CustEmail.Instance.Delete(custBaseInfo.CustID);
+                foreach (string str in emails.Split(','))
+                {
+                    Entities.CustEmail custEmailInfo = new Entities.CustEmail();
+                    custEmailInfo.CreateTime = DateTime.Now;
+                    custEmailInfo.CreateUserID = BLL.Util.GetLoginUserID();
+                    custEmailInfo.CustID = custBaseInfo.CustID;
+                    custEmailInfo.Email = str;
+                    BLL.CustEmail.Instance.Insert(custEmailInfo);
+                }
+
+                //插入日志记录
+                BLL.Util.InsertUserLog(sbUpdate.ToString());
+
+                msg = "{Result:'yes',CustID:'" + custBaseInfo.CustID + "',ErrorMsg:'" + errorMsg + "'}";
+
+            }
+            else
+            {
+                custBaseInfo.CreateTime = DateTime.Now;
+                custBaseInfo.CreateUserID = BLL.Util.GetLoginUserID();
+                custBaseInfo.Status = 0;
+                string custId = BLL.CustBasicInfo.Instance.Insert(custBaseInfo);
+
+                //插入电话
+                foreach (string str in tels.Split(','))
+                {
+                    Entities.CustTel custTelInfo = new Entities.CustTel();
+                    custTelInfo.CreateTime = DateTime.Now;
+                    custTelInfo.CreateUserID = BLL.Util.GetLoginUserID();
+                    custTelInfo.CustID = custId;
+                    custTelInfo.Tel = str;
+                    BLL.CustTel.Instance.Insert(custTelInfo);
+                }
+
+                //插入邮箱
+                foreach (string str in emails.Split(','))
+                {
+                    Entities.CustEmail custEmailInfo = new Entities.CustEmail();
+                    custEmailInfo.CreateTime = DateTime.Now;
+                    custEmailInfo.CreateUserID = BLL.Util.GetLoginUserID();
+                    custEmailInfo.CustID = custId;
+                    custEmailInfo.Email = str;
+                    BLL.CustEmail.Instance.Insert(custEmailInfo);
+                }
+
+                BLL.Util.InsertUserLog("新增客户，客户ID为" + custId);
+                msg = "{Result:'yes',CustID:'" + custId + "',ErrorMsg:'" + errorMsg + "'}";
+            }
+        }
+
+        //删除客户
+        internal void DeleteCustBaseInfo(out string msg)
+        {
+            msg = string.Empty;
+            string[] custIdArry = CustIdStr.Split(',');
+            foreach (string custId in custIdArry)
+            {
+                Entities.CustBasicInfo info = BLL.CustBasicInfo.Instance.GetCustBasicInfo(custId);
+                if (info == null)
+                {
+                    msg += "不存在客户" + custId + "";
+                    return;
+                }
+                else
+                {
+                    if (BLL.CallRecordInfo.Instance.HavCarRecordInfoByCustID(custId))
+                    {
+                        msg += "客户" + custId + "下有录音记录，无法进行删除操作";
+                    }
+                    if (BLL.CustHistoryInfo.Instance.HavCustHistoryInfoByCustID(custId))
+                    {
+                        msg += "客户" + custId + "下有历史记录，无法进行删除操作";
+                    }
+                }
+            }
+            if (msg.Length == 0)
+            {
+                foreach (string custId in custIdArry)
+                {
+                    BLL.CustBasicInfo.Instance.Delete(custId);
+                    BLL.Util.InsertUserLog("删除客户ID为" + custId + "的客户");
+                }
+                msg = "success";
+            }
+
+        }
+
+        //转让任务
+        internal void ForwardTask(out string msg)
+        {
+            msg = string.Empty;
+            if (string.IsNullOrEmpty(TaskID))
+            {
+                msg = "不存在此任务";
+                return;
+            }
+            else
+            {
+                Entities.CustHistoryInfo custHistoryInfo = BLL.CustHistoryInfo.Instance.GetCustHistoryInfo(TaskID);
+
+                if (custHistoryInfo != null)
+                {
+                    int i = 0;
+                    DateTime dt;
+                    #region 转发相关属性验证
+                    if (string.IsNullOrEmpty(QuestionQuality) || !int.TryParse(QuestionQuality, out i) || i < 1)
+                    {
+                        msg = "请选择问题性质";
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(LastTreatmentTime))
+                    {
+                        msg = "请输入最晚处理时间";
+                        return;
+                    }
+                    else if (!DateTime.TryParse(LastTreatmentTime, out dt))
+                    {
+                        msg = "最晚处理时间格式有误";
+                        return;
+                    }
+                    else if (dt.DayOfYear < DateTime.Now.DayOfYear)
+                    {
+                        msg = "最晚处理时间不能小于当前时间";
+                        return;
+                    }
+                    #endregion
+
+                    custHistoryInfo.IsComplaint = bool.Parse(IsComplaint);
+                    custHistoryInfo.LastTreatmentTime = dt;
+                    custHistoryInfo.QuestionQuality = i;
+                    custHistoryInfo.ProcessStatus = (int)Entities.EnumTaskStatus.TaskStatusWait;
+                    BLL.CustHistoryInfo.Instance.Update(custHistoryInfo);
+                    foreach (string idStr in IDS.Split(';'))
+                    {
+                        if (!string.IsNullOrEmpty(idStr))
+                        {
+                            string[] arry = idStr.Split('|');
+                            foreach (string eidStr in arry[0].Split(','))
+                            {
+                                Entities.CustHistoryTemplateMapping templateMapping = new Entities.CustHistoryTemplateMapping();
+                                templateMapping.CreateTime = DateTime.Now;
+                                templateMapping.CreateUserID = BLL.Util.GetLoginUserID();
+                                templateMapping.SolveUserEID = int.Parse(eidStr);
+                                templateMapping.TaskID = TaskID;
+                                templateMapping.TemplateID = int.Parse(arry[1]);
+                                BLL.CustHistoryTemplateMapping.Instance.Insert(templateMapping);
+
+                                //插入受理人
+                                Entities.TaskCurrentSolveUser solveUser = new Entities.TaskCurrentSolveUser();
+                                solveUser.CreateTime = DateTime.Now;
+                                solveUser.CreateUserAdName = HttpContext.Current.User.Identity.Name.ToString();
+                                solveUser.CurrentSolveUserEID = int.Parse(eidStr);
+                                solveUser.CurrentSolveUserID = GetSysUserIDByEID(int.Parse(eidStr));
+                                solveUser.Status = 0;
+                                solveUser.TaskID = TaskID;
+                                BLL.TaskCurrentSolveUser.Instance.Insert(solveUser);
+                                //记录日志
+                                BLL.Util.InsertUserLog("转发客户ID为" + CustID + "任务ID为" + TaskID + "的任务给" + BLL.Util.GetEmployeeNameByEid(int.Parse(eidStr)));
+                            }
+
+                        }
+                    }
+                    int userId = BLL.Util.GetLoginUserID();
+                    //插入客户处理记录
+                    Entities.CustHistoryLog historyLog = new Entities.CustHistoryLog();
+                    historyLog.Action = (int)Entities.Action.ActionApplyTurn;
+                    historyLog.Comment = string.Empty;
+                    historyLog.SolveTime = DateTime.Now;
+                    historyLog.TaskID = TaskID;
+                    historyLog.SolveUserID = BLL.Util.GetLoginUserID();
+                    historyLog.SolveUserEID = BLL.Util.GetHrEIDByLimitEID(userId);
+                    historyLog.Status = 0;
+                    BLL.CustHistoryLog.Instance.Insert(historyLog);
+                    msg = "success";
+                }
+                else
+                {
+                    msg = "不存在此任务";
+                    return;
+                }
+            }
+
+
+        }
+
+        //发送短信
+        internal void SendSMS(out string msg)
+        {
+            msg = string.Empty;
+            Entities.CustBasicInfo historyInfo = BLL.CustBasicInfo.Instance.GetCustBasicInfo(CustID);
+            if (historyInfo == null)
+            {
+                msg = "此客户不存在";
+                return;
+            }
+            int tcId = 0;
+            if (!int.TryParse(TCID, out tcId))
+            {
+                msg = "请选择短信类型";
+                return;
+            }
+            int totalCount = 0;
+            Entities.QueryTemplateInfo templateQuery = new Entities.QueryTemplateInfo();
+            templateQuery.TCID = tcId;
+            DataTable dt = BLL.TemplateInfo.Instance.GetTemplateInfo(templateQuery, "", 1, 1, out totalCount);
+            if (dt.Rows.Count == 0)
+            {
+                msg = "不存在此模版";
+                return;
+            }
+            if (SendContent.Length > 140)
+            {
+                msg = "发送字符超长";
+                return;
+            }
+            Regex reTel = new Regex(@"(^13[0-9]{9}$)|(^15[0-9]{9}$)|(^18[0-9]{9}$)|(^14[0-9]{9}$)");
+            string[] telArry = Tels.Split(',');
+            if (telArry.Length == 0)
+            {
+                msg = "电话号码不能为空";
+                return;
+            }
+            if (telArry.Length > 2)
+            {
+                msg = "电话号码不能超过3个";
+                return;
+            }
+            foreach (string str in telArry)
+            {
+                if (!string.IsNullOrEmpty(str))
+                {
+                    if (!reTel.IsMatch(str))
+                    {
+                        msg = "电话(" + str + ")不符合规则";
+                        return;
+                    }
+
+
+                    Entities.SendSMSLog smsLogModel = new Entities.SendSMSLog();
+                    smsLogModel.CreateUserID = BLL.Util.GetLoginUserID();
+                    smsLogModel.CustID = CustID;
+                    smsLogModel.Mobile = str;
+                    smsLogModel.SendContent = SendContent;
+                    smsLogModel.SendTime = DateTime.Now;
+                    smsLogModel.TemplateID = int.Parse(TemplateID);
+                    BLL.SendSMSLog.Instance.Insert(smsLogModel);
+
+                    //发送短信
+                    //com.bitauto.mobile.MsgService msgService = new com.bitauto.mobile.MsgService();
+                    //string md5 = msgService.MixMd5("6116" + str + SendContent + "Ytt1TEy3hnYIgqTOOIGEc0MFL9wrN0yJJuUUPVfjyM+dkY3ei/8WUc8L7qFqgCbp");
+                    //int msgid = msgService.SendMsgImmediately("6116", str, SendContent, "", DateTime.Now.AddHours(1), md5);
+                    string md5 = SMSServiceHelper.Instance.MixMd5(str, SendContent);
+                    int msgid = SMSServiceHelper.Instance.SendMsgImmediately(str, SendContent, DateTime.Now.AddHours(1), md5);
+                    if (msgid > 0)
+                    {
+                        //插入发送短信记录
+                        msg = "success";
+                        BLL.Util.InsertUserLog("给手机（" + str + "）发送短信成功");
+                    }
+                    else
+                    {
+                        msg = BLL.Util.GetEnumOptText(typeof(Entities.SendSMSInfo), msgid);
+                        BLL.Util.InsertUserLog("给手机（" + str + "）发送短信失败【错误信息：" + msg + "】");
+                    }
+
+                }
+            }
+        }
+
+        //add by qizq 2013-8-13,发短信模式改成无主订单模式
+        internal void SendSMSNew(out string msg)
+        {
+            msg = string.Empty;
+
+            //工单模块 不需要保存客户 也可以发送短信 update 13.9.5 lxw
+            //Entities.CustBasicInfo historyInfo = BLL.CustBasicInfo.Instance.GetCustBasicInfo(CustID);
+            //if (historyInfo == null)
+            //{
+            //    msg = "此客户不存在";
+            //    return;
+            //}
+
+            Regex reTel = new Regex(@"(^13[0-9]{9}$)|(^15[0-9]{9}$)|(^18[0-9]{9}$)|(^14[0-9]{9}$)");
+            string[] telArry = Tels.Split(',');
+            if (telArry.Length == 0)
+            {
+                msg = "电话号码不能为空";
+                return;
+            }
+            if (telArry.Length > 2)
+            {
+                msg = "电话号码不能超过3个";
+                return;
+            }
+            foreach (string str in telArry)
+            {
+                if (!string.IsNullOrEmpty(str))
+                {
+                    if (!reTel.IsMatch(str))
+                    {
+                        msg = "电话(" + str + ")不符合规则";
+                        return;
+                    }
+
+
+                    Entities.SendSMSLog smsLogModel = new Entities.SendSMSLog();
+                    smsLogModel.CreateUserID = BLL.Util.GetLoginUserID();
+                    smsLogModel.CustID = CustID;
+                    smsLogModel.Mobile = str;
+                    smsLogModel.SendContent = SendContent;
+                    smsLogModel.SendTime = DateTime.Now;
+                    smsLogModel.TemplateID = -1;
+                    BLL.SendSMSLog.Instance.Insert(smsLogModel);
+
+                    //发送短信
+                    //com.bitauto.mobile.MsgService msgService = new com.bitauto.mobile.MsgService();
+                    //string md5 = msgService.MixMd5("6116" + str + SendContent + "Ytt1TEy3hnYIgqTOOIGEc0MFL9wrN0yJJuUUPVfjyM+dkY3ei/8WUc8L7qFqgCbp");
+                    //int msgid = msgService.SendMsgImmediately("6116", str, SendContent, "", DateTime.Now.AddHours(1), md5);
+                    string md5 = SMSServiceHelper.Instance.MixMd5(str, SendContent);
+                    int msgid = SMSServiceHelper.Instance.SendMsgImmediately(str, SendContent, DateTime.Now.AddHours(1), md5);
+                    if (msgid > 0)
+                    {
+                        //插入发送短信记录
+                        msg = "success";
+                        BLL.Util.InsertUserLog("给手机（" + str + "）发送短信成功");
+                    }
+                    else
+                    {
+                        msg = BLL.Util.GetEnumOptText(typeof(Entities.SendSMSInfo), msgid);
+                        BLL.Util.InsertUserLog("给手机（" + str + "）发送短信失败【错误信息：" + msg + "】");
+                    }
+
+                }
+            }
+        }
+        //
+
+
+        //根据咨询类型获取受理人
+        internal void GetCurrentType(out string msg)
+        {
+            msg = string.Empty;
+            if (!string.IsNullOrEmpty(CurrentType))
+            {
+                string firstCategoryName = string.Empty;
+                string secondCategoryNames = string.Empty;
+                string[] arry = CurrentType.Split(';');
+                if (arry.Length > 1)
+                {
+                    firstCategoryName = arry[0];
+                    if (arry[1].Length > 0)
+                    {
+                        secondCategoryNames = arry[1];
+                    }
+                }
+                else
+                {
+                    firstCategoryName = CurrentType;
+                }
+                DataTable dt = BLL.ConsultSolveUserMapping.Instance.GetEmailConsultSolveUserByTemplateCategoryName(firstCategoryName.Trim(), secondCategoryNames);
+                string names = string.Empty;
+                string eids = string.Empty;
+                string templateIds = string.Empty;
+                List<string> nameArry = new List<string>();
+                List<int> templateArry = new List<int>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //对受理人名称去重
+                    if (!nameArry.Contains(dr["SolveUserEName"].ToString()))
+                    {
+                        nameArry.Add(dr["SolveUserEName"].ToString());
+                        names += dr["SolveUserEName"].ToString() + ",";
+                    }
+                    if (!templateArry.Contains(int.Parse(dr["TemplateID"].ToString())))
+                    {
+                        templateArry.Add(int.Parse(dr["TemplateID"].ToString()));
+                        templateIds += dr["TemplateID"].ToString() + ",";
+                    }
+                }
+                if (names.Length > 0)
+                {
+                    names = names.Substring(0, names.Length - 1);
+                }
+                if (templateIds.Length > 0)
+                {
+                    templateIds = templateIds.Substring(0, templateIds.Length - 1);
+                }
+                msg = "{Names:'" + names + "',TemplateIDS:'" + templateIds + "'}";
+            }
+        }
+
+        internal void GetSolveUserInfo(out string msg)
+        {
+            msg = string.Empty;
+            DataTable dt = BLL.ConsultSolveUserMapping.Instance.GetConsultSolveUserByTemplateID(int.Parse(TemplateID));
+            if (dt != null)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        msg += "[";
+                    }
+                    if (i == dt.Rows.Count - 1)
+                    {
+                        msg += "{Name:'" + dt.Rows[i]["SolveUserEName"] + "',SolveUserEID:'" + dt.Rows[i]["SolveUserEID"] + "'}]";
+                    }
+                    else
+                    {
+                        msg += "{Name:'" + dt.Rows[i]["SolveUserEName"] + "',SolveUserEID:'" + dt.Rows[i]["SolveUserEID"] + "'},";
+                    }
+                }
+            }
+        }
+        //获取短信类型
+        internal void GetTemplateCategory(out string msg)
+        {
+            msg = string.Empty;
+            Entities.QueryTemplateCategory query = new Entities.QueryTemplateCategory();
+            query.Type = int.Parse(CType);
+            query.Pid = int.Parse(PID);
+            query.Level = int.Parse(Level);
+            int totalCount = 0;
+            DataTable dt = BLL.TemplateCategory.Instance.GetTemplateCategory(query, "", 1, 100, out totalCount);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (i == 0)
+                {
+                    msg += "[";
+                }
+                msg += "{RecID:'" + dt.Rows[i]["RecID"].ToString() + "',Name:'" + dt.Rows[i]["Name"].ToString() + "'}";
+                if (i < dt.Rows.Count - 1)
+                {
+                    msg += ",";
+                }
+                if (i == dt.Rows.Count - 1)
+                {
+                    msg += "]";
+                }
+            }
+        }
+
+        //获取模版信息
+        internal void GetTemplateInfo(out string msg)
+        {
+            msg = string.Empty;
+            Entities.QueryTemplateInfo queryTemplateInfo = new Entities.QueryTemplateInfo();
+            int tcId = 0;
+            if (!int.TryParse(TCID, out tcId))
+            {
+                msg = "请选择模版！";
+                return;
+            }
+            queryTemplateInfo.TCID = int.Parse(TCID);
+            int totalCount = 0;
+            DataTable dt = BLL.TemplateInfo.Instance.GetTemplateInfo(queryTemplateInfo, "", 1, 100, out totalCount);
+            int i = 0;
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (i == 0)
+                {
+                    msg += "[";
+                }
+                if (i < dt.Rows.Count - 1)
+                {
+                    msg += "{TemplateID:'" + dr["RecID"] + "',Title:'" + dr["Title"] + "',Content:'" + HttpUtility.UrlEncode(dr["Content"].ToString()) + "'},";
+                }
+                else
+                {
+                    msg += "{TemplateID:'" + dr["RecID"] + "',Title:'" + dr["Title"] + "',Content:'" + HttpUtility.UrlEncode(dr["Content"].ToString()) + "'}]";
+                }
+                i++;
+            }
+
+        }
+
+        //获取模版信息
+        internal void GetDetailTemplateInfo(out string msg)
+        {
+            msg = string.Empty;
+            Entities.QueryTemplateInfo queryTemplateInfo = new Entities.QueryTemplateInfo();
+            queryTemplateInfo.RecID = int.Parse(RecID);
+            int totalCount = 0;
+            DataTable dt = BLL.TemplateInfo.Instance.GetTemplateInfo(queryTemplateInfo, "", 1, 100, out totalCount);
+            int i = 0;
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (i == 0)
+                {
+                    msg += "[";
+                }
+                if (i < dt.Rows.Count - 1)
+                {
+                    msg += "{TemplateID:'" + dr["RecID"] + "',Title:'" + dr["Title"] + "',Content:'" + HttpUtility.UrlEncode(dr["Content"].ToString()) + "'},";
+                }
+                else
+                {
+                    msg += "{TemplateID:'" + dr["RecID"] + "',Title:'" + dr["Title"] + "',Content:'" + HttpUtility.UrlEncode(dr["Content"].ToString()) + "'}]";
+                }
+                i++;
+            }
+
+        }
+
+
+        //根据客户号获取客户信息
+        internal void GetCustBasicInfoByCustID(out string msg)
+        {
+            msg = string.Empty;
+            Entities.CustBasicInfo model = BLL.CustBasicInfo.Instance.GetCustBasicInfo(CustID);
+
+            if (model != null)
+            {
+                DataTable dt = BLL.CustTel.Instance.GetCustTel(CustID);
+                string tel1 = "", tel2 = "";
+
+                if (dt.Rows.Count > 0)
+                {
+                    int i = 0;                    
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (i == 0)
+                        {
+                            tel1 = row["Tel"].ToString();
+                        }
+                        else if (i == 1)
+                        {
+                            tel2 = row["Tel"].ToString();
+                            break;
+                        }
+                        i++;
+                    }
+                }
+                msg = "{CustID:'" + CustID + "',CustName:'" + model.CustName + "',Sex:'" + model.Sex + "',Tel1:'" + tel1 + "',Tel2:'" + tel2 + "'}";
+            }
+        }
+        /// <summary>
+        /// 获取大区ID
+        /// </summary>
+        /// <param name="msg"></param>
+        internal void GetDepartID(out string msg)
+        {
+            msg = string.Empty;
+            int areaId = -1;
+            if (int.TryParse(AreaID, out areaId))
+            {
+                string departID = BitAuto.YanFa.Crm2009.BLL.DepartmentArea.Instance.GetDepartIDByAreaID(areaId);
+                switch (departID)
+                {
+                    case "DP00016":
+                        msg = "170001";
+                        break;
+                    case "DP00122":
+                        msg = "170002";
+                        break;
+                    case "DP00143":
+                        msg = "170004";
+                        break;
+                    case "DP00144":
+                        msg = "170003";
+                        break;
+                    case "DP00146":
+                        msg = "170005";
+                        break;
+                }
+            }
+        }
+        //根据Hr系统EID找到权限系统UserID
+        private int GetSysUserIDByEID(int eid)
+        {
+            int User_ID = 0;
+            //根据EID找到域账号
+            string domainAccount = BLL.Util.GetEmployeeDomainAccountByEid(eid);
+            //根据域账号找到权限系统该人员的主键
+            User_ID = BitAuto.YanFa.SysRightManager.Common.UserInfo.Instance.GetUserIDByNameDomainAccount(domainAccount);
+            return User_ID;
+        }
+
+        
+    }
+
+    public class CheckInfo
+    {
+        public CheckCustBaseInfo CustBaseInfo;
+
+        public bool Validate(bool isUpdate, out Entities.CustBasicInfo custBaseInfo, out string tels, out string emails, out Entities.BuyCarInfo buyCarInfo, out Entities.DealerInfo dealerInfo, out string msg)
+        {
+            Regex reTel = new Regex(@"(^0[0-9]{2,3}[0-9]{7,8}$)|(^13[0-9]{9}$)|(^15[0-9]{9}$)|(^18[0-9]{9}$)|(^19[0-9]{9}$)|(^14[0-9]{9}$)|(^400\d{7}$)");
+            Regex reEmail = new Regex(@"/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/");
+            custBaseInfo = new Entities.CustBasicInfo();
+            tels = string.Empty;
+            emails = string.Empty;
+            buyCarInfo = null;
+            dealerInfo = null;
+            msg = string.Empty;
+
+            #region 客户基础信息验证
+            if (isUpdate)
+            {
+                if (BLL.CustBasicInfo.Instance.GetCustBasicInfo(CustBaseInfo.CustID) == null)
+                {
+                    msg = "不存在此客户";
+                    return false;
+                }
+            }
+            custBaseInfo.CustID = CustBaseInfo.CustID;
+            if (string.IsNullOrEmpty(CustBaseInfo.CustName.Trim()))
+            {
+                msg = "姓名不能为空";
+                return false;
+            }
+            custBaseInfo.CustName = CustBaseInfo.CustName;
+            if (string.IsNullOrEmpty(CustBaseInfo.CustTels.Trim()) && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "电话不能为空";
+                return false;
+            }
+            foreach (string str in CustBaseInfo.CustTels.Split(','))
+            {
+                if (!reTel.IsMatch(str))
+                {
+                    msg = "电话(" + str + ")不符合规则";
+                    return false;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(CustBaseInfo.CustID.Trim()))
+                    {
+                        if (BLL.CustBasicInfo.Instance.IsExistsByCustNameAndTel(custBaseInfo.CustName, str))
+                        {
+                            msg = "存在姓名和电话（" + str + "）都相同的客户";
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (BLL.CustBasicInfo.Instance.IsExistsByCustNameAndTelNotThisCustID(custBaseInfo.CustID, custBaseInfo.CustName, str))
+                        {
+                            msg = "存在姓名和电话（" + str + "）都相同的客户";
+                            return false;
+                        }
+                    }
+                }
+            }
+            tels = CustBaseInfo.CustTels;
+            if (string.IsNullOrEmpty(CustBaseInfo.Sex) && CustBaseInfo.Sex == "0")
+            {
+                msg = "请选择性别";
+                return false;
+            }
+            custBaseInfo.Sex = int.Parse(CustBaseInfo.Sex);
+            int i = 0;
+            if (string.IsNullOrEmpty(CustBaseInfo.ProvinceID) == false && int.TryParse(CustBaseInfo.ProvinceID, out i) == false && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "ProvinceID无法转换成int类型";
+                return false;
+            }
+            if (i > 0)
+            {
+                custBaseInfo.ProvinceID = i;
+            }
+            if (string.IsNullOrEmpty(CustBaseInfo.CityID) == false && int.TryParse(CustBaseInfo.CityID, out i) == false && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "CityID无法转换成int类型";
+                return false;
+            }
+            if (i > 0)
+            {
+                custBaseInfo.CityID = i;
+            }
+            if (string.IsNullOrEmpty(CustBaseInfo.CountyID) == false && int.TryParse(CustBaseInfo.CountyID, out i) == false && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "CountyID无法转换成int类型";
+                return false;
+            }
+            if (i > 0)
+            {
+                custBaseInfo.CountyID = i;
+            }
+            if (string.IsNullOrEmpty(CustBaseInfo.AreaID) == false && int.TryParse(CustBaseInfo.AreaID, out i) == false && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "CountyID无法转换成int类型";
+                return false;
+            }
+            if (i > 0)
+            {
+                custBaseInfo.AreaID = i;
+            }
+            if (!string.IsNullOrEmpty(CustBaseInfo.Address.Trim()) && CustBaseInfo.Address.Trim().Length > 200 && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "客户地址长度不能超过200个字符";
+                return false;
+            }
+            custBaseInfo.Address = CustBaseInfo.Address.Trim();
+            if (!string.IsNullOrEmpty(CustBaseInfo.Email.Trim()) && reEmail.IsMatch(CustBaseInfo.Email.Trim()) && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "客户邮箱格式不正确";
+                return false;
+            }
+            emails = CustBaseInfo.Email.Trim();
+            if (!string.IsNullOrEmpty(CustBaseInfo.DataSource) && !int.TryParse(CustBaseInfo.DataSource, out i) && CustBaseInfo.IsValidate == "1")
+            {
+                msg = "DataSource转换成int类型失败";
+                return false;
+            }
+            if (i > 0)
+            {
+                custBaseInfo.DataSource = i;
+            }
+            if (string.IsNullOrEmpty(CustBaseInfo.CustCategoryID))
+            {
+                msg = "请选择客户分类";
+                return false;
+            }
+            else if (!int.TryParse(CustBaseInfo.CustCategoryID, out i))
+            {
+                msg = "客户分类转换成int类型失败";
+                return false;
+            }
+            custBaseInfo.CustCategoryID = i;
+            custBaseInfo.CallTime = 0;
+            #endregion
+
+            return true;
+        }
+
+        public class CheckCustBaseInfo
+        {
+            private string custId;
+            public string CustID
+            {
+                get { return custId; }
+                set { custId = HttpUtility.UrlDecode(value); }
+            }
+            private string custName;
+            public string CustName
+            {
+                get { return custName; }
+                set { custName = HttpUtility.UrlDecode(value); }
+            }
+            private string sex;
+            public string Sex
+            {
+                get { return sex; }
+                set { sex = HttpUtility.UrlDecode(value); }
+            }
+            private string custCategoryID;
+            public string CustCategoryID
+            {
+                get { return custCategoryID; }
+                set { custCategoryID = HttpUtility.UrlDecode(value); }
+            }
+            private string provinceID;
+            public string ProvinceID
+            {
+                get { return provinceID; }
+                set { provinceID = HttpUtility.UrlDecode(value); }
+            }
+            private string cityID;
+            public string CityID
+            {
+                get { return cityID; }
+                set { cityID = HttpUtility.UrlDecode(value); }
+            }
+            private string countyID;
+            public string CountyID
+            {
+                get { return countyID; }
+                set { countyID = HttpUtility.UrlDecode(value); }
+            }
+            private string areaID;
+            public string AreaID
+            {
+                get { return areaID; }
+                set { areaID = HttpUtility.UrlDecode(value); }
+            }
+            private string address;
+            public string Address
+            {
+                get { return address; }
+                set { address = HttpUtility.UrlDecode(value); }
+            }
+            private string dataSource;
+            public string DataSource
+            {
+                get { return dataSource; }
+                set { dataSource = HttpUtility.UrlDecode(value); }
+            }
+
+            private string custTels;
+            public string CustTels
+            {
+                get { return custTels; }
+                set { custTels = HttpUtility.UrlDecode(value); }
+            }
+            private string email;
+            public string Email
+            {
+                get { return email; }
+                set { email = HttpUtility.UrlDecode(value); }
+            }
+            private string isValidate;
+            public string IsValidate
+            {
+                get { return isValidate; }
+                set { isValidate = HttpUtility.UrlDecode(value); }
+            }
+        }
+    }
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>无标题页 </title>
+    <script type="text/javascript" src="http://www.bitauto.com/themes/09gq/09gq_adjs.js"></script>
+    <script type="text/javascript" src="http://image.bitautoimg.com/uimg/index091217/js/swfobject.js"></script>
+</head>
+<body>
+    <div id="div1">
+    </div>
+    <script type="text/javascript">
+        function showSrc(src) {
+            var oHead = document.getElementsByTagName('HEAD').item(0);
+            var oScript = document.createElement("script");
+            oScript.type = "text/javascript";
+            oScript.src = src;
+            oHead.appendChild(oScript);
+        }
+        document.getElementById('div1').innerHTML = '<div id="bitAd_floatFlash"></div>';
+        setTimeout(function () {
+            try {
+                bitAdfloatFlash = {
+                    retData: function (url, type, width, height, link) { return { 'url': url, 'type': type, 'width': width, 'height': height, 'link': link }; }
+	        , load: function (id, arr, close, top, type, zIndex, times) {
+	            var pro = this;
+	            var minstr = bitAdFrame.buildHtml(arr[1], 0);
+	            var maxstr = bitAdFrame.buildHtml(arr[0], 0);
+	            var obj = bitAdFrame.$(id);
+	            setTimeout(function () { bitAdfloatFlash.close(id); }, times * 1000);
+	            var ie6 = ! -[1, ] && !window.XMLHttpRequest;
+	            var str = '<div id="' + id + '_min" style="position:fixed;' + (ie6 ? '_position:absolute;' : '') + 'font-size:12px;z-index:' + zIndex + ';' + (type == 'left' ? 'left' : 'right') + ':0;bottom:20px;' + (ie6 ? '_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-20));' : '') + 'cursor:pointer;display:none;width:' + arr[1].width + 'px;" >';
+	            str += minstr;
+	            str += '<div>' + (close ? '<div style="float:left;width:50%;background:#ccc;text-align:center;font-size:' + (arr[1].width > 24 ? '12' : arr[1].width / 2) + 'px" onclick="this.parentNode.parentNode.style.display=\'none\'">关闭</div>' : '');
+	            str += '<div style="float:left;width:50%;background:#000;text-align:center;color:#fff;font-size:' + (arr[1].width > 24 ? '12' : arr[1].width / 2) + 'px" onclick="bitAdfloatFlash.play(\'' + id + '\')">重播</div></div></div>';
+	            str += '<div id="' + id + '_max" style="position:fixed;' + (ie6 ? '_position:absolute;' : '') + 'font-size:12px;z-index:' + zIndex + '; bottom:0; ' + (ie6 ? '_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));' : '') + 'left:50%;cursor:pointer;width:' + arr[0].width + 'px;margin-left:-' + (arr[0].width / 2) + 'px">' + maxstr + '<div style="position:absolute; top:0; right:0; background-color:#000; width:60px; height:30px; color:#FFF; filter:alpha(opacity=50); opacity: .5; line-height:30px; text-align:center; font-size:18px; font-weight:700" onclick="bitAdfloatFlash.close(\'' + id + '\')">关闭</div></div>';
+	            obj.innerHTML = str;
+	        }
+	        , play: function (id) {
+	            bitAdFrame.$(id + '_min').style.display = 'none';
+	            bitAdFrame.$(id + '_max').style.display = 'block';
+	        }
+	        , close: function (id) {
+	            bitAdFrame.$(id + '_min').style.display = 'block';
+	            bitAdFrame.$(id + '_max').style.display = 'none';
+	        }
+                };
+                var floatFlashData = [bitAdfloatFlash.retData('http://gimg.bitauto.com/ResourceFiles/0/0/763/20140314103753389.swf', 'flash', 990, 130), bitAdfloatFlash.retData('http://gimg.bitauto.com/ResourceFiles/0/0/742/20140228080606917.swf', 'flash', 20, 120)];
+                bitAdfloatFlash.load('bitAd_floatFlash', floatFlashData, 1, 300, 'right', 999999, 5);
+            } catch (err) { } 
+        }, 0);
+
+
+    </script>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>asdf
+    asdfasd
+    fadsf
+    asd
+    fa<br/>
+</body>
+</html>

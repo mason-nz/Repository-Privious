@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="PushClientLogForAgent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vender" type="tns:Vender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="Vender">
+        <s:restriction base="s:string">
+          <s:enumeration value="Genesys" />
+          <s:enumeration value="Holly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="PushClientLogForAgentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PushClientLogForAgentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientServerVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServerVersionsName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientServerVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientServerVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientLogRequireInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vender" type="tns:Vender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientLogRequireInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientLogRequireInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PushClientLogForAgentSoapIn">
+    <wsdl:part name="parameters" element="tns:PushClientLogForAgent" />
+  </wsdl:message>
+  <wsdl:message name="PushClientLogForAgentSoapOut">
+    <wsdl:part name="parameters" element="tns:PushClientLogForAgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientServerVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientServerVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetClientServerVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientServerVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientLogRequireInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientLogRequireInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetClientLogRequireInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientLogRequireInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ClientAssistantServiceSoap">
+    <wsdl:operation name="PushClientLogForAgent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">坐席推送日志</wsdl:documentation>
+      <wsdl:input message="tns:PushClientLogForAgentSoapIn" />
+      <wsdl:output message="tns:PushClientLogForAgentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientServerVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取服务端的版本号</wsdl:documentation>
+      <wsdl:input message="tns:GetClientServerVersionSoapIn" />
+      <wsdl:output message="tns:GetClientServerVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientLogRequireInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取相关用户和版本的所有请求</wsdl:documentation>
+      <wsdl:input message="tns:GetClientLogRequireInfoSoapIn" />
+      <wsdl:output message="tns:GetClientLogRequireInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientAssistantServiceSoap" type="tns:ClientAssistantServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PushClientLogForAgent">
+      <soap:operation soapAction="http://tempuri.org/PushClientLogForAgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientServerVersion">
+      <soap:operation soapAction="http://tempuri.org/GetClientServerVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientLogRequireInfo">
+      <soap:operation soapAction="http://tempuri.org/GetClientLogRequireInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClientAssistantServiceSoap12" type="tns:ClientAssistantServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PushClientLogForAgent">
+      <soap12:operation soapAction="http://tempuri.org/PushClientLogForAgent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientServerVersion">
+      <soap12:operation soapAction="http://tempuri.org/GetClientServerVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientLogRequireInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetClientLogRequireInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientAssistantService">
+    <wsdl:port name="ClientAssistantServiceSoap" binding="tns:ClientAssistantServiceSoap">
+      <soap:address location="http://ncc.sys1.bitauto.com/CallRecordService/ClientAssistantService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClientAssistantServiceSoap12" binding="tns:ClientAssistantServiceSoap12">
+      <soap12:address location="http://ncc.sys1.bitauto.com/CallRecordService/ClientAssistantService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

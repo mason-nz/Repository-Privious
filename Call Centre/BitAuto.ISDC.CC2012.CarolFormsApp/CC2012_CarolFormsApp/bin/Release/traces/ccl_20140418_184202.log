@@ -1,0 +1,93 @@
+
+******************************************
+18:42:02 New trace file: traces/ccl_20140418_184202.log
+ RECON Version 2.9.2, Build 2.9.2.0
+ Component Version: 2.8.1.15
+ Component Name: CCL?
+ CAROL Version: 10.0.30319.1 [CAROL NG PR4]
+******************************************
+
+18:42:02 [18:42:02.103]  11284   5 RECON   Socket SO_RCVBUF: 65536 bytes
+18:42:02 [18:42:02.103]  11284   5 RECON   Socket SO_SNDBUF: 65536 bytes
+18:42:02 [18:42:02.103]  11284   5 RECON   Max. SendMsg socket timeouts: [10]
+18:42:02 [18:42:02.103]  11284   4 RECON  Trace Queue init
+18:42:02 [18:42:02.104]  11284   4 RECON  Sockets description: 
+18:42:02 [18:42:02.105]   4276   4 RECON  New thread started: TraceMaintenanceThread 0x000010B4
+18:42:02 [18:42:02.105]   4276   5 RECON  TraceMaintenanceThread: first trace maintenace will be performed after 00:11 delay.
+18:42:02 [18:42:02.106]   8824   4 RECON  New thread started: TraceQueueThread 0x00002278
+18:42:02 [18:42:02.115]  11284   4 RECON  Local hostname: 
+18:42:02 [18:42:02.120]  11284   4 RECON  Local IP address: 192.168.2.80
+18:42:02 [18:42:02.121]  11284   4 RECON  New component name: 
+18:42:02 [18:42:02.121]  11284   4 RECON  Registering callback routine
+18:42:02 [18:42:02.121]  11284   4 RECON  ConnectionList init
+18:42:02 [18:42:02.121]  11284   5 RECON  Recon::ListenAdd().
+18:42:02 [18:42:02.121]  11284   5 RECON  Recon::ListenSelected().
+18:42:02 [18:42:02.121]  11284   5 RECON  Recon::Listen().
+18:42:02 [18:42:02.121]  11284   4 RECON  Creating TCP/IP Listener on port 
+18:42:02 [18:42:02.123]  11284   5 RECON  Recon::Start(). Starting Recon thread.
+18:42:02 [18:42:02.123]  11284   5 RECON  Recon::ResolveconnectEx(), timeout: 10
+18:42:02 [18:42:02.123]  14164   4 RECON  New thread started: ReconThread 0x00003754
+18:42:02 [18:42:02.124]  14164   5 RECON  Recon thread running. 
+18:42:02 [18:42:02.124]   9384   4 RECON  New thread started: ReceiverThread 0x000024A8
+18:42:02 [18:42:02.125]   9488   4 RECON  New thread started: CallbackTimeoutThread 0x00002510
+18:42:02 [18:42:02.126]   9488   5 RECON  Alarm parameters:  callback_timeout=0,  exit_on_callback_timeout=(null)
+18:42:02 [18:42:02.323]  11284   4 CCL@5SEXGDM6YC8JZBW Recon initialization was successful.
+18:42:02 [18:42:02.323]  11284   5 CCL@5SEXGDM6YC8JZBW CReconCOM::R_Initialize() leave.
+18:42:02 [18:42:02.323]  12932   4 RECON  New thread started: ConnectThread 0x00003284
+18:42:02 [18:42:02.324]  12932   5 RECON  Recon::TryConnect().
+18:42:02 [18:42:02.324]  12932   5 RECON  Connect to addr:192.168.8.221 port:4100 - connection is not in the list yet.
+18:42:02 [18:42:02.325]  12932   4 RECON  Connect to addr:192.168.8.221 port:4100 - OK
+18:42:02 [18:42:02.325]  12932   5 RECON   * client socket 1764  SO_RCVBUF=65536 bytes
+18:42:02 [18:42:02.325]  12932   5 RECON   * client socket 1764  SO_SNDBUF=65536 bytes
+18:42:02 [18:42:02.325]  12932   4 RECON  Retrieve ComponentInfo from 
+18:42:02 [18:42:02.325]  12932   4 RECON  ReconConnect::Sending REQ RM_COMP_INFO: MyCompName: CCL@5SEXGDM6YC8JZBW, HostName: 5SEXGDM6YC8JZBW, uIPA: 1342351552, Port: 0, Version: 2.8.1.15, ProdVersion: 2.9.2.360
+18:42:02 [18:42:02.325]  12932   4 RECON  ReconConnect::REQ RM_COMP_INFO sent to addr:192.168.8.221 port:4100
+18:42:02 [18:42:02.326]  11284   3 CCL@5SEXGDM6YC8JZBW R_Initialize succeded
+18:42:02 [18:42:02.374]  14164   4 RECON  ReconProcessMsg -> Internal Message received opcode:1  primitive:R  from:CBR1_AGA
+18:42:02 [18:42:02.374]   9384   4 RECON  ReconProcessMsg -> Internal Message received opcode:3  primitive:E  from:CCL@5SEXGDM6YC8JZBW
+18:42:02 [18:42:02.374]   9384   5 RECON  Recon::CallbackFunction().
+18:42:02 [18:42:02.374]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+18:42:02 [18:42:02.374]   9384   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CCL@5SEXGDM6YC8JZBW OpCode:3
+18:42:02 [18:42:02.374]   9384   4 CCL@5SEXGDM6YC8JZBW 	-1
+18:42:02 [18:42:02.374]   9384   4 CCL@5SEXGDM6YC8JZBW 	CBR1_AGA
+18:42:02 [18:42:02.374]   9384   4 CCL@5SEXGDM6YC8JZBW 	2.9.2.360
+18:42:02 [18:42:02.374]   9384   4 CCL@5SEXGDM6YC8JZBW 	1
+18:42:02 [18:42:02.375]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+18:42:02 [18:42:02.376]   7928   4 CCL@5SEXGDM6YC8JZBW EVT RM_CONNECTED<3> [CCL@5SEXGDM6YC8JZBW||CCL@5SEXGDM6YC8JZBW] {4}
+	(0):-1 (1):CBR1_AGA (2):2.9.2.360 (3):1 
+
+18:42:02 [18:42:02.524]  12932   5 RECON  Recon::TryConnect().
+18:42:02 [18:42:02.524]  12932   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+18:42:02 [18:42:02.524]   9384   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+18:42:02 [18:42:02.524]   9384   5 RECON  Recon::CallbackFunction().
+18:42:02 [18:42:02.524]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+18:42:02 [18:42:02.524]   9384   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CBR1_AGA OpCode:750
+18:42:02 [18:42:02.524]   9384   4 CCL@5SEXGDM6YC8JZBW 	CFG
+18:42:02 [18:42:02.525]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+18:42:02 [18:42:02.525]   9384   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+18:42:02 [18:42:02.525]   9384   5 RECON  Recon::CallbackFunction().
+18:42:02 [18:42:02.525]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+18:42:02 [18:42:02.525]   9384   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CBR1_AGA OpCode:750
+18:42:02 [18:42:02.525]   9384   4 CCL@5SEXGDM6YC8JZBW 	TSV
+18:42:02 [18:42:02.525]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+18:42:02 [18:42:02.525]   9384   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+18:42:02 [18:42:02.525]   9384   5 RECON  Recon::CallbackFunction().
+18:42:02 [18:42:02.525]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+18:42:02 [18:42:02.525]   9384   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CBR1_AGA OpCode:750
+18:42:02 [18:42:02.525]   9384   4 CCL@5SEXGDM6YC8JZBW 	STS
+18:42:02 [18:42:02.525]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+18:42:02 [18:42:02.525]   9384   4 RECON  ReconProcessMsg -> Internal Message received opcode:182  primitive:E  from:CBR1_AGA
+18:42:02 [18:42:02.525]   9384   5 RECON  Recon::CallbackFunction().
+18:42:02 [18:42:02.525]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+18:42:02 [18:42:02.525]   9384   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+18:42:02 [18:42:02.525]   7928   4 CCL@5SEXGDM6YC8JZBW EVT CBR_Connected<750> [CBR1_AGA||CCL@5SEXGDM6YC8JZBW] {1}
+	(0):CFG 
+
+18:42:02 [18:42:02.525]   7928   4 CCL@5SEXGDM6YC8JZBW EVT CBR_Connected<750> [CBR1_AGA||CCL@5SEXGDM6YC8JZBW] {1}
+	(0):TSV 
+
+18:42:02 [18:42:02.526]   7928   4 CCL@5SEXGDM6YC8JZBW EVT CBR_Connected<750> [CBR1_AGA||CCL@5SEXGDM6YC8JZBW] {1}
+	(0):STS 
+
+18:42:03 [18:42:03.982]  12932   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 1900 closing
+18:42:03 [18:42:03.982]  12932   4 RECON  Socket 1900 closed

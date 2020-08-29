@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddTranstarUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sVendorFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVendorShortName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nVendorClass" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DVTId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sBrand" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nCityId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLinkManName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLinkMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTranstarUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTranstarUserInfoResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyTranstarVendorAccountStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tvaid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyTranstarVendorAccountStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyTranstarVendorAccountStatusResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTranstarUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVAId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVendorFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVendorShortName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nVendorClass" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DVTId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sBrand" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nCityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTranstarUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTranstarUserInfoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUBByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVAId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ubCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="des" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="crmKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="rmbFee" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitPrice" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="cardBeginTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="cardEndTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUBByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUBByUserIdResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSuperVendor">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSuperVendorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSuperVendorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTranstarInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVAId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTranstarInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTranstarInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkman">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVAId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkmanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinkmanResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUBInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVAId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUBInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUBInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccontInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVAId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccontInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccontInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUBRecordByTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TvaId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="changeTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="nCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUBRecordByTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUBRecordByTimeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RecCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFeedback">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="time" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFeedbackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFeedbackResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVendorScheduling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVAId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaleType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVendorSchedulingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddVendorSchedulingResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVendorScheduling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVSId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVendorSchedulingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVendorSchedulingResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVendorScheduling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDVSId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nStatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVendorSchedulingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVendorSchedulingResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerValidateCarSource">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerValidateCarSourceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerValidateCarSourceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerValidateCarSourceByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerValidateCarSourceByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerValidateCarSourceByDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCarSource">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCarSourceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCarSourceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetValidateDealerByMonth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YearMonth" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetValidateDealerByMonthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetValidateDealerByMonthResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerUBLogDetailByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BeginTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerUBLogDetailByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerUBLogDetailByDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAndEditEPDealer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nEPId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVendorFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVendorShortName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nVendorClass" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sBrand" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nCityId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLinkManName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLinkMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAndEditEPDealerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAndEditEPDealerResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEPDealerStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nEPId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEPDealerStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateEPDealerStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAndEditEPScheduling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nEPId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCRMId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nSaleType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAndEditEPSchedulingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAndEditEPSchedulingResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddTranstarUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTranstarUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="AddTranstarUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTranstarUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyTranstarVendorAccountStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyTranstarVendorAccountStatus" />
+  </wsdl:message>
+  <wsdl:message name="ModifyTranstarVendorAccountStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyTranstarVendorAccountStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTranstarUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTranstarUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTranstarUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTranstarUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUBByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUBByUserId" />
+  </wsdl:message>
+  <wsdl:message name="AddUBByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUBByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSuperVendorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSuperVendor" />
+  </wsdl:message>
+  <wsdl:message name="GetSuperVendorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSuperVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTranstarInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTranstarInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTranstarInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTranstarInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkmanSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLinkman" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkmanSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkmanResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUBInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUBInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUBInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUBInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccontInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccontInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAccontInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccontInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUBRecordByTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUBRecordByTime" />
+  </wsdl:message>
+  <wsdl:message name="GetUBRecordByTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUBRecordByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFeedbackSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFeedback" />
+  </wsdl:message>
+  <wsdl:message name="GetFeedbackSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVendorSchedulingSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVendorScheduling" />
+  </wsdl:message>
+  <wsdl:message name="AddVendorSchedulingSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVendorSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVendorSchedulingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVendorScheduling" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVendorSchedulingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVendorSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVendorSchedulingSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVendorScheduling" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVendorSchedulingSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVendorSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerValidateCarSourceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerValidateCarSource" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerValidateCarSourceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerValidateCarSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerValidateCarSourceByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerValidateCarSourceByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerValidateCarSourceByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerValidateCarSourceByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCarSourceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCarSource" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCarSourceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCarSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetValidateDealerByMonthSoapIn">
+    <wsdl:part name="parameters" element="tns:GetValidateDealerByMonth" />
+  </wsdl:message>
+  <wsdl:message name="GetValidateDealerByMonthSoapOut">
+    <wsdl:part name="parameters" element="tns:GetValidateDealerByMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerUBLogDetailByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerUBLogDetailByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerUBLogDetailByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerUBLogDetailByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAndEditEPDealerSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAndEditEPDealer" />
+  </wsdl:message>
+  <wsdl:message name="AddAndEditEPDealerSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAndEditEPDealerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEPDealerStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEPDealerStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEPDealerStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEPDealerStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAndEditEPSchedulingSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAndEditEPScheduling" />
+  </wsdl:message>
+  <wsdl:message name="AddAndEditEPSchedulingSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAndEditEPSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TranstarToBitautoCRMSoap">
+    <wsdl:operation name="AddTranstarUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过CRM新增车商通会员</wsdl:documentation>
+      <wsdl:input message="tns:AddTranstarUserInfoSoapIn" />
+      <wsdl:output message="tns:AddTranstarUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTranstarVendorAccountStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过CRM更新经销商状态（经销商状态枚举：-1=删除|废弃；0=禁用；1=启用|正常可登陆状态）</wsdl:documentation>
+      <wsdl:input message="tns:ModifyTranstarVendorAccountStatusSoapIn" />
+      <wsdl:output message="tns:ModifyTranstarVendorAccountStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTranstarUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改车商通会员信息</wsdl:documentation>
+      <wsdl:input message="tns:UpdateTranstarUserInfoSoapIn" />
+      <wsdl:output message="tns:UpdateTranstarUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUBByUserId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">给会员进行U币充值</wsdl:documentation>
+      <wsdl:input message="tns:AddUBByUserIdSoapIn" />
+      <wsdl:output message="tns:AddUBByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperVendor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取上级公司信息</wsdl:documentation>
+      <wsdl:input message="tns:GetSuperVendorSoapIn" />
+      <wsdl:output message="tns:GetSuperVendorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTranstarInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取经销商基础信息</wsdl:documentation>
+      <wsdl:input message="tns:GetTranstarInfoSoapIn" />
+      <wsdl:output message="tns:GetTranstarInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkman">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取经销商联系人信息</wsdl:documentation>
+      <wsdl:input message="tns:GetLinkmanSoapIn" />
+      <wsdl:output message="tns:GetLinkmanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUBInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取经销商U币余额、有效期、累计充值额等信息</wsdl:documentation>
+      <wsdl:input message="tns:GetUBInfoSoapIn" />
+      <wsdl:output message="tns:GetUBInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccontInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取经销商用户登录账户信息</wsdl:documentation>
+      <wsdl:input message="tns:GetAccontInfoSoapIn" />
+      <wsdl:output message="tns:GetAccontInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUBRecordByTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">增量获取消费记录</wsdl:documentation>
+      <wsdl:input message="tns:GetUBRecordByTimeSoapIn" />
+      <wsdl:output message="tns:GetUBRecordByTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedback">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据时间返回某个时刻之后的前100条新增、修改的反馈</wsdl:documentation>
+      <wsdl:input message="tns:GetFeedbackSoapIn" />
+      <wsdl:output message="tns:GetFeedbackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorScheduling">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">增加经销商排期，销售类型：1表示“销售”，0表示”试用“</wsdl:documentation>
+      <wsdl:input message="tns:AddVendorSchedulingSoapIn" />
+      <wsdl:output message="tns:AddVendorSchedulingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVendorScheduling">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改经销商排期</wsdl:documentation>
+      <wsdl:input message="tns:UpdateVendorSchedulingSoapIn" />
+      <wsdl:output message="tns:UpdateVendorSchedulingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVendorScheduling">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除经销商排期</wsdl:documentation>
+      <wsdl:input message="tns:DeleteVendorSchedulingSoapIn" />
+      <wsdl:output message="tns:DeleteVendorSchedulingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerValidateCarSource">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定时间内商家有效车源数(车源在售、下架、售出)，返回值：DVAId=商家编号，CarCount=有效车源总数</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerValidateCarSourceSoapIn" />
+      <wsdl:output message="tns:GetDealerValidateCarSourceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerValidateCarSourceByDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定时间内商家有效车源数(车源在售、下架、售出)，返回值DataTable</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerValidateCarSourceByDateSoapIn" />
+      <wsdl:output message="tns:GetDealerValidateCarSourceByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCarSource">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定日期全部车源，返回值DataTable</wsdl:documentation>
+      <wsdl:input message="tns:GetAllCarSourceSoapIn" />
+      <wsdl:output message="tns:GetAllCarSourceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValidateDealerByMonth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">活跃会员执行明细，参数年月格式“YYYY-MM”，返回值：DVAId=商家编号，SaleType=销售类型</wsdl:documentation>
+      <wsdl:input message="tns:GetValidateDealerByMonthSoapIn" />
+      <wsdl:output message="tns:GetValidateDealerByMonthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerUBLogDetailByDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取车商币消费明细，Table[0]=总数量，Table[1]=明细</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerUBLogDetailByDateSoapIn" />
+      <wsdl:output message="tns:GetDealerUBLogDetailByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAndEditEPDealer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加修改易派经销商</wsdl:documentation>
+      <wsdl:input message="tns:AddAndEditEPDealerSoapIn" />
+      <wsdl:output message="tns:AddAndEditEPDealerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEPDealerStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改易派经销商状态</wsdl:documentation>
+      <wsdl:input message="tns:UpdateEPDealerStatusSoapIn" />
+      <wsdl:output message="tns:UpdateEPDealerStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAndEditEPScheduling">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加修改易派经销商排期</wsdl:documentation>
+      <wsdl:input message="tns:AddAndEditEPSchedulingSoapIn" />
+      <wsdl:output message="tns:AddAndEditEPSchedulingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TranstarToBitautoCRMSoap" type="tns:TranstarToBitautoCRMSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddTranstarUserInfo">
+      <soap:operation soapAction="http://tempuri.org/AddTranstarUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTranstarVendorAccountStatus">
+      <soap:operation soapAction="http://tempuri.org/ModifyTranstarVendorAccountStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTranstarUserInfo">
+      <soap:operation soapAction="http://tempuri.org/UpdateTranstarUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUBByUserId">
+      <soap:operation soapAction="http://tempuri.org/AddUBByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperVendor">
+      <soap:operation soapAction="http://tempuri.org/GetSuperVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranstarInfo">
+      <soap:operation soapAction="http://tempuri.org/GetTranstarInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkman">
+      <soap:operation soapAction="http://tempuri.org/GetLinkman" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUBInfo">
+      <soap:operation soapAction="http://tempuri.org/GetUBInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccontInfo">
+      <soap:operation soapAction="http://tempuri.org/GetAccontInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUBRecordByTime">
+      <soap:operation soapAction="http://tempuri.org/GetUBRecordByTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedback">
+      <soap:operation soapAction="http://tempuri.org/GetFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorScheduling">
+      <soap:operation soapAction="http://tempuri.org/AddVendorScheduling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVendorScheduling">
+      <soap:operation soapAction="http://tempuri.org/UpdateVendorScheduling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVendorScheduling">
+      <soap:operation soapAction="http://tempuri.org/DeleteVendorScheduling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerValidateCarSource">
+      <soap:operation soapAction="http://tempuri.org/GetDealerValidateCarSource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerValidateCarSourceByDate">
+      <soap:operation soapAction="http://tempuri.org/GetDealerValidateCarSourceByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCarSource">
+      <soap:operation soapAction="http://tempuri.org/GetAllCarSource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValidateDealerByMonth">
+      <soap:operation soapAction="http://tempuri.org/GetValidateDealerByMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerUBLogDetailByDate">
+      <soap:operation soapAction="http://tempuri.org/GetDealerUBLogDetailByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAndEditEPDealer">
+      <soap:operation soapAction="http://tempuri.org/AddAndEditEPDealer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEPDealerStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateEPDealerStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAndEditEPScheduling">
+      <soap:operation soapAction="http://tempuri.org/AddAndEditEPScheduling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TranstarToBitautoCRMSoap12" type="tns:TranstarToBitautoCRMSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddTranstarUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/AddTranstarUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTranstarVendorAccountStatus">
+      <soap12:operation soapAction="http://tempuri.org/ModifyTranstarVendorAccountStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTranstarUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTranstarUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUBByUserId">
+      <soap12:operation soapAction="http://tempuri.org/AddUBByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperVendor">
+      <soap12:operation soapAction="http://tempuri.org/GetSuperVendor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranstarInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetTranstarInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkman">
+      <soap12:operation soapAction="http://tempuri.org/GetLinkman" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUBInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetUBInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccontInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetAccontInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUBRecordByTime">
+      <soap12:operation soapAction="http://tempuri.org/GetUBRecordByTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedback">
+      <soap12:operation soapAction="http://tempuri.org/GetFeedback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorScheduling">
+      <soap12:operation soapAction="http://tempuri.org/AddVendorScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVendorScheduling">
+      <soap12:operation soapAction="http://tempuri.org/UpdateVendorScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVendorScheduling">
+      <soap12:operation soapAction="http://tempuri.org/DeleteVendorScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerValidateCarSource">
+      <soap12:operation soapAction="http://tempuri.org/GetDealerValidateCarSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerValidateCarSourceByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetDealerValidateCarSourceByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCarSource">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCarSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValidateDealerByMonth">
+      <soap12:operation soapAction="http://tempuri.org/GetValidateDealerByMonth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerUBLogDetailByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetDealerUBLogDetailByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAndEditEPDealer">
+      <soap12:operation soapAction="http://tempuri.org/AddAndEditEPDealer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEPDealerStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateEPDealerStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAndEditEPScheduling">
+      <soap12:operation soapAction="http://tempuri.org/AddAndEditEPScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TranstarToBitautoCRM">
+    <wsdl:port name="TranstarToBitautoCRMSoap" binding="tns:TranstarToBitautoCRMSoap">
+      <soap:address location="http://api.ucar.cn/Dealer/TranstarToBitautoCRM.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TranstarToBitautoCRMSoap12" binding="tns:TranstarToBitautoCRMSoap12">
+      <soap12:address location="http://api.ucar.cn/Dealer/TranstarToBitautoCRM.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

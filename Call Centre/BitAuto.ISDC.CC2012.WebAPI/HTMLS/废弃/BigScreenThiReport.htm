@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>大屏监控-第三屏</title>
+    <link href="../Content/Css/bigscreenReport.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/HighChart/jquery1.8.3.min.js" type="text/javascript"></script>
+    <script src="../Scripts/HighChart/highcharts.js" type="text/javascript"></script>
+    <script src="../Scripts/defineJs/bigscreenReport.js" type="text/javascript"></script>
+    <script src="../Scripts/CommonJS/WebAPI.js" type="text/javascript"></script>
+    <link href="../Content/Css/WebApi.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        //5m刷新
+        var Interval1 = 1000 * 60 * 5;
+        //30m刷新
+        var Interval2 = 1000 * 60 * 30;
+        //初始化方法
+
+        var timeInterval = 0;
+
+        //开始计时并监控是否为半点
+        function StartTimeCount(timeT) {
+            window.timeT = new Date(timeT);
+            timeInterval = setInterval(function () {
+                window.timeT.setSeconds(window.timeT.getSeconds() + 1);
+
+                //$('#txtt').val(window.timeT.toString());
+                //if (window.timeT.getSeconds() == 1 || window.timeT.getSeconds() == 31) {
+                if ((window.timeT.getMinutes() == 1 || window.timeT.getMinutes() == 31) && (window.timeT.getSeconds() == 1)) {
+                    RefeshChart3();
+                    RefeshChart4();
+                    RefreshTimer();
+                }
+            }, 1000);
+        }
+
+        //每隔半小时修正页面js时间
+        function RefreshTimer() {
+            clearInterval(timeInterval); //取消计时
+
+            $.getJSON("/api/ApiCommon/GetDBDateTime?id=" + Math.random(), null, function (data) {
+                data = $.parseJSON(data);
+                StartTimeCount(data.data);
+            });
+        }
+
+        $(document).ready(function () {
+            RefeshChart1();
+            RefeshChart2();
+            RefeshChart3();
+            RefeshChart4();
+            RefreshTimer();
+
+        });
+        //左上
+        function RefeshChart1() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetBigScreenReport3_1",
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_3_1().chartOption;
+                        option.series = data.data;
+                        $("#chart1").highcharts(option);
+                    } else {
+                        WebApi.Msg("提示",data.ErrorMsg);;
+                    }
+                    setTimeout(RefeshChart1, Interval1);
+                },
+                error: function (msg) { }
+            });
+        }
+        //左下
+        function RefeshChart2() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetBigScreenReport3_2",
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_3_2().chartOption;
+                        option.series = data.data;
+                        $("#chart2").highcharts(option);
+                    } else {
+                        WebApi.Msg("提示",data.ErrorMsg);;
+                    }
+                    setTimeout(RefeshChart2, Interval1);
+                },
+                error: function (msg) { }
+            });
+        }
+        //右上
+        function RefeshChart3() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetBigScreenReport3_3",
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_3_3();
+                        option.series = data.data;
+                        $("#chart3").highcharts(option);
+                    } else {
+                       WebApi.Msg("提示",data.ErrorMsg);;
+                    }
+                },
+                error: function (msg) { }
+            });
+        }
+        //右下
+        function RefeshChart4() {
+            $.ajax({
+                url: "/api/APICCMonitor/GetBigScreenReport3_4",
+                success: function (data) {
+                    data = $.parseJSON(data);
+                    if (data.ErrorNumber == 0) {
+                        var option = BigChartOption.CreateChart_3_4();
+                        option.series = data.data;
+                        $("#chart4").highcharts(option);
+                    } else {
+                        WebApi.Msg("提示",data.ErrorMsg);;
+                    }
+                },
+                error: function (msg) { }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="chart1">
+            <div class="title">
+                呼出业务队列实时监控 - 线索运营支持部</div>
+            <div class="chartPic" id="chart1">
+            </div>
+        </div>
+        <div class="chart1 chart2">
+            <div class="title">
+                呼出业务接通情况实时监控 - 线索运营支持部</div>
+            <div class="chartPic" id="chart3">
+            </div>
+        </div>
+        <div class="chart1 chart3">
+            <div class="title">
+                呼出业务队列实时监控 - 汽车金融服务部
+            </div>
+            <div class="chartPic" id="chart2">
+            </div>
+        </div>
+        <div class="chart1 chart4">
+            <div class="title">
+                呼出业务接通情况实时监控 - 汽车金融服务部</div>
+            <div class="chartPic" id="chart4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

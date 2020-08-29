@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>发送短信</title>
+    <link href="../Css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../Css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!--发送短信-->
+    <div class="pop_new w600 openwindow">
+        <div class="title">
+            <h2 style="cursor: auto;">
+                发送短信 <span><a hidefocus="true" href="javascript:void(0)" onclick="javascript:$.closePopupLayer('SendSMSPopup',false);">
+                </a></span>
+            </h2>
+        </div>
+        <div class="set_edit">
+            <ul>
+                <li style="width: 550px;" id="smsLiNotDealer">
+                    <label>
+                        短信模板：</label>
+                    <span>
+                        <select id="smsSelGroup" onchange="javascript:SelGroupChange();" class="w136" style="width: 133px;">
+                        </select>
+                        <select id="smsSelCategory" onchange="javascript:SelCategoryChange();" class="w136"
+                            style="width: 133px;">
+                        </select>
+                        <select id="smsSelSMSTemplate" onchange="javascript:SetSendContent();" class="w136"
+                            style="width: 133px;">
+                        </select>
+                    </span></li>
+                <li style="width: 550px;">
+                    <label style="*padding-top: 3px;">
+                        <span class="redcolor">*</span>用户号码：</label>
+                    <span>
+                        <input style="padding-bottom: 5px; padding-top: 3px" id="smsTextPhoneNum" name=""
+                            type="text" class="w300 w200" /></span></li>
+                <li style="width: 550px;">
+                    <label>
+                        <span class="redcolor">*</span>发送内容：</label>
+                    <span>
+                        <textarea id="smsAreaContent" name="" cols="" rows="" style="height: 80px;"></textarea>
+                        <p id="pWarmingMsg">
+                            还可以输入350字</p>
+                    </span></li>
+            </ul>
+        </div>
+        <div class="clearfix">
+        </div>
+        <div class="option_button btn">
+            <input name="" type="button" value="发送" onclick="SendSMSForCC();" />
+            <input name="" type="button" value="取消" onclick="javascript:$.closePopupLayer('SendSMSPopup',false);" />
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ImGetLogin.aspx.cs" Inherits="BitAuto.DSC.IM_2015.Web.ImGetLogin" %>

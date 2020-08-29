@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{677EB35C-662C-4539-98EF-79C02EF78C6C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.ISDC.CC2012.Web.ExternalTask</RootNamespace>
+    <AssemblyName>BitAuto.ISDC.CC2012.Web.ExternalTask</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Services.Organization.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\BitAuto.Services.Organization.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Services.Organization.Remoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\BitAuto.Services.Organization.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\Lib\BitAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Css\base.css" />
+    <Content Include="Css\basic_zxq2.0.css" />
+    <Content Include="Css\cc_checkStyle.css" />
+    <Content Include="Css\cc_style.css" />
+    <Content Include="Css\GooCalendar.css" />
+    <Content Include="Css\img\btnBg.jpg" />
+    <Content Include="Css\img\button.jpg" />
+    <Content Include="Css\img\center0.jpg" />
+    <Content Include="Css\img\headBg.jpg" />
+    <Content Include="Css\img\images\titleBg2.jpg" />
+    <Content Include="Css\img\line.jpg" />
+    <Content Include="Css\img\lines.jpg" />
+    <Content Include="Css\img\listBg.jpg" />
+    <Content Include="Css\img\menuBg.jpg" />
+    <Content Include="Css\img\menuBghr.jpg" />
+    <Content Include="Css\img\navBg.jpg" />
+    <Content Include="Css\img\navBghr.jpg" />
+    <Content Include="Css\img\titleBg.jpg" />
+    <Content Include="Css\img\titleBg2.jpg" />
+    <Content Include="Css\img\titleBg_02.jpg" />
+    <Content Include="Css\jquery.GooCalendar.css" />
+    <Content Include="Css\login.css" />
+    <Content Include="Css\style.css" />
+    <Content Include="Css\uploadify.css" />
+    <Content Include="CustBaseInfo\UCCustBaseInfo\ViewCustBaseInfo.ascx" />
+    <Content Include="CustCategory\BuyCarInfoView.ascx" />
+    <Content Include="CustCategory\DealerInfoView.ascx" />
+    <Content Include="ExternalTaskProcess.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\blue-loading.gif" />
+    <Content Include="Images\bodybgnew.png" />
+    <Content Include="Images\clolse.gif" />
+    <Content Include="Images\close.gif" />
+    <Content Include="Images\collapsed_no.gif" />
+    <Content Include="Images\collapsed_yes.gif" />
+    <Content Include="Images\GooCalendar\calendar_top.gif" />
+    <Content Include="Images\logo.gif" />
+    <Content Include="Images\logonew.png" />
+    <Content Include="Images\selectFile.JPG" />
+    <Content Include="Images\uploadify_cancel.png" />
+    <Content Include="Js\common.js" />
+    <Content Include="Js\Enum\Area2.js" />
+    <Content Include="Js\jquery-1.4.4.min.js" />
+    <Content Include="Js\jquery.GooCalendar.js" />
+    <Content Include="Js\jquery.jmpopups-0.5.1.pack.js" />
+    <Content Include="Js\jquery.uploadify.v2.1.4.min.js" />
+    <Content Include="Js\json2.js" />
+    <Content Include="Js\swfobject.js" />
+    <Content Include="Js\uploadify.swf" />
+    <Content Include="Login.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AjaxServers\LoginManager.ashx.cs">
+      <DependentUpon>LoginManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TaskManager\TaskManager.ashx.cs">
+      <DependentUpon>TaskManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CustBaseInfo\UCCustBaseInfo\ViewCustBaseInfo.ascx.cs">
+      <DependentUpon>ViewCustBaseInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustBaseInfo\UCCustBaseInfo\ViewCustBaseInfo.ascx.designer.cs">
+      <DependentUpon>ViewCustBaseInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustCategory\BuyCarInfoView.ascx.cs">
+      <DependentUpon>BuyCarInfoView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustCategory\BuyCarInfoView.ascx.designer.cs">
+      <DependentUpon>BuyCarInfoView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustCategory\DealerInfoView.ascx.cs">
+      <DependentUpon>DealerInfoView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustCategory\DealerInfoView.ascx.designer.cs">
+      <DependentUpon>DealerInfoView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalTaskProcess.aspx.cs">
+      <DependentUpon>ExternalTaskProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalTaskProcess.aspx.designer.cs">
+      <DependentUpon>ExternalTaskProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitAuto.ISDC.CC2012.BLL\BitAuto.ISDC.CC2012.BLL.csproj">
+      <Project>{6F780424-6A4D-4970-8FA7-CBC49767B6E8}</Project>
+      <Name>BitAuto.ISDC.CC2012.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.ISDC.CC2012.Dal\BitAuto.ISDC.CC2012.Dal.csproj">
+      <Project>{C040D999-CC37-4823-B4A6-9D2A0E405C64}</Project>
+      <Name>BitAuto.ISDC.CC2012.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.ISDC.CC2012.Entities\BitAuto.ISDC.CC2012.Entities.csproj">
+      <Project>{5A202E96-FCBA-421B-AB34-5E788C2EA40C}</Project>
+      <Name>BitAuto.ISDC.CC2012.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.YanFa.Crm2009.BLL\BitAuto.YanFa.Crm2009.BLL.csproj">
+      <Project>{3A536B03-E8BE-4700-93EE-D078BD31C356}</Project>
+      <Name>BitAuto.YanFa.Crm2009.BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\LoginManager.ashx" />
+    <Content Include="AjaxServers\TaskManager\TaskManager.ashx" />
+    <None Include="Css\img\images\Thumbs.db" />
+    <None Include="Css\img\Thumbs.db" />
+    <None Include="Images\GooCalendar\Thumbs.db" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>41901</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

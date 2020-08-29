@@ -1,0 +1,10 @@
+2014-12-15 10:01:51	info	GetEmployeeAgent
+2014-12-15 10:01:51	info	SELECT  BusinessGroup.* ,
+                                    EmployeeAgent.UserID
+                                    FROM    EmployeeAgent
+                                    INNER JOIN dbo.BusinessGroup ON EmployeeAgent.BGID = BusinessGroup.BGID 
+                                    WHERE BusinessGroup.Status=0 AND EmployeeAgent.UserID=10658
+2014-12-15 10:01:51	info	GetInUseBusinessGroup
+2014-12-15 10:01:51	info	SELECT bg.*,CallNum FROM BusinessGroup as bg Left Join CallDisplay as cd on bg.CDID=cd.CDID where bg.Status=0 AND bg.BGID IN ( SELECT BGID
+                         FROM   dbo.UserGroupDataRigth ugd
+                         WHERE  ugd.UserID =  10658) 

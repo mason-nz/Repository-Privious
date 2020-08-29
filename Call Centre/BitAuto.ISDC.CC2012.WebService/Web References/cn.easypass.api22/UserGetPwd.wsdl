@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkByUserLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkByUserLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLinkByUserLoginNameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAccountLoginNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountLoginNameByDealerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountLoginNameByDealerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountLoginNameByDealerIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameByDealerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameByDealerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAccountLoginNameByDealerIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLink" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByUserLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLinkByUserLoginName" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByUserLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkByUserLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginName" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountLoginNameByDealerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountLoginNameByDealerId" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountLoginNameByDealerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountLoginNameByDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameByDealerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameByDealerId" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameByDealerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameByDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserGetPwdSoap">
+    <wsdl:operation name="GetLink">
+      <wsdl:input message="tns:GetLinkSoapIn" />
+      <wsdl:output message="tns:GetLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByUserLoginName">
+      <wsdl:input message="tns:GetLinkByUserLoginNameSoapIn" />
+      <wsdl:output message="tns:GetLinkByUserLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginName">
+      <wsdl:input message="tns:UpdateAccountLoginNameSoapIn" />
+      <wsdl:output message="tns:UpdateAccountLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerId">
+      <wsdl:input message="tns:GetAccountLoginNameByDealerIdSoapIn" />
+      <wsdl:output message="tns:GetAccountLoginNameByDealerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerId">
+      <wsdl:input message="tns:UpdateAccountLoginNameByDealerIdSoapIn" />
+      <wsdl:output message="tns:UpdateAccountLoginNameByDealerIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserGetPwdSoap" type="tns:UserGetPwdSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLink">
+      <soap:operation soapAction="http://tempuri.org/GetLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByUserLoginName">
+      <soap:operation soapAction="http://tempuri.org/GetLinkByUserLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginName">
+      <soap:operation soapAction="http://tempuri.org/UpdateAccountLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerId">
+      <soap:operation soapAction="http://tempuri.org/GetAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerId">
+      <soap:operation soapAction="http://tempuri.org/UpdateAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserGetPwdSoap12" type="tns:UserGetPwdSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLink">
+      <soap12:operation soapAction="http://tempuri.org/GetLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByUserLoginName">
+      <soap12:operation soapAction="http://tempuri.org/GetLinkByUserLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginName">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAccountLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerId">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerId">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserGetPwd">
+    <wsdl:port name="UserGetPwdSoap" binding="tns:UserGetPwdSoap">
+      <soap:address location="http://api2.easypass.cn/das/inner/UserGetPwd.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserGetPwdSoap12" binding="tns:UserGetPwdSoap12">
+      <soap12:address location="http://api2.easypass.cn/das/inner/UserGetPwd.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

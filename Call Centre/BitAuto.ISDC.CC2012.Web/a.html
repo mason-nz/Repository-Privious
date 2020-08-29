@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+var Class = function(){
+			var kclass = function(){
+
+			};
+			kclass.inherit = function(argument){
+				for(item in argument)
+					kclass.prototype[item]=argument[item];
+			};
+
+			return kclass;
+		};
+
+		var Person = function(){};
+		Person.prototype.sayHello = function(){};
+		var Coder = new Class();
+		Coder.inherit(Person);
+		var coder = new Coder();
+		</script>
+</body>
+</html>

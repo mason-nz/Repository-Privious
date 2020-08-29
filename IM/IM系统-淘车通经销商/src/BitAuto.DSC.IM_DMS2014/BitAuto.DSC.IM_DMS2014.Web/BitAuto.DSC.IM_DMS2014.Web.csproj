@@ -1,0 +1,931 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A1118947-11AE-4D08-A623-3E93C902F091}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.DSC.IM_DMS2014.Web</RootNamespace>
+    <AssemblyName>BitAuto.DSC.IM_DMS2014.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Services.Organization.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.Services.Organization.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Services.Organization.Remoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.Services.Organization.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AgentChat.aspx" />
+    <Content Include="AgentChat.js" />
+    <Content Include="AjaxServers\ContentManage\AddRemarkForm.aspx" />
+    <Content Include="AjaxServers\ContentManage\ContentsDetailForm.aspx" />
+    <Content Include="AjaxServers\ContentManage\CSData.aspx" />
+    <Content Include="AjaxServers\ContentManage\CSHistoryData.aspx" />
+    <Content Include="AjaxServers\ContentManage\OnlineMessageData.aspx" />
+    <Content Include="AjaxServers\ContentManage\OnlineMessageExport.aspx" />
+    <Content Include="AjaxServers\ContentManage\UserActionLogList.aspx" />
+    <Content Include="AjaxServers\QueueManage\MonitorData.aspx" />
+    <Content Include="AjaxServers\QueueManage\QueueList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\CityManageList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\ComSenManageList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\FreProblemList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\LabelConfigList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\LabelManageList.aspx" />
+    <Content Include="Channels\ChatService.svc" />
+    <Content Include="Common\MutilAgentChoose.aspx" />
+    <Content Include="ContentManage\ChatHistory.aspx" />
+    <Content Include="ContentManage\OnlineMessage.aspx" />
+    <Content Include="ContentManage\UserActionLog.aspx" />
+    <Content Include="ConversationHistory.aspx" />
+    <Content Include="css\css.css" />
+    <Content Include="css\emotionstyle.css" />
+    <Content Include="css\img\arrow.png" />
+    <Content Include="css\img\bodybg.png" />
+    <Content Include="css\img\ch_close.png" />
+    <Content Include="css\img\ch_closehr.png" />
+    <Content Include="css\img\close.png" />
+    <Content Include="css\img\closehr.png" />
+    <Content Include="css\img\headbg.jpg" />
+    <Content Include="css\img\headbg1.jpg" />
+    <Content Include="css\img\loading.gif" />
+    <Content Include="css\img\logo.png" />
+    <Content Include="css\img\logoold.png" />
+    <Content Include="css\img\navbg.jpg" />
+    <Content Include="css\img\popT.jpg" />
+    <Content Include="css\img\shangchuan.png" />
+    <Content Include="css\img\tip.png" />
+    <Content Include="css\login.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\uploadify.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="EmotionForm.aspx" />
+    <Content Include="ErrorPage\NotAccessMsgPage.aspx" />
+    <Content Include="exit.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\arrow_open.png" />
+    <Content Include="Images\bag.gif" />
+    <Content Include="Images\base.gif" />
+    <Content Include="Images\bq.png" />
+    <Content Include="Images\btn_02.jpg" />
+    <Content Include="Images\btn_04.jpg" />
+    <Content Include="Images\btn_06.jpg" />
+    <Content Include="Images\btn_08.jpg" />
+    <Content Include="Images\comment.gif" />
+    <Content Include="Images\c_btn.png" />
+    <Content Include="Images\daochu.png" />
+    <Content Include="Images\document_file.gif" />
+    <Content Include="Images\Emotions\Default\badsmile.gif" />
+    <Content Include="Images\Emotions\Default\biggrin.gif" />
+    <Content Include="Images\Emotions\Default\call.gif" />
+    <Content Include="Images\Emotions\Default\color.gif" />
+    <Content Include="Images\Emotions\Default\cry.gif" />
+    <Content Include="Images\Emotions\Default\failure.gif" />
+    <Content Include="Images\Emotions\Default\funk.gif" />
+    <Content Include="Images\Emotions\Default\handshake.gif" />
+    <Content Include="Images\Emotions\Default\heart.gif" />
+    <Content Include="Images\Emotions\Default\huffy.gif" />
+    <Content Include="Images\Emotions\Default\hug.gif" />
+    <Content Include="Images\Emotions\Default\kiss.gif" />
+    <Content Include="Images\Emotions\Default\lol.gif" />
+    <Content Include="Images\Emotions\Default\loveliness.gif" />
+    <Content Include="Images\Emotions\Default\mad.gif" />
+    <Content Include="Images\Emotions\Default\ok.gif" />
+    <Content Include="Images\Emotions\Default\proud.gif" />
+    <Content Include="Images\Emotions\Default\sad.gif" />
+    <Content Include="Images\Emotions\Default\shit.gif" />
+    <Content Include="Images\Emotions\Default\shocked.gif" />
+    <Content Include="Images\Emotions\Default\shy.gif" />
+    <Content Include="Images\Emotions\Default\sleep.gif" />
+    <Content Include="Images\Emotions\Default\smile.gif" />
+    <Content Include="Images\Emotions\Default\strong.gif" />
+    <Content Include="Images\Emotions\Default\sweat.gif" />
+    <Content Include="Images\Emotions\Default\time.gif" />
+    <Content Include="Images\Emotions\Default\titter.gif" />
+    <Content Include="Images\Emotions\Default\tongue.gif" />
+    <Content Include="Images\Emotions\Default\victory.gif" />
+    <Content Include="Images\Emotions\Default\weak.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\001.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\002.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\003.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\004.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\005.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\006.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\007.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\008.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\009.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\010.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\011.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\012.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\013.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\014.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\015.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\016.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\017.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\018.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\019.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\020.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\021.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\022.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\023.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\024.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\025.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\026.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\027.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\028.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\029.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\030.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\031.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\032.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\033.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\034.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\035.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\036.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\037.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\038.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\039.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\040.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\041.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\042.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\043.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\044.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\045.png" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm01.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm02.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm03.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm04.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm05.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm06.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm07.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm08.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm09.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm10.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm11.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm12.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm13.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm14.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm15.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm16.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm17.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm18.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm19.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm20.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm21.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm22.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm23.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm24.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm25.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm26.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm27.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm28.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm29.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm30.gif" />
+    <Content Include="Images\friends_group.gif" />
+    <Content Include="Images\fw_pic.png" />
+    <Content Include="Images\info.gif" />
+    <Content Include="Images\layer_arrow.png" />
+    <Content Include="Images\layer_bg.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo1.png" />
+    <Content Include="Images\logo2.png" />
+    <Content Include="Images\offline.png" />
+    <Content Include="Images\online.png" />
+    <Content Include="Images\person1.png" />
+    <Content Include="Images\pic1.png" />
+    <Content Include="Images\pic2.png" />
+    <Content Include="Images\pic3.png" />
+    <Content Include="Images\pic4.png" />
+    <Content Include="Images\pic5.png" />
+    <Content Include="Images\popT.jpg" />
+    <Content Include="Images\queue.png" />
+    <Content Include="Images\status1.png" />
+    <Content Include="Images\status2.png" />
+    <Content Include="Images\status3.png" />
+    <Content Include="Images\tip.png" />
+    <Content Include="Images\title.gif" />
+    <Content Include="Images\uploadify_cancel.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\y_car.gif" />
+    <Content Include="Login.aspx" />
+    <Content Include="loginform.aspx" />
+    <Content Include="MailTemplat\images\allbg.png" />
+    <Content Include="MailTemplat\images\bot630.png" />
+    <Content Include="MailTemplat\images\bot730.png" />
+    <Content Include="MailTemplat\images\bottom730.png" />
+    <Content Include="MailTemplat\images\lb.png" />
+    <Content Include="MailTemplat\images\logo.png" />
+    <Content Include="MailTemplat\images\logo_old.png" />
+    <Content Include="MailTemplat\images\lt.png" />
+    <Content Include="MailTemplat\images\rb.png" />
+    <Content Include="MailTemplat\images\rt.png" />
+    <Content Include="MailTemplat\images\top630.png" />
+    <Content Include="MailTemplat\images\top730.png" />
+    <Content Include="MailTemplat\mail630.html" />
+    <Content Include="MailTemplat\mailSysError.html" />
+    <Content Include="MailTemplat\mailWorkOrder.html" />
+    <Content Include="MessageHistoryForAgent.aspx" />
+    <Content Include="OnLineMessageForm.aspx" />
+    <Content Include="OnlineService.aspx" />
+    <Content Include="OnlineService.js" />
+    <Content Include="QueueManage\ConversationMonitor.aspx" />
+    <Content Include="QueueManage\QueueList.aspx" />
+    <Content Include="SatisfactionForm.aspx" />
+    <Content Include="Scripts\AspNetComet.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\config.js" />
+    <Content Include="Scripts\Enum\Area.js" />
+    <Content Include="Scripts\Enum\Area2.js" />
+    <Content Include="Scripts\Enum\ProvinceCityCountry.js" />
+    <Content Include="Scripts\Enum\ShowEnum.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.autocomplete.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.free.ajaxTabPanel.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.hotkeys.min.js" />
+    <Content Include="Scripts\jquery.jmpopups-0.5.1.pack.js" />
+    <Content Include="Scripts\jquery.media.js" />
+    <Content Include="Scripts\jquery.uploadify.v3.2.min.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker-dev.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.png" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\uploadify.swf" />
+    <Content Include="SeniorManage\AddConSentence.aspx" />
+    <Content Include="SeniorManage\AddFreProblem.aspx" />
+    <Content Include="SeniorManage\CityManageList.aspx" />
+    <Content Include="SeniorManage\ComSenManage.aspx" />
+    <Content Include="SeniorManage\FreProblemForClient.aspx" />
+    <Content Include="SeniorManage\FreProblemList.aspx" />
+    <Content Include="SeniorManage\LabelConfig.aspx" />
+    <Content Include="SeniorManage\LabelEdit.aspx" />
+    <Content Include="SeniorManage\LabelManage.aspx" />
+    <Content Include="Setup\EXE\UdCapture.exe" />
+    <Content Include="Setup\EXE\UdCapture64.exe" />
+    <Content Include="Setup\UdCapture.js" />
+    <Content Include="UpLoadFile\2014\11\10\9\SnapScreen218758fc-a2b8-46b4-a6f1-7e14d0026765.png" />
+    <Content Include="UpLoadFile\2014\11\10\9\SnapScreenb255d951-680a-49ce-9ffb-799efd5d27bf.png" />
+    <Content Include="UpLoadFile\2014\11\11\10\SnapScreen7ebbf7d9-34b6-44f5-869d-5f54cb62b3f9.png" />
+    <Content Include="UpLoadFile\2014\11\11\14\1239644950d-ab08-4f68-8add-f1691f6e16c8.gif" />
+    <Content Include="UpLoadFile\2014\11\13\10\SnapScreen5d0c6ec4-7b73-4aa9-b5e4-0f3accfbefa0.png" />
+    <Content Include="UpLoadFile\2014\11\14\10\SnapScreen26b89b10-bfac-4bfd-8c86-ab270fe5ebf1.png" />
+    <Content Include="UpLoadFile\2014\11\14\13\SnapScreen02ae4eea-a582-4b56-9973-23f918364b99.png" />
+    <Content Include="UpLoadFile\2014\11\3\14\问题记录处理情况-张媛d57debbf-6206-45bf-93db-06faa8817eac.txt" />
+    <Content Include="UpLoadFile\2014\11\3\15\IMAG03344597a001-cda3-419c-8724-cb5f56b726f3.jpg" />
+    <Content Include="UpLoadFile\2014\11\3\15\IMAG033459f1791a-11f0-428b-b851-84ab4df3d5d8.jpg" />
+    <Content Include="UpLoadFile\2014\11\3\15\N8`7G%25%28W4%24HRX%24_0O3QBM%29R25384f46-d4fc-4d4a-8e88-db1e956ae582.jpg" />
+    <Content Include="UpLoadFile\2014\11\3\15\西山晴雪6e128529-e55a-4b4e-b759-d3401cfe6f97.jpg" />
+    <Content Include="UpLoadFile\2014\11\3\15\西山晴雪b936bd19-1985-47f6-aead-22d0e7fd6a0e.jpg" />
+    <Content Include="UpLoadFile\2014\11\3\15\问题记录处理情况-张媛37f9b780-d6c9-4bbb-9d60-67e9e1f74f97.txt" />
+    <Content Include="UpLoadFile\2014\11\3\18\SnapScreenb0b6ff24-d9a2-49ea-8e33-41f6bc4b8d18.png" />
+    <Content Include="UpLoadFile\2014\11\3\18\SnapScreene8d3f55c-33f9-49c6-8685-89682b5a7e00.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreen20d09e41-4a83-4fc9-a7fd-20ec2f1a63c4.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreen480e180c-fb14-4548-af09-35a7c17de679.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreen4e77e2a9-2c43-4360-8467-2b6ddde77a01.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreen6cf619eb-9f5a-4e29-859e-c1d53c30afb8.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreen7355b66d-1376-4e8e-a039-2c58a0f21b47.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreen8476a0f3-8745-44e5-856f-9224958331f6.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreenab2bbe76-6800-4339-a91b-bd7cc905810a.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreenac9537e2-4e52-4231-ba12-57fd83cb48a8.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreendf9eff3b-405f-4fec-b6b8-8d588a5dd402.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreene70ba69a-429e-4dbd-93b2-5ce876825762.png" />
+    <Content Include="UpLoadFile\2014\11\4\10\SnapScreenf91c5e5d-25bb-488c-9ad0-a38cfb84c85c.png" />
+    <Content Include="UpLoadFile\2014\11\4\15\SnapScreen2539927d-623a-43ca-9c52-1cc360fb9b65.png" />
+    <Content Include="UpLoadFile\2014\11\4\15\SnapScreen27d05da5-f915-4ce8-804c-f59765a4769b.png" />
+    <Content Include="UpLoadFile\2014\11\4\15\SnapScreen55e3cefb-ce99-4086-ac5c-10cb9c520400.png" />
+    <Content Include="UpLoadFile\2014\11\4\15\SnapScreen5b214ddd-9181-4862-86ae-a96c425dd3b3.png" />
+    <Content Include="UpLoadFile\2014\11\4\16\SnapScreena47fab9e-6167-4986-9468-38b89e3c45fb.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen0b3a3fec-4442-43a4-9cda-56f53b4682f0.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen10175f57-6a06-4825-b023-e03c2c9fdb78.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen21f3871f-0852-4fd2-a763-846260cce767.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen44d90bb3-040e-4483-bc4b-fe527156be99.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen49599637-7805-4549-bfdc-ab915bce804a.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen4bda819f-e50d-4f70-bca1-06570700e955.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen570f36f5-6fe3-438f-87cc-aa868ae6637d.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen941d22c3-2380-4687-9bc5-1d6475e48172.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreen970b379f-0883-4b3d-ba5c-2c796e4804d8.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreenbe0f60be-4006-40ed-be70-75e514e11f9b.png" />
+    <Content Include="UpLoadFile\2014\11\4\9\SnapScreenfab6d301-4a53-4d07-883e-d78c1cd5a490.png" />
+    <Content Include="UpLoadFile\2014\11\5\11\SnapScreen0ab417fa-bb5b-4e9f-8093-57147a8169bb.png" />
+    <Content Include="UpLoadFile\2014\11\5\11\SnapScreen301f27f0-110c-461b-9b1d-9429b3f046f4.png" />
+    <Content Include="UpLoadFile\2014\11\5\12\SnapScreen08af99e0-06ea-4de6-ab9b-9a112438f101.png" />
+    <Content Include="UpLoadFile\2014\11\5\12\SnapScreendc960b9c-0e03-4b10-9a4d-3e4f62598b64.png" />
+    <Content Include="UpLoadFile\2014\11\5\14\SnapScreen04b8faef-5980-4b4e-886e-44b78d1bf54b.png" />
+    <Content Include="UpLoadFile\2014\11\5\15\SnapScreen6ad16327-1e59-417f-a7a0-34fe8dc60386.png" />
+    <Content Include="UpLoadFile\2014\11\5\15\SnapScreen7eb6ff79-01bf-4bd0-a43e-5289525fae34.png" />
+    <Content Include="UpLoadFile\2014\11\5\16\SnapScreen634c2718-0218-44e7-82a8-26a9c8fb0434.png" />
+    <Content Include="UpLoadFile\2014\11\5\16\SnapScreen9f94dc69-0c79-4326-bdbe-d5232ae2400e.png" />
+    <Content Include="UpLoadFile\2014\11\5\16\SnapScreenc8d452cd-44c3-4235-b337-04af3443ad7b.png" />
+    <Content Include="UpLoadFile\2014\11\7\11\SnapScreenfb7f77da-fee3-40fd-9ad6-5111c2f90815.png" />
+    <Content Include="UpLoadFile\2014\11\7\16\SnapScreen477eedc8-48a6-4a91-9e4a-cf07bc292e80.png" />
+    <Content Include="UpLoadFile\2014\11\7\16\SnapScreena942e1c5-06e6-4a25-9525-84d0b83f41d7.png" />
+    <Content Include="UpLoadFile\2014\11\7\19\SnapScreen433ef8a0-a089-4270-a65b-78010dff7f51.png" />
+    <Content Include="UpLoadFile\2014\11\7\19\SnapScreen69bf0bce-82c1-44a9-98de-227281fb37da.png" />
+    <Content Include="UpLoadFile\2014\11\7\19\SnapScreen6d19f157-2c53-402d-9079-dfbc481b954a.png" />
+    <Content Include="UpLoadFile\2014\11\7\19\SnapScreen9a45b03f-9de2-4a78-86c8-ecd353ed34cd.png" />
+    <Content Include="UpLoadFile\2014\11\7\19\SnapScreenc659ad16-373f-42fa-ba6b-135c8b3647d5.png" />
+    <Content Include="UpLoadFile\2014\12\4\17\SnapScreen7bcef068-e986-4778-b178-f4ca95b1ccfa.png" />
+    <Content Include="UpLoadFile\2014\12\9\11\SnapScreenc59be38c-d9d8-45b9-87fe-a72a5b50c4f0.png" />
+    <Content Include="UpLoadFile\2014\12\9\14\SnapScreen87867acb-a8fc-4488-9c4a-72ef4f7f1e6c.png" />
+    <Content Include="UpLoadFile\2014\12\9\14\SnapScreen8ea1ef15-f6f6-470f-b78e-2f67795ae6ef.png" />
+    <Content Include="UpLoadFile\2014\12\9\14\流程疑问c1c4e6f9-b0f7-4aac-8793-6a7e07329bd9.txt" />
+    <Content Include="UpLoadFile\2015\1\15\17\SnapScreenf7998a8e-5a32-4f39-ae3f-f9f32438f661.png" />
+    <Content Include="UserQueueList.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebService\Utils.asmx" />
+    <Content Include="WebTest.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgentChat.aspx.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentChat.aspx.designer.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\AddRemarkForm.aspx.cs">
+      <DependentUpon>AddRemarkForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\AddRemarkForm.aspx.designer.cs">
+      <DependentUpon>AddRemarkForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ContentsDetailForm.aspx.cs">
+      <DependentUpon>ContentsDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ContentsDetailForm.aspx.designer.cs">
+      <DependentUpon>ContentsDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSData.aspx.cs">
+      <DependentUpon>CSData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSData.aspx.designer.cs">
+      <DependentUpon>CSData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSHistoryData.aspx.cs">
+      <DependentUpon>CSHistoryData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSHistoryData.aspx.designer.cs">
+      <DependentUpon>CSHistoryData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageData.aspx.cs">
+      <DependentUpon>OnlineMessageData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageData.aspx.designer.cs">
+      <DependentUpon>OnlineMessageData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageExport.aspx.cs">
+      <DependentUpon>OnlineMessageExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageExport.aspx.designer.cs">
+      <DependentUpon>OnlineMessageExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\UserActionLogList.aspx.cs">
+      <DependentUpon>UserActionLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\UserActionLogList.aspx.designer.cs">
+      <DependentUpon>UserActionLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\FileLoad.ashx.cs">
+      <DependentUpon>FileLoad.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LayerDataHandler.ashx.cs">
+      <DependentUpon>LayerDataHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LayerDataHandlerBefore.ashx.cs">
+      <DependentUpon>LayerDataHandlerBefore.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LoginForNoPwd.ashx.cs">
+      <DependentUpon>LoginForNoPwd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LoginManager.ashx.cs">
+      <DependentUpon>LoginManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\MonitorData.aspx.cs">
+      <DependentUpon>MonitorData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\MonitorData.aspx.designer.cs">
+      <DependentUpon>MonitorData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\QueueList.aspx.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\QueueList.aspx.designer.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageHandler.ashx.cs">
+      <DependentUpon>CityManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageList.aspx.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageList.aspx.designer.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageHandler.ashx.cs">
+      <DependentUpon>ComSenManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageList.aspx.cs">
+      <DependentUpon>ComSenManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageList.aspx.designer.cs">
+      <DependentUpon>ComSenManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemHandler.ashx.cs">
+      <DependentUpon>FreProblemHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemList.aspx.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemList.aspx.designer.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelConfigList.aspx.cs">
+      <DependentUpon>LabelConfigList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelConfigList.aspx.designer.cs">
+      <DependentUpon>LabelConfigList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageHandler.ashx.cs">
+      <DependentUpon>LabelManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageList.aspx.cs">
+      <DependentUpon>LabelManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageList.aspx.designer.cs">
+      <DependentUpon>LabelManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\ChatService.svc.cs">
+      <DependentUpon>ChatService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\DefaultChannelHandler.cs" />
+    <Compile Include="Common\MutilAgentChoose.aspx.cs">
+      <DependentUpon>MutilAgentChoose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\MutilAgentChoose.aspx.designer.cs">
+      <DependentUpon>MutilAgentChoose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\ChatHistory.aspx.cs">
+      <DependentUpon>ChatHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\ChatHistory.aspx.designer.cs">
+      <DependentUpon>ChatHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\OnlineMessage.aspx.cs">
+      <DependentUpon>OnlineMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\OnlineMessage.aspx.designer.cs">
+      <DependentUpon>OnlineMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\UserActionLog.aspx.cs">
+      <DependentUpon>UserActionLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\UserActionLog.aspx.designer.cs">
+      <DependentUpon>UserActionLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FootPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Top.Master.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Top.Master.designer.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationHistory.aspx.cs">
+      <DependentUpon>ConversationHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConversationHistory.aspx.designer.cs">
+      <DependentUpon>ConversationHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmotionForm.aspx.cs">
+      <DependentUpon>EmotionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmotionForm.aspx.designer.cs">
+      <DependentUpon>EmotionForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.designer.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exit.aspx.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exit.aspx.designer.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginform.aspx.cs">
+      <DependentUpon>loginform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginform.aspx.designer.cs">
+      <DependentUpon>loginform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageHistoryForAgent.aspx.cs">
+      <DependentUpon>MessageHistoryForAgent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageHistoryForAgent.aspx.designer.cs">
+      <DependentUpon>MessageHistoryForAgent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineMessageForm.aspx.cs">
+      <DependentUpon>OnLineMessageForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineMessageForm.aspx.designer.cs">
+      <DependentUpon>OnLineMessageForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineService.aspx.cs">
+      <DependentUpon>OnlineService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnlineService.aspx.designer.cs">
+      <DependentUpon>OnlineService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueManage\ConversationMonitor.aspx.cs">
+      <DependentUpon>ConversationMonitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\ConversationMonitor.aspx.designer.cs">
+      <DependentUpon>ConversationMonitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QueueManage\QueueList.aspx.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\QueueList.aspx.designer.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SatisfactionForm.aspx.cs">
+      <DependentUpon>SatisfactionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SatisfactionForm.aspx.designer.cs">
+      <DependentUpon>SatisfactionForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\AddConSentence.aspx.cs">
+      <DependentUpon>AddConSentence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\AddConSentence.aspx.designer.cs">
+      <DependentUpon>AddConSentence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\AddFreProblem.aspx.cs">
+      <DependentUpon>AddFreProblem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\AddFreProblem.aspx.designer.cs">
+      <DependentUpon>AddFreProblem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\CityManageList.aspx.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\CityManageList.aspx.designer.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\ComSenManage.aspx.cs">
+      <DependentUpon>ComSenManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\ComSenManage.aspx.designer.cs">
+      <DependentUpon>ComSenManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemForClient.aspx.cs">
+      <DependentUpon>FreProblemForClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemForClient.aspx.designer.cs">
+      <DependentUpon>FreProblemForClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemList.aspx.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemList.aspx.designer.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelConfig.aspx.cs">
+      <DependentUpon>LabelConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelConfig.aspx.designer.cs">
+      <DependentUpon>LabelConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelEdit.aspx.cs">
+      <DependentUpon>LabelEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelEdit.aspx.designer.cs">
+      <DependentUpon>LabelEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelManage.aspx.cs">
+      <DependentUpon>LabelManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelManage.aspx.designer.cs">
+      <DependentUpon>LabelManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserQueueList.aspx.cs">
+      <DependentUpon>UserQueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserQueueList.aspx.designer.cs">
+      <DependentUpon>UserQueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService\Utils.asmx.cs">
+      <DependentUpon>Utils.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebTest.aspx.cs">
+      <DependentUpon>WebTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebTest.aspx.designer.cs">
+      <DependentUpon>WebTest.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitAuto.DSC.IM_DMS2014.BLL\BitAuto.DSC.IM_DMS2014.BLL.csproj">
+      <Project>{A6297D5E-CECA-4C52-9717-17FB4D436AB7}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_DMS2014.Core\BitAuto.DSC.IM_DMS2014.Core.csproj">
+      <Project>{2E73D220-1E72-4DF0-BE6A-90B87426FED2}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_DMS2014.Dal\BitAuto.DSC.IM_DMS2014.Dal.csproj">
+      <Project>{92FBA738-6779-46A3-BD6F-580ECCE8A13E}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_DMS2014.Entities\BitAuto.DSC.IM_DMS2014.Entities.csproj">
+      <Project>{94B33F7E-9457-4560-9E42-DB3CFEB4DC1F}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_DMS2014.WebService\BitAuto.DSC.IM_DMS2014.WebService.csproj">
+      <Project>{76B7DFA2-3F38-4E2C-8AD0-FFD1AA3B9EE4}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\FileLoad.ashx" />
+    <Content Include="AjaxServers\Handler.ashx" />
+    <Content Include="AjaxServers\LayerDataHandler.ashx" />
+    <Content Include="AjaxServers\LoginForNoPwd.ashx" />
+    <Content Include="AjaxServers\LoginManager.ashx" />
+    <Content Include="AjaxServers\SeniorManage\CityManageHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\ComSenManageHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\FreProblemHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\LabelManageHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\Top.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\LayerDataHandlerBefore.ashx" />
+    <None Include="log\2014-11-11.log" />
+    <None Include="log\2014-11-12.log" />
+    <None Include="log\Log.Log" />
+    <None Include="Setup\UdCapture.msi" />
+    <None Include="Setup\UdCapture64.msi" />
+    <None Include="UpLoadFile\2014\11\10\11\IM需求文档84238fbc-f8e6-4ce4-bd75-65289224ace9.docx" />
+    <None Include="UpLoadFile\2014\11\10\11\IM需求文档9a3465b3-aa4e-47a3-ad76-b28e90234a70.docx" />
+    <None Include="UpLoadFile\2014\11\10\9\IM需求文档024d6ea8-7cf7-4483-958f-65292a270b67.docx" />
+    <None Include="UpLoadFile\2014\11\10\9\IM需求文档42072ff7-577e-40fb-9db9-137d851df76e.docx" />
+    <None Include="UpLoadFile\2014\11\10\9\IM需求文档48f326c7-48ca-43b6-866d-56e7e1a4d685.docx" />
+    <None Include="UpLoadFile\2014\11\10\9\IM需求文档770dee7f-5fed-46c3-aa43-b8354562b325.docx" />
+    <None Include="UpLoadFile\2014\11\10\9\IM需求文档a30a418c-7151-4156-9bb0-c84dbd43d1cf.docx" />
+    <None Include="UpLoadFile\2014\11\13\10\数据系统中心绩效考核表 _研发经理4fe23930-e320-4779-bd74-6ea0d4c4c43b.xls" />
+    <None Include="UpLoadFile\2014\11\13\10\数据系统中心绩效考核表+_数据研究总监70cdac77-f420-49a8-bed5-bd38df517ced.xls" />
+    <None Include="UpLoadFile\2014\11\13\10\数据系统中心绩效考核表_数据分析师826189ca-0e03-486d-9caf-2a994fa25b9b.xls" />
+    <None Include="UpLoadFile\2014\11\13\10\数据系统中心绩效考核表_齐志强4558eae5-9979-4707-9bf6-148a7734642b.xls" />
+    <None Include="UpLoadFile\2014\11\13\9\项目管理2015年新教材9da892f8-e984-4cce-9330-2f37f4e4c7b8.xls" />
+    <None Include="UpLoadFile\2014\11\3\14\原型疑问1c57d270-94c4-40b6-be5d-8d320762a357.docx" />
+    <None Include="UpLoadFile\2014\11\3\14\原型疑问5812a33e-2f0d-4e2e-a96e-7bf854cd9176.docx" />
+    <None Include="UpLoadFile\2014\11\3\14\原型疑问7f6d90dd-e734-4df9-a985-c3a10a528203.docx" />
+    <None Include="UpLoadFile\2014\11\3\14\原型疑问8fdb8aec-0df6-44c6-acc1-40d2b314ec8e.docx" />
+    <None Include="UpLoadFile\2014\11\3\14\原型疑问bc10585e-4634-4a58-ac5e-2455043fe717.docx" />
+    <None Include="UpLoadFile\2014\11\3\14\原型疑问回答—马双君d7c835ec-b79f-463d-b1d5-959290980e22.docx" />
+    <None Include="UpLoadFile\2014\11\3\14\原型疑问回答—马双君e44d9d2e-fa2f-4950-b4ec-47a937aa5b5c.docx" />
+    <None Include="UpLoadFile\2014\11\3\15\齐志强费用报销ef13d47a-f1b0-49ca-aa95-302a13012824.pdf" />
+    <None Include="UpLoadFile\2014\11\3\17\2014年度易车公司员工家属体检须知2129f8e6-d58b-485e-9cbd-21348bfd0536.pdf" />
+    <None Include="UpLoadFile\2014\11\3\17\2014年度易车公司员工家属体检须知4a5a033e-d2a4-44f0-bda6-f4318b3ea4c5.pdf" />
+    <None Include="UpLoadFile\2014\11\3\17\2014年度易车公司员工家属体检须知e4a131af-5206-484a-80a1-532f75c86354.pdf" />
+    <None Include="UpLoadFile\2014\11\3\17\IM需求文档ac3b842f-06d0-489c-aae8-c51324109021.docx" />
+    <None Include="UpLoadFile\2014\11\4\10\IM需求文档6f429b83-885e-48f6-b216-b865cdf77a92.docx" />
+    <None Include="UpLoadFile\2014\11\4\13\IM需求文档3ed3ca23-2449-4fed-9dfe-61496e511ef6.docx" />
+    <None Include="UpLoadFile\2014\11\4\14\IM需求文档577404f4-c826-4790-98ce-769dfaf9191b.docx" />
+    <None Include="UpLoadFile\2014\11\4\14\IM需求文档d1a4e17c-6c90-4427-b9dc-2aaade7a5545.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档22f0b68c-3c7f-4f6d-8223-0a3c6c619254.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档5ec2b3c3-93fc-4b9f-b148-8023df7ad757.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档6f1be344-e5f7-4073-be07-811df5ddd622.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档7d09e5cf-d4b3-4faa-b3eb-aff156668eb6.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档b012b91b-8f86-4fd2-b5a7-5395d688a5a0.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档bd591df0-7f14-4ddd-86a8-8759665de50d.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档f207db04-eb15-47c4-976b-fcd959d08ec9.docx" />
+    <None Include="UpLoadFile\2014\11\4\15\IM需求文档f8072439-ccc2-4173-b100-1bd0f8cab134.docx" />
+    <None Include="UpLoadFile\2014\11\4\9\IM需求文档c2d29c18-05f7-4bfa-ad64-e0a6e5256a0b.docx" />
+    <None Include="UpLoadFile\2014\11\5\11\IM需求文档458d1b43-cc79-4f9b-a2c2-6347f8dce771.docx" />
+    <None Include="UpLoadFile\2014\11\5\11\IM需求文档5ca920cf-9d92-48cd-9717-12bbb5a58341.docx" />
+    <None Include="UpLoadFile\2014\11\5\11\IM需求文档9aaff7e1-056c-490f-bdbe-5505e5ec608d.docx" />
+    <None Include="UpLoadFile\2014\11\5\11\IM需求文档adec5e70-3523-475e-bef5-5257c956b7c5.docx" />
+    <None Include="UpLoadFile\2014\11\5\11\IM需求文档cccba878-df0a-47c0-9dd2-10f4443a0e24.docx" />
+    <None Include="UpLoadFile\2014\11\5\11\原型疑问回答—马双君93101e6a-6dcf-4d0d-822f-23f0f2c15475.docx" />
+    <None Include="UpLoadFile\2014\11\5\12\IM需求文档16f02f5d-bd7d-40b6-974d-1b9a976473f6.docx" />
+    <None Include="UpLoadFile\2014\11\5\12\IM需求文档8c76637b-74a2-4827-861c-5ce218687cdd.docx" />
+    <None Include="UpLoadFile\2014\11\5\13\IM需求文档5814585d-4931-4a0e-ab68-02af7560d3ff.docx" />
+    <None Include="UpLoadFile\2014\11\5\15\IM需求文档5843e779-31e4-4660-a5ed-8c83ca6e2d25.docx" />
+    <None Include="UpLoadFile\2014\11\5\16\IM需求文档412daad4-1816-4ebd-8bf6-949596cbd20f.docx" />
+    <None Include="UpLoadFile\2014\11\5\16\IM需求文档981c2d75-1a96-4fc9-9530-2332896feab3.docx" />
+    <None Include="UpLoadFile\2014\11\5\16\原型疑问1630ee94-faf2-49fc-9a82-cd1915390527.docx" />
+    <None Include="UpLoadFile\2014\11\5\16\齐志强原型疑问b67a3ecb-f8c4-4100-8020-0465e41284b9.docx" />
+    <None Include="UpLoadFile\2014\11\5\17\IM需求文档4e812ecb-51c0-41a4-b788-a1c3e6f0b80f.docx" />
+    <None Include="UpLoadFile\2014\11\5\17\IM需求文档bf9fccf9-9232-49db-a018-7e4d29a86282.docx" />
+    <None Include="UpLoadFile\2014\11\5\18\IM需求文档0e2063e8-d312-41b4-8b10-83b621507788.docx" />
+    <None Include="UpLoadFile\2014\11\5\18\IM需求文档5f442feb-ec90-4063-8721-1ae082991fd3.docx" />
+    <None Include="UpLoadFile\2014\11\5\18\IM需求文档da005607-12b9-4c09-a8cf-1bcf9c548e7a.docx" />
+    <None Include="UpLoadFile\2014\11\5\18\IM需求文档f7d94339-0811-4d4e-94a8-71f8508cd672.docx" />
+    <None Include="UpLoadFile\2014\11\6\14\IM需求文档eca1571a-50e0-48fe-9365-1d92f4a1e2c2.docx" />
+    <None Include="UpLoadFile\2014\11\6\15\IM需求文档2cca0029-d156-4eba-bf50-12720bd91342.docx" />
+    <None Include="UpLoadFile\2014\11\7\11\IM需求文档b1c0d0ab-c7ff-431c-a7da-eeb4b4d719aa.docx" />
+    <None Include="UpLoadFile\2014\11\7\11\IM需求文档bac7af57-983c-4541-958c-d4b99503c638.docx" />
+    <None Include="UpLoadFile\2014\11\7\11\原型疑问127743d2-c11e-42a5-ac55-402fc5bc9d8b.docx" />
+    <None Include="UpLoadFile\2014\11\7\11\原型疑问回答—马双君769ece7d-93a6-4f1a-9d6f-8f39c089f7e9.docx" />
+    <None Include="UpLoadFile\2014\11\7\11\齐志强原型疑问c58c334a-6955-42d9-851b-d98cb93be946.docx" />
+    <None Include="UpLoadFile\2014\11\7\13\IM需求文档d0f4a633-3caa-4be4-9527-b03ed9e2e6fb.docx" />
+    <None Include="UpLoadFile\2014\11\7\16\IM需求文档644a8dbe-3247-4aac-afd5-12ed5ab5b902.docx" />
+    <None Include="UpLoadFile\2014\11\7\16\IM需求文档6ee6ec32-b42a-4d78-a3fc-b5310684dadd.docx" />
+    <None Include="UpLoadFile\2014\11\7\16\IM需求文档74d90264-2660-4d4d-b133-16b3a4bb0364.docx" />
+    <None Include="UpLoadFile\2014\11\7\18\IM需求文档dff0606c-a319-4254-847f-e773d182fdbf.docx" />
+    <None Include="UpLoadFile\2014\11\7\18\IM需求文档fc08a210-2193-4815-b1e5-d91e38246f9a.docx" />
+    <None Include="UpLoadFile\2014\11\7\19\IM需求文档14779d36-bb07-4dbd-b81e-2c5cfbec8564.docx" />
+    <None Include="UpLoadFile\2014\11\7\19\IM需求文档7ee4732b-ac36-4eb5-9009-5503b7a9f95b.docx" />
+    <None Include="UpLoadFile\2014\11\7\19\IM需求文档d8afca0c-ce36-46a1-833a-8e0e329d65ef.docx" />
+    <None Include="UpLoadFile\2015\1\15\17\IM疑问—齐志强15a111ad4-eb56-46df-86f9-66311c6b858d.docx" />
+    <None Include="UpLoadFile\2015\1\15\17\面试题带答案a31c7a63-bb24-405f-92f6-568283242bda.docx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>43993</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

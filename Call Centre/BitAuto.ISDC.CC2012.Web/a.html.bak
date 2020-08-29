@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+var Class = function() {
+	var klass =  function() {
+		if(typeof klass.init === 'function')
+			// klass.init.apply(this,arguments);
+			klass.init.apply(klass.prototype,arguments);
+		if(typeof klass.sayHello === 'function')
+			klass.sayHello.apply(klass.prototype,arguments);
+	};
+	return klass;
+};
+
+Class.define = function(argument) {
+	var obj= new this;
+	for(item in argument)
+	{
+		//argument[item].apply(obj,argument);
+		obj.prototype[item]=obj[item]=argument[item];
+		//obj[item]=argument[item];
+	}
+	return obj;
+}
+
+// var Person = new Class();
+// Person.init = function (name) {
+// 				this.name = name;
+// 			};
+var Person = Class.define({
+	init:function(name) {
+		this.name = name;
+	},
+	sayHello:function() {
+		return this.name;
+	}
+});
+//console.log(Person);
+
+var jobs = new Person('jobs');
+console.log(jobs.name);
+console.log(jobs.sayHello());
+	</script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29C504C9-1800-4B97-96C5-DA6ED309BCDD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.DSC.IM2014.Server.Web</RootNamespace>
+    <AssemblyName>BitAuto.DSC.IM2014.Server.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\BitAuto.DSC.IM2014.Server.Web.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Services.Organization.Remoting">
+      <HintPath>..\..\..\..\Lib\BitAuto.Services.Organization.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\..\Lib\BitAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddUserMessage.aspx" />
+    <Content Include="AgentChat.aspx" />
+    <Content Include="AgentChatNew.aspx" />
+    <Content Include="AgentDefault.aspx" />
+    <Content Include="AjaxServers\OnlineDialogList.aspx" />
+    <Content Include="Channels\ChatService.svc" />
+    <Content Include="ChatMessageLog\ChatMessageLog.aspx" />
+    <Content Include="ChatMessageLog\ChatMessageLogList.aspx" />
+    <Content Include="Controls\Bottom.ascx" />
+    <Content Include="Controls\ControlManage.ascx" />
+    <Content Include="Controls\Top.ascx" />
+    <Content Include="Default.aspx" />
+    <Content Include="DialogOnlineNew.aspx" />
+    <Content Include="DialogueOnline.aspx" />
+    <Content Include="ErrorPage\NotAccessMsgPage.aspx" />
+    <Content Include="images\2_online.gif" />
+    <Content Include="images\arrow_open.png" />
+    <Content Include="images\bag.gif" />
+    <Content Include="images\base.gif" />
+    <Content Include="images\btn_02.jpg" />
+    <Content Include="images\btn_04.jpg" />
+    <Content Include="images\btn_06.jpg" />
+    <Content Include="images\btn_08.jpg" />
+    <Content Include="images\comment.gif" />
+    <Content Include="images\c_btn.png" />
+    <Content Include="images\document_file.gif" />
+    <Content Include="images\friends_group.gif" />
+    <Content Include="images\info.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\person1.png" />
+    <Content Include="images\pic1.png" />
+    <Content Include="images\pic2.png" />
+    <Content Include="images\pic3.png" />
+    <Content Include="images\pic4.png" />
+    <Content Include="images\pic5.png" />
+    <Content Include="images\popT.jpg" />
+    <Content Include="images\status1.png" />
+    <Content Include="images\status2.png" />
+    <Content Include="images\status3.png" />
+    <Content Include="images\tip.png" />
+    <Content Include="images\title.gif" />
+    <Content Include="images\user.png" />
+    <Content Include="IMCss\css.css" />
+    <Content Include="IMCss\images\bodybg.png" />
+    <Content Include="IMCss\images\logo.png" />
+    <Content Include="IMCss\img\arrow.png" />
+    <Content Include="IMCss\img\headbg.jpg" />
+    <Content Include="IMCss\img\headbg1.jpg" />
+    <Content Include="IMCss\img\navbg.jpg" />
+    <Content Include="IMCss\login.css" />
+    <Content Include="IMCss\style.css" />
+    <Content Include="IMCss\uploadify.css" />
+    <Content Include="js\floatButtonStatic.js" />
+    <Content Include="js\hdm.js" />
+    <Content Include="js\jquery-1.6.4.min.js" />
+    <Content Include="js\public.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="loginform.aspx" />
+    <Content Include="MessageOnline.aspx" />
+    <Content Include="OnlineAsk.aspx" />
+    <Content Include="Scripts\AspNetComet.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\config.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.hotkeys.min.js" />
+    <Content Include="Scripts\jquery.jmpopups-0.5.1.pack.js" />
+    <Content Include="Scripts\jquery.uploadify.v3.2.min.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker-dev.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.png" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\uploadify.swf" />
+    <Content Include="Test.aspx" />
+    <Content Include="Upload.aspx" />
+    <Content Include="UserChat.aspx" />
+    <Content Include="UserChatTest.aspx" />
+    <Content Include="UserDefault.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="在线客服.html" />
+    <Content Include="在线对话.html" />
+    <Content Include="在线留言.html" />
+    <Content Include="对话管理.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddUserMessage.aspx.cs">
+      <DependentUpon>AddUserMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddUserMessage.aspx.designer.cs">
+      <DependentUpon>AddUserMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentChat.aspx.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentChat.aspx.designer.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentChatNew.aspx.cs">
+      <DependentUpon>AgentChatNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentChatNew.aspx.designer.cs">
+      <DependentUpon>AgentChatNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentDefault.aspx.cs">
+      <DependentUpon>AgentDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentDefault.aspx.designer.cs">
+      <DependentUpon>AgentDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\FileLoad.ashx.cs">
+      <DependentUpon>FileLoad.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LoginForNoPwd.ashx.cs">
+      <DependentUpon>LoginForNoPwd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LoginManager.ashx.cs">
+      <DependentUpon>LoginManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\OnlineDialogList.aspx.cs">
+      <DependentUpon>OnlineDialogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\OnlineDialogList.aspx.designer.cs">
+      <DependentUpon>OnlineDialogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\UserMessageHandler.ashx.cs">
+      <DependentUpon>UserMessageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\ChatService.svc.cs">
+      <DependentUpon>ChatService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\DefaultChannelHandler.cs" />
+    <Compile Include="ChatMessage.cs" />
+    <Compile Include="ChatMessageLog\ChatMessageLog.aspx.cs">
+      <DependentUpon>ChatMessageLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChatMessageLog\ChatMessageLog.aspx.designer.cs">
+      <DependentUpon>ChatMessageLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChatMessageLog\ChatMessageLogList.aspx.cs">
+      <DependentUpon>ChatMessageLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChatMessageLog\ChatMessageLogList.aspx.designer.cs">
+      <DependentUpon>ChatMessageLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Bottom.ascx.cs">
+      <DependentUpon>Bottom.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Bottom.ascx.designer.cs">
+      <DependentUpon>Bottom.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlManage.ascx.cs">
+      <DependentUpon>ControlManage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlManage.ascx.designer.cs">
+      <DependentUpon>ControlManage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Top.ascx.cs">
+      <DependentUpon>Top.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Top.ascx.designer.cs">
+      <DependentUpon>Top.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DialogOnlineNew.aspx.cs">
+      <DependentUpon>DialogOnlineNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DialogOnlineNew.aspx.designer.cs">
+      <DependentUpon>DialogOnlineNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DialogueOnline.aspx.cs">
+      <DependentUpon>DialogueOnline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DialogueOnline.aspx.designer.cs">
+      <DependentUpon>DialogueOnline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.designer.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginform.aspx.cs">
+      <DependentUpon>loginform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginform.aspx.designer.cs">
+      <DependentUpon>loginform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageOnline.aspx.cs">
+      <DependentUpon>MessageOnline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageOnline.aspx.designer.cs">
+      <DependentUpon>MessageOnline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineAsk.aspx.cs">
+      <DependentUpon>OnlineAsk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnlineAsk.aspx.designer.cs">
+      <DependentUpon>OnlineAsk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserChat.aspx.cs">
+      <DependentUpon>UserChat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserChat.aspx.designer.cs">
+      <DependentUpon>UserChat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserChatTest.aspx.cs">
+      <DependentUpon>UserChatTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserChatTest.aspx.designer.cs">
+      <DependentUpon>UserChatTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserDefault.aspx.cs">
+      <DependentUpon>UserDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDefault.aspx.designer.cs">
+      <DependentUpon>UserDefault.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="UpLoadFile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitAuto.DSC.IM2014.BLL\BitAuto.DSC.IM2014.BLL.csproj">
+      <Project>{64E7192E-E9D0-427F-8920-89B338A84B1C}</Project>
+      <Name>BitAuto.DSC.IM2014.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM2014.Core\BitAuto.DSC.IM2014.Core.csproj">
+      <Project>{D01E23E1-364E-4821-B3B1-377125F371DB}</Project>
+      <Name>BitAuto.DSC.IM2014.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM2014.Dal\BitAuto.DSC.IM2014.Dal.csproj">
+      <Project>{E4E94F89-962F-404E-B90A-BC3789DCF2ED}</Project>
+      <Name>BitAuto.DSC.IM2014.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM2014.Entities\BitAuto.DSC.IM2014.Entities.csproj">
+      <Project>{0D78DB04-1C41-4492-A4F9-DC22575F93FA}</Project>
+      <Name>BitAuto.DSC.IM2014.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\Handler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\UserMessageHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\LoginManager.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\LoginForNoPwd.ashx" />
+    <Content Include="AjaxServers\FileLoad.ashx" />
+    <None Include="log\Log.Log" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>10849</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

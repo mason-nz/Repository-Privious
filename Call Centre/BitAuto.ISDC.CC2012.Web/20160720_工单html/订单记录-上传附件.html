@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>订单记录</title>
+    <link href="css/base.css" type="text/css" rel="stylesheet" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <!-- <link href="css/uploadify.css" rel="stylesheet" type="text/css" />-->
+    <link href="../Css/workorder/wo-uploadify.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="/js/common.js" type="text/javascript"></script>
+    <script src="js/json2.js" type="text/javascript"></script>
+    <!--<script src="js/jquery.uploadify.v3.2.min.js" type="text/javascript"></script>-->
+    <script src="../Js/wo-jquery.uploadify.js" type="text/javascript"></script>  
+    <!--<script src="../Js/UserControl.js" type="text/javascript"></script>-->
+  
+    <script type="text/javascript">
+
+        var UploadifyControl = (function () {
+            var objUploadifyArr = new Array(); //IMG数据信息数组
+            var uploadLimit = 7; //上传文件总数最大为7
+            var uploadFileSizeLimit = 1024; //文件最大1M            
+            var uploadUrl = '/WOrderV2/Handler/IMGImportHandler.ashx'; //上传URL
+
+            function getsysCookie() {
+                var sysCookie = ""; //登录cookie           
+                AjaxPostAsync(uploadUrl, {
+                    Action: "getSysLoginCookieName",
+                    r: Math.random()
+                }, null, function (returnValue) {
+                    var retValue = $.evalJSON(returnValue);
+                    sysCookie = GetCookie(retValue.result);
+                });
+
+                return sysCookie;
+            }
+
+            var Init = function (btnDivID, btnName, top, left, StoragePathType) {
+                $("#" + btnDivID).html(' <input type="file" id="uploadify_CC"  name="uploadify_CC" />');
+                btnName = '<a>' + btnName + '</a>';
+                $("#uploadify_CC").uploadify({
+                    'buttonText': btnName,
+                    'swf': '/js/uploadify.swf?_=' + Math.random(),
+                    'uploader': uploadUrl,
+                    'auto': false,
+                    'multi': true,
+                    'width': 78,
+                    'height': 32,
+                    'formData': {
+                        Action: 'imgImport', StoragePathType: StoragePathType
+                    },
+                    'fileTypeDesc': '支持格式:.png;.jpg;.jpeg;.gif',
+                    'fileTypeExts': '*.png;*.jpg;*.jpeg;*.gif',
+                    'queueSizeLimit': uploadLimit,
+                    'fileSizeLimit': uploadFileSizeLimit,
+                    'scriptAccess': 'always',
+                    'removeCompleted': false,
+                    'onSelect': function (file) {
+                        var selectFileDiv = $(".uploadify-queue-item");
+                        if (selectFileDiv.length > uploadLimit) {
+                            $("#" + file.id).remove();
+                            alert("上传文件个数不能超过" + uploadLimit + "个！");
+                            return;
+                        }
+                        $('#uploadify_CC').uploadify('settings', 'uploader', uploadUrl + '?LoginCookiesContent=' + escapeStr(getsysCookie()));
+                        $("#uploadify_CC").uploadify('upload', '*');
+                    },
+                    'onQueueComplete': function (event, data) {
+
+                    },
+                    'onQueueFull': function () {
+                    },
+                    'onUploadSuccess': function (file, data, response) {
+
+                        if (response == true) {
+                            var dataObj = eval("(" + data + ")");
+                            // console.info(dataObj);
+                            if (dataObj.success) {
+                                objUploadifyArr[file.id] = dataObj.message;
+                                var dataObjMsg = eval("(" + dataObj.message + ")");
+                                $("#" + file.id).attr("title", dataObjMsg.FileRealName);
+                                $("#" + file.id + "_small").css("background-image", "url(" + dataObjMsg.SmallFileVirtuPath + ")");
+                                $("#" + file.id + "_small").append('<div class="cancel" onclick="UploadifyControl.deleteImg(&quot;' + file.id + '&quot;)">');
+
+                            }
+                            else {
+                                alert(dataObj.result);
+
+                            }
+                        }
+                    },
+                    'onProgress': function (event, queueID, fileObj, data) { },
+                    'onUploadError': function (event, queueID, fileObj, errorObj) {
+                    },
+                    'onSelectError': function (file, errorCode, errorMsg) {
+
+                        switch (errorCode) {
+                            case -100:
+                                alert("上传的文件数量已经超出系统限制的" + $('#uploadFile').uploadify('settings', 'queueSizeLimit') + "个文件！");
+                                break;
+                            case -110:
+                                alert("文件 [" + file.name + "] 大小超出系统限制的" + $('#uploadFile').uploadify('settings', 'fileSizeLimit') + "大小！");
+                                break;
+                            case -120:
+                                alert("文件 [" + file.name + "] 大小异常！");
+                                break;
+                            case -130:
+                                alert("文件 [" + file.name + "] 类型不正确！");
+                                break;
+                        }
+                    }
+                });
+
+                $("#uploadify_CC").css("position", "relative").css("top", top).css("left", left);             
+            };
+
+            var deleteImg = function (fileID) {
+                $('#uploadify_CC').uploadify('cancel', fileID);
+                var imgData = eval("(" + objUploadifyArr[fileID] + ")");
+                getsysCookie();
+                AjaxPost(uploadUrl + '?LoginCookiesContent=' + escapeStr(getsysCookie()), {
+                    Action: "deleteIMG",
+                    smallFileAllPath: imgData.SmallFileAllPath,
+                    fileAllPath: imgData.FileAllPath,
+                    r: Math.random()
+                }, null, function (returnValue) {
+                    var ret = $.evalJSON(returnValue);
+                    if (ret.success) {
+                        objUploadifyArr[fileID] = "";
+                        $("#uploadify_CC").uploadify('cancel', fileID, false);
+                    }
+                    else {
+                        alert("文件删除失败：" + ret.result);
+                    }
+                });
+            };
+
+            var GetobjUploadifyArr = function () {
+                var retArr = new Array();
+                for (var key in objUploadifyArr) {
+                    if (objUploadifyArr[key] != "") {
+                        retArr.push(objUploadifyArr[key]);
+                    }
+                }
+                return retArr;
+            };
+
+            return {
+                Init: Init,
+                GetUploadifyArr: GetobjUploadifyArr,
+                deleteImg: deleteImg
+            }
+        })();
+
+
+        $(document).ready(function () {
+            UploadifyControl.Init("DivUPloadTest", "上传附件", "-32px", "75px", 0); //方法：初始化控件
+            //参数为：DivID=控件div的ID,btnName=上传按钮的名字,top-调整按钮位置用 一般为-32px，left--调整按钮位置用 一般为75px，uploadify_CC为存储类型           
+            //             [EnumTextValue("其他")]     Other = 0,
+            //            [EnumTextValue("黑白名单")]      BlackWhite = 1,
+            //            [EnumTextValue("数据模版")]       Template = 2,
+            //            [EnumTextValue("知识库")]    KnowledgeLib = 3,
+            //            [EnumTextValue("项目管理")]     Project = 4,
+            //            [EnumTextValue("易派会员")]    Member = 5,
+            //            [EnumTextValue("工单")]       WorkOrder = 6
+
+            //Uploadify.GetUploadifyArr()  获取控件中图片数据信息方法
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="cc">
+        <div class="head">
+            新增工单</div>
+        <div class="cont">
+            <!--左开始-->
+            <div class="leftcon">
+                <!--下半部分基本信息开始-->
+                <div class="leftcon_up mt5">
+                    <div class="border_up">
+                    </div>
+                    <!--下半部分内容开始-->
+                    <div class="border_center border_center2">
+                        <ul>
+                            <li class="clear_hh pt5">
+                                <div class="kj_option left">
+                                    <a href="#">快捷输入</a> |
+                                    <!--<a href="#">添加附件</a>-->
+                                    <!--现有控件-->
+                                    <div id="DivUPloadTest">
+                                    </div>
+                                </div>
+                                <div class="kj_option kj_option2 right">
+                                    <label>
+                                        <input name="" type="checkbox" value="" />
+                                        <em>同步至访问记录</em>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix">
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                        <!--现有控件-->
+                        <div id="uploadDiv">
+                            <!--<input type="file" id="uploadify" name="uploadify" />-->
+                        </div>
+                        <!--现有控件-->
+                        <div class="clearfix">
+                        </div>
+                        <div class="btn right">
+                            <input name="" type="button" value="转出" class="btn_gary" onclick="console.info(UploadifyControl.GetUploadifyArr())" />
+                            <input name="" type="button" value="添加" class="btn_blue" />
+                        </div>
+                    </div>
+                    <!--下半部分内容结束-->
+                    <div class="border_bottom">
+                    </div>
+                </div>
+                <!--下半部分基本信息结束-->
+            </div>
+            <!--左结束-->
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+    <!--    <img style="width:100;height:100" src="/upload/Other/20160726/aa.png" />-->
+</body>
+</html>

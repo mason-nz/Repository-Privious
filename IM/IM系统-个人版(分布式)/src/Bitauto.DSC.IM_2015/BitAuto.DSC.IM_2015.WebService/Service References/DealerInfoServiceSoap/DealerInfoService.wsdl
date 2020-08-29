@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://easyop.bitauto.com/dms/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://easyop.bitauto.com/dms/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://easyop.bitauto.com/dms/">
+      <s:element name="UpdateDasAccountByDealerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDasAccountByDealerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDasAccountByDealerIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerContactByDealerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SalesPhones" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FaxNumbers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSiteUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrafficInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerContactByDealerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDealerContactByDealerIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerIntroductionByDealerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Introduction" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerIntroductionByDealerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDealerIntroductionByDealerIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerInfoMapCoorDinateByDealerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MapProviderName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Longitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Latitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrafficInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MapCoorDinateRemark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerInfoMapCoorDinateByDealerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDealerInfoMapCoorDinateByDealerIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDealerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DealerFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerShortName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BusinessModeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LocationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerContactAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerSalesPhones" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BrandGroupID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerEnterpriseIntroduction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerPostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerWebSiteUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerEmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Longitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Latitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrafficInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDealerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDealerInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SalesPhones" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FaxNumbers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSiteUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDealerInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerInfoByUpdateTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerInfoByUpdateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerInfoByUpdateTimeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerInfoByDealerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerInfoByDealerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerInfoByDealerIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerInfoByAllDealerID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDealerInfoByAllDealerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerInfoByAllDealerIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDealerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDealerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteDealerInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDealerStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDealerStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealer400">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealer400Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealer400Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateDasAccountByDealerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDasAccountByDealerID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDasAccountByDealerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDasAccountByDealerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerContactByDealerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDealerContactByDealerID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerContactByDealerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDealerContactByDealerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerIntroductionByDealerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDealerIntroductionByDealerID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerIntroductionByDealerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDealerIntroductionByDealerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerInfoMapCoorDinateByDealerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDealerInfoMapCoorDinateByDealerID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerInfoMapCoorDinateByDealerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDealerInfoMapCoorDinateByDealerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDealerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDealerInfo" />
+  </wsdl:message>
+  <wsdl:message name="CreateDealerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDealerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDealerInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDealerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoByUpdateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerInfoByUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoByUpdateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerInfoByUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoByDealerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerInfoByDealerID" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoByDealerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerInfoByDealerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoByAllDealerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerInfoByAllDealerID" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoByAllDealerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerInfoByAllDealerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDealerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDealerInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDealerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDealerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDealerStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDealerStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDealerStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealer400SoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealer400" />
+  </wsdl:message>
+  <wsdl:message name="GetDealer400SoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealer400Response" />
+  </wsdl:message>
+  <wsdl:portType name="DealerInfoServiceSoap">
+    <wsdl:operation name="UpdateDasAccountByDealerID">
+      <wsdl:input message="tns:UpdateDasAccountByDealerIDSoapIn" />
+      <wsdl:output message="tns:UpdateDasAccountByDealerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerContactByDealerID">
+      <wsdl:input message="tns:UpdateDealerContactByDealerIDSoapIn" />
+      <wsdl:output message="tns:UpdateDealerContactByDealerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerIntroductionByDealerID">
+      <wsdl:input message="tns:UpdateDealerIntroductionByDealerIDSoapIn" />
+      <wsdl:output message="tns:UpdateDealerIntroductionByDealerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerInfoMapCoorDinateByDealerID">
+      <wsdl:input message="tns:UpdateDealerInfoMapCoorDinateByDealerIDSoapIn" />
+      <wsdl:output message="tns:UpdateDealerInfoMapCoorDinateByDealerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDealerInfo">
+      <wsdl:input message="tns:CreateDealerInfoSoapIn" />
+      <wsdl:output message="tns:CreateDealerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改经销商信息（允许修改的经销商类型：导入、免费未付费的！)。注：电话号码必须按照以下格式：固话：010-68492345 010-68492345-8217 手机：直接输入13245687921 特殊号码：4000689960</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDealerInfoSoapIn" />
+      <wsdl:output message="tns:UpdateDealerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByUpdateTime">
+      <wsdl:input message="tns:GetDealerInfoByUpdateTimeSoapIn" />
+      <wsdl:output message="tns:GetDealerInfoByUpdateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByDealerID">
+      <wsdl:input message="tns:GetDealerInfoByDealerIDSoapIn" />
+      <wsdl:output message="tns:GetDealerInfoByDealerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByAllDealerID">
+      <wsdl:input message="tns:GetDealerInfoByAllDealerIDSoapIn" />
+      <wsdl:output message="tns:GetDealerInfoByAllDealerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDealerInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增加验证：只能删除免费和导入的经销商。有旺店顶级域名的不能删除。开通了400呼叫中心的不能删除。该经销商在DMS中不存在或已删除！</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDealerInfoSoapIn" />
+      <wsdl:output message="tns:DeleteDealerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新经销商状态为停用或启用：停用状态值为：2  启用状态值为：0 ，当前如果有正在执行的排期或未开始执行的排期均不能停用</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDealerStatusSoapIn" />
+      <wsdl:output message="tns:UpdateDealerStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealer400">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回行记录有3个字段 DealerId 经销商id 、[ServiceTypeID] 服务类型id 1 为400大号、2为400小号 、 Dealer400 为400号码</wsdl:documentation>
+      <wsdl:input message="tns:GetDealer400SoapIn" />
+      <wsdl:output message="tns:GetDealer400SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DealerInfoServiceSoap" type="tns:DealerInfoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateDasAccountByDealerID">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/UpdateDasAccountByDealerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerContactByDealerID">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerContactByDealerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerIntroductionByDealerID">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerIntroductionByDealerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerInfoMapCoorDinateByDealerID">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerInfoMapCoorDinateByDealerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDealerInfo">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/CreateDealerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerInfo">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByUpdateTime">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/GetDealerInfoByUpdateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByDealerID">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/GetDealerInfoByDealerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByAllDealerID">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/GetDealerInfoByAllDealerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDealerInfo">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/DeleteDealerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerStatus">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealer400">
+      <soap:operation soapAction="http://easyop.bitauto.com/dms/GetDealer400" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DealerInfoServiceSoap12" type="tns:DealerInfoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateDasAccountByDealerID">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/UpdateDasAccountByDealerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerContactByDealerID">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerContactByDealerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerIntroductionByDealerID">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerIntroductionByDealerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerInfoMapCoorDinateByDealerID">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerInfoMapCoorDinateByDealerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDealerInfo">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/CreateDealerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerInfo">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByUpdateTime">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/GetDealerInfoByUpdateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByDealerID">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/GetDealerInfoByDealerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfoByAllDealerID">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/GetDealerInfoByAllDealerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDealerInfo">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/DeleteDealerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerStatus">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/UpdateDealerStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealer400">
+      <soap12:operation soapAction="http://easyop.bitauto.com/dms/GetDealer400" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DealerInfoService">
+    <wsdl:port name="DealerInfoServiceSoap" binding="tns:DealerInfoServiceSoap">
+      <soap:address location="http://easyop.bitauto.com/DMS/OuterService/DealerInfoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DealerInfoServiceSoap12" binding="tns:DealerInfoServiceSoap12">
+      <soap12:address location="http://easyop.bitauto.com/DMS/OuterService/DealerInfoService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

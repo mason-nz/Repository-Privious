@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetServiceByCstID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CstID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceByCstIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceByCstIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberTypeByMemCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrMember" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMemberTypeByMemCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberTypeByMemCodeResult" type="tns:ArrayOfDictionaryEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDictionaryEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEntry" type="tns:DictionaryEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DictionaryEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfDictionaryEntry" nillable="true" type="tns:ArrayOfDictionaryEntry" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetServiceByCstIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceByCstID" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceByCstIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceByCstIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberTypeByMemCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberTypeByMemCode" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberTypeByMemCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberTypeByMemCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceByCstIDHttpGetIn">
+    <wsdl:part name="CstID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceByCstIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberTypeByMemCodeHttpGetIn">
+    <wsdl:part name="arrMember" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberTypeByMemCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDictionaryEntry" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceByCstIDHttpPostIn">
+    <wsdl:part name="CstID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceByCstIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberTypeByMemCodeHttpPostIn">
+    <wsdl:part name="arrMember" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberTypeByMemCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDictionaryEntry" />
+  </wsdl:message>
+  <wsdl:portType name="CYTMemberSoap">
+    <wsdl:operation name="GetServiceByCstID">
+      <wsdl:input message="tns:GetServiceByCstIDSoapIn" />
+      <wsdl:output message="tns:GetServiceByCstIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberTypeByMemCode">
+      <wsdl:input message="tns:GetMemberTypeByMemCodeSoapIn" />
+      <wsdl:output message="tns:GetMemberTypeByMemCodeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CYTMemberHttpGet">
+    <wsdl:operation name="GetServiceByCstID">
+      <wsdl:input message="tns:GetServiceByCstIDHttpGetIn" />
+      <wsdl:output message="tns:GetServiceByCstIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberTypeByMemCode">
+      <wsdl:input message="tns:GetMemberTypeByMemCodeHttpGetIn" />
+      <wsdl:output message="tns:GetMemberTypeByMemCodeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CYTMemberHttpPost">
+    <wsdl:operation name="GetServiceByCstID">
+      <wsdl:input message="tns:GetServiceByCstIDHttpPostIn" />
+      <wsdl:output message="tns:GetServiceByCstIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberTypeByMemCode">
+      <wsdl:input message="tns:GetMemberTypeByMemCodeHttpPostIn" />
+      <wsdl:output message="tns:GetMemberTypeByMemCodeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CYTMemberSoap" type="tns:CYTMemberSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServiceByCstID">
+      <soap:operation soapAction="http://tempuri.org/GetServiceByCstID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberTypeByMemCode">
+      <soap:operation soapAction="http://tempuri.org/GetMemberTypeByMemCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CYTMemberSoap12" type="tns:CYTMemberSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServiceByCstID">
+      <soap12:operation soapAction="http://tempuri.org/GetServiceByCstID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberTypeByMemCode">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberTypeByMemCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CYTMemberHttpGet" type="tns:CYTMemberHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetServiceByCstID">
+      <http:operation location="/GetServiceByCstID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberTypeByMemCode">
+      <http:operation location="/GetMemberTypeByMemCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CYTMemberHttpPost" type="tns:CYTMemberHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetServiceByCstID">
+      <http:operation location="/GetServiceByCstID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberTypeByMemCode">
+      <http:operation location="/GetMemberTypeByMemCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CYTMember">
+    <wsdl:port name="CYTMemberSoap" binding="tns:CYTMemberSoap">
+      <soap:address location="http://crm.sys1.bitauto.com/dms/cytmember.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CYTMemberSoap12" binding="tns:CYTMemberSoap12">
+      <soap12:address location="http://crm.sys1.bitauto.com/dms/cytmember.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CYTMemberHttpGet" binding="tns:CYTMemberHttpGet">
+      <http:address location="http://crm.sys1.bitauto.com/dms/cytmember.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CYTMemberHttpPost" binding="tns:CYTMemberHttpPost">
+      <http:address location="http://crm.sys1.bitauto.com/dms/cytmember.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCallRecordByMaxID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallRecordByMaxIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCallRecordByMaxIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBusinessDataByCallID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="callID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="businessID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BGID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SCID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="createuserid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBusinessDataByCallIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateBusinessDataByCallIDResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentRoleNameByDomainAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domainAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentRoleNameByDomainAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgentRoleNameByDomainAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentInfoByCondition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgentInfoCondition" type="tns:AgentInfoCondition" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AgentInfoCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoginUserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BGID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrueName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAgentInfoByConditionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgentInfoByConditionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCustData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jsonDataStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCustDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertCustDataResult" type="tns:EnumResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnumResult">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="VerifyError" />
+          <s:enumeration value="JsonPatternError" />
+          <s:enumeration value="CustNameEmpty" />
+          <s:enumeration value="SexPatternError" />
+          <s:enumeration value="CustTelEmpty" />
+          <s:enumeration value="CustTelPatternError" />
+          <s:enumeration value="CallIDEmpty" />
+          <s:enumeration value="CallIDPatternError" />
+          <s:enumeration value="CallIDNotExist" />
+          <s:enumeration value="BusinessIDEmpty" />
+          <s:enumeration value="BGIDEmpty" />
+          <s:enumeration value="BGIDPatternError" />
+          <s:enumeration value="SCIDEmpty" />
+          <s:enumeration value="SCIDPatternError" />
+          <s:enumeration value="MemberCodeError" />
+          <s:enumeration value="Fail" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="InsertCustDataReturnStr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jsonDataStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCustDataReturnStrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertCustDataReturnStrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDemandCallDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Verifycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:CallRecordInfoCondition" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallRecordInfoCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BGID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SCID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDemandCallDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDemandCallDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCallRecordByMaxIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallRecordByMaxID" />
+  </wsdl:message>
+  <wsdl:message name="GetCallRecordByMaxIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallRecordByMaxIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBusinessDataByCallIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBusinessDataByCallID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBusinessDataByCallIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBusinessDataByCallIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentRoleNameByDomainAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentRoleNameByDomainAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentRoleNameByDomainAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentRoleNameByDomainAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentInfoByConditionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentInfoByCondition" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentInfoByConditionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentInfoByConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCustDataSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCustData" />
+  </wsdl:message>
+  <wsdl:message name="InsertCustDataSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCustDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCustDataReturnStrSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCustDataReturnStr" />
+  </wsdl:message>
+  <wsdl:message name="InsertCustDataReturnStrSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCustDataReturnStrResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDemandCallDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDemandCallDetailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GetCallRecordListSoap">
+    <wsdl:operation name="GetCallRecordByMaxID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取话务数据，最大不能超过1万条</wsdl:documentation>
+      <wsdl:input message="tns:GetCallRecordByMaxIDSoapIn" />
+      <wsdl:output message="tns:GetCallRecordByMaxIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBusinessDataByCallID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据CallID，更新业务数据，businessID为业务ID，BGID为分组ID，SCID为分类ID</wsdl:documentation>
+      <wsdl:input message="tns:UpdateBusinessDataByCallIDSoapIn" />
+      <wsdl:output message="tns:UpdateBusinessDataByCallIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentRoleNameByDomainAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据域账号，返回呼叫中心系统当前用户角色信息</wsdl:documentation>
+      <wsdl:input message="tns:GetAgentRoleNameByDomainAccountSoapIn" />
+      <wsdl:output message="tns:GetAgentRoleNameByDomainAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentInfoByCondition">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> 查询客服系统人员信息</wsdl:documentation>
+      <wsdl:input message="tns:GetAgentInfoByConditionSoapIn" />
+      <wsdl:output message="tns:GetAgentInfoByConditionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">插入客户信息</wsdl:documentation>
+      <wsdl:input message="tns:InsertCustDataSoapIn" />
+      <wsdl:output message="tns:InsertCustDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustDataReturnStr">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">插入客户信息</wsdl:documentation>
+      <wsdl:input message="tns:InsertCustDataReturnStrSoapIn" />
+      <wsdl:output message="tns:InsertCustDataReturnStrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取话务数据接口（易集客调用）</wsdl:documentation>
+      <wsdl:input message="tns:GetDemandCallDetailSoapIn" />
+      <wsdl:output message="tns:GetDemandCallDetailSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetCallRecordListSoap" type="tns:GetCallRecordListSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCallRecordByMaxID">
+      <soap:operation soapAction="http://tempuri.org/GetCallRecordByMaxID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBusinessDataByCallID">
+      <soap:operation soapAction="http://tempuri.org/UpdateBusinessDataByCallID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentRoleNameByDomainAccount">
+      <soap:operation soapAction="http://tempuri.org/GetAgentRoleNameByDomainAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentInfoByCondition">
+      <soap:operation soapAction="http://tempuri.org/GetAgentInfoByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustData">
+      <soap:operation soapAction="http://tempuri.org/InsertCustData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustDataReturnStr">
+      <soap:operation soapAction="http://tempuri.org/InsertCustDataReturnStr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallDetail">
+      <soap:operation soapAction="http://tempuri.org/GetDemandCallDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetCallRecordListSoap12" type="tns:GetCallRecordListSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCallRecordByMaxID">
+      <soap12:operation soapAction="http://tempuri.org/GetCallRecordByMaxID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBusinessDataByCallID">
+      <soap12:operation soapAction="http://tempuri.org/UpdateBusinessDataByCallID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentRoleNameByDomainAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentRoleNameByDomainAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentInfoByCondition">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentInfoByCondition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustData">
+      <soap12:operation soapAction="http://tempuri.org/InsertCustData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustDataReturnStr">
+      <soap12:operation soapAction="http://tempuri.org/InsertCustDataReturnStr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetDemandCallDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetCallRecordList">
+    <wsdl:port name="GetCallRecordListSoap" binding="tns:GetCallRecordListSoap">
+      <soap:address location="http://ncc.sys1.bitauto.com/CallRecordService/GetCallRecordList.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetCallRecordListSoap12" binding="tns:GetCallRecordListSoap12">
+      <soap12:address location="http://ncc.sys1.bitauto.com/CallRecordService/GetCallRecordList.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

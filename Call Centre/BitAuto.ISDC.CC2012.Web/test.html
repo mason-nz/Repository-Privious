@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/css/base.css" type="text/css" rel="stylesheet" />
+    <link href="/css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div id="popupLayer_selectActivityAjaxPopup" style="visibility: visible; position: absolute; z-index: 7002; left: 373.5px; top: 5px;"><a style="position:absolute; left:-9999px; top:-1px;" class="jmp-link-at-top" href="#">&nbsp;</a><input style="position:absolute; left:-9999px; top:-1px;" class="jmp-link-at-top">
+
+
+<div class="pop pb15 openwindow">
+    <input type="hidden" value="-1" id="hidProvinceID">
+    <input type="hidden" value="-1" id="hidCityID">
+    <div class="title bold">
+        <h2 style="cursor: auto;">
+            选择活动</h2>
+        <span><a onclick="javascript:$.closePopupLayer('selectActivityAjaxPopup',false);" href="javascript:void(0)">
+        </a></span>
+    </div>
+    <ul class="clearfix  outTable">
+        <li class="name1">
+            <label>
+                选择落地地区：</label>
+            <select onchange="TrigerProvice()" style="width: 80px" class="w80" id="ddlProvince" name="ddlProvince">
+<option value="-1">省/直辖市</option><option value="1">安徽省</option><option value="820000">澳门特别行政区</option><option value="2">北京</option><option value="31">重庆</option><option value="3">福建省</option><option value="4">甘肃省</option><option value="5">广东省</option><option value="6">广西壮族自治区</option><option value="7">贵州省</option><option value="8">海南省</option><option value="9">河北省</option><option value="11">黑龙江省</option><option value="10">河南省</option><option value="12">湖北省</option><option value="13">湖南省</option><option value="15">江苏省</option><option value="16">江西省</option><option value="14">吉林省</option><option value="17">辽宁省</option><option value="18">内蒙古自治区</option><option value="19">宁夏回族自治区</option><option value="20">青海省</option><option value="23">陕西省</option><option value="21">山东省</option><option value="24">上海</option><option value="22">山西省</option><option value="25">四川省</option><option value="710000">台湾省</option><option value="26">天津</option><option value="810000">香港特别行政区</option><option value="28">新疆维吾尔自治区</option><option value="27">西藏自治区</option><option value="29">云南省</option><option value="30">浙江省</option></select><select style="margin-left: 5px; width: 70px" class="w80" id="ddlCity" name="ddlCity">
+<option value="-1">城市</option><option value="201">北京市</option></select></li>
+        <li class="btn">
+            <input type="button" onclick="javascript:ActivitySearch();" value="查询" class="button"></li>
+    </ul>
+    <div class="Table2" id="divBrandList">
+        <table width="98%" cellspacing="0" cellpadding="0" border="0" id="tableBrandList" class="Table2List">
+            <tbody>
+                <tr>
+                    <th width="10%">
+                        操作
+                    </th>
+                    <th width="16%">
+                        活动名称
+                    </th>
+                    <th width="16%">
+                        品牌
+                    </th>
+                    <th width="16%">
+                        落地地区
+                    </th>
+                    <th width="16%">
+                        开始时间
+                    </th>
+                    <th width="16%">
+                        结束时间
+                    </th>
+                </tr>
+                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    <tr>
+                                        <td> 
+                                            <a id="487d1de3-b198-4928-913d-a161490f7666" name="奥迪3-12月-北京4月-未来 先见 全新奥迪A3携未来驾到" href="javascript:SelectCustBrand('487d1de3-b198-4928-913d-a161490f7666','奥迪3-12月-北京4月-未来 先见 全新奥迪A3携未来驾到');">选择</a>
+                                        </td>
+                                        <td class="l">
+                                            
+                                            <a href="http://www.bitauto.com/zhuanti/ad_topic/201404a3bj/" target="_blank">奥迪3-12月-北京4月-未来 先见 全新奥迪A3携未来驾到</a>&nbsp;
+                                        </td>
+                                        <td class="l">
+                                            A 奥迪
+                                        </td> 
+                                        <td class="l">
+                                            北京 
+                                        </td>
+                                        <td class="l">
+                                            2014-04-08
+                                        </td> 
+                                        <td class="l">
+                                            2014-05-30
+                                        </td> 
+                                    </tr>
+                                
+            </tbody>
+        </table>
+        <div class="pageTurn mr10">
+            <p>
+                共 6 项 首页&nbsp;上一页&nbsp;<span class="down">│<b>1</b>│</span>&nbsp;下一页&nbsp;尾页
+            </p>
+        </div>
+    </div>
+    <table width="98%" cellspacing="0" cellpadding="0" border="0" id="tableCustBrandSelect" class="Table2List mt20">
+        <tbody>
+            <tr>
+                <th width="10%">
+                    操作
+                </th>
+                <th width="16%">
+                    活动名称
+                </th>
+                <th width="16%">
+                    品牌
+                </th>
+                <th width="16%">
+                    落地地区
+                </th>
+                <th width="16%">
+                    开始时间
+                </th>
+                <th width="16%">
+                    结束时间
+                </th>
+                
+        </tr></tbody>
+    </table>
+    <div style="margin: 20px 10px 10px 0px;" class="btn">
+        <input type="button" onclick="javascript:SaveSelectActivity();" value="提交" class="btnSave bold">
+        <input type="button" onclick="javascript:$.closePopupLayer('selectActivityAjaxPopup',false);" value="取消" class="btnSave bold">
+    </div>
+</div>
+<a style="position:absolute; left:-9999px; bottom:-1px;" class="jmp-link-at-bottom" href="#">&nbsp;</a><input style="position:absolute; left:-9999px; top:-1px;" class="jmp-link-at-bottom"></div>
+
+
+</body>
+</html>

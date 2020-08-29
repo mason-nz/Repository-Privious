@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://crm.bitauto.com/dms/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://crm.bitauto.com/dms/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://crm.bitauto.com/dms/">
+      <s:element name="GetMappingOfCustAndDealer">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMappingOfCustAndDealerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMappingOfCustAndDealerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lastTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberUserByMemberCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberUserByMemberCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberUserByMemberCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="modifyTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberContactByMemberCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="membercode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberContactByMemberCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberContactByMemberCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContactEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contactID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContactEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateContactEmailResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderUserInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJiCaiOrder">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetJiCaiOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJiCaiOrderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCityManager">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCityManagerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCityManagerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAreaInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAreaInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAreaInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncUserBrand">
+        <s:complexType />
+      </s:element>
+      <s:element name="SyncUserBrandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SyncUserBrandResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncMemberBrand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modifyTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncMemberBrandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SyncMemberBrandResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistrictManager">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDistrictManagerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistrictManagerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMappingOfCustAndDealerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMappingOfCustAndDealer" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingOfCustAndDealerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMappingOfCustAndDealerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserByMemberCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberUserByMemberCode" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserByMemberCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberUserByMemberCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberUser" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberContactByMemberCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberContactByMemberCode" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberContactByMemberCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberContactByMemberCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContactEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContactEmail" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContactEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContactEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJiCaiOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJiCaiOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetJiCaiOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJiCaiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCityManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCityManager" />
+  </wsdl:message>
+  <wsdl:message name="GetCityManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCityManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAreaInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAreaInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncUserBrandSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncUserBrand" />
+  </wsdl:message>
+  <wsdl:message name="SyncUserBrandSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncUserBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncMemberBrandSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncMemberBrand" />
+  </wsdl:message>
+  <wsdl:message name="SyncMemberBrandSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncMemberBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistrictManager" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistrictManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingOfCustAndDealerHttpGetIn" />
+  <wsdl:message name="GetMappingOfCustAndDealerHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoHttpGetIn">
+    <wsdl:part name="lastTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserByMemberCodeHttpGetIn">
+    <wsdl:part name="memberCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserByMemberCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="modifyTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberContactByMemberCodeHttpGetIn">
+    <wsdl:part name="membercode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberContactByMemberCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderUserInfoHttpGetIn">
+    <wsdl:part name="orderCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderUserInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetJiCaiOrderHttpGetIn" />
+  <wsdl:message name="GetJiCaiOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetCityManagerHttpGetIn" />
+  <wsdl:message name="GetCityManagerHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaInfoHttpGetIn" />
+  <wsdl:message name="GetAreaInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="SyncUserBrandHttpGetIn" />
+  <wsdl:message name="SyncUserBrandHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="SyncMemberBrandHttpGetIn">
+    <wsdl:part name="modifyTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncMemberBrandHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictManagerHttpGetIn" />
+  <wsdl:message name="GetDistrictManagerHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingOfCustAndDealerHttpPostIn" />
+  <wsdl:message name="GetMappingOfCustAndDealerHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoHttpPostIn">
+    <wsdl:part name="lastTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserByMemberCodeHttpPostIn">
+    <wsdl:part name="memberCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserByMemberCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="modifyTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberContactByMemberCodeHttpPostIn">
+    <wsdl:part name="membercode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberContactByMemberCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderUserInfoHttpPostIn">
+    <wsdl:part name="orderCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderUserInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetJiCaiOrderHttpPostIn" />
+  <wsdl:message name="GetJiCaiOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetCityManagerHttpPostIn" />
+  <wsdl:message name="GetCityManagerHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaInfoHttpPostIn" />
+  <wsdl:message name="GetAreaInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="SyncUserBrandHttpPostIn" />
+  <wsdl:message name="SyncUserBrandHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="SyncMemberBrandHttpPostIn">
+    <wsdl:part name="modifyTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncMemberBrandHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictManagerHttpPostIn" />
+  <wsdl:message name="GetDistrictManagerHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:portType name="CustomerServiceSoap">
+    <wsdl:operation name="GetMappingOfCustAndDealer">
+      <wsdl:input message="tns:GetMappingOfCustAndDealerSoapIn" />
+      <wsdl:output message="tns:GetMappingOfCustAndDealerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfo">
+      <wsdl:input message="tns:GetDealerInfoSoapIn" />
+      <wsdl:output message="tns:GetDealerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUserByMemberCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共13列，MemberCode：会员ID、SaleName：销售联系人、SaleMobile：销售手机、SaleOfficeTel：销售分机、SaleEmail：销售邮箱、SaleADName：销售域帐号、ServiceName：客服联系人、ServiceMobile：客服手机、ServiceOfficeTel：客服分机、ServiceEmail：客服邮箱、ServiceADName：客服域帐号、EditorName：编辑联系人、EditorMobile：编辑手机、EditorOfficeTel：编辑分机、EditorEmail：编辑邮箱、EditorADName：编辑域帐号。</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberUserByMemberCodeSoapIn" />
+      <wsdl:output message="tns:GetMemberUserByMemberCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回参数时间之后有修改的会员负责员工信息。</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberUserSoapIn" />
+      <wsdl:output message="tns:GetMemberUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberContactByMemberCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共4列，CName：姓名、Phone：手机、Email：邮箱、ContactID：主键ID</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberContactByMemberCodeSoapIn" />
+      <wsdl:output message="tns:GetMemberContactByMemberCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContactEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新联系人邮箱</wsdl:documentation>
+      <wsdl:input message="tns:UpdateContactEmailSoapIn" />
+      <wsdl:output message="tns:UpdateContactEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共5列，CustUser：责任销售姓名、CustUsersEmail：责任销售邮箱、CustomerFullName：主要联系人姓名、CustomerEmail：主要联系人邮箱、CustomerMobilePhone：主要联系人手机</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderUserInfoSoapIn" />
+      <wsdl:output message="tns:GetOrderUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJiCaiOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取集采订单信息:DataTable共3列，addatecode：订单号、begintime：集采开始日期、endtime：集采结束日期</wsdl:documentation>
+      <wsdl:input message="tns:GetJiCaiOrderSoapIn" />
+      <wsdl:output message="tns:GetJiCaiOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取城市负责人信息：CityId:城市ID、CityName:城市名称、DepartName:城市群、Manager:负责人姓名、Email:邮箱、Modile:手机、OfficeTel:办公电话</wsdl:documentation>
+      <wsdl:input message="tns:GetCityManagerSoapIn" />
+      <wsdl:output message="tns:GetCityManagerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取地区和大区、城市群对应关系数据:AreaID:地区编号,DistinctName:大区名称,CityGroupName:城市群名称</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaInfoSoapIn" />
+      <wsdl:output message="tns:GetAreaInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncUserBrand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取销售人员对应的主营品牌数据：UserCode：员工编号;TrueName:员工姓名;BrandID:主营品牌ID,多个以逗号隔开</wsdl:documentation>
+      <wsdl:input message="tns:SyncUserBrandSoapIn" />
+      <wsdl:output message="tns:SyncUserBrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncMemberBrand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">同步会员和主营品牌的关系数据：MemberCode：会员ID;BrandID:主营品牌ID</wsdl:documentation>
+      <wsdl:input message="tns:SyncMemberBrandSoapIn" />
+      <wsdl:output message="tns:SyncMemberBrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取大区负责人：Name::域账号、DistrictName:大区名称、UserCode:负责人编号、TrueName:负责人姓名、Mobile:移动电话、Officetel:办公电话</wsdl:documentation>
+      <wsdl:input message="tns:GetDistrictManagerSoapIn" />
+      <wsdl:output message="tns:GetDistrictManagerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CustomerServiceHttpGet">
+    <wsdl:operation name="GetMappingOfCustAndDealer">
+      <wsdl:input message="tns:GetMappingOfCustAndDealerHttpGetIn" />
+      <wsdl:output message="tns:GetMappingOfCustAndDealerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfo">
+      <wsdl:input message="tns:GetDealerInfoHttpGetIn" />
+      <wsdl:output message="tns:GetDealerInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUserByMemberCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共13列，MemberCode：会员ID、SaleName：销售联系人、SaleMobile：销售手机、SaleOfficeTel：销售分机、SaleEmail：销售邮箱、SaleADName：销售域帐号、ServiceName：客服联系人、ServiceMobile：客服手机、ServiceOfficeTel：客服分机、ServiceEmail：客服邮箱、ServiceADName：客服域帐号、EditorName：编辑联系人、EditorMobile：编辑手机、EditorOfficeTel：编辑分机、EditorEmail：编辑邮箱、EditorADName：编辑域帐号。</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberUserByMemberCodeHttpGetIn" />
+      <wsdl:output message="tns:GetMemberUserByMemberCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回参数时间之后有修改的会员负责员工信息。</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberUserHttpGetIn" />
+      <wsdl:output message="tns:GetMemberUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberContactByMemberCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共4列，CName：姓名、Phone：手机、Email：邮箱、ContactID：主键ID</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberContactByMemberCodeHttpGetIn" />
+      <wsdl:output message="tns:GetMemberContactByMemberCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共5列，CustUser：责任销售姓名、CustUsersEmail：责任销售邮箱、CustomerFullName：主要联系人姓名、CustomerEmail：主要联系人邮箱、CustomerMobilePhone：主要联系人手机</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderUserInfoHttpGetIn" />
+      <wsdl:output message="tns:GetOrderUserInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJiCaiOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取集采订单信息:DataTable共3列，addatecode：订单号、begintime：集采开始日期、endtime：集采结束日期</wsdl:documentation>
+      <wsdl:input message="tns:GetJiCaiOrderHttpGetIn" />
+      <wsdl:output message="tns:GetJiCaiOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取城市负责人信息：CityId:城市ID、CityName:城市名称、DepartName:城市群、Manager:负责人姓名、Email:邮箱、Modile:手机、OfficeTel:办公电话</wsdl:documentation>
+      <wsdl:input message="tns:GetCityManagerHttpGetIn" />
+      <wsdl:output message="tns:GetCityManagerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取地区和大区、城市群对应关系数据:AreaID:地区编号,DistinctName:大区名称,CityGroupName:城市群名称</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaInfoHttpGetIn" />
+      <wsdl:output message="tns:GetAreaInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncUserBrand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取销售人员对应的主营品牌数据：UserCode：员工编号;TrueName:员工姓名;BrandID:主营品牌ID,多个以逗号隔开</wsdl:documentation>
+      <wsdl:input message="tns:SyncUserBrandHttpGetIn" />
+      <wsdl:output message="tns:SyncUserBrandHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncMemberBrand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">同步会员和主营品牌的关系数据：MemberCode：会员ID;BrandID:主营品牌ID</wsdl:documentation>
+      <wsdl:input message="tns:SyncMemberBrandHttpGetIn" />
+      <wsdl:output message="tns:SyncMemberBrandHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取大区负责人：Name::域账号、DistrictName:大区名称、UserCode:负责人编号、TrueName:负责人姓名、Mobile:移动电话、Officetel:办公电话</wsdl:documentation>
+      <wsdl:input message="tns:GetDistrictManagerHttpGetIn" />
+      <wsdl:output message="tns:GetDistrictManagerHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CustomerServiceHttpPost">
+    <wsdl:operation name="GetMappingOfCustAndDealer">
+      <wsdl:input message="tns:GetMappingOfCustAndDealerHttpPostIn" />
+      <wsdl:output message="tns:GetMappingOfCustAndDealerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfo">
+      <wsdl:input message="tns:GetDealerInfoHttpPostIn" />
+      <wsdl:output message="tns:GetDealerInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUserByMemberCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共13列，MemberCode：会员ID、SaleName：销售联系人、SaleMobile：销售手机、SaleOfficeTel：销售分机、SaleEmail：销售邮箱、SaleADName：销售域帐号、ServiceName：客服联系人、ServiceMobile：客服手机、ServiceOfficeTel：客服分机、ServiceEmail：客服邮箱、ServiceADName：客服域帐号、EditorName：编辑联系人、EditorMobile：编辑手机、EditorOfficeTel：编辑分机、EditorEmail：编辑邮箱、EditorADName：编辑域帐号。</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberUserByMemberCodeHttpPostIn" />
+      <wsdl:output message="tns:GetMemberUserByMemberCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回参数时间之后有修改的会员负责员工信息。</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberUserHttpPostIn" />
+      <wsdl:output message="tns:GetMemberUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberContactByMemberCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共4列，CName：姓名、Phone：手机、Email：邮箱、ContactID：主键ID</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberContactByMemberCodeHttpPostIn" />
+      <wsdl:output message="tns:GetMemberContactByMemberCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回DataTable，共5列，CustUser：责任销售姓名、CustUsersEmail：责任销售邮箱、CustomerFullName：主要联系人姓名、CustomerEmail：主要联系人邮箱、CustomerMobilePhone：主要联系人手机</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderUserInfoHttpPostIn" />
+      <wsdl:output message="tns:GetOrderUserInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJiCaiOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取集采订单信息:DataTable共3列，addatecode：订单号、begintime：集采开始日期、endtime：集采结束日期</wsdl:documentation>
+      <wsdl:input message="tns:GetJiCaiOrderHttpPostIn" />
+      <wsdl:output message="tns:GetJiCaiOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取城市负责人信息：CityId:城市ID、CityName:城市名称、DepartName:城市群、Manager:负责人姓名、Email:邮箱、Modile:手机、OfficeTel:办公电话</wsdl:documentation>
+      <wsdl:input message="tns:GetCityManagerHttpPostIn" />
+      <wsdl:output message="tns:GetCityManagerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取地区和大区、城市群对应关系数据:AreaID:地区编号,DistinctName:大区名称,CityGroupName:城市群名称</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaInfoHttpPostIn" />
+      <wsdl:output message="tns:GetAreaInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncUserBrand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取销售人员对应的主营品牌数据：UserCode：员工编号;TrueName:员工姓名;BrandID:主营品牌ID,多个以逗号隔开</wsdl:documentation>
+      <wsdl:input message="tns:SyncUserBrandHttpPostIn" />
+      <wsdl:output message="tns:SyncUserBrandHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncMemberBrand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">同步会员和主营品牌的关系数据：MemberCode：会员ID;BrandID:主营品牌ID</wsdl:documentation>
+      <wsdl:input message="tns:SyncMemberBrandHttpPostIn" />
+      <wsdl:output message="tns:SyncMemberBrandHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取大区负责人：Name::域账号、DistrictName:大区名称、UserCode:负责人编号、TrueName:负责人姓名、Mobile:移动电话、Officetel:办公电话</wsdl:documentation>
+      <wsdl:input message="tns:GetDistrictManagerHttpPostIn" />
+      <wsdl:output message="tns:GetDistrictManagerHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerServiceSoap" type="tns:CustomerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMappingOfCustAndDealer">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetMappingOfCustAndDealer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfo">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetDealerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUserByMemberCode">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetMemberUserByMemberCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUser">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetMemberUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberContactByMemberCode">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetMemberContactByMemberCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContactEmail">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/UpdateContactEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderUserInfo">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetOrderUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJiCaiOrder">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetJiCaiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityManager">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetCityManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaInfo">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetAreaInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncUserBrand">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/SyncUserBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncMemberBrand">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/SyncMemberBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictManager">
+      <soap:operation soapAction="http://crm.bitauto.com/dms/GetDistrictManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomerServiceSoap12" type="tns:CustomerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMappingOfCustAndDealer">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetMappingOfCustAndDealer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfo">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetDealerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUserByMemberCode">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetMemberUserByMemberCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUser">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetMemberUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberContactByMemberCode">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetMemberContactByMemberCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContactEmail">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/UpdateContactEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderUserInfo">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetOrderUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJiCaiOrder">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetJiCaiOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityManager">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetCityManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaInfo">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetAreaInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncUserBrand">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/SyncUserBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncMemberBrand">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/SyncMemberBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictManager">
+      <soap12:operation soapAction="http://crm.bitauto.com/dms/GetDistrictManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomerServiceHttpGet" type="tns:CustomerServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetMappingOfCustAndDealer">
+      <http:operation location="/GetMappingOfCustAndDealer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfo">
+      <http:operation location="/GetDealerInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUserByMemberCode">
+      <http:operation location="/GetMemberUserByMemberCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUser">
+      <http:operation location="/GetMemberUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberContactByMemberCode">
+      <http:operation location="/GetMemberContactByMemberCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderUserInfo">
+      <http:operation location="/GetOrderUserInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJiCaiOrder">
+      <http:operation location="/GetJiCaiOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityManager">
+      <http:operation location="/GetCityManager" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaInfo">
+      <http:operation location="/GetAreaInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncUserBrand">
+      <http:operation location="/SyncUserBrand" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncMemberBrand">
+      <http:operation location="/SyncMemberBrand" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictManager">
+      <http:operation location="/GetDistrictManager" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomerServiceHttpPost" type="tns:CustomerServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetMappingOfCustAndDealer">
+      <http:operation location="/GetMappingOfCustAndDealer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerInfo">
+      <http:operation location="/GetDealerInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUserByMemberCode">
+      <http:operation location="/GetMemberUserByMemberCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberUser">
+      <http:operation location="/GetMemberUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberContactByMemberCode">
+      <http:operation location="/GetMemberContactByMemberCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderUserInfo">
+      <http:operation location="/GetOrderUserInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJiCaiOrder">
+      <http:operation location="/GetJiCaiOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityManager">
+      <http:operation location="/GetCityManager" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaInfo">
+      <http:operation location="/GetAreaInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncUserBrand">
+      <http:operation location="/SyncUserBrand" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncMemberBrand">
+      <http:operation location="/SyncMemberBrand" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictManager">
+      <http:operation location="/GetDistrictManager" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerService">
+    <wsdl:port name="CustomerServiceSoap" binding="tns:CustomerServiceSoap">
+      <soap:address location="http://crm.sys1.bitauto.com/DMS/CustomerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomerServiceSoap12" binding="tns:CustomerServiceSoap12">
+      <soap12:address location="http://crm.sys1.bitauto.com/DMS/CustomerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomerServiceHttpGet" binding="tns:CustomerServiceHttpGet">
+      <http:address location="http://crm.sys1.bitauto.com/DMS/CustomerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomerServiceHttpPost" binding="tns:CustomerServiceHttpPost">
+      <http:address location="http://crm.sys1.bitauto.com/DMS/CustomerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

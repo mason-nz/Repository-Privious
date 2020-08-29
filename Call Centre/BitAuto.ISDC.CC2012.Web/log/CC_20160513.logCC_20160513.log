@@ -1,0 +1,16 @@
+2016-05-13 16:29:34,033 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:29:34,203 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 16:29:34,203 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:29:34,203 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:29:34,204 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：1p45ejay0sql4s551ynm0hvt
+2016-05-13 16:29:34,204 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:31:16,856 [13] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：操作超时
+System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 116
+2016-05-13 16:31:16,890 [13] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 165

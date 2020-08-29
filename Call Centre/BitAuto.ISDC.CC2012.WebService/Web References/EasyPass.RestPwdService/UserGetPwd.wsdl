@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkByUserLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkByUserLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLinkByUserLoginNameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLingByUserLoginNameAndSysId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sysId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLingByUserLoginNameAndSysIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLingByUserLoginNameAndSysIdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAccountLoginNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameForTaoChe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameForTaoCheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAccountLoginNameForTaoCheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountLoginNameByDealerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountLoginNameByDealerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountLoginNameByDealerIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountLoginNameByDealerIdSysId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sysId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountLoginNameByDealerIdSysIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountLoginNameByDealerIdSysIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameByDealerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameByDealerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAccountLoginNameByDealerIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameByDealerIdSysId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sysId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountLoginNameByDealerIdSysIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAccountLoginNameByDealerIdSysIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewManager">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sysId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewManagerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewManagerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sysId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="roleId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUpdate" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddNewUserResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sysId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoResult" type="tns:UserInfoEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserInfoEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserPhoneNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserListByDealerIDandDeptID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="deptId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserListByDealerIDandDeptIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserListByDealerIDandDeptIDResult" type="tns:ArrayOfUserInfoEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUserInfoEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserInfoEx" nillable="true" type="tns:UserInfoEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserInfoEx">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DasAccountID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DasAccountName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeptID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsManager" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMeanIdByAppIdAndDealerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMeanIdByAppIdAndDealerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMeanIdByAppIdAndDealerIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPasswordByDealerIdForTaoche">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="appId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPasswordByDealerIdForTaocheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserPasswordByDealerIdForTaocheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPasswordByDealerIdForSAS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="appId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPasswordByDealerIdForSASResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserPasswordByDealerIdForSASResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLink" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByUserLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLinkByUserLoginName" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByUserLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkByUserLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLingByUserLoginNameAndSysIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLingByUserLoginNameAndSysId" />
+  </wsdl:message>
+  <wsdl:message name="GetLingByUserLoginNameAndSysIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLingByUserLoginNameAndSysIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginName" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameForTaoCheSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameForTaoChe" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameForTaoCheSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameForTaoCheResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountLoginNameByDealerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountLoginNameByDealerId" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountLoginNameByDealerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountLoginNameByDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountLoginNameByDealerIdSysIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountLoginNameByDealerIdSysId" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountLoginNameByDealerIdSysIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountLoginNameByDealerIdSysIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameByDealerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameByDealerId" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameByDealerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameByDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameByDealerIdSysIdSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameByDealerIdSysId" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountLoginNameByDealerIdSysIdSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAccountLoginNameByDealerIdSysIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewManager" />
+  </wsdl:message>
+  <wsdl:message name="AddNewManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewUser" />
+  </wsdl:message>
+  <wsdl:message name="AddNewUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListByDealerIDandDeptIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserListByDealerIDandDeptID" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListByDealerIDandDeptIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserListByDealerIDandDeptIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMeanIdByAppIdAndDealerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMeanIdByAppIdAndDealerId" />
+  </wsdl:message>
+  <wsdl:message name="GetMeanIdByAppIdAndDealerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMeanIdByAppIdAndDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPasswordByDealerIdForTaocheSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserPasswordByDealerIdForTaoche" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPasswordByDealerIdForTaocheSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserPasswordByDealerIdForTaocheResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPasswordByDealerIdForSASSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserPasswordByDealerIdForSAS" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPasswordByDealerIdForSASSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserPasswordByDealerIdForSASResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserGetPwdSoap">
+    <wsdl:operation name="GetLink">
+      <wsdl:input message="tns:GetLinkSoapIn" />
+      <wsdl:output message="tns:GetLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByUserLoginName">
+      <wsdl:input message="tns:GetLinkByUserLoginNameSoapIn" />
+      <wsdl:output message="tns:GetLinkByUserLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLingByUserLoginNameAndSysId">
+      <wsdl:input message="tns:GetLingByUserLoginNameAndSysIdSoapIn" />
+      <wsdl:output message="tns:GetLingByUserLoginNameAndSysIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginName">
+      <wsdl:input message="tns:UpdateAccountLoginNameSoapIn" />
+      <wsdl:output message="tns:UpdateAccountLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameForTaoChe">
+      <wsdl:input message="tns:UpdateAccountLoginNameForTaoCheSoapIn" />
+      <wsdl:output message="tns:UpdateAccountLoginNameForTaoCheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerId">
+      <wsdl:input message="tns:GetAccountLoginNameByDealerIdSoapIn" />
+      <wsdl:output message="tns:GetAccountLoginNameByDealerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerIdSysId">
+      <wsdl:input message="tns:GetAccountLoginNameByDealerIdSysIdSoapIn" />
+      <wsdl:output message="tns:GetAccountLoginNameByDealerIdSysIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerId">
+      <wsdl:input message="tns:UpdateAccountLoginNameByDealerIdSoapIn" />
+      <wsdl:output message="tns:UpdateAccountLoginNameByDealerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerIdSysId">
+      <wsdl:input message="tns:UpdateAccountLoginNameByDealerIdSysIdSoapIn" />
+      <wsdl:output message="tns:UpdateAccountLoginNameByDealerIdSysIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewManager">
+      <wsdl:input message="tns:AddNewManagerSoapIn" />
+      <wsdl:output message="tns:AddNewManagerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <wsdl:input message="tns:AddNewUserSoapIn" />
+      <wsdl:output message="tns:AddNewUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input message="tns:GetUserInfoSoapIn" />
+      <wsdl:output message="tns:GetUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByDealerIDandDeptID">
+      <wsdl:input message="tns:GetUserListByDealerIDandDeptIDSoapIn" />
+      <wsdl:output message="tns:GetUserListByDealerIDandDeptIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeanIdByAppIdAndDealerId">
+      <wsdl:input message="tns:GetMeanIdByAppIdAndDealerIdSoapIn" />
+      <wsdl:output message="tns:GetMeanIdByAppIdAndDealerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPasswordByDealerIdForTaoche">
+      <wsdl:input message="tns:UpdateUserPasswordByDealerIdForTaocheSoapIn" />
+      <wsdl:output message="tns:UpdateUserPasswordByDealerIdForTaocheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPasswordByDealerIdForSAS">
+      <wsdl:input message="tns:UpdateUserPasswordByDealerIdForSASSoapIn" />
+      <wsdl:output message="tns:UpdateUserPasswordByDealerIdForSASSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserGetPwdSoap" type="tns:UserGetPwdSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLink">
+      <soap:operation soapAction="http://tempuri.org/GetLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByUserLoginName">
+      <soap:operation soapAction="http://tempuri.org/GetLinkByUserLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLingByUserLoginNameAndSysId">
+      <soap:operation soapAction="http://tempuri.org/GetLingByUserLoginNameAndSysId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginName">
+      <soap:operation soapAction="http://tempuri.org/UpdateAccountLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameForTaoChe">
+      <soap:operation soapAction="http://tempuri.org/UpdateAccountLoginNameForTaoChe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerId">
+      <soap:operation soapAction="http://tempuri.org/GetAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerIdSysId">
+      <soap:operation soapAction="http://tempuri.org/GetAccountLoginNameByDealerIdSysId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerId">
+      <soap:operation soapAction="http://tempuri.org/UpdateAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerIdSysId">
+      <soap:operation soapAction="http://tempuri.org/UpdateAccountLoginNameByDealerIdSysId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewManager">
+      <soap:operation soapAction="http://tempuri.org/AddNewManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap:operation soapAction="http://tempuri.org/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByDealerIDandDeptID">
+      <soap:operation soapAction="http://tempuri.org/GetUserListByDealerIDandDeptID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeanIdByAppIdAndDealerId">
+      <soap:operation soapAction="http://tempuri.org/GetMeanIdByAppIdAndDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPasswordByDealerIdForTaoche">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserPasswordByDealerIdForTaoche" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPasswordByDealerIdForSAS">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserPasswordByDealerIdForSAS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserGetPwdSoap12" type="tns:UserGetPwdSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLink">
+      <soap12:operation soapAction="http://tempuri.org/GetLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByUserLoginName">
+      <soap12:operation soapAction="http://tempuri.org/GetLinkByUserLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLingByUserLoginNameAndSysId">
+      <soap12:operation soapAction="http://tempuri.org/GetLingByUserLoginNameAndSysId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginName">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAccountLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameForTaoChe">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAccountLoginNameForTaoChe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerId">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountLoginNameByDealerIdSysId">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountLoginNameByDealerIdSysId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerId">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAccountLoginNameByDealerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountLoginNameByDealerIdSysId">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAccountLoginNameByDealerIdSysId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewManager">
+      <soap12:operation soapAction="http://tempuri.org/AddNewManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap12:operation soapAction="http://tempuri.org/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByDealerIDandDeptID">
+      <soap12:operation soapAction="http://tempuri.org/GetUserListByDealerIDandDeptID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeanIdByAppIdAndDealerId">
+      <soap12:operation soapAction="http://tempuri.org/GetMeanIdByAppIdAndDealerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPasswordByDealerIdForTaoche">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserPasswordByDealerIdForTaoche" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPasswordByDealerIdForSAS">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserPasswordByDealerIdForSAS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserGetPwd">
+    <wsdl:port name="UserGetPwdSoap" binding="tns:UserGetPwdSoap">
+      <soap:address location="http://api2.easypass.cn/das/inner/UserGetPwd.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserGetPwdSoap12" binding="tns:UserGetPwdSoap12">
+      <soap12:address location="http://api2.easypass.cn/das/inner/UserGetPwd.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

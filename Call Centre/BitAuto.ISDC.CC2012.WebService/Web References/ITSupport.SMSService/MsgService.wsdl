@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendMsgImmediately">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgImmediatelyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgImmediatelyNewResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgImmediatelyExtResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyFull">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyFullResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgImmediatelyFullResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyFullExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyFullExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgImmediatelyFullExtResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msgName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="activityEndTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyTemp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyTempResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgImmediatelyTempResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgByTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fixedtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgByTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgByTimeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgByTimeFull">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endtime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fixedtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgByTimeFullResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgByTimeFullResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgRegularly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msgName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNums" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="activityEndTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="planSendTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgRegularlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgRegularlyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyForXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlContent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgImmediatelyForXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgImmediatelyForXMLResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgAgain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productcode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MessageID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgAgainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMsgAgainResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByPrefix">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prefix" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByPrefixResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveMsgToDataSetByPrefixResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByProxyNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="proxyNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByProxyNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveMsgToDataSetByProxyNumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByProxyNumAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="proxyNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByProxyNumAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveMsgToDataSetByProxyNumAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveMsgToDataSetByExtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgByExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="length" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="time" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgByExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveMsgByExtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByWhere">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prefixORext" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" nillable="true" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startTime" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endTime" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveMsgToDataSetByWhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveMsgToDataSetByWhereResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMsgReceived">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMsgReceivedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetMsgReceivedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToDSFromPlat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToDSFromPlatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusToDSFromPlatResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToDSFromThird">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToDSFromThirdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusToDSFromThirdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToDSFromThirdByPid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="msgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToDSFromThirdByPidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusToDSFromThirdByPidResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToStreamFromPlat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToStreamFromPlatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusToStreamFromPlatResult" type="tns:Stream" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Stream" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MarshalByRefObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Position" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReadTimeout" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="WriteTimeout" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MarshalByRefObject" abstract="true" />
+      <s:element name="GetStatusToStreamFromThird">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToStreamFromThirdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusToStreamFromThirdResult" type="tns:Stream" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToXMLFromPlat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToXMLFromPlatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusToXMLFromPlatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToXMLFromThird">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusToXMLFromThirdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusToXMLFromThirdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MixMd5">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MixMd5Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MixMd5Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerNum">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManagerNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMsgImmediatelySoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediately" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelySoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyNewSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyNew" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyNewSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyExtSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyExt" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyExtSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyFullSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyFull" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyFullSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyFullExtSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyFullExt" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyFullExtSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyFullExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsg" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyTempSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyTemp" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyTempSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyTempResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgByTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgByTime" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgByTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgByTimeFullSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgByTimeFull" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgByTimeFullSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgByTimeFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgRegularlySoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgRegularly" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgRegularlySoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgRegularlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyForXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyForXML" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgImmediatelyForXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgImmediatelyForXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgAgainSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsgAgain" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgAgainSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgAgainResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByPrefixSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByPrefix" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByPrefixSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByPrefixResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByProxyNumSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByProxyNum" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByProxyNumSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByProxyNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByProxyNumAllSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByProxyNumAll" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByProxyNumAllSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByProxyNumAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByExtSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByExt" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByExtSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgByExtSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgByExt" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgByExtSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgByExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByWhereSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByWhere" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveMsgToDataSetByWhereSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveMsgToDataSetByWhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMsgReceivedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMsgReceived" />
+  </wsdl:message>
+  <wsdl:message name="SetMsgReceivedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMsgReceivedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToDSFromPlatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusToDSFromPlat" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToDSFromPlatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusToDSFromPlatResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToDSFromThirdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusToDSFromThird" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToDSFromThirdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusToDSFromThirdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToDSFromThirdByPidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusToDSFromThirdByPid" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToDSFromThirdByPidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusToDSFromThirdByPidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToStreamFromPlatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusToStreamFromPlat" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToStreamFromPlatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusToStreamFromPlatResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToStreamFromThirdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusToStreamFromThird" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToStreamFromThirdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusToStreamFromThirdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToXMLFromPlatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusToXMLFromPlat" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToXMLFromPlatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusToXMLFromPlatResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToXMLFromThirdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusToXMLFromThird" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusToXMLFromThirdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusToXMLFromThirdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MixMd5SoapIn">
+    <wsdl:part name="parameters" element="tns:MixMd5" />
+  </wsdl:message>
+  <wsdl:message name="MixMd5SoapOut">
+    <wsdl:part name="parameters" element="tns:MixMd5Response" />
+  </wsdl:message>
+  <wsdl:message name="ManagerNumSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerNum" />
+  </wsdl:message>
+  <wsdl:message name="ManagerNumSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerNumResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MsgServiceSoap">
+    <wsdl:operation name="SendMsgImmediately">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">立即发送短信息</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgImmediatelySoapIn" />
+      <wsdl:output message="tns:SendMsgImmediatelySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyNew">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">立即发送短信息</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgImmediatelyNewSoapIn" />
+      <wsdl:output message="tns:SendMsgImmediatelyNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">立即发送短信息，可包含扩展码（特服号）</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgImmediatelyExtSoapIn" />
+      <wsdl:output message="tns:SendMsgImmediatelyExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyFull">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">立即发送短信息，包含全部参数</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgImmediatelyFullSoapIn" />
+      <wsdl:output message="tns:SendMsgImmediatelyFullSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyFullExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">立即发送短信息，包含全部参数和扩展码（特服号）</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgImmediatelyFullExtSoapIn" />
+      <wsdl:output message="tns:SendMsgImmediatelyFullExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">立即发送短信息，推荐使用该方法</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgSoapIn" />
+      <wsdl:output message="tns:SendMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyTemp">
+      <wsdl:input message="tns:SendMsgImmediatelyTempSoapIn" />
+      <wsdl:output message="tns:SendMsgImmediatelyTempSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgByTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">定时发送短信息</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgByTimeSoapIn" />
+      <wsdl:output message="tns:SendMsgByTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgByTimeFull">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">定时发送短信息，包含全部参数</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgByTimeFullSoapIn" />
+      <wsdl:output message="tns:SendMsgByTimeFullSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgRegularly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">定时发送短信息，推荐使用该方法</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgRegularlySoapIn" />
+      <wsdl:output message="tns:SendMsgRegularlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyForXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量提交，短信内容为XML格式</wsdl:documentation>
+      <wsdl:input message="tns:SendMsgImmediatelyForXMLSoapIn" />
+      <wsdl:output message="tns:SendMsgImmediatelyForXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgAgain">
+      <wsdl:input message="tns:SendMsgAgainSoapIn" />
+      <wsdl:output message="tns:SendMsgAgainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByPrefix">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过短信前缀获取回复短信(上行短信)</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveMsgToDataSetByPrefixSoapIn" />
+      <wsdl:output message="tns:ReceiveMsgToDataSetByPrefixSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByProxyNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过短信上行通道号码获取回复短信(上行短信)</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveMsgToDataSetByProxyNumSoapIn" />
+      <wsdl:output message="tns:ReceiveMsgToDataSetByProxyNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByProxyNumAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过短信上行通道号码获取全部回复短信(上行短信)</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveMsgToDataSetByProxyNumAllSoapIn" />
+      <wsdl:output message="tns:ReceiveMsgToDataSetByProxyNumAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过扩展码（特服号）获取回复短信（上行短信）</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveMsgToDataSetByExtSoapIn" />
+      <wsdl:output message="tns:ReceiveMsgToDataSetByExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgByExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过指定扩展码获取回复短信（上行短信），模糊查询</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveMsgByExtSoapIn" />
+      <wsdl:output message="tns:ReceiveMsgByExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByWhere">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过检索条件获取回复短信（上行短信）</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveMsgToDataSetByWhereSoapIn" />
+      <wsdl:output message="tns:ReceiveMsgToDataSetByWhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMsgReceived">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">设置短信已经被收取过</wsdl:documentation>
+      <wsdl:input message="tns:SetMsgReceivedSoapIn" />
+      <wsdl:output message="tns:SetMsgReceivedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromPlat">
+      <wsdl:input message="tns:GetStatusToDSFromPlatSoapIn" />
+      <wsdl:output message="tns:GetStatusToDSFromPlatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromThird">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据短信编号查询信息发送状态，返回DataSet</wsdl:documentation>
+      <wsdl:input message="tns:GetStatusToDSFromThirdSoapIn" />
+      <wsdl:output message="tns:GetStatusToDSFromThirdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromThirdByPid">
+      <wsdl:input message="tns:GetStatusToDSFromThirdByPidSoapIn" />
+      <wsdl:output message="tns:GetStatusToDSFromThirdByPidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToStreamFromPlat">
+      <wsdl:input message="tns:GetStatusToStreamFromPlatSoapIn" />
+      <wsdl:output message="tns:GetStatusToStreamFromPlatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToStreamFromThird">
+      <wsdl:input message="tns:GetStatusToStreamFromThirdSoapIn" />
+      <wsdl:output message="tns:GetStatusToStreamFromThirdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToXMLFromPlat">
+      <wsdl:input message="tns:GetStatusToXMLFromPlatSoapIn" />
+      <wsdl:output message="tns:GetStatusToXMLFromPlatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToXMLFromThird">
+      <wsdl:input message="tns:GetStatusToXMLFromThirdSoapIn" />
+      <wsdl:output message="tns:GetStatusToXMLFromThirdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MixMd5">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">md5加密算法</wsdl:documentation>
+      <wsdl:input message="tns:MixMd5SoapIn" />
+      <wsdl:output message="tns:MixMd5SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取配置文件中管理员电话</wsdl:documentation>
+      <wsdl:input message="tns:ManagerNumSoapIn" />
+      <wsdl:output message="tns:ManagerNumSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MsgServiceSoap" type="tns:MsgServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMsgImmediately">
+      <soap:operation soapAction="http://tempuri.org/SendMsgImmediately" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyNew">
+      <soap:operation soapAction="http://tempuri.org/SendMsgImmediatelyNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyExt">
+      <soap:operation soapAction="http://tempuri.org/SendMsgImmediatelyExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyFull">
+      <soap:operation soapAction="http://tempuri.org/SendMsgImmediatelyFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyFullExt">
+      <soap:operation soapAction="http://tempuri.org/SendMsgImmediatelyFullExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <soap:operation soapAction="http://tempuri.org/SendMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyTemp">
+      <soap:operation soapAction="http://tempuri.org/SendMsgImmediatelyTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgByTime">
+      <soap:operation soapAction="http://tempuri.org/SendMsgByTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgByTimeFull">
+      <soap:operation soapAction="http://tempuri.org/SendMsgByTimeFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgRegularly">
+      <soap:operation soapAction="http://tempuri.org/SendMsgRegularly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyForXML">
+      <soap:operation soapAction="http://tempuri.org/SendMsgImmediatelyForXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgAgain">
+      <soap:operation soapAction="http://tempuri.org/SendMsgAgain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByPrefix">
+      <soap:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByPrefix" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByProxyNum">
+      <soap:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByProxyNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByProxyNumAll">
+      <soap:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByProxyNumAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByExt">
+      <soap:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgByExt">
+      <soap:operation soapAction="http://tempuri.org/ReceiveMsgByExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByWhere">
+      <soap:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByWhere" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMsgReceived">
+      <soap:operation soapAction="http://tempuri.org/SetMsgReceived" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromPlat">
+      <soap:operation soapAction="http://tempuri.org/GetStatusToDSFromPlat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromThird">
+      <soap:operation soapAction="http://tempuri.org/GetStatusToDSFromThird" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromThirdByPid">
+      <soap:operation soapAction="http://tempuri.org/GetStatusToDSFromThirdByPid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToStreamFromPlat">
+      <soap:operation soapAction="http://tempuri.org/GetStatusToStreamFromPlat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToStreamFromThird">
+      <soap:operation soapAction="http://tempuri.org/GetStatusToStreamFromThird" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToXMLFromPlat">
+      <soap:operation soapAction="http://tempuri.org/GetStatusToXMLFromPlat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToXMLFromThird">
+      <soap:operation soapAction="http://tempuri.org/GetStatusToXMLFromThird" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MixMd5">
+      <soap:operation soapAction="http://tempuri.org/MixMd5" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerNum">
+      <soap:operation soapAction="http://tempuri.org/ManagerNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MsgServiceSoap12" type="tns:MsgServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMsgImmediately">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgImmediately" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyNew">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgImmediatelyNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyExt">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgImmediatelyExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyFull">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgImmediatelyFull" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyFullExt">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgImmediatelyFullExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <soap12:operation soapAction="http://tempuri.org/SendMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyTemp">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgImmediatelyTemp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgByTime">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgByTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgByTimeFull">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgByTimeFull" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgRegularly">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgRegularly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgImmediatelyForXML">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgImmediatelyForXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsgAgain">
+      <soap12:operation soapAction="http://tempuri.org/SendMsgAgain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByPrefix">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByPrefix" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByProxyNum">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByProxyNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByProxyNumAll">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByProxyNumAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByExt">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgByExt">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveMsgByExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMsgToDataSetByWhere">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveMsgToDataSetByWhere" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMsgReceived">
+      <soap12:operation soapAction="http://tempuri.org/SetMsgReceived" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromPlat">
+      <soap12:operation soapAction="http://tempuri.org/GetStatusToDSFromPlat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromThird">
+      <soap12:operation soapAction="http://tempuri.org/GetStatusToDSFromThird" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToDSFromThirdByPid">
+      <soap12:operation soapAction="http://tempuri.org/GetStatusToDSFromThirdByPid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToStreamFromPlat">
+      <soap12:operation soapAction="http://tempuri.org/GetStatusToStreamFromPlat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToStreamFromThird">
+      <soap12:operation soapAction="http://tempuri.org/GetStatusToStreamFromThird" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToXMLFromPlat">
+      <soap12:operation soapAction="http://tempuri.org/GetStatusToXMLFromPlat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusToXMLFromThird">
+      <soap12:operation soapAction="http://tempuri.org/GetStatusToXMLFromThird" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MixMd5">
+      <soap12:operation soapAction="http://tempuri.org/MixMd5" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerNum">
+      <soap12:operation soapAction="http://tempuri.org/ManagerNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MsgService">
+    <wsdl:port name="MsgServiceSoap" binding="tns:MsgServiceSoap">
+      <soap:address location="http://mobile.bitauto.com/smsplatform/interface/MsgService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MsgServiceSoap12" binding="tns:MsgServiceSoap12">
+      <soap12:address location="http://mobile.bitauto.com/smsplatform/interface/MsgService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

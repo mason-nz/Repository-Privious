@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>在线考试</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/base.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#sidebar > ul > li > p >span').click(function(){
+	//alert($(this).next());
+		$(this).parent().parent().find('ul.menu2').slideToggle("normal");
+		})
+	/*each("click",function(){
+		$(this).fadeToggle("fast");
+		})*/
+	})
+</script>
+</head>
+<body>
+<!--  HEAD  --> 
+        <div id="head">
+            <div class="left logo">
+                易车客户呼叫中心
+            </div>
+            <div class="right">
+              <a href="#" class="button profile" style=" line-height:32px;"><img src="css/img/huser.png" /></a>
+                您好,魏淑珍，超级管理员&nbsp; |&nbsp; <a href="#">注销</a> 
+            </div>
+            <div class="menu left">
+            	<ul>
+                	<li class="index"><a href="#">首&nbsp;&nbsp;&nbsp;页</a></li>
+                    <li class="task current"><a href="#">任务列表</a></li>
+                    <li class="custom"><a href="#">客户池</a></li>
+                    <li class="manage"><a href="#">话务管理</a></li>
+                    <li class="knowledge"><a href="#">知识库</a></li>
+                    <li class="highji"><a href="#">高级管理</a></li>
+                </ul>
+            </div>
+        </div>        
+         <!-- SIDEBAR --> 
+         <div id="sidebar">
+            <ul>
+                <li class="bg1">
+                	<p class="current"><a href="#">数据清洗</a><span class="right">&or;</span></p>
+                    <ul class="menu2">
+                       <li><a href="#">CRM库客户核实</a></li>
+                       <li><a href="#">新增库客户核实</a></li>
+                       <li class="current"><a href="#">会员二次核实</a></li>
+                       <li><a href="#">CRM库客户核实</a></li>
+                       <li><a href="#">新增库客户核实</a></li>
+                       <li><a href="#">会员二次核实</a></li>
+                     </ul>
+                </li>
+                <li class="bg2"><p><a href="#">电话营销</a><span class="right">&or;</span></p></li>
+                <li class="bg3"><p><a href="#">杂志回访</a><span class="right">&and;</span></p></li>
+                <li class="bg4"><p><a href="#">个人业务</a><span class="right">&and;</span></p></li>
+                <li class="bg5"><p><a href="#">坐席管理</a><span class="right">&and;</span></p></li>
+                <li class="bg6"><p><a href="#">操作日志</a><span class="right">&and;</span></p></li>
+                <li class="bg7"><p><a href="#">模板定制</a><span class="right">&and;</span></p></li>
+                <li class="bg8"><p><a href="#">知识分享</a><span class="right">&and;</span></p></li>
+            </ul>        						
+        </div>
+         <!-- SIDEBAR --> 
+         <!--右开始-->
+        <div id="content" class="left">
+            <div class="rC left">
+            	<div class="content">
+                	<h2>在线考试</h2>
+                    <!--查询开始-->
+                    <div class="search zsk">
+                    	<ul>
+                        <li><label>分类：</label><span><input name="" type="checkbox" value="" /> <em>培训考试</em></span>
+                        <span><input name="" type="checkbox" value="" /> <em>月考</em></span>
+                        <span><input name="" type="checkbox" value="" /> <em>季考</em></span>
+                        <span><input name="" type="checkbox" value="" /> <em>新员工考试</em></span>
+                        <span class="keywords"><input type="text" value="试卷"  class="w220" /></span>
+                        <span class="btnsearch"><input name="" type="button"  value="查 询"/></span>
+                        </li>
+                        </ul> 
+                    </div>
+                    <!--查询结束-->
+                        <div class="optionBtn  clearfix" >
+                            <div>显示：
+                            <a href="#" class="redColor">已考（90）</a>&nbsp;
+                            当前还有<a href="#">（1）</a> 场考试需要添加！
+                            </div>
+                            <!--分页开始-->
+                        <div class="pageTurn mr10 pageup">
+                        共有 100 条记录，当前第 <span class="bold">1</span>/10 页&nbsp;&nbsp;<a href="#">[首页]</a>  <a href="#">[上一页]</a>  <a href="#">[下一页]</a>  <a href="#">[尾页]</a>&nbsp;&nbsp;转到第 <input name="textfield4" type="text" class="inputText" id="textfield4" style="width:25px;" /> 页
+                        </div>
+                        <!--分页结束-->
+                      </div>
+                    	<!--列表开始-->
+                    	<div class="zskList">
+                        	<div class="bt"><img src="images/unread.png" />&nbsp;<b><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em><span class="right btnsearch"><input name="" type="button"  value="开始考试"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                        <div class="zskList">
+                        	<div class="bt"><b class="read"><a href="#">2012年5月新员工入职考试试卷</a></b><em>考试结束时间：2012-8-27 10:03:54</em>
+                            <span class="right btnsearch2"><input name="" type="button"  value="查看成绩"/></span></div>
+                            <p class="grayColor">本次考试主要涉及新员工入职考试的几个项目，客观题60分，其中单选题20分、多择题20分、判断题20分，主观题40分。考试时长60分钟。</p>
+                        </div>
+                	<!--列表结束-->
+                    <!--分页开始-->
+                        <div class="pageTurn mr10">
+                        共有 100 条记录，当前第 <span class="bold">1</span>/10 页&nbsp;&nbsp;<a href="#">[首页]</a>  <a href="#">[上一页]</a>  <a href="#">[下一页]</a>  <a href="#">[尾页]</a>&nbsp;&nbsp;转到第 <input name="textfield4" type="text" class="inputText" id="textfield4" style="width:25px;" /> 页
+                        </div>
+                        <!--分页结束-->
+                </div>
+            </div>
+        </div>
+        <!--右结束-->
+</body>
+</html>

@@ -1,0 +1,15 @@
+1、当月考勤周期，正常考勤天数，异常天数；
+2、根据当前登录人、审批状态、申请人名称，查询考勤单据信息（包括申请人、申请时间周期、请假类型、创建时间等）和审批记录（包含审批人、动作、审批时间、审批意见等）
+你先考虑下，明天找时间咱俩再讨论下。
+考勤接口中，要添加查询日期条件。
+
+
+
+0,qizq,startime,endtime,'',0,0,0,1000000,0)
+
+
+
+List<ApplyList> applyLists = ApplyListForm.QueryApplyListHasChecked(approvalerAccount,this.userInfo.DomainName, startTime, endTime, applyNameOrID, caty, type, PagerButtom.CurrentPageIndex - 1, PagerButtom.PageSize, out count);
+
+
+"",qizq,starttime,endtime,"",0,0,0,1000000,0)

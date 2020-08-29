@@ -1,0 +1,23 @@
+2016-05-18 10:36:52,551 [12] INFO  {10658 - 马双君} [(null)] - 【已接来电数据列表总耗时——总耗时】：4351.6347毫秒
+2016-05-18 10:41:03,742 [11] INFO  {10658 - 马双君} [(null)] - 发邮件开始：
+2016-05-18 10:41:03,788 [11] INFO  {10658 - 马双君} [(null)] - 发送邮件给谁:masj@bitauto.com
+2016-05-18 10:41:04,091 [11] ERROR {10658 - 马双君} [(null)] - 发邮件失败: 
+System.Net.Mail.SmtpException: 事务失败。 服务器响应为: 5.7.1 <masj@bitauto.com>: Relay access denied
+   在 System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   在 System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, SmtpFailedRecipientException& exception)
+   在 System.Net.Mail.SmtpClient.Send(MailMessage message)
+   在 BitAuto.YanFa.SysRightManager.Common.IsdcMail.Send(String host, String userName, String password)
+   在 BitAuto.YanFa.SysRightManager.Common.IsdcMail.Send()
+   在 BitAuto.ISDC.CC2012.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\EmailHelper.cs:行号 45
+2016-05-18 10:41:04,128 [11] INFO  {10658 - 马双君} [(null)] - 发邮件结束！
+2016-05-18 10:41:04,147 [3] INFO  {10658 - 马双君} [(null)] - 发邮件开始：
+2016-05-18 10:41:04,147 [3] INFO  {10658 - 马双君} [(null)] - 发送邮件给谁:masj@bitauto.com
+2016-05-18 10:41:04,160 [3] ERROR {10658 - 马双君} [(null)] - 发邮件失败: 
+System.Net.Mail.SmtpException: 事务失败。 服务器响应为: 5.7.1 <masj@bitauto.com>: Relay access denied
+   在 System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   在 System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, SmtpFailedRecipientException& exception)
+   在 System.Net.Mail.SmtpClient.Send(MailMessage message)
+   在 BitAuto.YanFa.SysRightManager.Common.IsdcMail.Send(String host, String userName, String password)
+   在 BitAuto.YanFa.SysRightManager.Common.IsdcMail.Send()
+   在 BitAuto.ISDC.CC2012.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\EmailHelper.cs:行号 45
+2016-05-18 10:41:04,161 [3] INFO  {10658 - 马双君} [(null)] - 发邮件结束！

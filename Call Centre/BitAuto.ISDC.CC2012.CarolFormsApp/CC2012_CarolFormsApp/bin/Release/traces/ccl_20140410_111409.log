@@ -1,0 +1,380 @@
+
+******************************************
+11:14:09 New trace file: traces/ccl_20140410_111409.log
+ RECON Version 2.9.2, Build 2.9.2.0
+ Component Version: 2.8.1.15
+ Component Name: CCL?
+ CAROL Version: 1.0.0.0 [CAROL NG PR4]
+******************************************
+
+11:14:09 [11:14:09.121]  15200   5 RECON   Socket SO_RCVBUF: 65536 bytes
+11:14:09 [11:14:09.121]  15200   5 RECON   Socket SO_SNDBUF: 65536 bytes
+11:14:09 [11:14:09.121]  15200   5 RECON   Max. SendMsg socket timeouts: [10]
+11:14:09 [11:14:09.122]  15200   4 RECON  Trace Queue init
+11:14:09 [11:14:09.122]  13856   4 RECON  New thread started: TraceQueueThread 0x00003620
+11:14:09 [11:14:09.122]  12112   4 RECON  New thread started: TraceMaintenanceThread 0x00002F50
+11:14:09 [11:14:09.122]  12112   5 RECON  TraceMaintenanceThread: first trace maintenace will be performed after 00:13 delay.
+11:14:09 [11:14:09.122]  15200   4 RECON  Sockets description: 
+11:14:09 [11:14:09.134]  15200   4 RECON  Local hostname: 
+11:14:09 [11:14:09.139]  15200   4 RECON  Local IP address: 192.168.2.71
+11:14:09 [11:14:09.139]  15200   4 RECON  New component name: 
+11:14:09 [11:14:09.139]  15200   4 RECON  Registering callback routine
+11:14:09 [11:14:09.139]  15200   4 RECON  ConnectionList init
+11:14:09 [11:14:09.139]  15200   5 RECON  Recon::ListenAdd().
+11:14:09 [11:14:09.139]  15200   5 RECON  Recon::ListenSelected().
+11:14:09 [11:14:09.140]  15200   5 RECON  Recon::Listen().
+11:14:09 [11:14:09.140]  15200   4 RECON  Creating TCP/IP Listener on port 
+11:14:09 [11:14:09.141]  15200   5 RECON  Recon::Start(). Starting Recon thread.
+11:14:09 [11:14:09.142]   7860   4 RECON  New thread started: ReconThread 0x00001EB4
+11:14:09 [11:14:09.142]   7860   5 RECON  Recon thread running. 
+11:14:09 [11:14:09.142]  15200   5 RECON  Recon::ResolveconnectEx(), timeout: 10
+11:14:09 [11:14:09.142]  13724   4 RECON  New thread started: ReceiverThread 0x0000359C
+11:14:09 [11:14:09.142]   7024   4 RECON  New thread started: CallbackTimeoutThread 0x00001B70
+11:14:09 [11:14:09.143]   7024   5 RECON  Alarm parameters:  callback_timeout=0,  exit_on_callback_timeout=(null)
+11:14:09 [11:14:09.342]  15200   4 CCL@5SEXGDM6YC8JZBW Recon initialization was successful.
+11:14:09 [11:14:09.342]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::R_Initialize() leave.
+11:14:09 [11:14:09.342]   2720   4 RECON  New thread started: ConnectThread 0x00000AA0
+11:14:09 [11:14:09.343]   2720   5 RECON  Recon::TryConnect().
+11:14:09 [11:14:09.343]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - connection is not in the list yet.
+11:14:09 [11:14:09.345]   2720   4 RECON  Connect to addr:192.168.8.221 port:4100 - OK
+11:14:09 [11:14:09.345]   2720   5 RECON   * client socket 900  SO_RCVBUF=65536 bytes
+11:14:09 [11:14:09.345]   2720   5 RECON   * client socket 900  SO_SNDBUF=65536 bytes
+11:14:09 [11:14:09.345]   2720   4 RECON  Retrieve ComponentInfo from 
+11:14:09 [11:14:09.345]   2720   4 RECON  ReconConnect::Sending REQ RM_COMP_INFO: MyCompName: CCL@5SEXGDM6YC8JZBW, HostName: 5SEXGDM6YC8JZBW, uIPA: 1191356608, Port: 0, Version: 2.8.1.15, ProdVersion: 2.9.2.360
+11:14:09 [11:14:09.346]   2720   4 RECON  ReconConnect::REQ RM_COMP_INFO sent to addr:192.168.8.221 port:4100
+11:14:09 [11:14:09.353]  15200   3 CCL@5SEXGDM6YC8JZBW R_Initialize succeded
+11:14:09 [11:14:09.392]   7860   4 RECON  ReconProcessMsg -> Internal Message received opcode:1  primitive:R  from:CBR1_AGA
+11:14:09 [11:14:09.392]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:3  primitive:E  from:CCL@5SEXGDM6YC8JZBW
+11:14:09 [11:14:09.392]  13724   5 RECON  Recon::CallbackFunction().
+11:14:09 [11:14:09.392]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:09 [11:14:09.392]  13724   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CCL@5SEXGDM6YC8JZBW OpCode:3
+11:14:09 [11:14:09.392]  13724   4 CCL@5SEXGDM6YC8JZBW 	-1
+11:14:09 [11:14:09.392]  13724   4 CCL@5SEXGDM6YC8JZBW 	CBR1_AGA
+11:14:09 [11:14:09.392]  13724   4 CCL@5SEXGDM6YC8JZBW 	2.9.2.360
+11:14:09 [11:14:09.392]  13724   4 CCL@5SEXGDM6YC8JZBW 	1
+11:14:09 [11:14:09.392]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:09 [11:14:09.394]   2156   4 CCL@5SEXGDM6YC8JZBW EVT RM_CONNECTED<3> [CCL@5SEXGDM6YC8JZBW||CCL@5SEXGDM6YC8JZBW] {4}
+	(0):-1 (1):CBR1_AGA (2):2.9.2.360 (3):1 
+
+11:14:09 [11:14:09.542]   2720   5 RECON  Recon::TryConnect().
+11:14:09 [11:14:09.542]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:14:09 [11:14:09.544]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+11:14:09 [11:14:09.544]  13724   5 RECON  Recon::CallbackFunction().
+11:14:09 [11:14:09.544]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:09 [11:14:09.544]  13724   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CBR1_AGA OpCode:750
+11:14:09 [11:14:09.545]  13724   4 CCL@5SEXGDM6YC8JZBW 	CFG
+11:14:09 [11:14:09.545]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:09 [11:14:09.545]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+11:14:09 [11:14:09.545]  13724   5 RECON  Recon::CallbackFunction().
+11:14:09 [11:14:09.545]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:09 [11:14:09.545]  13724   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CBR1_AGA OpCode:750
+11:14:09 [11:14:09.545]  13724   4 CCL@5SEXGDM6YC8JZBW 	TSV
+11:14:09 [11:14:09.545]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:09 [11:14:09.545]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:750  primitive:E  from:CBR1_AGA
+11:14:09 [11:14:09.545]  13724   5 RECON  Recon::CallbackFunction().
+11:14:09 [11:14:09.545]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:09 [11:14:09.545]  13724   4 CCL@5SEXGDM6YC8JZBW ***EVENT (0):CBR1_AGA OpCode:750
+11:14:09 [11:14:09.545]  13724   4 CCL@5SEXGDM6YC8JZBW 	STS
+11:14:09 [11:14:09.545]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:09 [11:14:09.546]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:182  primitive:E  from:CBR1_AGA
+11:14:09 [11:14:09.546]  13724   5 RECON  Recon::CallbackFunction().
+11:14:09 [11:14:09.546]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:09 [11:14:09.546]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CBR_Connected<750> [CBR1_AGA||CCL@5SEXGDM6YC8JZBW] {1}
+	(0):CFG 
+
+11:14:09 [11:14:09.546]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:09 [11:14:09.546]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CBR_Connected<750> [CBR1_AGA||CCL@5SEXGDM6YC8JZBW] {1}
+	(0):TSV 
+
+11:14:09 [11:14:09.546]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CBR_Connected<750> [CBR1_AGA||CCL@5SEXGDM6YC8JZBW] {1}
+	(0):STS 
+
+11:14:08 [11:14:08.826]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 956 closing
+11:14:08 [11:14:08.826]   2720   4 RECON  Socket 956 closed
+11:14:18 [11:14:18.827]   2720   5 RECON  Recon::TryConnect().
+11:14:18 [11:14:18.827]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+11:14:18 [11:14:18.827]   2720   5 RECON  Recon::TryConnect().
+11:14:18 [11:14:18.827]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:14:19 [11:14:19.827]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 1208 closing
+11:14:19 [11:14:19.827]   2720   4 RECON  Socket 1208 closed
+11:14:20 [11:14:20.333]  12112   5 RECON  TraceMaintenanceThread: checking lifetime, count: 11, lifetime: 240 h, current max age: 143 h
+11:14:20 [11:14:20.333]  12112   5 RECON  TraceMaintenanceThread: checking storage size, max size: 1073741824, current size: 427094
+11:14:20 [11:14:20.334]  12112   5 RECON  TraceMaintenanceThread: checking drive free space, min free space: 5120 MB, current free space: 109844 MB
+11:14:26 [11:14:26.039]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::CS_Login() enter.
+11:14:26 [11:14:26.040]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:85  primitive:Q  to:CBR
+11:14:26 [11:14:26.040]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (1) CFG_LOGIN Username:'1007'
+11:14:26 [11:14:26.128]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:85  primitive:R  from:CBR1_AGA
+11:14:26 [11:14:26.128]  13724   5 RECON  Recon::CallbackFunction().
+11:14:26 [11:14:26.128]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:26 [11:14:26.128]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (1):CBR1_AGA CFG_LOGIN Username:'1007', errCode:0
+11:14:26 [11:14:26.128]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:26 [11:14:26.128]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:66  primitive:Q  to:CBR
+11:14:26 [11:14:26.128]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (2) CFGI_GETCOMPID(CCL)
+11:14:26 [11:14:26.227]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:66  primitive:R  from:CBR1_AGA
+11:14:26 [11:14:26.227]  13724   5 RECON  Recon::CallbackFunction().
+11:14:26 [11:14:26.227]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:26 [11:14:26.227]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (2):CBR1_AGA CFGI_GETCOMPID
+11:14:26 [11:14:26.227]  13724   4 CCL@5SEXGDM6YC8JZBW 	Component not defined in database!!!
+11:14:26 [11:14:26.227]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:26 [11:14:26.227]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::CS_Login() leave.
+11:14:26 [11:14:26.228]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_StartMonitor() enter.
+11:14:26 [11:14:26.238]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:126  primitive:Q  to:CBR
+11:14:26 [11:14:26.238]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (3) CTI_StartMonitor DN:'1002'  DNtype:1
+11:14:26 [11:14:26.273]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:126  primitive:R  from:CBR1_AGA
+11:14:26 [11:14:26.273]  13724   5 RECON  Recon::CallbackFunction().
+11:14:26 [11:14:26.273]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:26 [11:14:26.273]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (3) <CBR1_AGA:TSV> CTI_StartMonitor Ack:0
+11:14:26 [11:14:26.273]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:26 [11:14:26.273]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_StartMonitor() leave.
+11:14:26 [11:14:26.278]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_AgentLogOn() enter.
+11:14:26 [11:14:26.280]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:122  primitive:Q  to:CBR
+11:14:26 [11:14:26.280]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (4) CTI_AgentLogOn DN:'1002'
+11:14:26 [11:14:26.280]  15200   5 CCL@5SEXGDM6YC8JZBW 	LoginID:1007  UserName:1007  UseHW:0
+11:14:26 [11:14:26.284]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:122  primitive:R  from:CBR1_AGA
+11:14:26 [11:14:26.284]  13724   5 RECON  Recon::CallbackFunction().
+11:14:26 [11:14:26.284]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:26 [11:14:26.284]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (4) <CBR1_AGA:TSV> CTI_AgentLogOn	 Ack:0
+11:14:26 [11:14:26.284]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:26 [11:14:26.284]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_AgentLogOn() leave.
+11:14:26 [11:14:26.488]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:152  primitive:E  from:CBR1_AGA
+11:14:26 [11:14:26.488]  13724   5 RECON  Recon::CallbackFunction().
+11:14:26 [11:14:26.488]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:26 [11:14:26.488]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:26 [11:14:26.489]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:155  primitive:E  from:CBR1_AGA
+11:14:26 [11:14:26.489]  13724   5 RECON  Recon::CallbackFunction().
+11:14:26 [11:14:26.489]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:26 [11:14:26.489]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:26 [11:14:26.501]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CTI_AgentLoggedOn(152) [CBR1_AGA|CCL@5SEXGDM6YC8JZBW] {19}
+	CallType:0 Media:0 TStamp:1397099667 
+	Cause:0 CallID:00000000 State:0 
+	DWPar1:0 DWPar2:0 Mask:7 
+11:14:26 [11:14:26.502]   2156   4 CCL@5SEXGDM6YC8JZBW 	SPar1:1007 SPar2:1007 PtyA:1002(1002) 
+
+11:14:26 [11:14:26.502]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CTI_AgentNotReady(155) [CBR1_AGA|CCL@5SEXGDM6YC8JZBW] {19}
+	CallType:0 Media:0 TStamp:1397099667 
+	Cause:0 CallID:00000000 State:4 
+	DWPar1:0 DWPar2:0 Mask:7 
+11:14:26 [11:14:26.502]   2156   4 CCL@5SEXGDM6YC8JZBW 	SPar1:1007 SPar2:1007 PtyA:1002(1002) 
+
+11:14:29 [11:14:29.831]   2720   5 RECON  Recon::TryConnect().
+11:14:29 [11:14:29.831]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+11:14:29 [11:14:29.831]   2720   5 RECON  Recon::TryConnect().
+11:14:29 [11:14:29.831]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:14:30 [11:14:30.835]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 2456 closing
+11:14:30 [11:14:30.835]   2720   4 RECON  Socket 2456 closed
+11:14:40 [11:14:40.804]   7860   5 RECON  ReconProcessMsg -> Internal Message received opcode:10  primitive:E  from:CBR1_AGA
+11:14:40 [11:14:40.836]   2720   5 RECON  Recon::TryConnect().
+11:14:40 [11:14:40.836]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+11:14:40 [11:14:40.836]   2720   5 RECON  Recon::TryConnect().
+11:14:40 [11:14:40.836]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:14:41 [11:14:41.832]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 3044 closing
+11:14:41 [11:14:41.833]   2720   4 RECON  Socket 3044 closed
+11:14:51 [11:14:51.835]   2720   5 RECON  Recon::TryConnect().
+11:14:51 [11:14:51.835]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+11:14:51 [11:14:51.835]   2720   5 RECON  Recon::TryConnect().
+11:14:51 [11:14:51.835]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:14:52 [11:14:52.837]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 1328 closing
+11:14:52 [11:14:52.837]   2720   4 RECON  Socket 1328 closed
+11:14:54 [11:14:54.578]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_MakeCall() enter.
+11:14:54 [11:14:54.578]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:114  primitive:Q  to:CBR
+11:14:54 [11:14:54.578]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (5) CTI_MakeCall DN:'1002'  DestDN:'913146611863'
+11:14:54 [11:14:54.592]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:114  primitive:R  from:CBR1_AGA
+11:14:54 [11:14:54.593]  13724   5 RECON  Recon::CallbackFunction().
+11:14:54 [11:14:54.593]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:54 [11:14:54.593]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (5) <CBR1_AGA:TSV> CTI_MakeCall	 Ack:0
+11:14:54 [11:14:54.593]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:54 [11:14:54.593]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_MakeCall() leave.
+11:14:54 [11:14:54.800]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:134  primitive:E  from:CBR1_AGA
+11:14:54 [11:14:54.801]  13724   5 RECON  Recon::CallbackFunction().
+11:14:54 [11:14:54.801]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:54 [11:14:54.801]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:54 [11:14:54.801]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:157  primitive:E  from:CBR1_AGA
+11:14:54 [11:14:54.801]  13724   5 RECON  Recon::CallbackFunction().
+11:14:54 [11:14:54.801]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:54 [11:14:54.801]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:54 [11:14:54.802]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CTI_Initiated(134) [CBR1_AGA|CCL@5SEXGDM6YC8JZBW] {17}
+	CallType:0 Media:1 TStamp:1397099695 
+	Cause:29 CallID:011918d3 State:3 
+	DWPar1:0 DWPar2:0 Mask:4 
+11:14:54 [11:14:54.802]   2156   4 CCL@5SEXGDM6YC8JZBW 	PtyA:1002(1002) 
+
+11:14:54 [11:14:54.928]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() enter.
+11:14:54 [11:14:54.928]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:121  primitive:Q  to:CBR
+11:14:54 [11:14:54.929]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (6) CTI_GetAttachedData CallID:011918d3
+11:14:54 [11:14:54.931]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:121  primitive:R  from:CBR1_AGA
+11:14:54 [11:14:54.931]  13724   5 RECON  Recon::CallbackFunction().
+11:14:54 [11:14:54.931]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:54 [11:14:54.931]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (6) <CBR1_AGA:TSV> CTI_GetAttachedData
+11:14:54 [11:14:54.931]  13724   4 CCL@5SEXGDM6YC8JZBW 		 Data: 
+11:14:54 [11:14:54.931]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:54 [11:14:54.942]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() leave.
+11:14:55 [11:14:55.026]  15200   3 CCL@5SEXGDM6YC8JZBW recon_OnCTIEvent: Initiated event
+11:14:55 [11:14:55.280]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyA_Number:1002
+11:14:55 [11:14:55.283]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyA_Descr:EXT
+11:14:55 [11:14:55.285]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyB_Number:
+11:14:55 [11:14:55.286]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyB_Descr:
+11:14:55 [11:14:55.288]  15200   3 CCL@5SEXGDM6YC8JZBW  Timestamp:1397099695
+11:14:55 [11:14:55.290]  15200   3 CCL@5SEXGDM6YC8JZBW E_SUCCESS|  KeyValueListCount:0
+11:14:55 [11:14:55.969]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CTI_AgentInitiated(157) [CBR1_AGA|CCL@5SEXGDM6YC8JZBW] {19}
+	CallType:0 Media:1 TStamp:1397099695 
+	Cause:0 CallID:011918d3 State:0 
+	DWPar1:0 DWPar2:0 Mask:7 
+11:14:55 [11:14:55.970]   2156   4 CCL@5SEXGDM6YC8JZBW 	SPar1:1007 SPar2:1007 PtyA:1002(1002) 
+
+11:14:56 [11:14:56.057]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() enter.
+11:14:56 [11:14:56.058]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:121  primitive:Q  to:CBR
+11:14:56 [11:14:56.058]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (7) CTI_GetAttachedData CallID:011918d3
+11:14:56 [11:14:56.060]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:121  primitive:R  from:CBR1_AGA
+11:14:56 [11:14:56.060]  13724   5 RECON  Recon::CallbackFunction().
+11:14:56 [11:14:56.060]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:56 [11:14:56.060]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (7) <CBR1_AGA:TSV> CTI_GetAttachedData
+11:14:56 [11:14:56.060]  13724   4 CCL@5SEXGDM6YC8JZBW 		 Data: 
+11:14:56 [11:14:56.060]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:56 [11:14:56.060]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() leave.
+11:14:57 [11:14:57.587]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:144  primitive:E  from:CBR1_AGA
+11:14:57 [11:14:57.587]  13724   5 RECON  Recon::CallbackFunction().
+11:14:57 [11:14:57.587]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:57 [11:14:57.587]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:57 [11:14:57.587]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CTI_Released(144) [CBR1_AGA|CCL@5SEXGDM6YC8JZBW] {19}
+	CallType:0 Media:1 TStamp:1397099698 
+	Cause:39 CallID:011918d3 State:1 
+	DWPar1:0 DWPar2:0 Mask:516 
+11:14:57 [11:14:57.587]   2156   4 CCL@5SEXGDM6YC8JZBW 	PtyA:1002(1002) PtyRls:1002(1002) 
+
+11:14:57 [11:14:57.600]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() enter.
+11:14:57 [11:14:57.600]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:121  primitive:Q  to:CBR
+11:14:57 [11:14:57.601]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (8) CTI_GetAttachedData CallID:011918d3
+11:14:57 [11:14:57.601]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:155  primitive:E  from:CBR1_AGA
+11:14:57 [11:14:57.601]  13724   5 RECON  Recon::CallbackFunction().
+11:14:57 [11:14:57.601]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:57 [11:14:57.602]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:57 [11:14:57.806]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:121  primitive:R  from:CBR1_AGA
+11:14:57 [11:14:57.806]  13724   5 RECON  Recon::CallbackFunction().
+11:14:57 [11:14:57.807]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:57 [11:14:57.807]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (8) <CBR1_AGA:TSV> CTI_GetAttachedData
+11:14:57 [11:14:57.807]  13724   4 CCL@5SEXGDM6YC8JZBW 		 Data: 
+11:14:57 [11:14:57.807]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:57 [11:14:57.807]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() leave.
+11:14:57 [11:14:57.823]  15200   3 CCL@5SEXGDM6YC8JZBW recon_OnCTIEvent: Released event
+11:14:58 [11:14:58.057]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyA_Number:1002
+11:14:58 [11:14:58.059]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyA_Descr:EXT
+11:14:58 [11:14:58.061]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyB_Number:
+11:14:58 [11:14:58.063]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyB_Descr:
+11:14:58 [11:14:58.065]  15200   3 CCL@5SEXGDM6YC8JZBW  Timestamp:1397099698
+11:14:58 [11:14:58.068]  15200   3 CCL@5SEXGDM6YC8JZBW E_SUCCESS|  KeyValueListCount:0
+11:14:58 [11:14:58.275]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() enter.
+11:14:58 [11:14:58.275]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:121  primitive:Q  to:CBR
+11:14:58 [11:14:58.276]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (9) CTI_GetAttachedData CallID:011918d3
+11:14:58 [11:14:58.277]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:121  primitive:R  from:CBR1_AGA
+11:14:58 [11:14:58.278]  13724   5 RECON  Recon::CallbackFunction().
+11:14:58 [11:14:58.278]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:58 [11:14:58.278]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (9) <CBR1_AGA:TSV> CTI_GetAttachedData
+11:14:58 [11:14:58.278]  13724   4 CCL@5SEXGDM6YC8JZBW 		 Data: 
+11:14:58 [11:14:58.278]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:58 [11:14:58.278]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() leave.
+11:14:58 [11:14:58.285]  15200   3 CCL@5SEXGDM6YC8JZBW recon_OnCTIEvent: Released event
+11:14:58 [11:14:58.287]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyA_Number:1002
+11:14:58 [11:14:58.289]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyA_Descr:EXT
+11:14:58 [11:14:58.291]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyB_Number:
+11:14:58 [11:14:58.293]  15200   3 CCL@5SEXGDM6YC8JZBW  PartyB_Descr:
+11:14:58 [11:14:58.295]  15200   3 CCL@5SEXGDM6YC8JZBW  Timestamp:1397099698
+11:14:58 [11:14:58.298]  15200   3 CCL@5SEXGDM6YC8JZBW E_SUCCESS|  KeyValueListCount:0
+11:14:58 [11:14:58.464]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CTI_AgentNotReady(155) [CBR1_AGA|CCL@5SEXGDM6YC8JZBW] {19}
+	CallType:0 Media:0 TStamp:1397099698 
+	Cause:0 CallID:00000000 State:0 
+	DWPar1:0 DWPar2:0 Mask:7 
+11:14:58 [11:14:58.464]   2156   4 CCL@5SEXGDM6YC8JZBW 	SPar1:1007 SPar2:1007 PtyA:1002(1002) 
+
+11:14:58 [11:14:58.806]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() enter.
+11:14:58 [11:14:58.806]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:121  primitive:Q  to:CBR
+11:14:58 [11:14:58.806]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (10) CTI_GetAttachedData CallID:011918d3
+11:14:58 [11:14:58.809]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:121  primitive:R  from:CBR1_AGA
+11:14:58 [11:14:58.809]  13724   5 RECON  Recon::CallbackFunction().
+11:14:58 [11:14:58.809]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:14:58 [11:14:58.810]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (10) <CBR1_AGA:TSV> CTI_GetAttachedData
+11:14:58 [11:14:58.810]  13724   4 CCL@5SEXGDM6YC8JZBW 		 Data: 
+11:14:58 [11:14:58.810]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:14:58 [11:14:58.810]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_GetAttachedDataList() leave.
+11:15:02 [11:15:02.843]   2720   5 RECON  Recon::TryConnect().
+11:15:02 [11:15:02.843]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+11:15:02 [11:15:02.843]   2720   5 RECON  Recon::TryConnect().
+11:15:02 [11:15:02.843]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:15:03 [11:15:03.851]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 3344 closing
+11:15:03 [11:15:03.851]   2720   4 RECON  Socket 3344 closed
+11:15:13 [11:15:13.852]   2720   5 RECON  Recon::TryConnect().
+11:15:13 [11:15:13.852]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+11:15:13 [11:15:13.852]   2720   5 RECON  Recon::TryConnect().
+11:15:13 [11:15:13.852]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:15:14 [11:15:14.151]   7860   5 RECON  ReconProcessMsg -> Internal Message received opcode:10  primitive:E  from:CBR1_AGA
+11:15:14 [11:15:14.852]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 3232 closing
+11:15:14 [11:15:14.852]   2720   4 RECON  Socket 3232 closed
+11:15:19 [11:15:19.278]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_ReleaseCall() enter.
+11:15:19 [11:15:19.278]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:109  primitive:Q  to:CBR
+11:15:19 [11:15:19.279]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (11) CTI_ReleaseCall DN:'1002'  CallID:011918d3
+11:15:19 [11:15:19.306]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:109  primitive:R  from:CBR1_AGA
+11:15:19 [11:15:19.306]  13724   5 RECON  Recon::CallbackFunction().
+11:15:19 [11:15:19.306]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:15:19 [11:15:19.306]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (11) <CBR1_AGA:TSV> CTI_ReleaseCall	 Ack:7
+11:15:19 [11:15:19.306]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:15:19 [11:15:19.307]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_ReleaseCall() leave.
+11:15:22 [11:15:22.679]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_ReleaseCall() enter.
+11:15:22 [11:15:22.680]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:109  primitive:Q  to:CBR
+11:15:22 [11:15:22.680]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (12) CTI_ReleaseCall DN:'1002'  CallID:011918d3
+11:15:22 [11:15:22.709]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:109  primitive:R  from:CBR1_AGA
+11:15:22 [11:15:22.709]  13724   5 RECON  Recon::CallbackFunction().
+11:15:22 [11:15:22.709]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:15:22 [11:15:22.709]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (12) <CBR1_AGA:TSV> CTI_ReleaseCall	 Ack:7
+11:15:22 [11:15:22.709]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:15:22 [11:15:22.710]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_ReleaseCall() leave.
+11:15:24 [11:15:24.855]   2720   5 RECON  Recon::TryConnect().
+11:15:24 [11:15:24.855]   2720   5 RECON  Connect to addr:192.168.8.221 port:4100 - already connected
+11:15:24 [11:15:24.855]   2720   5 RECON  Recon::TryConnect().
+11:15:24 [11:15:24.855]   2720   5 RECON  Connect to addr:192.168.8.222 port:4100 - connection is not in the list yet.
+11:15:25 [11:15:25.034]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_AgentLogOff() enter.
+11:15:25 [11:15:25.034]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:123  primitive:Q  to:CBR
+11:15:25 [11:15:25.034]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (13) CTI_AgentLogOff DN:'1002'  LoginID:'1007'
+11:15:25 [11:15:25.037]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:123  primitive:R  from:CBR1_AGA
+11:15:25 [11:15:25.037]  13724   5 RECON  Recon::CallbackFunction().
+11:15:25 [11:15:25.037]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:15:25 [11:15:25.037]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (13) <CBR1_AGA:TSV> CTI_AgentLogOff	 Ack:0
+11:15:25 [11:15:25.038]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:15:25 [11:15:25.038]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::T_AgentLogOff() leave.
+11:15:25 [11:15:25.083]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::CS_Logout() enter.
+11:15:25 [11:15:25.083]  15200   4 RECON  Recon::SendMsg -> sending Internal Message opcode:86  primitive:Q  to:CBR
+11:15:25 [11:15:25.084]  15200   4 CCL@5SEXGDM6YC8JZBW REQ (14) CFG_LOGOUT Username:'1007'
+11:15:25 [11:15:25.084]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:153  primitive:E  from:CBR1_AGA
+11:15:25 [11:15:25.084]  13724   5 RECON  Recon::CallbackFunction().
+11:15:25 [11:15:25.084]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:15:25 [11:15:25.084]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:15:25 [11:15:25.084]   2156   4 CCL@5SEXGDM6YC8JZBW EVT CTI_AgentLoggedOff(153) [CBR1_AGA|CCL@5SEXGDM6YC8JZBW] {19}
+	CallType:0 Media:0 TStamp:1397099725 
+	Cause:0 CallID:00000000 State:0 
+	DWPar1:0 DWPar2:0 Mask:7 
+11:15:25 [11:15:25.084]   2156   4 CCL@5SEXGDM6YC8JZBW 	SPar1:1007 SPar2:1007 PtyA:1002(1002) 
+
+11:15:25 [11:15:25.290]  13724   4 RECON  ReconProcessMsg -> Internal Message received opcode:86  primitive:R  from:CBR1_AGA
+11:15:25 [11:15:25.290]  13724   5 RECON  Recon::CallbackFunction().
+11:15:25 [11:15:25.290]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() enter.
+11:15:25 [11:15:25.290]  13724   4 CCL@5SEXGDM6YC8JZBW ***RESP (14):CBR1_AGA CFG_LOGOUT  Username:'1007', errCode:0
+11:15:25 [11:15:25.290]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::CS_Logout() leave.
+11:15:25 [11:15:25.290]  13724   5 CCL@5SEXGDM6YC8JZBW CReconCOM::OnReceiveMessage() leave.
+11:15:25 [11:15:25.291]  15200   5 CCL@5SEXGDM6YC8JZBW CReconCOM::R_Close() enter.
+11:15:25 [11:15:25.291]  15200   5 RECON  Recon::ListenRemove().
+11:15:25 [11:15:25.291]  15200   5 RECON  Recon::Shutdown(). Shutdown initiated.
+11:15:25 [11:15:25.291]  15200   5 RECON  Recon::Disconnect().
+11:15:25 [11:15:25.291]  15200   4 RECON  Disconnect all
+11:15:25 [11:15:25.291]   7860   4 RECON  ReconThread 0x00001EB4 finished
+11:15:25 [11:15:25.291]  15200   4 RECON  Disconnect of (null) - OK
+11:15:25 [11:15:25.291]  15200   4 RECON  Waiting until ConnectThread finishes
+11:15:25 [11:15:25.291]  13724   4 RECON  ReceiverThreadProc 0x0000359C finished
+11:15:25 [11:15:25.292]  12112   4 RECON  TraceMaintenanceThread 0x00002F50 finished
+11:15:25 [11:15:25.738]  13856   4 RECON  TraceQueueThread 0x00003620 finished
+11:15:25 [11:15:25.861]   2720   2 RECON  Connect to addr:192.168.8.222 port:4100 failed, socket 1880 closing
+11:15:25 [11:15:25.862]   2720   4 RECON  Socket 1880 closed
+11:15:25 [11:15:25.862]   2720   4 RECON  ConnectThread 0x00000AA0 finished
+11:15:25 [11:15:25.862]  15200   4 RECON  Waiting until ReconThread finishes
+11:15:25 [11:15:25.862]  15200   4 RECON  Waiting until ReceiverThread finishes
+11:15:25 [11:15:25.862]  15200   4 RECON  Waiting until CallbackTimeoutThread finishes
+11:15:25 [11:15:25.862]  15200   4 RECON  Waiting until TraceQueueThread finishes
+11:15:25 [11:15:25.862]  15200   4 RECON  Waiting until TraceMaintenanceThread finishes
+11:15:25 [11:15:25.862]  15200   4 RECON  All threads have finished

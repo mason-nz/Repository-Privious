@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCustCoorperation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="custId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustCoorperationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustCoorperationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberCoorperation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberCodes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMemberCoorperationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberCoorperationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCustCoorperationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustCoorperation" />
+  </wsdl:message>
+  <wsdl:message name="GetCustCoorperationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustCoorperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberCoorperationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberCoorperation" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberCoorperationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberCoorperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustCoorperationHttpGetIn">
+    <wsdl:part name="custId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustCoorperationHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberCoorperationHttpGetIn">
+    <wsdl:part name="memberCodes" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberCoorperationHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetCustCoorperationHttpPostIn">
+    <wsdl:part name="custId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustCoorperationHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberCoorperationHttpPostIn">
+    <wsdl:part name="memberCodes" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberCoorperationHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:portType name="CustCoorperationSoap">
+    <wsdl:operation name="GetCustCoorperation">
+      <wsdl:input message="tns:GetCustCoorperationSoapIn" />
+      <wsdl:output message="tns:GetCustCoorperationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberCoorperation">
+      <wsdl:input message="tns:GetMemberCoorperationSoapIn" />
+      <wsdl:output message="tns:GetMemberCoorperationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CustCoorperationHttpGet">
+    <wsdl:operation name="GetCustCoorperation">
+      <wsdl:input message="tns:GetCustCoorperationHttpGetIn" />
+      <wsdl:output message="tns:GetCustCoorperationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberCoorperation">
+      <wsdl:input message="tns:GetMemberCoorperationHttpGetIn" />
+      <wsdl:output message="tns:GetMemberCoorperationHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CustCoorperationHttpPost">
+    <wsdl:operation name="GetCustCoorperation">
+      <wsdl:input message="tns:GetCustCoorperationHttpPostIn" />
+      <wsdl:output message="tns:GetCustCoorperationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberCoorperation">
+      <wsdl:input message="tns:GetMemberCoorperationHttpPostIn" />
+      <wsdl:output message="tns:GetMemberCoorperationHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustCoorperationSoap" type="tns:CustCoorperationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustCoorperation">
+      <soap:operation soapAction="http://tempuri.org/GetCustCoorperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberCoorperation">
+      <soap:operation soapAction="http://tempuri.org/GetMemberCoorperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustCoorperationSoap12" type="tns:CustCoorperationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustCoorperation">
+      <soap12:operation soapAction="http://tempuri.org/GetCustCoorperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberCoorperation">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberCoorperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustCoorperationHttpGet" type="tns:CustCoorperationHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetCustCoorperation">
+      <http:operation location="/GetCustCoorperation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberCoorperation">
+      <http:operation location="/GetMemberCoorperation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustCoorperationHttpPost" type="tns:CustCoorperationHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetCustCoorperation">
+      <http:operation location="/GetCustCoorperation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberCoorperation">
+      <http:operation location="/GetMemberCoorperation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustCoorperation">
+    <wsdl:port name="CustCoorperationSoap" binding="tns:CustCoorperationSoap">
+      <soap:address location="http://crm.sys1.bitauto.com/DMS/CustCoorperation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustCoorperationSoap12" binding="tns:CustCoorperationSoap12">
+      <soap12:address location="http://crm.sys1.bitauto.com/DMS/CustCoorperation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustCoorperationHttpGet" binding="tns:CustCoorperationHttpGet">
+      <http:address location="http://crm.sys1.bitauto.com/DMS/CustCoorperation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustCoorperationHttpPost" binding="tns:CustCoorperationHttpPost">
+      <http:address location="http://crm.sys1.bitauto.com/DMS/CustCoorperation.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

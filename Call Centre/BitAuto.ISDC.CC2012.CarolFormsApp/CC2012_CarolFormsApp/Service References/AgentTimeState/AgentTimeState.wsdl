@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCurrentTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAgentState2DB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentAuxState" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="callType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agTime" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="trueName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extensionNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAgentState2DBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertAgentState2DBResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAgentState2DB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentAuxState" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="callType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agTime" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAgentState2DBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAgentState2DBResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAgentState2DB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAgentState2DBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteAgentState2DBResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAgentStateDetail2DB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentAuxState" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="callType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="trueName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extensionNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAgentStateDetail2DBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertAgentStateDetail2DBResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStateDetail2DB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStateDetail2DBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateStateDetail2DBResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoginOffTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="endTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoginOffTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateLoginOffTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupNamesStr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupNamesStrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserGroupNamesStrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBGNameAndOutNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBGNameAndOutNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBGNameAndOutNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentNumsOnLine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentNumsOnLineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAgentNumsOnLineResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="iarray" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="errormsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAgentStateOnLine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vender" type="tns:Vender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="Vender">
+        <s:restriction base="s:string">
+          <s:enumeration value="Genesys" />
+          <s:enumeration value="Holly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetAgentStateOnLineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAgentStateOnLineResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errormsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentStateWorking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vender" type="tns:Vender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentStateWorkingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAgentStateWorkingResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errormsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsCanListenAgent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sysID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsCanListenAgentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsCanListenAgentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIDByNameDomainAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domainAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIDByNameDomainAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUserIDByNameDomainAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIDByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIDByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUserIDByUserNameResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserSkillGroupIdAndPriorty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserSkillGroupIdAndPriortyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserSkillGroupIdAndPriortyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManufactureSkillGroupIDBySGID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sgID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManufactureSkillGroupIDBySGIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetManufactureSkillGroupIDBySGIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSkillNameByMID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSkillNameByMIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSkillNameByMIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSkillNameBySGID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sgID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSkillNameBySGIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSkillNameBySGIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotlineSkillGroupByTelMainNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotlineSkillGroupByTelMainNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotlineSkillGroupByTelMainNumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentStateOnLineByWhere">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vender" type="tns:Vender" />
+            <s:element minOccurs="0" maxOccurs="1" name="where" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentStateOnLineByWhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgentStateOnLineByWhereResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManageBusinessGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManageBusinessGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetManageBusinessGroupsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEmployeeAgentAndBusinessGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEmployeeAgentAndBusinessGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllEmployeeAgentAndBusinessGroupResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertListenAgentLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="listenUserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="listenUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listenNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listenExtensionNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="listenOper" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentUserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentExtensionNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vendor" type="tns:Vender" />
+            <s:element minOccurs="0" maxOccurs="1" name="remark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertListenAgentLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertListenAgentLogResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentTime" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAgentState2DBSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAgentState2DB" />
+  </wsdl:message>
+  <wsdl:message name="InsertAgentState2DBSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAgentState2DBResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentState2DBSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAgentState2DB" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentState2DBSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAgentState2DBResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAgentState2DBSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAgentState2DB" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAgentState2DBSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAgentState2DBResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAgentStateDetail2DBSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAgentStateDetail2DB" />
+  </wsdl:message>
+  <wsdl:message name="InsertAgentStateDetail2DBSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAgentStateDetail2DBResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStateDetail2DBSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateStateDetail2DB" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStateDetail2DBSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStateDetail2DBResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoginOffTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLoginOffTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoginOffTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLoginOffTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupNamesStrSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserGroupNamesStr" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupNamesStrSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserGroupNamesStrResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBGNameAndOutNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBGNameAndOutNum" />
+  </wsdl:message>
+  <wsdl:message name="GetBGNameAndOutNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBGNameAndOutNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentNumsOnLineSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentNumsOnLine" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentNumsOnLineSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentNumsOnLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentStateOnLineSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentStateOnLine" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentStateOnLineSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentStateOnLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentStateWorkingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentStateWorking" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentStateWorkingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentStateWorkingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsCanListenAgentSoapIn">
+    <wsdl:part name="parameters" element="tns:IsCanListenAgent" />
+  </wsdl:message>
+  <wsdl:message name="IsCanListenAgentSoapOut">
+    <wsdl:part name="parameters" element="tns:IsCanListenAgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIDByNameDomainAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserIDByNameDomainAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIDByNameDomainAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserIDByNameDomainAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIDByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserIDByUserName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIDByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserIDByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSkillGroupIdAndPriortySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserSkillGroupIdAndPriorty" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSkillGroupIdAndPriortySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserSkillGroupIdAndPriortyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetManufactureSkillGroupIDBySGIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetManufactureSkillGroupIDBySGID" />
+  </wsdl:message>
+  <wsdl:message name="GetManufactureSkillGroupIDBySGIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetManufactureSkillGroupIDBySGIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSkillNameByMIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSkillNameByMID" />
+  </wsdl:message>
+  <wsdl:message name="GetSkillNameByMIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSkillNameByMIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSkillNameBySGIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSkillNameBySGID" />
+  </wsdl:message>
+  <wsdl:message name="GetSkillNameBySGIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSkillNameBySGIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotlineSkillGroupByTelMainNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotlineSkillGroupByTelMainNum" />
+  </wsdl:message>
+  <wsdl:message name="GetHotlineSkillGroupByTelMainNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotlineSkillGroupByTelMainNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentStateOnLineByWhereSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentStateOnLineByWhere" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentStateOnLineByWhereSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentStateOnLineByWhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetManageBusinessGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetManageBusinessGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetManageBusinessGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetManageBusinessGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeeAgentAndBusinessGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeeAgentAndBusinessGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeeAgentAndBusinessGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeeAgentAndBusinessGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertListenAgentLogSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertListenAgentLog" />
+  </wsdl:message>
+  <wsdl:message name="InsertListenAgentLogSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertListenAgentLogResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AgentTimeStateSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取站点服务器时间</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentTimeSoapIn" />
+      <wsdl:output message="tns:GetCurrentTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAgentState2DB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">插入客服临时状态记录</wsdl:documentation>
+      <wsdl:input message="tns:InsertAgentState2DBSoapIn" />
+      <wsdl:output message="tns:InsertAgentState2DBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentState2DB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新客服临时状态记录</wsdl:documentation>
+      <wsdl:input message="tns:UpdateAgentState2DBSoapIn" />
+      <wsdl:output message="tns:UpdateAgentState2DBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAgentState2DB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除临时记录</wsdl:documentation>
+      <wsdl:input message="tns:DeleteAgentState2DBSoapIn" />
+      <wsdl:output message="tns:DeleteAgentState2DBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAgentStateDetail2DB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">插入客服状态明细记录</wsdl:documentation>
+      <wsdl:input message="tns:InsertAgentStateDetail2DBSoapIn" />
+      <wsdl:output message="tns:InsertAgentStateDetail2DBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStateDetail2DB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新状态明细记录</wsdl:documentation>
+      <wsdl:input message="tns:UpdateStateDetail2DBSoapIn" />
+      <wsdl:output message="tns:UpdateStateDetail2DBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginOffTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客服登录时更新退出时间</wsdl:documentation>
+      <wsdl:input message="tns:UpdateLoginOffTimeSoapIn" />
+      <wsdl:output message="tns:UpdateLoginOffTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupNamesStr">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取用户组名字字符串</wsdl:documentation>
+      <wsdl:input message="tns:GetUserGroupNamesStrSoapIn" />
+      <wsdl:output message="tns:GetUserGroupNamesStrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBGNameAndOutNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据用户ID获取所属分组及外呼出局号</wsdl:documentation>
+      <wsdl:input message="tns:GetBGNameAndOutNumSoapIn" />
+      <wsdl:output message="tns:GetBGNameAndOutNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentNumsOnLine">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取在线客服列表（置闲、置忙）</wsdl:documentation>
+      <wsdl:input message="tns:GetAgentNumsOnLineSoapIn" />
+      <wsdl:output message="tns:GetAgentNumsOnLineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateOnLine">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取在线客服状态列表（置闲、置忙）</wsdl:documentation>
+      <wsdl:input message="tns:GetAgentStateOnLineSoapIn" />
+      <wsdl:output message="tns:GetAgentStateOnLineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateWorking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取在线客服状态列表（工作中）</wsdl:documentation>
+      <wsdl:input message="tns:GetAgentStateWorkingSoapIn" />
+      <wsdl:output message="tns:GetAgentStateWorkingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsCanListenAgent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据用户UserID判断是否有监听权限</wsdl:documentation>
+      <wsdl:input message="tns:IsCanListenAgentSoapIn" />
+      <wsdl:output message="tns:IsCanListenAgentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIDByNameDomainAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据域名获取用户ID</wsdl:documentation>
+      <wsdl:input message="tns:GetUserIDByNameDomainAccountSoapIn" />
+      <wsdl:output message="tns:GetUserIDByNameDomainAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIDByUserName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据UserName获取用户ID</wsdl:documentation>
+      <wsdl:input message="tns:GetUserIDByUserNameSoapIn" />
+      <wsdl:output message="tns:GetUserIDByUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSkillGroupIdAndPriorty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据UserId获取用户的技能组数据（SGID, 厂商技能组id，优先级）</wsdl:documentation>
+      <wsdl:input message="tns:GetUserSkillGroupIdAndPriortySoapIn" />
+      <wsdl:output message="tns:GetUserSkillGroupIdAndPriortySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManufactureSkillGroupIDBySGID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据SGID获取技能组字母ID</wsdl:documentation>
+      <wsdl:input message="tns:GetManufactureSkillGroupIDBySGIDSoapIn" />
+      <wsdl:output message="tns:GetManufactureSkillGroupIDBySGIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillNameByMID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据字母ID获取技能组名称</wsdl:documentation>
+      <wsdl:input message="tns:GetSkillNameByMIDSoapIn" />
+      <wsdl:output message="tns:GetSkillNameByMIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillNameBySGID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据数字ID获取技能组名称</wsdl:documentation>
+      <wsdl:input message="tns:GetSkillNameBySGIDSoapIn" />
+      <wsdl:output message="tns:GetSkillNameBySGIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotlineSkillGroupByTelMainNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据热线获取技能组</wsdl:documentation>
+      <wsdl:input message="tns:GetHotlineSkillGroupByTelMainNumSoapIn" />
+      <wsdl:output message="tns:GetHotlineSkillGroupByTelMainNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateOnLineByWhere">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取在线客服状态列表（置闲、置忙、自定义条件）</wsdl:documentation>
+      <wsdl:input message="tns:GetAgentStateOnLineByWhereSoapIn" />
+      <wsdl:output message="tns:GetAgentStateOnLineByWhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManageBusinessGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取人员的管辖分组</wsdl:documentation>
+      <wsdl:input message="tns:GetManageBusinessGroupsSoapIn" />
+      <wsdl:output message="tns:GetManageBusinessGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeAgentAndBusinessGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取全部人员和全部分组</wsdl:documentation>
+      <wsdl:input message="tns:GetAllEmployeeAgentAndBusinessGroupSoapIn" />
+      <wsdl:output message="tns:GetAllEmployeeAgentAndBusinessGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertListenAgentLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">插入监控日志</wsdl:documentation>
+      <wsdl:input message="tns:InsertListenAgentLogSoapIn" />
+      <wsdl:output message="tns:InsertListenAgentLogSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AgentTimeStateSoap" type="tns:AgentTimeStateSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTime">
+      <soap:operation soapAction="http://tempuri.org/GetCurrentTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAgentState2DB">
+      <soap:operation soapAction="http://tempuri.org/InsertAgentState2DB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentState2DB">
+      <soap:operation soapAction="http://tempuri.org/UpdateAgentState2DB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAgentState2DB">
+      <soap:operation soapAction="http://tempuri.org/DeleteAgentState2DB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAgentStateDetail2DB">
+      <soap:operation soapAction="http://tempuri.org/InsertAgentStateDetail2DB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStateDetail2DB">
+      <soap:operation soapAction="http://tempuri.org/UpdateStateDetail2DB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginOffTime">
+      <soap:operation soapAction="http://tempuri.org/UpdateLoginOffTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupNamesStr">
+      <soap:operation soapAction="http://tempuri.org/GetUserGroupNamesStr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBGNameAndOutNum">
+      <soap:operation soapAction="http://tempuri.org/GetBGNameAndOutNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentNumsOnLine">
+      <soap:operation soapAction="http://tempuri.org/GetAgentNumsOnLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateOnLine">
+      <soap:operation soapAction="http://tempuri.org/GetAgentStateOnLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateWorking">
+      <soap:operation soapAction="http://tempuri.org/GetAgentStateWorking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsCanListenAgent">
+      <soap:operation soapAction="http://tempuri.org/IsCanListenAgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIDByNameDomainAccount">
+      <soap:operation soapAction="http://tempuri.org/GetUserIDByNameDomainAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIDByUserName">
+      <soap:operation soapAction="http://tempuri.org/GetUserIDByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSkillGroupIdAndPriorty">
+      <soap:operation soapAction="http://tempuri.org/GetUserSkillGroupIdAndPriorty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufactureSkillGroupIDBySGID">
+      <soap:operation soapAction="http://tempuri.org/GetManufactureSkillGroupIDBySGID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillNameByMID">
+      <soap:operation soapAction="http://tempuri.org/GetSkillNameByMID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillNameBySGID">
+      <soap:operation soapAction="http://tempuri.org/GetSkillNameBySGID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotlineSkillGroupByTelMainNum">
+      <soap:operation soapAction="http://tempuri.org/GetHotlineSkillGroupByTelMainNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateOnLineByWhere">
+      <soap:operation soapAction="http://tempuri.org/GetAgentStateOnLineByWhere" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManageBusinessGroups">
+      <soap:operation soapAction="http://tempuri.org/GetManageBusinessGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeAgentAndBusinessGroup">
+      <soap:operation soapAction="http://tempuri.org/GetAllEmployeeAgentAndBusinessGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertListenAgentLog">
+      <soap:operation soapAction="http://tempuri.org/InsertListenAgentLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgentTimeStateSoap12" type="tns:AgentTimeStateSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTime">
+      <soap12:operation soapAction="http://tempuri.org/GetCurrentTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAgentState2DB">
+      <soap12:operation soapAction="http://tempuri.org/InsertAgentState2DB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentState2DB">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAgentState2DB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAgentState2DB">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAgentState2DB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAgentStateDetail2DB">
+      <soap12:operation soapAction="http://tempuri.org/InsertAgentStateDetail2DB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStateDetail2DB">
+      <soap12:operation soapAction="http://tempuri.org/UpdateStateDetail2DB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginOffTime">
+      <soap12:operation soapAction="http://tempuri.org/UpdateLoginOffTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupNamesStr">
+      <soap12:operation soapAction="http://tempuri.org/GetUserGroupNamesStr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBGNameAndOutNum">
+      <soap12:operation soapAction="http://tempuri.org/GetBGNameAndOutNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentNumsOnLine">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentNumsOnLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateOnLine">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentStateOnLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateWorking">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentStateWorking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsCanListenAgent">
+      <soap12:operation soapAction="http://tempuri.org/IsCanListenAgent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIDByNameDomainAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetUserIDByNameDomainAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIDByUserName">
+      <soap12:operation soapAction="http://tempuri.org/GetUserIDByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSkillGroupIdAndPriorty">
+      <soap12:operation soapAction="http://tempuri.org/GetUserSkillGroupIdAndPriorty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufactureSkillGroupIDBySGID">
+      <soap12:operation soapAction="http://tempuri.org/GetManufactureSkillGroupIDBySGID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillNameByMID">
+      <soap12:operation soapAction="http://tempuri.org/GetSkillNameByMID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillNameBySGID">
+      <soap12:operation soapAction="http://tempuri.org/GetSkillNameBySGID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotlineSkillGroupByTelMainNum">
+      <soap12:operation soapAction="http://tempuri.org/GetHotlineSkillGroupByTelMainNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentStateOnLineByWhere">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentStateOnLineByWhere" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManageBusinessGroups">
+      <soap12:operation soapAction="http://tempuri.org/GetManageBusinessGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeAgentAndBusinessGroup">
+      <soap12:operation soapAction="http://tempuri.org/GetAllEmployeeAgentAndBusinessGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertListenAgentLog">
+      <soap12:operation soapAction="http://tempuri.org/InsertListenAgentLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AgentTimeState">
+    <wsdl:port name="AgentTimeStateSoap" binding="tns:AgentTimeStateSoap">
+      <soap:address location="http://ncc.sys1.bitauto.com/CallRecordService/AgentTimeState.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgentTimeStateSoap12" binding="tns:AgentTimeStateSoap12">
+      <soap12:address location="http://ncc.sys1.bitauto.com/CallRecordService/AgentTimeState.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

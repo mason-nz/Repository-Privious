@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5EB9006-1681-4127-8A76-96CEC798F6F3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.DSC.IM_DMS2014.Web</RootNamespace>
+    <AssemblyName>BitAuto.DSC.IM_DMS2014.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Services.Organization.Remoting">
+      <HintPath>..\..\..\..\..\Lib\BitAuto.Services.Organization.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils">
+      <HintPath>..\..\..\..\..\Lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\..\..\Lib\BitAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AgentChat.aspx" />
+    <Content Include="AgentChat.js" />
+    <Content Include="AjaxServers\ContentManage\AddRemarkForm.aspx" />
+    <Content Include="AjaxServers\ContentManage\ContentsDetailForm.aspx" />
+    <Content Include="AjaxServers\ContentManage\CSData.aspx" />
+    <Content Include="AjaxServers\ContentManage\CSHistoryData.aspx" />
+    <Content Include="AjaxServers\ContentManage\OnlineMessageData.aspx" />
+    <Content Include="AjaxServers\ContentManage\OnlineMessageExport.aspx" />
+    <Content Include="AjaxServers\ContentManage\UserActionLogList.aspx" />
+    <Content Include="AjaxServers\QueueManage\MonitorData.aspx" />
+    <Content Include="AjaxServers\QueueManage\QueueList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\CityManageList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\ComSenManageList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\FreProblemList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\LabelConfigList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\LabelManageList.aspx" />
+    <Content Include="Channels\ChatService.svc" />
+    <Content Include="Common\MutilAgentChoose.aspx" />
+    <Content Include="ContentManage\ChatHistory.aspx" />
+    <Content Include="ContentManage\OnlineMessage.aspx" />
+    <Content Include="ContentManage\UserActionLog.aspx" />
+    <Content Include="ConversationHistory.aspx" />
+    <Content Include="css\css.css" />
+    <Content Include="css\emotionstyle.css" />
+    <Content Include="css\img\arrow.png" />
+    <Content Include="css\img\bodybg.png" />
+    <Content Include="css\img\ch_close.png" />
+    <Content Include="css\img\ch_closehr.png" />
+    <Content Include="css\img\close.png" />
+    <Content Include="css\img\closehr.png" />
+    <Content Include="css\img\headbg.jpg" />
+    <Content Include="css\img\headbg1.jpg" />
+    <Content Include="css\img\loading.gif" />
+    <Content Include="css\img\logo.png" />
+    <Content Include="css\img\logoold.png" />
+    <Content Include="css\img\navbg.jpg" />
+    <Content Include="css\img\popT.jpg" />
+    <Content Include="css\img\tip.png" />
+    <Content Include="css\img\tip2.png" />
+    <Content Include="css\login.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\uploadify.css" />
+    <Content Include="EmotionForm.aspx" />
+    <Content Include="ErrorPage\NotAccessMsgPage.aspx" />
+    <Content Include="exit.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\arrow_open.png" />
+    <Content Include="Images\bag.gif" />
+    <Content Include="Images\base.gif" />
+    <Content Include="Images\bq.png" />
+    <Content Include="Images\btn_02.jpg" />
+    <Content Include="Images\btn_04.jpg" />
+    <Content Include="Images\btn_06.jpg" />
+    <Content Include="Images\btn_08.jpg" />
+    <Content Include="Images\comment.gif" />
+    <Content Include="Images\c_btn.png" />
+    <Content Include="Images\daochu.png" />
+    <Content Include="Images\document_file.gif" />
+    <Content Include="Images\Emotions\Default\badsmile.gif" />
+    <Content Include="Images\Emotions\Default\biggrin.gif" />
+    <Content Include="Images\Emotions\Default\call.gif" />
+    <Content Include="Images\Emotions\Default\color.gif" />
+    <Content Include="Images\Emotions\Default\cry.gif" />
+    <Content Include="Images\Emotions\Default\failure.gif" />
+    <Content Include="Images\Emotions\Default\funk.gif" />
+    <Content Include="Images\Emotions\Default\handshake.gif" />
+    <Content Include="Images\Emotions\Default\heart.gif" />
+    <Content Include="Images\Emotions\Default\huffy.gif" />
+    <Content Include="Images\Emotions\Default\hug.gif" />
+    <Content Include="Images\Emotions\Default\kiss.gif" />
+    <Content Include="Images\Emotions\Default\lol.gif" />
+    <Content Include="Images\Emotions\Default\loveliness.gif" />
+    <Content Include="Images\Emotions\Default\mad.gif" />
+    <Content Include="Images\Emotions\Default\ok.gif" />
+    <Content Include="Images\Emotions\Default\proud.gif" />
+    <Content Include="Images\Emotions\Default\sad.gif" />
+    <Content Include="Images\Emotions\Default\shit.gif" />
+    <Content Include="Images\Emotions\Default\shocked.gif" />
+    <Content Include="Images\Emotions\Default\shy.gif" />
+    <Content Include="Images\Emotions\Default\sleep.gif" />
+    <Content Include="Images\Emotions\Default\smile.gif" />
+    <Content Include="Images\Emotions\Default\strong.gif" />
+    <Content Include="Images\Emotions\Default\sweat.gif" />
+    <Content Include="Images\Emotions\Default\time.gif" />
+    <Content Include="Images\Emotions\Default\titter.gif" />
+    <Content Include="Images\Emotions\Default\tongue.gif" />
+    <Content Include="Images\Emotions\Default\victory.gif" />
+    <Content Include="Images\Emotions\Default\weak.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\001.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\002.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\003.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\004.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\005.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\006.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\007.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\008.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\009.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\010.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\011.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\012.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\013.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\014.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\015.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\016.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\017.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\018.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\019.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\020.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\021.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\022.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\023.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\024.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\025.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\026.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\027.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\028.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\029.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\030.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\031.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\032.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\033.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\034.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\035.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\036.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\037.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\038.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\039.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\040.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\041.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\042.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\043.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\044.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\045.png" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm01.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm02.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm03.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm04.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm05.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm06.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm07.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm08.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm09.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm10.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm11.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm12.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm13.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm14.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm15.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm16.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm17.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm18.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm19.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm20.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm21.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm22.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm23.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm24.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm25.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm26.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm27.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm28.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm29.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm30.gif" />
+    <Content Include="Images\friends_group.gif" />
+    <Content Include="Images\fw_pic.png" />
+    <Content Include="Images\info.gif" />
+    <Content Include="Images\layer_arrow.png" />
+    <Content Include="Images\layer_bg.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo1.png" />
+    <Content Include="Images\logo2.png" />
+    <Content Include="Images\offline.png" />
+    <Content Include="Images\online.png" />
+    <Content Include="Images\person1.png" />
+    <Content Include="Images\pic1.png" />
+    <Content Include="Images\pic2.png" />
+    <Content Include="Images\pic3.png" />
+    <Content Include="Images\pic4.png" />
+    <Content Include="Images\pic5.png" />
+    <Content Include="Images\popT.jpg" />
+    <Content Include="Images\queue.png" />
+    <Content Include="css\img\shangchuan.png" />
+    <Content Include="Images\status1.png" />
+    <Content Include="Images\status2.png" />
+    <Content Include="Images\status3.png" />
+    <Content Include="Images\tip.png" />
+    <Content Include="Images\title.gif" />
+    <Content Include="Images\uploadify_cancel.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\y_car.gif" />
+    <Content Include="Login.aspx" />
+    <Content Include="loginform.aspx" />
+    <Content Include="MailTemplat\images\allbg.png" />
+    <Content Include="MailTemplat\images\bot630.png" />
+    <Content Include="MailTemplat\images\bot730.png" />
+    <Content Include="MailTemplat\images\bottom730.png" />
+    <Content Include="MailTemplat\images\lb.png" />
+    <Content Include="MailTemplat\images\logo.png" />
+    <Content Include="MailTemplat\images\logo_old.png" />
+    <Content Include="MailTemplat\images\lt.png" />
+    <Content Include="MailTemplat\images\rb.png" />
+    <Content Include="MailTemplat\images\rt.png" />
+    <Content Include="MailTemplat\images\top630.png" />
+    <Content Include="MailTemplat\images\top730.png" />
+    <Content Include="MailTemplat\mail630.html" />
+    <Content Include="MailTemplat\mailSysError.html" />
+    <Content Include="MailTemplat\mailWorkOrder.html" />
+    <Content Include="MessageHistoryForAgent.aspx" />
+    <Content Include="OnLineMessageForm.aspx" />
+    <Content Include="OnlineService.aspx" />
+    <Content Include="OnlineService.js" />
+    <Content Include="QueueManage\QueueList.aspx" />
+    <Content Include="QueueManage\ConversationMonitor.aspx" />
+    <Content Include="SatisfactionForm.aspx" />
+    <Content Include="Scripts\AspNetComet.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\config.js" />
+    <Content Include="Scripts\Enum\Area.js" />
+    <Content Include="Scripts\Enum\Area2.js" />
+    <Content Include="Scripts\Enum\ProvinceCityCountry.js" />
+    <Content Include="Scripts\Enum\ShowEnum.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.autocomplete.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.free.ajaxTabPanel.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.hotkeys.min.js" />
+    <Content Include="Scripts\jquery.jmpopups-0.5.1.pack.js" />
+    <Content Include="Scripts\jquery.media.js" />
+    <Content Include="Scripts\jquery.uploadify.v3.2.min.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker-dev.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.png" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\uploadify.swf" />
+    <Content Include="SeniorManage\AddConSentence.aspx" />
+    <Content Include="SeniorManage\AddFreProblem.aspx" />
+    <Content Include="SeniorManage\CityManageList.aspx" />
+    <Content Include="SeniorManage\ComSenManage.aspx" />
+    <Content Include="SeniorManage\FreProblemForClient.aspx" />
+    <Content Include="SeniorManage\FreProblemList.aspx" />
+    <Content Include="SeniorManage\LabelConfig.aspx" />
+    <Content Include="SeniorManage\LabelEdit.aspx" />
+    <Content Include="SeniorManage\LabelManage.aspx" />
+    <Content Include="ServerTimeConfig.xml" />
+    <Content Include="Setup\EXE\UdCapture.exe" />
+    <Content Include="Setup\EXE\UdCapture64.exe" />
+    <Content Include="Setup\UdCapture.js" />
+    <Content Include="UserQueueList.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebService\Utils.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgentChat.aspx.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentChat.aspx.designer.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\AddRemarkForm.aspx.cs">
+      <DependentUpon>AddRemarkForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\AddRemarkForm.aspx.designer.cs">
+      <DependentUpon>AddRemarkForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ContentsDetailForm.aspx.cs">
+      <DependentUpon>ContentsDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ContentsDetailForm.aspx.designer.cs">
+      <DependentUpon>ContentsDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSData.aspx.cs">
+      <DependentUpon>CSData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSData.aspx.designer.cs">
+      <DependentUpon>CSData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSHistoryData.aspx.cs">
+      <DependentUpon>CSHistoryData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSHistoryData.aspx.designer.cs">
+      <DependentUpon>CSHistoryData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageData.aspx.cs">
+      <DependentUpon>OnlineMessageData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageData.aspx.designer.cs">
+      <DependentUpon>OnlineMessageData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageExport.aspx.cs">
+      <DependentUpon>OnlineMessageExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageExport.aspx.designer.cs">
+      <DependentUpon>OnlineMessageExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\UserActionLogList.aspx.cs">
+      <DependentUpon>UserActionLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\UserActionLogList.aspx.designer.cs">
+      <DependentUpon>UserActionLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\FileLoad.ashx.cs">
+      <DependentUpon>FileLoad.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LayerDataHandler.ashx.cs">
+      <DependentUpon>LayerDataHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LayerDataHandlerBefore.ashx.cs">
+      <DependentUpon>LayerDataHandlerBefore.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LoginForNoPwd.ashx.cs">
+      <DependentUpon>LoginForNoPwd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LoginManager.ashx.cs">
+      <DependentUpon>LoginManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\MonitorData.aspx.cs">
+      <DependentUpon>MonitorData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\MonitorData.aspx.designer.cs">
+      <DependentUpon>MonitorData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\QueueList.aspx.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\QueueList.aspx.designer.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageHandler.ashx.cs">
+      <DependentUpon>CityManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageList.aspx.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageList.aspx.designer.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageHandler.ashx.cs">
+      <DependentUpon>ComSenManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageList.aspx.cs">
+      <DependentUpon>ComSenManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageList.aspx.designer.cs">
+      <DependentUpon>ComSenManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemHandler.ashx.cs">
+      <DependentUpon>FreProblemHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemList.aspx.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemList.aspx.designer.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelConfigList.aspx.cs">
+      <DependentUpon>LabelConfigList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelConfigList.aspx.designer.cs">
+      <DependentUpon>LabelConfigList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageHandler.ashx.cs">
+      <DependentUpon>LabelManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageList.aspx.cs">
+      <DependentUpon>LabelManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageList.aspx.designer.cs">
+      <DependentUpon>LabelManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\ChatService.svc.cs">
+      <DependentUpon>ChatService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\DefaultChannelHandler.cs" />
+    <Compile Include="Common\MutilAgentChoose.aspx.cs">
+      <DependentUpon>MutilAgentChoose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\MutilAgentChoose.aspx.designer.cs">
+      <DependentUpon>MutilAgentChoose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\ChatHistory.aspx.cs">
+      <DependentUpon>ChatHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\ChatHistory.aspx.designer.cs">
+      <DependentUpon>ChatHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\OnlineMessage.aspx.cs">
+      <DependentUpon>OnlineMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\OnlineMessage.aspx.designer.cs">
+      <DependentUpon>OnlineMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\UserActionLog.aspx.cs">
+      <DependentUpon>UserActionLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\UserActionLog.aspx.designer.cs">
+      <DependentUpon>UserActionLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FootPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Top.Master.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Top.Master.designer.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationHistory.aspx.cs">
+      <DependentUpon>ConversationHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConversationHistory.aspx.designer.cs">
+      <DependentUpon>ConversationHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmotionForm.aspx.cs">
+      <DependentUpon>EmotionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmotionForm.aspx.designer.cs">
+      <DependentUpon>EmotionForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.designer.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exit.aspx.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exit.aspx.designer.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginform.aspx.cs">
+      <DependentUpon>loginform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginform.aspx.designer.cs">
+      <DependentUpon>loginform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageHistoryForAgent.aspx.cs">
+      <DependentUpon>MessageHistoryForAgent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageHistoryForAgent.aspx.designer.cs">
+      <DependentUpon>MessageHistoryForAgent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineMessageForm.aspx.cs">
+      <DependentUpon>OnLineMessageForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineMessageForm.aspx.designer.cs">
+      <DependentUpon>OnLineMessageForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineService.aspx.cs">
+      <DependentUpon>OnlineService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnlineService.aspx.designer.cs">
+      <DependentUpon>OnlineService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueManage\QueueList.aspx.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\QueueList.aspx.designer.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QueueManage\ConversationMonitor.aspx.cs">
+      <DependentUpon>ConversationMonitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\ConversationMonitor.aspx.designer.cs">
+      <DependentUpon>ConversationMonitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SatisfactionForm.aspx.cs">
+      <DependentUpon>SatisfactionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SatisfactionForm.aspx.designer.cs">
+      <DependentUpon>SatisfactionForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\AddConSentence.aspx.cs">
+      <DependentUpon>AddConSentence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\AddConSentence.aspx.designer.cs">
+      <DependentUpon>AddConSentence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\AddFreProblem.aspx.cs">
+      <DependentUpon>AddFreProblem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\AddFreProblem.aspx.designer.cs">
+      <DependentUpon>AddFreProblem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\CityManageList.aspx.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\CityManageList.aspx.designer.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\ComSenManage.aspx.cs">
+      <DependentUpon>ComSenManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\ComSenManage.aspx.designer.cs">
+      <DependentUpon>ComSenManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemForClient.aspx.cs">
+      <DependentUpon>FreProblemForClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemForClient.aspx.designer.cs">
+      <DependentUpon>FreProblemForClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemList.aspx.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemList.aspx.designer.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelConfig.aspx.cs">
+      <DependentUpon>LabelConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelConfig.aspx.designer.cs">
+      <DependentUpon>LabelConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelEdit.aspx.cs">
+      <DependentUpon>LabelEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelEdit.aspx.designer.cs">
+      <DependentUpon>LabelEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelManage.aspx.cs">
+      <DependentUpon>LabelManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelManage.aspx.designer.cs">
+      <DependentUpon>LabelManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserQueueList.aspx.cs">
+      <DependentUpon>UserQueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserQueueList.aspx.designer.cs">
+      <DependentUpon>UserQueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService\Utils.asmx.cs">
+      <DependentUpon>Utils.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="UpLoadFile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SLN\BitAuto.DSC.IM_DMS2014.WebService\BitAuto.DSC.IM_DMS2014.WebService.csproj">
+      <Project>{BB647A5F-51D0-41D6-B938-16FABB03CD80}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.WebService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM-DMS2014.BLL\BitAuto.DSC.IM_DMS2014.BLL.csproj">
+      <Project>{BAE0444C-5C16-48EB-AC40-F2F149C47DC6}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM-DMS2014.Core\BitAuto.DSC.IM_DMS2014.Core.csproj">
+      <Project>{8C51F558-875A-4D61-8EDC-AB00EC02E705}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM-DMS2014.Dal\BitAuto.DSC.IM_DMS2014.Dal.csproj">
+      <Project>{0BD16C64-B6A7-448B-BE62-C88702A74C50}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM-DMS2014.Entities\BitAuto.DSC.IM_DMS2014.Entities.csproj">
+      <Project>{37C66E7D-24CC-41D0-9BDC-4F383D377F23}</Project>
+      <Name>BitAuto.DSC.IM_DMS2014.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxServers\LayerDataHandler.ashx" />
+    <Content Include="AjaxServers\FileLoad.ashx" />
+    <Content Include="AjaxServers\Handler.ashx" />
+    <Content Include="AjaxServers\LoginForNoPwd.ashx" />
+    <Content Include="AjaxServers\LoginManager.ashx" />
+    <Content Include="AjaxServers\SeniorManage\CityManageHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\FreProblemHandler.ashx" />
+    <Content Include="Controls\Top.Master" />
+    <Content Include="AjaxServers\SeniorManage\ComSenManageHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\LabelManageHandler.ashx" />
+    <Content Include="AjaxServers\LayerDataHandlerBefore.ashx" />
+    <None Include="Images\Emotions\Default\Thumbs.db" />
+    <None Include="Images\Emotions\YiXiaoChe\Thumbs.db" />
+    <None Include="Images\Emotions\YiXiaoMei\Thumbs.db" />
+    <None Include="Setup\UdCapture.msi" />
+    <None Include="Setup\UdCapture64.msi" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>43282</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

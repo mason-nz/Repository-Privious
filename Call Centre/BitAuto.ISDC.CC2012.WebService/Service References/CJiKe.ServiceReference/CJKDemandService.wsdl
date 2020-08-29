@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDemandInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDemandInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDemandInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CJKDemandSoapHeader" type="tns:CJKDemandSoapHeader" />
+      <s:complexType name="CJKDemandSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SecretKey" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="AddLeadsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLeadsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddLeadsInfoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NoticeUpdateCostInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NoticeUpdateCostInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NoticeUpdateCostInfoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDemandCallLeads">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="batch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDemandCallLeadsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDemandCallLeadsResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReCallLeadsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isValid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReCallLeadsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReCallLeadsInfoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NoticeBatchEnd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="batch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NoticeBatchEndResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NoticeBatchEndResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="base64Binary" nillable="true" type="s:base64Binary" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDemandInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDemandInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDemandInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandInfoCJKDemandSoapHeader">
+    <wsdl:part name="CJKDemandSoapHeader" element="tns:CJKDemandSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddLeadsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLeadsInfo" />
+  </wsdl:message>
+  <wsdl:message name="AddLeadsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLeadsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLeadsInfoCJKDemandSoapHeader">
+    <wsdl:part name="CJKDemandSoapHeader" element="tns:CJKDemandSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="NoticeUpdateCostInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:NoticeUpdateCostInfo" />
+  </wsdl:message>
+  <wsdl:message name="NoticeUpdateCostInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:NoticeUpdateCostInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NoticeUpdateCostInfoCJKDemandSoapHeader">
+    <wsdl:part name="CJKDemandSoapHeader" element="tns:CJKDemandSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallLeadsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDemandCallLeads" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallLeadsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDemandCallLeadsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallLeadsCJKDemandSoapHeader">
+    <wsdl:part name="CJKDemandSoapHeader" element="tns:CJKDemandSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="ReCallLeadsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:ReCallLeadsInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReCallLeadsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:ReCallLeadsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReCallLeadsInfoCJKDemandSoapHeader">
+    <wsdl:part name="CJKDemandSoapHeader" element="tns:CJKDemandSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="NoticeBatchEndSoapIn">
+    <wsdl:part name="parameters" element="tns:NoticeBatchEnd" />
+  </wsdl:message>
+  <wsdl:message name="NoticeBatchEndSoapOut">
+    <wsdl:part name="parameters" element="tns:NoticeBatchEndResponse" />
+  </wsdl:message>
+  <wsdl:message name="NoticeBatchEndCJKDemandSoapHeader">
+    <wsdl:part name="CJKDemandSoapHeader" element="tns:CJKDemandSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandInfoHttpGetIn">
+    <wsdl:part name="orderCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddLeadsInfoHttpGetIn">
+    <wsdl:part name="strXml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddLeadsInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NoticeUpdateCostInfoHttpGetIn">
+    <wsdl:part name="orderCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NoticeUpdateCostInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallLeadsHttpGetIn">
+    <wsdl:part name="orderCode" type="s:string" />
+    <wsdl:part name="batch" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallLeadsHttpGetOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="ReCallLeadsInfoHttpGetIn">
+    <wsdl:part name="recid" type="s:string" />
+    <wsdl:part name="isValid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReCallLeadsInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NoticeBatchEndHttpGetIn">
+    <wsdl:part name="orderCode" type="s:string" />
+    <wsdl:part name="batch" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NoticeBatchEndHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandInfoHttpPostIn">
+    <wsdl:part name="orderCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddLeadsInfoHttpPostIn">
+    <wsdl:part name="strXml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddLeadsInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NoticeUpdateCostInfoHttpPostIn">
+    <wsdl:part name="orderCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NoticeUpdateCostInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallLeadsHttpPostIn">
+    <wsdl:part name="orderCode" type="s:string" />
+    <wsdl:part name="batch" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDemandCallLeadsHttpPostOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="ReCallLeadsInfoHttpPostIn">
+    <wsdl:part name="recid" type="s:string" />
+    <wsdl:part name="isValid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReCallLeadsInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NoticeBatchEndHttpPostIn">
+    <wsdl:part name="orderCode" type="s:string" />
+    <wsdl:part name="batch" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NoticeBatchEndHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="CJKDemandServiceSoap">
+    <wsdl:operation name="GetDemandInfo">
+      <wsdl:input message="tns:GetDemandInfoSoapIn" />
+      <wsdl:output message="tns:GetDemandInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadsInfo">
+      <wsdl:input message="tns:AddLeadsInfoSoapIn" />
+      <wsdl:output message="tns:AddLeadsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoticeUpdateCostInfo">
+      <wsdl:input message="tns:NoticeUpdateCostInfoSoapIn" />
+      <wsdl:output message="tns:NoticeUpdateCostInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallLeads">
+      <wsdl:input message="tns:GetDemandCallLeadsSoapIn" />
+      <wsdl:output message="tns:GetDemandCallLeadsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReCallLeadsInfo">
+      <wsdl:input message="tns:ReCallLeadsInfoSoapIn" />
+      <wsdl:output message="tns:ReCallLeadsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoticeBatchEnd">
+      <wsdl:input message="tns:NoticeBatchEndSoapIn" />
+      <wsdl:output message="tns:NoticeBatchEndSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CJKDemandServiceHttpGet">
+    <wsdl:operation name="GetDemandInfo">
+      <wsdl:input message="tns:GetDemandInfoHttpGetIn" />
+      <wsdl:output message="tns:GetDemandInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadsInfo">
+      <wsdl:input message="tns:AddLeadsInfoHttpGetIn" />
+      <wsdl:output message="tns:AddLeadsInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoticeUpdateCostInfo">
+      <wsdl:input message="tns:NoticeUpdateCostInfoHttpGetIn" />
+      <wsdl:output message="tns:NoticeUpdateCostInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallLeads">
+      <wsdl:input message="tns:GetDemandCallLeadsHttpGetIn" />
+      <wsdl:output message="tns:GetDemandCallLeadsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReCallLeadsInfo">
+      <wsdl:input message="tns:ReCallLeadsInfoHttpGetIn" />
+      <wsdl:output message="tns:ReCallLeadsInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoticeBatchEnd">
+      <wsdl:input message="tns:NoticeBatchEndHttpGetIn" />
+      <wsdl:output message="tns:NoticeBatchEndHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CJKDemandServiceHttpPost">
+    <wsdl:operation name="GetDemandInfo">
+      <wsdl:input message="tns:GetDemandInfoHttpPostIn" />
+      <wsdl:output message="tns:GetDemandInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadsInfo">
+      <wsdl:input message="tns:AddLeadsInfoHttpPostIn" />
+      <wsdl:output message="tns:AddLeadsInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoticeUpdateCostInfo">
+      <wsdl:input message="tns:NoticeUpdateCostInfoHttpPostIn" />
+      <wsdl:output message="tns:NoticeUpdateCostInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallLeads">
+      <wsdl:input message="tns:GetDemandCallLeadsHttpPostIn" />
+      <wsdl:output message="tns:GetDemandCallLeadsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReCallLeadsInfo">
+      <wsdl:input message="tns:ReCallLeadsInfoHttpPostIn" />
+      <wsdl:output message="tns:ReCallLeadsInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoticeBatchEnd">
+      <wsdl:input message="tns:NoticeBatchEndHttpPostIn" />
+      <wsdl:output message="tns:NoticeBatchEndHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CJKDemandServiceSoap" type="tns:CJKDemandServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDemandInfo">
+      <soap:operation soapAction="http://tempuri.org/GetDemandInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDemandInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadsInfo">
+      <soap:operation soapAction="http://tempuri.org/AddLeadsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddLeadsInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeUpdateCostInfo">
+      <soap:operation soapAction="http://tempuri.org/NoticeUpdateCostInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:NoticeUpdateCostInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallLeads">
+      <soap:operation soapAction="http://tempuri.org/GetDemandCallLeads" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDemandCallLeadsCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReCallLeadsInfo">
+      <soap:operation soapAction="http://tempuri.org/ReCallLeadsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReCallLeadsInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeBatchEnd">
+      <soap:operation soapAction="http://tempuri.org/NoticeBatchEnd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:NoticeBatchEndCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJKDemandServiceSoap12" type="tns:CJKDemandServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDemandInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetDemandInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDemandInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadsInfo">
+      <soap12:operation soapAction="http://tempuri.org/AddLeadsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddLeadsInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeUpdateCostInfo">
+      <soap12:operation soapAction="http://tempuri.org/NoticeUpdateCostInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:NoticeUpdateCostInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallLeads">
+      <soap12:operation soapAction="http://tempuri.org/GetDemandCallLeads" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDemandCallLeadsCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReCallLeadsInfo">
+      <soap12:operation soapAction="http://tempuri.org/ReCallLeadsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReCallLeadsInfoCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeBatchEnd">
+      <soap12:operation soapAction="http://tempuri.org/NoticeBatchEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:NoticeBatchEndCJKDemandSoapHeader" part="CJKDemandSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJKDemandServiceHttpGet" type="tns:CJKDemandServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetDemandInfo">
+      <http:operation location="/GetDemandInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadsInfo">
+      <http:operation location="/AddLeadsInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeUpdateCostInfo">
+      <http:operation location="/NoticeUpdateCostInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallLeads">
+      <http:operation location="/GetDemandCallLeads" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReCallLeadsInfo">
+      <http:operation location="/ReCallLeadsInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeBatchEnd">
+      <http:operation location="/NoticeBatchEnd" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJKDemandServiceHttpPost" type="tns:CJKDemandServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetDemandInfo">
+      <http:operation location="/GetDemandInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadsInfo">
+      <http:operation location="/AddLeadsInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeUpdateCostInfo">
+      <http:operation location="/NoticeUpdateCostInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemandCallLeads">
+      <http:operation location="/GetDemandCallLeads" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReCallLeadsInfo">
+      <http:operation location="/ReCallLeadsInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeBatchEnd">
+      <http:operation location="/NoticeBatchEnd" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CJKDemandService">
+    <wsdl:port name="CJKDemandServiceSoap" binding="tns:CJKDemandServiceSoap">
+      <soap:address location="http://crm.sys1.bitauto.com/DMS/CJKDemandService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJKDemandServiceSoap12" binding="tns:CJKDemandServiceSoap12">
+      <soap12:address location="http://crm.sys1.bitauto.com/DMS/CJKDemandService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJKDemandServiceHttpGet" binding="tns:CJKDemandServiceHttpGet">
+      <http:address location="http://crm.sys1.bitauto.com/DMS/CJKDemandService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJKDemandServiceHttpPost" binding="tns:CJKDemandServiceHttpPost">
+      <http:address location="http://crm.sys1.bitauto.com/DMS/CJKDemandService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

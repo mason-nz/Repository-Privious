@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bitauto.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://bitauto.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bitauto.com/">
+      <s:element name="SetRushBoughtOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderBusinessOpportunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DasAccountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRushBoughtOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetRushBoughtOrdersResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewCarOrderList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastMaxId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewCarOrderListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewCarOrderListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReplaceOrderList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastMaxId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReplaceOrderListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReplaceOrderListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarDealerXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarDealerXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarDealerXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerListByLocationId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="locationId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="businessLevel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerListByLocationIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerListByLocationIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNewCarOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderBusinessOpportunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderQuantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderRemark" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserGender" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserMail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LocationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarPrice" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarPromotions" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processFlag" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="processMemo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DasAccountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNewCarOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetNewCarOrderResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetReplacementOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderBusinessOpportunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderPrice" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderQuantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderRemark" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserGender" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserMail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LocationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarPrice" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarPromotions" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReplacementCarId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReplacementCarBuyYear" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReplacementCarBuyMonth" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReplacementCarColor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReplacementCarUsedMiles" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReplacementCarLocationID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="salePrice" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="processFlag" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="processMemo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DasAccountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetReplacementOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetReplacementOrderResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShiJiaOrderList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastMaxId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShiJiaOrderListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShiJiaOrderListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetShiJiaOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderBusinessOpportunityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderRemark" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserGender" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserMail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LocationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderBusinessOpportunityCreateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarFullName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processFlag" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="processMemo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DasAccountID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetShiJiaOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetShiJiaOrderResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetRushBoughtOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRushBoughtOrders" />
+  </wsdl:message>
+  <wsdl:message name="SetRushBoughtOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRushBoughtOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewCarOrderListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewCarOrderList" />
+  </wsdl:message>
+  <wsdl:message name="GetNewCarOrderListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewCarOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReplaceOrderListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReplaceOrderList" />
+  </wsdl:message>
+  <wsdl:message name="GetReplaceOrderListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReplaceOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarDealerXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarDealerXML" />
+  </wsdl:message>
+  <wsdl:message name="GetCarDealerXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarDealerXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerListByLocationIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerListByLocationId" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerListByLocationIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerListByLocationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNewCarOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:SetNewCarOrder" />
+  </wsdl:message>
+  <wsdl:message name="SetNewCarOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:SetNewCarOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetReplacementOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:SetReplacementOrder" />
+  </wsdl:message>
+  <wsdl:message name="SetReplacementOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:SetReplacementOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShiJiaOrderListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShiJiaOrderList" />
+  </wsdl:message>
+  <wsdl:message name="GetShiJiaOrderListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShiJiaOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetShiJiaOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:SetShiJiaOrder" />
+  </wsdl:message>
+  <wsdl:message name="SetShiJiaOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:SetShiJiaOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WithoutDealerOrderServiceSoap">
+    <wsdl:operation name="SetRushBoughtOrders">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">抢单（无主订单）更新无主订单库方法</wsdl:documentation>
+      <wsdl:input message="tns:SetRushBoughtOrdersSoapIn" />
+      <wsdl:output message="tns:SetRushBoughtOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewCarOrderList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得无主的新车订单</wsdl:documentation>
+      <wsdl:input message="tns:GetNewCarOrderListSoapIn" />
+      <wsdl:output message="tns:GetNewCarOrderListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReplaceOrderList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得无主的置换车订单</wsdl:documentation>
+      <wsdl:input message="tns:GetReplaceOrderListSoapIn" />
+      <wsdl:output message="tns:GetReplaceOrderListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarDealerXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得某车款在各城市的经销商数量xml,返回utf-8编码的内容</wsdl:documentation>
+      <wsdl:input message="tns:GetCarDealerXMLSoapIn" />
+      <wsdl:output message="tns:GetCarDealerXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerListByLocationId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得某地区某个车款的经销商,返回utf-8编码的内容</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerListByLocationIdSoapIn" />
+      <wsdl:output message="tns:GetDealerListByLocationIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNewCarOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新新车订单内容，且把订单提交到订单库</wsdl:documentation>
+      <wsdl:input message="tns:SetNewCarOrderSoapIn" />
+      <wsdl:output message="tns:SetNewCarOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetReplacementOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新置换订单内容，且把订单提交到订单库</wsdl:documentation>
+      <wsdl:input message="tns:SetReplacementOrderSoapIn" />
+      <wsdl:output message="tns:SetReplacementOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShiJiaOrderList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得无主的试驾订单</wsdl:documentation>
+      <wsdl:input message="tns:GetShiJiaOrderListSoapIn" />
+      <wsdl:output message="tns:GetShiJiaOrderListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetShiJiaOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新试驾订单内容，且把订单提交到订单库</wsdl:documentation>
+      <wsdl:input message="tns:SetShiJiaOrderSoapIn" />
+      <wsdl:output message="tns:SetShiJiaOrderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WithoutDealerOrderServiceSoap" type="tns:WithoutDealerOrderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetRushBoughtOrders">
+      <soap:operation soapAction="http://bitauto.com/SetRushBoughtOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewCarOrderList">
+      <soap:operation soapAction="http://bitauto.com/GetNewCarOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplaceOrderList">
+      <soap:operation soapAction="http://bitauto.com/GetReplaceOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarDealerXML">
+      <soap:operation soapAction="http://bitauto.com/GetCarDealerXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerListByLocationId">
+      <soap:operation soapAction="http://bitauto.com/GetDealerListByLocationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNewCarOrder">
+      <soap:operation soapAction="http://bitauto.com/SetNewCarOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReplacementOrder">
+      <soap:operation soapAction="http://bitauto.com/SetReplacementOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiJiaOrderList">
+      <soap:operation soapAction="http://bitauto.com/GetShiJiaOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetShiJiaOrder">
+      <soap:operation soapAction="http://bitauto.com/SetShiJiaOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WithoutDealerOrderServiceSoap12" type="tns:WithoutDealerOrderServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetRushBoughtOrders">
+      <soap12:operation soapAction="http://bitauto.com/SetRushBoughtOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewCarOrderList">
+      <soap12:operation soapAction="http://bitauto.com/GetNewCarOrderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplaceOrderList">
+      <soap12:operation soapAction="http://bitauto.com/GetReplaceOrderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarDealerXML">
+      <soap12:operation soapAction="http://bitauto.com/GetCarDealerXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerListByLocationId">
+      <soap12:operation soapAction="http://bitauto.com/GetDealerListByLocationId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNewCarOrder">
+      <soap12:operation soapAction="http://bitauto.com/SetNewCarOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReplacementOrder">
+      <soap12:operation soapAction="http://bitauto.com/SetReplacementOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiJiaOrderList">
+      <soap12:operation soapAction="http://bitauto.com/GetShiJiaOrderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetShiJiaOrder">
+      <soap12:operation soapAction="http://bitauto.com/SetShiJiaOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WithoutDealerOrderService">
+    <wsdl:port name="WithoutDealerOrderServiceSoap" binding="tns:WithoutDealerOrderServiceSoap">
+      <soap:address location="http://test1.partner.bitauto.com/api/order/withoutdealerorderservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WithoutDealerOrderServiceSoap12" binding="tns:WithoutDealerOrderServiceSoap12">
+      <soap12:address location="http://test1.partner.bitauto.com/api/order/withoutdealerorderservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

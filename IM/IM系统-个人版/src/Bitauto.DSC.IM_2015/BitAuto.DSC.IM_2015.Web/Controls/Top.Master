@@ -1,0 +1,191 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Top.master.cs" Inherits="BitAuto.DSC.IM_2015.Web.Controls.Top" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel = "Shortcut Icon" href=favicon.ico> 
+    <link rel="stylesheet" href="/css/css.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/Scripts/jquery-1.4.1.min.js" language="javascript" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="/Scripts/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript">
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/config.js?r=" + Math.random() + "'></scr" + "ipt>");
+    </script>
+    <script type="text/javascript">
+        loadJS("common");
+    </script>
+    <script type="text/javascript">
+        //只能打开一个对话管理页面逻辑
+        function openwindow(url, isTalk) {
+            if (isTalk == "SYS0320DM0001") {
+                var pody = { action: 'IsExists', FromPrivateToken: escape('<%=UserID %>') };
+                AjaxPostAsync('/AjaxServers/Handler.ashx', pody, null,
+                     function (msg) {
+                         var r = JSON.parse(msg);
+                         if (r != null && r.result == 'NoExists') {//登录成功之后
+                             window.open(url);
+                         }
+                         else {
+                             $.jAlert("对话管理已存在！");
+                         }
+                     });
+            }
+            else {
+                window.open(url);
+            }
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="crm">
+        <!--头部开始-->
+        <div class="head">
+            <!--header开始-->
+            <div class="header">
+                <div class="logo left">
+                    <img src="/images/logo.png" alt="CRM系统logo"></div>
+                <!--菜单开始-->
+                <div class="menu ft14">
+                    <ul>
+                        <%--  <li><a class="cur" href="#">
+                            <img src="images/pic1.png" border="0" /><br />
+                            对话管理</a></li>
+                        <li><a href="#">
+                            <img src="images/pic2.png" border="0" /><br />
+                            内容管理</a></li>
+                        <li><a href="#">
+                            <img src="images/pic3.png" border="0" /><br />
+                            访客管理</a></li>
+                        <li><a href="#">
+                            <img src="images/pic4.png" border="0" /><br />
+                            高级管理</a></li>
+                        <li><a href="#">
+                            <img src="images/pic5.png" border="0" /><br />
+                            数据统计</a></li>--%>
+                        <%--<li><a href="#"><img src="/images/pic1.png" border="0"><br>对话管理</a></li>
+                <li><a href="#"><img src="/images/pic2.png" border="0"><br>内容管理</a></li>
+                <li><a href="#"><img src="/images/pic3.png" border="0"><br>访客管理</a></li>
+                <li><a class="cur" href="#"><img src="/images/pic4.png" border="0"><br>高级管理</a></li>
+                <li><a href="#"><img src="/images/pic5.png" border="0"><br>数据统计</a></li>--%>
+                        <asp:Repeater runat="server" ID="parentRpt">
+                            <ItemTemplate>
+                                <li><a href="<%# Eval("moduleID").ToString()=="SYS0320DM0001"?"javascript:openwindow('"+Eval("URL")+"','SYS0320DM0001');":Eval("url") %>"
+                                    class='<%#Eval("classDesc")%>' modulename='<%#Eval("moduleName")%>'>
+                                    <%#Eval("moduleName")%></a></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
+                </div>
+                <!--菜单结束-->
+                <div class="function right">
+                    <ul>
+                        <li><a href="javascript:void(0);" class="write">帮助</a></li>
+                        <li><a href="javascript:void(0);" class="write">关于</a></li>
+                        <li><a href="/exit.aspx" class="write">退出</a></li>
+                    </ul>
+                    <div class="clearfix">
+                    </div>
+                    <div class="user_zt right">
+                        <div class="user left" style="margin-right: 8px;">
+                            <img src="/images/user.png" height="14" width="12">
+                            <%=Session["truename"].ToString()%></div>
+                        <div class="status right" style="" id="onlineStatus">
+                            <ul>
+                                <li>
+                                    <ul class="menuUl">
+                                        <li class="position"><span class="top_open nav_class" onmouseover="this.className='nav_class_hover'"
+                                            onmouseout="this.className='nav_class'"><a href="#" class="csbg" id="StateTop">离线</a>
+                                            <ul class="top_cont nextT" id="stateUL">
+                                                <li id="liState1"><a href="#" class="narxtmin" data="1">在线</a></li>
+                                                <li style="display: none;" id="liState2"><a href="#" class="narxtmin" data="2">离线</a></li>
+                                                <li id="liState3"><a href="#" class="narxtmin" data="3">暂离</a></li>
+                                                <%--<li><a href="#" class="narxtmin" id="StateBotm">在线</a></li>
+                                                <li class="last"></li>--%>
+                                            </ul>
+                                        </span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;">
+            </div>
+            <!--header结束-->
+            <div class="clearfix">
+            </div>
+            <!--子菜单开始-->
+            <div class="mainmenu_bottom">
+                <%--<ul class="" id="mb1">
+        	<li><a href="#">客服管理</a>| </li>
+            <li><a href="#">城市管理</a>|  </li>
+            <li><a href="#">常用语管理</a>| </li>
+            <li><a href="#">标签配置管理</a>|</li>
+            <li><a href="#" class="cur">常见问题管理</a></li>
+        </ul>--%>
+                <asp:Repeater runat="server" ID="childRpt">
+                    <HeaderTemplate>
+                        <ul class="" id="mb1">
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <li><a href="<%# Eval("PID").ToString()=="SYS036DM0001"?"javascript:openwindow('"+Eval("URL")+"','SYS036DM0001');":Eval("url") %>"
+                            class='<%#Eval("classDesc")%>'>
+                            <%#Eval("moduleName")%></a>
+                            <%# (Container.ItemIndex + 1) == ((System.Data.DataTable)childRpt.DataSource).Rows.Count ? "" : " | "%>
+                            </span> </li>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </ul>
+                    </FooterTemplate>
+                </asp:Repeater>
+                <div class="clearfix">
+                </div>
+            </div>
+            <!--子菜单结束-->
+        </div>
+        <!--头部结束-->
+        <!--内容开始-->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!--内容结束-->
+        <div class="footer mt16">
+            数据系统中心 任何建议和意见，请发邮件至：<a href="mailto:ISDC@bitauto.com">ISDC@bitauto.com</a><br>
+            CopyRight &copy; 2000-2014 Bitauto,All Rights Reserved 版权所有 北京易车互联信息技术有限公司
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var menuHelper = (function () {
+        //加在菜单数据项
+        var LoadTopMenuImg = function () {
+
+
+            //初始化一级菜单图标
+            $.each($('div.head div.header div.menu ul li'), function (i, n) {
+                switch ($.trim($(n).find('a').attr('ModuleName'))) {
+                    case '对话管理': $(n).find('a').prepend('<img src="/images/pic1.png" border="0"><br>'); break;
+                    case '队列管理': $(n).find('a').prepend('<img src="/images/pic2.png" border="0"><br>'); break;
+                    case '内容管理': $(n).find('a').prepend('<img src="/images/pic3.png" border="0"><br>'); break;
+                    case '高级管理': $(n).find('a').prepend('<img src="/images/pic4.png" border="0"><br>'); break;
+                    case '痕迹管理': $(n).find('a').prepend('<img src="/images/pic4.png" border="0"><br>'); break;
+                    default: break;
+                }
+            });
+        };
+
+        //若当前一级菜单选中的是第一个的话，其余的菜单，全部作为新弹出
+        if ($('div.head div.header div.menu ul li').index($('div.head div.header div.menu ul li:has(a.cur)')) == 0) {
+            $('div.head div.header div.menu ul li:gt(0) a').attr('target', '_blank');
+        }
+
+        return {
+            LoadTopMenuImg: LoadTopMenuImg
+        };
+    })();
+    menuHelper.LoadTopMenuImg();
+</script>
+</html>

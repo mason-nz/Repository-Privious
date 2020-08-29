@@ -1,0 +1,1724 @@
+2016-05-13 11:13:27,047 [6] ERROR {10658 - 马双君} [(null)] - 转换model实体失败：
+System.FormatException: 输入字符串的格式不正确。
+   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   在 System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   在 BitAuto.ISDC.CC2012.BLL.Util.BindQuery[T](HttpContext context) 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.BLL\Util.cs:行号 2068
+2016-05-13 15:17:48,427 [4] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:17:49,503 [4] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 15:17:49,505 [4] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 15:17:58,739 [4] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 149
+2016-05-13 15:33:12,226 [9] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:33:39,083 [9] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：无法将类型为“System.String”的对象强制转换为类型“System.Net.Cookie”。
+System.InvalidCastException: 无法将类型为“System.String”的对象强制转换为类型“System.Net.Cookie”。
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 98
+2016-05-13 15:33:39,113 [9] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 152
+2016-05-13 15:35:42,589 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:36:37,326 [13] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：无法将类型为“System.String”的对象强制转换为类型“System.Net.Cookie”。
+System.InvalidCastException: 无法将类型为“System.String”的对象强制转换为类型“System.Net.Cookie”。
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 98
+2016-05-13 15:36:37,328 [13] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 152
+2016-05-13 15:39:41,704 [7] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:41:07,804 [7] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：无法将类型为“System.String”的对象强制转换为类型“System.Web.HttpCookie”。
+System.InvalidCastException: 无法将类型为“System.String”的对象强制转换为类型“System.Web.HttpCookie”。
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 98
+2016-05-13 15:41:07,833 [7] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 153
+2016-05-13 15:45:09,699 [8] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:45:18,677 [8] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 15:45:51,566 [8] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+System.ArgumentException: 参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+   在 System.Net.CookieContainer.Add(Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 104
+2016-05-13 15:45:51,600 [8] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 155
+2016-05-13 15:45:54,395 [4] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:45:57,690 [4] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 15:46:56,617 [4] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+System.ArgumentException: 参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+   在 System.Net.CookieContainer.Add(Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 104
+2016-05-13 15:46:56,619 [4] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 155
+2016-05-13 15:48:08,833 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:48:11,730 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 15:48:23,189 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 15:48:24,309 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 15:48:26,146 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：1p45ejay0sql4s551ynm0hvt
+2016-05-13 15:48:26,147 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 15:51:07,895 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 15:51:08,118 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 15:51:08,118 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 15:51:08,119 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 15:51:08,119 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：1p45ejay0sql4s551ynm0hvt
+2016-05-13 15:51:08,119 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 15:51:08,197 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：<script Language='Javascript'>alert('您还没有登录,请先登录!');top.location.href='/login.aspx?gourl='+encodeURIComponent(window.location);</script>
+2016-05-13 15:51:08,197 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：文字版试卷.pdf
+2016-05-13 15:51:11,748 [3] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 157
+2016-05-13 16:03:46,124 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:03:46,349 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 16:03:46,350 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:03:46,350 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:03:46,350 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：1p45ejay0sql4s551ynm0hvt
+2016-05-13 16:03:46,350 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:05:06,248 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 16:05:06,248 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:05:06,248 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:05:06,248 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：1p45ejay0sql4s551ynm0hvt
+2016-05-13 16:05:06,248 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:07:46,681 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:07:46,898 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 16:07:46,898 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:07:46,898 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:07:46,899 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：1p45ejay0sql4s551ynm0hvt
+2016-05-13 16:07:46,899 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:07:46,977 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：<script Language='Javascript'>alert('您还没有登录,请先登录!');top.location.href='/login.aspx?gourl='+encodeURIComponent(window.location);</script>
+2016-05-13 16:07:46,977 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：文字版试卷.pdf
+2016-05-13 16:07:50,380 [3] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 166
+2016-05-13 16:15:08,455 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:15:08,723 [12] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：Cookie 的“Domain”=“.bituato.com”部分无效。
+System.Net.CookieException: Cookie 的“Domain”=“.bituato.com”部分无效。
+   在 System.Net.Cookie.VerifySetDefaults(CookieVariant variant, Uri uri, Boolean isLocalDomain, String localDomain, Boolean set_default, Boolean isThrow)
+   在 System.Net.CookieContainer.Add(Uri uri, Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 117
+2016-05-13 16:15:08,787 [12] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 168
+2016-05-13 16:15:22,594 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:15:22,604 [13] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：Cookie 的“Domain”=“.bituato.com”部分无效。
+System.Net.CookieException: Cookie 的“Domain”=“.bituato.com”部分无效。
+   在 System.Net.Cookie.VerifySetDefaults(CookieVariant variant, Uri uri, Boolean isLocalDomain, String localDomain, Boolean set_default, Boolean isThrow)
+   在 System.Net.CookieContainer.Add(Uri uri, Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 117
+2016-05-13 16:15:22,616 [13] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 168
+2016-05-13 16:15:31,649 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:17:19,332 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:17:19,576 [3] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：Cookie 的“Domain”=“.bituato.com”部分无效。
+System.Net.CookieException: Cookie 的“Domain”=“.bituato.com”部分无效。
+   在 System.Net.Cookie.VerifySetDefaults(CookieVariant variant, Uri uri, Boolean isLocalDomain, String localDomain, Boolean set_default, Boolean isThrow)
+   在 System.Net.CookieContainer.Add(Uri uri, Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 117
+2016-05-13 16:17:19,618 [3] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 168
+2016-05-13 16:18:55,073 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:19:31,706 [11] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：Cookie 的“Domain”=“ncc.sys.bituato.com”部分无效。
+System.Net.CookieException: Cookie 的“Domain”=“ncc.sys.bituato.com”部分无效。
+   在 System.Net.Cookie.VerifySetDefaults(CookieVariant variant, Uri uri, Boolean isLocalDomain, String localDomain, Boolean set_default, Boolean isThrow)
+   在 System.Net.CookieContainer.Add(Uri uri, Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 117
+2016-05-13 16:19:31,738 [11] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 168
+2016-05-13 16:20:53,929 [8] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:21:26,296 [8] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 16:21:26,299 [8] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 16:21:30,961 [8] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 170
+2016-05-13 16:26:02,885 [7] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:26:03,061 [7] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 16:26:03,062 [7] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:26:03,062 [7] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:26:03,062 [7] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：1p45ejay0sql4s551ynm0hvt
+2016-05-13 16:26:03,062 [7] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:27:43,158 [7] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：操作超时
+System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 116
+2016-05-13 16:27:43,207 [7] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 165
+2016-05-13 16:28:15,529 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:28:15,530 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmploginusername】：masj
+2016-05-13 16:28:15,530 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ASP.NET_SessionId】：ef4bamnyuulu4u2gtxmjr145
+2016-05-13 16:28:15,530 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:28:15,530 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:29:55,581 [3] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：操作超时
+System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 116
+2016-05-13 16:29:55,597 [3] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 165
+2016-05-13 16:32:03,867 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:32:22,353 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 16:32:22,356 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 16:32:25,160 [3] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 167
+2016-05-13 16:36:09,959 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:38:11,656 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:38:13,725 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 16:38:13,726 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 16:38:17,996 [3] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 167
+2016-05-13 16:40:39,166 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:40:39,349 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:40:39,350 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:40:39,350 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:42:59,599 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:42:59,944 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:42:59,944 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【xxc-3244xx32323sdf】：MlHd7x+b7g6zXxjJPyshpzmwD40EsLp/K/ZGwgigjsY6VxieCROBbzbdTMY6MAMX/iqCkkQvpv1RVCEFUWDFqN9YaCSFkIpgY1lEZVTYdh2rt0JMmR5s5X2TfzCaqWcBd882Yj2rQLRgrtzLQoIIQoj4pX27v9Cl4alTVV3koqU=
+2016-05-13 16:42:59,944 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【ncc-uinfo】：xv5rbexjM/GveL9YRSfgpOFHkis/QXbbbTReatPFtA42c+e5QHuXtZ1cSLMOf4y7URe3jIg26PGChw9GAcR9YOIVOmJ3x8RpmO8xOe5OMBV+tGZO5Vqhtq509kn2tGYoOyFr6Nwy3OU=
+2016-05-13 16:43:01,054 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 16:43:01,066 [3] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 16:44:03,606 [3] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 170
+2016-05-13 16:49:18,743 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:50:53,940 [13] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:50:54,109 [13] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+System.ArgumentException: 参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+   在 System.Net.CookieContainer.Add(Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 110
+2016-05-13 16:50:54,172 [13] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 168
+2016-05-13 16:51:02,168 [6] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:51:02,168 [6] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:51:02,179 [6] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+System.ArgumentException: 参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+   在 System.Net.CookieContainer.Add(Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 110
+2016-05-13 16:51:02,190 [6] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 168
+2016-05-13 16:51:07,240 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:51:07,240 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL时，传递Cookies至【mmp-3244xx32234sdf】：MiiBxg8msuDSjzWouJS/e5fEg2iBhU4NFxu/X+dwNS75r0QEJtjKfPe3Kozv3CczYqbpBNhnIP/YQc0nF0KH7Q3Ag+rr/MHfCzxiHxmekJVJwBtyxQfyqg==
+2016-05-13 16:51:07,250 [11] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+System.ArgumentException: 参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+   在 System.Net.CookieContainer.Add(Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 110
+2016-05-13 16:51:07,263 [11] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 168
+2016-05-13 16:55:18,081 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:55:18,229 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 16:55:18,230 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 16:55:21,515 [11] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 171
+2016-05-13 16:57:15,491 [6] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:57:15,733 [6] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+System.ArgumentException: 参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+   在 System.Net.CookieContainer.Add(Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 107
+2016-05-13 16:57:15,772 [6] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 165
+2016-05-13 16:57:24,778 [8] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 16:57:24,779 [8] ERROR {10658 - 马双君} [(null)] - 在页面ExamPaperPDF.aspx 报错：参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+System.ArgumentException: 参数“{0}”不能是空字符串。
+参数名: cookie.Domain
+   在 System.Net.CookieContainer.Add(Cookie cookie)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 107
+2016-05-13 16:57:24,781 [8] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.ArgumentOutOfRangeException: 指定的参数已超出有效值的范围。
+参数名: offset
+   在 System.Web.HttpResponseStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Web.HttpResponse.BinaryWrite(Byte[] buffer)
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 165
+2016-05-13 17:01:19,950 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 17:01:20,220 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：<script Language='Javascript'>alert('您还没有登录,请先登录!');top.location.href='/login.aspx?gourl='+encodeURIComponent(window.location);</script>
+2016-05-13 17:01:20,220 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：文字版试卷.pdf
+2016-05-13 17:01:22,801 [12] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 167
+2016-05-13 17:01:27,623 [9] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 17:01:27,627 [9] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：<script Language='Javascript'>alert('您还没有登录,请先登录!');top.location.href='/login.aspx?gourl='+encodeURIComponent(window.location);</script>
+2016-05-13 17:01:27,628 [9] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：文字版试卷.pdf
+2016-05-13 17:01:27,863 [9] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 167
+2016-05-13 17:16:11,895 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 17:16:13,469 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 17:16:13,470 [12] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 17:16:16,481 [12] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 152
+2016-05-13 17:17:20,987 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF，访问URL：http://ncc.sys1.bitauto.com/ExamOnline/ExamPaperStorage/ExamPaperView.aspx?epid=38&isPdf=1
+2016-05-13 17:17:21,009 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成前文本内容：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="htmlMain" xmlns="http://www.w3.org/1999/xhtml">
+<head id="bodyHead"><title>
+	试卷查看
+</title><link href="../../Css/base.css" type="text/css" rel="stylesheet" /><link href="../../css/style.css" type="text/css" rel="stylesheet" />
+    <script src="../../Js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../Js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="../../Js/common.js" type="text/javascript"></script>
+    <script src="../../Js/json2.js" type="text/javascript"></script>
+    <script src="/CTI/CTITool.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var tbtnPDF = '#btnPDF';
+        var epid = '38';
+        $(function () {
+
+            $(tbtnPDF).click(function () {                
+                var href = "ExamPaperPDF.aspx?epid=" + epid;
+                window.location.href = href;
+     
+            });
+           // setTimeout(function () { $('#btnPDF,#btnPDF2').show(); }, 1000);
+
+            $("#btnPDF2").click(function () {
+                var href = "ExamPaperPDF.aspx?paper=1&epid=" + epid;
+                window.location.href = href;
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+         .examBt1 { text-align:center; font-size:24px; margin:20px 0 10px 0;}
+         .examT { line-height:40px;}
+        .examT span { font-weight:normal;}
+
+        ul,li{ list-style-type: none;}???????        .addzs?{?margin:20px;}        .addzs?ul?li?{?line-height:35px;}        .addzs?ul?{??background:#fff;?padding:5px?0;}        .addzs?ul?li?label?{?float:left;?width:100px;?text-align:right;??font-size:12px;?font-weight:bold;}        .addzs?ul?li?textarea?{?width:800px;?height:50px;}        .addzs?ul?li?.w700{?width:700px;}        .addzs?.title?{?margin:10px?0?0px?30px;}                .addzs?ul?li?.addst2?a??{?margin-right:130px;?*margin-top:25px;}        .addzs?ul?li?.addst3??{?display:block;?clear:none;?width:200px;?margin-top:4px;?*margin-top:-25px;margin-right:0px;?margin-right:45px;?}        .addzs?ul?li?.addst3?span{?margin-right:0px;}??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????        .addzs??input.addbtn?{?line-height:24px;}        .addzs?ul?li.xzt?{?line-height:30px;?}        .addzs?ul?li.xzt?input?{?height:25px;?line-height:30px;}        .addzs?ul?li?ul?{?margin-left:100px;?margin-top:0px;}        .addzs?ul?li?.conrect?{?margin-left:100px;}        .addzs?.zsdbtn?{?margin:?10px;?margin-left:150px;?*margin-left:100px;}        .addzs?ul?li.xzt?textarea?{?width:535px;?vertical-align:top;}          .addzs?ul?li.attach?{?clear:both;}        .addzs?ul?li.attach??label?{width:100px;?float:left;clear:none;}        .addzs?ul?li.attach?.attc?{width:850px;?float:left;?clear:none;?margin:0;?padding:0;}        .addzs?ul?li.attach?.attc?li?{?margin-right:15px;?float:left;?clear:none;?}        .addzs?ul?li.attach?.attc?li?a?{text-overflow:ellipsis;?white-space:nowrap;overflow:hidden;??width:330px;}          .addzs?ul?li?.zsContent?{?float:left;?clear:none;?width:800px;?line-height:25px;?margin-top:4px;}        .faq?ul,.st{?border-bottom:#CCC?1px?dotted;}        .faq?ul?li.answer?{?margin-left:35px;}        .czRecord?table.RocordL?{?background:#f6f6f6;}        .czRecord?table.RocordL?tr?td?{?background:#FFF;}        table.RocordL?{?padding:0?20px;}          .st        {            display:?block;            clear:?both;        }        .st?ul?li        {            line-height:?25px;        }        .st?ul?li.xzt3,?.st?ul?li.xzt2        {            margin:?8px?0?8px?0;        }        .st?ul?li.xzt3?ul,?.st?ul?li.xzt2?ul        {            padding:?0;            margin:?5px?0?0?50px;        }        /*add?time?2012-12-02*/        .st?ul?li.xzt3?ul?li?em,?.st?ul?li.xzt2?ul?li?em        {            margin-left:?30px;            color:?#999;        }        .st?li.chooseXx        {            color:?#06C;        }        .st?ul        {            background:?none;        }        .st?ul:hover        {            background:?#F2FBFF;        }        .sjbt?{float:left;?clear:none;?width:800px;?font-weight:bold;}
+        .faq .answer2 textarea { margin-left:30px;height: 62px;width: 800px; }
+    </style>
+</head>
+<body id="bodyMain">    
+    <button title="导出页面PDF" id="btnPDF" style="display: none;">
+        导出页面PDF
+    </button>
+    <button title="导出字纸试卷" id="btnPDF2" style="display: none;">
+        导出字纸试卷
+    </button>
+    <div class="w980">
+        
+        <div class="taskT">
+            试卷查看</div>
+        <div class="examBt1">
+            <b style="font-family: 宋体; font-size: 20px" iname="1">
+                所属分组试卷测试</b></div>
+        <div class="addzs">
+            
+<!--试题开始-->
+<script type="text/javascript">
+    function Getaskandanswer() {
+        var radioselect = "";
+        var checkselect = "";
+        var ExamPaperID = "";
+        ExamPaperID = '38';
+
+        $("input[type='radio']").each(function () {
+
+            if ($(this).attr("checked")) {
+                radioselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        $("input[type='checkbox']").each(function () {
+
+            if ($(this).attr("checked")) {
+                checkselect += $(this).attr("BQID") + ":" + $(this).attr("name") + ":" + $(this).attr("value") + ",";
+            }
+        });
+        if (radioselect != "") {
+            radioselect = radioselect.substring(0, radioselect.length - 1);
+            $("#radioselect").val(radioselect);
+        }
+        if (checkselect != "") {
+            checkselect = checkselect.substring(0, checkselect.length - 1);
+            $("#checkselect").val(checkselect);
+        }
+        $("#ExamPaperID").val(ExamPaperID);
+    }
+
+    $(function () {
+        $("#ExamPaperID").val('38');
+    });
+</script>
+<input type="hidden" id="radioselect" />
+<input type="hidden" id="checkselect" />
+<input type="hidden" id="ExamPaperID" />
+
+        <div class="title bold examT">
+            一、大题1：<span>所属</span><span>（共2题，每题5分，共10分）</span></div>
+        
+        
+        
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                1、</label><span class="sjbt">公开发行的可转换公司债券，如果（　　），应当召开债券持有人会议。</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="238"
+                                                
+                                                class="dt" />A、<span>公司持有金额较大的交易性金融资产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="239"
+                                                
+                                                class="dt" />B、<span>发行人减资、合并、分立、解散或者申请破产</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="240"
+                                                
+                                                class="dt" />C、<span>净资产收益率平均低于6%</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="85" type="radio" bqid="83" value="241"
+                                                
+                                                class="dt" />D、<span>被注册会计师出具保留意见的审计报告</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="st">
+                    <ul>
+                        <li class="xzt">
+                            <label>
+                                2、</label><span class="sjbt">当出具无法表示意见的审计报告时，注册会计师应当删除（　　），并在（　　）中使用“由于审计范围受到限制可能产生的影响非常重大和广泛”等术语</span>
+                            <ul class="clearfix w800">
+                                
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="253"
+                                                
+                                                class="dt" />A、<span>审计意见段；管理层对财务报表的责任段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="254"
+                                                
+                                                class="dt" />B、<span>注册会计师的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="255"
+                                                
+                                                class="dt" />C、<span>管理层对财务报表的责任段；审计意见段</span></label> </li>
+                                    
+                                        <li>
+                                          <label style=" float: none; cursor: pointer; font-weight:normal; width:100%"><input name="90" type="radio" bqid="83" value="256"
+                                                
+                                                class="dt" />D、<span>审计意见段；注册会计师的责任段</span></label> </li>
+                                    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+        
+    
+
+        </div>
+    </div>
+</body>
+</html>
+
+2016-05-13 17:17:21,010 [11] INFO  {10658 - 马双君} [(null)] - 试卷导出PDF—生成文件名：%e6%89%80%e5%b1%9e%e5%88%86%e7%bb%84%e8%af%95%e5%8d%b7%e6%b5%8b%e8%af%95.pdf
+2016-05-13 17:17:21,592 [11] ERROR {10658 - 马双君} [(null)] - 导出试卷pdf
+System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Threading.Thread.AbortInternal()
+   在 System.Threading.Thread.Abort(Object stateInfo)
+   在 System.Web.HttpResponse.End()
+   在 BitAuto.ISDC.CC2012.Web.ExamOnline.ExamPaperStorage.ExamPaperPDF.DownLoadPaperPDF() 位置 D:\TFS-Root\A5信息系统研发\销售业务管理平台\客户关系管理\BitAuto.ISDC.CC2012.Web\ExamOnline\ExamPaperStorage\ExamPaperPDF.aspx.cs:行号 152

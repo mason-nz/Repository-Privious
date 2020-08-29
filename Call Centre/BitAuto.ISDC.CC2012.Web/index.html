@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>呼叫中心首页</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/base.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#sidebar>ul>li>a').click(function(){
+	//alert($(this).next());
+		$(this).next().slideToggle("normal");
+		})
+	/*each("click",function(){
+		$(this).fadeToggle("fast");
+		})*/
+	})
+</script>
+</head>
+<body>
+<!--  HEAD  --> 
+        <div id="head">
+            <div class="left logo">
+                易车客户呼叫中心
+            </div>
+            <div class="right">
+              <a href="#" class="button profile" style=" line-height:32px;"><img src="css/img/huser.png" /></a>
+                您好,魏淑珍，超级管理员&nbsp; |&nbsp; <a href="#">注销</a> 
+            </div>
+            <div class="menu left">
+            	<ul>
+                	<li class="index"><a href="#">首&nbsp;&nbsp;&nbsp;页</a></li>
+                    <li class="task current"><a href="#">任务列表</a></li>
+                    <li class="custom"><a href="#">客户池</a></li>
+                    <li class="manage"><a href="#">话务管理</a></li>
+                    <li class="knowledge"><a href="#">知识库</a></li>
+                    <li class="highji"><a href="#">高级管理</a></li>
+                </ul>
+            </div>
+        </div>        
+        <!-- SIDEBAR --> 
+         <div id="sidebar">
+            <ul>
+                <li class="bg1 current"><a href="#">数据清洗<span class="right">&and;</span></a>
+                    <ul class="menu2">
+                       <li><a href="#">CRM库客户核实</a></li>
+                       <li><a href="#">新增库客户核实</a></li>
+                       <li class="current"><a href="#">会员二次核实</a></li>
+                       <li><a href="#">CRM库客户核实</a></li>
+                       <li><a href="#">新增库客户核实</a></li>
+                       <li><a href="#">会员二次核实</a></li>
+                     </ul>
+                </li>
+                <li class="bg2"><a href="#">电话营销<span class="right">&or;</span></a></li>
+                <li class="bg3"><a href="#"> 杂志回访<span class="right">&or;</span></a></li>
+                <li class="bg4"><a href="#">个人业务<span class="right">&or;</span></a></li>
+                <li class="bg5"><a href="#">坐席管理<span class="right">&or;</span></a></li>
+                <li class="bg6"><a href="#">操作日志<span class="right">&or;</span></a></li>
+                <li class="bg7"><a href="#">模板定制<span class="right">&or;</span></a></li>
+            </ul>        						
+        </div>
+         <!-- SIDEBAR --> 
+         <!--右开始-->
+        <div id="content" class="left">
+            <div class="rC left">
+            	<div class="content">
+                	<h2>个人业务<span  class="right mr10">当前位置：<a href="#" class="linkBlue">任务列表</a> > <a href="#" class="linkBlue">个人任务</a> > 任务处理</span></h2>
+                    <!--查询开始-->
+                    <div class="search clearfix">
+                    	<ul>
+                        <li><label>任&nbsp;&nbsp;务&nbsp;&nbsp;ID：</label><span><input type="text" value=""  class="w190"/></span></li>
+                        <li><label>客户姓名：</label><span><input type="text" value=""  class="w190"/></span></li>
+                        <li><label>来电日期：</label><span><input type="text" value=""  class="w90"/></span>&nbsp;至&nbsp;<span><input type="text" value=""  class="w90"/></span></li>
+                        </ul>
+                        <ul class="clear">
+                        <li><label>咨询类别：</label>
+                        <span><input name="" type="checkbox" value="" /> <em>新车</em></span>
+                        <span><input name="" type="checkbox" value="" /><em> 二手车</em></span>
+                        <span><input name="" type="checkbox" value="" /> <em>个人反馈</em></span>
+                        <span><input name="" type="checkbox" value="" /> <em>活动</em></span>
+                        <span><input name="" type="checkbox" value="" /><em>个人用车</em></span>
+                        <span><input name="" type="checkbox" value="" /><em>个人其它</em></span>
+                        <span><input name="" type="checkbox" value="" /><em>经锁商合作</em></span>
+                        <span><input name="" type="checkbox" value="" /><em>经销商反馈</em></span>
+                        <span><input name="" type="checkbox" value="" /> <em>经销其它</em></span></li>
+                        </ul>
+                        <ul class="clear">
+                        <li><label>问题类别：</label>
+                        <span><select class="w195"><option>新车</option><option>卖车</option><option>买车</option></select></span>
+                        <li><label>问题性质：</label>
+                        <span><input name="" type="radio" value="" /><em>紧急</em></span>
+                        <span><input name="" type="radio" value="" /><em>普通</em></span>
+                        </li>
+                        <li><label>是否确定投诉：</label>
+                        <span><input name="" type="checkbox" value="" /> <em>是</em></span></li>
+                        <li class="btnsearch"><input name="" type="button"  value="查 询"/></li>
+                        </ul>
+                    </div>
+                    <!--查询结束-->
+                        <div class="optionBtn  clearfix" >
+                        <input name="" type="button" value="新 增" class=" btnChoose"/>
+                        <input name="" type="button" value="删 除" class="btnChoose"/>
+                        <input name="" type="button" value="导入Excel" class="newBtn mr10"/>
+                        <input name="" type="button" value="导出客户信息" class="newBtn"/>
+                        <input name="" type="button" value="导出字段设置" class="newBtn"/>
+                        </div>
+                    <!--列表开始-->
+                    <table  cellpadding="0" cellspacing="0" class="tableList" width="99%">
+                      <tr>
+                      	<th><input name="" type="checkbox" value="" /></th>
+                        <th>任务ID</th>
+                        <th>客户姓名</th>
+                        <th>当前受理人</th>
+                        <th>处理状态</th>
+                        <th>最晚处理时间</th>
+                        <th>来电时间</th>
+                        <th>操作</th>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255100255</td>
+                        <td><a href="#" class="linkBlue">刘萍杨凯杨凯杨凯杨凯</a></td>
+                        <td>杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                        <td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                      <tr class="back" onmouseover="this.className='hover'" onmouseout="this.className='back'">
+                      	<td><input name="" type="checkbox" value="" /></td>
+                        <td>100255</td>
+                        <td><a href="#" class="linkBlue">刘萍</a></td>
+                        <td>杨凯</td>
+                        <td>待审核</td>
+                        <td>2012-07-27</td>
+                        <td>2012-07-27</td>
+                        <td><a href="#" class="linkBlue">处理</a></td>
+                      </tr>
+                    </table>  
+                    <!--列表结束-->
+                    <!--分页开始-->
+                        <div class="pageTurn mr10">
+                        共有 100 条记录，当前第 <span class="bold">1</span>/10 页&nbsp;&nbsp;<a href="#">[首页]</a>  <a href="#">[上一页]</a>  <a href="#">[下一页]</a>  <a href="#">[尾页]</a>&nbsp;&nbsp;转到第 <input name="textfield4" type="text" class="inputText" id="textfield4" style="width:25px;" /> 页
+                        </div>
+                        <!--分页结束-->
+                </div>
+            </div>
+        </div>
+        <!--右结束-->
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/BitAuto.Beyond.Easy.DAS.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BitAuto.Beyond.Easy.DAS.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://api.easypass.cn/das/inner/SuperLoginService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="OauthAccessTokenEntity">
+    <xs:sequence>
+      <xs:element name="m_AccessToken" type="ser:guid" />
+      <xs:element name="m_AppId" type="ser:guid" />
+      <xs:element name="m_AuthorizationCode" type="ser:guid" />
+      <xs:element name="m_ClientID" type="ser:guid" />
+      <xs:element name="m_ClientSecret" nillable="true" type="xs:string" />
+      <xs:element name="m_CreateTime" type="xs:dateTime" />
+      <xs:element name="m_DasAccountID" type="xs:int" />
+      <xs:element name="m_ExpiresIn" type="xs:int" />
+      <xs:element name="m_GrantType" nillable="true" type="xs:string" />
+      <xs:element name="m_IsActive" type="xs:short" />
+      <xs:element name="m_LoginType" type="xs:short" />
+      <xs:element name="m_RedirectUri" nillable="true" type="xs:string" />
+      <xs:element name="m_RefreshToken" type="ser:guid" />
+      <xs:element name="m_Scope" nillable="true" type="xs:string" />
+      <xs:element name="m_UpdateTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OauthAccessTokenEntity" nillable="true" type="tns:OauthAccessTokenEntity" />
+</xs:schema>

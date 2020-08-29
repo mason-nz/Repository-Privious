@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15E11F0E-76C1-46F2-B173-3F98336FCBDF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.ISDC.CC2012.WebService</RootNamespace>
+    <AssemblyName>BitAuto.ISDC.CC2012.WebService</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.YanFa.Crm2009.BLL">
+      <HintPath>..\..\..\Lib\BitAuto.YanFa.Crm2009.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.Crm2009.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\BitAuto.YanFa.Crm2009.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WcfSamples.DynamicProxy">
+      <HintPath>..\..\..\Lib\WcfSamples.DynamicProxy.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAA\UGCSyncServiceHelper.cs" />
+    <Compile Include="CC\CallRecordServiceHelper.cs" />
+    <Compile Include="CC\DictionaryDataCacheHelper.cs" />
+    <Compile Include="CRM\CRMCJKServiceHelper.cs" />
+    <Compile Include="CRM\CRMCooperationInfo.cs" />
+    <Compile Include="CRM\CRMCustomerServiceHelper.cs" />
+    <Compile Include="CRM\CRMYJKServiceHelper.cs" />
+    <Compile Include="CRM\SYSUserInfoServiceHelper.cs" />
+    <Compile Include="EasyPass\FanXianHelper.cs" />
+    <Compile Include="IM\IMepUtilsServiceHelper.cs" />
+    <Compile Include="IM\IMtcUtilsServiceHelper.cs" />
+    <Compile Include="IM\IMUtilsServiceHelper.cs" />
+    <Compile Include="Market\MarketServiceHelper.cs" />
+    <Compile Include="Service References\CJiKe.ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Easypass.ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GetAgentInfo.ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\HuiMaiChe.ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\YiJiKe.ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TaoChe\CstMemberServiceHelper.cs" />
+    <Compile Include="EasyPass\DealerInfoServiceHelper.cs" />
+    <Compile Include="EasyPass\EasypassRestPwdServiceHelper.cs" />
+    <Compile Include="EasyPass\GroupOrderHelper.cs" />
+    <Compile Include="EasyPass\NoDealerOrderHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BAA\QiCheTongHelper.cs" />
+    <Compile Include="ITSupport\SMSServiceHelper.cs" />
+    <Compile Include="Web References\BAA.QiCheTongQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BAA.QiCheTongService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BAA.UGCSyncService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CC.CallRecordService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CRM.CooperationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CRM.CustomerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\IM.UtilsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\IMep.UtilsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\IMtc.UtilsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SYS.UserInfoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DictionaryDataCacheService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EasyPass.DealerInfoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EasyPass.RestPwdService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EasyPass.WithoutDealerOrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ITSupport.SMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\MarketService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TaoChe.CstMemberService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\YpGroupOrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\YTGActivityService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebServiceHelper.cs" />
+    <Compile Include="YiCheMall\CCLoginHelper.cs" />
+    <Compile Include="YTG\TestYTGActivityTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CJiKe.ServiceReference\CJKDemandService.wsdl" />
+    <None Include="Service References\Easypass.ServiceReference\FaixianForCC1.wsdl" />
+    <None Include="Service References\Easypass.ServiceReference\FaixianForCC3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Easypass.ServiceReference\FaixianForCC4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Easypass.ServiceReference\FaixianForCC5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GetAgentInfo.ServiceReference\GetCallRecordList.wsdl" />
+    <None Include="Service References\HuiMaiChe.ServiceReference\AuthService1.wsdl" />
+    <None Include="Service References\HuiMaiChe.ServiceReference\BitAuto.ISDC.CC2012.WebService.HuiMaiChe.ServiceReference.ServiceResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\YiJiKe.ServiceReference\YJKDemandService.wsdl" />
+    <None Include="Web References\BAA.QiCheTongQueryService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BAA.QiCheTongQueryService\UserInfoDto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BAA.QiCheTongQueryService\UserManagerWebService.wsdl" />
+    <None Include="Web References\BAA.QiCheTongService\AuthenWebService.wsdl" />
+    <None Include="Web References\BAA.QiCheTongService\LoginResultInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BAA.QiCheTongService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BAA.QiCheTongService\RegisterMobileUserInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BAA.QiCheTongService\RegisterResultInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BAA.UGCSyncService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BAA.UGCSyncService\UGCSyncService.wsdl" />
+    <None Include="Web References\CC.CallRecordService\EnumResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CC.CallRecordService\GetCallRecordList.wsdl" />
+    <None Include="Web References\CC.CallRecordService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CRM.CooperationService\CustCoorperation.wsdl" />
+    <None Include="Web References\CRM.CooperationService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CRM.CustomerService\CustomerService.wsdl" />
+    <None Include="Web References\CRM.CustomerService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\IM.UtilsService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\IM.UtilsService\Utils.wsdl" />
+    <None Include="Web References\IMep.UtilsService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\IMep.UtilsService\Utils.wsdl" />
+    <None Include="Web References\IMtc.UtilsService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\IMtc.UtilsService\Utils.wsdl" />
+    <None Include="Web References\SYS.UserInfoService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SYS.UserInfoService\userinfo.wsdl" />
+    <None Include="Web References\DictionaryDataCacheService\DictionaryDataCacheService.wsdl" />
+    <None Include="Web References\DictionaryDataCacheService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EasyPass.DealerInfoService\DealerInfoService.wsdl" />
+    <None Include="Web References\EasyPass.DealerInfoService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EasyPass.RestPwdService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EasyPass.RestPwdService\UserGetPwd.wsdl" />
+    <None Include="Web References\EasyPass.RestPwdService\UserInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EasyPass.RestPwdService\UserInfoEx.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EasyPass.WithoutDealerOrderService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EasyPass.WithoutDealerOrderService\withoutdealerorderservice.wsdl" />
+    <None Include="Web References\ITSupport.SMSService\MsgService.wsdl" />
+    <None Include="Web References\ITSupport.SMSService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ITSupport.SMSService\Stream.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MarketService\Recommend.wsdl" />
+    <None Include="Web References\MarketService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TaoChe.CstMemberService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TaoChe.CstMemberService\TranstarToBitautoCRM.wsdl" />
+    <None Include="Web References\YpGroupOrderService\ActiveOrder_Crm.wsdl" />
+    <None Include="Web References\YpGroupOrderService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\YTGActivityService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\YTGActivityService\Result.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\YTGActivityService\YTGActivityService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitAuto.ISDC.CC2012.BLL\BitAuto.ISDC.CC2012.BLL.csproj">
+      <Project>{6F780424-6A4D-4970-8FA7-CBC49767B6E8}</Project>
+      <Name>BitAuto.ISDC.CC2012.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.ISDC.CC2012.Dal\BitAuto.ISDC.CC2012.Dal.csproj">
+      <Project>{C040D999-CC37-4823-B4A6-9D2A0E405C64}</Project>
+      <Name>BitAuto.ISDC.CC2012.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.ISDC.CC2012.Entities\BitAuto.ISDC.CC2012.Entities.csproj">
+      <Project>{5A202E96-FCBA-421B-AB34-5E788C2EA40C}</Project>
+      <Name>BitAuto.ISDC.CC2012.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://api.baa.bitauto.com/ibt/AuthenWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BAA.QiCheTongService\</RelPath>
+      <UpdateFromURL>http://api.baa.bitauto.com/ibt/AuthenWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_BAA_QiCheTongService_AuthenWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.baa.bitauto.com/ibt/UserManagerWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BAA.QiCheTongQueryService\</RelPath>
+      <UpdateFromURL>http://api.baa.bitauto.com/ibt/UserManagerWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_BAA_QiCheTongQueryService_UserManagerWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.baa.bitauto.com/UGCSync/UGCSyncService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BAA.UGCSyncService\</RelPath>
+      <UpdateFromURL>http://api.baa.bitauto.com/UGCSync/UGCSyncService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_BAA_UGCSyncService_UGCSyncService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.market.bitauto.com/GetData/Recommend.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MarketService\</RelPath>
+      <UpdateFromURL>http://api.market.bitauto.com/GetData/Recommend.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_MarketService_Recommend</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.ucar.cn/Dealer/TranstarToBitautoCRM.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TaoChe.CstMemberService\</RelPath>
+      <UpdateFromURL>http://api.ucar.cn/Dealer/TranstarToBitautoCRM.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_TaoChe_CstMemberService_TranstarToBitautoCRM</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api2.easypass.cn/das/inner/UserGetPwd.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EasyPass.RestPwdService\</RelPath>
+      <UpdateFromURL>http://api2.easypass.cn/das/inner/UserGetPwd.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_EasyPass_RestPwdService_UserGetPwd</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://crm.sys1.bitauto.com/DMS/CustCoorperation.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CRM.CooperationService\</RelPath>
+      <UpdateFromURL>http://crm.sys1.bitauto.com/DMS/CustCoorperation.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_CRM_CooperationServicce_CustCoorperation</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://crm.sys1.bitauto.com/DMS/CustomerService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CRM.CustomerService\</RelPath>
+      <UpdateFromURL>http://crm.sys1.bitauto.com/DMS/CustomerService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_CRM_CustomerService_CustomerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://easyop.bitauto.com/DMS/OuterService/DealerInfoService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EasyPass.DealerInfoService\</RelPath>
+      <UpdateFromURL>http://easyop.bitauto.com/DMS/OuterService/DealerInfoService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_EasyPass_DealerInfoService_DealerInfoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://im.sys1.bitauto.com/WebService/Utils.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\IM.UtilsService\</RelPath>
+      <UpdateFromURL>http://im.sys1.bitauto.com/WebService/Utils.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_IM_UtilsService_Utils</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://imep.sys1.bitauto.com/WebService/Utils.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\IMep.UtilsService\</RelPath>
+      <UpdateFromURL>http://imep.sys1.bitauto.com/WebService/Utils.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_IMep_UtilsService_Utils</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://imtc.sys1.bitauto.com/WebService/Utils.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\IMtc.UtilsService\</RelPath>
+      <UpdateFromURL>http://imtc.sys1.bitauto.com/WebService/Utils.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_IMtc_UtilsService_Utils</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://mobile.bitauto.com/smsplatform/interface/MsgService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ITSupport.SMSService\</RelPath>
+      <UpdateFromURL>http://mobile.bitauto.com/smsplatform/interface/MsgService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_ITSupport_SMSService_MsgService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ncc.sys1.bitauto.com/CallRecordService/GetCallRecordList.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CC.CallRecordService\</RelPath>
+      <UpdateFromURL>http://ncc.sys1.bitauto.com/CallRecordService/GetCallRecordList.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_CC_CallRecordService_GetCallRecordList</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ncc.sys1.bitauto.com/WebServices/DictionaryDataCacheService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DictionaryDataCacheService\</RelPath>
+      <UpdateFromURL>http://ncc.sys1.bitauto.com/WebServices/DictionaryDataCacheService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_DictionaryDataCacheService_DictionaryDataCacheService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ncc.sys1.bitauto.com/WebServices/YTGActivityService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\YTGActivityService\</RelPath>
+      <UpdateFromURL>http://ncc.sys1.bitauto.com/WebServices/YTGActivityService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_YTGActivityService_YTGActivityService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://sys1.bitauto.com/service/userinfo.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SYS.UserInfoService\</RelPath>
+      <UpdateFromURL>http://sys1.bitauto.com/service/userinfo.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_CRM_UserInfoService_RightsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://test1.api.dealer.bitauto.com/api/InnerService/ActiveOrder_Crm.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\YpGroupOrderService\</RelPath>
+      <UpdateFromURL>http://test1.api.dealer.bitauto.com/api/InnerService/ActiveOrder_Crm.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_YpGroupOrderService_ActiveOrder_Crm</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://test1.partner.bitauto.com/api/order/withoutdealerorderservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EasyPass.WithoutDealerOrderService\</RelPath>
+      <UpdateFromURL>http://test1.partner.bitauto.com/api/order/withoutdealerorderservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BitAuto_ISDC_CC2012_WebService_EasyPass_WithoutDealerOrderService_WithoutDealerOrderService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\YpGroupOrderService\ActiveOrder_Crm.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\MarketService\Recommend.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CJiKe.ServiceReference\" />
+    <WCFMetadataStorage Include="Service References\Easypass.ServiceReference\" />
+    <WCFMetadataStorage Include="Service References\GetAgentInfo.ServiceReference\" />
+    <WCFMetadataStorage Include="Service References\HuiMaiChe.ServiceReference\" />
+    <WCFMetadataStorage Include="Service References\YiJiKe.ServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Easypass.ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Easypass.ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Easypass.ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Easypass.ServiceReference\FaixianForCC1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GetAgentInfo.ServiceReference\GetCallRecordList.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GetAgentInfo.ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GetAgentInfo.ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GetAgentInfo.ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuiMaiChe.ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuiMaiChe.ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuiMaiChe.ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\YiJiKe.ServiceReference\YJKDemandService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\YiJiKe.ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\YiJiKe.ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\YiJiKe.ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CJiKe.ServiceReference\CJKDemandService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CJiKe.ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CJiKe.ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CJiKe.ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\YTGActivityService\YTGActivityService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\DictionaryDataCacheService\DictionaryDataCacheService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CRM.CooperationService\CustCoorperation.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CRM.CustomerService\CustomerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CC.CallRecordService\GetCallRecordList.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\BAA.QiCheTongService\AuthenWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\BAA.QiCheTongQueryService\UserManagerWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\BAA.UGCSyncService\UGCSyncService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\TaoChe.CstMemberService\TranstarToBitautoCRM.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\ITSupport.SMSService\MsgService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\EasyPass.DealerInfoService\DealerInfoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\EasyPass.RestPwdService\UserGetPwd.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\EasyPass.WithoutDealerOrderService\withoutdealerorderservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\SYS.UserInfoService\userinfo.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\IMtc.UtilsService\Utils.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\IMep.UtilsService\Utils.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\IM.UtilsService\Utils.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuiMaiChe.ServiceReference\AuthService1.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

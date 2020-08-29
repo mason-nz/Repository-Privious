@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.voicecodes.com/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VCLogService" targetNamespace="http://www.voicecodes.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.voicecodes.com/Imports">
+      <xsd:import schemaLocation="" namespace="http://www.voicecodes.com/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVCLogService_GetVoiceIPByVoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoiceIPByVoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetVoiceIPByVoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoiceIPByVoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetVoiceCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoiceCount" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetVoiceCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoiceCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetChannelCountVoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannelCountVoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetChannelCountVoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannelCountVoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRefID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRefID" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRefID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRefIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetFileHttpPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileHttpPath" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetFileHttpPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileHttpPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_SaveRecordFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRecordFile" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_SaveRecordFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRecordFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRecordArchiveStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordArchiveStatus" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRecordArchiveStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordArchiveStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_UpdateRecordDataExt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecordDataExt" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_UpdateRecordDataExt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecordDataExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_UpdateRecordDataByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecordDataByID" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_UpdateRecordDataByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecordDataByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_UpdateRecordDataByUCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecordDataByUCID" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_UpdateRecordDataByUCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecordDataByUCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRecordListByStartRecordTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordListByStartRecordTime" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRecordListByStartRecordTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordListByStartRecordTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRecordList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordList" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetChannelByExt_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannelByExt" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_GetChannelByExt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannelByExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_StartRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartRecord" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_StartRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_StopRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopRecord" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_StopRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_PauseRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:PauseRecord" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_PauseRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PauseRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_ResumeRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResumeRecord" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_ResumeRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResumeRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_AgentLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgentLogin" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_AgentLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgentLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_Agentlogout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Agentlogout" />
+  </wsdl:message>
+  <wsdl:message name="IVCLogService_Agentlogout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgentlogoutResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVCLogService">
+    <wsdl:operation name="GetVoiceIPByVoiceID">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetVoiceIPByVoiceID" message="tns:IVCLogService_GetVoiceIPByVoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetVoiceIPByVoiceIDResponse" message="tns:IVCLogService_GetVoiceIPByVoiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVoiceCount">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetVoiceCount" message="tns:IVCLogService_GetVoiceCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetVoiceCountResponse" message="tns:IVCLogService_GetVoiceCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelCountVoiceID">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetChannelCountVoiceID" message="tns:IVCLogService_GetChannelCountVoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetChannelCountVoiceIDResponse" message="tns:IVCLogService_GetChannelCountVoiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRefID">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRefID" message="tns:IVCLogService_GetRefID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRefIDResponse" message="tns:IVCLogService_GetRefID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileHttpPath">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetFileHttpPath" message="tns:IVCLogService_GetFileHttpPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetFileHttpPathResponse" message="tns:IVCLogService_GetFileHttpPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRecordFile">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/SaveRecordFile" message="tns:IVCLogService_SaveRecordFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/SaveRecordFileResponse" message="tns:IVCLogService_SaveRecordFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordArchiveStatus">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRecordArchiveStatus" message="tns:IVCLogService_GetRecordArchiveStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRecordArchiveStatusResponse" message="tns:IVCLogService_GetRecordArchiveStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRecordDataExt">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/UpdateRecordDataExt" message="tns:IVCLogService_UpdateRecordDataExt_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/UpdateRecordDataExtResponse" message="tns:IVCLogService_UpdateRecordDataExt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRecordDataByID">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/UpdateRecordDataByID" message="tns:IVCLogService_UpdateRecordDataByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/UpdateRecordDataByIDResponse" message="tns:IVCLogService_UpdateRecordDataByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRecordDataByUCID">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/UpdateRecordDataByUCID" message="tns:IVCLogService_UpdateRecordDataByUCID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/UpdateRecordDataByUCIDResponse" message="tns:IVCLogService_UpdateRecordDataByUCID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordListByStartRecordTime">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRecordListByStartRecordTime" message="tns:IVCLogService_GetRecordListByStartRecordTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRecordListByStartRecordTimeResponse" message="tns:IVCLogService_GetRecordListByStartRecordTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordList">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRecordList" message="tns:IVCLogService_GetRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetRecordListResponse" message="tns:IVCLogService_GetRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelByExt">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/GetChannelByExt" message="tns:IVCLogService_GetChannelByExt_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/GetChannelByExtResponse" message="tns:IVCLogService_GetChannelByExt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartRecord">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/StartRecord" message="tns:IVCLogService_StartRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/StartRecordResponse" message="tns:IVCLogService_StartRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopRecord">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/StopRecord" message="tns:IVCLogService_StopRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/StopRecordResponse" message="tns:IVCLogService_StopRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PauseRecord">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/PauseRecord" message="tns:IVCLogService_PauseRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/PauseRecordResponse" message="tns:IVCLogService_PauseRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumeRecord">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/ResumeRecord" message="tns:IVCLogService_ResumeRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/ResumeRecordResponse" message="tns:IVCLogService_ResumeRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgentLogin">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/AgentLogin" message="tns:IVCLogService_AgentLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/AgentLoginResponse" message="tns:IVCLogService_AgentLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Agentlogout">
+      <wsdl:input wsaw:Action="http://www.voicecodes.com/IVCLogService/Agentlogout" message="tns:IVCLogService_Agentlogout_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.voicecodes.com/IVCLogService/AgentlogoutResponse" message="tns:IVCLogService_Agentlogout_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="VCLogService">
+    <wsdl:port name="BasicHttpBinding_IVCLogService" binding="i0:BasicHttpBinding_IVCLogService">
+      <soap:address location="http://localhost/VCLogSDKService/VCLogService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

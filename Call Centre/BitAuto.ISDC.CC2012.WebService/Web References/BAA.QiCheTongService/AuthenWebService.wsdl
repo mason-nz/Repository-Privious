@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegisterMobileUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterMobileUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterMobileUserResult" type="tns:RegisterMobileUserInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegisterMobileUserInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegisterResult" type="tns:EnumUserCreateStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EnumUserCreateStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="InvalidUserName" />
+          <s:enumeration value="InvalidPassword" />
+          <s:enumeration value="InvalidQuestion" />
+          <s:enumeration value="InvalidAnswer" />
+          <s:enumeration value="InvalidEmail" />
+          <s:enumeration value="DuplicateUserName" />
+          <s:enumeration value="DuplicateEmail" />
+          <s:enumeration value="Failed" />
+          <s:enumeration value="DuplicateMobile" />
+          <s:enumeration value="InvalidMobile" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="urlReferrer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterResult" type="tns:RegisterResultInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegisterResultInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegisterResult" type="tns:EnumUserCreateStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:LoginResultInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginResultInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUserBound" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="tns:ValidationResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ValidationResult">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="InvalidUserNameOrPassword" />
+          <s:enumeration value="LockedOut" />
+          <s:enumeration value="Invalid" />
+          <s:enumeration value="Forbidding" />
+          <s:enumeration value="Incomplete" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="RegisterMobileUserInfo" nillable="true" type="tns:RegisterMobileUserInfo" />
+      <s:element name="RegisterResultInfo" nillable="true" type="tns:RegisterResultInfo" />
+      <s:element name="LoginResultInfo" nillable="true" type="tns:LoginResultInfo" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterMobileUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterMobileUser" />
+  </wsdl:message>
+  <wsdl:message name="RegisterMobileUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterMobileUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterMobileUserHttpPostIn">
+    <wsdl:part name="mobile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterMobileUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:RegisterMobileUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="RegisterHttpPostIn">
+    <wsdl:part name="loginName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="urlReferrer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterHttpPostOut">
+    <wsdl:part name="Body" element="tns:RegisterResultInfo" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:LoginResultInfo" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenWebServiceSoap">
+    <wsdl:operation name="RegisterMobileUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">呼叫中心添加电话注册用户，（成功:Success= 0|失败:Failed = 8|用户名已存在:DuplicateUserName = 6|手机已经存在:DuplicateMobile = 9|手机号无效:InvalidMobile = 10）</wsdl:documentation>
+      <wsdl:input message="tns:RegisterMobileUserSoapIn" />
+      <wsdl:output message="tns:RegisterMobileUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input message="tns:RegisterSoapIn" />
+      <wsdl:output message="tns:RegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AuthenWebServiceHttpPost">
+    <wsdl:operation name="RegisterMobileUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">呼叫中心添加电话注册用户，（成功:Success= 0|失败:Failed = 8|用户名已存在:DuplicateUserName = 6|手机已经存在:DuplicateMobile = 9|手机号无效:InvalidMobile = 10）</wsdl:documentation>
+      <wsdl:input message="tns:RegisterMobileUserHttpPostIn" />
+      <wsdl:output message="tns:RegisterMobileUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input message="tns:RegisterHttpPostIn" />
+      <wsdl:output message="tns:RegisterHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginHttpPostIn" />
+      <wsdl:output message="tns:LoginHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenWebServiceSoap" type="tns:AuthenWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterMobileUser">
+      <soap:operation soapAction="http://tempuri.org/RegisterMobileUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenWebServiceSoap12" type="tns:AuthenWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterMobileUser">
+      <soap12:operation soapAction="http://tempuri.org/RegisterMobileUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenWebServiceHttpPost" type="tns:AuthenWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RegisterMobileUser">
+      <http:operation location="/RegisterMobileUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <http:operation location="/Register" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthenWebService">
+    <wsdl:port name="AuthenWebServiceSoap" binding="tns:AuthenWebServiceSoap">
+      <soap:address location="http://api.baa.bitauto.com/ibt/AuthenWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenWebServiceSoap12" binding="tns:AuthenWebServiceSoap12">
+      <soap12:address location="http://api.baa.bitauto.com/ibt/AuthenWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenWebServiceHttpPost" binding="tns:AuthenWebServiceHttpPost">
+      <http:address location="http://api.baa.bitauto.com/ibt/AuthenWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

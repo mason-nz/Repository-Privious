@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery固定表头表格滚动数据效果</title>
+<style>
+@charset "UTF-8";body{font-family: '微软雅黑',Arial,sans-serif;font-size: 13px;font-style: normal;font-weight: normal;line-height: 21px;}
+table{border: solid 1px #D5D5D5;border-collapse: collapse;width: 100%;}
+table td{border: 1px solid #D5D5D5;font-size: 12px;padding: 7px 5px;}
+table th{background-color: #EEE;border-right: 1px solid #D5D5D5;font-size: 13.5px;line-height: 120%;font-weight: bold;padding: 8px 5px;text-align: left;}
+.ui-resizable{position: relative;}
+.ui-resizable-handle{display: block;font-size: 0.1px;position: absolute;z-index: 99999;}
+.ui-resizable-s{background: #EEEEEE url(/jscss/demoimg/201311/grippie.png) no-repeat scroll center 2px;border-top: 1px solid #CCCCCC;bottom: -5px;cursor: s-resize;height: 14px;left: 0;width: 100%;}
+</style>
+<script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $.chromatable = {
+            defaults: {
+                width: "900px",
+                height: "300px",
+                scrolling: "no"
+            }
+        };
+        $.fn.chromatable = function (options) {
+            var options = $.extend({}, $.chromatable.defaults, options);
+            return this.each(function () {
+                var $this = $(this);
+                var $uniqueID = $(this).attr("ID") + ("wrapper");
+                $(this).css('width', options.width).addClass("_scrolling");
+                $(this).wrap('<div class="scrolling_outer"><div id="' + $uniqueID + '" class="scrolling_inner"></div></div>');
+                $(".scrolling_outer").css({ 'position': 'relative' });
+                $("#" + $uniqueID).css(
+
+	 { 'border': '1px solid #CCCCCC',
+	     'overflow-x': 'hidden',
+	     'overflow-y': 'auto',
+	     'padding-right': '17px'
+	 });
+
+                $("#" + $uniqueID).css('height', options.height);
+                $("#" + $uniqueID).css('width', options.width);
+                $(this).before($(this).clone().attr("id", "").addClass("_thead").css(
+		{ 'width': 'auto',
+		    'display': 'block',
+		    'position': 'absolute',
+		    'border': 'none',
+		    'border-bottom': '1px solid #CCC',
+		    'top': '1px'
+		}));
+                $('._thead').children('tbody').remove();
+                $(this).each(function ($this) {
+                    if (options.width == "100%" || options.width == "auto") {
+                        $("#" + $uniqueID).css({ 'padding-right': '0px' });
+                    }
+                    if (options.scrolling == "no") {
+                        $("#" + $uniqueID).before('<a href="#" class="expander" style="width:100%;">Expand table</a>');
+                        $("#" + $uniqueID).css({ 'padding-right': '0px' });
+                        $(".expander").each(
+			function (int) {
+			    $(this).attr("ID", int);
+			    $(this).bind("click", function () {
+			        $("#" + $uniqueID).css({ 'height': 'auto' });
+			        $("#" + $uniqueID + " ._thead").remove();
+			        $(this).remove();
+			    });
+			});
+                        $("#" + $uniqueID).resizable({ handles: 's' }).css("overflow-y", "hidden");
+                    }
+                });
+                $curr = $this.prev();
+                $("thead:eq(0)>tr th", this).each(function (i) {
+                    $("thead:eq(0)>tr th:eq(" + i + ")", $curr).width($(this).width());
+                });
+                if (options.width == "100%" || "auto") {
+                    $(window).resize(function () {
+                        resizer($this);
+                    });
+                }
+            });
+        };
+        function resizer($this) {
+            $curr = $this.prev();
+            $("thead:eq(0)>tr th", $this).each(function (i) {
+                $("thead:eq(0)>tr th:eq(" + i + ")", $curr).width($(this).width());
+            });
+        };
+    })(jQuery);
+    $(document).ready(function () {
+        $("#yourTableID").chromatable({
+            width: "100%",
+            height: "400px",
+            scrolling: "no"
+        });
+        $("#yourTableID2").chromatable({
+            width: "900px",
+            height: "1400px",
+            scrolling: "no"
+        });
+    });
+</script>
+</head>
+<body>
+<table id="yourTableID2" width="100%" border="0" cellspacing="0" cellpadding="0">
+<thead>
+	<tr>
+		<th>名称</th>
+		<th>作者</th>
+		<th>备注</th>
+	</tr>
+</thead>
+<tbody>	
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+	<tr>
+		<td>Some content goes in here</td>
+		<td>Praesent vitae ligula nec orci pretium vestibulum</td>
+		<td>Maecenas tempus dictum libero</td>
+	</tr>
+	<tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+    <tr>
+		<td>Quisque in wisi quis orci tincidunt fermentum</td>
+		<td>Mauris aliquet mattis metus</td>
+		<td>Etiam eu ante non leo egestas nonummy</td>
+	</tr>
+</tbody>	
+</table>
+</body>
+</html>

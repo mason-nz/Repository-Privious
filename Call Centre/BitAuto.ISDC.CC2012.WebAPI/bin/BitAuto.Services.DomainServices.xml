@@ -1,0 +1,1551 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BitAuto.Services.DomainServices</name>
+    </assembly>
+    <members>
+        <member name="M:BitAuto.Services.DomainServices.DomainHelper.GetParentOuName(System.String)">
+             <summary>
+            获取父组织单元的名称，例如：
+            OU=IT运维中心,OU=易车公司,DC=tech,DC=bitauto,DC=com
+            返回的结果是“运维中心”
+             </summary>
+             <param name="distinguishedName">唯一区别名</param>
+             <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainHelper.GetMiniGroupDistinguihedNameIncludeUser(System.String)">
+            <summary>
+            返回该用户所在组织单元的路径的，例如：LDAP://tech.bitauto.com/CN=李荣尊,OU=系统架构部,OU=IT运维中心,OU=易车公司,DC=tech,DC=bitauto,DC=com
+            返回的结果应是：LDAP://tech.bitauto.com/CN=系统架构部_USG,OU=系统架构部,OU=IT运维中心,OU=易车公司,DC=tech,DC=bitauto,DC=com
+            </summary>
+            <param name="userDistinguishedName">用户的唯一区别名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainHelper.GetParentGroupPath(System.String)">
+            <summary>
+            获取父组织单元下通用安全组的唯一区别名,例如：LDAP://tech.bitauto.com/OU=IT运维中心,OU=易车公司,DC=tech,DC=bitauto,DC=com
+            返回结果应是“LDAP://tech.bitauto.com/CN=IT运维中心_USG,OU=IT运维中心,OU=易车公司,DC=tech,DC=bitauto,DC=com”
+            </summary>
+            <param name="distinguishedName">父组的父组织单元路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainHelper.GetParentGroupPathFromGroupPath(System.String)">
+            <summary>
+            从组可分辨名称中获取父级ou下通用安全组的路径
+            </summary>
+            <param name="groupDistinguishedName">组可分辨名称</param>
+            <returns></returns>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.DomainConfig.filteredOrganizationalUnits">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.DomainName">
+            <summary>
+            所访问的域名，例如:tech.bitauto.com
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.LdapPath">
+            <summary>
+            LDAP访问路径，一般是LADP://+域名，例如:LDAP://tech.bitauto.com
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.DC">
+            <summary>
+            DC=tech,DC=bitauto,DC=com
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.DeleteUserContainer">
+            <summary>
+            AD中 存放删除用户的组织单元路径
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.Administrator">
+            <summary>
+            域账号管理员，也可以只赋予只读权限，不过此时将不能更新
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.Password">
+            <summary>
+            域账号管理员密码
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.InitPassword">
+            <summary>
+            创建新帐号时的初始密码
+            </summary>
+        </member>
+        <!-- 对于成员“P:BitAuto.Services.DomainServices.DomainConfig.SizeLimit”忽略有格式错误的 XML 注释 -->
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.OrganizationalUnitRoot">
+            <summary>
+            组织结构的根名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainConfig.FilteredOrganizationalUnits">
+            <summary>
+            要过滤的组织架构名称。在域管理中，经常有一些基于管理需要，但非组织架构的条目，例如：All Computers，Groups
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.DomainUser">
+             <summary>
+            域用户实体操作类
+             </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.DomainUser.impersonate">
+            <summary>
+            超级域账号用户模拟声明
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.DomainUser._Groups">
+            <summary>
+            注意:本例中并没有把GroupsInString与Groups设置同步
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetDirectoryEntry(System.String)">
+            <summary>
+            根据用户中文名搜索指定用户的DirectoryEntry
+            </summary>
+            <param name="cnName">用户中文名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetDirectoryEntryByEmployeeNumber(System.String)">
+            <summary>
+            根据员工号获取用户
+            </summary>
+            <param name="employeeNumber">工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SearchByEmployeeNumber(System.String)">
+            <summary>
+            根据员工号查找员工
+            </summary>
+            <param name="employeeNumber">员工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetDirectoryEntry(System.String,System.String)">
+            <summary>
+            根据用户中文名和密码搜索指定用户的DirectoryEntry
+            </summary>
+            <param name="cnName">用户中文名</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetDirectoryEntryByAccount(System.String)">
+            <summary>
+            根据账号和密码搜索指定用户的DirectoryEntry
+            </summary>
+            <param name="accountName">用户账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetDisabledUserByEmployeeNumber(System.String)">
+            <summary>
+            搜索已禁用账户
+            </summary>
+            <param name="employeeNumber">工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetDirectoryEntryByAccount(System.String,System.String)">
+            <summary>
+            根据账号和密码搜索指定用户的DirectoryEntry
+            </summary>
+            <param name="accountName">用户账号</param>
+            <param name="password">用户密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SearchUsers">
+            <summary>
+            获取用户集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SearchUsers(System.String)">
+            <summary>
+            获取用户集合
+            </summary>       
+            <param name="keywords">搜索关键词</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SearchUsersByOrganizationalUnit(System.String)">
+            <summary>
+            获取用户集合。在集团公司中，部门名称可能有重名情况。除非确定部门名称没有重名，否则请使用两个参数的重载方法
+            </summary>       
+            <param name="orgUnitName">搜索关键词</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUserAllUnderOU(System.String,System.Boolean)">
+            <summary>
+             获取组织单元下员工
+            </summary>
+            <param name="ouPath">组织单元路径</param>
+            <param name="includeChildren">是否包含子单元下的员工</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SearchUsersByOrganizationalUnit(System.String,System.String)">
+            <summary>
+            获取用户集合。避免部门重名情况
+            </summary>       
+            <param name="orgUnitName">部门名称</param>
+            <param name="parentOrgUnitName">上级部门名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.EnableUser(System.DirectoryServices.DirectoryEntry)">
+            <summary>
+            允许域用户可操作
+            </summary>
+            <param name="de"></param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ReEnableUser(System.DirectoryServices.DirectoryEntry)">
+            <summary>
+             重新启用用户账号
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.DisableUser(System.DirectoryServices.DirectoryEntry)">
+            <summary>
+             禁用域用户
+            </summary>
+            <param name="de"></param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SetUserAccountControl(System.DirectoryServices.DirectoryEntry,BitAuto.Services.DomainServices.AccountOptions[])">
+            <summary>
+            设置域用户帐户状态, 设置内容要视与硬件环境相关
+            </summary>
+            <param name="de"></param>
+            <param name="enums"></param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SetUserAccountControl(System.DirectoryServices.DirectoryEntry,System.Int32)">
+            <summary>
+            设置域用户帐户状态, 设置内容要视与硬件环境相关
+            采本方法时要注意 所设置的值是否有效,如果不是很清楚建议用  
+            public static bool SetUserAccountControl(string cnName, params ADAccountOptions[] enums)
+            </summary>
+            <param name="de"></param>
+            <param name="enums"></param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ConvertToEntity(System.DirectoryServices.DirectoryEntry)">
+            <summary>        
+            将包含用户信息的DirectoryEntry转化为用户实体
+            </summary>
+            <param name="de"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ConvertToEntity(System.DirectoryServices.SearchResultCollection)">
+            <summary>
+            将搜索集合转换为用户列表
+            </summary>
+            <param name="seCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ConvertToEntity(System.DirectoryServices.DirectoryEntries)">
+            <summary>
+            将集合转换为用户列表
+            </summary>
+            <param name="entries"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.CreateNewUser(BitAuto.Services.DomainServices.DomainUser)">
+            <summary>
+            创建域用户, 缺省密码取自Config文件中的InitPassword项
+            密码的设置与域策略有关,在应用时就注意此处可能会由于设置不当出现问题
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.CreateNewUser(BitAuto.Services.DomainServices.DomainUser,System.String)">
+            <summary>
+            创建域用户
+            </summary>
+            <param name="user">用户信息</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.CreateNewUser(System.String,System.String)">
+            <summary>
+            创建域用户
+            </summary>
+            <param name="cnName">中文名称</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.CreateNewUser(System.String,System.String,System.String)">
+            <summary>
+            创建域用户
+            </summary>
+            <param name="cnName">中文名称</param>
+            <param name="accountName">账号</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.CreateNewUser(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建域用户
+            </summary>
+            <param name="ldapDN">ldap路径</param>
+            <param name="cnName">中文名称</param>
+            <param name="accountName">账号</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.OnMovingUser(System.String)">
+            <summary>
+            移动用户前做相应的取消组成员关系
+            </summary>
+            <param name="domainAccount">域账号</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.MoveUser(System.String,System.String)">
+            <summary>
+            移动用户
+            </summary>
+            <param name="domainAccount">域账号</param>
+            <param name="destinationPath">目标组织单元</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.MoveDelUser(System.String,System.String)">
+            <summary>
+            移动删除用户
+            </summary>
+            <param name="employeeNumber">员工号</param>
+            <param name="originalPath">要移动到的组织单元路径</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.OnUserMoved(System.String)">
+            <summary>
+            用户转移后递归添加到父级组织单元组中
+            </summary>
+            <param name="domainAccount">域账号</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.UpdateUser(BitAuto.Services.DomainServices.DomainUser)">
+            <summary>
+            更新域用户
+            </summary>
+            <param name="user">域账号信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.UpdateUserWithEmployeeNumber(BitAuto.Services.DomainServices.DomainUser)">
+            <summary>
+            根据员工号更新员工
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.UpdateUserEmployeeNumber(System.String,System.String)">
+            <summary>
+            更新用户员工号
+            </summary>
+            <param name="oldOne">旧的员工号</param>
+            <param name="newOne">新的员工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ReNameByDomainAccount(System.String,System.String)">
+            <summary>
+            根据员工域账号重命名用户
+            </summary>
+            <param name="domainAccount">员工域账号</param>
+            <param name="newName">新名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ReNameByEmployeeNumber(System.String,System.String)">
+            <summary>
+            根据员工号重命名用户
+            </summary>
+            <param name="domainAccount">员工号</param>
+            <param name="newName">新名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.IsUserExists(System.String)">
+            <summary>
+            判别域用户是否存在
+            </summary>
+            <param name="cnName">中文名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.IsUserValid(System.String,System.String)">
+            <summary>
+             判别域用户是否有效
+            </summary>
+            <param name="userName">用账号</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.IsAccountActive(System.String)">
+            <summary>
+             判别域用户是否是活动状态
+            </summary>
+            <param name="accountName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.IsAccountActive(System.Int32)">
+            <summary>
+             判别域用户是否活跃,根据状态值
+            </summary>
+            <param name="userAccountControl">状态值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUserByCnName(System.String)">
+            <summary>
+            得到域用户
+            </summary>
+            <param name="cnName">中文名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUserByCnName(System.String,System.String)">
+            <summary>
+            得到域用户
+            </summary>
+            <param name="cnName">中文名称</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUser(System.String)">
+            <summary>
+            根据账号得到域用户
+            </summary>
+            <param name="accountName">账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUserByEmployeeNumber(System.String)">
+            <summary>
+            根据员工号获取用户
+            </summary>
+            <param name="employeeNumber">员工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SearchUsersByEmployeeNumber(System.String)">
+            <summary>
+            根据员工号查找员工
+            </summary>
+            <param name="employeeNumber">员工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUser(System.String,System.String)">
+            <summary>
+            根据账号得到域用户
+            </summary>
+            <param name="accountName">账号</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetAllUsers">
+            <summary>
+            返回所有域用户信息, 以泛型方式存放
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUsersByKeywords(System.String)">
+            <summary>
+            搜索用户信息
+            </summary>
+            <param name="keywords">关键词</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUsersUnderOU(System.String,System.Boolean)">
+            <summary>
+            获取组织单元用户成员
+            </summary>
+            <param name="path">组织单元路径</param>
+            <param name="includeSubTree">是否包括所有子单元下的用户</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUsersByOrganizationalUnit(System.String)">
+            <summary>
+            获取部门下所有用户。
+            在集团公司中，部门名称可能有重名情况。除非确定部门名称没有重名，否则请使用两个参数的重载方法
+            </summary>
+            <param name="orgUnitName">部门名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetUsersByOrganizationalUnit(System.String,System.String)">
+            <summary>
+            获取部门下所有用户。 
+            </summary>
+            <param name="orgUnitName">部门名称</param>
+            <param name="parentOrgUnitName">上级部门名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.GetDomainUserAllUnderOU(System.String)">
+            <summary>
+            获取组织单元下所有用户
+            </summary>
+            <param name="ouPath">组织单元的路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.DeleteUser(BitAuto.Services.DomainServices.DomainUser)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.LoginByCnName(System.String,System.String)">
+            <summary>
+            域用户登录判断
+            </summary>
+            <param name="cnName">为显示用户名，中文那个很可能是</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.Login(System.String,System.String)">
+            <summary>
+            域用户登录判别
+            </summary>
+            <param name="accountName">账号，一般为英文</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SetPasswordByCnName(System.String,System.String)">
+            <summary>
+            用户口令设置,密码的设置与 域策略有关,在应用时就注意此处可能会由于设置不当出现问题
+            </summary>
+            <param name="cnName">中文名称</param>
+            <param name="newPassword">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SetPassword(System.String,System.String)">
+            <summary>
+            用户口令设置,密码的设置与 域策略有关,在应用时就注意此处可能会由于设置不当出现问题
+            </summary>
+            <param name="accountName">账号</param>
+            <param name="newPassword">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ChangeUserPassword(System.String,System.String,System.String)">
+            <summary>
+            用户口令设置,密码的设置与 域策略有关,在应用时就注意此处可能会由于设置不当出现问题
+            </summary>
+            <param name="cnName">中文名称</param>
+            <param name="oldPassword">旧密码</param>
+            <param name="newPassword">新密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.EnableUser(System.String)">
+            <summary>
+            允许域用户可操作
+            </summary>
+            <param name="cnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.ReEnableUser(System.String,System.String)">
+            <summary>
+            重新启用用户
+            </summary>
+            <param name="employeeNumber">域账号</param>
+            <param name="originalLocation">本身所在的组织单元路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.DisableUser(System.String)">
+            <summary>
+            禁用账户
+            </summary>
+            <param name="employeeNumber">employeeNumber</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SetUserAccountControl(System.String,BitAuto.Services.DomainServices.AccountOptions[])">
+            <summary>
+            设置域用户帐户状态, 设置内容要视与硬件环境相关
+            </summary>
+            <param name="cnName">中文名称</param>
+            <param name="enums">用户状态枚举值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainUser.SetUserAccountControl(System.String,System.Int32)">
+            <summary>
+            设置域用户帐户状态, 设置内容要视与硬件环境相关
+            采本方法时要注意 所设置的值是否有效,如果不是很清楚建议用  
+            public static bool SetUserAccountControl(string cnName, params ADAccountOptions[] enums)
+            </summary>
+            <param name="cnName">中文名称</param>
+            <param name="enums">用户状态枚举值</param>
+            <returns></returns>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.GivenName">
+            <summary>
+            名，属性名为：givenName 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Initials">
+            <summary>
+            英文缩写，属性名为：initials 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.SN">
+            <summary>
+            姓，属性名为：sn
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.DisplayName">
+            <summary>
+            显示名称，属性名为：displayName 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Description">
+            <summary>
+            描述，属性名为：description 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.PhysicalDeliveryOfficeName">
+            <summary>
+            办公室，属性名为：physicalDeliveryOfficeName 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.TelephoneNumber">
+            <summary>
+            电话号码，属性名为：telephoneNumber 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Mail">
+            <summary>
+            电子邮件，属性名为：mail 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.WWWHomePage">
+            <summary>
+            网页url，多个以英文分号分隔，属性名为：wWWHomePage
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.CN">
+            <summary>
+            普通名称，属性名为：cn
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Birthday">
+            <summary>
+            生日，属性名：extensionAttribute1
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.C">
+            <summary>
+            国家/地区，如：中国CN，英国GB ，属性名为：c  
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.CO">
+            <summary>
+            国家，属性名为：co  
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.ST">
+            <summary>
+            省/自治区，属性名为：st 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.L">
+            <summary>
+            市/县，属性名为：l 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.StreetAddress">
+            <summary>
+            街道，属性名为：streetAddress 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.PostOfficeBox">
+            <summary>
+            邮政信箱 ，属性名为：postOfficeBox  
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.PostalCode">
+            <summary>
+            邮政编码，属性名为：postalCode  
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Name">
+            <summary>
+            名称，属性名为：name  
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.UserPrincipalName">
+            <summary>
+            用户登录名(e.g. user@domain.local)，属性名为：userPrincipalName
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.SAMAccountName">
+            <summary>
+            用户登录名（以前版本），属性名为：sAMAccountName
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.DistinguishedName">
+            <summary>
+            表示名，在域系统中路径，属性名为：distinguishedName
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.LogonHours">
+            <summary>
+            登录时间，属性名为：logonHours
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.UserWorkstations">
+            <summary>
+            登录到 userWorkstations 多个以英文逗号分隔，属性名为：userWorkstations
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.UserAccountControl">
+            <summary>
+            用户帐户控制 (启用：512，禁用：514， 密码永不过期：66048) ，属性名为：userAccountControl
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.AccountExpires">
+            <summary>
+            帐户过期，属性名为：accountExpires
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.WhenCreated">
+            <summary>
+            何时创建，属性名为：whenCreated
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.WhenChanged">
+            <summary>
+            账号更改时间，属性名为：whenChanged
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.USNCreated">
+            <summary>
+            ???，属性名为：uSNCreated
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.USNChanged">
+            <summary>
+            ???，属性名为：uSNChanged
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.ObjectGUID">
+            <summary>
+            ???，属性名为：objectGUID
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.ObjectSid">
+            <summary>
+            ???，属性名为：objectSid
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.AdminCount">
+            <summary>
+            ???，属性名为：adminCount
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.SAMAccountType">
+            <summary>
+            账号类型，属性名为：sAMAccountType
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.BadPwdCount">
+            <summary>
+            密码错误次数，属性名为：badPwdCount
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.BadPasswordTime">
+            <summary>
+            密码最近错误时间??，属性名为：badPasswordTime
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.CodePage">
+            <summary>
+            编码页，属性名为：codePage
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.CountryCode">
+            <summary>
+            国家编码，属性名为：countryCode
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.LastLogoff">
+            <summary>
+            上次注销时间，属性名为：lastLogoff
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.LastLogon">
+            <summary>
+            上次登录时间，属性名为：lastLogon
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.PwdLastSet">
+            <summary>
+            密码上次设置时间，属性名为：pwdLastSet
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.LogonCount">
+            <summary>
+            登录次数，属性名为：logonCount
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.LastLogonTimestamp">
+            <summary>
+            上次登录时间戳，属性名为：lastLogonTimestamp
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Manager">
+            <summary>
+            上级管理者，属性名为：manager
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.ProfilePath">
+            <summary>
+            配置文件路径，属性名为：profilePath 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.ScriptPath">
+            <summary>
+            登录脚本，属性名为：scriptPath
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.HomeDrive">
+            <summary>
+            所属磁盘???，属性名为：homeDrive
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.HomeDirectory">
+            <summary>
+            主文件夹：本地路径，属性名为：homeDirectory
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.HomePhone">
+            <summary>
+            家庭电话 (若是其它，在前面加other)，属性名为：homePhone 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Pager">
+            <summary>
+            寻呼机，属性名为：pager 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Mobile">
+            <summary>
+            移动电话，若多个以英文分号分隔。 属性名为：mobile 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.FacsimileTelephoneNumber">
+            <summary>
+            传真，属性名为：facsimileTelephoneNumber 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.IpPhone">
+            <summary>
+            IP电话，属性名为：ipPhone 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Info">
+            <summary>
+            注释，属性名为：info 
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Title">
+            <summary>
+            职务，属性名为：title
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Department">
+            <summary>
+            部门，属性名为：department
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Company">
+            <summary>
+            公司，属性名为：company
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.EmployeeNumber">
+            <summary>
+            员工编号，属性名为：employeeNumber
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.IsActive">
+            <summary>
+            账号是否禁用，
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.GroupsInString">
+            <summary>
+            以字符串标识的组
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainUser.Groups">
+            <summary>
+            用户所属组
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.OrganizationalUnit">
+            <summary>
+            组织结构实体操作类
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.SearchOrganizationalUnits(BitAuto.Services.DomainServices.OrganizationalUnitQuery,System.String)">
+            <summary>
+            查询组织结构
+            </summary>
+            <param name="queryType">查询类型</param>
+            <param name="query">查询</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.SearchOrganizationalUnit(System.String)">
+            <summary>
+            查询组织结构
+            </summary>
+            <param name="orgUnitName">组织架构名称</param>       
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.SearchOrganizationUnit(System.String)">
+            <summary>
+            通过显示名来搜索组织单元
+            </summary>
+            <param name="orgUnitDisplayName">要组织单元的显示名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.ConvertToEntity(System.DirectoryServices.DirectoryEntry)">
+            <summary>
+            将包含OrganizationalUnit的DirectoryEntry信息转化实体
+            </summary>
+            <param name="de"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.ConvertToEntity(System.DirectoryServices.DirectoryEntries)">
+            <summary>
+            将包含OrganizationalUnit的DirectoryEntry列表转化实体列表
+            </summary>
+            <param name="entries"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.ConvertToEntity(System.DirectoryServices.SearchResultCollection)">
+            <summary>
+            将查询结果转化实体列表
+            </summary>
+            <param name="searchResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.AddOrganizationUnit(System.String,System.String)">
+            <summary>
+            创建组织单元
+            </summary>
+            <param name="ldapDN">添加到的路径</param>
+            <param name="ouName">组织单元名称</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.AddOrganizationUnit(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ldapDN"></param>
+            <param name="ouName"></param>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.AddOrganizationUnit(System.String,System.String,System.String,System.String)">
+            <summary>
+            添加组织单元
+            </summary>
+            <param name="ldapDN">添加到路径</param>
+            <param name="ouName">名称</param>
+            <param name="description"></param>
+            <param name="managerDomainAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.UpdateOrganization(BitAuto.Services.DomainServices.OrganizationalUnit,System.String,System.String,System.String)">
+            <summary>
+            更新组织单元
+            </summary>
+            <param name="oldOne">旧的组织单元</param>
+            <param name="destinationPath">新的组织单元</param>
+            <param name="newName">名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.UpdateDisplayName(System.String,System.String)">
+            <summary>
+            更新组织单元的显示名
+            </summary>
+            <param name="dinstinguishedName">组织单元的ladp路径</param>
+            <param name="newName">新名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.ReName(System.String,System.String)">
+            <summary>
+            给组织单元重命名，不能通过property["name"]=value形式来修改组织单元名称
+            </summary>
+            <param name="ladp">组织单元的ladp路径</param>
+            <param name="newName">新名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetOUEntry(System.String)">
+            <summary>
+            精确获取组织单元
+            </summary>
+            <param name="ouPath">组织单元完整层级路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.MoveTo(System.String,System.String)">
+            <summary>
+            移动组织单元到新的位置
+            </summary>
+            <param name="path">待移动组织单元路径</param>
+            <param name="destinationPath">目的位置</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.OnOrgMoving(System.String)">
+            <summary>
+             移动组织单元之前将组织单元下用户从上级组织单元下通用安全组中移除
+            </summary>
+            <param name="path">组织单元路径</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.OnOrgMoved(System.String,System.String)">
+            <summary>
+            在组织单元被转移到新的组织单元下后将组织单元下员工添加到
+            所有父级组织单元下的通用安全组
+            </summary>
+            <param name="destinationPath">目的组织单元路径</param>
+            /// <param name="path">组织单元路径</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetOrganiztionByPath(System.String)">
+            <summary>
+            根据路径获取组织单元
+            </summary>
+            <param name="path">组织单元路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.DeleteOrganization(System.String)">
+            <summary>
+            删除组织单元
+            </summary>
+            <param name="ouPath">组织单元完整层级路径</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.ContainChildElement(System.String)">
+            <summary>          
+            判断是否包含有子对象
+            </summary>
+            <param name="ouPath">相关组织单元路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetOrganizationalUnit(System.String)">
+            <summary>
+            返回组织架构信息。在集团公司中，部门名称可能有重名情况。除非确定部门名称没有重名，否则请使用两个参数的重载方法
+            </summary>
+            <param name="orgUnitName">组织架构名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetOrganizationalUnit(System.String,System.String)">
+            <summary>
+            返回组织架构信息
+            </summary>
+            <param name="orgUnitName">组织架构名称</param>
+            <param name="parentOrgUnitName">上级组织架构名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetOrganizationalUnitsByKeywords(System.String)">
+            <summary>
+            返回搜索的部门结构
+            </summary>
+            <param name="keywords">搜索关键词</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetAllOrganizationalUnits">
+            <summary>
+            返回组织架构信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetSubOrganizationalUnits(System.String)">
+            <summary>
+            返回下级部门信息。 在集团公司中，部门名称可能有重名情况。除非确定部门名称没有重名，否则请使用两个参数的重载方法
+            </summary>
+            <param name="parentOrgUnit">上级部门,中文名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetSubOrganizationalUnits(System.String,System.String)">
+            <summary>
+            返回下级部门信息。 在集团公司中，部门名称可能有重名情况。
+            为准确查找用户，需要将上级部门，上上级部门名称同时传入
+            </summary>
+            <param name="parentOrgUnit">上级部门,中文名称</param>
+            <param name="grandpaOrgUnitName">上上级部门,中文名称</param>
+            <returns></returns>        
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.OrganizationalUnit.GetOrganizationUnitChildren(System.String)">
+            <summary>
+            获取指定路径组织单元的直接子组织单元集合
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.OrganizationalUnit.Name">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.OrganizationalUnit.CanonicalName">
+             <summary>
+            规范名
+             </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.OrganizationalUnit.DistinguishedName">
+            <summary>
+            唯一名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.OrganizationalUnit.ManagerBy">
+            <summary>
+            管理者
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.OrganizationalUnit.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.OrganizationalUnitQuery">
+            <summary>
+            组织结构查询枚举
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.OrganizationalUnitQuery.All">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.OrganizationalUnitQuery.Keywords">
+            <summary>
+            关键词
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.OrganizationalUnitQuery.Children">
+            <summary>
+            下级部门
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.LoginResult">
+            <summary>
+            域账号登陆状态
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.LoginResult.Success">
+            <summary>
+            登陆成功
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.LoginResult.UserNotExist">
+            <summary>
+            用户不存在
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.LoginResult.AccountInactive">
+            <summary>
+            帐号被禁用
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.LoginResult.PasswordIncorrect">
+            <summary>
+            用户密码不正确
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.IdentityImpersonation">
+            <summary>
+            超级AD用户模拟操作类
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.DomainGroup">
+            <summary>
+            域用户组实体操作类
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.DomainGroup.impersonate">
+            <summary>
+            超级域账号用户模拟声明
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetDirectoryEntryOfGroup(System.String)">
+            <summary>
+            获取特定组
+            </summary>
+            <param name="groupName">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetDirectorEntryGroup(System.String)">
+            <summary>
+            根据目录对象的绝对路径获取组
+            </summary>
+            <param name="distinguishedName">组绝对路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetDirectoryEntryByDomainAccount(System.String)">
+            <summary>
+            通过组的域账号获取组
+            </summary>
+            <param name="groupDomainAccount">组的域账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.ConvertToEntity(System.DirectoryServices.DirectoryEntry)">
+            <summary>
+            转化为实体对象        
+            </summary>
+            <param name="de">从域中得到的组条目信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.ConvertToEntity(System.DirectoryServices.SearchResultCollection)">
+            <summary>
+            转化为实体对象
+            </summary>
+            <param name="seCollection">从域中得到的组条目搜索结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.UpdateGroup(BitAuto.Services.DomainServices.DomainGroup)">
+            <summary>
+            更新域组
+            </summary>
+            <param name="group"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.ReName(System.String,System.String)">
+            <summary>
+            重命名组
+            </summary>
+            <param name="domainAccount">组的域账号</param>
+            <param name="newName">新的名称</param>
+            <returns>更新后的组</returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.AddUserToGroup(System.String,System.String)">
+            <summary>
+            添加域用户到组
+            </summary>
+            <param name="distinguishedName">用户区别名</param>
+            <param name="groupPath">组路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.RemoveUserFromGroup(System.String,System.String)">
+            <summary>
+            从域组中移除域用户
+            </summary>
+            <param name="domainAccount">用户中文名</param>
+            <param name="groupName">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.AddGroup(System.String,System.String)">
+            <summary>
+            添加组
+            </summary>
+            <param name="ldapPath">要填加到的位置</param>
+            <param name="groupName">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.AddGroup(System.String,System.String,System.String)">
+            <summary>
+            添加通用安全组
+            </summary>
+            <param name="parentOuPath">父组织单元路径</param>
+            <param name="groupName">组名称</param>
+            <param name="domainAccountName">组域账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.AddToGroup(System.String,System.String)">
+            <summary>
+            将用户添加到组
+            </summary>
+            <param name="domainAccount">域账号</param>
+            <param name="oupath">组的distinguished名称</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.AddToGroupRecursive(System.String,System.String)">
+            <summary>
+            递归将用户添加到父级组织单元下的
+            默认通用安全组
+            </summary>
+            <param name="userDistinguishedName">用户唯一名称</param>
+            <param name="groupDistinguishedName">组唯一名称</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.RemoveUserRecursive(System.String,System.String)">
+            <summary>
+            递归从组移除用户，默认情况下用户属于他所有的上级组织单元下的
+            通用安全组，转移用户时要取消所有这种成员关系
+            </summary>
+            <param name="userDistinguishedName">用户的唯一名称</param>
+            <param name="groupDistinguishedName">组的唯一名称</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.RemoveUser(System.String,System.String)">
+            <summary>
+            从组中移除用户
+            </summary>
+            <param name="userDistinguishedName">用户区别名</param>
+            <param name="groupPath">组路径</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetUsers(System.String)">
+            <summary>
+            得到指定域组的所有用户
+            </summary>
+            <param name="groupPath">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetGroup(System.String)">
+            <summary>
+            得到域组
+            </summary>
+            <param name="groupName">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetGroupByDomainAccount(System.String)">
+            <summary>
+            通过组的域账号获取组
+            </summary>
+            <param name="groupDomainAccount">组的域账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetGroupByPath(System.String)">
+            <summary>
+            根据组的唯一的名称获取组
+            </summary>
+            <param name="groupDistinguishedName">区别名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetAllGroups">
+            <summary>
+            返回所有域组信息,以泛型方式存放
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetGroups(System.String)">
+            <summary>
+            得到指定用户的所用域组信息?
+            </summary>
+            <param name="groupName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.CopyMemeberFromOther(System.String,System.String)">
+            <summary>
+            拷贝组成员
+            </summary>
+            <param name="copyToGroupPath">目的组路径</param>
+            <param name="copyFromGroupPath">源组路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetDefaultGroupOfOU(System.String)">
+            <summary>
+            获取组织单元下默认通用安全组
+            </summary>
+            <param name="distinguishedName">父组织单元路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetGroupUsers(System.String)">
+            <summary>
+            得到当前指定域组的所有用户,以|分隔返回字符串
+            </summary>
+            <param name="groupName">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.GetUserGroups(System.String)">
+            <summary>
+             得到当前指定域用户的所在域组, 以|分隔返回字符串
+            </summary>
+            <param name="userName">用户名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.ReCreate(System.String,System.String,System.String)">
+            <summary>
+            重建通用安全组
+            </summary>
+            <param name="groupName">组名</param>
+            <param name="parentOuPath">父组织单元路径</param>
+            <param name="newDomainAccount">新的domainaccountname</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.MakeMemberComplete(System.String)">
+             <summary>
+            组织单元下通用安全组的成员理论上应该与组织单元相同
+             如果没有包含则添加进去
+             </summary>
+             <param name="path">组织单元路径</param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainGroup.DomainAccountExist(System.String)">
+             <summary>
+            判断组域账号是否已经存在 ，由于组域账号由部门id加“_USG”组成
+            所以有可能出现重名
+             </summary>
+             <param name="domainAccount">域账号</param>
+             <returns></returns>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainGroup.Name">
+            <summary>
+            组名
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainGroup.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainGroup.GroupAccount">
+            <summary>
+            组的域账号
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainGroup.DistinguishedName">
+            <summary>
+            标识名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainGroup.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.DomainGroup.Users">
+            <summary>
+            组内用户
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.DomainService">
+            <summary>
+            ADHelper       域操作类
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.DomainService.impersonate">
+            <summary>
+            超级AD用户模拟声明
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.DomainService.EscapeChars">
+            <summary>
+            ldap保留的字符转移
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.GetSearchRoot">
+            <summary>
+            获取域条目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.GetSearchRoot(System.String,System.String)">
+            <summary>
+            获取域条目
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.GetSearchRoot(System.String,System.String,System.String,System.DirectoryServices.AuthenticationTypes)">
+            <summary>
+            获取域名条目
+            </summary>
+            <param name="domainReference">搜索的路径</param>
+            <param name="userName">用户名</param>
+            <param name="password">密码</param>
+            <param name="authType">验证类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.GetProperty(System.DirectoryServices.DirectoryEntry,System.String)">
+            <summary>
+            获取属性值
+            </summary>
+            <param name="de"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.GetProperty(System.DirectoryServices.SearchResult,System.String)">
+            <summary>
+             获取属性值
+            </summary>
+            <param name="searchResult"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.SetProperty(System.DirectoryServices.DirectoryEntry,System.String,System.String)">
+            <summary>
+            设置属性值
+            </summary>
+            <param name="de"></param>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.GetDirectoryEntryByPath(System.String)">
+            <summary>
+            根据路径获取目录对象
+            </summary>
+            <param name="path">对象的路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.DomainServices.DomainService.ReplaceEscapeChar(System.String)">
+            <summary>
+            替换在ldap查询中非法的字符
+            </summary>
+            <param name="src">源字符串</param>
+            <returns>目标字符串</returns>
+        </member>
+        <member name="T:BitAuto.Services.DomainServices.AccountOptions">
+            <summary>
+            进一步处理完善方可以处理所有的userAccountControl状态同步及设置
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.Script">
+            <summary>
+            登录脚本标志。如果通过 ADSI LDAP 进行读或写操作时，该标志失效。如果通过 ADSI WINNT，该标志为只读。
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.AccountDisable">
+            <summary>
+            用户帐号禁用标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.HomeDirRequired">
+            <summary>
+            主文件夹标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.LockOut">
+            <summary>
+            过期标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.PasswordNotRequired">
+            <summary>
+            用户密码不是必须的
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.PasswordCannotChange">
+            <summary>
+            密码不能更改标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.EncryptedTextPasswordAllowed">
+            <summary>
+            使用可逆的加密保存密码
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.TempDuplicateAccount">
+            <summary>
+            本地帐号标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.NormalAccount">
+            <summary>
+            普通用户的默认帐号类型
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.InterDomainTrustAccount">
+            <summary>
+            跨域的信任帐号标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.WorkstationTrustAccount">
+            <summary>
+            工作站信任帐号标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.ServerTrustAccount">
+            <summary>
+            服务器信任帐号标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.DontExpiredPassword">
+            <summary>
+            密码永不过期标志
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.Enable">
+            <summary>
+            允许用户
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.AccountOptions.Disable">
+            <summary>
+            [546:512 + 32 + 2] 禁止用户
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.DomainServices.Loger.m_log4Net">
+            <summary>
+            log4Net的引用成员
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.DomainServices.Loger.Log4Net">
+            <summary>
+            通过此Property获得日志实例的引用
+            </summary>
+        </member>
+    </members>
+</doc>

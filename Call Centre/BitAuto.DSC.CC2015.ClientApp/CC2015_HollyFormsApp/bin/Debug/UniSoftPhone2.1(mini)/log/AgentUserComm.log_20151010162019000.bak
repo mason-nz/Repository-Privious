@@ -1,0 +1,87 @@
+[10-10 16:19:38.698][INFO][Holly_Server_Base::Create] Create Log File, LogLevel<5>, FileName<.\log\AgentUserComm.log>.
+[10-10 16:19:38.699][INFO][Holly_Server::AddRemoteServer] ServerIP<192.168.112.205>, ServerPort<12004>.
+[10-10 16:19:38.700][INFO][Holly_Server::AddRemoteServer] ServerIP<192.168.112.205>, ServerPort<11001>.
+[10-10 16:19:38.700][INFO][Holly_Server::AddRemoteServer] ServerIP<192.168.112.205>, ServerPort<12000>.
+[10-10 16:19:38.701][INFO][Holly_Server::AttachUser] UserTable Add,UserName<AgentUser>,UserID<1>,UserGOR<0x0>,Registed<0>.
+[10-10 16:19:38.791][INFO][Holly_Server::StartConnectLS] Read LSIP<192.168.112.205>, LSPort<11000>, FileName<D:\CC2015\UniSoftPhone2.1(mini)\>.
+[10-10 16:19:38.791][INFO][Holly_Server::AddRemoteServer] ServerIP<192.168.112.205>, ServerPort<11000>.
+[10-10 16:19:38.792][ERRO][Holly_Server::StartConnectLS] ConnectLSTimer SetTimer TimerID<1023>.
+[10-10 16:19:38.793][DEBU][Holly_Server::ConnectLS] LSIP<192.168.112.205>, LSPort<11000>, nRetVal<0>.
+[10-10 16:19:38.793][ERRO][Holly_Server::Run] ClearConnectTimer SetTimer TimerID<2047>.
+[10-10 16:19:38.794][INFO][Holly_Server::Run] Create Server Ok, ServerID<-65536>, ServerName<AgentSoftPhone>, LocalIP<>, ListenPort<0>.
+[10-10 16:19:38.854][ERRO][Holly_Tcp_Handler::Holly_Tcp_Handler] Tcp handle new, handle<0x4051e00>.
+[10-10 16:19:38.855][INFO][Holly_Tcp_Handler::open] Tcp handle created, handle<0x4051e00>, <192.168.112.205:11000>.
+[10-10 16:19:38.856][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10010001>, From<0xffffffff>, To<0xffffffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<146>, <0x4051e00><192.168.112.205:11000>.
+[10-10 16:19:38.856][INFO][Holly_Server::CmdRegister] Start Register, ServerAddr<192.168.112.205>, ServerPort<11000>.
+[10-10 16:19:38.856][ERRO][Holly_Server::OnConnected] handle<0x4051e00>,handleCount<1>.
+[10-10 16:19:39.221][DEBU][Holly_Tcp_Handler::Recv] <--- MsgID<0x20010001>, From<0x10001>, To<0x1ffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<186>, PduLen<186>, <0x4051e00><192.168.112.205:11000>.
+[10-10 16:19:39.221][ERRO][Holly_Server::ClearTimer] ClearTimer TimerID<1023>.
+[10-10 16:19:39.222][INFO][Holly_Server::OnRespRegister] Add UserTable,UserName<AgentUser>,UserID<1>,UserGOR<0x2b30001>.
+[10-10 16:19:39.222][DEBU][Holly_Server::NotifyUsersOnLine] RemoteUserGOR<0x2b30001>, RemoteUserName<AgentUser>.
+[10-10 16:19:39.222][INFO][Holly_Server::OnRespRegister] Resp Register Ok, ServerID<691>.
+[10-10 16:19:39.222][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10010002>, From<0x2b3ffff>, To<0xffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<252>, <0x4051e00><192.168.112.205:11000>.
+[10-10 16:19:39.223][ERRO][Holly_Server::CmdHand] CmdHandOverTimer SetTimer TimerID<3071>.
+[10-10 16:19:39.223][INFO][Holly_Server::CmdHand] Start Hand, Local-ServerID<691>, Local-ServerName<AgentSoftPhone>, ServerAddr<192.168.112.205>, ServerPort<11000>, ConnectState<1>,UserCount<1>.
+[10-10 16:19:39.223][ERRO][Holly_Server::OnRespRegister] CheckConnectTimer SetTimer TimerID<4095>.
+[10-10 16:19:39.224][DEBU][Holly_Server::CheckConnect] RemoteServerIP<192.168.112.205>, RemoteServerPort<12000>, nRetVal<0>.
+[10-10 16:19:39.226][DEBU][Holly_Server::CheckConnect] RemoteServerIP<192.168.112.205>, RemoteServerPort<11001>, nRetVal<0>.
+[10-10 16:19:39.228][DEBU][Holly_Server::CheckConnect] RemoteServerIP<192.168.112.205>, RemoteServerPort<12004>, nRetVal<0>.
+[10-10 16:19:39.276][DEBU][Holly_Tcp_Handler::Recv] <--- MsgID<0x20010002>, From<0x1ffff>, To<0x2b3ffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<279>, PduLen<279>, <0x4051e00><192.168.112.205:11000>.
+[10-10 16:19:39.277][ERRO][Holly_Server::OnRespHand] RemoteServerTable Add nServerID<1>,ServerName<LSService>
+[10-10 16:19:39.277][INFO][Holly_Server::OnRespHand] RemoteUserTable Add, RemoteUserID<1>, RemoteUserName<LSUser>, RemoteUserGOR<0x10001>.
+[10-10 16:19:39.277][DEBU][Holly_Server::NotifyUsersOnLine] RemoteUserGOR<0x10001>, RemoteUserName<LSUser>.
+[10-10 16:19:39.277][ERRO][Holly_Server::ClearTimer] ClearTimer TimerID<3071>.
+[10-10 16:19:39.278][ERRO][Holly_Server::OnRespHand] ClientHeartbeatTimer SetTimer TimerID<5119>,nServerID<1>,ChannelHandle<0x4051e00>.
+[10-10 16:19:39.278][INFO][Holly_Server::OnRespHand] RemoteServerID<1>, RemoteServerName<LSService>, RemoteServerIP<192.168.112.205>, RemoteServerPort<11000>, ConnectPort<39243>.
+[10-10 16:19:39.281][ERRO][Holly_Tcp_Handler::Holly_Tcp_Handler] Tcp handle new, handle<0x4073f30>.
+[10-10 16:19:39.282][INFO][Holly_Tcp_Handler::open] Tcp handle created, handle<0x4073f30>, <192.168.112.205:12000>.
+[10-10 16:19:39.283][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10010002>, From<0x2b3ffff>, To<0xffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<252>, <0x4073f30><192.168.112.205:12000>.
+[10-10 16:19:39.283][ERRO][Holly_Server::CmdHand] CmdHandOverTimer SetTimer TimerID<6143>.
+[10-10 16:19:39.283][INFO][Holly_Server::CmdHand] Start Hand, Local-ServerID<691>, Local-ServerName<AgentSoftPhone>, ServerAddr<192.168.112.205>, ServerPort<12000>, ConnectState<1>,UserCount<1>.
+[10-10 16:19:39.283][ERRO][Holly_Server::OnConnected] handle<0x4073f30>,handleCount<2>.
+[10-10 16:19:39.283][ERRO][Holly_Tcp_Handler::Holly_Tcp_Handler] Tcp handle new, handle<0x4084228>.
+[10-10 16:19:39.284][INFO][Holly_Tcp_Handler::open] Tcp handle created, handle<0x4084228>, <192.168.112.205:11001>.
+[10-10 16:19:39.284][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10010002>, From<0x2b3ffff>, To<0xffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<252>, <0x4084228><192.168.112.205:11001>.
+[10-10 16:19:39.284][ERRO][Holly_Server::CmdHand] CmdHandOverTimer SetTimer TimerID<7167>.
+[10-10 16:19:39.284][INFO][Holly_Server::CmdHand] Start Hand, Local-ServerID<691>, Local-ServerName<AgentSoftPhone>, ServerAddr<192.168.112.205>, ServerPort<11001>, ConnectState<1>,UserCount<1>.
+[10-10 16:19:39.284][ERRO][Holly_Server::OnConnected] handle<0x4084228>,handleCount<3>.
+[10-10 16:19:39.285][ERRO][Holly_Tcp_Handler::Holly_Tcp_Handler] Tcp handle new, handle<0x4083e20>.
+[10-10 16:19:39.285][INFO][Holly_Tcp_Handler::open] Tcp handle created, handle<0x4083e20>, <192.168.112.205:12004>.
+[10-10 16:19:39.285][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10010002>, From<0x2b3ffff>, To<0xffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<252>, <0x4083e20><192.168.112.205:12004>.
+[10-10 16:19:39.285][ERRO][Holly_Server::CmdHand] CmdHandOverTimer SetTimer TimerID<8191>.
+[10-10 16:19:39.285][INFO][Holly_Server::CmdHand] Start Hand, Local-ServerID<691>, Local-ServerName<AgentSoftPhone>, ServerAddr<192.168.112.205>, ServerPort<12004>, ConnectState<1>,UserCount<1>.
+[10-10 16:19:39.286][ERRO][Holly_Server::OnConnected] handle<0x4083e20>,handleCount<4>.
+[10-10 16:19:39.338][DEBU][Holly_Tcp_Handler::Recv] <--- MsgID<0x20010002>, From<0xdffff>, To<0x2b3ffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<281>, PduLen<281>, <0x4073f30><192.168.112.205:12000>.
+[10-10 16:19:39.339][ERRO][Holly_Server::OnRespHand] RemoteServerTable Add nServerID<13>,ServerName<AgentServer>
+[10-10 16:19:39.339][INFO][Holly_Server::OnRespHand] RemoteUserTable Add, RemoteUserID<1>, RemoteUserName<ASUser>, RemoteUserGOR<0xd0001>.
+[10-10 16:19:39.339][DEBU][Holly_Server::NotifyUsersOnLine] RemoteUserGOR<0xd0001>, RemoteUserName<ASUser>.
+[10-10 16:19:39.339][ERRO][Holly_Server::ClearTimer] ClearTimer TimerID<6143>.
+[10-10 16:19:39.340][ERRO][Holly_Server::OnRespHand] ClientHeartbeatTimer SetTimer TimerID<9215>,nServerID<13>,ChannelHandle<0x4073f30>.
+[10-10 16:19:39.340][INFO][Holly_Server::OnRespHand] RemoteServerID<13>, RemoteServerName<AgentServer>, RemoteServerIP<192.168.112.205>, RemoteServerPort<12000>, ConnectPort<39251>.
+[10-10 16:19:39.340][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10100010>, From<0x2b30001>, To<0xd0001>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<78>, <0x4073f30><192.168.112.205:12000>.
+[10-10 16:19:39.340][DEBU][Holly_Tcp_Handler::Recv] <--- MsgID<0x20010002>, From<0x12ffff>, To<0x2b3ffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<274>, PduLen<274>, <0x4084228><192.168.112.205:11001>.
+[10-10 16:19:39.340][ERRO][Holly_Server::OnRespHand] RemoteServerTable Add nServerID<18>,ServerName<EDS>
+[10-10 16:19:39.341][DEBU][Holly_Tcp_Handler::Recv] <--- MsgID<0x20010002>, From<0xcffff>, To<0x2b3ffff>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<352>, PduLen<352>, <0x4083e20><192.168.112.205:12004>.
+[10-10 16:19:39.341][INFO][Holly_Server::OnRespHand] RemoteUserTable Add, RemoteUserID<1>, RemoteUserName<EDSUser>, RemoteUserGOR<0x120001>.
+[10-10 16:19:39.341][DEBU][Holly_Server::NotifyUsersOnLine] RemoteUserGOR<0x120001>, RemoteUserName<EDSUser>.
+[10-10 16:19:39.341][ERRO][Holly_Server::ClearTimer] ClearTimer TimerID<7167>.
+[10-10 16:19:39.342][ERRO][Holly_Server::OnRespHand] ClientHeartbeatTimer SetTimer TimerID<10239>,nServerID<18>,ChannelHandle<0x4084228>.
+[10-10 16:19:39.342][INFO][Holly_Server::OnRespHand] RemoteServerID<18>, RemoteServerName<EDS>, RemoteServerIP<192.168.112.205>, RemoteServerPort<11001>, ConnectPort<39252>.
+[10-10 16:19:39.342][ERRO][Holly_Server::OnRespHand] RemoteServerTable Add nServerID<12>,ServerName<StatServer>
+[10-10 16:19:39.342][INFO][Holly_Server::OnRespHand] RemoteUserTable Add, RemoteUserID<1>, RemoteUserName<StatEvent>, RemoteUserGOR<0xc0001>.
+[10-10 16:19:39.343][DEBU][Holly_Server::NotifyUsersOnLine] RemoteUserGOR<0xc0001>, RemoteUserName<StatEvent>.
+[10-10 16:19:39.343][INFO][Holly_Server::OnRespHand] RemoteUserTable Add, RemoteUserID<2>, RemoteUserName<StatUser>, RemoteUserGOR<0xc0002>.
+[10-10 16:19:39.343][DEBU][Holly_Server::NotifyUsersOnLine] RemoteUserGOR<0xc0002>, RemoteUserName<StatUser>.
+[10-10 16:19:39.343][ERRO][Holly_Server::ClearTimer] ClearTimer TimerID<8191>.
+[10-10 16:19:39.344][ERRO][Holly_Server::OnRespHand] ClientHeartbeatTimer SetTimer TimerID<11263>,nServerID<12>,ChannelHandle<0x4083e20>.
+[10-10 16:19:39.344][INFO][Holly_Server::OnRespHand] RemoteServerID<12>, RemoteServerName<StatServer>, RemoteServerIP<192.168.112.205>, RemoteServerPort<12004>, ConnectPort<39253>.
+[10-10 16:19:39.394][DEBU][Holly_Tcp_Handler::Recv] <--- MsgID<0x20100010>, From<0xd0001>, To<0x2b30001>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<118>, PduLen<118>, <0x4073f30><192.168.112.205:12000>.
+[10-10 16:19:59.870][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10100001>, From<0x2b30001>, To<0xd0001>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<382>, <0x4073f30><192.168.112.205:12000>.
+[10-10 16:19:59.932][DEBU][Holly_Tcp_Handler::Recv] <--- MsgID<0x30100037>, From<0xd0001>, To<0x2b30001>, St<0x50100006>, SenObj<-1>, RecObj<-1>, Len<508>, PduLen<508>, <0x4073f30><192.168.112.205:12000>.
+[10-10 16:20:16.555][DEBU][Holly_Tcp_Handler::SendData] ---> MsgID<0x10100002>, From<0x2b30001>, To<0xd0001>, St<0x0>, SenObj<-1>, RecObj<-1>, Len<99>, <0x4073f30><192.168.112.205:12000>.
+[10-10 16:20:18.800][INFO][Holly_Server::DetachUser] UserTable Delete,UserName<AgentUser>,UserID<1>,UserGOR<0x2b30001>.
+[10-10 16:20:18.915][ERRO][Holly_Server::ClearTimer] ClearTimer TimerID<2047>.
+[10-10 16:20:18.916][ERRO][Holly_Server::ClearTimer] ClearTimer TimerID<4095>.
+[10-10 16:20:18.925][INFO][Holly_Server::svc] Handle Message Thread Exit.
+[10-10 16:20:18.936][INFO][Holly_Server::~Holly_Server] Close Connector Ok.
+[10-10 16:20:18.936][INFO][Holly_Server::~Holly_Server] Close Acceptor Ok.

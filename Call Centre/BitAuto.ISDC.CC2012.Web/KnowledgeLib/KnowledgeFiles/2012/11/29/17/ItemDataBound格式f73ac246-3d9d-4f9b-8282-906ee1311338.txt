@@ -1,0 +1,13 @@
+protected void repterFriendTypeList_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                string typeName = DataBinder.Eval(e.Item.DataItem, "Name").ToString().Trim();
+            }
+        }
+
+<FCKeditorV2:FCKeditor ID="txtMailContent" runat="server" Height="500px" AutoDetectLanguage="false">
+                        </FCKeditorV2:FCKeditor>
+
+
+var status = $(":checkbox[id^='ckxStatus'][checked=true]").map(function() { return $(this).val(); }).get().join(",");

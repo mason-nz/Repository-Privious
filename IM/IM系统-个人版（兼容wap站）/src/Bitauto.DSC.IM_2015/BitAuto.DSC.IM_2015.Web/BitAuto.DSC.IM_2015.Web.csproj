@@ -1,0 +1,1402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2E9627E-9E72-43E8-BBD3-B129633C4CEA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.DSC.IM_2015.Web</RootNamespace>
+    <AssemblyName>BitAuto.DSC.IM_2015.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.ISDC.CC2012.WebService">
+      <HintPath>..\..\..\..\..\客户关系管理\BitAuto.ISDC.CC2012.WebService\bin\Debug\BitAuto.ISDC.CC2012.WebService.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Services.Organization.Common">
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.Services.Organization.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Services.Organization.Framework">
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.Services.Organization.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Services.Organization.Remoting">
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.Services.Organization.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\..\..\..\Lib\BitAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.JsonNew">
+      <HintPath>..\..\..\..\..\..\Lib\Newtonsoft.JsonNew.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AgentChat.aspx" />
+    <Content Include="AgentChat.js" />
+    <Content Include="AjaxServers\ContentManage\AddRemarkForm.aspx" />
+    <Content Include="AjaxServers\ContentManage\ChatHistoryExport.aspx" />
+    <Content Include="AjaxServers\ContentManage\ContentsDetailForm.aspx" />
+    <Content Include="AjaxServers\ContentManage\CSData.aspx" />
+    <Content Include="AjaxServers\ContentManage\CSHistoryData.aspx" />
+    <Content Include="AjaxServers\ContentManage\OnlineMessageData.aspx" />
+    <Content Include="AjaxServers\ContentManage\OnlineMessageExport.aspx" />
+    <Content Include="AjaxServers\ContentManage\UserActionLogList.aspx" />
+    <Content Include="AjaxServers\CustAssignUserList.aspx" />
+    <Content Include="AjaxServers\OrderInfo.aspx" />
+    <Content Include="AjaxServers\PopPages\SelectAgents.aspx" />
+    <Content Include="AjaxServers\QueueManage\MonitorData.aspx" />
+    <Content Include="AjaxServers\QueueManage\QueueList.aspx" />
+    <Content Include="AjaxServers\QueueManage\WcfClientManagerList.aspx" />
+    <Content Include="AjaxServers\SendSMSPoperNew2.aspx" />
+    <Content Include="AjaxServers\SeniorManage\CityManageList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\ComSenManageList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\FreProblemList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\LabelConfigList.aspx" />
+    <Content Include="AjaxServers\SeniorManage\LabelManageList.aspx" />
+    <Content Include="AjaxServers\TrailManager\AgentStatusList.aspx" />
+    <Content Include="AjaxServers\TrailManager\AlexaList.aspx" />
+    <Content Include="AjaxServers\TrailManager\DialogueList.aspx" />
+    <Content Include="AjaxServers\TrailManager\SatisfactionList.aspx" />
+    <Content Include="AjaxServers\TrailManager\ServiceMonitoringList.aspx" />
+    <Content Include="AjaxServers\TrailManager\TrailList.aspx" />
+    <Content Include="Channels\ChatService.svc" />
+    <Content Include="Common\MutilAgentChoose.aspx" />
+    <Content Include="ContentManage\ChatHistory.aspx" />
+    <Content Include="ContentManage\OnlineMessage.aspx" />
+    <Content Include="ContentManage\UserActionLog.aspx" />
+    <Content Include="ConversationHistory.aspx" />
+    <Content Include="ConversationHistoryForCC.aspx" />
+    <Content Include="ConversationHistoryForCCDetail.aspx" />
+    <Content Include="mOnLineMessageForm.aspx" />
+    <Content Include="mSatisfactionForm.aspx" />
+    <Content Include="css\cc\base.css" />
+    <Content Include="css\cc\img\add.png" />
+    <Content Include="css\cc\img\addExamObj.gif" />
+    <Content Include="css\cc\img\addPaper.png" />
+    <Content Include="css\cc\img\addProjectObj.gif" />
+    <Content Include="css\cc\img\addQustion.png" />
+    <Content Include="css\cc\img\annu.png" />
+    <Content Include="css\cc\img\annu_hr.png" />
+    <Content Include="css\cc\img\baseB.jpg" />
+    <Content Include="css\cc\img\baseC.png" />
+    <Content Include="css\cc\img\baseT.png" />
+    <Content Include="css\cc\img\baseT2.jpg" />
+    <Content Include="css\cc\img\bg-title.png" />
+    <Content Include="css\cc\img\btn.jpg" />
+    <Content Include="css\cc\img\btn.png" />
+    <Content Include="css\cc\img\btn2.png" />
+    <Content Include="css\cc\img\btn98.jpg" />
+    <Content Include="css\cc\img\btn98hr.jpg" />
+    <Content Include="css\cc\img\btngray.png" />
+    <Content Include="css\cc\img\btngray2.png" />
+    <Content Include="css\cc\img\btngrayhr.png" />
+    <Content Include="css\cc\img\btngrayhr2.png" />
+    <Content Include="css\cc\img\btngrayUp.png" />
+    <Content Include="css\cc\img\btnhr.jpg" />
+    <Content Include="css\cc\img\btnhr.png" />
+    <Content Include="css\cc\img\bullet_green.png" />
+    <Content Include="css\cc\img\calendar_top.gif" />
+    <Content Include="css\cc\img\clock.jpg" />
+    <Content Include="css\cc\img\close.png" />
+    <Content Include="css\cc\img\down1.png" />
+    <Content Include="css\cc\img\grayBtn.png" />
+    <Content Include="css\cc\img\grayBtnhr.jpg" />
+    <Content Include="css\cc\img\huser.png" />
+    <Content Include="css\cc\img\input-checked-current.png" />
+    <Content Include="css\cc\img\input-checked-current2.png" />
+    <Content Include="css\cc\img\input-checked-hover.png" />
+    <Content Include="css\cc\img\input-checked-hover2.png" />
+    <Content Include="css\cc\img\input-unchecked-hover.png" />
+    <Content Include="css\cc\img\input-unchecked-hover2.png" />
+    <Content Include="css\cc\img\input-unchecked.png" />
+    <Content Include="css\cc\img\input-unchecked2.png" />
+    <Content Include="css\cc\img\inputbg01.jpg" />
+    <Content Include="css\cc\img\jiaojuan_btn.png" />
+    <Content Include="css\cc\img\line.jpg" />
+    <Content Include="css\cc\img\menu2.png" />
+    <Content Include="css\cc\img\menuhr.png" />
+    <Content Include="css\cc\img\menuIcon.png" />
+    <Content Include="css\cc\img\menuIcon2.png" />
+    <Content Include="css\cc\img\navbg.jpg" />
+    <Content Include="css\cc\img\plus.png" />
+    <Content Include="css\cc\img\slidebuttons.png" />
+    <Content Include="css\cc\img\slidebuttons2.png" />
+    <Content Include="css\cc\img\tip1.png" />
+    <Content Include="css\cc\img\tip2.png" />
+    <Content Include="css\cc\img\tip3.png" />
+    <Content Include="css\cc\img\title-bg.jpg" />
+    <Content Include="css\cc\img\up1.png" />
+    <Content Include="css\cc\img\white-title.png" />
+    <Content Include="css\cc\style.css" />
+    <Content Include="css\css.css" />
+    <Content Include="css\emotionstyle.css" />
+    <Content Include="css\img\arrow.png" />
+    <Content Include="css\img\bodybg.png" />
+    <Content Include="css\img\btn.jpg" />
+    <Content Include="css\img\btnhr.jpg" />
+    <Content Include="css\img\ch_close.png" />
+    <Content Include="css\img\ch_closehr.png" />
+    <Content Include="css\img\close.png" />
+    <Content Include="css\img\closehr.png" />
+    <Content Include="css\img\headbg.jpg" />
+    <Content Include="css\img\headbg1.jpg" />
+    <Content Include="css\img\left_arrow.png" />
+    <Content Include="css\img\left_arrow_g.png" />
+    <Content Include="css\img\loading.gif" />
+    <Content Include="css\img\logo.png" />
+    <Content Include="css\img\logoold.png" />
+    <Content Include="css\img\navbg.jpg" />
+    <Content Include="css\img\popT.jpg" />
+    <Content Include="css\img\right_arrow.png" />
+    <Content Include="css\img\right_arrow_g.png" />
+    <Content Include="css\img\shangchuan.png" />
+    <Content Include="css\img\slidebuttons.png" />
+    <Content Include="css\img\tip.png" />
+    <Content Include="css\img\tip2.png" />
+    <Content Include="css\login.css" />
+    <Content Include="css\OnLineServiceCom.css" />
+    <Content Include="css\OnLineServiceComBefore.css" />
+    <Content Include="css\skin.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\uploadify.css" />
+    <Content Include="CustInfo\ServiceInfo.aspx" />
+    <Content Include="CustInfo\VisitCust.aspx" />
+    <Content Include="CustInfo\VisitCustInfo.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="ErrorPage\NotAccessMsgPage.aspx" />
+    <Content Include="exit.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\an_dd.png" />
+    <Content Include="Images\an_jr.png" />
+    <Content Include="Images\an_js.png" />
+    <Content Include="Images\an_pd.png" />
+    <Content Include="Images\an_pd1.png" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\arrow2.png" />
+    <Content Include="Images\arrow_open.png" />
+    <Content Include="Images\bag.gif" />
+    <Content Include="Images\base.gif" />
+    <Content Include="Images\bg_gray_close.png" />
+    <Content Include="Images\bg_red.png" />
+    <Content Include="Images\bg_red_close.png" />
+    <Content Include="Images\biaoqingall.png" />
+    <Content Include="Images\blue-loading.gif" />
+    <Content Include="Images\bq.png" />
+    <Content Include="Images\btn_02.jpg" />
+    <Content Include="Images\btn_04.jpg" />
+    <Content Include="Images\btn_06.jpg" />
+    <Content Include="Images\btn_08.jpg" />
+    <Content Include="Images\car01.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\close2.png" />
+    <Content Include="Images\close_hr.png" />
+    <Content Include="Images\collapsed_no.gif" />
+    <Content Include="Images\comment.gif" />
+    <Content Include="Images\c_btn.png" />
+    <Content Include="Images\daochu.png" />
+    <Content Include="Images\document_file.gif" />
+    <Content Include="Images\down1.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\Emotions\Default\badsmile.gif" />
+    <Content Include="Images\Emotions\Default\biggrin.gif" />
+    <Content Include="Images\Emotions\Default\call.gif" />
+    <Content Include="Images\Emotions\Default\color.gif" />
+    <Content Include="Images\Emotions\Default\cry.gif" />
+    <Content Include="Images\Emotions\Default\failure.gif" />
+    <Content Include="Images\Emotions\Default\funk.gif" />
+    <Content Include="Images\Emotions\Default\handshake.gif" />
+    <Content Include="Images\Emotions\Default\heart.gif" />
+    <Content Include="Images\Emotions\Default\huffy.gif" />
+    <Content Include="Images\Emotions\Default\hug.gif" />
+    <Content Include="Images\Emotions\Default\kiss.gif" />
+    <Content Include="Images\Emotions\Default\lol.gif" />
+    <Content Include="Images\Emotions\Default\loveliness.gif" />
+    <Content Include="Images\Emotions\Default\mad.gif" />
+    <Content Include="Images\Emotions\Default\ok.gif" />
+    <Content Include="Images\Emotions\Default\proud.gif" />
+    <Content Include="Images\Emotions\Default\sad.gif" />
+    <Content Include="Images\Emotions\Default\shit.gif" />
+    <Content Include="Images\Emotions\Default\shocked.gif" />
+    <Content Include="Images\Emotions\Default\shy.gif" />
+    <Content Include="Images\Emotions\Default\sleep.gif" />
+    <Content Include="Images\Emotions\Default\smile.gif" />
+    <Content Include="Images\Emotions\Default\strong.gif" />
+    <Content Include="Images\Emotions\Default\sweat.gif" />
+    <Content Include="Images\Emotions\Default\time.gif" />
+    <Content Include="Images\Emotions\Default\titter.gif" />
+    <Content Include="Images\Emotions\Default\tongue.gif" />
+    <Content Include="Images\Emotions\Default\victory.gif" />
+    <Content Include="Images\Emotions\Default\weak.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\001.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\002.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\003.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\004.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\005.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\006.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\007.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\008.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\009.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\010.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\011.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\012.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\013.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\014.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\015.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\016.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\017.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\018.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\019.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\020.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\021.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\022.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\023.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\024.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\025.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\026.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\027.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\028.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\029.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\030.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\031.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\032.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\033.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\034.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\035.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\036.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\037.gif" />
+    <Content Include="Images\Emotions\YiXiaoChe\038.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\039.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\040.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\041.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\042.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\043.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\044.png" />
+    <Content Include="Images\Emotions\YiXiaoChe\045.png" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm01.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm02.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm03.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm04.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm05.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm06.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm07.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm08.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm09.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm10.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm11.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm12.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm13.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm14.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm15.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm16.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm17.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm18.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm19.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm20.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm21.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm22.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm23.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm24.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm25.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm26.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm27.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm28.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm29.gif" />
+    <Content Include="Images\Emotions\YiXiaoMei\yxm30.gif" />
+    <Content Include="Images\er_head1.png" />
+    <Content Include="Images\er_log1.png" />
+    <Content Include="Images\friends_group.gif" />
+    <Content Include="Images\fw_pic.png" />
+    <Content Include="Images\hmchead.png" />
+    <Content Include="Images\hmclog.png" />
+    <Content Include="Images\img1.png" />
+    <Content Include="Images\img2.png" />
+    <Content Include="Images\img3.png" />
+    <Content Include="Images\img4.png" />
+    <Content Include="Images\import.png" />
+    <Content Include="Images\important.gif" />
+    <Content Include="Images\info.gif" />
+    <Content Include="Images\jieshu.png" />
+    <Content Include="Images\layer_arrow.png" />
+    <Content Include="Images\layer_bg.png" />
+    <Content Include="Images\LEADlogo.png" />
+    <Content Include="Images\lg.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo1.png" />
+    <Content Include="Images\logo2.png" />
+    <Content Include="Images\logo_img1.png" />
+    <Content Include="Images\mesBgLR.png" />
+    <Content Include="Images\mesBlueBgLR.png" />
+    <Content Include="Images\offline.png" />
+    <Content Include="Images\online.png" />
+    <Content Include="Images\person1.png" />
+    <Content Include="Images\person2.png" />
+    <Content Include="Images\pic1.png" />
+    <Content Include="Images\pic2.png" />
+    <Content Include="Images\pic3.png" />
+    <Content Include="Images\pic4.png" />
+    <Content Include="Images\pic5.png" />
+    <Content Include="Images\popT.jpg" />
+    <Content Include="Images\queue.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\schead.png" />
+    <Content Include="Images\sclog.png" />
+    <Content Include="Images\sc_head1.png" />
+    <Content Include="Images\sc_log1.png" />
+    <Content Include="Images\search_dd.png" />
+    <Content Include="Images\status1.png" />
+    <Content Include="Images\status2.png" />
+    <Content Include="Images\status3.png" />
+    <Content Include="Images\taiyang.png" />
+    <Content Include="Images\tip.png" />
+    <Content Include="Images\title.gif" />
+    <Content Include="Images\u321.png" />
+    <Content Include="Images\up1.png" />
+    <Content Include="Images\uploadify_cancel.png" />
+    <Content Include="Images\user-im.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\user_img.png" />
+    <Content Include="Images\view_img.png" />
+    <Content Include="Images\xiaoxin.png" />
+    <Content Include="Images\xz_close.png" />
+    <Content Include="Images\ychead.png" />
+    <Content Include="Images\ych_head.png" />
+    <Content Include="Images\ych_Logo.png" />
+    <Content Include="Images\yclogo.png" />
+    <Content Include="Images\y_car.gif" />
+    <Content Include="Images\zs_search.png" />
+    <Content Include="ImGetLogin.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="MailTemplat\images\allbg.png" />
+    <Content Include="MailTemplat\images\bot630.png" />
+    <Content Include="MailTemplat\images\bot730.png" />
+    <Content Include="MailTemplat\images\bottom730.png" />
+    <Content Include="MailTemplat\images\lb.png" />
+    <Content Include="MailTemplat\images\logo.png" />
+    <Content Include="MailTemplat\images\logo_old.png" />
+    <Content Include="MailTemplat\images\lt.png" />
+    <Content Include="MailTemplat\images\rb.png" />
+    <Content Include="MailTemplat\images\rt.png" />
+    <Content Include="MailTemplat\images\top630.png" />
+    <Content Include="MailTemplat\images\top730.png" />
+    <Content Include="MailTemplat\mail630.html" />
+    <Content Include="MailTemplat\mailSysError.html" />
+    <Content Include="MailTemplat\mailWorkOrder.html" />
+    <Content Include="MailTemplat\UserMessage.html" />
+    <Content Include="Mcss\base.css" />
+    <Content Include="Mcss\style.css" />
+    <Content Include="MessageHistoryForAgent.aspx" />
+    <Content Include="Mimages\add.png" />
+    <Content Include="Mimages\arrow.png" />
+    <Content Include="Mimages\arrow2.png" />
+    <Content Include="Mimages\bq-ico-img-1.jpg" />
+    <Content Include="Mimages\bq-ico-img.png" />
+    <Content Include="Mimages\close.png" />
+    <Content Include="Mimages\close_hr.png" />
+    <Content Include="Mimages\del.png" />
+    <Content Include="Mimages\myd.png" />
+    <Content Include="Mimages\offline-im.png" />
+    <Content Include="Mimages\online-im.png" />
+    <Content Include="Mimages\return.png" />
+    <Content Include="Mimages\star.png" />
+    <Content Include="Mimages\start-img.jpg" />
+    <Content Include="Mimages\start-img.png" />
+    <Content Include="Mimages\star_gary.png" />
+    <Content Include="Mimages\status1.png" />
+    <Content Include="Mimages\user-im.png" />
+    <Content Include="Mimages\user_img.png" />
+    <Content Include="Mimages\wsct_icon.png" />
+    <Content Include="MOnlineService.aspx" />
+    <Content Include="MOnlineService.js" />
+    <Content Include="MoreURLConfig.xml" />
+    <Content Include="OnLineMessageForm.aspx" />
+    <Content Include="OnlineService.aspx" />
+    <Content Include="OnlineService.js" />
+    <Content Include="OnLineServiceCom.js" />
+    <Content Include="OnLineServiceComBefore.js" />
+    <Content Include="PictureCheck.aspx" />
+    <Content Include="PopPage\SelectTagLayer.aspx" />
+    <Content Include="PopPage\TagSelectPopNew.aspx" />
+    <Content Include="PopPage\H2.html" />
+    <Content Include="ProduceImage\07076f0e-cd86-4145-a7c9-00716098b9fc.Gif" />
+    <Content Include="ProduceImage\09afaedc-3fd0-4ac9-b5f7-34f7f76390e6.Gif" />
+    <Content Include="ProduceImage\0d37a79c-bfde-436e-a492-5ba206aa8049.Gif" />
+    <Content Include="ProduceImage\117d7d29-68ec-41f1-8ad2-ddd320d46f13.Gif" />
+    <Content Include="ProduceImage\13fe17cb-3f4c-4554-aafa-14a1fe565bef.Gif" />
+    <Content Include="ProduceImage\14afdfb9-8bdb-43ec-8a7d-1ae437d895a6.Gif" />
+    <Content Include="ProduceImage\167e80b0-77b0-4f9d-9424-60fecdfb064f.Gif" />
+    <Content Include="ProduceImage\1896c7a6-4df0-4831-a994-c80e9dadbad8.Gif" />
+    <Content Include="ProduceImage\1a61c5e1-3aa0-4ba4-bbef-5cacb8e36dce.Gif" />
+    <Content Include="ProduceImage\1bd9bf5d-3fc2-46b6-a8e1-f5e3f471e634.Gif" />
+    <Content Include="ProduceImage\1ec7da01-3902-4984-90b4-85bddeb55b24.Gif" />
+    <Content Include="ProduceImage\20f7c2f2-2ede-4ff0-8020-9171e5e64a0a.Gif" />
+    <Content Include="ProduceImage\20fa0ae6-6ccb-4e08-9440-dff1249bba1a.Gif" />
+    <Content Include="ProduceImage\26744e2c-986d-4c76-b01c-493bfa9f826f.Gif" />
+    <Content Include="ProduceImage\28012879-5f8c-46e3-b545-b3fb6b887605.Gif" />
+    <Content Include="ProduceImage\281bbe61-a80f-4531-9467-f9595ecd200f.Gif" />
+    <Content Include="ProduceImage\2ad6d6f6-228b-4de8-9d72-b9f39472dcd0.Gif" />
+    <Content Include="ProduceImage\2b05c8ba-a4c2-429f-8e16-3ab39ace2ccc.Gif" />
+    <Content Include="ProduceImage\315fff67-5b10-4a4c-8d08-1c1b65d66ca4.Gif" />
+    <Content Include="ProduceImage\3174b828-b0d6-498c-b459-066566b27bcd.Gif" />
+    <Content Include="ProduceImage\36384478-71ea-407a-b54a-318969bbcea2.Gif" />
+    <Content Include="ProduceImage\3ad0f6e0-2728-45ea-a9bc-d83c30114546.Gif" />
+    <Content Include="ProduceImage\40348c29-f739-47b2-a9cd-8cf300dc3992.Gif" />
+    <Content Include="ProduceImage\431511d4-f1a5-4937-8c12-2bab384f695f.Gif" />
+    <Content Include="ProduceImage\470051de-e98c-4886-896c-e8de1e3822cf.Gif" />
+    <Content Include="ProduceImage\47e7e6a5-356a-4cdc-bace-ddc624804e60.Gif" />
+    <Content Include="ProduceImage\48d65126-f297-4aa8-99e7-e0061b698838.Gif" />
+    <Content Include="ProduceImage\4a9ebf90-6394-4537-82a9-0b7ba0735892.Gif" />
+    <Content Include="ProduceImage\4c96418c-896b-43e3-ab41-a9b9ea8fa764.Gif" />
+    <Content Include="ProduceImage\52087e00-0d5d-4e98-b1fb-947c20d386a5.Gif" />
+    <Content Include="ProduceImage\52b50a3d-f77e-4dbf-9999-3fae8d3880f1.Gif" />
+    <Content Include="ProduceImage\567f877a-d125-497e-b672-60bdf7d9256a.Gif" />
+    <Content Include="ProduceImage\592c1611-4643-45df-90eb-4aba97146a68.Gif" />
+    <Content Include="ProduceImage\5a2639ea-39f6-4586-8b3c-a14610bef5c7.Gif" />
+    <Content Include="ProduceImage\5b402e92-f6a6-4ee9-baae-0850b3b524a4.Gif" />
+    <Content Include="ProduceImage\5c9cec56-1acd-4a5a-9085-dbf910ed4563.Gif" />
+    <Content Include="ProduceImage\5d7b62db-1c26-424b-a903-c69991c8f928.Gif" />
+    <Content Include="ProduceImage\5e5b4c89-c49b-4b44-b967-8d0855fb51c7.Gif" />
+    <Content Include="ProduceImage\5edb903c-fcf7-4fcd-810c-4b0186fbb6ab.Gif" />
+    <Content Include="ProduceImage\5fb0bcfb-73ed-44a3-b98f-7de645f14371.Gif" />
+    <Content Include="ProduceImage\5fee51f0-82ab-4cfa-8df2-5be86bf71c24.Gif" />
+    <Content Include="ProduceImage\602e3790-4173-4242-941a-7401e2408762.Gif" />
+    <Content Include="ProduceImage\6169b2ce-968f-4342-9ccf-fd8affeccb20.Gif" />
+    <Content Include="ProduceImage\62788153-d59e-4fe6-b011-47518abb029d.Gif" />
+    <Content Include="ProduceImage\6495ca56-b69e-4067-ad06-6ec37958b7de.Gif" />
+    <Content Include="ProduceImage\6c6be346-5128-41a0-ad21-4986f2bbb4c4.Gif" />
+    <Content Include="ProduceImage\6cd89114-fd41-476d-9f0b-a50ef043f8ed.Gif" />
+    <Content Include="ProduceImage\6e6961aa-581c-4689-b25e-95043cd0b9c4.Gif" />
+    <Content Include="ProduceImage\72b329df-04f4-4c81-90cc-3640d25e4e2c.Gif" />
+    <Content Include="ProduceImage\76bbcd5d-839e-4e71-93bc-821044a3a737.Gif" />
+    <Content Include="ProduceImage\7846bc65-41be-4295-a0c0-17570d08065a.Gif" />
+    <Content Include="ProduceImage\789af7bf-3c42-4c71-bc5d-e7e2d582a222.Gif" />
+    <Content Include="ProduceImage\78ad1eb0-54e8-4321-a9b4-ef0e35fed020.Gif" />
+    <Content Include="ProduceImage\83b8b61d-cccb-4aa1-8d35-e5c1492cabb1.Gif" />
+    <Content Include="ProduceImage\8449f074-6d2b-4696-bb91-e8769f8c0912.Gif" />
+    <Content Include="ProduceImage\85bf6b46-ab4a-4c34-bbd4-d286ea8f596e.Gif" />
+    <Content Include="ProduceImage\87f8eb86-7530-47d0-9d5c-04ef3a70ae82.Gif" />
+    <Content Include="ProduceImage\88bd3d03-9f89-452e-aaf8-45b9114d345d.Gif" />
+    <Content Include="ProduceImage\89411ee7-7032-4ea4-a6d4-d6bf13f6648e.Gif" />
+    <Content Include="ProduceImage\8c4c2733-b71e-4bb1-93b9-86f29b83115e.Gif" />
+    <Content Include="ProduceImage\8c8025bd-fbaa-4854-889e-ae9643f877ae.Gif" />
+    <Content Include="ProduceImage\924ea85c-7ce1-4031-a6dc-5928719c52fc.Gif" />
+    <Content Include="ProduceImage\961287ef-2a00-4a70-89cb-06ef3919b008.Gif" />
+    <Content Include="ProduceImage\96bf96f6-c846-4281-83df-2f658320d6cc.Gif" />
+    <Content Include="ProduceImage\98e36d90-5e77-423c-ba73-68cd7bce29b6.Gif" />
+    <Content Include="ProduceImage\990e30a4-bf8b-4476-aa47-b5c6a7dfc35e.Gif" />
+    <Content Include="ProduceImage\9b565170-1d2c-420c-b4e6-cacafd6a6055.Gif" />
+    <Content Include="ProduceImage\9c5b4440-db75-48d9-891d-8184601ccfd3.Gif" />
+    <Content Include="ProduceImage\a1ae70d7-99b3-4c9b-ab8d-818899c581d0.Gif" />
+    <Content Include="ProduceImage\a654aa96-7205-4ab1-8746-8d1311b446c7.Gif" />
+    <Content Include="ProduceImage\a8873869-7b41-4765-b6a3-e557531a72f7.Gif" />
+    <Content Include="ProduceImage\aa104176-60a8-4968-95fe-6d37d0ee6893.Gif" />
+    <Content Include="ProduceImage\ac1c08da-5207-4541-864d-760811173dbb.Gif" />
+    <Content Include="ProduceImage\aca8316e-93fc-46bd-963d-a635d8a009fd.Gif" />
+    <Content Include="ProduceImage\adfc12a7-6a15-4139-bbc2-591b677799e1.Gif" />
+    <Content Include="ProduceImage\aeba260c-d5db-4723-a361-1e8201b91200.Gif" />
+    <Content Include="ProduceImage\b12070bb-f49d-44c8-891c-37c2b7bc4b18.Gif" />
+    <Content Include="ProduceImage\b6a5c079-f017-45ed-9d99-b86eae565258.Gif" />
+    <Content Include="ProduceImage\b83e0a03-1e0e-4dac-ae58-087e793c6de6.Gif" />
+    <Content Include="ProduceImage\ba242a4d-7476-4842-895d-80296518d140.Gif" />
+    <Content Include="ProduceImage\ba8efec8-f064-4db7-a076-6cd80fed1b57.Gif" />
+    <Content Include="ProduceImage\c514455c-659c-4039-8795-301f3bcc87a3.Gif" />
+    <Content Include="ProduceImage\c519dd24-22ce-417f-86b6-5fbb478b3482.Gif" />
+    <Content Include="ProduceImage\c83654b2-23a9-4049-8112-6f5e1d2f3b9e.Gif" />
+    <Content Include="ProduceImage\ca439f2d-660a-48e1-a055-883572692444.Gif" />
+    <Content Include="ProduceImage\d655c7a0-723d-4c8d-ad32-73539f2038e7.Gif" />
+    <Content Include="ProduceImage\d732c621-1bb7-4a73-9e76-cbec084f51f6.Gif" />
+    <Content Include="ProduceImage\dcf5ffc5-d0ea-43bb-b566-ad1830a8142c.Gif" />
+    <Content Include="ProduceImage\e098d72a-a489-457f-831b-b20a739d583e.Gif" />
+    <Content Include="ProduceImage\e29d0c53-691f-49f8-820b-bab603caec4e.Gif" />
+    <Content Include="ProduceImage\e59ad297-0d0b-44d4-8652-e49de1efe97d.Gif" />
+    <Content Include="ProduceImage\e7ef647c-3ebd-4fba-93f7-b64bb70acd88.Gif" />
+    <Content Include="ProduceImage\eaff9e7b-575e-4660-bfff-9e1b8ff3397f.Gif" />
+    <Content Include="ProduceImage\ec76a9fa-257e-45dc-a300-72c36a65ce86.Gif" />
+    <Content Include="ProduceImage\ece13f4c-8a94-42c1-9331-caf1e6829826.Gif" />
+    <Content Include="ProduceImage\ee944b51-332a-4967-b0f6-e6ac1a11bde8.Gif" />
+    <Content Include="ProduceImage\eed0c3d6-6e79-43f9-8269-2b1e76d3a1db.Gif" />
+    <Content Include="ProduceImage\f251b635-9872-4526-9c18-319557f60864.Gif" />
+    <Content Include="ProduceImage\f5428940-0f83-4911-8b48-36ca9112e324.Gif" />
+    <Content Include="ProduceImage\f707dc47-c9f0-4d8c-bd1e-0910d09c8787.Gif" />
+    <Content Include="QueueManage\ConversationMonitor.aspx" />
+    <Content Include="QueueManage\QueueList.aspx" />
+    <Content Include="QueueManage\QueueView.aspx" />
+    <Content Include="QueueManage\WcfClientManager.aspx" />
+    <Content Include="SatisfactionForm.aspx" />
+    <Content Include="Scripts\AspNetComet.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\config.js" />
+    <Content Include="Scripts\Enum\Area.js" />
+    <Content Include="Scripts\Enum\Area2.js" />
+    <Content Include="Scripts\Enum\ProvinceCityCountry.js" />
+    <Content Include="Scripts\Enum\ShowEnum.js" />
+    <Content Include="Scripts\HighCharts\adapters\mootools-adapter.js" />
+    <Content Include="Scripts\HighCharts\adapters\prototype-adapter.js" />
+    <Content Include="Scripts\HighCharts\exporting.js" />
+    <Content Include="Scripts\HighCharts\highcharts.js" />
+    <Content Include="Scripts\HighCharts\modules\exporting.js" />
+    <Content Include="Scripts\HighCharts\themes\dark-blue.js" />
+    <Content Include="Scripts\HighCharts\themes\dark-green.js" />
+    <Content Include="Scripts\HighCharts\themes\gray.js" />
+    <Content Include="Scripts\HighCharts\themes\grid.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.autocomplete.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.free.ajaxTabPanel.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.hotkeys.min.js" />
+    <Content Include="Scripts\jquery.jmpopups-0.5.1.pack.js" />
+    <Content Include="Scripts\jquery.media.js" />
+    <Content Include="Scripts\jquery.tmpl.min.js" />
+    <Content Include="Scripts\jquery.uploadify.v3.2.min.js" />
+    <Content Include="Scripts\MAspNetComet.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker-dev.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.png" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\uploadify.swf" />
+    <Content Include="SeniorManage\AddConSentence.aspx" />
+    <Content Include="SeniorManage\AddFreProblem.aspx" />
+    <Content Include="SeniorManage\CityManageList.aspx" />
+    <Content Include="SeniorManage\ComSenManage.aspx" />
+    <Content Include="SeniorManage\FreProblemForClient.aspx" />
+    <Content Include="SeniorManage\FreProblemList.aspx" />
+    <Content Include="SeniorManage\LabelConfig.aspx" />
+    <Content Include="SeniorManage\LabelEdit.aspx" />
+    <Content Include="SeniorManage\LabelManage.aspx" />
+    <Content Include="SeniorManage\MoreUrlConfig.aspx" />
+    <Content Include="SeniorManage\ServerTimeConfig.aspx" />
+    <Content Include="ServerTimeConfig.xml" />
+    <Content Include="Setup\EXE\UdCapture.exe" />
+    <Content Include="Setup\EXE\UdCapture64.exe" />
+    <Content Include="Setup\UdCapture.js" />
+    <Content Include="SourceType.xml" />
+    <Content Include="TrailManager\AgentStatusList.aspx" />
+    <Content Include="TrailManager\AlexaList.aspx" />
+    <Content Include="TrailManager\DialogueList.aspx" />
+    <Content Include="TrailManager\SatisfactionList.aspx" />
+    <Content Include="TrailManager\ServiceMonitoringList.aspx" />
+    <Content Include="TrailManager\ToadySummary.aspx" />
+    <Content Include="TrailManager\TrailList.aspx" />
+    <Content Include="TranserAgent.aspx" />
+    <Content Include="PopPage\UCTag\TagLayout.ascx" />
+    <Content Include="UpLoadFile\2015\4\13\17\SnapScreene7840f59-b174-4c32-8c18-788a9e5749c8.png" />
+    <Content Include="UpLoadFile\2015\4\15\17\SnapScreenf33a6575-c044-432e-afcc-388735dc7c22.png" />
+    <Content Include="UpLoadFile\2015\4\27\14\SnapScreen0852157e-5478-49fe-b4dc-7a3953079bd4.png" />
+    <Content Include="UpLoadFile\2015\4\29\19\IE请求超时问题d0a8fd4a-6a53-4e9b-9419-b99e593dc900.txt" />
+    <Content Include="UpLoadFile\2015\4\29\19\SnapScreen81a6f4b0-edef-46f6-a1af-78a49c479e53.png" />
+    <Content Include="UpLoadFile\2015\4\29\20\SnapScreen7922f9c0-a2b8-41ca-b3bf-f4a5a3cdcdd6.png" />
+    <Content Include="UpLoadFile\2015\4\29\20\考勤接口9b6ba6a8-98c6-4d71-9fd9-6a7d69aca1d1.txt" />
+    <Content Include="UpLoadFile\2015\4\29\20\考勤调整8e79b68b-b65d-457c-961f-0a88093a0b6f.txt" />
+    <Content Include="UpLoadFile\2015\5\4\17\SnapScreen3b045a9f-b4fb-4943-a7fb-e17c51a1625c.png" />
+    <Content Include="UpLoadFile\2015\5\4\17\SnapScreen6ea7b6d7-ce90-4119-a0c9-68be81b9ca62.png" />
+    <Content Include="UpLoadFile\2015\5\4\17\SnapScreencbccc636-d372-40bf-b6d6-2de496fa6322.png" />
+    <Content Include="UpLoadFile\2015\5\5\10\SnapScreen0ce93de0-299b-4de9-bacd-8c5d5a79dcc1.png" />
+    <Content Include="UpLoadFile\2015\5\5\10\SnapScreen54eff2ca-c315-46d0-9ce8-a171b18dbf6f.png" />
+    <Content Include="UpLoadFile\2015\5\5\10\春节前要做的事，以及完成情况adb7e2f7-460a-4a42-9ff2-f55ea865ba82.txt" />
+    <Content Include="UpLoadFile\2015\5\5\10\考勤接口848fea99-c4d8-49f0-a87b-4ad1fb925fe4.txt" />
+    <Content Include="UpLoadFile\2015\5\6\15\SnapScreende8c855d-0ac8-483b-bd32-3e28c243a083.png" />
+    <Content Include="UpLoadFile\2015\5\6\15\SnapScreenee33ac07-9c68-43cd-9596-cfe6b9c0493b.png" />
+    <Content Include="UpLoadFile\2015\5\6\15\SnapScreenfd53a85b-e95f-469e-8782-a9889f797c39.png" />
+    <Content Include="UpLoadFile\2015\5\6\15\考勤调整2f4921dc-a989-44ec-8c35-3182ce31c4cb.txt" />
+    <Content Include="UserQueueList.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebService\Utils.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgentChat.aspx.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentChat.aspx.designer.cs">
+      <DependentUpon>AgentChat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\CommonHandler.ashx.cs">
+      <DependentUpon>CommonHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\AddRemarkForm.aspx.cs">
+      <DependentUpon>AddRemarkForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\AddRemarkForm.aspx.designer.cs">
+      <DependentUpon>AddRemarkForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ChatHistoryExport.aspx.cs">
+      <DependentUpon>ChatHistoryExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ChatHistoryExport.aspx.designer.cs">
+      <DependentUpon>ChatHistoryExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ContentsDetailForm.aspx.cs">
+      <DependentUpon>ContentsDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\ContentsDetailForm.aspx.designer.cs">
+      <DependentUpon>ContentsDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSData.aspx.cs">
+      <DependentUpon>CSData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSData.aspx.designer.cs">
+      <DependentUpon>CSData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSHistoryData.aspx.cs">
+      <DependentUpon>CSHistoryData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\CSHistoryData.aspx.designer.cs">
+      <DependentUpon>CSHistoryData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageData.aspx.cs">
+      <DependentUpon>OnlineMessageData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageData.aspx.designer.cs">
+      <DependentUpon>OnlineMessageData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageExport.aspx.cs">
+      <DependentUpon>OnlineMessageExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\OnlineMessageExport.aspx.designer.cs">
+      <DependentUpon>OnlineMessageExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\UserActionLogList.aspx.cs">
+      <DependentUpon>UserActionLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\ContentManage\UserActionLogList.aspx.designer.cs">
+      <DependentUpon>UserActionLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\CustAssignUserList.aspx.cs">
+      <DependentUpon>CustAssignUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\CustAssignUserList.aspx.designer.cs">
+      <DependentUpon>CustAssignUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\CustInfo\VisitCustInfoHandler.ashx.cs">
+      <DependentUpon>VisitCustInfoHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\EPEmbedCC.ashx.cs">
+      <DependentUpon>EPEmbedCC.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\FileLoad.ashx.cs">
+      <DependentUpon>FileLoad.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LayerDataHandler.ashx.cs">
+      <DependentUpon>LayerDataHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LayerDataHandlerBefore.ashx.cs">
+      <DependentUpon>LayerDataHandlerBefore.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\LoginManager.ashx.cs">
+      <DependentUpon>LoginManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\OrderInfo.aspx.cs">
+      <DependentUpon>OrderInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\OrderInfo.aspx.designer.cs">
+      <DependentUpon>OrderInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\PopPages\SelectAgents.aspx.cs">
+      <DependentUpon>SelectAgents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\PopPages\SelectAgents.aspx.designer.cs">
+      <DependentUpon>SelectAgents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\MonitorData.aspx.cs">
+      <DependentUpon>MonitorData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\MonitorData.aspx.designer.cs">
+      <DependentUpon>MonitorData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\QueueList.aspx.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\QueueList.aspx.designer.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\WcfClientManagerList.aspx.cs">
+      <DependentUpon>WcfClientManagerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\QueueManage\WcfClientManagerList.aspx.designer.cs">
+      <DependentUpon>WcfClientManagerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SendSMSPoperNew2.aspx.cs">
+      <DependentUpon>SendSMSPoperNew2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SendSMSPoperNew2.aspx.designer.cs">
+      <DependentUpon>SendSMSPoperNew2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\BussinessConfigDeal.ashx.cs">
+      <DependentUpon>BussinessConfigDeal.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageHandler.ashx.cs">
+      <DependentUpon>CityManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageList.aspx.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\CityManageList.aspx.designer.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageHandler.ashx.cs">
+      <DependentUpon>ComSenManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageList.aspx.cs">
+      <DependentUpon>ComSenManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\ComSenManageList.aspx.designer.cs">
+      <DependentUpon>ComSenManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemHandler.ashx.cs">
+      <DependentUpon>FreProblemHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemList.aspx.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\FreProblemList.aspx.designer.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelConfigList.aspx.cs">
+      <DependentUpon>LabelConfigList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelConfigList.aspx.designer.cs">
+      <DependentUpon>LabelConfigList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageHandler.ashx.cs">
+      <DependentUpon>LabelManageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageList.aspx.cs">
+      <DependentUpon>LabelManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\SeniorManage\LabelManageList.aspx.designer.cs">
+      <DependentUpon>LabelManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\SurveyInfo\CommonHandler.ashx.cs">
+      <DependentUpon>CommonHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\AgentStatusList.aspx.cs">
+      <DependentUpon>AgentStatusList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\AgentStatusList.aspx.designer.cs">
+      <DependentUpon>AgentStatusList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\AlexaApi.ashx.cs">
+      <DependentUpon>AlexaApi.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\AlexaList.aspx.cs">
+      <DependentUpon>AlexaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\AlexaList.aspx.designer.cs">
+      <DependentUpon>AlexaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\DialogueList.aspx.cs">
+      <DependentUpon>DialogueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\DialogueList.aspx.designer.cs">
+      <DependentUpon>DialogueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\SatisfactionList.aspx.cs">
+      <DependentUpon>SatisfactionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\SatisfactionList.aspx.designer.cs">
+      <DependentUpon>SatisfactionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\ServiceMonitoringList.aspx.cs">
+      <DependentUpon>ServiceMonitoringList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\ServiceMonitoringList.aspx.designer.cs">
+      <DependentUpon>ServiceMonitoringList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\SummaryApi.ashx.cs">
+      <DependentUpon>SummaryApi.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\TrailList.aspx.cs">
+      <DependentUpon>TrailList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServers\TrailManager\TrailList.aspx.designer.cs">
+      <DependentUpon>TrailList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\ChatService.svc.cs">
+      <DependentUpon>ChatService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\DefaultChannelHandler.cs" />
+    <Compile Include="Common\MutilAgentChoose.aspx.cs">
+      <DependentUpon>MutilAgentChoose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\MutilAgentChoose.aspx.designer.cs">
+      <DependentUpon>MutilAgentChoose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\ChatHistory.aspx.cs">
+      <DependentUpon>ChatHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\ChatHistory.aspx.designer.cs">
+      <DependentUpon>ChatHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\OnlineMessage.aspx.cs">
+      <DependentUpon>OnlineMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\OnlineMessage.aspx.designer.cs">
+      <DependentUpon>OnlineMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManage\UserActionLog.aspx.cs">
+      <DependentUpon>UserActionLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentManage\UserActionLog.aspx.designer.cs">
+      <DependentUpon>UserActionLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FootPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Top.Master.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Top.Master.designer.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationHistory.aspx.cs">
+      <DependentUpon>ConversationHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConversationHistory.aspx.designer.cs">
+      <DependentUpon>ConversationHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationHistoryForCC.aspx.cs">
+      <DependentUpon>ConversationHistoryForCC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConversationHistoryForCC.aspx.designer.cs">
+      <DependentUpon>ConversationHistoryForCC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationHistoryForCCDetail.aspx.cs">
+      <DependentUpon>ConversationHistoryForCCDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConversationHistoryForCCDetail.aspx.designer.cs">
+      <DependentUpon>ConversationHistoryForCCDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mOnLineMessageForm.aspx.cs">
+      <DependentUpon>mOnLineMessageForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mOnLineMessageForm.aspx.designer.cs">
+      <DependentUpon>mOnLineMessageForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mSatisfactionForm.aspx.cs">
+      <DependentUpon>mSatisfactionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mSatisfactionForm.aspx.designer.cs">
+      <DependentUpon>mSatisfactionForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustInfo\ServiceInfo.aspx.cs">
+      <DependentUpon>ServiceInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustInfo\ServiceInfo.aspx.designer.cs">
+      <DependentUpon>ServiceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustInfo\VisitCust.aspx.cs">
+      <DependentUpon>VisitCust.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustInfo\VisitCust.aspx.designer.cs">
+      <DependentUpon>VisitCust.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustInfo\VisitCustInfo.aspx.cs">
+      <DependentUpon>VisitCustInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustInfo\VisitCustInfo.aspx.designer.cs">
+      <DependentUpon>VisitCustInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage\NotAccessMsgPage.aspx.designer.cs">
+      <DependentUpon>NotAccessMsgPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exit.aspx.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exit.aspx.designer.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ImGetLogin.aspx.cs">
+      <DependentUpon>ImGetLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImGetLogin.aspx.designer.cs">
+      <DependentUpon>ImGetLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageHistoryForAgent.aspx.cs">
+      <DependentUpon>MessageHistoryForAgent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageHistoryForAgent.aspx.designer.cs">
+      <DependentUpon>MessageHistoryForAgent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MOnlineService.aspx.cs">
+      <DependentUpon>MOnlineService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MOnlineService.aspx.designer.cs">
+      <DependentUpon>MOnlineService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineMessageForm.aspx.cs">
+      <DependentUpon>OnLineMessageForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineMessageForm.aspx.designer.cs">
+      <DependentUpon>OnLineMessageForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineService.aspx.cs">
+      <DependentUpon>OnlineService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnlineService.aspx.designer.cs">
+      <DependentUpon>OnlineService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PictureCheck.aspx.cs">
+      <DependentUpon>PictureCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PictureCheck.aspx.designer.cs">
+      <DependentUpon>PictureCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopPage\SelectTagLayer.aspx.cs">
+      <DependentUpon>SelectTagLayer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopPage\SelectTagLayer.aspx.designer.cs">
+      <DependentUpon>SelectTagLayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopPage\TagSelectPopNew.aspx.cs">
+      <DependentUpon>TagSelectPopNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopPage\TagSelectPopNew.aspx.designer.cs">
+      <DependentUpon>TagSelectPopNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueManage\ConversationMonitor.aspx.cs">
+      <DependentUpon>ConversationMonitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\ConversationMonitor.aspx.designer.cs">
+      <DependentUpon>ConversationMonitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QueueManage\QueueList.aspx.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\QueueList.aspx.designer.cs">
+      <DependentUpon>QueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QueueManage\QueueView.aspx.cs">
+      <DependentUpon>QueueView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\QueueView.aspx.designer.cs">
+      <DependentUpon>QueueView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QueueManage\WcfClientManager.aspx.cs">
+      <DependentUpon>WcfClientManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueueManage\WcfClientManager.aspx.designer.cs">
+      <DependentUpon>WcfClientManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SatisfactionForm.aspx.cs">
+      <DependentUpon>SatisfactionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SatisfactionForm.aspx.designer.cs">
+      <DependentUpon>SatisfactionForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\AddConSentence.aspx.cs">
+      <DependentUpon>AddConSentence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\AddConSentence.aspx.designer.cs">
+      <DependentUpon>AddConSentence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\AddFreProblem.aspx.cs">
+      <DependentUpon>AddFreProblem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\AddFreProblem.aspx.designer.cs">
+      <DependentUpon>AddFreProblem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\CityManageList.aspx.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\CityManageList.aspx.designer.cs">
+      <DependentUpon>CityManageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\ComSenManage.aspx.cs">
+      <DependentUpon>ComSenManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\ComSenManage.aspx.designer.cs">
+      <DependentUpon>ComSenManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemForClient.aspx.cs">
+      <DependentUpon>FreProblemForClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemForClient.aspx.designer.cs">
+      <DependentUpon>FreProblemForClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemList.aspx.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\FreProblemList.aspx.designer.cs">
+      <DependentUpon>FreProblemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelConfig.aspx.cs">
+      <DependentUpon>LabelConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelConfig.aspx.designer.cs">
+      <DependentUpon>LabelConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelEdit.aspx.cs">
+      <DependentUpon>LabelEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelEdit.aspx.designer.cs">
+      <DependentUpon>LabelEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\LabelManage.aspx.cs">
+      <DependentUpon>LabelManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\LabelManage.aspx.designer.cs">
+      <DependentUpon>LabelManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\MoreUrlConfig.aspx.cs">
+      <DependentUpon>MoreUrlConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\MoreUrlConfig.aspx.designer.cs">
+      <DependentUpon>MoreUrlConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorManage\ServerTimeConfig.aspx.cs">
+      <DependentUpon>ServerTimeConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorManage\ServerTimeConfig.aspx.designer.cs">
+      <DependentUpon>ServerTimeConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrailManager\AgentStatusList.aspx.cs">
+      <DependentUpon>AgentStatusList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrailManager\AgentStatusList.aspx.designer.cs">
+      <DependentUpon>AgentStatusList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrailManager\AlexaList.aspx.cs">
+      <DependentUpon>AlexaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrailManager\AlexaList.aspx.designer.cs">
+      <DependentUpon>AlexaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrailManager\DialogueList.aspx.cs">
+      <DependentUpon>DialogueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrailManager\DialogueList.aspx.designer.cs">
+      <DependentUpon>DialogueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrailManager\SatisfactionList.aspx.cs">
+      <DependentUpon>SatisfactionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrailManager\SatisfactionList.aspx.designer.cs">
+      <DependentUpon>SatisfactionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrailManager\ServiceMonitoringList.aspx.cs">
+      <DependentUpon>ServiceMonitoringList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrailManager\ServiceMonitoringList.aspx.designer.cs">
+      <DependentUpon>ServiceMonitoringList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrailManager\ToadySummary.aspx.cs">
+      <DependentUpon>ToadySummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrailManager\ToadySummary.aspx.designer.cs">
+      <DependentUpon>ToadySummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrailManager\TrailList.aspx.cs">
+      <DependentUpon>TrailList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrailManager\TrailList.aspx.designer.cs">
+      <DependentUpon>TrailList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TranserAgent.aspx.cs">
+      <DependentUpon>TranserAgent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TranserAgent.aspx.designer.cs">
+      <DependentUpon>TranserAgent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopPage\UCTag\TagLayout.ascx.cs">
+      <DependentUpon>TagLayout.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopPage\UCTag\TagLayout.ascx.designer.cs">
+      <DependentUpon>TagLayout.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserQueueList.aspx.cs">
+      <DependentUpon>UserQueueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserQueueList.aspx.designer.cs">
+      <DependentUpon>UserQueueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService\Utils.asmx.cs">
+      <DependentUpon>Utils.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="css\cc\img\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitAuto.DSC.IM_2015.BLL\BitAuto.DSC.IM_2015.BLL.csproj">
+      <Project>{18A22BDB-FFF7-4A11-BB26-9B6A8A708029}</Project>
+      <Name>BitAuto.DSC.IM_2015.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_2015.Core\BitAuto.DSC.IM_2015.Core.csproj">
+      <Project>{0A710528-84BD-4E60-8D9F-733BE4AFE464}</Project>
+      <Name>BitAuto.DSC.IM_2015.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_2015.Dal\BitAuto.DSC.IM_2015.Dal.csproj">
+      <Project>{BFE1A29B-8D28-40F9-8F36-DB99BE5218AB}</Project>
+      <Name>BitAuto.DSC.IM_2015.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_2015.Entities\BitAuto.DSC.IM_2015.Entities.csproj">
+      <Project>{98B6A1C0-8EB6-43A9-8582-969F0CA0E6A3}</Project>
+      <Name>BitAuto.DSC.IM_2015.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_2015.MainInterface\BitAuto.DSC.IM_2015.MainInterface.csproj">
+      <Project>{56CDD2C4-537F-4339-A7DF-9EB67262C838}</Project>
+      <Name>BitAuto.DSC.IM_2015.MainInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitAuto.DSC.IM_2015.WebService\BitAuto.DSC.IM_2015.WebService.csproj">
+      <Project>{319B89E4-8A2F-49C8-8B6E-36E05FE9C1F1}</Project>
+      <Name>BitAuto.DSC.IM_2015.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\Top.Master" />
+    <Content Include="AjaxServers\CommonHandler.ashx" />
+    <Content Include="AjaxServers\CustInfo\VisitCustInfoHandler.ashx" />
+    <Content Include="AjaxServers\EPEmbedCC.ashx" />
+    <Content Include="AjaxServers\FileLoad.ashx" />
+    <Content Include="AjaxServers\Handler.ashx" />
+    <Content Include="AjaxServers\LayerDataHandler.ashx" />
+    <Content Include="AjaxServers\LoginManager.ashx" />
+    <Content Include="AjaxServers\SeniorManage\CityManageHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\ComSenManageHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\FreProblemHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\LabelManageHandler.ashx" />
+    <Content Include="AjaxServers\SurveyInfo\CommonHandler.ashx" />
+    <Content Include="AjaxServers\SeniorManage\BussinessConfigDeal.ashx" />
+    <Content Include="AjaxServers\TrailManager\AlexaApi.ashx" />
+    <Content Include="AjaxServers\TrailManager\SummaryApi.ashx" />
+    <Content Include="AjaxServers\LayerDataHandlerBefore.ashx" />
+    <None Include="css\cc\img\Thumbs.db" />
+    <None Include="Setup\UdCapture.msi" />
+    <None Include="Setup\UdCapture64.msi" />
+    <None Include="UpLoadFile\2015\4\13\17\考勤接口文档c8ee0d11-d915-4e74-9f0c-941275fe7463.docx" />
+    <None Include="UpLoadFile\2015\4\13\17\考勤接口文档e0e80b3e-b7db-4f0c-a6fd-18359d0f78b6.docx" />
+    <None Include="UpLoadFile\2015\4\15\17\IM疑问—齐志强10866bbd2-f9d6-4d25-ab66-7e1e88c7bc78.docx" />
+    <None Include="UpLoadFile\2015\4\15\17\IM疑问—齐志强1a1e3ab6d-10ae-4abd-8869-99b47cf057db.docx" />
+    <None Include="UpLoadFile\2015\4\29\20\考勤接口文档8e325b2b-9efc-417a-957a-7ae36222f18f.docx" />
+    <None Include="UpLoadFile\2015\5\5\10\点击设置模板名1111_31520a6389f-87c2-428e-b526-6ef1b8de1f82.xls" />
+    <None Include="UpLoadFile\2015\5\5\10\考勤接口文档65447a17-5e25-4295-b29f-ff3270392d6d.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>39138</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

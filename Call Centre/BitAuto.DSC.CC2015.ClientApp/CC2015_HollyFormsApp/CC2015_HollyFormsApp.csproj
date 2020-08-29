@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38A13642-905B-4414-9D98-D3DDE8B7F75F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CC2015_HollyFormsApp</RootNamespace>
+    <AssemblyName>CC2015_HollyFormsApp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.ISDC.CC2012.Entities">
+      <HintPath>..\..\BitAuto.ISDC.CC2012.Entities\bin\Debug\BitAuto.ISDC.CC2012.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Services.Organization.Remoting">
+      <HintPath>..\..\..\..\Lib\BitAuto.Services.Organization.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.Crm2009.BLL">
+      <HintPath>..\..\BitAuto.YanFa.Crm2009.BLL\bin\Debug\BitAuto.YanFa.Crm2009.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.SysRightManager.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\BitAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SHDocVw">
+      <HintPath>..\..\..\..\Lib\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="IrisSkin2">
+      <HintPath>..\..\..\..\Lib\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MongoDB">
+      <HintPath>..\..\..\..\Lib\MongoDB.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WcfSamples.DynamicProxy">
+      <HintPath>..\..\..\..\Lib\WcfSamples.DynamicProxy.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\Logic\AfterActionEvent.cs" />
+    <Compile Include="Code\Logic\AutoLoginHelper.cs" />
+    <Compile Include="Code\Logic\BusinessProcess.cs" />
+    <Compile Include="Code\Logic\CurrentCallInfo.cs" />
+    <Compile Include="Code\Logic\HollyContactHelper.cs" />
+    <Compile Include="Code\Logic\NetworkMonitoring.cs" />
+    <Compile Include="Code\Logic\WebCommandManage.cs" />
+    <Compile Include="Code\MDB\AccessDB.cs" />
+    <Compile Include="Code\MDB\MDBFileHelper.cs" />
+    <Compile Include="Code\MDB\MongoBD.cs" />
+    <Compile Include="Code\MDB\MongoDBHelper.cs" />
+    <Compile Include="Code\Utils\CrossFrameIE.cs" />
+    <Compile Include="Code\Utils\UserEventData.cs" />
+    <Compile Include="Code\WebService\ClientAssistantHelper.cs" />
+    <Compile Include="Form\Main\MainEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main\MainTimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Other\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Other\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Other\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Other\ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Other\ItemUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\Other\ItemUI.Designer.cs">
+      <DependentUpon>ItemUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Other\KeyBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Other\KeyBoard.Designer.cs">
+      <DependentUpon>KeyBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Other\ListenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\Other\ListenControl.Designer.cs">
+      <DependentUpon>ListenControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Other\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Other\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main\MainJs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main\MainStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main\MainUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Logic\LoginHelper.cs" />
+    <Compile Include="Form\Other\TransferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Other\TransferForm.Designer.cs">
+      <DependentUpon>TransferForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Other\UpdateTip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Other\UpdateTip.Designer.cs">
+      <DependentUpon>UpdateTip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\CCWeb.CallRecordService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CCWebAgentTimeState\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CCWebVerifyPhoneFormat\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Utils\ENUMS.cs" />
+    <Compile Include="Code\Utils\LoginUser.cs" />
+    <Compile Include="Code\Utils\Common.cs" />
+    <Compile Include="Code\Utils\Constant.cs" />
+    <Compile Include="Code\Utils\Loger.cs" />
+    <Compile Include="Code\WebService\AgentTimeStateHelper.cs" />
+    <Compile Include="Code\WebService\CallRecordHelper.cs" />
+    <Compile Include="Code\WebService\VerifyPhoneFormatHelper.cs" />
+    <Compile Include="Service References\ClientAssistantService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\Other\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Other\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Other\ItemUI.resx">
+      <DependentUpon>ItemUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Other\KeyBoard.resx">
+      <DependentUpon>KeyBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Other\ListenControl.resx">
+      <DependentUpon>ListenControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Other\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Other\TransferForm.resx">
+      <DependentUpon>TransferForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Other\UpdateTip.resx">
+      <DependentUpon>UpdateTip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Form\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Readme.rtf" />
+    <None Include="Service References\CCWeb.CallRecordService\CallRecordService.wsdl" />
+    <None Include="Service References\CCWeb.CallRecordService\CC2015_HollyFormsApp.CCWeb.CallRecordService.CallRecord_ORIG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CCWebAgentTimeState\AgentTimeState.wsdl" />
+    <None Include="Service References\CCWebVerifyPhoneFormat\VerifyPhoneFormat.wsdl" />
+    <None Include="Service References\ClientAssistantService\ClientAssistantService.wsdl" />
+    <None Include="skin\Calmness.ssk" />
+    <None Include="skin\ccSkin.ssk" />
+    <None Include="skin\ccSkin3.ssk" />
+    <None Include="skin\ccSkin4.ssk" />
+    <None Include="skin\DeepCyan.ssk" />
+    <None Include="skin\DeepOrange.ssk" />
+    <None Include="skin\DiamondBlue.ssk" />
+    <None Include="skin\DiamondGreen.ssk" />
+    <None Include="skin\Eighteen.ssk" />
+    <None Include="skin\EighteenColor1.ssk" />
+    <None Include="skin\EighteenColor2.ssk" />
+    <None Include="skin\Emerald.ssk" />
+    <None Include="skin\EmeraldColor1.ssk" />
+    <None Include="skin\EmeraldColor2.ssk" />
+    <None Include="skin\EmeraldColor3.ssk" />
+    <None Include="skin\GlassBrown.ssk" />
+    <None Include="skin\GlassGreen.ssk" />
+    <None Include="skin\GlassOrange.ssk" />
+    <None Include="skin\Longhorn.ssk" />
+    <None Include="skin\MacOS.ssk" />
+    <None Include="skin\Midsummer.ssk" />
+    <None Include="skin\MidsummerColor1.ssk" />
+    <None Include="skin\MidsummerColor2.ssk" />
+    <None Include="skin\MidsummerColor3.ssk" />
+    <None Include="skin\MP10.ssk" />
+    <None Include="skin\MSN.ssk" />
+    <None Include="skin\OneBlue.ssk" />
+    <None Include="skin\OneCyan.ssk" />
+    <None Include="skin\OneGreen.ssk" />
+    <None Include="skin\OneOrange.ssk" />
+    <None Include="skin\Page.ssk" />
+    <None Include="skin\PageColor1.ssk" />
+    <None Include="skin\PageColor2.ssk" />
+    <None Include="skin\RealOne.ssk" />
+    <None Include="skin\Silver.ssk" />
+    <None Include="skin\SilverColor1.ssk" />
+    <None Include="skin\SilverColor2.ssk" />
+    <None Include="skin\SportsBlack.ssk" />
+    <None Include="skin\SportsBlue.ssk" />
+    <None Include="skin\SportsCyan.ssk" />
+    <None Include="skin\SportsGreen.ssk" />
+    <None Include="skin\SportsOrange.ssk" />
+    <None Include="skin\SteelBlack.ssk" />
+    <None Include="skin\SteelBlue.ssk" />
+    <None Include="skin\Vista.ssk" />
+    <None Include="skin\vista1.ssk" />
+    <None Include="skin\Vista2.ssk" />
+    <None Include="skin\Vista2_color1.ssk" />
+    <None Include="skin\Vista2_color3.ssk" />
+    <None Include="skin\Vista2_color6.ssk" />
+    <None Include="skin\vistaGreen.ssk" />
+    <None Include="skin\Warm.ssk" />
+    <None Include="skin\WarmColor1.ssk" />
+    <None Include="skin\WarmColor2.ssk" />
+    <None Include="skin\WarmColor3.ssk" />
+    <None Include="skin\Wave.ssk" />
+    <None Include="skin\WaveColor1.ssk" />
+    <None Include="skin\WaveColor2.ssk" />
+    <None Include="skin\XPBlue.ssk" />
+    <None Include="skin\XPGreen.ssk" />
+    <None Include="skin\XPOrange.ssk" />
+    <None Include="skin\XPSilver.ssk" />
+    <Content Include="images\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\话后.png" />
+    <None Include="Resources\签出.png" />
+    <None Include="Resources\通话.png" />
+    <None Include="Resources\振铃.png" />
+    <None Include="Resources\置忙.png" />
+    <None Include="Resources\置闲.png" />
+    <Content Include="images\off.png" />
+    <Content Include="images\on.png" />
+    <None Include="Resources\graybtn.jpg" />
+    <None Include="Service References\ClientAssistantService\ClientAssistantService.disco" />
+    <None Include="Service References\ClientAssistantService\configuration91.svcinfo" />
+    <None Include="Service References\ClientAssistantService\configuration.svcinfo" />
+    <None Include="Service References\ClientAssistantService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="images\修复.png" />
+    <Content Include="Resources\dot\dot-green-d.gif" />
+    <Content Include="Resources\dot\dot-red-d.gif" />
+    <Content Include="Resources\dot\dot-yellow-d.gif" />
+    <Content Include="更新说明.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\117.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\16.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\16.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\closeGray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\desktop.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\ie.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\ie.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\lgbg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Loginbtn.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Login_btn.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Login_btnhr.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Login_close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Login_lgbg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Login_navbg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Login_user.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\navbg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\print16.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\QZoneDlgBack.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\QZoneDlgBackDisable.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\QZoneDlgForward.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\QZoneDlgForwardDisable.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\QZoneDlgInfo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\QZoneDlgMarket.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\QZoneDlgRefresh.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\search.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\search1.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\txt.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\主页.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\帮助.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\恢复.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\拨号.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\挂断.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\摘机.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\签入.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\签出.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\签出状态.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\置忙.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\置忙状态.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\置闲.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\背景.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\背景bg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\话后.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\话后状态.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\转接.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\闲置状态.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="holly.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\CCWebAgentTimeState\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CCWebAgentTimeState\configuration.svcinfo" />
+    <None Include="Service References\CCWebAgentTimeState\configuration91.svcinfo" />
+    <None Include="Service References\CCWebAgentTimeState\AgentTimeState.disco" />
+    <None Include="Service References\CCWebVerifyPhoneFormat\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CCWebVerifyPhoneFormat\configuration.svcinfo" />
+    <None Include="Service References\CCWebVerifyPhoneFormat\configuration91.svcinfo" />
+    <None Include="Service References\CCWeb.CallRecordService\CallRecordService.disco" />
+    <None Include="Service References\CCWeb.CallRecordService\configuration91.svcinfo" />
+    <None Include="Service References\CCWeb.CallRecordService\configuration.svcinfo" />
+    <None Include="Service References\CCWeb.CallRecordService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="MailTemplat\images\allbg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\bot630.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\bot730.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\bottom730.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\lb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\logo_old.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\lt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\rb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\rt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\top630.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\images\top730.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\mail630.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailTemplat\mailSysError.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CCWeb.CallRecordService\" />
+    <WCFMetadataStorage Include="Service References\CCWebAgentTimeState\" />
+    <WCFMetadataStorage Include="Service References\CCWebVerifyPhoneFormat\" />
+    <WCFMetadataStorage Include="Service References\ClientAssistantService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BitAuto.ISDC.CC2012.BLL\BitAuto.ISDC.CC2012.BLL.csproj">
+      <Project>{6F780424-6A4D-4970-8FA7-CBC49767B6E8}</Project>
+      <Name>BitAuto.ISDC.CC2012.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BitAuto.ISDC.CC2012.WebService\BitAuto.ISDC.CC2012.WebService.csproj">
+      <Project>{15E11F0E-76C1-46F2-B173-3F98336FCBDF}</Project>
+      <Name>BitAuto.ISDC.CC2012.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxUniSoftPhoneControl">
+      <Guid>{43043E1E-C7F9-4B6B-A546-19DD15576556}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="UniSoftPhoneControl">
+      <Guid>{43043E1E-C7F9-4B6B-A546-19DD15576556}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)..\..\BitAuto.DSC.CC2015.ClientApp\AutoUpdate\bin\Debug\CC2015_HollyFormsApp.AutoUpdate.exe $(TargetDir)\CC2015_HollyFormsApp.AutoUpdate.exe.bak
+
+copy $(ProjectDir)..\..\BitAuto.DSC.CC2015.ClientApp\AutoUpdate\bin\Debug\CC2015_HollyFormsApp.AutoUpdate.exe $(TargetDir)\CC2015_HollyFormsApp.AutoUpdate.exe</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

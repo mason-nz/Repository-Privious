@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>大屏监控-第四屏</title>
+    <script src="../Scripts/HighChart/jquery1.8.3.min.js" type="text/javascript"></script>
+    <script src="../Scripts/HighChart/highcharts.js"></script>
+    <link href="../Content/Css/bigscreenReport.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/defineJs/bigscreenReport.js" type="text/javascript"></script>
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+    <script src="../Scripts/CommonJS/WebAPI.js" type="text/javascript"></script>
+    <link href="../Content/Css/WebApi.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var colors = ['#ff9900', '#3bb5e4', '#f36c4f', '#ffa996'];
+        $(function () {
+            FormData();
+        });
+        function CreateChart(data, action, color1, color2) {
+            var categories1 = "";
+            var data1 = "";
+            if (data != "") {
+                var jsonData = $.evalJSON(data);
+                $.each(jsonData, function (i, item) {
+                    var strTrueName = "";
+                    if (item.TrueName.indexOf('(') != -1) {
+                        strTrueName = item.TrueName.substr(0, item.TrueName.indexOf('('));
+                    }
+                    else if (item.TrueName.indexOf('（') != -1) {
+                        strTrueName = item.TrueName.substr(0, item.TrueName.indexOf('（'));
+                    }
+                    else {
+                        strTrueName = item.TrueName;
+                    }
+
+                    if (i < 3) {
+                        categories1 += ",'<b style=\"font-family: 微软雅黑;font-weight: bold;font-size: 24px;color: #333333;\">" + strTrueName + "</b>'";
+                        data1 += ",{ y:" + (parseInt(item.TotalCount) > 250 ? 250 : (parseInt(item.TotalCount) == -1 ? 1 : item.TotalCount)) + ",color:'" + color1 + "',name:" + item.TotalCount + "}";
+
+                    }
+                    else {
+                        categories1 += ",'<b style=\"font-family: 微软雅黑;font-weight: bold;font-size: 16px;color: #333333;\">" + strTrueName + "</b>'";
+                        data1 += ",{ y:" + (parseInt(item.TotalCount) > 250 ? 250 : (parseInt(item.TotalCount) == -1 ? 1 : item.TotalCount)) + ",color:'" + color2 + "',name:" + item.TotalCount + "}";
+                    }
+                });
+
+                if (categories1.length > 0) {
+                    categories1 = "[" + categories1.substring(1, categories1.length) + "]";
+                }
+                if (data1.length > 0) {
+                    data1 = "[" + data1.substring(1, data1.length) + "]";
+                }
+                BigChartOption.CreateBarChartOption(action, categories1, data1);
+            }
+        }
+        function FormData() {
+            //1. 左上角图表
+            $.get("/api/APICCMonitor/GetBigScreenReport4", { Action: "1", r: Math.random() }, function (data) {
+                CreateChart(data, "1", colors[0], colors[1]);
+            });
+            //2.左下角图表
+            $.get("/api/APICCMonitor/GetBigScreenReport4", { Action: "2", r: Math.random() }, function (data) {
+                CreateChart(data, "2", colors[0], colors[1]);
+            });
+            //3.右上角图表
+            $.get("/api/APICCMonitor/GetBigScreenReport4", { Action: "3", r: Math.random() }, function (data) {
+                CreateChart(data, "3", colors[2], colors[3]);
+            });
+            //4.右下角图表
+            $.get("/api/APICCMonitor/GetBigScreenReport4", { Action: "4", r: Math.random() }, function (data) {
+                CreateChart(data, "4", colors[2], colors[3]);
+            });
+        }
+        $(document).ready(function () {
+            //每隔3秒自动调用方法，实现图表的实时更新  
+            window.setInterval(FormData, 1000 * 60 * 15);
+        });                            
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="chart1">
+            <div class="title">
+                线索达人排名 - 线索运营支持部</div>
+            <div class="chartPic" id="container1">
+            </div>
+        </div>
+        <div class="chart1 chart2">
+            <div class="title">
+                金融达人排名 - 汽车金融服务部</div>
+            <div class="chartPic" id="container3">
+            </div>
+        </div>
+        <div class="chart1 chart3">
+            <div class="title">
+                平台达人排名 - 智能平台运营支持部
+            </div>
+            <div class="chartPic" id="container2">
+            </div>
+        </div>
+        <div class="chart1 chart4">
+            <div class="title">
+                淘车达人排名 - 二手车运营支持部</div>
+            <div class="chartPic" id="container4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
