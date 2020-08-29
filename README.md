@@ -13,4 +13,4 @@ This project defined a based-on div alert-layer functions. You can easily used i
 This project is a report system which based on OA systems and used mobile development. It used baiduchart-plugin to demostrate some diagrams.
 
 # React Native-Demo
-This project is a practical React Native framweork. There are some demos in it.
+This project is a practical React Native framweork. There were some demos in it.
