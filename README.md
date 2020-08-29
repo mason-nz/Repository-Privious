@@ -14,3 +14,6 @@ This project is a report system which based on OA systems and used HTML5 techniq
 
 # React Native-Demo
 This project is a practical React Native framweork. There were some demos in it.
+
+# Chitunion
+This project is about information distribution system, which included app, h5, back-end, TitleManagementSystem, DataSystem etc.
