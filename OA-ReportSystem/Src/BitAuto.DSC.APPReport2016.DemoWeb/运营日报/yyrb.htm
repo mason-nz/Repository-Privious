@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>运营日报</title>
+    <link type="text/css" href="../Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="../Scripts/echarts.js"></script>
+    <script type="text/javascript" src="../Scripts/echarts_custom.js"></script>
+    <script type="text/javascript">
+        window.onresize = function () {
+            myChart2.resize();
+        }
+    </script>
+</head>
+<body>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div style="background-color: rgba(73, 71, 84, 1);">
+        <div class="clear10">
+        </div>
+        <div class="moddleTop" style="width: 100%; background-color: rgba(73, 71, 84, 1);">
+            <p>
+                <span style="font-weight: bold;">日监测数据总览</span> (<span style="font-weight: normal;">2016-10-24
+                    星期一</span>)
+            </p>
+            <img class="charthelper" src="/images/u361.png" />
+        </div>
+        <div class="clear10">
+        </div>
+        <!-- (数据项====开始) -->
+        <div class="ywxjyl" style="width: 100%">
+            <ul>
+                <li>
+                    <div class="tag fgyys">
+                        <img src="../Images/u353.png" style="padding-top: 10px;" />
+                    </div>
+                    <div class="tag_right fgyys_color">
+                        <p class="bname">
+                            <span>总覆盖用户数</span> <span class="daxie">1,461,922,328</span>
+                        </p>
+                        <p class="rightTop">
+                            <span class="highColor">＋8.11%</span> <span>(同比)</span><br />
+                            <span class="lowColor">-1.41%</span> <span>(环比)</span><br />
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tag leads">
+                        <img src="../Images/u359.png" style="padding-top: 14px;" />
+                    </div>
+                    <div class="tag_right leads_color">
+                        <p class="bname">
+                            <span>总Leads数</span> <span class="daxie">230,213</span>
+                        </p>
+                        <p class="rightTop">
+                            <span class="highColor">＋3.63%</span> <span>(同比)</span><br />
+                            <span class="lowColor">﹣1.01%</span> <span>(环比)</span><br />
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tag xds">
+                        <img src="../Images/u355.png" style="padding-top: 14px;" />
+                    </div>
+                    <div class="tag_right xds_color">
+                        <p class="bname">
+                            <span>总下单用户数</span> <span class="daxie">94,996</span>
+                        </p>
+                        <p class="rightTop">
+                            <span class="highColor">＋1.11%</span> <span>(同比)</span><br />
+                            <span class="highColor">＋1.41%</span> <span>(环比)</span><br />
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tag jyl">
+                        <img src="../Images/u357.png" style="padding-top: 12px;" />
+                    </div>
+                    <div class="tag_right jyl_color">
+                        <p class="bname">
+                            <span>总交易量</span> <span class="daxie">107</span>
+                        </p>
+                        <p class="rightTop">
+                            <span class="highColor">＋44.59%</span> <span>(同比)</span><br />
+                            <span class="highColor">＋48.61%</span> <span>(环比)</span><br />
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- (数据项====结束) -->
+        <div class="clear20">
+        </div>
+    </div>
+    <div class="clear10">
+    </div>
+    <div class="moddleTop" style="width: 100%;">
+        <p>
+            <span style="font-weight: bold;">日监测数据总趋势</span>
+        </p>
+        <!--<img class="charthelper" src="/images/u361.png" />-->
+    </div>
+    <div class="clear10">
+    </div>
+    <div class="layout hxgray" style="clear: both;">
+    </div>
+    <!-- (柱状图====开始) -->
+    <div id="ChartBar2" class="layout" style="float: left; width: 100%; height: 250px;
+        background-color: Blue;">
+    </div>
+    <div class="layout hxgray" style="clear: both;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="clear20">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('ChartBar2'));
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                triggerOn: 'click', //默认鼠标移动时触发，如果设置click则鼠标点击时触发
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'line'        // 默认为直线，可选为：'line' | 'shadow'
+                },
+                //formatter: 折线（区域）图、柱状（条形）图、K线图 : {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
+                backgroundColor: 'rgba(0, 0, 0, 0.847058823529412)', //提示框背景颜色
+                textStyle: {
+                    color: 'rgba(255, 255, 255, 1)',
+                    fontFamily: '微软雅黑',
+                    fontWeight: 400,
+                    fontSize: 12
+                },
+                formatter: function (params) {
+                    var html = "<span style='font-weight:normal;color:rgba(200, 200, 200, 1);'>日期：</span>2016-" + params[0].name + "<br/>";
+                    html += "<span style='font-weight:normal;color:rgba(200, 200, 200, 1);'>" + params[0].seriesName + "：</span>" + params[0].value + "万<br/>";
+                    html += "<span style='font-weight:normal;color:rgba(200, 200, 200, 1);'>" + params[1].seriesName + "：</span>" + params[1].value + "万<br/>";
+                    html += "<span style='font-weight:normal;color:rgba(200, 200, 200, 1);'>" + params[2].seriesName + "：</span>" + params[2].value + "万<br/>";
+                    return html;
+                }
+            },
+            legend: {
+                data: [{
+                    name: '总覆盖用户数',
+                    icon: 'square'
+                }, {
+                    name: '总Leads数',
+                    icon: 'circle'
+                }, {
+                    name: '总下单用户数',
+                    icon: 'circle'
+                }],
+                bottom: '3%',
+                left: '5%',
+                textStyle: {
+                    color: '#FFFFFF',
+                    fontFamily: '微软雅黑',
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    fontSize: 11
+                },
+                itemGap: 20,
+                itemWidth: 12,
+                itemHeight: 12
+            },
+            dataZoom: [{
+                type: 'inside',
+                start: 0,
+                end: 100
+            }],
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '15%',
+                top: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true, //留白策略
+                data: ['09-12', '09-13', '09-14', '09-15', '09-16', '09-17', '09-18', '09-19', '09-20', '09-21', '09-22', '09-23', '09-24'],
+                axisLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: [{
+                type: 'value',
+                min: 0,
+                max: 40,
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    formatter: '{value}万',
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            }, {
+                type: 'value',
+                min: 0,
+                max: 2000,
+                name: '总覆盖用户数',
+                nameLocation: 'end',
+                position: 'right',
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    formatter: '{value}万',
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            }],
+            series: [{
+                name: '总覆盖用户数',
+                yAxisIndex: 1,
+                type: 'bar',
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(247, 217, 109, 1)'
+                    }
+                },
+                data: [1200, 1400, 1100, 1500, 1700, 1100, 1600, 1300, 1200, 1400, 1100, 900, 700]
+            },
+            {
+                name: '总Leads数',
+                yAxisIndex: 0,
+                type: 'line',
+                symbol: 'circle',
+                symbolSize: 10,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(20, 202, 187, 1)'
+                    }
+                },
+                data: [22.5, 28.6, 23.9, 24.0, 21.6, 29.9, 22.4, 27.8, 21.3, 29.8, 24.5, 24.3, 30.8]
+            },
+            {
+                name: '总下单用户数',
+                yAxisIndex: 0,
+                type: 'line',
+                symbol: 'circle',
+                symbolSize: 10,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(13, 150, 208, 1)'
+                    }
+                },
+                data: [7.5, 8.6, 5.9, 9.0, 7.6, 8.9, 8.4, 5.8, 7.3, 6.8, 5.5, 9.3, 6.8]
+            }]
+        };
+        myChart2.setOption(option);
+    </script>
+</body>
+</html>

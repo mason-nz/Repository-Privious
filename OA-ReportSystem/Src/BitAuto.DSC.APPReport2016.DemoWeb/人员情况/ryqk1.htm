@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>人员情况（1）</title>
+    <link type="text/css" href="../Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="../Scripts/echarts.js"></script>
+    <script type="text/javascript">
+        window.onresize = function () {
+            myChart.resize();
+        }
+    </script>
+</head>
+<body>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="moddleTop" style="width: 100%; background-color: rgb(73, 71, 84); padding-bottom: 5px;
+        border-top-width: 5px; margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">员工总数和本月变动情况</span>
+        </p>
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div style="clear: both; background-color: rgb(73, 71, 84); height: 160px;">
+        <div id="divryzs">
+            <div style="padding-top: 50px; text-align: center; margin-right: 50%;">
+                <img src="/images/u3241.png" style="cursor: pointer;" onclick="window.location='ryqk2.htm';">
+                <img src="/images/u3215.png" style="margin-top: 0px; margin-bottom: -10px; margin-left: 5px;">
+            </div>
+            <div style="text-align: left; margin-top: -40px; margin-left: 40%;">
+                <span style="font-size: 28px; font-weight: bold;">4785</span><span style="font-size: 14px;">
+                    人</span>
+            </div>
+            <div style="text-align: left; margin-top: -5px; margin-left: 40%;">
+                <span style="font-size: 14px;">员工总数</span>
+            </div>
+        </div>
+        <div>
+            <img style="left: 42%; position: absolute; top: 80px; z-index: 99;" src="/images/u3247.png">
+            <img style="left: 42%; position: absolute; top: 140px; z-index: 99;" src="/images/u3249.png">
+        </div>
+        <div id="divruzhi">
+            <div style="padding-top: 10px; text-align: center; margin-right: 50%;">
+                <img src="/images/u3243.png" style="cursor: pointer;" onclick="window.location='ryqk2.htm';">
+                <img src="/images/u3215.png" style="margin-top: 0px; margin-bottom: -10px; margin-left: 5px;">
+            </div>
+            <div style="text-align: left; margin-top: -40px; margin-left: 40%;">
+                <span style="font-size: 28px; font-weight: bold;">57</span><span style="font-size: 14px;">
+                    人</span>
+            </div>
+            <div style="text-align: left; margin-top: -5px; margin-left: 41%;">
+                <span style="font-size: 14px;">入职</span>
+            </div>
+        </div>
+        <div id="divlizhi">
+            <div style="padding-top: 10px; text-align: center; margin-right: 50%;">
+                <img src="/images/u3239.png" style="cursor: pointer;" onclick="window.location='ryqk2.htm';">
+                <img src="/images/u3215.png" style="margin-top: 0px; margin-bottom: -10px; margin-left: 5px;">
+            </div>
+            <div style="text-align: left; margin-top: -40px; margin-left: 40%;">
+                <span style="font-size: 28px; font-weight: bold;">34</span><span style="font-size: 14px;">
+                    人</span>
+            </div>
+            <div style="text-align: left; margin-top: -5px; margin-left: 41%;">
+                <span style="font-size: 14px;">离职</span>
+            </div>
+        </div>
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="clear20">
+    </div>
+    <!-- (柱状图====标题========开始) -->
+    <div class="moddleTop" style="width: 100%; padding-bottom: 5px; border-top-width: 5px;
+        margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">员工总数变化趋势</span>
+        </p>
+    </div>
+    <!-- (柱状图====标题========结束) -->
+    <div class="clear10">
+    </div>
+    <div class="layout hxgray" style="clear: both;">
+    </div>
+    <!-- (柱状图====开始) -->
+    <div class="layout" id="main" style="clear: both; width: 100%; height: 250px;">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                triggerOn: 'click', //默认鼠标移动时触发，如果设置click则鼠标点击时触发
+                //formatter: 折线（区域）图、柱状（条形）图、K线图 : {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
+                backgroundColor: 'rgba(0, 0, 0, 0.847058823529412)', //提示框背景颜色
+                //formatter: '{b}<br/>{a0}: {c0}<br />{a1}: 环比上月+{c1}%'
+                formatter: function (params) {
+                    var res = params[0].name;
+                    res += '<br/>' + params[0].seriesName + '：' + params[0].value;
+                    res += '<br/>' + params[1].seriesName + '：环比上月' + (params[1].value < 0 ? params[1].value : '+' + params[1].value) + '%';
+                    return res;
+                }
+            },
+            legend: {
+                data: [{ name: '员工数', icon: 'square' }, { name: '增长率', icon: 'circle'}],
+                bottom: '3%',
+                left: '40',
+                textStyle: {
+                    color: '#FFFFFF',
+                    fontFamily: '微软雅黑',
+                    fontWeight: '400',
+                    fontStyle: 'normal',
+                    fontSize: 11
+                },
+                itemGap: 20,
+                itemWidth: 12,
+                itemHeight: 12
+            },
+            dataZoom: [{
+                type: 'inside',
+                startValue: 3, //数据范围开始结束
+                endValue: 7,
+                xAxisIndex: 0
+            }],
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '15%',
+                top: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true, //留白策略
+                data: ['11月', '12月', '16年1月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月'],
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: 'rgba(51, 51, 51, 1)'
+                    },
+                    onZero: false
+
+
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: '400',
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: 'rgba(51, 51, 51, 1)'
+                    }
+                },
+                max: 5000,
+                min: 3000,
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: '400',
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            {
+                type: 'value',
+                scale: true,
+                name: '增长率',
+                max: 50,
+                min: -10,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: 'rgba(51, 51, 51, 1)'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                axisLabel: {
+                    show: false
+                }
+            }],
+            series: [{
+                name: '员工数',
+                type: 'bar',
+                barWidth: '12px',
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(13, 150, 208, 1)'
+                    }
+                },
+                data: [3200, 3320, 3190, 3340, 3900, 3300, 3240, 3400, 3500, 4710, 4670]
+            },
+            {
+                name: '增长率',
+                type: 'line',
+                yAxisIndex: 1,
+                symbol: 'circle',
+                symbolSize: 12,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(255, 204, 102, 1)'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: '#EEE9E9',
+                        width: '1',
+                        type: 'solid'
+                    }
+                },
+                data: [0.014 * 100, 0.182 * 100, -0.005 * 100, 0.184 * 100, 0.2 * 100, 0.18 * 100, 0.015 * 100, 0.22 * 100, 0.23 * 100, 0.46 * 100, 0.45 * 100],
+                markPoint: {
+                    symbol: 'circle',
+                    symbolSize: 12,
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%'
+                        }
+                    },
+                    data: [{
+                        type: 'max', name: '最大值', label: {
+                            normal: {
+                                show: true,
+                                textStyle: { color: '#FF7755' }
+                            }
+                        }
+                    },
+                    {
+                        type: 'min', name: '最小值', label: {
+                            normal: {
+                                show: true,
+                                position: 'bottom',
+                                textStyle: { color: '#66FFFF' }
+                            }
+                        }
+                    },
+                    {
+                        type: 'average', name: '平均值', label: {
+                            normal: {
+                                show: true,
+                                textStyle: { color: '#FF7755' }
+                            }
+                        }
+                    }]
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <!-- (柱状图====结束) -->
+    <div class="clear20">
+    </div>
+    <div class="layout hxgray">
+    </div>
+    <div class="clear20">
+    </div>
+</body>
+</html>

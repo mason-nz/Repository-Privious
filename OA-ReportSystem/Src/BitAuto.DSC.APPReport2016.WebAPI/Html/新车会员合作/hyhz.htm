@@ -1,0 +1,57 @@
+﻿<script type="text/javascript">
+    $(window).resize(function () {
+        myChart_line.resize();
+        myChart_bar.resize();
+    });
+</script>
+<div class="moddleTop">
+    <p>
+        <span style="font-weight: bold;">会员合作数</span>
+    </p>
+</div>
+<div class="middleSub">
+    <p>
+        <span id="bartitle_date"></span><span>在线</span><span id="bartitle_name">车易通</span><span>会员</span>
+        <span style="color: #16B5E9; font-family: 'Avenir-Medium';" id="bartitle_num1">0</span>
+        <span>个（含综合店），</span> <span id="bartitle_year">16年</span><span>峰值数</span> <span style="color: #18ECE5;
+            font-family: 'Avenir-Medium';" id="bartitle_num2">0</span><span>个。</span>
+    </p>
+</div>
+<!-- (柱状图====开始) -->
+<div id="ChartBar" class="layout" style="float: left; width: 100%; height: 250px;">
+</div>
+<!-- (柱状图====结束) -->
+<!-- (横线) -->
+<div class="moddleTop">
+    <p>
+        <span style="font-weight: bold;">会员贡献值</span>
+    </p>
+</div>
+<div class="middleSub">
+    <p>
+        <span><span id="spYear">2016</span>年车易通会员贡献值</span> <span id="spCYT"
+                style="color: #3F85FF; font-family: 'Avenir-Medium';">0</span><span>元，车盟通会员</span>
+        <span id="spCMT" style="color: #18ECE5; font-family: 'Avenir-Medium';">0</span><span>元，微信通会员</span>
+        <span id="spWXT" style="color: #FDE061; font-family: 'Avenir-Medium';">0</span><span>元。</span>
+    </p>
+</div>
+<!-- (线图====开始) -->
+<div id="main_line" class="layout" style="float: left; width: 100%; height: 250px;">
+</div>
+<!-- (线图====结束) -->
+<div class="clear5">
+</div>
+<script type="text/javascript">
+    var myChart_line = echarts.init(document.getElementById('main_line'));
+    var myChart_bar = echarts.init(document.getElementById('ChartBar'));
+
+    $(document).ready(function () {
+        //线图区域
+        AppReport.XCHYHZ.InitSumHYGX();
+        AppReport.XCHYHZ.InitLineChart();
+
+        //柱图区域
+        AppReport.XCHYHZ.InitSumHYHZ();
+        AppReport.XCHYHZ.InitBarChart();
+    });
+</script>

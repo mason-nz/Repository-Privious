@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>人员情况（1）</title>
+    <link type="text/css" href="/Css/style.css" rel="Stylesheet">
+    <link type="text/css" href="/Css/swiper-3.4.0.min.css" rel="Stylesheet">
+    <link type="text/css" href="/Css/animate.min.css" rel="Stylesheet">
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="/Scripts/echarts.js"></script>
+    <script type="text/javascript" src="/Scripts/echarts_custom.js"></script>
+    <script type="text/javascript" src="/Scripts/swiper-3.4.0.jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/swiper.animate1.0.2.min.js"></script>
+    <script type="text/javascript">
+        //document.writeln("<s" + "cript type='text/javascript' src='/Scripts/config.js?v=" + Math.random() + "'></s" + "cript>");
+        document.write("<s" + "cript type='text/javascript' src='/Scripts/人员情况/RYQK1_PlotChart.js?" + Math.random() + "'></s" + "cript>");
+    </script>
+    <!--<script type="text/javascript">
+        LoadCSS('swiperCSS');
+        LoadCSS('swiper.animate');
+        LoadJS('animateNumber');
+        LoadJS('swiper');
+        LoadJS('swiper.animate');
+    </script>-->
+    <style>
+        .ry
+        {
+            border: 1px solid red;
+        }
+        .ry div
+        {
+            border: 1px solid red;
+        }
+        #divlizhi div
+        {
+        }
+    </style>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var mySwiper = new Swiper('.swiper-container1', {
+            //direction: 'vertical',
+            //loop: true
+    
+            // 如果需要分页器
+            //pagination: '.swiper-pagination',
+    
+            // 如果需要前进后退按钮
+            //nextButton: '.swiper-button-next',
+            //prevButton: '.swiper-button-prev',
+    
+            // 如果需要滚动条
+            //scrollbar: '.swiper-scrollbar',
+            onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素 
+                swiperAnimate(swiper); //初始化完成开始动画
+            },
+            onSlideChangeEnd: function (swiper) {
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            } 
+        });      
+    });  
+    </script>
+</head>
+<body>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="moddleTop">
+        <p>
+            <span style="font-weight: bold;">人员总数和本月变动情况</span>
+        </p>
+    </div>
+    <div class="clear15">
+    </div>
+    <div style="clear: both; display: flex; height: 160px; padding-left: 15px; padding-right: 15px;">
+        <div class='swiper-container1'>
+            <div class='swiper-wrapper'>
+                <div class="swiper-slide">
+                    <div id="divryzs"  class="ani" swiper-animate-effect="flipInY"  swiper-animate-duration="1.5s" swiper-animate-delay="0.5s" style="float: left;" onclick="window.location='ryqk2.htm';">
+                        <div style="float: left; height: 160px; line-height: 160px; width: 54px;">
+                            <img src="/images/icon_staff_total.png" style="cursor: pointer; max-width: 27px;">
+                            <img src="/images/u3215.png" style="margin-top: 0px; margin-bottom: -13px; margin-right: -15px;
+                                filter: alpha(opacity=60); opacity: 0.6;">
+                        </div>
+                        <div style="float: left; width: 100px; height: 160px;">
+                            <div style="margin-left: 8px; text-align: left; margin-top: 40px;">
+                                <span style="font-size: 30px; font-weight: bold;" id="spPersonSum">0</span>
+                                <br />
+                                <span style="font-size: 15px;">员工总数</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 160px; width: 32px; min-width: 32px; text-align: center;">
+            <div style="height: 50%;">
+                <span style="display: inline-block; vertical-align: middle; height: 100%;"></span>
+                <img style="width: 18px; vertical-align: middle; margin-bottom: 10px;" src="/images/icon_staff_entry_red.png"
+                    alt="" /></div>
+            <div style="height: 50%;">
+                <span style="display: inline-block; vertical-align: middle; height: 100%;"></span>
+                <img style="width: 18px; vertical-align: middle;" src="/images/icon_staff_left_green.png"
+                    alt="" /></div>
+        </div>
+        <div style="width: 100%; min-width: 154px;">
+            <div id="divruzhi">
+                <div style="height: 12px;">
+                </div>
+                <div style="text-align: left; text-align: left; width: 95px; margin: auto;">
+                    <div style="display: inline-block; margin-bottom: 0px;">
+                        <img src="/images/icon_staff_entry.png" style="width: 20px; margin-bottom: 5px;" />
+                        <img src="/images/u3215.png" style="height: 35px; margin-left: 5px; margin-bottom: -3px;" />
+                    </div>
+                    <div style="display: inline-block; margin-left: 5px; text-align: left;">
+                        <div style="font-size: 23px; font-weight: bold;" id="spAddPersons">
+                            0</div>
+                        <div style="font-size: 13px; margin-top: -5px;">
+                            入职</div>
+                    </div>
+                </div>
+            </div>
+            <div id="divlizhi">
+                <div style="height: 12px;">
+                </div>
+                <div style="text-align: left; width: 95px; margin: auto;">
+                    <div style="display: inline-block; margin-bottom: 0px;">
+                        <img src="/images/icon_staff_left.png" style="width: 20px; margin-bottom: 5px;" />
+                        <img src="/images/u3215.png" style="height: 35px; margin-left: 5px; margin-bottom: -3px;" />
+                    </div>
+                    <div style="display: inline-block; margin-left: 5px; text-align: left;">
+                        <div style="font-size: 23px; font-weight: bold;" id="spLeavePersons">
+                            0</div>
+                        <div style="font-size: 13px; margin-top: -5px;">
+                            离职</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear15">
+    </div>
+    <!-- (柱状图====标题========开始) -->
+    <div class="moddleTop" style="width: 100%; padding-bottom: 5px; border-top-width: 5px;
+        margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">员工总数变化趋势</span>
+        </p>
+    </div>
+    <!-- (柱状图====标题========结束) -->
+    <div class="clear10">
+    </div>
+    <!-- (柱状图====开始)
+    -->
+    <div class="layout" id="main" style="clear: both; width: 100%; height: 250px;">
+    </div>
+    <script type="text/javascript">        var myChart_line = echarts.init(document.getElementById('main'));
+        $(window).resize(function () { myChart_line.resize(); }); $(document).ready(function 
+    () { AppReport.RYQKHZ.InitPersonSum(); AppReport.RYQKHZ.InitLineChart(); }); </script>
+    <!-- (柱状图====结束) -->
+    <div class="clear20">
+    </div>
+    <div class="layout hxgray">
+    </div>
+    <div class="clear20">
+    </div>
+</body>
+</html>

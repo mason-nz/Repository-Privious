@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>商机监控</title>
+    <!--<link type="text/css" href="/Css/style.css" rel="Stylesheet">
+    <link type="text/css" href="/Css/swiper-3.4.0.min.css" rel="Stylesheet">
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="/Scripts/echarts.js"></script>
+    <script type="text/javascript" src="/Scripts/swiper-3.4.0.jquery.min.js"></script>-->
+    <script type="text/javascript">
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/config.js?v=" + Math.random() + "'></s" + "cript>");
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/商机监控/PT_PlotChart.js?" + Math.random() + "'></s" + "cript>");
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/商机监控/YWX_PlotChart.js?" + Math.random() + "'></s" + "cript>");
+    </script>
+    <script type="text/javascript">
+        LoadCSS('swiperCSS');
+        LoadJS('animateNumber');
+        LoadJS('swiper');
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#divsjjk_title ul li').bind('click', function () {
+                $(this).parent().find('li').removeClass('selected');
+                $(this).addClass('selected');
+                $('#divLoading').show();
+                $('#divSubPage').load($(this).attr('url') + '?r=' + Math.random(), null, function () {
+                    $('#divLoading').hide();
+                });
+            });
+            $('#divsjjk_title ul li:first').click();
+        });
+    </script>
+</head>
+<body>
+    <div class="JYL_Title">
+        <p>
+            <span id="spanTitleDate"></span>&nbsp;<span style="font-size: 13px;" id="spanTitleWeek"></span>
+        </p>
+    </div>
+    <div id="divsjjk_title" style="">
+        <ul>
+            <li class="selected" url='pt.htm'><a>平台维度</a> </li>
+            <li url='ywx.htm'><a>业务线维度</a> </li>
+        </ul>
+    </div>
+    <div id='divSubPage'>
+    </div>
+    <div id='divLoading' style="display: none; text-align: center;">
+        数据加载中。。。
+    </div>
+</body>
+</html>

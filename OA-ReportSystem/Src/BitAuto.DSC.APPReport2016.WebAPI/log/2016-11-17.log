@@ -1,0 +1,185 @@
+2016-11-17 14:45:28	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 14:45:35	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 14:47:09	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 14:47:35	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=1F0F75043916D65580C53CF5230D35799546F3BE635935D283D49AFDAB125586D1EF9FBA8BA645635F224CFA1371C2A99F1F4A4B31B1095D2A8C4DEBFFCF352997EB31B81902B19CBF67FB21E63B0F99461490BB6CCD25BB
+2016-11-17 14:47:35	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 14:47:35	error	[IsOverdueByCookies方法]   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.Dal.GetUserLoginKeyByEmployeeNumber(String employeeNumber)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsOverdueByCookies(String employeeNumber, Boolean& isOverdue)对象名 'UserLoginKey' 无效。
+2016-11-17 14:47:35	info	[IsLoginByAPP],IsOverdueByCookies(0370)=True
+2016-11-17 14:48:46	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=37CAFCBFA8D3BFA6682F15832CBD8E714B3755A7D94962840C0E3E63EB46FE67A0769DFDED9A2A9F99235399DC99C73045DA216035CF949D2D498E0B99EF41BA5926E9A409AEDAB915047F3A26F06FA3D300FAF3A6C15B62
+2016-11-17 14:48:46	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 14:48:46	error	[IsOverdueByCookies方法]   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.Dal.GetUserLoginKeyByEmployeeNumber(String employeeNumber)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsOverdueByCookies(String employeeNumber, Boolean& isOverdue)对象名 'UserLoginKey' 无效。
+2016-11-17 14:48:46	info	[IsLoginByAPP],IsOverdueByCookies(0370)=True
+2016-11-17 14:53:06	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=A6410EE1C5DDD693E4597FE912EAD072924A31DD4CF571351716E2E58D6102F1A241E22F9E30846322D40C790FF92F430845C4A5CDF6137AC09CCC72F12071C5DC95E53DCB93712BDD7E50074E42EC4C372110E84057CB9C
+2016-11-17 14:53:06	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 14:53:07	error	[IsOverdueByCookies方法]   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.Dal.GetUserLoginKeyByEmployeeNumber(String employeeNumber)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsOverdueByCookies(String employeeNumber, Boolean& isOverdue)对象名 'UserLoginKey' 无效。
+2016-11-17 14:53:07	info	[IsLoginByAPP],IsOverdueByCookies(0370)=True
+2016-11-17 14:55:51	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=A6410EE1C5DDD693E4597FE912EAD072924A31DD4CF571351716E2E58D6102F1A241E22F9E30846322D40C790FF92F430845C4A5CDF6137AC09CCC72F12071C5DC95E53DCB93712BDD7E50074E42EC4C372110E84057CB9C
+2016-11-17 14:55:51	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 14:57:00	error	[IsOverdueByCookies方法]   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 BitAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.Dal.GetUserLoginKeyByEmployeeNumber(String employeeNumber)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsOverdueByCookies(String employeeNumber, Boolean& isOverdue)对象名 'UserLoginKey' 无效。
+2016-11-17 14:57:00	info	[IsLoginByAPP],IsOverdueByCookies(0370)=True
+2016-11-17 14:58:21	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=A6410EE1C5DDD693E4597FE912EAD072924A31DD4CF571351716E2E58D6102F1A241E22F9E30846322D40C790FF92F430845C4A5CDF6137AC09CCC72F12071C5DC95E53DCB93712BDD7E50074E42EC4C372110E84057CB9C
+2016-11-17 14:58:21	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 14:58:22	info	[IsOverdueByCookies方法]中，timeStamp=1479365565，CurrentDate=2016/11/17 14:58:22，CookiesContentDate=2016/11/17 14:52:45，ts.Minutes=5,loginOverdueTime=5
+2016-11-17 14:58:22	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 14:58:22	error	[IsLoginByAPP]   在 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.YanFa.OASysRightManager2011.Common.Tools.DESEncrypt.Decrypt(String Text, String sKey)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()不正确的数据。
+
+2016-11-17 14:58:39	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=5EC54D8A4B2C831610C38E1091E2417B29A848808D52829D3C108715B77EFAF8A5752C2922921B255067F9F802824FC02CC9E060C91C6581F5A2705F75EC2FE3244D2A7AA7A4051CE6AB21A37FD76E080A28181C29CF50F9
+2016-11-17 14:58:39	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 14:58:39	info	[IsOverdueByCookies方法]中，timeStamp=1479365902，CurrentDate=2016/11/17 14:58:39，CookiesContentDate=2016/11/17 14:58:22，ts.Minutes=0,loginOverdueTime=5
+2016-11-17 14:58:39	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 14:58:39	info	[IsLoginByAPP],strEncryptKey=1479365902743725
+2016-11-17 14:58:39	info	[IsLoginByAPP],cookieValue=A3D95F6BA52FB5AB|694DB1AA706A4F17|31F7F826BBA21C1E|99E909DC15CFDED2|0C75057798C4ADBC
+2016-11-17 14:58:43	info	[IsOverdueByCookies方法]中，timeStamp=1479365902，CurrentDate=2016/11/17 14:58:43，CookiesContentDate=2016/11/17 14:58:22，ts.Minutes=0,loginOverdueTime=5
+2016-11-17 15:34:16	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=5EC54D8A4B2C831610C38E1091E2417B29A848808D52829D3C108715B77EFAF8A5752C2922921B255067F9F802824FC02CC9E060C91C6581F5A2705F75EC2FE3244D2A7AA7A4051CE6AB21A37FD76E080A28181C29CF50F9
+2016-11-17 15:34:16	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 15:34:16	info	[IsOverdueByCookies方法]中，timeStamp=1479365902，CurrentDate=2016/11/17 15:34:16，CookiesContentDate=2016/11/17 14:58:22，ts.Minutes=35,loginOverdueTime=5
+2016-11-17 15:34:18	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 15:34:18	info	[IsLoginByAPP],strEncryptKey=1479365902743725
+2016-11-17 15:34:18	info	[IsLoginByAPP],cookieValue=A3D95F6BA52FB5AB|694DB1AA706A4F17|31F7F826BBA21C1E|99E909DC15CFDED2|0C75057798C4ADBC
+2016-11-17 15:39:21	info	[IsOverdueByCookies方法]中，timeStamp=1479368353，CurrentDate=2016/11/17 15:39:21，CookiesContentDate=2016/11/17 15:39:12，ts.Minutes=0,loginOverdueTime=5
+2016-11-17 15:39:37	info	[IsOverdueByCookies方法]中，timeStamp=1479368353，CurrentDate=2016/11/17 15:39:37，CookiesContentDate=2016/11/17 15:39:12，ts.Minutes=0,loginOverdueTime=5
+2016-11-17 15:39:59	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 16:11:20	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 16:12:14	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 16:12:57	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 16:14:57	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 16:15:18	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=FB68930E2B892B6DBCA1FBA6146BC0F18E41ECCF3310064DE6A7A121F20B934F96A7CD8542FF1E410632927328888AC6566862669AD2B71D2DFD239ACE18A2C50896FCCF8195152EFE415B987A8E0C9C4149271B603F76AC
+2016-11-17 16:15:18	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:15:21	info	[IsOverdueByCookies方法]中，timeStamp=1479370502，CurrentDate=2016/11/17 16:15:21，CookiesContentDate=2016/11/17 16:15:02，ts.Minutes=0,loginOverdueTime=5
+2016-11-17 16:15:21	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:15:21	info	[IsLoginByAPP],strEncryptKey=1479370502629976
+2016-11-17 16:15:21	info	[IsLoginByAPP],cookieValue=0E06837327F421E7|F751A83B257AD855|0F47A9FBC2396C64|99A5B42C66D22E08|4A1EDF30898EED5A
+2016-11-17 16:16:02	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=FB68930E2B892B6DBCA1FBA6146BC0F18E41ECCF3310064DE6A7A121F20B934F96A7CD8542FF1E410632927328888AC6566862669AD2B71D2DFD239ACE18A2C50896FCCF8195152EFE415B987A8E0C9C4149271B603F76AC
+2016-11-17 16:16:02	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:16:02	info	[IsOverdueByCookies方法]中，timeStamp=1479370502，CurrentDate=2016/11/17 16:16:02，CookiesContentDate=2016/11/17 16:15:02，ts.Minutes=1,loginOverdueTime=5
+2016-11-17 16:16:02	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:16:02	info	[IsLoginByAPP],strEncryptKey=1479370502629976
+2016-11-17 16:16:02	info	[IsLoginByAPP],cookieValue=0E06837327F421E7|F751A83B257AD855|0F47A9FBC2396C64|99A5B42C66D22E08|4A1EDF30898EED5A
+2016-11-17 16:17:08	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=FB68930E2B892B6DBCA1FBA6146BC0F18E41ECCF3310064DE6A7A121F20B934F96A7CD8542FF1E410632927328888AC6566862669AD2B71D2DFD239ACE18A2C50896FCCF8195152EFE415B987A8E0C9C4149271B603F76AC
+2016-11-17 16:17:08	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:17:08	info	[IsOverdueByCookies方法]中，timeStamp=1479370502，CurrentDate=2016/11/17 16:17:08，CookiesContentDate=2016/11/17 16:15:02，ts.Minutes=2,loginOverdueTime=5
+2016-11-17 16:17:08	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:17:08	info	[IsLoginByAPP],strEncryptKey=1479370502629976
+2016-11-17 16:17:08	info	[IsLoginByAPP],cookieValue=0E06837327F421E7|F751A83B257AD855|0F47A9FBC2396C64|99A5B42C66D22E08|4A1EDF30898EED5A
+2016-11-17 16:20:16	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 16:20:31	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=0FEEE4488AB3A091DEC290CD988B3F6A34C5E0771F314111878D7B04B64D7CA73E48A40F1C2095A00F48B205A1EEC18CB3E048AD496EB3C382CEC2D15BC68FC9915E4A1791451B4F7442CDA5A724024BAA8DD2C3E9EE903F
+2016-11-17 16:20:31	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:20:31	info	[IsOverdueByCookies方法]中，timeStamp=1479370760，CurrentDate=2016/11/17 16:20:31，CookiesContentDate=2016/11/17 16:19:20，ts.Minutes=1,loginOverdueTime=5
+2016-11-17 16:20:31	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:20:31	info	[IsLoginByAPP],strEncryptKey=1479370760694725
+2016-11-17 16:20:31	info	[IsLoginByAPP],cookieValue=A2E69DC247622D62|E78A1008BA219E99|F3D8D4FFD7B882E6|6F92C735FF402FE3|F53E1D9282D9E0A5
+2016-11-17 16:21:03	info	[IsOverdueByCookies方法]中，timeStamp=1479370760，CurrentDate=2016/11/17 16:21:03，CookiesContentDate=2016/11/17 16:19:20，ts.Minutes=1,loginOverdueTime=5
+2016-11-17 16:22:07	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=0FEEE4488AB3A091DEC290CD988B3F6A34C5E0771F314111878D7B04B64D7CA73E48A40F1C2095A00F48B205A1EEC18CB3E048AD496EB3C382CEC2D15BC68FC9915E4A1791451B4F7442CDA5A724024BAA8DD2C3E9EE903F
+2016-11-17 16:22:07	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:22:07	info	[IsOverdueByCookies方法]中，timeStamp=1479370760，CurrentDate=2016/11/17 16:22:07，CookiesContentDate=2016/11/17 16:19:20，ts.Minutes=2,loginOverdueTime=5
+2016-11-17 16:22:07	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:22:07	info	[IsLoginByAPP],strEncryptKey=1479370760694725
+2016-11-17 16:22:07	info	[IsLoginByAPP],cookieValue=A2E69DC247622D62|E78A1008BA219E99|F3D8D4FFD7B882E6|6F92C735FF402FE3|F53E1D9282D9E0A5
+2016-11-17 16:22:16	info	[IsOverdueByCookies方法]中，timeStamp=1479370760，CurrentDate=2016/11/17 16:22:16，CookiesContentDate=2016/11/17 16:19:20，ts.Minutes=2,loginOverdueTime=5
+2016-11-17 16:23:28	info	[IsOverdueByCookies方法]中，timeStamp=1479370760，CurrentDate=2016/11/17 16:23:28，CookiesContentDate=2016/11/17 16:19:20，ts.Minutes=4,loginOverdueTime=5
+2016-11-17 16:24:34	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=0FEEE4488AB3A091DEC290CD988B3F6A34C5E0771F314111878D7B04B64D7CA73E48A40F1C2095A00F48B205A1EEC18CB3E048AD496EB3C382CEC2D15BC68FC9915E4A1791451B4F7442CDA5A724024BAA8DD2C3E9EE903F
+2016-11-17 16:24:34	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:24:34	info	[IsOverdueByCookies方法]中，timeStamp=1479370760，CurrentDate=2016/11/17 16:24:34，CookiesContentDate=2016/11/17 16:19:20，ts.Minutes=5,loginOverdueTime=5
+2016-11-17 16:24:34	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:24:34	info	[IsLoginByAPP],strEncryptKey=1479370760694725
+2016-11-17 16:24:34	info	[IsLoginByAPP],cookieValue=A2E69DC247622D62|E78A1008BA219E99|F3D8D4FFD7B882E6|6F92C735FF402FE3|F53E1D9282D9E0A5
+2016-11-17 16:24:54	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=0FEEE4488AB3A091DEC290CD988B3F6A34C5E0771F314111878D7B04B64D7CA73E48A40F1C2095A00F48B205A1EEC18CB3E048AD496EB3C382CEC2D15BC68FC9915E4A1791451B4F7442CDA5A724024BAA8DD2C3E9EE903F
+2016-11-17 16:24:54	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:24:54	info	[IsOverdueByCookies方法]中，timeStamp=1479370502，CurrentDate=2016/11/17 16:24:54，CookiesContentDate=2016/11/17 16:15:02，ts.Minutes=9,loginOverdueTime=5
+2016-11-17 16:24:54	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:24:55	error	[IsLoginByAPP]   在 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   在 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   在 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   在 System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   在 BitAuto.YanFa.OASysRightManager2011.Common.Tools.DESEncrypt.Decrypt(String Text, String sKey)
+   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()不正确的数据。
+
+2016-11-17 16:26:52	error	[IsLoginByAPP]   在 BitAuto.YanFa.OASysRightManager2011.Common.EmployeeInfo.IsLoginByAPP()索引超出了数组界限。
+2016-11-17 16:27:09	info	[IsLoginByAPP],解析Cookies内容——strCookiesEncrypt=3D2F0B4060C6610247DA5C4623374BA1F85C2C706816F7A2D78D6E3C831EDC814104113B897462865AF336BC05C79F1742C28ED062DE208BDACF139D3EC051A9BD1974D18CB9942D03D2DDE47F02E8361950DF6564F188A9
+2016-11-17 16:27:09	info	[IsLoginByAPP],解析Cookies内容——loginEmployeeNumber=0370
+2016-11-17 16:27:09	info	[IsOverdueByCookies方法]中，timeStamp=1479371161，CurrentDate=2016/11/17 16:27:09，CookiesContentDate=2016/11/17 16:26:01，ts.Minutes=1,loginOverdueTime=5
+2016-11-17 16:27:09	info	[IsLoginByAPP],IsOverdueByCookies(0370)=False
+2016-11-17 16:27:09	info	[IsLoginByAPP],strEncryptKey=1479371161679453
+2016-11-17 16:27:09	info	[IsLoginByAPP],cookieValue=3FB7130051934969|5C5268D87E4D37B2|E41EEE84A1274189|50C2FBCF73DC197D|F93673497FAE8208
+2016-11-17 16:27:13	info	[IsOverdueByCookies方法]中，timeStamp=1479371161，CurrentDate=2016/11/17 16:27:13，CookiesContentDate=2016/11/17 16:26:01，ts.Minutes=1,loginOverdueTime=5

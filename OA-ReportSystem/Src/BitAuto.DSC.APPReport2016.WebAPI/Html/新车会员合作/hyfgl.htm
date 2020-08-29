@@ -1,0 +1,80 @@
+﻿<div class="moddleTop">
+    <p>
+        <span style="font-weight: bold;">本月市场覆盖率</span>
+    </p>
+</div>
+<!-- (仪表盘====开始) -->
+<div id="Gauge" class="layout" style="float: left; width: 100%; height: 180px;">
+</div>
+<!-- (仪表盘====结束) -->
+<!--<div class="clear10">
+    </div>-->
+<div class="fenge line_blue">
+    <img src="/images/u768.png">
+</div>
+<div class="layout hx" style="margin-top: -1px;">
+</div>
+<div class="clear10">
+</div>
+<div class="charttitle2">
+    <p>
+        <span id="gridtitle">车易通</span><span>市场覆盖率排名</span>
+    </p>
+</div>
+<div class="clear20">
+</div>
+<div class='div_AR_Table' id="pingpaiTable" style="width: 100%;">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0 solid #999">
+        <tbody>
+            <tr class="tableHeader">
+                <td id="orderno" data-sort="desc" style="cursor: pointer;">
+                    <span style="width: 7px; display: inline-block;">
+                        <img src="/Images/table_order_desc.png" style="width: 7px;" />
+                    </span>
+                </td>
+                <td>
+                    城市群
+                </td>
+                <td>
+                    合作数/会员数
+                </td>
+                <td>
+                    覆盖率
+                </td>
+                <td id="orderrate" data-sort="none" style="cursor: pointer;">
+                    环比上月 <span style="width: 7px; display: inline-block;">
+                        <img src="/Images/table_order_none.png" style="width: 7px;" />
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="dataloading" id="append" style="cursor: pointer;">
+    <input type="hidden" id="hid_pageIndex" value="0" />
+    <input type="hidden" id="hid_lastno" value="0" />
+    <input type="hidden" id="hid_pageSize" value="10" />
+    <input type="hidden" id="hid_yearmonth" value="" />
+    <input type="hidden" id="hid_typeid" value="" />
+    <span class="dataloading">展开</span>
+    <img src="/Images/loading-expand.png" style="padding-bottom: 2px; padding-left: 10px;
+        height: 6px" />
+</div>
+<div class="clear5">
+</div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChartGauge = echarts.init(document.getElementById('Gauge'));
+    myChartGauge.showLoading(defaultEChartsLoadingStyle);
+    //获取饼图数据源
+    AppReport.HYFGL.GetMemberFGL_SeriesData(function (chartSeriesData, json) {
+        //初始化页面标题日期内容
+        if (chartSeriesData) {
+            //绘制仪表盘
+            //console.log(chartSeriesData);
+            AppReport.HYFGL.InitGaugeChart(chartSeriesData);
+            //设置数据列表
+            AppReport.HYFGL.InitGrid("", chartSeriesData[0].id, chartSeriesData[0].name);
+        }
+    });
+</script>

@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>新车会员合作_会员覆盖率</title>
+    <link type="text/css" href="../Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="../Scripts/echarts.js"></script>
+    <script type="text/javascript" src="../Scripts/echarts_custom.js"></script>
+    <script type="text/javascript">
+        window.onresize = function () {
+            myChart.resize();
+        }
+    </script>
+</head>
+<body>
+    <div id="divsjjk_title" style="">
+        <ul>
+            <li>
+                <a href="xchyhz1.htm" target="_self">会员合作</a>
+            </li>
+            <li class="selected">
+                <a href="xchyhz2.htm" target="_self">业务线维度</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div  style=" background-color:rgba(73, 71, 84, 1);">
+        <div class="clear10">
+        </div>
+        <div class="moddleTop" style="width: 100%;">
+            <p>
+                <span style="font-weight: bold;">本月市场覆盖率</span>
+            </p>
+            <!--<img class="charthelper" src="/images/u361.png" />-->
+        </div>
+
+
+        <!-- (饼图====开始) -->
+        <div id="ChartPie" class="layout" style="width: 100%; height: 250px;">
+        </div>
+        <!-- (饼图====结束) -->
+        <div style="clear: both; display: block; text-align: center;">
+                <img src="/images/u767.png">
+            </div>
+            <div class="layout hx" style="margin-top: -1px;">
+            </div>
+    </div>
+
+        <div class="charttitle2" style="margin-bottom: -2px; background-color:rgba(51, 51, 51, 1);">
+        <p>
+            <span>易车网PC Leads导向构成</span>
+        </p>
+    </div>
+
+    <div class='div_AR_Table'>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+            <tr class="tableHeader">
+                <td><span>▼</span></td>
+                <td>品牌名称</td>
+                <td>年合作额(万元)</td>
+                <td>占比</td>
+                <td><span>同比去年▼</span></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>东风日产</td>
+                <td>17,631</td>
+                <td>7.77%</td>
+                <td>+0.71%</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dataloading">正在加载中...</div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('ChartPie'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            backgroundColor: 'rgba(73, 71, 84, 1)',
+            tooltip: {
+                show: false
+            },
+            legend: {
+                show: false
+            },
+            series: [
+            {
+                radius: ['20%', '35%'],
+                center: ['15%', '50%'],
+                name: '车盟通',
+                //selectedMode: 'multiple',
+                startAngle: 60,
+                minAngle: 20,
+                type: 'pie',
+                hoverAnimation: false,
+                roseType: 'radius',
+                data: [
+                {
+                    value: 43.9, name: '车盟通1', itemStyle: { normal: { color: '#14CABB'} },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'center',
+                            formatter: '{d}%\n{a}',
+                            textStyle: {
+                                color: 'white'
+                            }
+                        }
+                    }
+                },
+                {
+                    value: 56.1, name: '车盟通2', itemStyle: { normal: { color: 'white'} },
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    }
+                }],
+                //avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false
+                    }
+                }
+            },
+
+
+            {
+                radius: ['30%', '45%'],
+                center: ['50%', '50%'],
+                name: '车易通',
+                //selectedMode: 'multiple',
+                startAngle: 60,
+                minAngle: 20,
+                type: 'pie',
+                hoverAnimation: false,
+                roseType: 'radius',
+                data: [
+                {
+                    value: 19829, name: '车易通1', itemStyle: { normal: { color: '#F7D96D'} },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'center',
+                            formatter: '{d}%\n{c}/28320\n{a}',
+//                            formatter: function (params) {
+//                                console.log(params.data);
+//                            },
+                            textStyle: {
+                                color: 'white'
+                            }
+                        }
+                    }
+                },
+                {
+                    value: 8491, name: '车易通2', itemStyle: { normal: { color: 'white'} },
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    }
+                }],
+                //avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false
+                    }
+                }
+            },
+            {
+                radius: ['20%', '35%'],
+                center: ['85%', '50%'],
+                name: '微信通',
+                //selectedMode: 'multiple',
+                startAngle: 60,
+                minAngle: 20,
+                type: 'pie',
+                hoverAnimation: false,
+                roseType: 'radius',
+                data: [
+                {
+                    value: 56.6, name: '微信通1', itemStyle: { normal: { color: '#0D96D0'} },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'center',
+                            formatter: '{d}%\n{a}',
+                            textStyle: {
+                                color: 'white'
+                            }
+                        }
+                    }
+                },
+                {
+                    value: 43.4, name: '微信通2', itemStyle: { normal: { color: 'white'} },
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    }
+                }],
+                //avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false
+                    }
+                }
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        myChart.on('click', function (params) {
+            //console.log(params);
+            var seriesIndex = params.seriesIndex;
+            for (var i = 0, m = 15; i < option.series.length; i++) {
+                if (i == seriesIndex) {
+                    option.series[i].radius = ['30%', '45%'];
+                    option.series[i].center = ['50%', '50%'];
+                    option.series[i].data[0].label.normal.formatter = '{d}%\n{c}/28320\n{a}';
+                }
+                else {
+                    option.series[i].radius = ['20%', '35%'];
+                    option.series[i].center = [m + '%', '50%'];
+                    option.series[i].data[0].label.normal.formatter = '{d}%\n{a}';
+                    m = m + 70;
+                }
+            }
+            //console.log(option.series);
+            myChart.setOption(option);
+        });
+
+//        myChart.dispatchAction({
+//            type: 'pieToggleSelect',
+//            seriesName:'车盟通',
+//            seriesIndex: 0,
+//            dataIndex: 0,
+//            name: '车盟通2'
+//        }); 
+
+    </script>
+
+</body>
+</html>

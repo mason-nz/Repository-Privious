@@ -1,0 +1,114 @@
+﻿<div class="moddleTop">
+    <p>
+        <span style="font-weight: bold;">业务线Leads数构成</span>
+    </p>
+</div>
+<!-- (饼图====开始) -->
+<div id="ChartPie1" class="layout" style="float: left; width: 100%; height: 250px;
+    text-align: center;">
+</div>
+<!-- (饼图====结束) -->
+<div class="moddleTop">
+    <p>
+        <span>业务线Leads数趋势和来源构成</span>
+    </p>
+</div>
+<div class="middleSub">
+    <p>
+        <span>全网Leads总量为</span> <span style="color: #16B5E9; font-family: 'Avenir-Medium';"
+            id="spanLeadsCount">-</span> <span>，同比上一周</span><span id='spanLeadsTotalWeekBasisMsg'></span><span
+                style="font-size: 16px; font-family: 'Avenir-Medium';" id="spanLeadsTotalWeekBasis">-</span>
+        <span>，环比上一日</span><span id='spanLeadsTotalDayBasisMsg'> </span><span style="font-size: 16px;
+            font-family: 'Avenir-Medium';" id="spanLeadsTotalDayBasis">-</span> <span>。</span>
+    </p>
+</div>
+<div class="clear10">
+</div>
+<div id="divSlide" class="layout swiper-container" style="width: 100%; clear: both;">
+</div>
+<div class="swiper-pagination yiche">
+</div>
+<div class="clear10">
+</div>
+<div class="fenge">
+    <img src="/images/u767.png">
+</div>
+<div class="layout hx" style="margin-top: -1px;">
+</div>
+<!-- (中间内容====结束) -->
+<div class="charttitle2">
+    <p>
+        <span id="spanYWX_Chart2Title">-</span><span> Leads来源构成</span>
+    </p>
+</div>
+<!-- (柱状图====开始) -->
+<div class="layout" id="ChartPie2" style="width: 100%; height: 250px;">
+</div>
+<!-- (柱状图====结束) -->
+<!-- (柱状图====开始) -->
+<div class="charttitle2" style="margin-bottom: -2px;">
+    <p>
+        <span id="spanYWX_Chart3Title">-</span><span> Leads数趋势</span>
+    </p>
+</div>
+<div class="layout" id="main_line" style="width: 100%; height: 250px;">
+</div>
+<!-- (柱状图====结束) -->
+<div class="clear5">
+</div>
+<script type="text/javascript">
+    var myChartPie1 = echarts.init(document.getElementById('ChartPie1'));
+    var myChartPie2 = echarts.init(document.getElementById('ChartPie2'));
+    var myChartLine = echarts.init(document.getElementById('main_line'));
+
+    $(window).resize(function () {
+        myChartPie1.resize();
+        myChartPie2.resize();
+        myChartLine.resize();
+    });
+
+    myChartPie1.showLoading(defaultEChartsLoadingStyle);
+    //获取饼图数据源
+    AppReport.SJJK_YWX.GetLeads_SeriesData(function (json, titleDate) {
+        //初始化页面标题日期内容
+        if (titleDate && titleDate.dataDate && titleDate.dataWeek) {
+            $('#spanTitleDate').text(titleDate.dataDate);
+            $('#spanTitleWeek').text(titleDate.dataWeek);
+
+            //绘制饼图
+            AppReport.SJJK_YWX.InitPieChart('ChartPie1', json);
+            //绑定 商机监控-平台维度 明细（以平台维度展示）
+            AppReport.SJJK_YWX.GetLeads_DetailData(titleDate.dataDate, function (json) {
+
+                if (json.summary) {
+                    $('#spanLeadsCount').text(json.summary.totalCount.addComma());
+                    if (json.summary.lastWeek) {
+                        if (json.summary.lastWeek >= 0) {
+                            $('#spanLeadsTotalWeekBasis').css('color', '#FC625C').text(json.summary.lastWeek.toPercent(1));
+                            $('#spanLeadsTotalWeekBasisMsg').text('增长');
+                        }
+                        else {
+                            $('#spanLeadsTotalWeekBasis').css('color', '#19ECE5').text(Math.abs(json.summary.lastWeek).toPercent(1));
+                            $('#spanLeadsTotalWeekBasisMsg').text('减少');
+                        }
+                    }
+                    if (json.summary.yesterday) {
+                        if (json.summary.yesterday >= 0) {
+                            $('#spanLeadsTotalDayBasis').css('color', '#FC625C').text(json.summary.yesterday.toPercent(1));
+                            $('#spanLeadsTotalDayBasisMsg').text('增长');
+                        }
+                        else {
+                            $('#spanLeadsTotalDayBasis').css('color', '#19ECE5').text(Math.abs(json.summary.yesterday).toPercent(1));
+                            $('#spanLeadsTotalDayBasisMsg').text('减少');
+                        }
+                    }
+                }
+
+                if (json.data && json.data.length > 0 && json.data[0].lineId) {
+                    //绑定某个日期内的，商机监控-平台维度 明细数据
+                    AppReport.SJJK_YWX.BindLeadsDetailData(json.data);
+                }
+            });
+        }
+    });
+</script>

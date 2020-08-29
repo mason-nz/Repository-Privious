@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>业务收入</title>
+    <!--<link type="text/css" href="/Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="/Scripts/echarts.js"></script>-->
+    <script type="text/javascript">
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/config.js?v=" + Math.random() + "'></s" + "cript>");
+        document.write("<s" + "cript type='text/javascript' src='/Scripts/业务收入/PlotChart.js?" + Math.random() + "'></s" + "cript>");
+    </script>
+    <script type="text/javascript">
+        LoadJS('animateNumber');
+    </script>
+    <script type="text/javascript">
+        window.onresize = function () {
+            myChart1.resize();
+            myChart2.resize();
+        }
+    </script>
+</head>
+<body>
+    <div class="JYL_Title zzy">
+        <div class='left'>
+            <img src="/images/004.png" id="imgPre">
+        </div>
+        <p>
+            <span id="spanTitleYear1"></span><span>年</span>
+        </p>
+        <div class='right imgdisabled'>
+            <img src="/images/001.png" id="imgNext">
+        </div>
+    </div>
+    <div class="moddleTop">
+        <p>
+            <span id="spanTitleYear2" style="font-weight: bold;">2016</span><span style="font-weight: bold;">年业务收入情况</span>
+        </p>
+    </div>
+    <!-- (饼图====开始) -->
+    <div id="ChartPie1" class="layout" style="float: left; width: 100%; height: 270px;
+        text-align: center;">
+    </div>
+    <!-- (饼图====结束) -->
+    <div class="layout" style="width: 100%; clear: both;">
+        <!--<div class="clear10">
+        </div>-->
+        <div class="fenge line_blue">
+            <img src="/images/u768.png">
+        </div>
+        <div class="layout hx" style="margin-top: -1px;">
+        </div>
+    </div>
+    <!-- (柱状图====开始) -->
+    <div class="moddleTop">
+        <p>
+            <span id="bartitle"></span><span>业务收入</span>
+        </p>
+    </div>
+    <div class="clear10">
+    </div>
+    <div class="layout" id="ChartBar2" style="width: 100%; height: 250px;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="clear5">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('ChartPie1'));
+        myChart1.showLoading(defaultEChartsLoadingStyle);
+        //获取饼图数据源
+        AppReport.YWSR.GetLeads_SeriesData('', function (chartSeriesData, json) {
+            //初始化页面标题日期内容
+            if (json && json.retYear) {
+                $('#spanTitleYear1,#spanTitleYear2').text(json.retYear);
+                if (json && json.preTotal && json.preTotal == true) {
+                    $('#imgPre').attr('src', '/images/003.png');
+                    AppReport.YWSR.BindTitleChangeEvent($('#imgPre'));
+                }
+                if (json && json.nextTotal && json.nextTotal == true) {
+                    $('#imgNext').attr('src', '/images/002.png');
+                    AppReport.YWSR.BindTitleChangeEvent($('#imgNext'));
+                }
+                //debugger;
+                //绘制饼图
+                AppReport.YWSR.InitPieChart(chartSeriesData, json.total);
+                //绑定页面标题，导航事件
+                //AppReport.YWSR.BindTitleChangeEvent($('#imgPre,#imgNext'));
+                //                var date = new Date;
+                //                if (date.getFullYear() <= json.retYear) {
+                //                    $('#imgNext').attr('src', '/images/001.png');
+                //                }
+
+
+            }
+        });
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('ChartBar2'));        
+    </script>
+</body>
+</html>

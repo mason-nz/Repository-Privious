@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>运营日报</title>
+    <!--<link type="text/css" href="/Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="/Scripts/echarts.js"></script>-->
+    <script type="text/javascript">
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/config.js?v=" + Math.random() + "'></s" + "cript>");
+        document.write("<s" + "cript type='text/javascript' src='/Scripts/运营日报/PlotChart.js?" + Math.random() + "'></s" + "cript>");
+    </script>
+    <script type="text/javascript">
+        LoadJS('animateNumber');
+    </script>
+    <script type="text/javascript">
+        $(window).resize(function () {
+            myChart.resize();
+        });
+        $(document).ready(function () {
+            $('#divPopTitle').bind('click', function () {
+                var content = "<span>运营日报</span>";
+                content += "<ul>";
+                content += "<li><span >总覆盖用户数：</span>易车网PC和WAP的UV+报价APP和易车APP的DAU+惠买车UV+二手车UV</li>";
+                content += "<li><span >总Leads数：</span>经销商在线提交线索数+经销商400电话数+惠买车线索数+二手车线索数+易鑫线索数</li>";
+                content += "<li><span >总下单用户数：</span>经销商在线提交线索用户数（排重）+400来电用户数（排重）+惠买车下单用户数（排重）+ 易车引流给易鑫下单用户数（排重）</li>";
+                content += "<li><span >总交易量：</span>惠买车交易量+带给易鑫交易量</li>";
+                content += "</ul>";
+
+                PopTitle(content);
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- (横线) -->
+    <div class="JYL_Title">
+        <p>
+            <span id="spanTitleDate"></span>&nbsp;<span class='spanWeek' id="spanTitleWeek"></span>
+        </p>
+    </div>
+    <div class="moddleTop">
+        <p>
+            <span style="font-weight: bold;">日监测数据总览</span>
+        </p>
+        <div id="divPopTitle">
+            <img class="charthelper" src="/images/u361.png" />
+        </div>
+    </div>
+    <!-- (数据项====开始) -->
+    <div class="ywxjyl">
+        <div class="clear5">
+        </div>
+        <ul style="width: 95%;">
+            <li>
+                <div class="yyrb_tag">
+                    <img src="/Images/icon_daily_cover.png" style="padding-top: 25px; max-width: 25px;" />
+                </div>
+                <div class="tag_right yyrb_color">
+                    <p class="yyrb_bname">
+                        <span>总覆盖用户数</span> <span class="daxie" id="span_zfgs">0</span>
+                    </p>
+                    <p class="rightTop per">
+                        <span><a id="span_zfgs_tb" class="highColor">&nbsp;&nbsp;</a> <a id="span_zfgs_tb2"
+                            class="per_center"></a><a class="per_right">同比</a> </span><span><a id="span_zfgs_hb"
+                                class="lowColor">&nbsp;&nbsp;</a> <a id="span_zfgs_hb2" class="per_center"></a><a
+                                    class="per_right">环比</a> </span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="yyrb_tag">
+                    <img src="/Images/icon_daily_leads.png" style="padding-top: 25px; max-width: 25px;" />
+                </div>
+                <div class="tag_right yyrb_color">
+                    <p class="yyrb_bname">
+                        <span>总Leads数</span> <span class="daxie" id="span_zleads">0</span>
+                    </p>
+                    <p class="rightTop per">
+                        <span><a id="span_zleads_tb" class="highColor">&nbsp;&nbsp;</a><a id="span_zleads_tb2"
+                            class="per_center"></a><a class="per_right">同比</a> </span><span><a id="span_zleads_hb"
+                                class="lowColor">&nbsp;&nbsp;</a><a id="span_zleads_hb2" class="per_center"></a><a
+                                    class="per_right">环比</a></span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="yyrb_tag">
+                    <img src="/Images/icon_daily_orders.png" style="padding-top: 25px; max-width: 25px;" />
+                </div>
+                <div class="tag_right yyrb_color">
+                    <p class="yyrb_bname">
+                        <span>总下单用户数</span> <span class="daxie" id="span_zxds">0</span>
+                    </p>
+                    <p class="rightTop per">
+                        <span><a id="span_zxds_tb" class="highColor">&nbsp;&nbsp;</a> <a id="span_zxds_tb2"
+                            class="per_center"></a><a class="per_right">同比</a> </span><span><a id="span_zxds_hb"
+                                class="lowColor">&nbsp;&nbsp;</a> <a id="span_zxds_hb2" class="per_center"></a><a
+                                    class="per_right">环比</a> </span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="yyrb_tag">
+                    <img src="/Images/icon_daily_volume.png" style="padding-top: 25px; max-width: 25px;" />
+                </div>
+                <div class="tag_right yyrb_color">
+                    <p class="yyrb_bname">
+                        <span>总交易量</span> <span class="daxie" id="span_jyl">0</span>
+                    </p>
+                    <p class="rightTop per">
+                        <span><a id="span_jyl_tb" class="highColor">&nbsp;&nbsp;</a> <a id="span_jyl_tb2"
+                            class="per_center"></a><a class="per_right">同比</a> </span><span><a id="span_jyl_hb"
+                                class="lowColor">&nbsp;&nbsp;</a> <a id="span_jyl_hb2" class="per_center"></a><a
+                                    class="per_right">环比</a> </span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="clear5">
+        </div>
+    </div>
+    <!-- (数据项====结束) -->
+    <div class="moddleTop">
+        <p>
+            <span style="font-weight: bold;">日监测数据总趋势</span>
+        </p>
+    </div>
+    <div class="clear5">
+    </div>
+    <!-- (图====开始) -->
+    <div id="ChartLine" class="layout" style="float: left; width: 100%; height: 250px;">
+    </div>
+    <!-- (图====结束) -->
+    <div class="clear5">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('ChartLine'));
+        AppReport.YYRB.InitPage();
+        AppReport.YYRB.InitLine();
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>平台覆盖用户</title>
+    <script type="text/javascript">
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/config.js?v=" + Math.random() + "'></s" + "cript>");
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/平台覆盖用户/PlotChart.js?" + Math.random() + "'></s" + "cript>");
+    </script>
+    <script type="text/javascript">
+        LoadCSS('swiperCSS');
+        LoadJS('swiper');
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //绑定弹出提示逻辑
+            $('#divPopTitle').bind('click', function () {
+                var content = "<span>平台覆盖用户数</span>";
+                content += "<ul>";
+                content += "<li><span>易车网PC/易车网WAP：</span>易车网PC和WAP的UV</li>";
+                content += "<li><span>易车APP/报价APP：</span>DAU数据</li>";
+                content += "<li><span>二手车：</span>PC、WAP、二手车APP、合作平台（易车APP、报价APP、车轮违章、车轮驾照）用户总和</li>";
+                content += "<li><span>惠买车：</span>PC+WAP+APP DAU</li>";
+                content += "</ul>";
+                PopTitle(content);
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- (横线) -->
+    <div class="JYL_Title">
+        <p>
+            <span id="spanTitleDate"></span>&nbsp;<span class='spanWeek' id="spanTitleWeek"></span>
+        </p>
+    </div>
+    <div class="moddleTop">
+        <p>
+            <span>平台覆盖用户数构成</span>
+        </p>
+        <div id="divPopTitle">
+            <img class="charthelper" src="/images/u361.png" />
+        </div>
+    </div>
+    <!-- (饼图====开始) -->
+    <div id="ChartPie1" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (饼图====结束) -->
+    <div class="moddleTop">
+        <p>
+            <span>平台覆盖用户数趋势</span>
+        </p>
+    </div>
+    <div class="middleSub">
+        <p>
+            <span>全网覆盖用户数为</span> <span style="color: #16B5E9; font-family: 'Avenir-Medium';"
+                id="spanLeadsCount">-</span> <span>，同比上一周</span><span id='spanLeadsTotalWeekBasisMsg'></span>
+            <span style="font-size: 16px; font-family: 'Avenir-Medium';" id="spanLeadsTotalWeekBasis">
+                -</span> <span>，环比上一日</span><span id='spanLeadsTotalDayBasisMsg'></span> <span style="font-size: 16px;
+                    font-family: 'Avenir-Medium';" id="spanLeadsTotalDayBasis">-</span> <span>。</span>
+        </p>
+    </div>
+    <div class="clear10">
+    </div>
+    <div id="divSlide" class="layout swiper-container" style="width: 100%; clear: both;">
+    </div>
+    <div class="swiper-pagination yiche">
+    </div>
+    <div class="clear10">
+    </div>
+    <div class="fenge">
+        <img src="/images/u767.png">
+    </div>
+    <div class="layout hx" style="margin-top: -1px;">
+    </div>
+    <div class="charttitle2">
+        <p>
+            <span id="spanPT_ChartTitle">-</span><span> 覆盖用户数趋势</span>
+        </p>
+    </div>
+    <div class="layout" id="main_line" style="width: 100%; height: 250px;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="clear5">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChartPie = echarts.init(document.getElementById('ChartPie1'));
+        var myChartLine = echarts.init(document.getElementById('main_line'));
+        $(window).resize(function () {
+            myChartPie.resize();
+            myChartLine.resize();
+        });
+
+        myChartPie.showLoading(defaultEChartsLoadingStyle);
+        //获取饼图数据源
+        AppReport.PTFGYH.GetTraffic_SeriesData(function (json, titleDate) {
+            //初始化页面标题日期内容
+            if (titleDate && titleDate.RetDateVal && titleDate.WeekDay) {
+                $('#spanTitleDate').text(titleDate.RetDateVal);
+                $('#spanTitleWeek').text(titleDate.WeekDay);
+
+                //绘制饼图
+                AppReport.PTFGYH.InitPieChart('ChartPie1', json);
+                //绑定平台覆盖用户明细（以平台维度展示）
+                AppReport.PTFGYH.GetTraffic_DetailData(titleDate.RetDateVal, function (json) {
+                    if (json.TotalTraffic) {
+                        var leadsCount = json.TotalTraffic.Count;
+                        leadsCount = Number(leadsCount).toMoney('万', 0);
+                        $('#spanLeadsCount').text(Number(leadsCount).addComma() + '万');
+                        if (json.TotalTraffic.WeekBasis) {
+                            if (json.TotalTraffic.WeekBasis >= 0) {
+                                $('#spanLeadsTotalWeekBasis').css('color', '#FC625C').text(json.TotalTraffic.WeekBasis.toPercent(1));
+                                $('#spanLeadsTotalWeekBasisMsg').text('增长');
+                            }
+                            else {
+                                $('#spanLeadsTotalWeekBasis').css('color', '#19ECE5').text(Math.abs(json.TotalTraffic.WeekBasis).toPercent(1));
+                                $('#spanLeadsTotalWeekBasisMsg').text('减少');
+                            }
+                        }
+                        if (json.TotalTraffic.DayBasis) {
+                            if (json.TotalTraffic.DayBasis >= 0) {
+                                $('#spanLeadsTotalDayBasis').css('color', '#FC625C').text(json.TotalTraffic.DayBasis.toPercent(1));
+                                $('#spanLeadsTotalDayBasisMsg').text('增长');
+                            }
+                            else {
+                                $('#spanLeadsTotalDayBasis').css('color', '#19ECE5').text(Math.abs(json.TotalTraffic.DayBasis).toPercent(1));
+                                $('#spanLeadsTotalDayBasisMsg').text('减少');
+                            }
+                        }
+                    }
+
+                    if (json.dataList && json.dataList.length > 0 && json.dataList[0].TypeID) {
+                        //绑定某个日期内的，平台覆盖用户明细数据
+                        AppReport.PTFGYH.BindTrafficDetailData(json.dataList);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

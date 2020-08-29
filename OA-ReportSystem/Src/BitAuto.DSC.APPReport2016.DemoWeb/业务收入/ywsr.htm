@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>业务收入</title>
+    <link type="text/css" href="../Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="../Scripts/echarts.js"></script>
+    <script type="text/javascript" src="../Scripts/echarts_custom.js"></script>
+    <script type="text/javascript">
+        window.onresize = function () {
+            myChart1.resize();
+            myChart2.resize();
+        }
+    </script>
+</head>
+<body>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="clear10" style="background-color: rgba(73, 71, 84, 1);">
+    </div>
+    <div class="moddleTop" style="width: 100%; background-color: rgb(73, 71, 84); margin-top: 0px;
+        padding-top: 5px; margin-bottom: 0px; padding-bottom: 5px;">
+        <p>
+            <span style="font-weight: bold;">2016年业务收入概况</span>
+        </p>
+        <!--<img class="charthelper" src="/images/u361.png" />-->
+    </div>
+    <!-- (饼图====开始) -->
+    <div id="ChartPie1" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (饼图====结束) -->
+    <div class="layout" style="width: 100%; clear: both;">
+        <div class="clear20">
+        </div>
+        <div style="clear: both; display: block; text-align: center;">
+            <img src="/images/u767.png">
+        </div>
+        <div class="layout hx" style="margin-top: -1px;">
+        </div>
+    </div>
+    <!-- (柱状图====开始) -->
+    <div class="charttitle2" style="margin-bottom: -2px; background-color: rgba(51, 51, 51, 1);">
+        <p>
+            <span>新车会员 业务收入</span>
+        </p>
+    </div>
+    <div class="layout hxgray">
+    </div>
+    <div class="layout" id="ChartBar2" style="width: 100%; height: 250px; background-color: Fuchsia;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="clear20" style="background-color: rgba(51, 51, 51, 1);">
+    </div>
+    <div class="layout hxgray" style="background-color: rgba(51, 51, 51, 1);">
+    </div>
+    <div class="clear20" style="background-color: rgba(51, 51, 51, 1);">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('ChartPie1'));
+        // 指定图表的配置项和数据
+        var option = {
+            backgroundColor: 'rgba(51, 51, 51, 1)',
+            tooltip: {
+                show: false,
+                trigger: 'item',
+                triggerOn: 'click',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                show: false
+            },
+            series: [{
+                name: '',
+                type: 'pie',
+                selectedOffset: 0,
+                hoverAnimation: false,
+                silent: true,
+                //z: 3,
+                radius: [0, '35%'],
+                center: ['50%', '50%'],
+                label: {
+                    normal: {
+                        position: 'center',
+                        formatter: '{c}亿\n\n{b}',
+                        textStyle: {
+                            color: 'white',
+                            fontSize: 14,
+                            fontWeight: 400
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [
+                    { value: 31.83, name: '总收入', itemStyle: { normal: { color: '#CC00FF'}} }
+                ]
+            },
+            {
+                radius: ['50%', '70%'],
+                center: ['50%', '50%'],
+                name: '平台Leads数构成',
+                selectedMode: 'multiple',
+                startAngle: 90,
+                minAngle: 20,
+                type: 'pie',
+                hoverAnimation: false,
+                //roseType:'radius',
+                data: [{ value: 0.38, name: '二手车', itemStyle: { normal: { color: '#F788D4'}} },
+                { value: 12.95, name: '新车会员', itemStyle: { normal: { color: '#00FFB6'}} },
+                { value: 18.51, name: '新车广告', itemStyle: { normal: { color: '#80B2E6'}}}],
+                //                itemStyle: {
+                //                    emphasis: {
+                //                        shadowBlur: 10,
+                //                        shadowOffsetX: 0,
+                //                        shadowColor: 'white'
+                //                    }
+                //                },
+                label: {
+                    normal: {
+                        position: 'outside',
+                        formatter: '{c}亿\n占比{d}%\n{b}',
+                        textStyle: {
+                            color: 'white',
+                            fontSize: 12
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'white',
+                            type: 'dashed'
+                        }
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option);
+        myChart1.on('click', function (params) {
+            //window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+            //console.log(params);
+        });
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('ChartBar2'));
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                triggerOn: 'click', //默认鼠标移动时触发，如果设置click则鼠标点击时触发
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'line'        // 默认为直线，可选为：'line' | 'shadow'
+                },
+                //formatter: 折线（区域）图、柱状（条形）图、K线图 : {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
+                backgroundColor: 'rgba(0, 0, 0, 0.847058823529412)', //提示框背景颜色
+                textStyle: {
+                    color: 'rgba(255, 255, 255, 1)',
+                    fontFamily: '微软雅黑',
+                    fontWeight: 400,
+                    fontSize: 12
+                },
+                //formatter: '{a0}{b}<br/>执行额：{c0}<br />{a2}: 环比上月+{c2}%'
+                formatter: function (params) {
+                    var rate = Math.round(params[2].value * 1000) / 10;
+                    var html = params[1].seriesName + params[1].name + "<br/>"
+                    + "<span style='font-weight:normal;color:rgba(200, 200, 200, 1);'>执行额：</span>" + params[1].value + "亿元<br />"
+                    + "<span style='font-weight:normal;color:rgba(200, 200, 200, 1);'>增长率：</span>环比上月" + (rate > 0 ? "+" + rate : "" + rate) + "%<br/>"
+                    + "<div style='clear:both;margin: 5px 0px;height:1px;background-color: rgba(255, 255, 255, 1);'></div>"
+                    + params[0].seriesName + params[0].name + "<br/>"
+                    + "<span style='font-weight:normal;color:rgba(200, 200, 200, 1);'>执行额：</span>" + params[0].value + "亿元<br />";
+                    return html;
+                }
+            },
+            legend: {
+                data: [{
+                    name: '2015年',
+                    icon: 'square'
+                },
+                {
+                    name: '2016年',
+                    icon: 'square'
+                }],
+                bottom: '3%',
+                left: '5%',
+                textStyle: {
+                    color: '#FFFFFF',
+                    fontFamily: '微软雅黑',
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    fontSize: 11
+                },
+                itemGap: 20,
+                itemWidth: 12,
+                itemHeight: 12
+            },
+            dataZoom: [{
+                type: 'inside',
+                start: 0,
+                end: 100
+            }],
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '15%',
+                top: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true, //留白策略
+                data: ['7月', '8月', '9月', '10月', '11月', '12月'],
+                axisLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    formatter: '{value}亿',
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            }, {
+                type: 'value',
+                scale: true,
+                name: '增长率',
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                }
+            }],
+            series: [{
+                name: '2015年',
+                yAxisIndex: 0,
+                type: 'bar',
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(20, 202, 187, 1)'
+                    }
+                },
+                data: [5.45, 5.75, 5.65, 5.80, 6.35, 6.15]
+            },
+            {
+                name: '2016年',
+                yAxisIndex: 0,
+                type: 'bar',
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(247, 217, 109, 1)'
+                    }
+                },
+                //data: [6.25, 6.35, 6.65, 7.85, 6.15, 5.70]
+                data: [6.25, 6.35, 6.65, 7.85, {
+                    name: '降低',
+                    value: '6.15',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(240, 240, 240, 1)'
+                        }
+                    }
+                }, {
+                    name: '降低',
+                    value: '5.70',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(240, 240, 240, 1)'
+                        }
+                    }
+                }]
+            },
+             {
+                 name: '增长率',
+                 type: 'line',
+                 yAxisIndex: 1,
+                 symbol: 'circle',
+                 symbolSize: 8,
+                 itemStyle: {
+                     normal: {
+                         color: 'rgba(114, 114, 114, 1)'
+                     }
+                 },
+                 lineStyle: {
+                     normal: {
+                         color: 'rgba(15, 15, 15, 1)',
+                         width: '1',
+                         type: 'solid'
+                     }
+                 },
+                 //data: [6.25, 6.35, 6.65, 7.85, 6.15, 5.70]
+                 //data: [5.45, 5.75, 5.65, 5.80, 6.35, 6.15]
+                 data: [
+                    (6.25 - 5.45) / 5.45,
+                    (6.35 - 5.75) / 5.75,
+                    (6.65 - 5.65) / 5.65,
+                    (7.85 - 5.80) / 5.80,
+                    (6.15 - 6.35) / 6.35,
+                    (5.70 - 6.15) / 6.15]
+             }]
+        };
+        myChart2.setOption(option);
+    </script>
+</body>
+</html>

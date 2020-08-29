@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>新车会员合作_会员合作</title>
+    <link type="text/css" href="../Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="../Scripts/echarts.js"></script>
+    <script type="text/javascript" src="../Scripts/echarts_custom.js"></script>
+    <script type="text/javascript">
+        window.onresize = function () {
+            myChart.resize();
+            myChart2.resize();
+        }
+    </script>
+</head>
+<body>
+    <div id="divsjjk_title" style="">
+        <ul>
+            <li class="selected"><a href="xchyhz1.htm" target="_self">会员合作</a> </li>
+            <li><a href="xchyhz2.htm" target="_self">业务线维度</a> </li>
+        </ul>
+    </div>
+    <div style="background-color: rgba(73, 71, 84, 1);">
+        <div class="clear10">
+        </div>
+        <div class="moddleTop" style="width: 100%; background-color: rgba(73, 71, 84, 1);">
+            <p>
+                <span style="font-weight: bold;">会员合作数</span>
+            </p>
+            <!--<img class="charthelper" src="/images/u361.png" />-->
+        </div>
+        <div class="middleSub">
+            <img style='float: left; margin-left: 2px; margin-top: 3px;' src="/images/u787.png" />
+            <p>
+                <span style="color: #FFFFFF;">10月18日在线车易通会员</span><span style="color: #FF7755;">19398</span><span
+                    style="color: #FFFFFF;">个（含综合店），16年峰值数</span><span style="color: #FF7755;">20305</span><span
+                        style="color: #FFFFFF;">个。</span></p>
+        </div>
+        <div class="clear10">
+        </div>
+        <div class="layout hxgray" style="clear: both;">
+        </div>
+        <!-- (柱状图====开始) -->
+        <div id="ChartBar" class="layout" style="float: left; width: 100%; height: 250px;
+            background-color: Blue;">
+        </div>
+        <div class="layout hxgray" style="clear: both;">
+        </div>
+        <!-- (柱状图====结束) -->
+        <div class="clear20">
+        </div>
+    </div>
+    <div class="clear10">
+    </div>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div style="background-color: rgba(73, 71, 84, 1);">
+        <div class="clear10">
+        </div>
+        <div class="moddleTop" style="width: 100%; background-color: rgba(73, 71, 84, 1);">
+            <p>
+                <span style="font-weight: bold;">会员贡献值</span>
+            </p>
+            <!--<img class="charthelper" src="/images/u361.png" />-->
+        </div>
+        <div class="middleSub">
+            <img style='float: left; margin-left: 2px; margin-top: 3px;' src="/images/u787.png" />
+            <p>
+                <span style="color: #FFFFFF;">2016年全年会员平均贡献值</span><span style="color: #FF7755;">65,940</span><span
+                    style="color: #FFFFFF;">元，车易通</span><span style="color: #FF7755;">42,324</span><span
+                        style="color: #FFFFFF;">元，车盟通</span><span style="color: #FF7755;">26,008</span><span
+                            style="color: #FFFFFF;">元，微信通</span><span style="color: #FF7755;">10,152</span><span
+                                style="color: #FFFFFF;">元。</span></p>
+        </div>
+        <div class="clear10">
+        </div>
+        <div class="layout hxgray" style="clear: both;">
+        </div>
+        <!-- (柱状图====开始) -->
+        <div id="main_line" class="layout" style="float: left; width: 100%; height: 250px;">
+        </div>
+        <div class="layout hxgray" style="clear: both;">
+        </div>
+        <!-- (柱状图====结束) -->
+        <div class="clear20">
+        </div>
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main_line'));
+        var option = {
+            backgroundColor: 'rgba(73, 71, 84, 1)',
+            tooltip: {
+                trigger: 'axis', //item 数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用,axis 坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
+                triggerOn: 'click', //默认鼠标移动时触发，如果设置click则鼠标点击时触发
+                //formatter: 折线（区域）图、柱状（条形）图、K线图 : {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
+                backgroundColor: 'rgba(0, 0, 0, 0.847058823529412)', //提示框背景颜色
+                formatter: '{b}<br/>{a0}: {c0}元<br />{a1}：{c1}元<br />{a2}：{c2}元<br />{a3}：{c3}元'
+            },
+            legend: {
+                data: [{ name: '总体', icon: 'circle' }, { name: '车易通', icon: 'circle' }, { name: '车盟通', icon: 'circle' }, { name: '微信通', icon: 'circle'}],
+                bottom: '3%',
+                left: '40',
+                textStyle: {
+                    color: '#FFFFFF',
+                    fontFamily: '微软雅黑',
+                    fontWeight: '400',
+                    fontStyle: 'normal',
+                    fontSize: 11
+                },
+                itemGap: 20,
+                itemWidth: 12,
+                itemHeight: 12
+            },
+            dataZoom: [{
+                type: 'inside',
+                startValue: 3, //数据范围开始结束
+                endValue: 8,
+                xAxisIndex: 0
+            }],
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '15%',
+                top: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true,
+                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: 'rgba(73, 71, 84, 1)'
+                    },
+                    onZero: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#CCCCCC',
+                        fontFamily: '微软雅黑',
+                        fontWeight: '400',
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: 'rgba(73, 71, 84, 1)'
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#CCCCCC',
+                        fontFamily: '微软雅黑',
+                        fontWeight: '400',
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    },
+                    margin: 3
+                }
+            },
+            series: [{
+                name: '总体',
+                type: 'line',
+                //stack: '总量',
+                symbol: 'circle', //数据点形状
+                symbolSize: 12, //图形大小
+                //showSymbol: false,
+                //areaStyle: { normal: { borderWidth: 0} },
+                itemStyle: {
+                    normal: {
+                        //color: '#FFD700'//图形颜色此次也设定了legend图形颜色
+                        color: 'RGB(0,255,255)'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: 'RGB(0,255,255)',
+                        width: '1',
+                        type: 'solid'
+                    }
+                },
+                data: [62000, 61320, 68010, 61340, 69090, 62300, 62210, 75180, 71190, 73232, 62332, 72332]
+            }, {
+                name: '车易通',
+                type: 'line',
+                //stack: '总量',
+                symbol: 'circle',
+                symbolSize: 12,
+                //showSymbol: false,
+                //areaStyle: { normal: { borderWidth: 0} },
+                itemStyle: {
+                    normal: {
+                        color: 'RGB(247,217,109)'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: 'RGB(247,217,109)',
+                        width: '1',
+                        type: 'solid'
+                    }
+                },
+                data: [40220, 43182, 45191, 43234, 44290, 44330, 46310, 44232, 44332, 47332, 45000, 43232]
+            }, {
+                name: '车盟通',
+                type: 'line',
+                //stack: '总量',
+                symbol: 'circle',
+                symbolSize: 12,
+                //showSymbol: false,
+                //areaStyle: { normal: { borderWidth: 0} },
+                itemStyle: {
+                    normal: {
+                        color: 'RGB(20,202,187)'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: 'RGB(20,202,187)',
+                        width: '1',
+                        type: 'solid'
+                    }
+                },
+                data: [20220, 23182, 25191, 33234, 34290, 24330, 26310, 34232, 34332, 27332, 35000, 23232]
+            }, {
+                name: '微信通',
+                type: 'line',
+                //stack: '总量',
+                symbol: 'circle',
+                symbolSize: 12,
+                //showSymbol: false,
+                //areaStyle: { normal: { borderWidth: 0} },
+                itemStyle: {
+                    normal: {
+                        color: 'RGB(13,150,208)'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: 'RGB(13,150,208)',
+                        width: '1',
+                        type: 'solid'
+                    }
+                },
+                data: [10220, 13182, 15191, 13234, 14290, 14330, 16310, 14232, 14332, 17332, 15000, 13232]
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('ChartBar'));
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                triggerOn: 'click', //默认鼠标移动时触发，如果设置click则鼠标点击时触发
+                //formatter: 折线（区域）图、柱状（条形）图、K线图 : {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
+                backgroundColor: 'rgba(0, 0, 0, 0.847058823529412)', //提示框背景颜色
+                textStyle: {
+                    color: 'rgba(255, 255, 255, 1)',
+                    fontFamily: '微软雅黑',
+                    fontWeight: 400,
+                    fontSize: 12
+                },
+                axisPointer: {
+                    lineStyle: {
+                        color: '#ccc',
+                        opacity: 0.5
+                    }
+                },
+                formatter: '{b}<br/>{a0}：{c0}<br/>{a1}：{c1}<br/>{a2}：{c2}'
+            },
+            legend: {
+                data: [{
+                    name: '车易通',
+                    icon: 'square'
+                },
+                {
+                    name: '车盟通',
+                    icon: 'square'
+                },
+                {
+                    name: '微信通',
+                    icon: 'square'
+                }],
+                bottom: '3%',
+                left: '5%',
+                textStyle: {
+                    color: '#FFFFFF',
+                    fontFamily: '微软雅黑',
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    fontSize: 11
+                },
+                itemGap: 20,
+                itemWidth: 12,
+                itemHeight: 12
+            },
+            dataZoom: [{
+                type: 'inside',
+                start: 0,
+                end: 100
+            }],
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '15%',
+                top: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true, //留白策略
+                data: ['7月', '8月', '9月', '10月', '11月', '12月'],
+                axisLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            }],
+            series: [{
+                name: '车易通',
+                yAxisIndex: 0,
+                type: 'bar',
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(247, 217, 109, 1)'
+                    }
+                },
+                data: [21000, 16000, 19000, 17000, 13000, 11000]
+            },
+            {
+                name: '车盟通',
+                yAxisIndex: 0,
+                type: 'bar',
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(20, 202, 187, 1)'
+                    }
+                },
+                data: [19000, 14000, 17000, 10000, 15000, 14000]
+            }, {
+                name: '微信通',
+                yAxisIndex: 0,
+                type: 'bar',
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(13, 150, 208, 1)'
+                    }
+                },
+                data: [14000, 12000, 11000, 14000, 17000, 12000]
+            }]
+        };
+        myChart2.setOption(option);
+    </script>
+</body>
+</html>

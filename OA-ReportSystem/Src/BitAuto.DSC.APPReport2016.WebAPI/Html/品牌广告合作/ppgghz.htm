@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>品牌广告合作</title>
+    <link type="text/css" href="/Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="/Scripts/echarts.min.js"></script>
+    <script type="text/javascript">
+        document.write("<s" + "cript type='text/javascript' src='/Scripts/echarts_custom.js?" + Math.random() + "'></s" + "cript>");
+        document.write("<s" + "cript type='text/javascript' src='/Scripts/品牌广告合作/PlotChart.js?" + Math.random() + "'></s" + "cript>");
+    </script>
+    <script type="text/javascript">
+        $(window).resize(function () {
+            myChart.resize();
+        });
+    </script>
+</head>
+<body>
+    <div style="width: 100%;">
+        <!-- (横线) -->
+        <div class="layout hx">
+        </div>
+        <div>
+            <div class="moddleTop">
+                <p>
+                    <span style="font-weight: bold;">品牌合作概况</span>
+                </p>
+            </div>
+            <div class="middleSub">
+                <p>
+                    <span id="span_year">2016</span><span>年品牌合作</span> <span style="font-size: 16px;
+                        font-family: 'Avenir-Medium'; color: #16B5E9;" id="pinpaihezuoshu">0</span>
+                    <span>个，截至目前总合作金额</span> <span style="font-size: 16px; font-family: 'Avenir-Medium';
+                        color: #16EDE5;" id="pinpaihezuojine">0.00</span> <span>亿元。</span>
+                </p>
+            </div>
+            <!-- (柱状图====开始) -->
+            <div id="ChartBar" class="layout" style="float: left; width: 100%; height: 250px;">
+            </div>
+            <!-- (柱状图====结束) -->
+        </div>
+        <div>
+            <div class="moddleTop">
+                <p>
+                    <span style="font-weight: bold;">品牌合作排名</span>
+                </p>
+            </div>
+            <div class="middleSub">
+                <p>
+                    <span>前10名品牌合作总额</span> <span style="font-size: 16px; font-family: 'Avenir-Medium';
+                        color: #16B5E9;" id="top10jine">0</span> <span>万元，总占比</span> <span style="font-size: 16px;
+                            font-family: 'Avenir-Medium'; color: #16EDE5;" id="top10zhanbi">0%</span>
+                    <span>，前40名合作额占总比达</span> <span style="font-size: 16px; font-family: 'Avenir-Medium';
+                        color: #16EDE5;" id="top40zhanbi">0%</span> <span>。</span>
+                </p>
+            </div>
+            <div class='div_AR_Table' id="pingpaiTable" style="width: 100%;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0 solid #999">
+                    <tbody>
+                        <tr class="tableHeader">
+                            <td id="orderno" data-sort="desc" style="cursor: pointer;">
+                                <span style="width: 7px; display: inline-block;">
+                                    <img src="/Images/table_order_desc.png" style="width: 7px;" />
+                                </span>
+                            </td>
+                            <td>
+                                品牌名称
+                            </td>
+                            <td>
+                                年合作额(万元)
+                            </td>
+                            <td>
+                                占比
+                            </td>
+                            <td id="orderrate" data-sort="none" style="cursor: pointer;">
+                                同比去年 <span style="width: 7px; display: inline-block;">
+                                    <img src="/Images/table_order_none.png" style="width: 7px;" />
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="dataloading" id="append" style="cursor: pointer;">
+                <input type="hidden" id="hid_pageIndex" value="0" />
+                <input type="hidden" id="hid_lastno" value="0" />
+                <input type="hidden" id="hid_pageSize" value="10" />
+                <span class="dataloading">展开</span>
+                <img src="/Images/loading-expand.png" style="padding-bottom: 2px; padding-left: 10px;
+                    height: 6px" />
+            </div>
+            <div class="clear5">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('ChartBar'));
+
+        //load
+        $(document).ready(function () {
+            InitPage();
+        });       
+    </script>
+</body>
+</html>

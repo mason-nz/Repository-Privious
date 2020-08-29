@@ -1,0 +1,237 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>人员情况（2）</title>
+    <!--<link type="text/css" href="/Css/style.css" rel="Stylesheet">
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="/Scripts/echarts.js"></script>-->
+    <script type="text/javascript">
+        document.writeln("<s" + "cript type='text/javascript' src='/Scripts/config.js?v=" + Math.random() + "'></s" + "cript>");
+        document.write("<s" + "cript type='text/javascript' src='/Scripts/人员情况/RYQK2_PlotChart.js?" + Math.random() + "'></s" + "cript>");
+    </script>
+    <script type="text/javascript">
+        LoadJS('animateNumber');
+    </script>
+    <script type="text/javascript">
+        var defaultEChartsTextStyle = {
+            color: 'white',
+            fontWeight: 'normal',
+            fontFamily: '微软雅黑',
+            fontSize: 12
+        };
+
+        var defaultEChartsTextStyleFontBold = {
+            color: 'white',
+            fontWeight: 'bold',
+            fontFamily: '微软雅黑',
+            fontSize: 12
+        };
+    </script>
+    <script type="text/javascript">
+
+        $(window).resize(function () {
+            myChartSL.resize();
+            myChartZW.resize();
+            myChartNL.resize();
+            myChartZJ.resize();
+
+        });
+       
+    </script>
+</head>
+<body >
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="moddleTop yyqk">
+        <p>
+            <span style="font-weight: bold;">性别</span>
+        </p>
+        <!--<p style="background: none; float: right; margin-right: 20px;">
+            <span style="cursor: pointer;" onclick="window.location='ryqk1.htm';">返回></span>
+        </p>-->
+    </div>
+    <div style="clear: both; padding-left: 29px; padding-top: 16px; height: 80px;">
+        <p style="width: auto; margin-top: 20px; padding-top: 0px; float: left;">
+            <span style="font-size: 16px;">男</span>
+        </p>
+        <p style="width: 88px; float: left; margin-left: 17px; margin-top: 15px;">
+            <span id="male_per" style="font-size: 25px; font-weight: normal; font-style: normal;  display:block;
+                font-family: 'Avenir-Medium'; color: #18ECE5;"></span>
+                <span id="male_num" style="font-size: 14px; display:block;
+                    font-weight: normal; font-family: 'Avenir-Medium'; font-style: normal; margin-left: 10px;
+                    color: #7881BA;"></span>
+        </p>
+        <div class="ryqkSex" style="margin-top: 0px; margin-left: 120px;">
+            <ul id="ul_mp" class="mp">
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="0">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="1">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="2">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="3">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="4">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="clear: both; padding-left: 29px; padding-top: 5px; padding-bottom: 13px;
+        height: 80px;">
+        <p style="width: auto; margin-top: 20px; padding-top: 0px; float: left;">
+            <span style="font-size: 16px;">女</span>
+        </p>
+        <p style="width: 88px; float: left; margin-left: 17px; margin-top: 15px;">
+            <span id="female_per" style="font-size: 25px; font-weight: normal; font-style: normal;  display:block;
+                font-family: 'Avenir-Medium'; color: #FD6061;"></span><span id="female_num" style="font-size: 14px;  display:block;
+                    font-weight: normal; font-family: 'Avenir-Medium'; font-style: normal; margin-left: 10px;
+                    color: #7881BA;"></span>
+        </p>
+        <div class="ryqkSex" style="margin-top: 0px; margin-left: 120px;">
+            <ul id="ul_mp2" class="mp">
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="0">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="1">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="2">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="3">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="4">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="moddleTop yyqk">
+        <p>
+            <span style="font-weight: bold;">年龄分布</span>
+        </p>
+    </div>
+    <!-- (柱状图====开始) -->
+    <div id="ChartNL" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="moddleTop yyqk">
+        <p>
+            <span style="font-weight: bold;">司龄分布</span>
+        </p>
+    </div>
+    <!-- (饼图====开始) -->
+    <div id="ChartSL" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (饼图====结束) -->
+    <div class="moddleTop yyqk">
+        <p>
+            <span style="font-weight: bold;">职级</span>
+        </p>
+    </div>
+    <!-- (柱状图====开始) -->
+    <div id="ChartZJ" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="moddleTop yyqk">
+        <p>
+            <span style="font-weight: bold;">职位</span>
+        </p>
+    </div>
+    <!-- (饼图====开始) -->
+    <div id="ChartZW" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (饼图====结束) -->
+    <div class="clear5">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChartSL = echarts.init(document.getElementById('ChartSL'));
+        myChartSL.showLoading(defaultEChartsLoadingStyle);
+        //获取饼图数据源
+        AppReport.RYQK2.GetEmployeeAge_SeriesData(function (chartSeriesData, json) {
+            //初始化页面标题日期内容
+            if (chartSeriesData) {
+                //绘制饼图
+                //console.log(chartSeriesData);
+                AppReport.RYQK2.InitEmployeeAgePieChart(chartSeriesData);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChartZW = echarts.init(document.getElementById('ChartZW'));
+        myChartZW.showLoading(defaultEChartsLoadingStyle);
+        //获取饼图数据源
+        AppReport.RYQK2.GetEmployeePostTitle_SeriesData(function (chartSeriesData, json) {
+            //初始化页面标题日期内容
+            if (chartSeriesData) {
+                //绘制饼图
+                //console.log(chartSeriesData);
+                AppReport.RYQK2.InitEmployeePostTitlePieChart(chartSeriesData);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChartNL = echarts.init(document.getElementById('ChartNL'));
+        AppReport.RYQK2.InitChartNL();
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChartZJ = echarts.init(document.getElementById('ChartZJ'));
+        AppReport.RYQK2.InitChartZJ();
+    </script>
+    <script type="text/javascript">
+
+        AppReport.RYQK2.InitPersonNum();
+
+    </script>
+</body>
+</html>

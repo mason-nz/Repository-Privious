@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0" />
+    <title>人员情况（2）</title>
+    <link type="text/css" href="../Css/style.css" rel="Stylesheet">
+    <script src="../Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/echarts.js"></script>
+    <script type="text/javascript" src="../Scripts/echarts_custom.js"></script>
+    <script type="text/javascript">
+        var defaultEChartsTextStyle = {
+            color: 'white',
+            fontWeight: 'normal',
+            fontFamily: '微软雅黑',
+            fontSize: 12
+        };
+
+        var defaultEChartsTextStyleFontBold = {
+            color: 'white',
+            fontWeight: 'bold',
+            fontFamily: '微软雅黑',
+            fontSize: 12
+        };
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Mp("#ul_mp", 55.4);
+            Mp("#ul_mp2", 45.6);
+
+        });
+        window.onresize = function () {
+            Mp("#ul_mp", 55.4);
+            Mp("#ul_mp2", 45.6);
+            myChart1.resize();
+            myChart2.resize();
+            myChart3.resize();
+            myChart4.resize();
+        }
+        //人员进度
+        function Mp(id, value) {
+            var mpmax = 100; //最大百分比
+            var mpmin = 0; //最小百分比
+            var mpstep = 0; //单个图片所占百分比
+            var imgwidth = 0; //图片尺寸
+            var mpvalue = 0; //显示百分比
+
+            if (value >= mpmax) {
+                value = mpmax;
+            }
+            else if (value <= mpmin) {
+                value = 0;
+            }
+
+            mpvalue = value;
+            imgwidth = $(id + ".mp .mp_down").eq(0).width();
+
+            var mplist = $(id + ".mp .mp_up");
+            mplist.css("width", "0px");
+            var length = mplist.length;
+            mpstep = mpmax / length;
+            if ($(id).width() > 180) {
+                var _width = ($(id).width() - 200) / 5;
+                $(id + ".mp li").animate({ marginRight: _width + "px" });
+            }
+            //
+            _MpMove(mplist, 0);
+
+            //进度
+            function _MpMove(list, index) {
+                if (mpvalue <= 0) {
+                    return;
+                }
+                var wz = 0;
+                if (mpvalue >= mpstep) {
+                    mpvalue = mpvalue - mpstep;
+                    wz = imgwidth;
+                }
+                else {
+                    wz = (mpvalue / mpstep) * imgwidth;
+                    mpvalue = 0;
+                }
+
+                if (index < list.length) {
+
+                    $(list[index]).animate({ width: wz + "px" }, "fast", "linear", function () {
+                        _MpMove(list, index + 1);
+                    });
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="moddleTop" style="width: 100%; background-color: rgb(73, 71, 84); padding-bottom: 5px;
+        border-top-width: 5px; margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">性别</span>
+        </p>
+        <p style="background: none; float: right; margin-right: 20px;">
+            <span style="cursor: pointer;" onclick="window.location='ryqk1.htm';">返回></span>
+        </p>
+    </div>
+    <div style="clear: both; padding-left: 10px; padding-top: 26px; background-color: rgba(73, 71, 84, 1);">
+        <p style="width: 88px;">
+            <span style="font-size: 14px; font-weight: bold;">男</span>
+        </p>
+        <p style="width: 88px;">
+            <span style="font-size: 12px; font-weight: normal; font-style: normal;">2543（55.4%）</span>
+        </p>
+        <div class="ryqkSex">
+            <ul id="ul_mp" class="mp">
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="0">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="1">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="2">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="3">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic1" style="">
+                    </div>
+                    <div class="mp_up pic2" style="" mp-index="4">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="clear: both; padding-left: 10px; padding-top: 26px; background-color: rgba(73, 71, 84, 1);">
+        <p style="width: 88px;">
+            <span style="font-size: 14px; font-weight: bold;">女</span>
+        </p>
+        <p style="width: 88px;">
+            <span style="font-size: 12px; font-weight: normal; font-style: normal;">1876（45.6%）</span>
+        </p>
+        <div class="ryqkSex">
+            <ul id="ul_mp2" class="mp">
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="0">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="1">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="2">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="3">
+                    </div>
+                </li>
+                <li>
+                    <div class="mp_down pic3" style="">
+                    </div>
+                    <div class="mp_up pic4" style="" mp-index="4">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear20" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="clear20">
+    </div>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="moddleTop" style="width: 100%; background-color: rgb(73, 71, 84); padding-bottom: 5px;
+        border-top-width: 5px; margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">年龄分布</span>
+        </p>
+    </div>
+    <!-- (柱状图====开始) -->
+    <div id="ChartNL" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center; background-color: Blue;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="clear20">
+    </div>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="moddleTop" style="width: 100%; background-color: rgb(73, 71, 84); padding-bottom: 5px;
+        border-top-width: 5px; margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">司龄分布</span>
+        </p>
+    </div>
+    <!-- (饼图====开始) -->
+    <div id="ChartSL" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (饼图====结束) -->
+    <div class="clear20">
+    </div>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="moddleTop" style="width: 100%; background-color: rgb(73, 71, 84); padding-bottom: 5px;
+        border-top-width: 5px; margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">职级</span>
+        </p>
+    </div>
+    <!-- (柱状图====开始) -->
+    <div id="ChartZJ" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center; background-color: Green;">
+    </div>
+    <!-- (柱状图====结束) -->
+    <div class="clear20">
+    </div>
+    <!-- (横线) -->
+    <div class="layout hx">
+    </div>
+    <div class="clear10" style="background-color: rgb(73, 71, 84);">
+    </div>
+    <div class="moddleTop" style="width: 100%; background-color: rgb(73, 71, 84); padding-bottom: 5px;
+        border-top-width: 5px; margin-top: 0px; margin-bottom: 0px;">
+        <p>
+            <span style="font-weight: bold;">职位</span>
+        </p>
+    </div>
+    <!-- (饼图====开始) -->
+    <div id="ChartZW" class="layout" style="float: left; width: 100%; height: 250px;
+        text-align: center;">
+    </div>
+    <!-- (饼图====结束) -->
+    <div class="clear20">
+    </div>
+    <div class="layout hxgray">
+    </div>
+    <div class="clear20">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('ChartSL'));
+        // 指定图表的配置项和数据
+        var option = {
+            backgroundColor: 'rgb(73, 71, 84)',
+            //            tooltip: {
+            //                trigger: 'item',
+            //                triggerOn: 'click',
+            //                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            //            },
+            legend: {
+                right: '5%',
+                top: '40%',
+                itemHeight: 10,
+                itemGap: 8,
+                //backgroundColor: 'white',
+                orient: 'vertical',
+                textStyle: defaultEChartsTextStyle,
+                data: [
+                        {
+                            name: '1年以下',
+                            icon: 'circle'
+                        },
+                        {
+                            name: '1-3年',
+                            icon: 'circle'
+                        },
+                        {
+                            name: '3-5年',
+                            icon: 'circle'
+                        },
+                        {
+                            name: '5年以上',
+                            icon: 'circle'
+                        }
+                ]
+            },
+            series: [
+            GetInnerCircleByPieSeries(),
+            {
+                radius: ['3%', '70%'],
+                center: ['35%', '50%'],
+                name: '司龄分布',
+                selectedMode: 'multiple',
+                startAngle: 120,
+                minAngle: 20,
+                type: 'pie',
+                hoverAnimation: false,
+                //roseType:'radius',
+                data: [{ value: 25, name: '1年以下' },
+                { value: 38, name: '1-3年' },
+                { value: 21, name: '3-5年' },
+                { value: 16, name: '5年以上'}],
+                //                itemStyle: {
+                //                    emphasis: {
+                //                        shadowBlur: 10,
+                //                        shadowOffsetX: 0,
+                //                        shadowColor: 'white'
+                //                    }
+                //                },
+                label: {
+                    normal: {
+                        position: 'inside',
+                        formatter: '{d}%'
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option);
+        myChart1.on('click', function (params) {
+            //window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+            //console.log(params);
+        });
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('ChartZW'));
+        // 指定图表的配置项和数据
+        var option2 = {
+            backgroundColor: 'rgb(73, 71, 84)',
+            //            tooltip: {
+            //                show: false,
+            //                trigger: 'item',
+            //                triggerOn: 'click',
+            //                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            //            },
+            legend: {
+                show: false
+            },
+            series: [
+            GetInnerCircleByPieSeries(3, 50, 50),
+            {
+                radius: ['40%', '50%'],
+                center: ['50%', '50%'],
+                name: '职位统计',
+                selectedMode: 'multiple',
+                startAngle: 120,
+                minAngle: 20,
+                type: 'pie',
+                hoverAnimation: false,
+                animationDuration: 1500,
+                //roseType:'radius',
+
+                data: [{ value: 1238, name: '销售客服类' },
+                { value: 982, name: '产品开发类' },
+                { value: 387, name: '支持类' },
+                { value: 691, name: '编辑类' },
+                { value: 113, name: '市场类' },
+                { value: 54, name: '管理类'}],
+                //                itemStyle: {
+                //                    emphasis: {
+                //                        shadowBlur: 10,
+                //                        shadowOffsetX: 0,
+                //                        shadowColor: 'white'
+                //                    }
+                //                },
+                label: {
+                    normal: {
+                        position: 'outside',
+                        formatter: '{b}\n{c}人({d}%)',
+                        lineStyle: {
+                            color: 'white'
+                        },
+                        textStyle: {
+                            color: 'white',
+                            fontFamily: '微软雅黑',
+                            fontSize: 12
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: true,
+                        //length: 16,
+                        //length2: 85,
+                        lineStyle: {
+                            color: 'white',
+                            type: 'dashed'
+                        }
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option2);
+        myChart2.on('click', function (params) {
+            //window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+            //console.log(params);
+        });
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart3 = echarts.init(document.getElementById('ChartNL'));
+        var option = {
+            backgroundColor: 'rgb(73, 71, 84)',
+            tooltip: {
+                show: false
+            },
+            legend: {
+                show: false
+            },
+            dataZoom: [{
+                type: 'inside',
+                start: 0,
+                end: 100
+            }],
+            grid: {
+                left: '4%',
+                right: '4%',
+                bottom: '15%',
+                top: '5%',
+                containLabel: false
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true, //留白策略
+                data: ['25岁以下', '26-30岁', '31岁-35岁', '36岁-40岁', '41岁以上'],
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#FFFFFF'
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            },
+            series: [{
+                name: '年龄分布',
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(13, 150, 208, 1)'
+                    }
+                },
+                data: [624, 2135, 1363, 389, 102],
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter: function (params) {
+                            var value = params.value;
+                            var sum = 624 + 2135 + 1363 + 389 + 102;
+                            var per = Math.round(value * 1000 / sum) / 10;
+                            return value + "人\n(" + per + "%)";
+                        },
+                        textStyle: {
+                            color: '#FFFFFF',
+                            fontFamily: '微软雅黑',
+                            fontWeight: 400,
+                            fontStyle: 'normal',
+                            fontSize: 12
+                        }
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart3.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart4 = echarts.init(document.getElementById('ChartZJ'));
+        var option = {
+            backgroundColor: 'rgb(73, 71, 84)',
+            tooltip: {
+                show: false
+            },
+            legend: {
+                show: false
+            },
+            dataZoom: [{
+                type: 'inside',
+                zoomLock: true
+            }],
+            grid: {
+                left: 50,
+                right: 120,
+                bottom: '5%',
+                top: '5%',
+                containLabel: false
+            },
+            yAxis: {
+                type: 'category',
+                boundaryGap: true, //留白策略
+                data: ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8'],
+                inverse: true,
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#FFFFFF',
+                        fontFamily: '微软雅黑',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: 12
+                    }
+                }
+            },
+            xAxis: {
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                }
+            },
+            series: [{
+                name: '职级分布',
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(254, 206, 103, 1)'
+                    }
+                },
+                stack: 'one',
+                data: [2038, 1082, 712, 691, 107, 55, 12, 16],
+                barWidth: 12,
+                label: {
+                    normal: {
+                        show: false
+                    }
+                }
+            },
+            {
+                name: '补全',
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(242, 242, 242, 1)'
+                    }
+                },
+                stack: 'one',
+                //最大值第一位加1，其余位为0 做满值点
+                data: [3000 - 2038, 3000 - 1082, 3000 - 712, 3000 - 691, 3000 - 107, 3000 - 55, 3000 - 12, 3000 - 16],
+                barWidth: 12,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        formatter: function (params) {
+                            var value = 3000 - params.value;
+                            var sum = 2038 + 1082 + 712 + 691 + 107 + 55 + 12 + 16;
+                            var per = Math.round(value * 1000 / sum) / 10;
+                            return value + "人(" + per + "%)";
+                        },
+                        textStyle: {
+                            color: '#FFFFFF',
+                            fontFamily: '微软雅黑',
+                            fontWeight: 400,
+                            fontStyle: 'normal',
+                            fontSize: 12
+                        }
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart4.setOption(option);
+    </script>
+</body>
+</html>
