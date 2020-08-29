@@ -17,3 +17,9 @@ This project is a practical React Native framweork. There were some demos in it.
 
 # Chitunion
 This project is about information distribution system, which included app, h5, back-end, TitleManagementSystem, DataSystem etc.
+
+# IM
+This system is a IM system. It presented communication between remote agents and users. It has different scenes depend on different business systems.
+
+# Call Centre
+This system involved 300 seats and developed a complete solution about call centre business. Among them, connected with Siemens and Gennesys middleware manufacturer for docking work.
