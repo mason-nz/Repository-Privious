@@ -3,7 +3,7 @@
 # JQuery-Project-FullCalender
 This project used to demostrate the process of specific project. 
 
-# JS-Extend-Functions：
+# JS-Extend-Functions
 This project defined some custom js-functions which included verifying mobile, date, ID-Card and some jquery-extend functions.
 
 # JS-jmopups
