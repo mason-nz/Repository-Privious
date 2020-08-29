@@ -10,7 +10,7 @@ This project defined some custom js-functions which included verifying mobile, d
 This project defined a based-on div alert-layer functions. You can easily used it to demostrate some amazing layer style.
 
 # OA-ReportSystem
-This project is a report system which based on OA systems and used mobile development. It used baiduchart-plugin to demostrate some diagrams.
+This project is a report system which based on OA systems and used HTML5 technique. It used baiduchart-plugin to demostrate some diagrams.
 
 # React Native-Demo
 This project is a practical React Native framweork. There were some demos in it.
