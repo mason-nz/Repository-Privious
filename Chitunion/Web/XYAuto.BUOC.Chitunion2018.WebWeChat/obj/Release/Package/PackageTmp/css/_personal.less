@@ -1,0 +1,723 @@
+// "out": true
+@charset 'utf-8';
+@import '_common.less';
+//body
+.wx_body{
+	width:100%;
+	margin: 0px auto;
+	overflow: auto;
+	background-color: #fff;
+}
+
+.sort_container{
+	width:100%;
+	height: 900/@r*1rem;
+}
+//分类
+.sort_content{
+	overflow: auto;
+	border: 1px solid #ededed;
+	border-bottom: none;
+	position: relative;
+	.top{
+		padding: 60/@r*1rem;
+		padding-bottom: 0;
+		.tit{
+			color: #999;
+		}
+		//跳过按钮
+		.skip_btn{
+			display: none;
+			position: absolute;
+			right: 60/@r*1rem;
+			text-align: center;
+			font-size: 24/@r*1rem;
+			cursor: pointer;
+			color: #1b7df3;
+		}
+	}
+	ul{
+		padding: 60/@r*1rem;
+		padding-top: 24/@r*1rem;
+		display: flex;
+		flex-wrap: wrap;
+		li{
+			flex-flow: 1;
+			width: 130/@r*1rem;
+			height: 70/@r*1rem;
+			padding: 20/@r*1rem 0;
+			line-height: 0.9;
+			//line-height: 70/@r*1rem;
+			background: #fff;
+			border: 1px solid #eee;
+			text-align: center;
+			font-size: 30/@r*1rem;
+			color: #333;
+			margin: 0  34/@r*1rem  36/@r*1rem  0;
+			border-radius: 6/@r*1rem;
+			&:nth-child(4n){
+				margin-right: 0;
+			}
+			&.selected{
+				border: 1px solid transparent;
+				background: #1b7bf0;
+				color: #fff;
+			}
+			&.hover{
+				background: #1b7bf0;
+				color: #fff;
+				box-shadow: 1px 1px 1px rgba(154,190,227,0.2);
+			}
+		}
+	}
+	//确定按钮
+	.sort_btn{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 90/@r*1rem;
+		line-height: 90/@r*1rem;
+		text-align: center;
+		background: url('../images/btn_bg.png') repeat-x;
+		color: #fff;
+		font-size: 34/@r*1rem;
+		letter-spacing: 10/@r*1rem;
+		cursor: pointer;
+	}
+	.grey_btn{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 90/@r*1rem;
+		line-height: 90/@r*1rem;
+		text-align: center;
+		background: url(../images/btn_bg_grey.jpg) repeat-x;
+		color: #fff;
+		font-size: 34/@r*1rem;
+		letter-spacing: 10/@r*1rem;
+		cursor: pointer;
+	}
+}
+
+
+//抢单赚钱页面第一版本样式 与订单列表有冲突 建议注释掉
+// .mescroll_sticky{
+// 	//banner
+// 	.task_banner{
+// 		width: 100%;
+// 	}
+// 	//导航
+// 	.scrollx{
+// 		width: 100%;
+// 		height: 90/@r*1rem;
+// 		overflow: hidden;
+// 		position: relative;
+// 		border-bottom: 1px solid #f3f3f3;
+// 		background: #fff;
+// 		z-index: 110;
+// 		.scrollx-content{
+// 			width: 100%;
+// 			overflow-x: auto;
+// 			white-space: nowrap;
+// 			.nav{
+// 				width: 100%;
+// 				//overflow: auto;
+// 				//padding-right: 45/@r*1rem;
+// 				li{
+// 					display: inline-block;
+// 					width: 149/@r*1rem;
+// 					height: 90/@r*1rem;
+// 					line-height: normal;
+// 					padding: 20/@r*1rem 0;
+// 					text-align: center;
+// 					margin-bottom: 40/@r*1rem;/*把水平滚动条撑到外面,达到隐藏的目的*/
+// 					background: url(../images/line_bg.png) right  center no-repeat;
+// 					background-size: 1px 50/@r*1rem;
+// 					a{
+// 						display: inline-block;
+// 						height: 70/@r*1rem;
+// 						color: #848484;
+// 						font-size: 32/@r*1rem;
+// 					}
+// 					&.selected{
+// 						a{
+// 							color: #333333;
+// 							border-bottom: 3px solid #1a7bf2;
+// 						}
+// 					}
+// 					&:nth-last-child(1){
+// 						background: none;
+// 						width: 82/@r*1rem;
+// 						height: 88/@r*1rem;
+// 						visibility: hidden;
+// 					}
+// 				}
+// 			}
+// 		}
+// 		.more{
+// 			position: absolute;
+// 			right: 0;
+// 			bottom: 0;
+// 			width: 82/@r*1rem;
+// 			height: 88/@r*1rem;
+// 			background: url(../images/addbg.png);
+// 			background-size: 100% 100%;
+// 			cursor: pointer;
+// 			z-index: 10;
+// 			img{
+// 				width: 32/@r*1rem;
+// 				height: 32/@r*1rem;
+// 				position: absolute;
+// 				right: 30/@r*1rem;
+// 				bottom: 28/@r*1rem;
+// 			}
+// 		}
+// 	}
+// 	/*ios使用sticky样式实现*/
+// 	.nav-sticky{
+// 		z-index: 9999;/*需设置zIndex,避免在悬停时,可能会被列表数据遮住*/
+// 		position: -webkit-sticky;
+// 		position: sticky;
+// 	    top: 0;/*相对mescroll的div悬停的位置*/
+// 	}
+// 	/*android和pc端悬停*/
+// 	.nav-fixed{
+// 		width: 100%;
+// 		z-index: 9999;
+// 		position: fixed;
+// 		left: 0;
+// 		right: 0;
+// 		top: 0;
+// 		bottom: 0;
+// 	}
+// 	//列表
+// 	.swiper-container{
+// 		width: 100%;
+// 		position: absolute;
+// 		top: 0;
+// 		bottom: 0;
+// 		left: 0;
+// 		right: 0;
+// 		//z-index: 100;
+// 		background: #fff;
+// 		.data-list{
+// 			div{
+// 				width: 100%;
+// 				&.selected{
+// 					background: #f5f5f5;
+// 				}
+// 				dl{
+// 					margin: auto 30/@r*1rem;
+// 					height: 240/@r*1rem;
+// 					padding: 40/@r*1rem 0;
+// 					border-bottom: 1px solid #f3f3f3;
+// 					dt{
+// 						float: left;
+// 						width: 430/@r*1rem;
+// 						h2{
+// 							width: 100%;
+// 							height: 104/@r*1rem;
+// 							line-height: 50/@r*1rem;
+// 							overflow: hidden;
+// 							//white-space: nowrap;
+// 							//overflow: hidden;
+// 							//text-overflow: ellipsis;
+// 							font-weight: 400;
+// 							font-size: 34/@r*1rem;
+// 							color: #333333;
+// 						}
+// 						p{
+// 							width: 100%;
+// 							margin-top: 30/@r*1rem;
+// 							span{
+// 								color: #848484;
+// 								font-size: 22/@r*1rem;
+// 								&:last-child{
+// 									float: right;
+// 									margin-right: 12/@r*1rem;
+// 								}
+// 							}
+// 						}
+// 					}
+// 					dd{
+// 						float: right;
+// 						width: 240/@r*1rem;
+// 						height: 160/@r*1rem;
+// 						position: relative;
+// 						img.head_img{
+// 							width: 100%;
+// 							height: 100%;
+// 							border-radius: 6/@r*1rem;
+// 						}
+// 						img.icon_img{
+// 							position: absolute;
+// 							right: 0;
+// 							top: 0;
+// 							width: 116/@r*1rem;
+// 							height: 36/@r*1rem;
+// 						}
+// 					}
+// 					.clearfix();
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+ // 抢单赚钱 吸顶悬浮 新版本样式 3.8
+.mescroll{
+	// -webkit-touch-callout:none;
+	// -webkit-user-select:none;
+	// -webkit-tap-highlight-color:transparent;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	.swiper-container {
+		width: 100%;
+		height: auto;
+	}
+	.task_banner{
+		display: block;
+		width: 100%;
+		height: auto;
+		cursor: pointer;
+		img{
+			width: 100%;
+		}
+	}
+	.navWarp{
+		width: 100%;
+		height: 90/@r*1rem;
+		background: #fff;
+		border-bottom: 1px solid #f3f3f3;
+		position: relative;
+		overflow: hidden;
+		.nav{
+			width: 100%;
+			background: #fff;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			white-space: nowrap;
+			li{
+				display: inline-block;
+				width: 149/@r*1rem;
+				height: 90/@r*1rem;
+				line-height: normal;
+				padding: 20/@r*1rem 0;
+				text-align: center;
+				margin-bottom: 40/@r*1rem;/*把水平滚动条撑到外面,达到隐藏的目的*/
+				background: url(../images/line_bg.png) right  center no-repeat;
+				background-size: 1px 50/@r*1rem;
+				a{
+					display: inline-block;
+					height: 70/@r*1rem;
+					color: #848484;
+					font-size: 32/@r*1rem;
+				}
+				&.selected{
+					a{
+						color: #333333;
+						border-bottom: 3px solid #1a7bf2;
+					}
+				}
+				&:nth-last-child(1){
+					background: none;
+					width: 82/@r*1rem;
+					height: 88/@r*1rem;
+					visibility: hidden;
+				}
+			}
+		}
+		.more{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 82/@r*1rem;
+			height: 88/@r*1rem;
+			background: url(../images/addbg.png);
+			background-size: 100% 100%;
+			cursor: pointer;
+			z-index: 140;
+			img{
+				width: 32/@r*1rem;
+				height: 32/@r*1rem;
+				position: absolute;
+				right: 30/@r*1rem;
+				bottom: 28/@r*1rem;
+			}
+		}
+	}
+	//ios使用sticky样式实现*
+	.nav-sticky{
+		z-index: 99;/*需设置zIndex,避免在悬停时,可能会被列表数据遮住*/
+		position: -webkit-sticky;
+		position: sticky;
+	    top: 0;/*相对mescroll的div悬停的位置*/
+	}
+	//android和pc端悬停
+	.nav-fixed{
+		z-index: 99;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	.data-list{
+		div{
+			width: 100%;
+			&.selected{
+				background: #f5f5f5;
+			}
+			dl{
+				margin: auto 30/@r*1rem;
+				height: 240/@r*1rem;
+				padding: 40/@r*1rem 0;
+				border-bottom: 1px solid #f3f3f3;
+				dt{
+					float: left;
+					width: 430/@r*1rem;
+					h2{
+						width: 100%;
+						height: 104/@r*1rem;
+						line-height: 50/@r*1rem;
+						overflow: hidden;
+						//white-space: nowrap;
+						//overflow: hidden;
+						//text-overflow: ellipsis;
+						font-weight: 400;
+						font-size: 34/@r*1rem;
+						color: #333333;
+					}
+					p{
+						width: 100%;
+						margin-top: 30/@r*1rem;
+						img{
+							width: 50/@r*1rem;
+							height: 24/@r*1rem;
+							vertical-align: top;
+							margin-top: 4/@r*1rem;
+							padding-right: 6/@r*1rem;
+						}
+						span{
+							color: #848484;
+							font-size: 22/@r*1rem;
+							// &:last-child{
+							// 	float: right;
+							// 	margin-right: 12/@r*1rem;
+							// }
+						}
+						img{
+							width: 50/@r*1rem;
+							height: 24/@r*1rem;
+							vertical-align: top;
+							margin-top: 4/@r*1rem;
+							padding-right: 6/@r*1rem;
+						}
+					}
+				}
+				dd{
+					float: right;
+					width: 240/@r*1rem;
+					height: 160/@r*1rem;
+					position: relative;
+					img.head_img{
+						width: 100%;
+						height: 100%;
+						border-radius: 6/@r*1rem;
+					}
+					img.icon_img{
+						position: absolute;
+						right: 0;
+						top: 0;
+						width: 116/@r*1rem;
+						height: 36/@r*1rem;
+					}
+				}
+				.clearfix();
+			}
+		}
+	}
+	.shareBox{
+		display: none;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: .8;
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		z-index: 11111;
+	}
+	.shareImg{
+		display: none;
+		width: 552/@r*1rem;
+		height: 688/@r*1rem;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		right: 0;
+		bottom: 0;
+		margin-left: -276/@r*1rem;
+		margin-top: -340/@r*1rem;
+		z-index: 11112;
+	}
+}
+
+
+//订单导航
+.order_nav{
+	width: 100%;
+	height: 90/@r*1rem;
+	line-height: 90/@r*1rem;
+	border-bottom: 1px solid #f3f3f3;
+	position: fixed;
+	background: #fff;
+	z-index: 10;
+	ul{
+		li{
+			float: left;
+			width: 50%;
+			height: 90/@r*1rem;
+			line-height: normal;
+			padding: 20/@r*1rem 0;
+			text-align: center;
+			a{
+				display: inline-block;
+				height: 70/@r*1rem;
+				color: #848484;
+				font-size: 32/@r*1rem;
+			}
+			&.selected{
+				a{
+					color: #333333;
+					border-bottom: 3px solid #1a7bf2;
+				}
+			}
+		}
+	}
+}
+
+//订单列表
+.order_list{
+	width: 100%;
+	position: absolute;
+	top: 90/@r*1rem;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	.lists{
+		overflow: auto;
+	}
+	ul{
+		margin: auto 30/@r*1rem;
+		border-bottom: 1px solid #f3f3f3;
+		padding: 40/@r*1rem 0 20/@r*1rem 0;
+		li{
+			line-height: 56/@r*1rem;
+			&:nth-child(1){
+				h2{
+					width: 100%;
+					max-height: 106/@r*1rem;
+					line-height: 52/@r*1rem;
+					overflow: hidden;
+					font-weight: 400;
+					font-size: 32/@r*1rem;
+					color: #333;
+				}
+			}
+			&:nth-child(2){
+				span{
+					color: #848484;
+					font-size: 22/@r*1rem;
+					&:last-child{
+						float: right;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//签到样式
+.sign_body{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #f3f3f3;
+	.sign_container{
+		width: 100%;
+		//背景样式和颜色
+	    .content_top{
+	        height: 440/@r*1rem;
+	        text-align: center;
+	        position: relative;
+	    	.content_top_begin{
+	    		width: 100%;
+	            height: 100%;
+	    		background: url(../images/sign_bg.png) no-repeat;
+	            background-size: 100% 100%;
+	            padding: 50/@r*1rem 0 0 0;
+	            color: #fff;
+	            p:nth-child(1){
+	            	font-size:26/@r*1rem;
+	                line-height: 70/@r*1rem;
+	            }
+	            p:nth-child(2){
+	            	font-size: 86/@r*1rem;
+	                //line-height: 70/@r*1rem;
+	                line-height: 1;
+	                margin-top: 26/@r*1rem;
+	                background: -webkit-linear-gradient(bottom, rgba(165, 207, 252, 0.8) -8%,rgba(255, 255, 255, 1) 64%);
+					color:transparent;
+					-webkit-background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+	            }
+	            p:nth-child(3){
+	            	font-size:28/@r*1rem;
+	                line-height: 70/@r*1rem;
+	            }
+	    	}
+	    }
+	    //日历样式
+	    .laydate_container{
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 30/@r*1rem;
+			position: absolute;
+			top: 340/@r*1rem;
+			.sign_con{
+				width: 100%;
+				height: 734/@r*1rem;
+				border-radius: 10/@r*1rem;
+				.laydate-theme-person_date{
+					width: 100%;
+					height: 734/@r*1rem;
+					border: none;
+					padding: 54/@r*1rem 0 0 0;
+					background: #efefef;
+					border-radius: 10/@r*1rem;
+					.layui-laydate-main{
+						width: 100%;
+						height: 100%;
+						.layui-laydate-header{
+							height: 46/@r*1rem;//170
+							margin-bottom: 30/@r*1rem;
+							border: none;
+							i{
+								&.laydate-prev-y,&.laydate-next-y{
+									display: none;
+								}
+								&.laydate-prev-m{
+									color: #1b7df3;
+									left: 30/@r*1rem;
+									font-size: 40/@r*1rem;
+								}
+								&.laydate-next-m{
+									color: #1b7df3;
+									right: 30/@r*1rem;
+									font-size: 40/@r*1rem;
+								}
+							}
+							.laydate-set-ym{
+								font-size: 40/@r*1rem;
+								line-height: 60/@r*1rem;
+								color: #1b7df3;
+							}
+						}
+						.layui-laydate-content{
+							height: 400/@r*1rem;
+							table{
+								width: 100%;
+								height: 100%;
+								th,td{
+									width: 80/@r*1rem;
+									height: 80/@r*1rem;
+									font-size: 24/@r*1rem;
+									padding: 0;
+								}
+								thead{
+									tr{
+										th{
+											color: #a4a4a4;
+										}
+									}
+								}
+								tbody{
+									tr{
+										td{
+											//color: #333;
+											span.cur_this,span.alreday_sign{
+												display: inline-block;
+												width: 80/@r*1rem;
+												height: 80/@r*1rem;
+												text-align: center;
+												line-height: 66/@r*1rem;
+												background: url(../images/round.png) no-repeat;
+												background-size: 100% 100%;
+												border-radius: 50%;
+												margin-top: 6/@r*1rem;
+											}
+											span.cur_this{
+												color: #fff;
+											}
+											span.alreday_sign{
+												background: url(../images/round2.png) no-repeat;
+												background-size: 100% 100%;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.sign_icon,.no_sign{
+				position: absolute;
+				right: 30/@r*1rem;
+				top: -77/@r*1rem;
+				width: 154/@r*1rem;
+				height: 154/@r*1rem;
+				background: url(../images/sign.png);
+				background-size: 100% 100%;
+				text-align: center;
+				line-height: 124/@r*1rem;
+				color: #fff;
+				font-size: 30/@r*1rem;
+			}
+			.no_sign{
+				background: url(../images/no_sign.png);
+				background-size: 100% 100%;
+			}
+			.tit{
+				width: 100%;
+				margin-top: 38/@r*1rem;
+				text-align: center;
+				color: #a8a8a8;
+				a{
+					color: #a8a8a8;
+					font-size: 24/@r*1rem;
+					&:hover{
+						color: #2f72e2;
+					}
+				}
+			}
+	    }
+	}
+}
+
+
+.noTime{
+	p{
+		margin-top: 36/@r*1rem;
+	}
+}

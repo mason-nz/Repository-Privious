@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>头腰腿数据明细</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script src="js/material-detail.js"></script>
+</head>
+
+<body>
+
+<!--#include file="/base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+            </div>
+            <div class="react_reason">
+               
+            </div>
+            
+            <div class="detail_box">
+                <p class="data_detail"><img src="/ImagesNew/triangle.png"><span>数据明细</span></p>
+                <p>日期：<input type="text" id="StartDate" class='laydate-iconNew'> 至
+                        <input type="text" id="EndDate" class='laydate-iconNew'>
+                    <a class="but_query select_for_data" id='searchBtn'>查询</a>
+                    <a href="javascript:;" class="downloading" target="_blank"><img src="/ImagesNew/icon19.png">下载报表</a>
+                </p>
+            </div>
+
+            <div class="ad_table">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                    <thead>
+                        <tr>
+                            <th width="12%">统计时间</th>
+                            <th width="15%">物料</th>
+                            <th width="12%">类型</th>
+                            <th width="10%" class="PV">PV</th>
+                            <th width="10%" class="UV">UV</th>
+                            <th width="10%">点击PV</th>
+                            <th width="10%">点击UV</th>
+                            <th width="10%">阅读数</th>
+                            <th width="10%" class="LikeNumber">点赞数</th>
+                            <th width="10%" class="ForwardNumber">转发数</th>
+                        </tr>
+                    </thead>
+                    <tbody class="DispenseList">
+                    </tbody>  
+                </table>
+                <!--分页-->
+                <div class="green-black" id="pageContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!-- 基本信息-->
+<script type="text/template" id="Dispense-Base">
+    <ul>
+        <li>物料ID：<%= MaterielId %></li>
+        <li>文章标题：<%= Title %></li>
+        <li>落地页URL：<% if(!DistributeUrl){%> 一 <%}else{%> <a href="<%= DistributeUrl %>" target='_blank'><%= DistributeUrl %></a> <%} %> </li>
+        <li>分发渠道类型：<%= DistributeTypeName %></li>
+        <li>品牌/车型：<% if(!SerialName){%> 一 <%}else{%> <%= SerialName %> <%} %></li>
+        <li>场景：<% if(!Scene){%> 一 <%}else{%> <%= Scene %> <%} %></li>
+        <li>渠道：<% if(!Channel){%> 一 <%}else{%> <%= Channel %> <%} %></li>
+        <li>IP：<% if(!Ip){%> 一 <%}else{%> <%= Ip %> <%} %></li>
+        <li>子IP：<% if(!ChildIp){%> 一 <%}else{%> <%= ChildIp %> <%} %></li>
+        <li>组装操作人：<% if(!AssembleUser){%> 一 <%}else{%> <%= AssembleUser %> <%} %></li>
+        <li>分发操作人：<% if(!DistributeUser){%> 一 <%}else{%> <%= DistributeUser %> <%} %></li>
+        <li>分发时间：<% if(!DistributeTime){%> 一 <%}else{%> <%= DistributeTime %> <%} %></li>  
+        <li>组装时间：<% if(!AssembleTime){%> 一 <%}else{%> <%= AssembleTime %> <%} %></li>  
+    </ul>
+</script>
+
+
+
+<!-- 列表数据 -->
+<script type="text/template" id="Dispense-List">
+    <% if(Result.TotalCount != 0){%>
+        <% Result.List.forEach(function(every,i){%>
+           <tr>
+                <td class="RowSpan"><%= every.Date.substr(0,10) %></td>
+                <!-- <td class="firstTr">11111</td>
+                <td>22222</td>
+                <td>333333</td>
+                <td>444444</td>
+                <td>55555</td>
+                <td>6666</td>
+                <td>77777</td>
+                <td>88888</td>
+                <td>999999 </td>-->
+           </tr>
+           <% every.Item.forEach(function(item,j){%>
+                <% if(j>0){%>
+                    <tr>
+                        <td><%= item.ConentTypeName %>： <%= item.Title %></td>
+                        <td><%= item.ArticleTypeName %></td>
+                        <td class="PV"><%= item.PV %></td>
+                        <td class="UV"><%= item.UV %></td>
+                        <td><%= item.ClickPV %></td>
+                        <td><%= item.ClickUV %></td>
+                        <td><%= item.ReadNumber %></td>
+                        <td class="LikeNumber"><%= item.LikeNumber %></td>
+                        <td class="ForwardNumber"><%= item.ForwardNumber %></td>
+                   </tr>
+                <%} %>
+               
+               <% if(item.FootStatistics){%>
+                    <% item.FootStatistics.forEach(function(each){%>
+                        <tr>
+                            <td>    <%= each.ConentTypeName %>： <%= each.ArticleTypeName %></td>
+                            <td><%= each.ArticleTypeName %></td>
+                            <td class="PV">一</td>
+                            <td class="UV">一</td>
+                            <td><%= each.ClickPV %></td>
+                            <td><%= each.ClickUV %></td>
+                            <td><%= each.ReadNumber %></td>
+                            <td class="LikeNumber">一</td>
+                            <td class="ForwardNumber">一</td>
+                       </tr>
+                       <%}) %>
+               <%} %>
+
+            <%}) %>
+        <%}) %>
+    <%} %>
+</script>
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+
+
+</body>
+</html>

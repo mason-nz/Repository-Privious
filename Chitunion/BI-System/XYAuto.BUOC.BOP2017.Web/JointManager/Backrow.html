@@ -1,0 +1,81 @@
+<style>
+    .ins_e{
+        margin-top: 0;
+    }
+    .controlul li{
+        float: left;
+    }
+</style>
+<div class="channel_box">
+    <div class="layer" style="overflow: auto;width: 640px;">
+        <div class="title">
+            <div class="fl">关联回划</div>
+            <div class="fr"><a href="javascript:void(0)" id="closebt"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="layer_con" style="margin: 15px">
+            <ul class="controlul">
+                <li>需求订单号：</li>
+                <li id="Username1" >
+
+                </li>
+            </ul>
+            <div class="clear"></div>
+            <ul class="selectCity controlul">
+                <li>回划用户：</li>
+                <li id="Corporatename1">
+
+                </li>
+
+            </ul>
+            <div class="clear"></div>
+            <ul class="controlul">
+                <li>需回划金额：</li>
+                <li id="phone11" >
+
+                </li>
+
+            </ul>
+            <div class="clear"></div>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0"  style="margin-top: 10px;">
+                <thead>
+                <tr style="background: #F5F5F5">
+                    <td width="6%"></td>
+                    <td width="13%">GDT流水单号</td>
+                    <td width="13%">账户类型</td>
+                    <td width="13%">回划金额</td>
+                    <td width="18%">时间</td>
+                </tr>
+                </thead>
+                <tbody class="ChooseChannel1">
+
+                </tbody>
+
+            </table>
+            <div class="mb25 red" id="czje1" style="display: none">关联的流水单与需回划单金额不符，请确认后再关联</div>
+            <div class="keep">
+                <span><a href="javascript:void(0)" class="button" style="width:150px" id='submitMessage2'>提交</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    setAjax({
+        url:'/api/ZhyInfo/SelectGdtInfo',
+        type:'get',
+        data: {
+            TradeType:84003,
+            DemandBillNo:location.hash.split('#')[1]
+        }
+    },function (data) {
+        data.Result.GdtInfo.forEach(function (e) {
+            $('.ChooseChannel1').append('<tr>' +
+                '<td><input type="checkbox" class="val" GdtNum="'+e.GdtNum+'" Amount="'+e.Amount/100+'"></td>' +
+                '<td>'+e.GdtNum+'</td>' +
+                '<td>'+e.AccountType+'</td>' +
+                '<td>'+formatMoney(e.Amount/100)+'</td>' +
+                '<td>'+e.OperateTime+'</td>' +
+                '</tr>')
+        })
+    })
+</script>

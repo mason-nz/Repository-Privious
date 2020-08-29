@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97C0ABA4-8A8F-41A2-A28F-EB470DDBCBB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ITSC.Chitunion2017.Entities</RootNamespace>
+    <AssemblyName>XYAuto.ITSC.Chitunion2017.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Lib\NewtonSoft 4.5\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils">
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADOrderCityExtend.cs" />
+    <Compile Include="ADOrderInfo.cs" />
+    <Compile Include="AdTemplate\AppAdTemplate.cs" />
+    <Compile Include="AdTemplate\AppAdTemplateStyle.cs" />
+    <Compile Include="AdTemplate\SaleAreaInfo.cs" />
+    <Compile Include="AdTemplate\SaleAreaRelation.cs" />
+    <Compile Include="APP\AppPushMsgSwitchLog.cs" />
+    <Compile Include="APP\ConfigurationModel.cs" />
+    <Compile Include="APP\FeedbackModel.cs" />
+    <Compile Include="APP\IpRequestLogModel.cs" />
+    <Compile Include="AuthorizeLogin.cs" />
+    <Compile Include="Channel\ChannelCost.cs" />
+    <Compile Include="Channel\ChannelCostDetail.cs" />
+    <Compile Include="Channel\ChannelInfo.cs" />
+    <Compile Include="Channel\PolicyInfo.cs" />
+    <Compile Include="ChituMedia\AppModel.cs" />
+    <Compile Include="ChituMedia\CartModel.cs" />
+    <Compile Include="ChituMedia\EnumModel.cs" />
+    <Compile Include="ChituMedia\IncomeDetailModel.cs" />
+    <Compile Include="ChituMedia\MediaQueryArgs.cs" />
+    <Compile Include="ChituMedia\MediaUserModel.cs" />
+    <Compile Include="ChituMedia\PositionModel.cs" />
+    <Compile Include="ChituMedia\PromotionChannelModel.cs" />
+    <Compile Include="ChituMedia\PublishlModel.cs" />
+    <Compile Include="ChituMedia\SmartSearchModel.cs" />
+    <Compile Include="ChituMedia\TagVehicleModel.cs" />
+    <Compile Include="ChituMedia\UserQueryArgs.cs" />
+    <Compile Include="ChituMedia\WeiBoModel.cs" />
+    <Compile Include="ChituMedia\WeiXinModel.cs" />
+    <Compile Include="ChituMedia\WeiXinVisvitModel.cs" />
+    <Compile Include="ChituMedia\WithdrawalsStatisticsModel.cs" />
+    <Compile Include="DTO\ADScheduleDto.cs" />
+    <Compile Include="DTO\AuditTemplateDTOReq.cs" />
+    <Compile Include="DTO\AuditTemplateDTORes.cs" />
+    <Compile Include="DTO\GetADDetailResDTO.cs" />
+    <Compile Include="DTO\GetADListBReqDTO.cs" />
+    <Compile Include="DTO\GetADListBResDTO.cs" />
+    <Compile Include="DTO\GetAuditADPriceListResDTO.cs" />
+    <Compile Include="DTO\GetMediaQualifucationResDTO.cs" />
+    <Compile Include="DTO\GetPublishDetailForRecommendAddPDDto.cs" />
+    <Compile Include="DTO\GetPublishListBResDTO.cs" />
+    <Compile Include="DTO\GetADListFReqDTO.cs" />
+    <Compile Include="DTO\GetADListFResDTO.cs" />
+    <Compile Include="DTO\GetRecommendADResDTO.cs" />
+    <Compile Include="DTO\GetTwoBarCodeHistoryDto.cs" />
+    <Compile Include="DTO\LeTask\RespUserStatDto.cs" />
+    <Compile Include="DTO\ModifyPublishReqDTO.cs" />
+    <Compile Include="DTO\OldPublishDTO.cs" />
+    <Compile Include="DTO\PayInfo\PayInfoDto.cs" />
+    <Compile Include="DTO\ReqLoginDTO.cs" />
+    <Compile Include="DTO\ReqMd5BasicDTO.cs" />
+    <Compile Include="DTO\ReqUserDetailDto.cs" />
+    <Compile Include="DTO\Temp\RespAdTemplateItemDto.cs" />
+    <Compile Include="DTO\V1_1\RespAppItemDto.cs" />
+    <Compile Include="DTO\V1_1\RespCarBrandDto.cs" />
+    <Compile Include="DTO\V1_1\RespChannelListDto.cs" />
+    <Compile Include="DTO\V1_1\RespPublishAuditInfoDto.cs" />
+    <Compile Include="DTO\V1_1\RespStatWeixinRankListDto.cs" />
+    <Compile Include="DTO\V1_1_11\GetDataListResDTO.cs" />
+    <Compile Include="DTO\V1_1_11\SaveChannelReqDTO.cs" />
+    <Compile Include="DTO\V1_1_11\UpdateContractNumberReqDTO.cs" />
+    <Compile Include="DTO\V1_1_8\AEMediaInfoDTO.cs" />
+    <Compile Include="DTO\V1_1_8\CombinPubDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetADPostionChannelIDDto.cs" />
+    <Compile Include="DTO\V1_1_8\GetUploadPreviewResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\OldDataDTO.cs" />
+    <Compile Include="DTO\V1_1_8\BatchCostOperateReqDTO.cs" />
+    <Compile Include="DTO\V1_1_8\CostExcelDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetChannelInfoResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetChannelListReqDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetChannelListResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetCostChannelListResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetCostDetailResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetCostListReqDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetCostListResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\GetCostMediaListResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\ModifyChannelReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\DeletePictrueReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\GetWeixinArticleGroupListReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\GetWeixinArticleGroupListResDTO.cs" />
+    <Compile Include="DTO\V1_1_6\GetWeixinArticleListResDTO.cs" />
+    <Compile Include="DTO\V1_1_6\ImportWeixinArticleReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\InsertPictruesReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\ModifyArticleReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\MoveArticleReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\OwnWeixinItemDTO.cs" />
+    <Compile Include="DTO\V1_1_6\UpdatePictrueNameReqDTO.cs" />
+    <Compile Include="DTO\V1_1_6\UploadWeixinArticleGroupReqDTO.cs" />
+    <Compile Include="DTO\V1_1_8\OneDayPubDTO.cs" />
+    <Compile Include="DTO\V1_1_8\RequestIntelligenceRecommendDto.cs" />
+    <Compile Include="DTO\V1_1_8\ResponseIntelligenceADOrderDto.cs" />
+    <Compile Include="DTO\V1_1_8\UpdatePostingAddressResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\UpdateUserPwdReqsDTO.cs" />
+    <Compile Include="DTO\V1_1_8\UpdateUserStatusResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\UploadChannelResourceReqDTO.cs" />
+    <Compile Include="DTO\V1_1_8\UpdateCrmNumResDTO.cs" />
+    <Compile Include="DTO\V1_1_8\UploadChannelResourceResDTO.cs" />
+    <Compile Include="DTO\V1_2\ADGroupDTO.cs" />
+    <Compile Include="DTO\V1_2\AdvertiserIdReqDTO.cs" />
+    <Compile Include="DTO\V1_2\AdvIdToOptIdReqDTO.cs" />
+    <Compile Include="DTO\V1_2\AuditDemandReqDTO.cs" />
+    <Compile Include="DTO\V1_2\BindingIdReqDTO.cs" />
+    <Compile Include="DTO\V1_2\DemandDTO.cs" />
+    <Compile Include="DTO\V1_2\GdtTradeReqDTO.cs" />
+    <Compile Include="DTO\V1_2\GetDemandDetailResDTO.cs" />
+    <Compile Include="DTO\V1_2\GetDemandListReqDTO.cs" />
+    <Compile Include="DTO\V1_2\GetDemandListResDTO.cs" />
+    <Compile Include="DTO\V1_2\MapGetLeftItemDTO.cs" />
+    <Compile Include="DTO\V1_2\MapGetRightADListResDTO.cs" />
+    <Compile Include="DTO\V1_2\MapGetRightOneResDTO.cs" />
+    <Compile Include="DTO\V1_2\MapGetRightThreeItemDTO.cs" />
+    <Compile Include="DTO\V1_2\MapGetRightReqDTO.cs" />
+    <Compile Include="DTO\V1_2\MapGetRightTwoResDTO.cs" />
+    <Compile Include="DTO\V2_3\ModifyAttestationReqDto.cs" />
+    <Compile Include="DTO\V2_3\ModifyMobileReqDto.cs" />
+    <Compile Include="DTO\V2_3\InvitationQRAndUrlRepDTO.cs" />
+    <Compile Include="DTO\V2_3\OrderInfoRspDTO.cs" />
+    <Compile Include="DTO\V2_3\OrderResDTO.cs" />
+    <Compile Include="DTO\V2_3\BankAccountReqDto.cs" />
+    <Compile Include="DTO\V2_3\OrderUrlResDTO.cs" />
+    <Compile Include="DTO\V2_3\ShareOrderInfo.cs" />
+    <Compile Include="DTO\V2_3\TaskResDTO.cs" />
+    <Compile Include="DTO\V2_3\TaskRspDTO.cs" />
+    <Compile Include="DTO\V2_3\TemporaryOrderRepDTO.cs" />
+    <Compile Include="DTO\V2_3\WeiXinInfoRespDTO.cs" />
+    <Compile Include="DTO\V2_3\WXUserInfoRspDTO.cs" />
+    <Compile Include="DTO\V2_3\WXUserSceneResDTO.cs" />
+    <Compile Include="DTO\V2_3\WXUserSceneRspDTO.cs" />
+    <Compile Include="DTO\V_2_0\ReqPromotionDto.cs" />
+    <Compile Include="DTO\V_2_0\ReqDistributeDto.cs" />
+    <Compile Include="DTO\V_2_0\RespPromotionDto.cs" />
+    <Compile Include="DTO\V_2_0\RespDistributeDto.cs" />
+    <Compile Include="DTO\WechatInvite\WxInviteIdReqDTO.cs" />
+    <Compile Include="DTO\WechatShare\ReqsShare.cs" />
+    <Compile Include="DTO\WechatSign\WxSignRespDTO.cs" />
+    <Compile Include="DTO\WechatSign\WxOpenIdReqDTO.cs" />
+    <Compile Include="DTO\Withdrawals\WithdrawalsPriceReqDTO.cs" />
+    <Compile Include="Enum\ADPosition1Enum.cs" />
+    <Compile Include="Enum\ADPosition4Enum.cs" />
+    <Compile Include="Enum\ADPosition3Enum.cs" />
+    <Compile Include="Enum\AppPublishStatus.cs" />
+    <Compile Include="Enum\AppTemplateEnum.cs" />
+    <Compile Include="Enum\ArticleImportTypeEnum.cs" />
+    <Compile Include="Enum\ArticleSyncStatus.cs" />
+    <Compile Include="Enum\CheckRepeatTypeEnum.cs" />
+    <Compile Include="Enum\ExtensionStatusEnum.cs" />
+    <Compile Include="Enum\GDT\DemandStatusNotesTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\AuditTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\ChannelStatMonthPayStatusEnum.cs" />
+    <Compile Include="Enum\LeTask\LeIPBlacklistStatus.cs" />
+    <Compile Include="Enum\LeTask\LeOrderChannelTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\LeOrderStatusEnum.cs" />
+    <Compile Include="Enum\LeTask\LeShareDetailTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\LeTaskStatusEnum.cs" />
+    <Compile Include="Enum\LeTask\LeTaskTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\PlatformTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\RegisterFromEnum.cs" />
+    <Compile Include="Enum\LeTask\RegisterTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\UserBankAccountTypeEnum.cs" />
+    <Compile Include="Enum\LeTask\WithdrawalsApplySourceEnum.cs" />
+    <Compile Include="Enum\LeTask\WithdrawalsStatusEnum.cs" />
+    <Compile Include="Enum\LeTask\WithdrawalsAuditStatusEnum.cs" />
+    <Compile Include="Enum\MaterielChannelPayModelEnum.cs" />
+    <Compile Include="Enum\MaterielChannelPayTypeEnum.cs" />
+    <Compile Include="Enum\MaterielChannelTypeEnum.cs" />
+    <Compile Include="Enum\GDT\AuditRelationTypeEnum.cs" />
+    <Compile Include="Enum\GDT\ConfiguredStatusEnum.cs" />
+    <Compile Include="Enum\GDT\DemandAuditStatusEnum.cs" />
+    <Compile Include="Enum\GDT\FundTypeEnum.cs" />
+    <Compile Include="Enum\GDT\ReportLevelEnum.cs" />
+    <Compile Include="Enum\GDT\SystemStatusEnum.cs" />
+    <Compile Include="Enum\MediaQualificationEnum.cs" />
+    <Compile Include="Enum\MediaRelationsEnum.cs" />
+    <Compile Include="Enum\MediaRemarkEnum.cs" />
+    <Compile Include="Enum\OperateMsgTypeEnum.cs" />
+    <Compile Include="Enum\PayModeEnum.cs" />
+    <Compile Include="Enum\ProfitTypeEnum.cs" />
+    <Compile Include="Enum\RebateDateTypeEnum.cs" />
+    <Compile Include="Enum\RebateType1Enum.cs" />
+    <Compile Include="Enum\RebateType2Enum.cs" />
+    <Compile Include="Enum\RedEvesStatusEnum.cs" />
+    <Compile Include="Enum\RoleDataPower.cs" />
+    <Compile Include="Enum\SaleAreaGroupTypeEnum.cs" />
+    <Compile Include="Enum\ShareTypeEnum.cs" />
+    <Compile Include="Enum\SingleAccountSumTypeEnum.cs" />
+    <Compile Include="Enum\StatisticTypeEnum.cs" />
+    <Compile Include="Enum\TaskStatusEnum.cs" />
+    <Compile Include="Enum\UserDetailInfoStatusEnum.cs" />
+    <Compile Include="Enum\WeChatSourceEnum.cs" />
+    <Compile Include="Enum\WeiXinActivityEnum.cs" />
+    <Compile Include="Enum\WeixinAuthRightEnum.cs" />
+    <Compile Include="GDT\GdtAccessToken.cs" />
+    <Compile Include="GDT\GdtAccountBalance.cs" />
+    <Compile Include="GDT\GdtAccountInfo.cs" />
+    <Compile Include="GDT\GdtAccountRelation.cs" />
+    <Compile Include="GDT\GdtAdGroup.cs" />
+    <Compile Include="GDT\GdtAds.cs" />
+    <Compile Include="GDT\GdtCampaign.cs" />
+    <Compile Include="GDT\GdtDailyRrport.cs" />
+    <Compile Include="GDT\GdtDemand.cs" />
+    <Compile Include="GDT\GdtDemandRelation.cs" />
+    <Compile Include="GDT\GdtDetailedInfo.cs" />
+    <Compile Include="GDT\GdtHourlyRrport.cs" />
+    <Compile Include="GDT\GdtHourlyRrportForZhy.cs" />
+    <Compile Include="GDT\GdtRealtimeCost.cs" />
+    <Compile Include="GDT\GdtRechargeRelation.cs" />
+    <Compile Include="GDT\GdtRoleUser.cs" />
+    <Compile Include="GDT\GdtStatementDaily.cs" />
+    <Compile Include="GDT\GdtStatementsDetailed.cs" />
+    <Compile Include="GDT\UserInfo.cs" />
+    <Compile Include="ImportGroupArticle.cs" />
+    <Compile Include="LETask\AppDevice.cs" />
+    <Compile Include="LETask\AuditInfo.cs" />
+    <Compile Include="LETask\ChannelStatMonth.cs" />
+    <Compile Include="LETask\LeChannelStatMonthRelation.cs" />
+    <Compile Include="LETask\LeDisbursementPay.cs" />
+    <Compile Include="LETask\LeIPBlacklist.cs" />
+    <Compile Include="LETask\LeShareDetail.cs" />
+    <Compile Include="LETask\LeTaskCategory.cs" />
+    <Compile Include="LETask\LeTaskInfo.cs" />
+    <Compile Include="LETask\LeAdOrderInfo.cs" />
+    <Compile Include="LETask\LeAccountBalance.cs" />
+    <Compile Include="LETask\LeWeixin.cs" />
+    <Compile Include="LETask\LeMediaAreaMapping.cs" />
+    <Compile Include="LETask\LePublishDetailInfo.cs" />
+    <Compile Include="LETask\LeWeibo.cs" />
+    <Compile Include="LETask\LeWithdrawalsStatistics.cs" />
+    <Compile Include="LETask\LeWithdrawalsDetail.cs" />
+    <Compile Include="LETask\LeUserBankAccount.cs" />
+    <Compile Include="LETask\TotalAccountBalance.cs" />
+    <Compile Include="LETask\UserDetailInfo.cs" />
+    <Compile Include="LETask\VerifyResultCode.cs" />
+    <Compile Include="LE_PromotionChannel_Dict\LE_PromotionChannel_Dict.cs" />
+    <Compile Include="LuckDrawActivity\DrawRecord.cs" />
+    <Compile Include="LuckDrawActivity\Prize.cs" />
+    <Compile Include="Materiel\ArticleInfo.cs" />
+    <Compile Include="Materiel\DTO\ResGetArticleInfoDTO.cs" />
+    <Compile Include="Materiel\DTO\ResGetDivideUserDTO.cs" />
+    <Compile Include="Materiel\MaterielChannel.cs" />
+    <Compile Include="Materiel\MaterielChannelData.cs" />
+    <Compile Include="Materiel\MaterielExtend.cs" />
+    <Compile Include="Materiel\MaterielExtendFoot.cs" />
+    <Compile Include="LabelTask\DTO\ReqLabelListQueryDTO.cs" />
+    <Compile Include="LabelTask\DTO\ReqLableTaskDTO.cs" />
+    <Compile Include="LabelTask\DTO\ReqProjectCreateDTO.cs" />
+    <Compile Include="LabelTask\DTO\ResLabelListQueryDTO.cs" />
+    <Compile Include="LabelTask\DTO\ResponseAuditUserDTO.cs" />
+    <Compile Include="LabelTask\DTO\ResSummaryKeyWordDTO.cs" />
+    <Compile Include="LabelTask\ENUM.cs" />
+    <Compile Include="LabelTask\LableCategoryModel.cs" />
+    <Compile Include="LabelTask\LB_Project.cs" />
+    <Compile Include="LabelTask\LB_Task.cs" />
+    <Compile Include="LabelTask\ProjectInfo.cs" />
+    <Compile Include="Materiel\TaskSchedulerDto.cs" />
+    <Compile Include="Materiel\TaskSchedulerUser.cs" />
+    <Compile Include="Media\MediaRemarkBasic.cs" />
+    <Compile Include="Media\TwoBarCodeHistory.cs" />
+    <Compile Include="Profit\ProfitInfo.cs" />
+    <Compile Include="Publish\PublishRemark.cs" />
+    <Compile Include="QRJson.cs" />
+    <Compile Include="Query\GDT\ReportQuery.cs" />
+    <Compile Include="Query\Media\TwoBarCodeHistoryQuery.cs" />
+    <Compile Include="SceneInfoUser.cs" />
+    <Compile Include="UpdateUserId.cs" />
+    <Compile Include="UpperStateEnum.cs" />
+    <Compile Include="UserManage\LE_UserBankAccount.cs" />
+    <Compile Include="UserManage\LE_WeiXinUser.cs" />
+    <Compile Include="UserManage\LoginUserInfo.cs" />
+    <Compile Include="UserManage\UserDetailInfo.cs" />
+    <Compile Include="UserManage\UserInfo.cs" />
+    <Compile Include="UserManage\UserInfoAll.cs" />
+    <Compile Include="WechatInvite\BeInvitedInfo.cs" />
+    <Compile Include="WechatInvite\WechatInviteInfo.cs" />
+    <Compile Include="WechatSign\WechatSignInfo.cs" />
+    <Compile Include="WeChat\LE_WXUserScene.cs" />
+    <Compile Include="WeChat\OrderUrl.cs" />
+    <Compile Include="WeChat\VerifyUserModel.cs" />
+    <Compile Include="WeChat\WeiXinUser.cs" />
+    <Compile Include="WxEditor\ArticleGroupInfo.cs" />
+    <Compile Include="WxEditor\ArticleInfo.cs" />
+    <Compile Include="WxEditor\HistoryArticleGroup.cs" />
+    <Compile Include="Media\MediaAreaMappingBase.cs" />
+    <Compile Include="Media\MediaAuditViewInfo.cs" />
+    <Compile Include="Media\MediaDifferenceInfo.cs" />
+    <Compile Include="Media\MediaQualification.cs" />
+    <Compile Include="Media\MediaBasePCAPP.cs" />
+    <Compile Include="Publish\AppPriceInfo.cs" />
+    <Compile Include="QueryWeChatOperateMsg.cs" />
+    <Compile Include="Query\AdTemplate\AdTemplateQuery.cs" />
+    <Compile Include="MediaOrderInfo.cs" />
+    <Compile Include="Query\Ranking\RankingQuery.cs" />
+    <Compile Include="StockBroker\LoginDto.cs" />
+    <Compile Include="WeChatOperateMsg.cs" />
+    <Compile Include="DTO\AuditPublishReqDTO.cs" />
+    <Compile Include="DTO\CatchArticleResultDTO.cs" />
+    <Compile Include="DTO\CatchWeixinResultDTO.cs" />
+    <Compile Include="DTO\GetMediaAuditStatusCountResDTO.cs" />
+    <Compile Include="DTO\GetMediaDetailStatisticResDTO.cs" />
+    <Compile Include="DTO\GetRecommendClassListDto.cs" />
+    <Compile Include="DTO\V1_1\RespWeiXinItemDto.cs" />
+    <Compile Include="Enum\DataStatusEnum.cs" />
+    <Compile Include="QueryCartScheduleInfo.cs" />
+    <Compile Include="CartScheduleInfo.cs" />
+    <Compile Include="CommonFunction.cs" />
+    <Compile Include="Constants\Constant.cs" />
+    <Compile Include="DTO\ADCopyDTO.cs" />
+    <Compile Include="DTO\ADPositionDTO.cs" />
+    <Compile Include="DTO\GetMediaListBReqDTO.cs" />
+    <Compile Include="DTO\GetMediaListBResDTO.cs" />
+    <Compile Include="DTO\GetMediaListFReqDTO.cs" />
+    <Compile Include="DTO\GetMediaListFResDTO.cs" />
+    <Compile Include="DTO\HomeMediaDto.cs" />
+    <Compile Include="DTO\ImportDTO.cs" />
+    <Compile Include="DTO\MediaBroadcastDTO.cs" />
+    <Compile Include="DTO\MediaDictDTO.cs" />
+    <Compile Include="DTO\MediaExistsDTO.cs" />
+    <Compile Include="DTO\MediaListDTO.cs" />
+    <Compile Include="DTO\MediaPCAPPDTO.cs" />
+    <Compile Include="DTO\MediaVideoDTO.cs" />
+    <Compile Include="DTO\MediaWeiboDTO.cs" />
+    <Compile Include="DTO\MediaWeixinDTO.cs" />
+    <Compile Include="DTO\ModifyPublishStatusDTO.cs" />
+    <Compile Include="DTO\Import_PCAPPDTO.cs" />
+    <Compile Include="DTO\ProvinceCityDTO.cs" />
+    <Compile Include="DTO\PublishInfoDTO.cs" />
+    <Compile Include="DTO\QueryMediaParamsDTO.cs" />
+    <Compile Include="DTO\QueryMediaListParamsDTO.cs" />
+    <Compile Include="DTO\UserInfoDTO.cs" />
+    <Compile Include="Enum\BusinessEnum.cs" />
+    <Compile Include="Enum\CollectPullBackTypeEnum.cs" />
+    <Compile Include="Enum\DictTypeEnum.cs" />
+    <Compile Include="Enum\FuncModuleEnum.cs" />
+    <Compile Include="Enum\HomePublishStateEnum.cs" />
+    <Compile Include="Enum\MediaType.cs" />
+    <Compile Include="ENUM.cs" />
+    <Compile Include="Enum\OAuthStatusEnum.cs" />
+    <Compile Include="Enum\PublishBasicStatusEnum.cs" />
+    <Compile Include="Enum\SaleTypeEnum.cs" />
+    <Compile Include="Enum\SexEnum.cs" />
+    <Compile Include="Enum\SourceTypeEnum.cs" />
+    <Compile Include="Enum\SysPlatformEnum.cs" />
+    <Compile Include="Enum\ThrMonitorEnum.cs" />
+    <Compile Include="Enum\UploadFileEnum.cs" />
+    <Compile Include="Enum\UserTypeEnum.cs" />
+    <Compile Include="FeedbackData.cs" />
+    <Compile Include="HomeCategory.cs" />
+    <Compile Include="Interaction\InteractionBroadcast.cs" />
+    <Compile Include="Interaction\InteractionVideo.cs" />
+    <Compile Include="Interaction\InteractionWeibo.cs" />
+    <Compile Include="Interaction\InteractionWeixin.cs" />
+    <Compile Include="Media\MediaAreaMapping.cs" />
+    <Compile Include="Media\MediaBroadcast.cs" />
+    <Compile Include="Media\MediaCase.cs" />
+    <Compile Include="Media\MediaCollectionBlacklist.cs" />
+    <Compile Include="Media\MediaCommonlyClass.cs" />
+    <Compile Include="Media\MediaFansArea.cs" />
+    <Compile Include="OrderInfo.cs" />
+    <Compile Include="Periodication.cs" />
+    <Compile Include="Enum\MediaStatusEnum.cs" />
+    <Compile Include="Enum\MediaTypeEnum.cs" />
+    <Compile Include="Enum\PublishStatusEnum.cs" />
+    <Compile Include="Media\MediaPCAPP.cs" />
+    <Compile Include="Media\MediaVideo.cs" />
+    <Compile Include="Media\MediaWeibo.cs" />
+    <Compile Include="Media\MediaWeixin.cs" />
+    <Compile Include="PeriodicationDetaill.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publish\PublishBasicInfo.cs" />
+    <Compile Include="Publish\PublishDetailInfo.cs" />
+    <Compile Include="Publish\PublishExtendInfo.cs" />
+    <Compile Include="Publish\PublishItemInfo.cs" />
+    <Compile Include="QueryADOrderInfo.cs" />
+    <Compile Include="Query\Media\MediaQuery.cs" />
+    <Compile Include="Query\Publish\PublishQuery.cs" />
+    <Compile Include="Query\QueryPageBase.cs" />
+    <Compile Include="Query\SearchTitleResponse.cs" />
+    <Compile Include="Query\UploadFileQuery.cs" />
+    <Compile Include="Recommend\HomeMedia.cs" />
+    <Compile Include="SysRight\DomainInfo.cs" />
+    <Compile Include="SysRight\ModuleInfo.cs" />
+    <Compile Include="SysRight\QueryModuleInfo.cs" />
+    <Compile Include="SysRight\QueryRoleInfo.cs" />
+    <Compile Include="SysRight\QueryRoleModule.cs" />
+    <Compile Include="SysRight\QuerySysInfo.cs" />
+    <Compile Include="SysRight\RoleInfo.cs" />
+    <Compile Include="SysRight\UserRole.cs" />
+    <Compile Include="UploadFileInfo\UploadFileInfo.cs" />
+    <Compile Include="SubADInfo.cs" />
+    <Compile Include="QuerySubADInfo.cs" />
+    <Compile Include="PublishAuditInfo.cs" />
+    <Compile Include="QueryPublishAuditInfo.cs" />
+    <Compile Include="ADScheduleInfo.cs" />
+    <Compile Include="QueryADScheduleInfo.cs" />
+    <Compile Include="ADOrderOperateInfo.cs" />
+    <Compile Include="QueryADOrderOperateInfo.cs" />
+    <Compile Include="ADDetailInfo.cs" />
+    <Compile Include="QueryADDetailInfo.cs" />
+    <Compile Include="CartInfo.cs" />
+    <Compile Include="QueryCartInfo.cs" />
+    <Compile Include="WeixinOAuth\Article.cs" />
+    <Compile Include="WeixinOAuth\Component.cs" />
+    <Compile Include="WeixinOAuth\OAuthDetail.cs" />
+    <Compile Include="WeixinOAuth\OAuthHistory.cs" />
+    <Compile Include="WeixinOAuth\ReadStatistic_Weixin.cs" />
+    <Compile Include="WeixinOAuth\UpdateStatistic_Weixin.cs" />
+    <Compile Include="WeixinOAuth\WeixinInfo.cs" />
+    <Compile Include="ZHY\BackAmountInfo.cs" />
+    <Compile Include="ZHY\GdtTradeInfo.cs" />
+    <Compile Include="ZHY\RechargeInfo.cs" />
+    <Compile Include="ZHY\ZhyAdvertiserInfo.cs" />
+    <Compile Include="ZHY\ZhyOperaterInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>渠道管理-我的赤兔</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/channelList.js"></script>
+    <style type="text/css">
+        a{
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav">
+                        <div class="but_add channel_add_btn but_query" style="float:right;width:100px;height: 26px;line-height: 26px" type-id="14001"> 添加渠道
+                        </div>
+                    </h2>
+                    <div class="clear"></div>
+                </div>
+                <div id="list_switching">
+                    <ul class="state searchOption">
+                        <li>
+                            <div class="ins_c">渠道名称：</div><input name="Username" type="text" id="ChannelName"  style="width:135px;">
+                        </li>
+                        <li>
+
+                             <!-- 0-有效, 1-已过期 ,-2-不限 -->
+                            <div class="ins_c">状态：</div>
+                            <select name="" style="width:135px;line-height: 30px" class="ChannelStatus">
+                                <option value="-2">不限</option>
+                                <option value="0">有效</option>
+                                <option value="1">已过期</option>
+                            </select>
+                        </li>
+                        <li class="but_query" id="searchList" style="width:70px;margin-right:0" >查询</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+                        <div class="ad_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" class="my_table">
+                                <thead>
+                                    <th width="10%">渠道名称</th>
+                                    <th width="8%">微信</th>
+                                    <th width="13%">累计成交金额</th>
+                                    <th width="16%">合作周期</th>
+                                    <th width="8%">状态</th>
+                                    <th width="8%">创建人</th>
+                                    <th width="13%">创建时间</th>
+                                    <th width="15%">操作</th>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer" class="display:none;">
+                                <span class="disabled">上一页</span>
+                                <span class="current">1</span>
+                                <a href="#?page=2">2</a>
+                                <a href="#?page=3">3</a>...
+                                <a href="#?page=200">100</a>
+                                <a href="#?page=2">下一页</a>
+                                <span class="NormalText">共有3条数据</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div class="clear"></div>
+    </div>
+    <!-- 模板 -->
+    <script type="text/template" id="channelTemp">
+        <%for(var i=0;i<list.length;i++){%>
+        <tr>
+            <!-- 渠道名称 -->
+            <td>
+                <!-- 跳转到渠道查看页 -->
+                <a href="javascript:void(0)" class="detailSearch" ChannelID="<%=list[i].ChannelID%>"><%= list[i].ChannelName %></a>
+            </td>
+            <!-- 微信 -->
+            <td>
+                <%if(list[i].WxCount == 0){%>
+                    0
+                <%}else{%>
+                    <a href="/channelmanager/costlist.html?ChannelID=<%=list[i].ChannelID%>"><%= list[i].WxCount %></a>
+                <%}%>
+                
+            </td>
+            <!-- 累计成交金额 -->
+            <td>
+                <%= list[i].TotalPrice %>
+            </td>
+            <!-- 合作周期 -->
+            <td>
+                <%= list[i].CooperateDate %>
+            </td>
+            <!-- 状态-->
+            <td><%= list[i].StatusName %></td>
+            <!-- 创建人 -->
+            <td>
+                <%if(list[i].CreateUserName){%>
+                    <%= list[i].CreateUserName %>
+                <%}%>
+            </td>
+            <!-- 创建时间 -->
+            <td><%= list[i].CreateTime %></td>
+            <!-- 操作 -->
+            <td ChannelID="<%=list[i].ChannelID%>" WxCount="<%=list[i].WxCount%>">
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600102') != -1){%>
+                <a href="javascript:void(0);" class="channel_edit_btn">
+                    <img src="../ImagesNew/edit.png" title="编辑"/>
+                </a> &nbsp;
+                <%}%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600103') != -1){%>
+                <a href="javascript:void(0)" class="channel_delete_btn">
+                    <img src="../ImagesNew/delete.png" title="删除"/>
+                </a> &nbsp;
+                <%}%>
+                <%if(list[i].StatusName != "已过期"){%>
+                    <a href="/ChannelManager/up_resource.html?ChannelID=<%=list[i].ChannelID%>&ChannelName=<%=list[i].ChannelName%>&CooperateDate=<%=list[i].CooperateDate%>&ChannelID=<%=list[i].ChannelID%>" class="up_source">
+                        <img src="../ImagesNew/uploading.png" title="上传资源">
+                    </a>
+                <%}%>
+            </td>
+        </tr>
+        <%}%>
+    </script>
+</div>
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+</body>
+</html>

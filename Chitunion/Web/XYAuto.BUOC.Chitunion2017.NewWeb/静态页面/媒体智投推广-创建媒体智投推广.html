@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>创建媒体智投推广</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<div id="topNew">
+    <div class="box">
+        <div class="left"></div>
+        <ul class="right">
+            <li>
+                <img src="../images/person.png">
+                <span>芳芳</span>
+            </li>
+            <li>
+                <img src="../images/house.png">
+                <span>个人中心</span>
+            </li>
+            <li>
+                <img src="../images/quit.png">
+                <span>退出</span>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="contaner_body">
+    <div id="navLeft">
+        <ul>
+            <li class="modular">
+                <a href="javascript:void(0)" class="selected level1">
+                    <img src="../images/icon.png">
+                    <span>个人中心</span>
+                </a>
+            </li>
+            <li class="modular">
+                <a href="javascript:void(0)" class="level1">
+                    <img src="../images/icon.png">
+                    <span>推广管理</span>
+                </a>
+                <ol>
+                    <li>
+                        <a href="javascript:void(0)" class="level2">
+                            <span>智能搜索</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="level2">
+                            <span>内容分发</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="level2">
+                            <span>媒体智投</span>
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="modular">
+                <a href="javascript:void(0)" class="level1">
+                    <img src="../images/icon.png">
+                    <span>账号管理</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="right_body">
+        <div class="detalDemand">
+            <ul>
+                 <li class="ins_d"> <span class="red">*</span> 推广名称：</li>
+                 <li><input type="text" placeholder="最多输入20个汉字" style="width:700px;"></li>
+                 <div class="clear"></div>
+             </ul>
+             <ul>
+                 <li class="ins_d"> <span class="red">*</span> 推广车型：</li>
+                 <li>
+                     <a href="javascript:void(0)">选择</a>
+                 </li>
+                 <li>
+                    <span class="chooseName">奔驰</span><i class="delIt">×</i>
+                 </li>
+                 <li>
+                    <span class="chooseName">宝马</span><i class="delIt">×</i>
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广省市：</li>
+                 <li>
+                     <a href="javascript:void(0)">选择</a>
+                 </li>
+                 <li>
+                    <span class="chooseName">北京</span><i class="delIt">×</i>
+                 </li>
+                 <li>
+                    <span class="chooseName">上海</span><i class="delIt">×</i>
+                 </li>
+                 <li>
+                    <span class="chooseName">杭州</span><i class="delIt">×</i>
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+
+             <ul>
+                 <li class="ins_d"> 推广物料：</li>
+                 <li>
+                     <a href="javascript:void(0)" id="uploadFile">
+                         上传
+                     </a>
+                 </li>
+                 <li>
+                    <span class="chooseName">图片1.jpg</span><i class="delIt">×</i>
+                    <a href="javascript:void(0)" class="downLoad"></a>
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广预算：</li>
+                 <li>
+                     <input type="text" name="" style="width: 80px;"> 元
+                 </li>
+                 <li class="grey">
+                     最低费用3000元
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广时间：</li>
+                 <li>
+                     <input type="text" style="width:120px;"  class="laydate-icon">
+                     至
+                     <input type="text" style="width:120px;"  class="laydate-icon">
+                 </li>
+                 <li>
+                     
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <ul>
+                 <li class="ins_d"> 其他说明：</li>
+                 <li>
+                     <textarea rows="5" placeholder="" style="width: 700px;"></textarea>
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+        </div>
+        <div class="bottomOperate tc">
+            <span class="button_gradient" style="display:inline-block;width: 140px;">
+                提交
+            </span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--底部-->
+<div id="footer">
+    <div class="main">
+        <p>@2016-2017 www.chitunion.com All Rights Reserved. 北京行圆汽车信息技术有限公司所有 京ICP备17011360号-3</p>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#navLeft').css('height',$('#navLeft').parent().height());
+    $('.viewBigpic').off('mouseover').on('mouseover',function(){
+        $(this).parent().removeClass('noBigPic');
+    }).off('mouseout').on('mouseout',function(){
+        $(this).parent().addClass('noBigPic');
+    })
+    $('#navLeft').off('click').on('click','.modular',function(){
+        $(this).find('.level1').addClass('selected');
+        $(this).siblings().find('.level1').removeClass('selected');
+    })
+    $('#navLeft ol').off('click').on('click','.level2',function(){
+        $(this).addClass('blue').parent('li').siblings().find('.level2').removeClass('blue');
+    })
+</script>
+</html>

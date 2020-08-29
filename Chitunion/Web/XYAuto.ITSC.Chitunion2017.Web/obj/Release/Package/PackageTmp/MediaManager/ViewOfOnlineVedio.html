@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title></title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <!--luq add 2017-3-3-->
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/ListManager.js"></script>
+    <script type="text/javascript" src="js/ViewOfOnlineVedio.js"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<div class="list_main">
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <!--刊例审核总模板，这里会包含很多内容，可以根据传参的某个值的不同来控制是否显示。理论上来说刊例的审核和查看都可以用着一个模板（除平台媒体以及app）-->
+    <script type="text/template" id="CheckTemplate">
+        <div class="install">
+            <h3 class="blue">媒体信息</h3>
+            <div class="clear"></div>
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td width="10">所属平台：</td>
+                        <td width="90"><%= MediaInfo.PlatformName%></td>
+                    </tr>
+                    <tr>
+                        <td>平台账号：</td>
+                        <td><%= MediaInfo.Number%></td>
+                    </tr>
+                    <tr>
+                        <td>昵称：</td>
+                        <td><%= MediaInfo.Name%></td>
+                    </tr>
+                    <tr>
+                        <td>头像：</td>
+                        <td class="img_tx"><img src="<%= MediaInfo.HeadIconURL%>"></td>
+                    </tr>
+                    <tr>
+                        <td>粉丝数：</td>
+                        <td><%= MediaInfo.FansCount%>
+                             <%if(MediaInfo.FansCountURL !='-1'){%>
+                            <a href="javascript:void(0)" class="blue3 picDemo" picurl='<%= MediaInfo.FansCountURL%>'>查看粉丝数截图</a>
+                            <%}%>
+                        </td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>行业分类：</td>
+                        <td><%= MediaInfo.CategoryName%></td>
+                    </tr>
+                    <tr>
+                        <td>职业：</td>
+                        <td><%= MediaInfo.ProfessionName%></td>
+                    </tr>
+                    <tr>
+                        <td>媒体覆盖区域：</td>
+                        <td><%= MediaInfo.OverlayName%></td>
+                    </tr>
+                    <%if(MediaInfo.AreaName){%>
+                    <tr>
+                        <td>所在地：</td>
+                        <td><%= MediaInfo.AreaName%></td>
+                    </tr>
+                    <%}%>
+                    <tr>
+                        <td>是否认证：</td>
+                        <%if(MediaInfo.IsAuth==0){%>
+                        <td>否</td>
+                        <%}else if(MediaInfo.IsAuth==1){%>
+                        <td>是</td>
+                        <%}%>
+                    </tr>
+                    <tr>
+                        <td>媒体级别：</td>
+                        <td><%= MediaInfo.LevelTypeName%></td>
+                    </tr>
+                    <tr>
+                        <td>预约情况：</td>
+                        <%if(MediaInfo.IsReserve){%>
+                        <td>需预约</td>
+                        <%}else{%>
+                        <td>无需预约</td>
+                        <%}%>
+                    </tr>
+                </table>
+            </div>
+
+
+                <h3  class="blue">互动参数</h3>
+                <div class="see">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                        <tr>
+                            <td width="25">直播观众数：</td>
+                            <td width="25"><%= InteractionInfo.AudienceCount%></td>
+                            <td width="25">最高观众数：</td>
+                            <td width="25"><%= InteractionInfo.MaximumAudience%></td>
+                        </tr>
+                        <tr>
+                            <td>累计点赞数：</td>
+                            <td><%= InteractionInfo.CumulatePoints%></td>
+                            <td>累计打赏数：</td>
+                            <td><%= InteractionInfo.CumulateReward%></td>
+                        </tr>
+                        <tr>
+                            <td>累计收入：</td>
+                            <td><%= InteractionInfo.CumulateIncome%></td>
+                            <td>累计送出数：</td>
+                            <td><%= InteractionInfo.CumulateSendCount%></td>
+                        </tr>
+                        <tr>
+                            <td>平均观众数：</td>
+                            <td><%= InteractionInfo.AverageAudience%></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+
+            <%if(BodyData.length){%>
+            <h3 class="mt20 blue">刊例信息</h3>
+            <div class="clear"></div>
+            <div class="list_table" style="margin-top:0;">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff" >
+                    <tr>
+                        <td colspan="4">
+                            <div class="tr">单位：元／次</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">广告植入报价</th>
+                        <th colspan="2">活动直播报价</th>
+                    </tr>
+                    <tr>
+                       <%for(var i=0;i< 2;i++){%>
+                       <%if(BodyData[i].Price!=""){%>
+                        <td colspan="2">
+                            <span><%= formatMoney(BodyData[i].Price)%></span>
+                        </td>
+                       <%}else{%>
+                       <td colspan="2"></td>
+                       <%}}%>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="tl">采购折扣：<%=formatMoney(Kanli.PurchaseDiscount*100,2,' ') %>% <span class="ml20">销售折扣：<%=formatMoney(Kanli.SaleDiscount*100,2,' ') %>%</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="tl">执行周期：<%= Kanli.BeginTime.split(' ')[0]%> 至 <%= Kanli.EndTime.split(' ')[0]%></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <%}else{%>
+            <h3 class="mt20 blue">暂无刊例</h3>
+            <%}%>
+             <% if(CTLogin.RoleIDs!='SYS001RL00003' && CTLogin.RoleIDs!='SYS001RL00005' ){ %>
+            <h3 class="mt20 blue">媒体主信息</h3>
+            <div class="clear"></div>
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td>手机号：<%= UserInfo.Mobile%> <a href="javascript:void(0)" class="blue2">查看资料</a></td>
+                    </tr>
+                    <% if(UserInfo.Type == 1002){ %>
+                    <%if(UserInfo.TrueName){%>
+                    <tr>
+                        <td>姓名：<%= UserInfo.TrueName%></td>
+                    </tr>
+                    <%}%>
+                    <% }else if( UserInfo.Type == 1001){ %>
+                    <%if(UserInfo.TrueName){%>
+                    <tr>
+                        <td>公司名称：<%= UserInfo.TrueName%></td>
+                    </tr>
+                    <% }} %>
+                    <tr>
+                        <td>来源：
+                             <% if(CTLogin.RoleIDs!='SYS001RL00003'){ %> 自助<%}else if(CTLogin.RoleIDs!='SYS001RL00005'){%> 自营<%}%>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <%}%>
+            <%if(Kanli.CheckTime){%>
+            <h3 class="mt20 blue">状态信息</h3>
+            <div class="clear"></div>
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td>审核人：</td>
+                        <td><%= Kanli.CheckUser%></td>
+                    </tr>
+                    <tr>
+                        <td>审核状态：</td>
+                        <td><%= Kanli.CheckResult%></td>
+                    </tr>
+                    <tr>
+                        <td>审核时间：</td>
+                        <td><%= Kanli.CheckTime%></td>
+                    </tr>
+                    <% if(Kanli.CheckResult == "驳回"){ %>
+                    <tr>
+                        <td>驳回原因：</td>
+                        <td><%= Kanli.CheckedStatus%></td>
+                    </tr>
+                    <% }else{ %>
+                    <tr>
+                        <td>上下架：</td>
+                        <td><%= Kanli.CheckedStatus%></td>
+                    </tr>   
+                    <% } %>
+                </table>
+            </div>
+            <%}else{%>
+            <h3 class="mt20 blue">暂无状态</h3>
+            <%}%>
+        </div>
+    </script>
+    <div class="order_r" id="CheckView"></div>
+    <div class="clear"></div>
+</div>
+
+</div>
+
+
+
+<!--底部-->
+
+<!--#include file="../Base/footer.html" -->
+
+</body>
+</html>

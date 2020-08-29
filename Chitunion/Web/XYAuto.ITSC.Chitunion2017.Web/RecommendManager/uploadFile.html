@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<div class="layer">
+		<div class="title">
+			<div class="fl">上传数据</div>
+			<div class="fr">
+				<a href="javascript:void(0)" id="closebt"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="layer_con2">
+
+			<div class="layer_data">
+				<ul>
+					<li class="hrb"><span class="red f12">*</span>视频昵称：</li>
+					<li>
+						<div style="display: block;width: 200px;" id="Upname">
+						</div>
+					</li>
+					<div class="clear"></div>
+				</ul>
+				<ul>
+					<li class="hrb"><span class="red f12">*</span>图片：</li>
+					<li>
+						<div class="report-file">
+							<input tabindex="3" size="3" name="uploadify" class="file-prew but_upload" type="file" id="UploadifyImage">
+						</div>
+					</li>
+					<!--点击提交  为空的时候提示在这-->
+					<li id="xianshi1" style="display: none;color: red;margin-left: 10px"></li>
+					<div class="clear"></div>
+				</ul>
+				<ul class="fileBox1" style="display:none">
+					<li class="hrb"><img src="../images/icon18.png" alt=""></li>
+					<li class="fwa"><a href="javascript:;" id="FileNameImage"></a></li>
+					<li><a href="" target="_blank" id="downloadFileImage"><img src="../images/icon19.png" alt=""></a></li>
+				</ul>
+				<ul>
+					<li class="hrb"><span class="red f12">*</span>视频：</li>
+					<li>
+						<div class="report-file">
+							<input tabindex="3" size="3" name="uploadify" class="file-prew but_upload" type="file" id="UploadifyVideo">
+						</div>
+					</li>
+					<!--点击提交  为空的时候提示在这-->
+					<li id="xianshi2" style="display: none;color: red;margin-left: 10px"></li>
+					<div class="clear"></div>
+				</ul>
+				<ul class="fileBox2" style="display:none">
+					<li class="hrb"><img src="../images/icon18.png" alt=""></li>
+					<li class="fwa"><a href="javascript:;" id="FileNameVideo"></a></li>
+					<li><a href="" target="_blank" id="downloadFileVideo"><img src="../images/icon19.png" alt=""></a></li>
+				</ul>
+				<div class="clear"></div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="toast" style="text-align: left;padding-left: 30px;line-height: 16px;color: red;"></div>
+
+			<div class="keep">
+				<span><a href="javascript:;" class="button" style="width:150px">提交</a></span>
+				<span><a href="javascript:;" class="but_keep" style="width:150px">取消</a></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

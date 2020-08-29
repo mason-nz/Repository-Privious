@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟,推广管理,内容分发,新建推广计划,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,推广管理,内容分发,新建推广计划">
+    <title>新建推广计划-内容分发-推广管理-赤兔联盟</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/distributeGeneralizeCreate.js"></script>
+    <style>
+        #imgUploadFile{
+            position: ;
+        }
+        .uploadFile>img{
+            position: absolute;
+            left: 50%;
+            top: 50px;
+            margin-left: -15px;
+            margin-top: -15px;
+        }
+        #uploadImg{
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        #SWFUpload_0{
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include virtual="/base/header.html" -->
+<div class="contaner_body">
+    <!--左边菜单 导航-->
+    <!--#include virtual="/base/Menu.html" -->
+    <div class="right_body">
+        <div class="detalDemand">
+            <ul>
+                 <li class="ins_d"> <span class="red">*</span> 推广名称：</li>
+                 <li><input type="text" class="generalize_name" placeholder="最多输入20个汉字" style="width:420px;"></li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_name notes"></div>
+             <ul>
+                 <li class="ins_d"> <span class="red">*</span> 推广链接：</li>
+                 <li><input type="text" class="generalize_link" placeholder="请输入以http://或https://开头的推广链接" style="width:420px;"></li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_url notes"></div>
+             <ul>
+                 <li class="ins_d"> <span class="red">*</span> 推广简介：</li>
+                 <li>
+                     <textarea rows="5" class="generalize_intro" placeholder="请输入推广简介" style="width: 420px;"></textarea>
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_intro notes"></div>
+             <ul>
+                 <li class="ins_d"> <span class="red">*</span> 推广图片：</li>
+                 <li style="width: 260px;height: 104px">
+<!--                     <p class="add_upload"> -->
+                     <div class="add_upload" style="height: 104px;width: 260px">
+                         <img src="/images/icon8.png" id="imgUploadFile" width="260" height="104">
+                         <a href="javascript:void(0)" class="uploadFile">
+                             <img src="/images/add.png">
+                             <input type="file" name="" id="uploadImg" style="opacity:0;width: 100%;height: 100%;">
+                         </a>
+                     </div>
+    <!--
+                    </p> -->
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes notes_pic"></div>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广平台：</li>
+                 <li class="generalize_platform">
+                     <input type="checkbox" name="" value="微信" id="1"> 微信
+                     <input type="checkbox" name="" value="微博" id="2"> 微博
+                     <input type="checkbox" name="" value="QQ" id="4"> QQ
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes notes_platform"></div>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 计费模式：</li>
+                 <li class="billing_model">
+                     <input type="radio" name="bill" value="99001" > 按照点击CPC
+                     <input type="radio" name="bill" value="99002"> 按照线索CPL
+                     <input type="radio" name="bill" value="99003"> 按照销售提成CPS
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes notes_billing"></div>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广预算：</li>
+                 <li>
+                     <input type="text" maxlength="8" class="generalize_budget" name="" style="width: 80px;"> 元
+                 </li>
+                 <li class="grey">
+                     最低费用3000元
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes notes_budget"></div>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广时间：</li>
+                 <li>
+                    <input name="Username" id="startDate" type="text" style="width:120px;height: 30px;" class="laydate-icon"> 至 
+                    <input name="Username" id="endDate" type="text" style="width:120px;height: 30px;" class="laydate-icon">
+                 </li>
+                 <li>
+                     
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes notes_time"></div>
+        </div>
+        <div class="bottomOperate" style="padding-left: 10%;text-align: left;">
+            <span class="button_gradient" id="submit_add" style="display:inline-block;width: 140px;">
+                提交
+            </span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+</html>

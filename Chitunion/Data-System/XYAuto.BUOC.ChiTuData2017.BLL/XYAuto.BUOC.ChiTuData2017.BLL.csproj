@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA88C0D0-CB5D-47A9-9E07-38FE0531B4AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.ChiTuData2017.BLL</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.ChiTuData2017.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\AutoMapper.6.1.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\FastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xy.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Xy.ImageFastDFS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.ImageFastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ChiTu.Excel">
+      <HintPath>..\..\..\Lib\XYAuto.ChiTu.Excel\XYAuto.ChiTu.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils, Version=2.0.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.YanFa.SysRightManager.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMapperConfig\AutoMapperConfig.cs" />
+    <Compile Include="AutoMapperConfig\AutoResolver\DetailedStatisticsRsolver.cs" />
+    <Compile Include="AutoMapperConfig\Profile\DistributeProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\PullStatisticsProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\StatSpiderProfile.cs" />
+    <Compile Include="CarSerialInfo\CarSerial.cs" />
+    <Compile Include="CarSerialInfo\Dto\Request\RequestCarBrandDto.cs" />
+    <Compile Include="Chitu\ChannelList.cs" />
+    <Compile Include="Chitu\DataStatistics.cs" />
+    <Compile Include="Chitu\DataStatisticsByDate.cs" />
+    <Compile Include="Chitu\DataStatisticsByMonth.cs" />
+    <Compile Include="Chitu\Dto\Request\RequestDataStatisticsByDate.cs" />
+    <Compile Include="Chitu\Dto\Request\RequestOrder.cs" />
+    <Compile Include="Chitu\Dto\Request\RequestSummaryByMonth.cs" />
+    <Compile Include="Chitu\Dto\Response\ResponseDataStatisticsByDate.cs" />
+    <Compile Include="Chitu\Dto\Response\ResponseOrder.cs" />
+    <Compile Include="Chitu\Dto\Response\ResponseOrderDetial.cs" />
+    <Compile Include="Chitu\Dto\Response\ResponseSummaryByMonth.cs" />
+    <Compile Include="Chitu\Dto\Response\ResposeDataStatistics.cs" />
+    <Compile Include="Chitu\Order.cs" />
+    <Compile Include="Chitu\RolesVerification.cs" />
+    <Compile Include="DataCenter\Clue\ClueMaterialBll.cs" />
+    <Compile Include="DataCenter\DataCommon.cs" />
+    <Compile Include="DataCenter\DataProfilingBll.cs" />
+    <Compile Include="DataCenter\DataStreamExportExceBll.cs" />
+    <Compile Include="DataCenter\Distribute\DistributeMaterialBll.cs" />
+    <Compile Include="DataCenter\Dto\BasicResultDto.cs" />
+    <Compile Include="DataCenter\Encapsulate\EncapsulateMaterialBll.cs" />
+    <Compile Include="DataCenter\ExcelHelper.cs" />
+    <Compile Include="DataCenter\Forward\ForwardMaterialBll.cs" />
+    <Compile Include="DataCenter\Funnel\FunnelMaterialBll.cs" />
+    <Compile Include="DataCenter\Funnel\FunnelMaterialExcelBll.cs" />
+    <Compile Include="DataCenter\StatisticsExceListBll.cs" />
+    <Compile Include="DataCenter\Workload\WorkloadBll.cs" />
+    <Compile Include="DicInfo\DictInfo.cs" />
+    <Compile Include="DicInfo\TitleBasicInfo.cs" />
+    <Compile Include="Distribute\Base\CurrentOperateBase.cs" />
+    <Compile Include="Distribute\Dto\RequestDto\RequestGetMaterielInfoDto.cs" />
+    <Compile Include="Distribute\Dto\ResponseDto\RespMaterielInfoDto.cs" />
+    <Compile Include="Distribute\DistributeProvider.cs" />
+    <Compile Include="Distribute\MaterielDistributeQingNiaoAgent.cs" />
+    <Compile Include="EmailHelper.cs" />
+    <Compile Include="ExternalApi\PullDataConfig.cs" />
+    <Compile Include="ExternalApi\QingNiao\MaterielStatisticsProvider.cs" />
+    <Compile Include="ExternalApi\QingNiao\MaterielStatisticsProviderExt.cs" />
+    <Compile Include="ExternalApi\ZHY\LogicByMaterielStatistics.cs" />
+    <Compile Include="ExternalApi\ZHY\LogicByMaterielStatisticsTemp.cs" />
+    <Compile Include="BLLLoger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryPage\Entity\BaseResponseEntity.cs" />
+    <Compile Include="QueryPage\Entity\ConfigEntity.cs" />
+    <Compile Include="QueryPage\Entity\CreatePublishQueryBase.cs" />
+    <Compile Include="QueryPage\Entity\PublishQuery.cs" />
+    <Compile Include="QueryPage\Enum\OperateType.cs" />
+    <Compile Include="QueryPage\PublishInfoQueryClient.cs" />
+    <Compile Include="Query\DetailedStatistics\ChituMaterialStatQuery.cs" />
+    <Compile Include="Query\DetailedStatistics\DetailedStatisticsQuery.cs" />
+    <Compile Include="Query\Distribute\DistributeQingNiaoAgentQuery.cs" />
+    <Compile Include="Query\Distribute\DistributeQuery.cs" />
+    <Compile Include="Query\Dto\RequestDto\QingNiaoAgentQueryDto.cs" />
+    <Compile Include="Query\Dto\RequestDto\RequestChituChannelDto.cs" />
+    <Compile Include="Query\Dto\RequestDto\RequestDistributeQueryDto.cs" />
+    <Compile Include="Query\Dto\RequestDto\Statistics\ReqDailyDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\RespChituChannelDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\RespDetailedStatisticsDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\RespDistributeDto.cs" />
+    <Compile Include="Query\Distribute\DistributeDetailedChannelQuery.cs" />
+    <Compile Include="Query\Distribute\DistributeDetailedQuery.cs" />
+    <Compile Include="Query\DistributeQueryProxy.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDaily\RespDailyCarMatchDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDaily\RespDailyCsDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDaily\RespDailyGrabDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDaily\RespDailyJxDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDaily\RespDailyRgqxDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDetails\RespStatDetailsCarMatchDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDetails\RespStatDetailsCsDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDetails\RespStatDetailsGrabDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDetails\RespStatDetailsJxDto.cs" />
+    <Compile Include="Query\Dto\ResponseDto\Statistics\StatDetails\RespStatDetailsRgqxDto.cs" />
+    <Compile Include="Query\QingNiao\ChituChannelStatQuery.cs" />
+    <Compile Include="Query\Statistics\StatDailyQueryProxy.cs" />
+    <Compile Include="Query\Statistics\StatDaily\StatDailyCarMatchQuery.cs" />
+    <Compile Include="Query\Statistics\StatDaily\StatDailyCsQuery.cs" />
+    <Compile Include="Query\Statistics\StatDaily\StatDailyGrabQuery.cs" />
+    <Compile Include="Query\Statistics\StatDaily\StatDailyJxQuery.cs" />
+    <Compile Include="Query\Statistics\StatDaily\StatDailyRgqxQuery.cs" />
+    <Compile Include="Query\Statistics\StatDetailsQueryProxy.cs" />
+    <Compile Include="Query\Statistics\StatDetails\StatDetailsCarMatchQuery.cs" />
+    <Compile Include="Query\Statistics\StatDetails\StatDetailsCsQuery.cs" />
+    <Compile Include="Query\Statistics\StatDetails\StatDetailsGrabQuery.cs" />
+    <Compile Include="Query\Statistics\StatDetails\StatDetailsJxQuery.cs" />
+    <Compile Include="Query\Statistics\StatDetails\StatDetailsRgqxQuery.cs" />
+    <Compile Include="ReportOperation\Dto\Request\DistributeExportDto.cs" />
+    <Compile Include="ReportOperation\Dto\Response\ExportDistributeChannelDto.cs" />
+    <Compile Include="ReportOperation\Dto\Response\ExportDistributeDetailedDto.cs" />
+    <Compile Include="ReportOperation\Dto\Response\ExportDistributeDto.cs" />
+    <Compile Include="ReportOperation\Dto\Response\ExportStatisticsChiTuDto.cs" />
+    <Compile Include="ReportOperation\Dto\Response\ExportStatisticsQingNiaoAgentDto.cs" />
+    <Compile Include="ReportOperation\ExportCSVHelper.cs" />
+    <Compile Include="ReportOperation\Export\DistributeExportProvider.cs" />
+    <Compile Include="ReportOperation\Statistics\StatDailyExportProvider.cs" />
+    <Compile Include="ReportOperation\Statistics\StatDetailsExportProvider.cs" />
+    <Compile Include="Statistics\Provider\DataViewProvider.cs" />
+    <Compile Include="Statistics\Provider\Dto\Request\ReqFunnelDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Request\ReqStatTabGrabDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Request\RequestDateRangeDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\CarMatch\RespCarHeadDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\CarMatch\StatKeyValueCarMatchData.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\DataView\RespDataViewBaseDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\DataView\RespDvHeadGrabDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\DataView\RespDvYesterdayDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\Grab\RespGrabBaseDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\Grab\RespGrabBodyDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\Grab\RespGrabHeadCjDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\Grab\RespGrabHeadDto.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\Grab\RespGrabHeadQuDao.cs" />
+    <Compile Include="Statistics\Provider\Dto\Response\Primary\RespCsZhuanHuaDto.cs" />
+    <Compile Include="Statistics\Provider\Enum\CarMatchTypeEnum.cs" />
+    <Compile Include="Statistics\Provider\Enum\GetArtificialTypeEnum.cs" />
+    <Compile Include="Statistics\Provider\Enum\GetCarMatchTypeEnum.cs" />
+    <Compile Include="Statistics\Provider\Enum\GetCsTypeEnum.cs" />
+    <Compile Include="Statistics\Provider\Enum\GetDataViewTypeEnum.cs" />
+    <Compile Include="Statistics\Provider\Enum\GetGrabType.cs" />
+    <Compile Include="Statistics\Provider\Enum\GetJxTypeEnum.cs" />
+    <Compile Include="Statistics\Provider\Enum\GetTotalCountTypeEnum.cs" />
+    <Compile Include="Statistics\Provider\FunnelStatProvider.cs" />
+    <Compile Include="Statistics\Provider\StatTabArtificialProvider.cs" />
+    <Compile Include="Statistics\Provider\StatTabCarMatchProvider.cs" />
+    <Compile Include="Statistics\Provider\StatTabGrabProvider.cs" />
+    <Compile Include="Statistics\Provider\StatTabMachineCleanProvider.cs" />
+    <Compile Include="Statistics\Provider\StatTabPrimaryProvider.cs" />
+    <Compile Include="TaskInfo\AppInfo.cs" />
+    <Compile Include="TaskInfo\Authentication.cs" />
+    <Compile Include="TaskInfo\Dto\Request\RequestBase.cs" />
+    <Compile Include="TaskInfo\Dto\Request\RequestGetStatisticsByOrderUrl.cs" />
+    <Compile Include="TaskInfo\Dto\Request\RequestGetTaskList.cs" />
+    <Compile Include="TaskInfo\Dto\Request\RequestGetTaskStatus.cs" />
+    <Compile Include="TaskInfo\Dto\Request\RequestTaskMaterialList.cs" />
+    <Compile Include="TaskInfo\Dto\Request\RequestTaskOrderUrl.cs" />
+    <Compile Include="TaskInfo\Dto\Response\ResponseGetStatisticsByOrderUrl.cs" />
+    <Compile Include="TaskInfo\Dto\Response\ResponseGetTaskList.cs" />
+    <Compile Include="TaskInfo\Dto\Response\ResponseTaskMaterialList.cs" />
+    <Compile Include="TaskInfo\Material.cs" />
+    <Compile Include="TaskInfo\Statistics.cs" />
+    <Compile Include="TaskInfo\TaskInfo.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalApi\XYAuto.BUOC.ChiTuData2017.ExternalApi\XYAuto.BUOC.ChiTuData2017.ExternalApi.csproj">
+      <Project>{6a8930e7-edb2-4b5c-bab4-fb7b3e20dab0}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.ExternalApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.Dal\XYAuto.BUOC.ChiTuData2017.Dal.csproj">
+      <Project>{580ca18f-f05a-4d0b-af47-0053ed72702e}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.Entities\XYAuto.BUOC.ChiTuData2017.Entities.csproj">
+      <Project>{f683d1d7-6463-45e6-9212-7f5cd2d26134}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.Infrastruction\XYAuto.BUOC.ChiTuData2017.Infrastruction\XYAuto.BUOC.ChiTuData2017.Infrastruction.csproj">
+      <Project>{2c42ecee-79bd-4eae-9c08-488f918b9eeb}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Infrastruction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DicInfo\Dto\" />
+    <Folder Include="ReportOperation\Dto\Response\Statistics\" />
+    <Folder Include="Statistics\Provider\Dto\Response\JX\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

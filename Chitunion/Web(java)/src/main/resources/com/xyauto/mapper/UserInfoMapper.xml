@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.UserInfoMapper">
+	<resultMap id="BaseResultMap" type="com.xyauto.domain.UserInfo">
+		<id column="UserID" jdbcType="INTEGER" property="userID" />
+		<result column="UserName" jdbcType="VARCHAR" property="userName" />
+		<result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+		<result column="Pwd" jdbcType="VARCHAR" property="pwd" />
+		<result column="Email" jdbcType="VARCHAR" property="email" />
+		<result column="Type" jdbcType="INTEGER" property="type" />
+		<result column="Source" jdbcType="INTEGER" property="source" />
+		<result column="IsAuthMTZ" jdbcType="BIT" property="isAuthMTZ" />
+		<result column="IsAuthAE" jdbcType="BIT" property="isAuthAE" />
+		<result column="AuthAEUserID" jdbcType="INTEGER" property="authAEUserID" />
+		<result column="SysUserID" jdbcType="INTEGER" property="sysUserID" />
+		<result column="EmployeeNumber" jdbcType="VARCHAR" property="employeeNumber" />
+		<result column="Status" jdbcType="INTEGER" property="status" />
+		<result column="Category" jdbcType="INTEGER" property="category" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="CreateUserID" jdbcType="INTEGER" property="createUserID" />
+		<result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+		<result column="LastUpdateUserID" jdbcType="INTEGER" property="lastUpdateUserID" />
+	</resultMap>
+	<insert id="insert" parameterType="com.xyauto.domain.UserInfo"
+		useGeneratedKeys="true" keyProperty="userID">
+		insert into UserInfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			UserName,
+			Mobile,
+			Pwd,
+			Type,
+			Source,
+			Category,
+			<if test="email != null and email != ''">
+				Email,
+			</if>
+			<if test="isAuthMTZ != null">
+				IsAuthMTZ,
+			</if>
+			IsAuthAE,
+			<if test="authAEUserID != null and authAEUserID != ''">
+				AuthAEUserID,
+			</if>
+			<if test="sysUserID != null and sysUserID != ''">
+				SysUserID,
+			</if>
+			<if test="employeeNumber != null and employeeNumber != ''">
+				EmployeeNumber,
+			</if>
+			Status,
+			<if test="createUserID != null and createUserID != ''">
+				CreateUserID,
+			</if>
+			<if test="lastUpdateTime != null">
+				LastUpdateTime,
+			</if>
+			<if test="lastUpdateUserID != null and lastUpdateUserID != ''">
+				LastUpdateUserID,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			#{userName,jdbcType=VARCHAR},
+			#{mobile,jdbcType=VARCHAR},
+			#{pwd,jdbcType=VARCHAR},
+			#{type,jdbcType=INTEGER},
+			#{source,jdbcType=INTEGER},
+			#{category,jdbcType=INTEGER},
+			<if test="email != null and email != ''">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="isAuthMTZ != null">
+				#{isAuthMTZ,jdbcType=BIT},
+			</if>
+			#{isAuthAE,jdbcType=BIT},
+			<if test="authAEUserID != null and authAEUserID != ''">
+				#{authAEUserID,jdbcType=INTEGER},
+			</if>
+			<if test="sysUserID != null and sysUserID != ''">
+				#{sysUserID,jdbcType=INTEGER},
+			</if>
+			<if test="employeeNumber != null and employeeNumber != ''">
+				#{employeeNumber,jdbcType=VARCHAR},
+			</if>
+			#{status,jdbcType=INTEGER},
+			<if test="createUserID != null and createUserID != ''">
+				#{createUserID,jdbcType=INTEGER},
+			</if>
+			<if test="lastUpdateTime != null">
+				#{lastUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastUpdateUserID != null and lastUpdateUserID != ''">
+				#{lastUpdateUserID,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		UserInfo
+		where UserID = #{userID,jdbcType=INTEGER}
+	</delete>
+	<update id="updateByPrimaryKey" parameterType="com.xyauto.domain.UserInfo">
+		update UserInfo
+		set
+		<if test="userName != null and userName != ''">
+			UserName = #{userName,jdbcType=VARCHAR},
+		</if>
+		<if test="mobile != null and mobile != ''">
+			Mobile =#{mobile,jdbcType=VARCHAR},
+		</if>
+		<if test="pwd != null and pwd != ''">
+			Pwd = #{pwd,jdbcType=VARCHAR},
+		</if>
+		<if test="email != null and email != ''">
+			Email = #{email,jdbcType=VARCHAR},
+		</if>
+		<if test="type != null and type != ''">
+			Type = #{type,jdbcType=INTEGER},
+		</if>
+		<if test="source != null and source != ''">
+			Source = #{source,jdbcType=INTEGER},
+		</if>
+		<if test="isAuthMTZ != null">
+			IsAuthMTZ= #{isAuthMTZ,jdbcType=BIT},
+		</if>
+		<if test="isAuthAE != null">
+			IsAuthAE= #{isAuthAE,jdbcType=BIT},
+		</if>
+		<if test="authAEUserID != null and authAEUserID != ''">
+			AuthAEUserID =#{authAEUserID,jdbcType=INTEGER},
+		</if>
+		<if test="sysUserID != null and sysUserID != ''">
+			SysUserID = #{sysUserID,jdbcType=INTEGER},
+		</if>
+		<if test="employeeNumber != null and employeeNumber != ''">
+			EmployeeNumber =#{employeeNumber,jdbcType=VARCHAR},
+		</if>
+		<if test="status != null and status != ''">
+			Status =#{status,jdbcType=INTEGER},
+		</if>
+		LastUpdateTime =#{lastUpdateTime,jdbcType=TIMESTAMP},
+		LastUpdateUserID
+		=#{lastUpdateUserID,jdbcType=INTEGER}
+		where UserID
+		=#{userID,jdbcType=INTEGER}
+	</update>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select UserID, UserName, Mobile, Pwd, Email, Type, Source,
+		IsAuthMTZ, IsAuthAE, AuthAEUserID,
+		SysUserID, EmployeeNumber, Status,
+		CreateTime,
+		CreateUserID,
+		LastUpdateTime, LastUpdateUserID
+		from UserInfo
+		where UserID
+		= #{userID,jdbcType=INTEGER}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select UserID, UserName,
+		Mobile, Pwd, Email, Type, Source, IsAuthMTZ,
+		IsAuthAE, AuthAEUserID,
+		SysUserID,
+		EmployeeNumber, Status, CreateTime,
+		CreateUserID,
+		LastUpdateTime,
+		LastUpdateUserID
+		from UserInfo
+	</select>
+</mapper>

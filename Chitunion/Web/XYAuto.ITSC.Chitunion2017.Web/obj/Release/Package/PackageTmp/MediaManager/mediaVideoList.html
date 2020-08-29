@@ -1,0 +1,429 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>视频账号-媒体管理-我的赤兔</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="/OrderManager/js/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/mediaListShow.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+          <div class="list_box">
+            <!-- <div class="mb15">
+                <span class="but_add media_add_btn" style="width: 145px;" type-id="14004">添加视频号</span>
+            </div> -->
+            <div class="list">
+                <h2 class="menu_nav">
+                    <div class="but_query but_add media_add_btn" style="float:right;width:80px;height: 26px;line-height: 26px" type-id="14004">添加账号</div>
+
+                </h2>
+                <div class="clear"></div>
+            </div>
+            <div id="list_switching">
+            <div class="clear"></div>
+            <ul class="state">
+                <!--=====新增======-->
+                <li style="margin-left:0;" class="operationDisplay">
+                    <div class="ins_c">行业分类：</div>
+                    <select name="Username" type="text" id="industry" style="width:145px;">
+                    </select>
+                </li>
+                <!--=====新增======-->
+                <li style="margin-left:0;">
+                    <div class="ins_c">所属平台：</div>
+                    <select name="" id="liveNum" style="width:100px;line-height: 30px">
+
+                    </select>
+                </li>
+                <li class="createDtae">
+                    <div class="ins_c">账号：</div>
+                    <input name="Username" id="liveName" type="text" style="width:100px;"></li>
+                <li class="operationDisplay">
+                    <div class="ins_c">昵称：</div>
+                    <input name="Username" id="nickname" type="text" style="width:100px;"></li>
+                <li class="origin">
+                    <div class="ins_c">账号来源：</div>
+                    <select name="" id="sourceSelect" style="width:70px">
+                        <option>全部</option>
+                        <option>自助</option>
+                        <option>自营</option>
+                    </select>
+                </li>
+                <li class="createPeo">
+                    <div class="ins_c">录入人：</div>
+                    <input name="Username" type="text" id="createUser" style="width:145px;"></li>
+
+                <li class="createDtae">
+                    <div class="ins_c">录入日期：</div>
+                    <input id="createDate" name="Username" type="text" style="width:100px;" class="laydate-iconNew">&nbsp;至&nbsp;<input
+                        id="createDate1" name="Username" type="text" style="width:100px;" class="laydate-iconNew"></li>
+                <li class="but_query" style="width:70px;" id="search">查询</li>
+                <div class="clear"></div>
+            </ul>
+            </div>
+            </div>
+            <div class="list_box mt20">
+            <div class="sorting operationDisplay" style="float: left; margin-bottom: -10px;">
+                <ul>
+                    <li><a href="javascript:void(0)" class="active" data-orderBy='-1'>默认排序</a></li>
+                    <li><a href="javascript:void(0)" data-orderBy='1001' is_click=''>粉丝数 <img
+                            src="/images/icon16_c.png"></a></li>
+                    <li><a href="javascript:void(0)" data-orderBy='2001' is_click=''>平均播放数 <img
+                            src="/images/icon16_c.png"></a></li>
+                    <li><a href="javascript:void(0)" data-orderBy='3001' is_click=''>平均点赞数 <img
+                            src="/images/icon16_c.png"></a></li>
+                    <li><a href="javascript:void(0)" data-orderBy='4001' is_click=''>平均评论数 <img
+                            src="/images/icon16_c.png"></a></li>
+                    <li><a href="javascript:void(0)" data-orderBy='5001' is_click=''>平均弹幕数 <img
+                            src="/images/icon16_c.png"></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+
+            <script type="text/template" id="tmpl1">
+                <div class="list_table">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff">
+                        <tr>
+                            <th width="16%">媒体</th>
+                            <%if(CTLogin.RoleIDs=="SYS001RL00001"||CTLogin.RoleIDs=="SYS001RL00004"){%>
+                            <th width="15%">行业分类</th>
+                            <%}%>
+                            <th width="10%">所属平台</th>
+                            <th width="14%">粉丝数</th>
+                            <th width="14%" class="origin">来源</th>
+                            <th width="14%">录入人</th>
+                            <th width="16%">操作</th>
+                        </tr>
+                        <%for(var i = 0 ;i< list.length;i++){%>
+                        <tr>
+                            <td>
+                                <div class="portrait" data-id="<%=list[i].MediaID%>" style="border-radius: 50%;">
+                                    <%if(!list[i].HeadIconURL){%>
+                                        <img src="../ImagesNew/default_touxiang.png"/>
+                                    <%}else{%>
+                                        <img src="<%=list[i].HeadIconURL%>"/>
+                                    <%}%>
+                                </div>
+                                <div class="public">
+                                    <h2><%=list[i].Name%></h2>
+                                </div>
+                                <div class="clear"></div>
+                            </td>
+                            <%if(CTLogin.RoleIDs=="SYS001RL00001"||CTLogin.RoleIDs=="SYS001RL00004"){%>
+                            <td><%=list[i].Category%></td>
+                            <%}%>
+                            <td><%=list[i].Platform%></td>
+                            <td><%=formatMoney(list[i].FansCount,0,' ')%></td>
+                            <%if(list[i].Source=='3002'){%>
+                            list[i].Source = '自助'
+                            <%}else if(list[i].Source == '3001'){%>
+                            list[i].Source = '自营'
+                            <%}%>
+                            <td><%=list[i].Source%></td>
+                            <td><%=list[i].CreateUser%></td>
+                            <td pubID="<%=list[i].PubID%>"><a href="javascript:void(0);" onclick="detailSearch(this)"
+                                                              target="_blank" class="details"
+                                                              media-id="<%=list[i].MediaID%>">查看</a> &nbsp;<a
+                                    href="javascript:void(0);" onclick="modifySearch(this)" target="_self"
+                                    media-id="<%=list[i].MediaID%>" class="modify media_edit_btn">修改</a> &nbsp;
+                                <%if(list[i].PubCount==0){%>
+                                <a href="javascript:;" onclick="createAppSearch(this)" target="_self"
+                                   class="createApp media_create_btn" weChatName="<%=list[i].Name%>"
+                                   weChatNum="<%=list[i].Number%>" media-id="<%=list[i].MediaID%>">创建刊例</a><br><%}%>
+                                <%if(CTLogin.RoleIDs=="SYS001RL00001"||CTLogin.RoleIDs=="SYS001RL00004"){%>
+                                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400304')!=-1){%>
+                                <%if(list[i].CanAddToRecommend&&list[i].IsRange){%>
+                                <a href="javascript:;" data-name="<%=list[i].Name%>" class="recommend"
+                                   name="<%=list[i].MediaID%>" style="position: static;border:none;">推荐到首页</a><%}%><%}%><%}%>
+                            </td>
+
+                        </tr>
+                        <%}%>
+                    </table>
+                </div>
+            </script>
+
+            <script type="text/template" id="tmpl2">
+                <div class="list_table">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff">
+                        <tr>
+                            <th width="16%">媒体</th>
+                            <th width="10%">所属平台</th>
+                            <th width="14%">粉丝数</th>
+
+                            <th width="16%">录入时间</th>
+                            <th width="16%">操作</th>
+                        </tr>
+                        <%for(var i = 0 ;i< list.length;i++){%>
+                        <tr>
+                            <td>
+                                <div class="portrait" data-id="<%=list[i].MediaID%>" style="border-radius: 50%;">
+                                    <%if(!list[i].HeadIconURL){%>
+                                        <img src="../ImagesNew/default_touxiang.png"/>
+                                    <%}else{%>
+                                        <img src="<%=list[i].HeadIconURL%>"/>
+                                    <%}%>
+                                </div>
+                                <div class="public">
+                                    <h2><%=list[i].Name%></h2>
+                                </div>
+                                <div class="clear"></div>
+                            </td>
+                            <td><%=list[i].Platform%></td>
+                            <td><%=formatMoney(list[i].FansCount,0,' ')%></td>
+                            <td><%=list[i].CreateDate%></td>
+                            <td pubID="<%=list[i].PubID%>"><a target="_blank" href="javascript:void(0);"
+                                                              onclick="detailSearch(this)" class="details"
+                                                              media-id="<%=list[i].MediaID%>">查看</a> &nbsp;
+                                <%if(list[i].CanEdit){%>
+                                <a href="javascript:void(0);" onclick="modifySearch(this)"
+                                   media-id="<%=list[i].MediaID%>" target="_self" class="modify media_edit_btn">修改</a>
+                                &nbsp;
+                                <%}%>
+                                <%if(list[i].PubCount==0){%>
+                                <a href="javascript:;" onclick="createAppSearch(this)" target="_self"
+                                   class="createApp media_create_btn" weChatName="<%=list[i].Name%>"
+                                   weChatNum="<%=list[i].Number%>" media-id="<%=list[i].MediaID%>">创建刊例</a></td>
+                            <%}%>
+                        </tr>
+                        <%}%>
+                    </table>
+                </div>
+            </script>
+            <script type="text/template" id="tmpl3">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff">
+                    <tr>
+                        <th width="16%">媒体</th>
+                        <th width="10%">所属平台</th>
+                        <th width="14%">粉丝数</th>
+                        <th width="14%">来源</th>
+                        <th width="14%">录入人</th>
+                        <th width="16%">录入时间</th>
+                        <th width="16%">操作</th>
+                    </tr>
+
+                </table>
+                <div class="no_data"><img src="../images/no_data.png"></div>
+            </script>
+            <script type="text/template" id="tmpl4">
+
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff">
+                    <tr>
+                        <th width="16%">媒体</th>
+                        <th width="10%">所属平台</th>
+                        <th width="14%">粉丝数</th>
+                        <th width="16%">录入时间</th>
+                        <th width="16%">操作</th>
+                    </tr>
+
+                </table>
+                <div class="no_data"><img src="../images/no_data.png"></div>
+            </script>
+            <div class="list_table">
+
+            </div>
+            <!--分页-->
+            <div class="green-black" id="pageContainer">
+                <span class="disabled">上一页</span>
+                <span class="current">1</span>
+                <a href="#?page=2">2</a>
+                <a href="#?page=3">3</a>...
+                <a href="#?page=200">100</a>
+                <a href="#?page=2">下一页</a>
+                <span>1/200</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    </div>
+
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+</body>
+<script>
+
+    //行业分类
+    if (CTLogin.RoleIDs == "SYS001RL00001" || CTLogin.RoleIDs == "SYS001RL00004") {
+        IndustryCategory(25)
+        $('.operationDisplay').show();
+    } else {
+        $('.operationDisplay').hide();
+    }
+
+    if(!GetRequest().categoryId){
+        searchList({MediaType:14004});
+    }
+    //leftNav();
+    /**
+     * Written by:     liushuai
+     * function: 初始化时给搜索按钮绑定按查询条件进行搜索功能
+     * Created Date:   2017-02-24
+     * Modified Date:
+     * */
+    $(function () {
+        var oldObj1;
+
+        function search(sorting) {
+            var oldObj;
+            $('#search').click(function () {
+                var liveID = $.trim($("#liveNum").find("option:selected").attr("DictID"));
+                var liveName = $.trim($('#liveName').val());
+                var source = -2;
+                if ($('#sourceSelect').val() == '自营') {
+                    source = 3001;
+                }
+                if ($('#sourceSelect').val() == '自助') {
+                    source = 3002;
+                }
+                var createUser = $.trim($('#createUser').val());
+                var beginTime = $('#createDate').val();
+                var endTime = $('#createDate1').val();
+                if (CTLogin.RoleIDs == "SYS001RL00001" || CTLogin.RoleIDs == "SYS001RL00004") {
+                    // 行业分类
+                    var industry = $('#industry option:checked').attr('dictid') - 0;
+
+                    // 昵称
+                    var nickname = $('#nickname').val();
+                    var OrderBy = -2;
+                    // 排序
+                    $('.sorting li a').each(function () {
+                        if ($(this).attr('dataOrderby') == -1) {
+                            OrderBy = $(this).attr('data-orderby')
+                        }
+                    })
+                    var obj = {
+                        MediaType: 14004,
+                        Platform: liveID,
+                        Number: liveName,
+                        Source: source,
+                        CreateUser: createUser,
+                        BeginDate: beginTime,
+                        EndDate: endTime,
+                        PageIndex: 1,
+                        CategoryID: industry,
+                        Name: nickname,
+                        OrderBy: OrderBy
+                    }
+                } else {
+                    var obj = {
+                        MediaType: 14004,
+                        Platform: liveID,
+                        Number: liveName,
+                        Source: source,
+                        CreateUser: createUser,
+                        BeginDate: beginTime,
+                        EndDate: endTime,
+                        PageIndex: 1
+                    };
+                }
+                searchList(obj)
+                oldObj = obj;
+                oldObj1 = oldObj
+            })
+        }
+
+        search();
+        //    排序
+        var i = 0;
+        $('.sorting li a').off('click').on('click', function () {
+            if($(this).attr('dataorderby')!=-1){
+                i = 0;
+            }
+            if (i) {
+                $('.sorting li a').attr('class', '').attr('dataOrderby', '').children().attr('src', '/images/icon16_c.png')
+                $(this).addClass('active').attr('dataOrderby', '-1').children().attr('src', '/images/icon16_a.png')
+                if ($(this).attr('data-orderby') != -2) {
+                    $(this).attr('data-orderby', $(this).attr('data-orderby').slice(0, -1) + '2')
+                }
+                i = 0;
+                if (oldObj1 != undefined) {
+                    var OrderBy = $(this).attr('data-orderby') - 0;
+                    oldObj1.OrderBy = OrderBy
+                    searchList(oldObj1)
+                } else {
+                    var OrderBy = $(this).attr('data-orderby') - 0
+                    console.log(OrderBy);
+                    searchList({MediaType: 14004, OrderBy: OrderBy})
+                }
+            } else {
+                $('.sorting li a').attr('class', '').attr('dataOrderby', '').children().attr('src', '/images/icon16_c.png')
+                $(this).addClass('active').attr('dataOrderby', '-1').children().attr('src', '/images/icon16_b.png')
+                if ($(this).attr('data-orderby') != -2) {
+                    $(this).attr('data-orderby', $(this).attr('data-orderby').slice(0, -1) + '1')
+                }
+                i = 1;
+                if (oldObj1 != undefined) {
+                    var OrderBy = $(this).attr('data-orderby') - 0;
+                    oldObj1.OrderBy = OrderBy
+                    searchList(oldObj1)
+                } else {
+                    var OrderBy = $(this).attr('data-orderby') - 0
+                    searchList({MediaType: 14004, OrderBy: OrderBy})
+                }
+            }
+        })
+    });
+
+    $('.but_add').click(function () {
+        var operatetype = 1;
+        window.location.href = '/MediaManager/video_addEdit.html?operatetype=' + operatetype;
+    });
+
+    function modifySearch(event) {
+        var operatetype = 2;
+        var mediaID = $(event).attr('media-id');
+        window.location.href = '/MediaManager/video_addEdit.html?operatetype=' + operatetype + '&MediaID=' + mediaID;
+    }
+
+
+    function createAppSearch(event) {
+        var mediaID = $(event).attr('media-id');
+        window.location.href = '/PublishManager/addEditPublish-video.html?isAdd=2&MediaID=' + mediaID
+    }
+
+
+    function detailSearch(event) {
+        var mediaID = $(event).attr('media-id');
+        var pubid = $(event).parent().attr('pubid');
+        if (pubid == undefined) {
+            pubid = '';
+        }
+        $(event).attr('href', '/MediaManager/ViewOfVedio.html?MediaType=' + 14004 + '&PubID=' + pubid + '&MediaID=' + mediaID);
+    }
+</script>
+</html>

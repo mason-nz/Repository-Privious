@@ -1,0 +1,748 @@
+@import "_common.less";
+
+.container-fluid {
+  width: 100%;
+  font-size: 30/@r*1rem;
+}
+
+.flex_justify_flexStart {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.flex_justify_spaceBetween {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between
+}
+.flex_justify_center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content:center;
+  justify-content:center;
+}
+
+//订单详情start
+.OrderDetails {
+  > div {
+    padding: 30/@r*1rem 30/@r*1rem 0;
+    > section {
+      font-size: 30/@r*1rem;
+      > div:first-child {
+        > p {
+          margin: 13/@r*1rem 0;
+          position: relative;
+          padding-left: 150/@r*1rem;
+          > label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #333;
+            line-height: 30/@r*1rem;
+          }
+          > span {
+            vertical-align: top;
+            line-height: 30/@r*1rem;
+            color: rgb(51, 51, 51);
+            width: 100%;
+            word-wrap: break-word;
+            word-break: break-all;
+            display: inline-block;
+          }
+          > .OrderUrl_a{
+            a{
+              color: #333333;
+              width: 100%;
+              display: inline-block;
+              background: url("/images/Arrow.png") no-repeat right center;
+              background-size: 14/@r*1rem 25/@r*1rem;
+            }
+          }
+        }
+      }
+    }
+    > table {
+      width: 100%;
+      thead > tr {
+        background-color: rgb(238, 238, 238);
+        height: 100/@r*1rem;
+        text-align: center;
+        color: #333;
+        > td:first-child {
+          border-top-left-radius: 6/@r*1rem;
+          border-bottom-left-radius: 6/@r*1rem;
+        }
+        > td:last-child {
+          border-top-right-radius: 6/@r*1rem;
+          border-bottom-right-radius: 6/@r*1rem;
+        }
+      }
+      tbody > tr, tfoot > tr {
+        height: 79/@r*1rem;
+        text-align: center;
+        > td {
+          border-bottom: 1/@r*1rem solid rgb(238, 238, 238);
+        }
+      }
+      tfoot > tr > td:last-child {
+        color: rgb(255, 80, 80);
+        font-size: 32/@r*1rem;
+      }
+    }
+    .Nodata{
+      margin: 50/@r*1rem auto;
+      text-align: center;
+      color: #999;
+      >img{
+        width: 336/@r*1rem;
+      }
+      >p:first-child{
+        cursor: pointer;
+      }
+      >p:last-child{
+        color: #999;
+        cursor: pointer;
+      }
+    }
+  }
+  > footer {
+    width: 100%;
+    height: 100/@r*1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    > div {
+      flex: 1;
+    }
+    > div:first-child {
+      height: 100/@r*1rem;
+      line-height: 100/@r*1rem;
+      text-align: center;
+      box-shadow: 0 -6/@r*1rem rgba(39, 103, 246, .1);
+      > span {
+        >a{
+          color: #ffffff;
+        }
+      }
+    }
+    > div:last-child {
+      padding: 0;
+      height: 100/@r*1rem;
+      line-height: 100/@r*1rem;
+      text-align: center;
+      background: url("/images/btn_bg.png");
+      background-size: contain;
+      box-shadow: 0 -6/@r*1rem rgba(39, 103, 246, .1);
+      color: #fff;
+      > span {
+        //background: url("/images/share-5@2x.png") center left no-repeat;
+        //background-size: 30/@r*1rem;
+        //padding-left: 45/@r*1rem;
+      }
+    }
+  }
+}
+//订单详情end
+
+//个人信息1start
+.PersonalInformation {
+    > main {
+        width: 100%;
+        .personalData,.personalSupplement,.personalProperty{
+            background-color: #fff;
+            > div {
+                padding: 0 30/@r*1rem 0 0;
+                height: 100/@r*1rem;
+                line-height: 100/@r*1rem;
+                margin-left: 30/@r*1rem;
+            }
+        }
+        .personalData> div:last-child {
+            > div {
+                display: flex;
+                text-align: right;
+                flex: 2;
+                //>input{
+                //  padding:0 10/@r*1rem;
+                //}
+                > button {
+                  border: 1px solid rgb(183, 183, 183);
+                  border-radius: 6/@r*1rem;
+                  height: 48/@r*1rem;
+                  line-height: 28/@r*1rem;
+                  padding: 10/@r*1rem 15/@r*1rem;
+                  margin: 25/@r*1rem 0;
+                  color: #b7b7b7;
+                  font-size: 30/@r*1rem !important;
+                }
+                > button.ntifyingCode{
+                  color: rgb(27,120,240);
+                  border: 1px solid rgb(27,120,240);
+                }
+            }
+        }
+        .personalData>div:first-child{
+            color: #adadad;
+            input{
+                color: #adadad;
+            }
+        }
+        .personalProperty{
+            margin-top: 20/@r*1rem;
+        }
+        .personalSupplement{
+            position: relative;
+            >div{
+                >div{
+                    >.typeSwitching{
+                        width:182/@r*1rem;
+                        height: 50/@r*1rem;
+                        margin: 25/@r*1rem 0;
+                        line-height: 50/@r*1rem;
+                        background-color: #eee;
+                        border-radius: 6/@r*1rem;
+                        >button{
+                          color: #b7b7b7;
+                          width: 50%;
+                          border-radius: 6/@r*1rem;
+                          height: 50/@r*1rem;
+                        }
+                        >button.blue{
+                          background-color: #1b78f0;
+                          color: #fff;
+                        }
+                    }
+                    >.upload_text:first-child{
+                        color:#b7b7b7;
+                        padding-right: 30/@r*1rem;
+                        background:url("/images/chevon_right@2x.png") center right no-repeat;
+                        background-size: 15/@r*1rem 26/@r*1rem;
+                    }
+                    #photoimg,#BLicenceURL{
+                        width: 90/@r*1rem;
+                        height: 60/@r*1rem;
+                        vertical-align: middle;
+                        display: none;
+                    }
+                    >.upload_hide:last-child{
+                        display: none;
+                    }
+                }
+                >.img_dag{
+                    flex: 2;
+                    text-align: right;
+                }
+            }
+            >#Mask{
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background: rgba(250,250,250,.5);
+                left: 0;
+                top: 0;
+            }
+        }
+        >article > div{
+            border-bottom: 1px solid #f3f3f3;
+        }
+    }
+    .baseOnInput::before{
+        content:'';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255,255,255,.5);
+    }
+}
+//个人信息1end
+.PersonalInformation,.seePersonalInformation,.RejectInformation{
+  >header{
+    height: 100/@r*1rem;
+    line-height: 100/@r*1rem;
+    text-align: center;
+    background-color: #f15959;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: auto;
+    //::-webkit-scrollbar {display:none};
+  }
+  >.header_hide{
+    display: none;
+  }
+  input {
+    text-align: right;
+    flex: 2;
+    padding: 0 5/@r*1rem;
+  }
+  * {
+    font-size: 30/@r*1rem;
+    font-family: Simsun,'宋体','Microsoft YaHei','微软雅黑','Helvetica Neue', Helvetica, sans-serif;
+  }
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color:#b7b7b7;
+  }
+  input:-moz-placeholder, textarea:-moz-placeholder {
+    color:#b7b7b7;
+  }
+  input::-moz-placeholder, textarea::-moz-placeholder {
+    color:#b7b7b7;
+  }
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color:#b7b7b7;
+  }
+  > main {
+    >div > .btn_bg{
+      width: 690/@r*1rem;
+      border-radius: 6/@r*1rem;
+      height: 90/@r*1rem;
+      background: url("/images/btn_bg.png");
+      background-size: contain;
+      color: #fff;
+      margin-top: 50/@r*1rem;
+      font-size: 34/@r*1rem;
+    }
+    // 置灰颜色
+    > div >.Thegrey{
+        width: 690/@r*1rem;
+        border-radius: 6/@r*1rem;
+        height: 90/@r*1rem;
+        line-height: 90/@r*1rem;
+        background: url(../images/btn_bg_grey.jpg) repeat-x;
+        background-size: contain;
+        color: #fff;
+        margin-top: 50/@r*1rem;
+        font-size: 34/@r*1rem;
+    }
+  }
+}
+
+// 个人信息2start
+.seePersonalInformation{
+  > main {
+    width: 100%;
+    .personalData,.personalSupplement,.personalProperty{
+      background-color: #fff;
+      > div {
+        padding: 0 30/@r*1rem 0 0;
+        height: 100/@r*1rem;
+        line-height: 100/@r*1rem;
+        margin-left: 30/@r*1rem;
+      }
+    }
+    .personalData>div:first-child{
+      color: #adadad;
+      input{
+        color: #adadad;
+      }
+    }
+    .personalData>div:nth-child(2){
+      >div{
+        background:url("/images/chevon_right@2x.png") center right no-repeat;
+        background-size: 15/@r*1rem 26/@r*1rem;
+        padding-right: 30/@r*1rem;
+        flex: 2;
+        text-align: right;
+      }
+    }
+    .personalSupplement,.personalProperty{
+      margin-top: 20/@r*1rem;
+    }
+    .personalSupplement{
+      position: relative;
+      >div{
+        >div{
+          >.typeSwitching{
+            width:182/@r*1rem;
+            height: 50/@r*1rem;
+            margin: 25/@r*1rem 0;
+            line-height: 50/@r*1rem;
+            background-color: #eee;
+            border-radius: 6/@r*1rem;
+            >button{
+              color: #b7b7b7;
+              width: 50%;
+              border-radius: 6/@r*1rem;
+              height: 50/@r*1rem;
+            }
+            >button.blue{
+              background-color: #1b78f0;
+              color: #fff;
+            }
+          }
+          >.upload_text:first-child{
+            color:#b7b7b7;
+            padding-right: 30/@r*1rem;
+            background:url("/images/chevon_right@2x.png") center right no-repeat;
+            background-size: 15/@r*1rem 26/@r*1rem;
+          }
+          #photoimg,#BLicenceURL{
+            width: 90/@r*1rem;
+            height: 60/@r*1rem;
+            vertical-align: middle;
+          }
+          >.upload_hide:last-child{
+            display: none;
+          }
+        }
+        >.identity{
+          background:url("/images/chevon_right@2x.png") center right no-repeat;
+          background-size: 15/@r*1rem 26/@r*1rem;
+          padding-right: 30/@r*1rem;
+          text-align: right;
+          >img{
+            height: 60/@r*1rem;
+            width: 90/@r*1rem;
+            margin: 20/@r*1rem 0;
+          }
+        }
+      }
+    }
+    .personalSupplement::before{
+      content:'';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255,.5);
+    }
+    .personalProperty{
+      >div:first-child{
+        >div{
+          background:url("/images/chevon_right@2x.png") center right no-repeat;
+          background-size: 15/@r*1rem 26/@r*1rem;
+          padding-right: 30/@r*1rem;
+          flex: 2;
+          text-align: right;
+        }
+      }
+    }
+    >article > div{
+      border-bottom: 1px solid #f3f3f3;
+    }
+  }
+}
+// 个人信息2end
+
+// 个人信息3start
+.RejectInformation{
+  > main {
+    width: 100%;
+    .personalData,.personalSupplement,.personalProperty{
+      background-color: #fff;
+      > div {
+        padding: 0 30/@r*1rem 0 0;
+        height: 100/@r*1rem;
+        line-height: 100/@r*1rem;
+        margin-left: 30/@r*1rem;
+      }
+    }
+    .personalData>div:first-child{
+      color: #adadad;
+      input{
+        color: #adadad;
+      }
+    }
+    .personalData>div:nth-child(2){
+      >div{
+        background:url("/images/chevon_right@2x.png") center right no-repeat;
+        background-size: 15/@r*1rem 26/@r*1rem;
+        padding-right: 30/@r*1rem;
+        flex: 2;
+        text-align: right;
+      }
+    }
+    .personalSupplement,.personalProperty{
+      margin-top: 20/@r*1rem;
+    }
+    .personalSupplement{
+      >div{
+        >div{
+          >.typeSwitching{
+            width:182/@r*1rem;
+            height: 50/@r*1rem;
+            margin: 25/@r*1rem 0;
+            line-height: 50/@r*1rem;
+            background-color: #eee;
+            border-radius: 6/@r*1rem;
+            >button{
+              color: #b7b7b7;
+              width: 50%;
+              border-radius: 6/@r*1rem;
+              height: 50/@r*1rem;
+            }
+            >button.blue{
+              background-color: #1b78f0;
+              color: #fff;
+            }
+          }
+          >.upload_text:first-child{
+            color:#b7b7b7;
+            padding-right: 30/@r*1rem;
+            background:url("/images/chevon_right@2x.png") center right no-repeat;
+            background-size: 15/@r*1rem 26/@r*1rem;
+          }
+          #photoimg,#BLicenceURL{
+            width: 90/@r*1rem;
+            height: 60/@r*1rem;
+            vertical-align: middle;
+            display: none;
+          }
+          >.upload_hide:last-child{
+            display: none;
+          }
+        }
+        >.img_dag{
+          flex: 2;
+          text-align: right;
+        }
+      }
+    }
+    .personalProperty{
+      >div:first-child{
+        >div{
+          background:url("/images/chevon_right@2x.png") center right no-repeat;
+          background-size: 15/@r*1rem 26/@r*1rem;
+          padding-right: 30/@r*1rem;
+          flex: 2;
+          text-align: right;
+        }
+      }
+    }
+    >article > div{
+      border-bottom: 1px solid #f3f3f3;
+    }
+  }
+}
+// 个人信息3end
+
+// 个人信息弹层样式
+#ElasticLayerStyle{
+  .ElasticLayeriWidth{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10/@r*1rem;
+    padding-right: 0;
+    margin-right: 0;
+    input{
+      font-size: 30/@r*1rem !important;
+      height: 50/@r*1rem;
+      border-bottom: 1/@r*1rem solid #e0e0e0;
+      border-radius: 0;
+    }
+    button{
+      font-size: 30/@r*1rem !important;
+      height: 38/@r*1rem;
+      line-height: 38/@r*1rem;
+      border: 1/@r*1rem solid #e0e0e0;
+      border-radius: 6/@r*1rem;
+      text-align: center;
+      color: #b7b7b7;
+      padding: 5/@r*1rem;
+    }
+    #getyzm{
+      border-color:rgb(27,120,240) !important;
+      color:rgb(27,120,240) !important;
+    }
+  }
+  .layui-m-layerchild h3{
+    height: 88/@r*1rem !important;
+    line-height: 88/@r*1rem !important;
+  }
+}
+// 置灰颜色
+
+// 文章详情start
+.detailsArticle{
+  >.flex_justify_spaceBetween{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 90/@r*1rem;
+    background: url("/images/btn_bg.png");
+    background-size: contain;
+    >button{
+      width: 50%;
+      text-align: center;
+      color: #fff;
+    }
+    >button:first-child{
+      background: #fff;
+      color: rgb(51,51,51);
+      span{
+        color: #ff5050;
+      }
+    }
+    >button:last-child{
+      span{
+        background: url("/images/share-5@2x.png") no-repeat center left;
+        background-size: contain;
+        padding-left: 45/@r*1rem;
+      }
+    }
+  }
+}
+// 文章详情end
+
+.webuploader-pick-hover{
+    background-color: rgb(243, 243, 243) !important;
+}
+.webuploader-pick{
+    color: #fff !important;
+    background-color: #1b7df3 !important;
+    overflow: inherit !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#picker{
+  .webuploader-pick{
+    color: #ababab !important;
+    background: #fff !important;
+    text-align: right;
+  }
+  div:last-child{
+    display: none;
+  }
+}
+#js_licence_picker{
+  .webuploader-pick{
+    color: #ababab !important;
+    background: #fff !important;
+    text-align: right;
+  }
+  div:last-child{
+    display: none;
+  }
+}
+.upload_id_wrap{
+  position: relative;
+  .upload_hide_btn{
+    position: absolute;
+    right: -0.4rem;
+    top: 0;
+    z-index: 3;
+    width: 0.6rem;
+    height: 100%;
+  }
+}
+.webuploader-container div:last-child{
+    width: 100% !important;
+    height: 100% !important;
+    text-align: left;
+    opacity: 0;
+}
+.certificationWrap{
+  position: relative;
+}
+//身份证
+.big_bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    .pop_opa{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: .8;
+      z-index: 10;
+    }
+    .IdCardBg{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 11;
+        margin-left: -250/@r*1rem;
+        margin-top: -320/@r*1rem;
+        width: 500/@r*1rem;
+        border-radius: 4px;
+        // height: 640/@r*1rem;
+        padding: 60/@r*1rem  60/@r*1rem 40/@r*1rem 60/@r*1rem; 
+        background: #fff;
+        text-align: center;
+        img{
+            width: 320/@r*1rem;
+            height: 390/@r*1rem;
+        }
+        p{
+            text-align: center;
+            font-size: 24/@r*1rem;
+            line-height: 40/@r*1rem;
+        }
+        p:nth-child(2){
+          
+        }
+        p:nth-child(3){
+          padding-bottom: .18rem;
+        }
+        p:last-child{
+          padding-top: .2rem;
+          color: #adadad;
+        }
+        span{
+            position: absolute;
+            right: 30/@r*1rem;
+            top: 20/@r*1rem;
+            cursor: pointer;
+            z-index: 99;
+        }
+        button{
+            cursor: pointer;
+            width: 100%;
+            height: 70/@r*1rem;
+            background: #1b7df3;
+            text-align: center;
+            color: #fff;
+            line-height: 70/@r*1rem;
+            border-radius: 4px;
+        }
+    }
+    .preview_image_wrap{
+      position: absolute;
+      left: 0%;
+      top: 50%;
+      z-index: 11;
+      text-align: center;
+      width: 100%;
+      transform: translateY(-50%);
+      image{
+        width: 100%;
+      }
+    }
+}
+#js_upload_yyzz_btn input, #js_upload_sfz_btn input{
+  width: 100%;
+  height: 100%;
+}
+
+#js_preview_image{
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

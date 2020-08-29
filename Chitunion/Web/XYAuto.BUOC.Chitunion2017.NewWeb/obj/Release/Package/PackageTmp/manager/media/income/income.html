@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收益管理</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src='/js/jquery.1.11.3.min.js'></script>
+    <script type="text/javascript" src="http://www1.chitunion.com/api/check.ashx?NotCheckModule=true&NotRedirectURL=false"></script> 
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src='/js/Common_chitu.js'></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src='./js/income.js'></script>
+    <style type="text/css">
+        .main_right ul.Personal_massage li{
+            width: 14%;
+            padding: 0 5px;
+            text-align: center;
+        }
+        .main_right ul.Personal_massage li:nth-child(1){
+            min-width: 540px;
+            text-align: left;
+            padding-left: 20px;
+        }
+        .Personal_massage .person_info{
+            margin-right: 10px;
+        }
+        .Personal_massage .person_info>span{
+            margin-right: 3px;
+        }
+        .Personal_massage span img{
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+	
+<!-- 顶部导航-->
+<!--#include virtual="/base/header.html" -->
+
+
+<!-- 主体部分 -->
+<div class="contaner_body">
+	<!--左侧菜单-->
+    <!--#include virtual="/base/Menu.html" -->
+    <div class="main_right">
+		<ul class="Personal_massage"></ul>
+
+    	<div class="Personal_table">
+
+            <div class="wx_type">
+                <ul id='TabSelect'>
+                    <li class="selected" mediatype="14001">
+                        收益明细
+                        <i class="greyBg"></i>
+                    </li>
+                    <li mediatype="14003">
+                        提现明细
+                        <i class="greyDarkBg"></i>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="accountOption">
+                <li>收益时间：<input type="text" class="laydate-icon" id='StartDate'> 至
+                              <input type="text" class="laydate-icon" id='EndDate'>
+                </li>
+                <li>收益类型：
+                    <select name="" id="OrderType">
+                        <option value="-2">全部</option>
+                        <option value="103001">任务收益</option>
+                        <option value="103003">签到收益</option>
+                        <option value="103002">邀请好友收益</option>
+                    </select>
+                </li>
+                <li style='display: none;'>支付状态：
+                    <select name="" id="PayType"></select>
+                </li>
+
+                <li><a href="javascript:;" class="but_global btn_price" id='searchBtn'>查询</a></li>
+            </ul>
+            <span class="extension" style="cursor: initial;">累计收入金额：<span class='TotalMoney'>0</span>元</span>
+
+            <div class="main_table" style='margin-top: 50px;'>
+                
+            </div>
+            <!--分页-->
+            <div class="green-black" id="pageContainer"></div>
+    	</div>
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+
+
+<!-- 基本信息 -->
+<script type="text/template" id="get-income">
+    <li>
+        账户余额
+        <strong class="blue font16"><%= removePoint0(formatMoney(CanWithdrawalsMoney,2,''),2)%></strong>元
+        <a href="javascript:;" class="btn_price save_info" id='Withdrawals'>提现</a>
+        <div class="person_info fr">
+            <span class="">
+                <img src="/images/icon17.png" class="forPhone">手机绑定…
+            </span>
+            <span class="">
+                <img src="/images/icon17.png" class="forPay">支付宝…
+            </span>
+            <span class="">
+                <img src="/images/icon17.png" class="forAuth">认证信息…
+            </span>
+        </div>
+    </li>
+
+    <li>
+        <p>累计收益 <strong class="blue font16"><%= removePoint0(formatMoney(EarningsPrice,2,''),2)%></strong>元</p>
+    </li>
+    <li>
+        <p>已提现 <strong class="pink font16"><%= removePoint0(formatMoney(AlreadyWithdrawalsMoney,2,''),2)%></strong>元</p>
+    </li>
+    <li>
+        <p>提现中 <strong class="blue font16"><%= removePoint0(formatMoney(WithdrawalsMoneyIng,2,''),2)%></strong>元</p>
+    </li>
+</script>
+
+
+<!-- 现收入明细 -->
+<script type="text/template" id="personal-order0">
+    <table border="0" cellspacing="1" cellpadding="0">
+        <thead>
+            <tr>
+                <th style='width: 20%;'>日期</th>
+                <th style='width: 80%;' colspan="3">收益详情</th>
+            </tr>
+        </thead>
+        <tbody class="list-table">
+            <% List.forEach(function(item){%>
+                <tr>
+                    <td><%= item.IncomeTime %></td>
+                    <td><%= item.CategoryName %></td>
+                    <td><%= item.DetailDescription %></td>
+                    <td>
+                        <span class="red"><%= item.IncomePrice %></span>元
+                        <%if(item.ClickCount){%>
+                            （点击次数：<%= item.ClickCount%>）
+                        <%}%>
+                    </td>
+                </tr>
+            <%}) %>
+        </tbody>                  
+    </table>
+    <div class="listLoading"></div>
+</script>
+
+<!-- 提现明细 -->
+<script type="text/template" id="personal-order1">
+    <table border="0" cellspacing="1" cellpadding="0">
+        <thead>
+            <tr>
+                <th style='width: 10%;'>提现ID</th>
+                <th style='width: 15%;'>申请时间</th>
+                <th style='width: 10%;'>提现金额</th>
+                <th style='width: 10%;'>代扣个税</th>
+                <th style='width: 10%;'>实付</th>
+                <th style='width: 20%;'>收款账号</th>
+                <th style='width: 10%;'>支付状态</th>
+                <th style='width: 15%;'>支付时间</th>
+            </tr>
+        </thead>
+        <tbody class="list-table">
+            <% List.forEach(function(item){%>
+                <tr>
+                    <td><%= item.RecId %></td>
+                    <td><%= item.ApplicationDate %></td>
+                    <td>
+                        <%= removePoint0(formatMoney(item.WithdrawalsPrice,2,''),2)%>元
+                    </td>
+                    <td>
+                        <%= removePoint0(formatMoney(item.IndividualTaxPeice,2,''),2)%>元
+                    </td>
+                    <td>
+                        <%= removePoint0(formatMoney(item.PracticalPrice,2,''),2)%>元
+                    </td>
+                    <td><%= item.PayeeAccount %></td>
+                    <td><%= item.PayStatusName %></td>
+                    <td><%= item.PayDate?item.PayDate:'--' %></td>
+                </tr>
+            <%}) %>
+        </tbody>                  
+    </table>
+    <div class="listLoading"></div>
+</script>
+<!-- 原收入明细 -->
+<script type="text/template" id="personal-order3">
+    <table border="0" cellspacing="1" cellpadding="0">
+        <thead>
+            <tr>
+                <th style='width: 10%;'>订单类型</th>
+                <th style='width: 10%;'>订单ID</th>
+                <th style='width: 20%;'>订单名称</th>
+                <th style='width: 10%;'>订单收入</th>
+                <th style='width: 10%;'>收入时间</th>
+            </tr>
+        </thead>
+        <tbody class="list-table">
+            <% List.forEach(function(item){%>
+                <tr>
+                    <td><%= item.OrderTypeName %></td>
+                    <td><%= item.OrderId %></td>
+                    <td><%= item.OrderName %></td>
+                    <td><%= item.TotalAmount %>元</td>
+                    <td><%= item.IncomeTime.substr(0,10) %></td>
+                </tr>
+            <%}) %>
+        </tbody>                  
+    </table>
+    <div class="listLoading"></div>
+</script>
+</body>
+</html>

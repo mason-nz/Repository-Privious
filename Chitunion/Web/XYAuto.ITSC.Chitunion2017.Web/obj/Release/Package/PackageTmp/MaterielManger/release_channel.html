@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src='js/ReleaseChannel.js'></script>
+    <style type="text/css">
+        .main_message  li{
+            width:24%;
+            float: left;
+            line-height: 35px;
+            height: 35px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ins_a{
+            width: 94px;
+        }
+        .install_box ul{
+            margin-bottom:0px;
+        }
+        .install_box input{
+            margin-right: 5px;
+        }
+        .adposition_table select{
+            height: 28px;
+        }
+    </style>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <!-- <div class="list_box"> -->
+                <div class="install">
+                    <h2>物料管理</h2>
+                    <div class="install_box">
+                        <ul style="padding-left: 24px;" class="main_message">                
+                            <li>物料ID：<span class="ThirdMaterielId"></span></li>
+                            <li>物料名称：<span class="MaterieName"></span></li>
+                            <li>文章来源：<span class="MaterieSource"></span></li>
+                            <li>关联车型：<span class="SerialName"></span></li>
+                            <div class="clear"></div>
+                        </ul> 
+                        <ul>
+                            <li class="ins_a"><span class="red f12">*</span> 费用类型：</li>
+                            <li><input type="radio" name="CostType" checked="checked" value="71001"><span>收费</span></li>
+                            <li><input type="radio" name="CostType" value="71002"><span>免费</span></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <div class="collect_feeds">
+                            <ul>
+                                <li class="ins_a"><span class="red f12">*</span> 付费模式：</li>
+                                <li><input type="radio" name="PayType" checked="checked" value="72001"><span>CPM</span></li>
+                                <li><input type="radio" name="PayType" value="72002"><span>CPC</span></li>
+                                <li><input type="radio" name="PayType" value="72003"><span>CPL</span></li>
+                                <div class="clear"></div>
+                            </ul>
+                            <ul class="unite">
+                                <li class="ins_a"><span class="red f12">*</span> 单位成本：</li>
+                                <li><input type="text" name='UnitCost' style="width:100px;height:22px" maxlength="8"> 元</li>
+                                <li class="grey" class="channel_info" style="display:none;color:red;font-size:12px">单位成本不能为空</li>
+                                <div class="clear"></div>
+                                <li class="grey" style="font-size:12px;margin-left:102px;line-height: 22px;">单位成本为大于0的数字(小数点后保留两位）</li> 
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                        <ul>
+                            <li class="ins_a"><span class="red f12">*</span> 渠道类型：</li>
+                            <li><input type="radio" name="ChannelType" checked="checked" value="73001"><span>众包</span></li>
+                            <li><input type="radio" name="ChannelType" value="73002"><span>UGC</span></li>
+                            <li><input type="radio" name="ChannelType" value="73003"><span>媒体节点</span></li>
+                            <li><input type="radio" name="ChannelType" value="73004"><span>其它</span></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <ul>
+                            <li class="ins_a"><span class="red f12">*</span> 媒体：</li>
+                            <li><input type="radio" name="MetiaType" value="微信" checked="checked"><span>微信</span></li>
+                            <li><input type="radio" name="MetiaType" value="微博"><span>微博</span></li>
+                            <li><input type="radio" name="MetiaType" value="直播"><span>直播</span></li>
+                            <li><input type="radio" name="MetiaType" value="视频"><span>视频</span></li>
+                            <li><input type="radio" name="MetiaType" value="其它"><span>其它</span></li>
+                            <div class="clear"></div>
+                        </ul>
+
+                        <div class="metia_condition">
+                            <ul style="display: none" class="media_type">
+                                <li class="ins_a"><span class="red f12">*</span> 类型：</li>
+                                <li><input type="text" name='OtherType' style="width:180px;height:22px" maxlength="10"></li>
+                                <li class="grey" class="channel_info" style="display:none;color:red;font-size:12px">类型格式不正确</li>                               
+                                <div class="clear"></div>
+                            </ul>
+                            <ul>
+                                <li class="ins_a"><span class="red f12">*</span> 账号：</li>
+                                <li><textarea  class="account_number" cols="50" rows="3" placeholder="可填写多个账号，各账号之间用中文的分号分割开" maxlength="5000"></textarea></li> 
+                                <li class="grey" class="channel_info" style="display:none;color:red;font-size:12px">账号不能为空</li>
+                                <div class="clear"></div>
+                                <li class="grey" style="font-size:12px;margin-left:102px;line-height: 22px;margin-top: -6px;">示例：yingtaoxiaowanzi | 樱桃小丸子 （注：同一媒体类型下的账号不能重复）</li>                             
+                                <div class="clear"></div>
+                            </ul>
+                            <ul>
+                                <li class="ins_a">&nbsp</li>
+                                <li><a href="javascript:void(0);" class="but_data" style="width:70px;height: 16px;line-height: 16px;border: solid #FF4E4B 1px;background: #fff;color:#FF4E4B" id='add_button'>添加</a></li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+
+                        <div class="ad_table adposition_table" style="margin-left: -4px;margin-top: 20px;display: none">
+                            <table width="80%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                                <thead>
+                                    <tr><th width="12%">媒体类型</th>
+                                    <th width="28%">名称</th>
+                                    <th width="12%">渠道类型</th>
+                                    <th width="12%">费用类型</th>
+                                    <th width="12%">付费模式</th>
+                                    <th width="12%">单位成本</th>
+                                    <th width="12%">操作</th></tr>
+                                </thead>
+                                <tbody class="get_tab">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mb10 PromoCode" style="margin-left:106px;display: none;margin-top: 40px;">
+                            <a href="javascript:void(0);" class="but_data" style="width:140px;" id="PromoCode">保存</a>
+                        </div>
+                    </div>                            
+                </div>
+            <!-- </div> -->
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+</body>
+
+
+<!-- 列表模板 -->
+<script type="text/template" id="orderInfo">
+    
+    <% data.forEach(function(item){%>
+        <tr MediaTypeName='<%= item.MediaTypeName %>' MediaNumber='<%= item.MediaNumber %>' MediaName='<%= item.MediaName %>' ChannelType='<%= item.ChannelType %>'  ChannelType_text='<%= item.ChannelType_text %>' PayType='<%= item.PayType %>' PayType_text='<%= item.PayType_text %>'  PayMode='<%= item.PayMode %>'  PayMode_text='<%= item.PayMode_text %>' UnitCost='<%= item.UnitCost %>'   ChannelType1='<%= item.ChannelType1 %>'  ChannelType_text1='<%= item.ChannelType_text1 %>' PayType1='<%= item.PayType1 %>' PayType_text1='<%= item.PayType_text1 %>'  PayMode1='<%= item.PayMode1 %>'  PayMode_text1='<%= item.PayMode_text1 %>' UnitCost1='<%= item.UnitCost1 %>'>
+            <td>
+                <span><%= item.MediaTypeName %></span>
+            </td>
+            <td>
+                <span><%= item.MediaNumber %> | <% if(item.MediaName && item.MediaName != 'null'){%> <%= item.MediaName %> <%}  %> </span>
+            </td>
+            <td>
+                <span class="init"><%= item.ChannelType_text %></span>
+                <select name="ChannelType" class="begin_edit" style="width: 50px;">
+                    <option value="73001">众包</option>
+                    <option value="73002">UGC</option>
+                    <option value="73003">媒体节点</option>
+                    <option value="73004">其它</option>
+                </select>
+            </td>
+            <td>
+                <span class="init"><%= item.PayType_text %></span>
+                <select name="PayType" class="begin_edit">
+                    <option value="71001">收费</option>
+                    <option value="71002">免费</option>
+                </select>
+            </td>
+            <td>
+                <% if(item.PayType == 71001){%>
+                <span class="init PayMode"><%= item.PayMode_text %></span>
+                <%}else{%>
+                <span class="init PayMode" style="display: none"><%= item.PayMode_text %></span>
+                <%} %>
+                <select name="PayMode" class="begin_edit">
+                    <option value="72001">CPM</option>
+                    <option value="72002">CPC</option>
+                    <option value="72003">CPL</option>
+                </select>
+            </td>
+            <td>
+                <% if(item.PayType == 71001){%>
+                <span class="init UnitCost"><%= item.UnitCost %></span>
+                <%}else{%>
+                <span class="init UnitCost" style="display: none"><%= item.UnitCost %></span>
+                <%} %>
+                <input type="text" name='UnitCost' value='<%= item.UnitCost %>'  class="begin_edit" style="width:64px;height:28px" maxlength="8">
+            </td>
+            <td>
+                <a href="javascript:;" class="edit">编辑</a>
+                <a href="javascript:;" class="delete">删除</a>
+                <a href="javascript:;" class="update" style="display: none">更新</a>
+                <a href="javascript:;" class="cancel" style="display: none">取消</a>
+            </td>
+        </tr>
+    <%}) %>
+
+</script>
+
+</html>

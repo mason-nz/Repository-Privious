@@ -1,0 +1,128 @@
+2018-05-23 20:27:48,943 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:48
+已于 2018/5/23 20:27:48 +08:00
+ 打开了连接
+2018-05-23 20:27:48,956 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:48
+
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.AccountArticle','dbo.ADDetailInfo','dbo.ADOrderCityExtend','dbo.ADOrderInfo','dbo.ADOrderInfoExtend','dbo.ADOrderOperateInfo','dbo.ADScheduleInfo','dbo.App_AdTemplate','dbo.App_AdTemplateStyle','dbo.App_Device','dbo.AppPriceInfo','dbo.AreaInfo','dbo.Article_Weixin','dbo.AuditInfo','dbo.AuthorizeLogin_Token','dbo.BusinessLine','dbo.Car_Brand','dbo.Car_Serial','dbo.CartInfo','dbo.CartScheduleInfo','dbo.ChannelCost','dbo.ChannelCostDetail','dbo.ChannelInfo','dbo.ChannelPolicy','dbo.DepartMent','dbo.DictInfo','dbo.DictScene','dbo.District','dbo.DomainInfo','dbo.Fans_Weixin','dbo.GDT_AccessToken','dbo.GDT_AccountBalance','dbo.GDT_AccountInfo','dbo.GDT_AccountRelation','dbo.GDT_AdGroup','dbo.GDT_Ads','dbo.GDT_Campaign','dbo.GDT_DailyRrport','dbo.GDT_Demand','dbo.GDT_DemandRelation','dbo.GDT_HourlyRrport','dbo.GDT_HourlyRrportForZHY','dbo.GDT_RealtimeCost','dbo.GDT_RechargeRelation','dbo.GDT_RechargeStatementRelation','dbo.GDT_RoleUser','dbo.GDT_StatementDaily','dbo.GDT_StatementsDetailed','dbo.GDT_UserOrganize','dbo.HolidaysInfo','dbo.Home_Category','dbo.Home_Media','dbo.Interaction_Broadcast','dbo.Interaction_Video','dbo.Interaction_Weibo','dbo.Interaction_Weixin','dbo.IPLimitList','dbo.IPTitleInfo','dbo.LB_ArticleInfo','dbo.LB_IPSubLabel','dbo.LB_Project','dbo.LB_ReceiveAuditLable','dbo.LB_SonIPLabel','dbo.LB_Task','dbo.LB_TaskAssign','dbo.LB_TaskAudit_IPSubLabel','dbo.LB_TaskAudit_SonIPLabel','dbo.LB_TaskAuditPassed','dbo.LB_TaskLabel','dbo.LB_TaskOperateInfo','dbo.LE_AccountBalance','dbo.LE_ADOrderInfo','dbo.LE_APP','dbo.LE_APP_Repea','dbo.LE_APP_Temp','dbo.LE_Area_Promotion','dbo.LE_Car_Promotion','dbo.LE_CartInfo','dbo.LE_ChannelStatMonthRelation','dbo.LE_chitu_blackip_stat','dbo.LE_ContentDistribute','dbo.LE_DaySign','dbo.LE_DisbursementPay','dbo.LE_WithdrawalsDetail','dbo.LE_Feedback','dbo.LE_Generalize_OperationLog','dbo.LE_IncomeDetail','dbo.LE_IncomeStatisticsCategory','dbo.LE_InviteRecord','dbo.LE_IP_Blacklist','dbo.LE_IP_StatisticsDetail','dbo.LE_MediaArea_Mapping','dbo.LE_MediaPromotion','dbo.LE_PromotionChannel_Dict','dbo.LE_PublishDetailInfo','dbo.LE_PublishDetailInfo_Repea','dbo.LE_ShareDetail','dbo.LE_SmartSearch','dbo.LE_SmartSearchMapping','dbo.LE_TaskInfo','dbo.LE_User_Blacklist','dbo.LE_UserBankAccount','dbo.LE_UserDetailInfo','dbo.LE_UserInfo','dbo.LE_Weibo','dbo.LE_Weibo_Repea','dbo.LE_Weixin','dbo.LE_Weixin_Repea','dbo.LE_WeiXinUser','dbo.LE_WeiXinVisvit_Log','dbo.LE_WithdrawalsStatistics','dbo.LE_WXUserScene','dbo.LogInfo','dbo.MaterielChannel','dbo.MaterielChannelData','dbo.MaterielExtend','dbo.MaterielExtendFoot','dbo.Media_Area_Mapping','dbo.Media_Area_Mapping_Basic','dbo.Media_BasePCAPP','dbo.Media_Broadcast','dbo.Media_CollectionBlacklist','dbo.Media_CommonlyClass','dbo.Media_FansArea','dbo.Media_PCAPP','dbo.Media_Qualification','dbo.Media_Remark_Basic','dbo.Media_SouHu','dbo.Media_TouTiao','dbo.Media_Video','dbo.Media_Weibo','dbo.Media_Weixin','dbo.MediaCategory','dbo.MediaOrderInfo','dbo.ModuleInfo','dbo.Msg_ActiveUser','dbo.Msg_Classify','dbo.Msg_InteractiveEvent','dbo.Msg_Master','dbo.Msg_SendLog','dbo.Msg_SendRecord','dbo.Msg_SendScope','dbo.newLB_TaskAssign','dbo.Notice','dbo.OAuth_Detail','dbo.OAuth_History','dbo.OrderFeedbackData_File','dbo.OrderFeedbackData_Live','dbo.OrderFeedbackData_PC','dbo.OrderFeedbackData_Video','dbo.OrderFeedbackData_Weibo','dbo.OrderFeedbackData_Weixin','dbo.PubDeatil_ImgInfo','dbo.Publish_BasicInfo','dbo.Publish_DetailInfo','dbo.Publish_ExtendInfoPCAPP','dbo.Publish_FileInfo','dbo.Publish_Remark','dbo.PublishAuditInfo','dbo.ReadStatistic_Weixin','dbo.RoleInfo','dbo.RoleModule','dbo.SaleAreaInfo','dbo.SaleAreaRelation','dbo.Stat_WeixinRank_List','dbo.SubADInfo','dbo.sysdiagrams','dbo.SysInfo','dbo.SysOperationLog','dbo.TaskScheduler_User','dbo.Title_Car_Mapping','dbo.Title_Media_Mapping','dbo.TitleBasicInfo','dbo.tmp_order','dbo.tmptb','dbo.TwoBarCodeHistory','dbo.UpdateStatistic_Weixin','dbo.UploadFileInfo','dbo.UserActionLog','dbo.UserBroker','dbo.UserDetailInfo','dbo.UserInfo','dbo.UserLockInfo','dbo.UserLoginInfo','dbo.UserRole','dbo.WeChat_Case','dbo.WeChatAuditInfo','dbo.WeChatOperateMsg','dbo.Weixin_Component','dbo.Weixin_OAuth','dbo.WxGroupRanking','dbo.WxHistoryStatus','dbo.WxMaterial_Article','dbo.WxMaterial_ArticleGroup','dbo.WxMaterial_ArticleTemplate','dbo.WxPictureMaterial','dbo.WxStaticHitory','dbo.v_AppADList','dbo.v_RankList','dbo.v_UserInfo')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2018-05-23 20:27:48,967 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:48
+
+
+2018-05-23 20:27:48,980 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:48
+-- 正在 2018/5/23 20:27:48 +08:00
+ 执行
+2018-05-23 20:27:49,003 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+-- 已在 11 毫秒内完成，结果为: 178
+
+2018-05-23 20:27:49,015 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+
+
+2018-05-23 20:27:49,029 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+已于 2018/5/23 20:27:49 +08:00
+ 关闭了连接
+2018-05-23 20:27:49,048 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+已于 2018/5/23 20:27:49 +08:00
+ 打开了连接
+2018-05-23 20:27:49,915 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2018-05-23 20:27:49,927 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+
+
+2018-05-23 20:27:49,940 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+-- p__linq__0: 'XYAuto.ChiTu2018.DAO.Chitunion2017DbContext' (Type = String, Size = 4000)
+
+2018-05-23 20:27:49,951 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+-- 正在 2018/5/23 20:27:49 +08:00
+ 执行
+2018-05-23 20:27:49,964 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+-- 已在 2 毫秒内失败，错误为: 对象名 'dbo.__MigrationHistory' 无效。
+
+2018-05-23 20:27:49,976 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+
+
+2018-05-23 20:27:49,987 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+已于 2018/5/23 20:27:49 +08:00
+ 关闭了连接
+2018-05-23 20:27:49,999 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:49
+已于 2018/5/23 20:27:49 +08:00
+ 打开了连接
+2018-05-23 20:27:50,010 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+    )  AS [GroupBy1]
+2018-05-23 20:27:50,020 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+
+
+2018-05-23 20:27:50,031 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+-- 正在 2018/5/23 20:27:50 +08:00
+ 执行
+2018-05-23 20:27:50,046 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+-- 已在 3 毫秒内失败，错误为: 对象名 'dbo.__MigrationHistory' 无效。
+
+2018-05-23 20:27:50,058 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+
+
+2018-05-23 20:27:50,069 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+已于 2018/5/23 20:27:50 +08:00
+ 关闭了连接
+2018-05-23 20:27:50,082 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+已于 2018/5/23 20:27:50 +08:00
+ 打开了连接
+2018-05-23 20:27:50,451 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+SELECT TOP (1) 
+    [Extent1].[WeiXinUserID] AS [WeiXinUserID], 
+    [Extent1].[AdvertiserUserId] AS [AdvertiserUserId], 
+    [Extent1].[subscribe] AS [subscribe], 
+    [Extent1].[openid] AS [openid], 
+    [Extent1].[nickname] AS [nickname], 
+    [Extent1].[sex] AS [sex], 
+    [Extent1].[city] AS [city], 
+    [Extent1].[country] AS [country], 
+    [Extent1].[province] AS [province], 
+    [Extent1].[language] AS [language], 
+    [Extent1].[headimgurl] AS [headimgurl], 
+    [Extent1].[subscribe_time] AS [subscribe_time], 
+    [Extent1].[unionid] AS [unionid], 
+    [Extent1].[remark] AS [remark], 
+    [Extent1].[groupid] AS [groupid], 
+    [Extent1].[tagid_list] AS [tagid_list], 
+    [Extent1].[UserID] AS [UserID], 
+    [Extent1].[CreateTime] AS [CreateTime], 
+    [Extent1].[LastUpdateTime] AS [LastUpdateTime], 
+    [Extent1].[AuthorizeTime] AS [AuthorizeTime], 
+    [Extent1].[QRcode] AS [QRcode], 
+    [Extent1].[Inviter] AS [Inviter], 
+    [Extent1].[InvitationQR] AS [InvitationQR], 
+    [Extent1].[Status] AS [Status], 
+    [Extent1].[Source] AS [Source]
+    FROM [dbo].[LE_WeiXinUser] AS [Extent1]
+    WHERE ([Extent1].[openid] = @p__linq__0) OR (([Extent1].[openid] IS NULL) AND (@p__linq__0 IS NULL))
+2018-05-23 20:27:50,463 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+
+
+2018-05-23 20:27:50,476 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+-- p__linq__0: 'null' (Type = String, Size = 4000)
+
+2018-05-23 20:27:50,485 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+-- 正在 2018/5/23 20:27:50 +08:00
+ 执行
+2018-05-23 20:27:50,498 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+-- 已在 2 毫秒内完成，结果为: ProfiledDataReader
+
+2018-05-23 20:27:50,508 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+
+
+2018-05-23 20:27:50,517 [11] INFO  DBLog [(null)] - 2018/5/23 20:27:50
+已于 2018/5/23 20:27:50 +08:00
+ 关闭了连接

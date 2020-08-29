@@ -1,0 +1,73 @@
+<style>
+    .release_app {
+        display: inline-block;
+        padding: 5px 30px;
+        margin: 5px auto 0;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #E9E9E9;
+        color: #fff;
+        background-color: #FF9100;
+        cursor:pointer;
+    }
+    .release_app:hover {
+        -webkit-box-shadow: 0 0 10px #ccc;
+        -moz-box-shadow: 0 0 10px #ccc;
+        box-shadow: 0 0 10px #ccc;
+    }
+</style>
+<div style="background-color: #f7f7f7; padding: 5px 10px; border: 1px solid #888; border-radius: 8px">
+    <div><h3 style="float: left;">&nbsp;&nbsp;预览</h3><span style="cursor:pointer;float: right; color: blue; margin-right: 10px" id="z_Close">关闭</span></div>
+    <div style="clear: both"></div>
+    <!--APP-->
+    <div class="app" style="margin: 10px auto 0 auto;">
+        <div class="app_title"><h2>APP</h2></div>
+        <div class="app_more"><a href="javascript:void(0)" style="outline:none;">更多推荐></a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="app_nr">
+        <div class="app_box">
+
+        </div>
+    </div>
+    <div style="text-align: center">
+        <span class="release_app">发布</span>
+    </div>
+    <!--APP-->
+    <!-- app渲染 -->
+    <script type="text/template" id="app_list">
+        <%if(data.length!=0){%>
+        <%if(data.length>4){data.length=4}%>
+        <% for(var i = 0; i < data.length; i++) {%>
+        <% if(i < 3) {%>
+        <div class="content">
+            <% }else {%>
+            <div class="content" style="margin-right: 0">
+                <%}%>
+                <div class="hope">
+                    <%if(data[i].HeadIconURL==""){%>
+                    <div class="logo"><img src="images/default_touxiang.png"></div>
+                    <%}else{%>
+                    <div class="logo"><img src=<%=data[i].HeadIconURL%> ></div>
+                    <%}%>
+                    <h2><%= data[i].Name %></h2>
+                    <p><%= data[i].AdPosition %></p>
+                    <p><%=data[i].AdForm%></p>
+                    <!--<%if(!(data[i].Style)){%>
+                    <p style="height: 19px"></p>
+                    <%}else{%>
+                    <%}%>
+                    <%if(data[i].DailyExposureCount==0){%>
+                    <p style="height: 0px"></p>
+                    <%}else{%>
+                    <%}%>-->
+                </div>
+                <div class="offer"><a href="javascript:void(0)">查看报价</a></div>
+            </div>
+            <%}%>
+            <%}else{%>
+            <img src="/images/no_data.png" style="margin: 0 auto;display:block;padding: 35px 0">
+            <%}%>
+            <div class="clear"></div>
+    </script>
+</div>

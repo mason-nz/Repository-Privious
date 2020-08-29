@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A97814E1-5A34-492E-848E-4B30FF090354}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ChiTu2018.Service</RootNamespace>
+    <AssemblyName>XYAuto.ChiTu2018.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Senparc.Weixin">
+      <HintPath>..\..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP">
+      <HintPath>..\..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XYAuto.CTUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\XYAuto.CTUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Article.cs" />
+    <Compile Include="BaseDto\PaginationDto.cs" />
+    <Compile Include="LE\LeWithdrawalsDetailService.cs" />
+    <Compile Include="LE\LeWithdrawalsStatisticsService.cs" />
+    <Compile Include="LE\Provider\Dto\Request\Withdrawals\ReqWithdrawalsDto.cs" />
+    <Compile Include="LE\Provider\Dto\Response\Withdrawals\RespIncomeInfoDto.cs" />
+    <Compile Include="LE\Provider\Dto\Response\Withdrawals\RespWithdrawalsAuditDetailDto.cs" />
+    <Compile Include="LE\Provider\Dto\Response\Withdrawals\RespWithdrawalsInfoDto.cs" />
+    <Compile Include="LE\Provider\Dto\Response\Withdrawals\RespWithdrawalsPriceClc.cs" />
+    <Compile Include="LE\Provider\WxWithdrawalsProvider.cs" />
+    <Compile Include="LE\Query\Dto\BaseResponseEntity.cs" />
+    <Compile Include="LE\Query\Dto\BaseRequestQueryEntity.cs" />
+    <Compile Include="LE\Query\Dto\Request\ReqInComeDto.cs" />
+    <Compile Include="LE\Query\Dto\Request\ReqQueryWithdrawalsDto.cs" />
+    <Compile Include="LE\Query\Dto\Response\RespWithdrawalsDto.cs" />
+    <Compile Include="LE\VerifyEntity\VerifyResultCode.cs" />
+    <Compile Include="LuckDrawActivity\LuckDrawService.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="OAuth2\Dto\WeiXinUserDto.cs" />
+    <Compile Include="OAuth2\OAuth2Service.cs" />
+    <Compile Include="OptionBootStarp.cs" />
+    <Compile Include="OptionBootStarpManage.cs" />
+    <Compile Include="Profit\Dto\ProfitModelDto.cs" />
+    <Compile Include="Profit\Dto\ProfitQueryDto.cs" />
+    <Compile Include="Profit\ProfitService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task\Dto\GetDataByPage\ReqDto.cs" />
+    <Compile Include="Task\Dto\GetOrderByStatus\ReqDto.cs" />
+    <Compile Include="Task\Dto\GetOrderByStatus\ResDto.cs" />
+    <Compile Include="Task\Dto\GetOrderInfo\ResDto.cs" />
+    <Compile Include="Task\Dto\GetOrderInfo\ResTotalAccountBalanceDto.cs" />
+    <Compile Include="Task\Dto\GetOrderUrl\ResDto.cs" />
+    <Compile Include="Task\Dto\GetShareOrderInfo\ResDto.cs" />
+    <Compile Include="Task\Dto\GetUnionAndUserId\ResDto.cs" />
+    <Compile Include="Task\Dto\GetUserSceneByUserId\ResDto.cs" />
+    <Compile Include="Task\Dto\SubmitOrderUrl\ReqDto.cs" />
+    <Compile Include="Task\Dto\SubmitOrderUrl\ResReceiveByWxDto.cs" />
+    <Compile Include="Task\Dto\TaskResDto.cs" />
+    <Compile Include="Task\Dto\UpdateUserScene\ReqDto.cs" />
+    <Compile Include="Task\Enum.cs" />
+    <Compile Include="Task\LeTaskInfoService.cs" />
+    <Compile Include="ThirdApi\Config\AppPostThirdApiConfigSection.cs" />
+    <Compile Include="ThirdApi\Dto\Request\ReqPostWithdrawalsClickDto.cs" />
+    <Compile Include="ThirdApi\Dto\Request\ReqPostWithdrawlsDto.cs" />
+    <Compile Include="ThirdApi\Dto\Request\ReqPostWxUserOperationDto.cs" />
+    <Compile Include="ThirdApi\Dto\Request\ReqTaskReceiveDto.cs" />
+    <Compile Include="ThirdApi\Dto\Response\RespUserOpeationDto.cs" />
+    <Compile Include="ThirdApi\Dto\Response\RespChituBaseDto.cs" />
+    <Compile Include="ThirdApi\WithdrawalsClient.cs" />
+    <Compile Include="ThirdApi\WxUserClient.cs" />
+    <Compile Include="ThirdService\CarUserService.cs" />
+    <Compile Include="UserBankAccount\Dto\ReqPayInfoDto.cs" />
+    <Compile Include="UserBankAccount\Dto\ReqVerifPayInfoDto.cs" />
+    <Compile Include="UserBankAccount\UserBankAccountService.cs" />
+    <Compile Include="User\Dto\ReqMobileInfoDto.cs" />
+    <Compile Include="User\UserInfoService.cs" />
+    <Compile Include="User\UserManageService.cs" />
+    <Compile Include="Wechat\Dto\ReqInviteRecIdDto.cs" />
+    <Compile Include="Wechat\Dto\ReqKeyValueDto.cs" />
+    <Compile Include="Wechat\Dto\RespLeDaySignDto.cs" />
+    <Compile Include="Wechat\Dto\SignReqDto.cs" />
+    <Compile Include="Wechat\LeInviteRecordService.cs" />
+    <Compile Include="Wechat\Dto\RespWeChatSignDto.cs" />
+    <Compile Include="Wechat\Dto\LeDaySignDto.cs" />
+    <Compile Include="Wechat\LEWeiXinUserService.cs" />
+    <Compile Include="Wechat\LeWeiXinVisvitLogService.cs" />
+    <Compile Include="Wechat\WechatSignService.cs" />
+    <Compile Include="WeixinJSSDK\Dto\GetInvitationMediaId\ReqDto.cs" />
+    <Compile Include="WeixinJSSDK\Dto\GetInvitationMediaId\ResDto.cs" />
+    <Compile Include="WeixinJSSDK\WeixinJSSDKService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.BO\XYAuto.ChiTu2018.BO.csproj">
+      <Project>{D4073898-E4D0-4931-A1E9-5C454737AC9F}</Project>
+      <Name>XYAuto.ChiTu2018.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.Entities\XYAuto.ChiTu2018.Entities.csproj">
+      <Project>{4d08e097-daa0-4a36-9a9f-33156cd82fea}</Project>
+      <Name>XYAuto.ChiTu2018.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.Infrastructure\XYAuto.ChiTu2018.Infrastructure.csproj">
+      <Project>{4a61c0a1-bfa5-4057-80ec-58939ffbb8ef}</Project>
+      <Name>XYAuto.ChiTu2018.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CarEncyclopedia\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

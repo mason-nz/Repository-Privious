@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>注册-赤兔联盟</title>
+    <meta http-equiv="keywords" content="赤免联盟,注册" />
+    <meta http-equiv="description" content="赤兔联盟,注册,微播易,新榜,蜂传,疯传,Robin8" />
+    <meta name="keywords" content="赤免联盟,注册" />
+    <meta name="description" content="赤兔联盟,注册,微播易,新榜,蜂传,疯传,Robin8" />
+
+    <link rel="stylesheet" href="/css/common.css" />
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/tab.js"></script>
+    <script type="text/javascript" src="/js/gt.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script>
+        //百度统计代码
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?25a4fec22e854c0ec742ae03e3036fc7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body style='background: #fff;' onkeydown="RegisterHelper.KeyDown(event);">
+    <!-- 头部 -->
+    <div class="topBar" style='margin-top:0;'>
+        <div class="topBox" style="width: 1200px;">
+            <a href="/index.html" class="topLogo"></a>
+            <span class="fl come" style='margin-left: 60px;'>欢迎注册</span>
+            <span class="fr come">已有账号？<a href="/Login.aspx" style='color:#fff;'>请登录</a> </span>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--中间内容-->
+    <div class="register">
+        <ul class="menu">
+            <li class="active"  category='29001'>广告主</li>
+            <li category='29002' >媒体主</li>
+        </ul>
+        <h2 class="line1"></h2>
+        <div class="advertiser item_register">
+            <ul>
+                <li class="hra">用户名：</li>
+                <li class="hr_right">
+                    <input id="txtGGZUserName" name="userName" type="text" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29001);" placeholder="请输入用户名" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">密码：</li>
+                <li class="hr_right">
+                    <input id="txtGGZPwd" type="password" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29001);" placeholder="请输入密码（密码长度应为6〜20位字符）" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">确认密码：</li>
+                <li class="hr_right">
+                    <input id="txtGGZPwdConfirm" type="password" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29001);" placeholder="请再次输入密码" autocomplete="off"><span>
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+
+            <ul>
+                <li class="hra">手机号：</li>
+                <li class="hr_right">
+                    <input id="txtGGZMobile" type="text" maxlength="11" onkeyup="value = value.replace(/[^\d]/g, '')" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29001);" placeholder="请输入手机号" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">验证码：</li>
+                <li class="hr_right">
+                    <input id="txtGGZCheckCode" type="text" style="width:200px;" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29001);" placeholder="请输入验证码" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <li style='margin-left: 34px;'><img id="imgGGZ" src='/CheckCode.aspx' /></li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">手机验证码：</li>
+                <li class="hr_right">
+                    <input id="txtGGZMobileCheckCode"  maxlength="6" type="text" style="width:200px;" placeholder="请输入手机验证码" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <button id="btnGGZSendMobileMsg" class="obtain_no but_register" onclick="javascript: RegisterHelper.SendMobileMsg();">获取验证码</button>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+
+            <div class="bottom_btn">
+                <a href="javascript:void(0);" category='29001' class="but_register forward_msg">注 册</a>
+                <div class="mt10"><input id="chx_GGZReadme" type="checkbox" checked="checked" /> 我已阅读并同意 <a href="javascript:void(0);" class="blue TermsService">服务条款</a></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="media_owner item_register" style='display: none'>
+            <ul>
+                <li class="hra">用户名：</li>
+                <li class="hr_right">
+                    <input id="txtMTZUserName" name="userName" type="text" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29002);" placeholder="请输入用户名" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">密码：</li>
+                <li class="hr_right">
+                    <input id="txtMTZPwd" type="password" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29002);" placeholder="请输入密码（密码长度应为6〜20位字符）" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">确认密码：</li>
+                <li class="hr_right">
+                    <input id="txtMTZPwdConfirm" type="password" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29002);" placeholder="请再次输入密码" autocomplete="off"><span>
+                        <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+
+            <ul>
+                <li class="hra">手机号：</li>
+                <li class="hr_right">
+                    <input id="txtMTZMobile" type="text" maxlength="11" onkeyup="value = value.replace(/[^\d]/g, '')" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29002);" placeholder="请输入手机号" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">验证码：</li>
+                <li class="hr_right">
+                    <input id="txtMTZCheckCode" type="text" style="width:200px;" onblur="javascript: if (this.value != '') RegisterHelper.Verify(29002);" placeholder="请输入验证码" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <li style='margin-left: 34px;'><img id="imgMTZ" src='/CheckCode.aspx' /></li>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+            <ul>
+                <li class="hra">手机验证码：</li>
+                <li class="hr_right">
+                    <input id="txtMTZMobileCheckCode" maxlength="6" type="text" style="width:200px;" placeholder="请输入手机验证码" autocomplete="off">
+                    <img src='../images/registered_01.png' style='visibility: hidden;' />
+                </li>
+                <button id="btnMTZSendMobileMsg" class="obtain_no but_register" onclick="javascript:RegisterHelper.SendMobileMsg();">获取验证码</button>
+                <div class="clear"></div>
+            </ul>
+            <div class="notes">&nbsp;</div>
+
+            <div class="bottom_btn">
+                <a href="javascript:void(0);" category='29002' class="but_register forward_msg">注 册</a>
+                <div class="mt10"><input id="chx_MTZReadme" type="checkbox" checked="checked" /> 我已阅读并同意 <a href="javascript:void(0);" class="blue TermsService">服务条款</a></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="line2">&nbsp;</div>
+
+    <!--底部-->
+    <!--#include virtual="/base/footer2.html" -->
+</body>
+</html>

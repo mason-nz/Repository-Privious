@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>广告主个人中心</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src='/js/jquery.1.11.3.min.js'></script>
+    <script type="text/javascript" src="/api/check.ashx?NotCheckModule=true"></script> 
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src='/js/Common_chitu.js'></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src='./js/person-center.js'></script>
+</head>
+<body>    
+<!-- 顶部导航-->
+<!--#include virtual="/base/header.html" -->
+
+<!-- 主体部分 -->
+<div class="contaner_body">
+	<!--左侧菜单-->
+    <!--#include virtual="/base/Menu.html" -->
+
+    <div class="main_right">
+		<ul class="Personal_massage">
+			<li style='width: 25%;'>
+				<img src="/images/headImg.png" class="person_img">
+				<strong id='UserName'>芳芳</strong>
+				<a href="/manager/advertister/account/accountmanage.html" class="btn_price save_info">完善信息</a>
+			</li>
+			<li>
+				<p>推广计划 <strong class="blue" id='PromotionCount'>0</strong>个</p>
+			</li>
+		</ul>
+
+    	<div class="Personal_table" style='margin-top: 10px;'>
+            <div class="wx_type">
+                <ul id='TabSelect'>
+                    <li class="selected" mediatype="14001">
+                        智能搜索
+                        <i class="greyBg"></i>
+                    </li>
+                    <li mediatype="14003">
+                        内容分发
+                        <i class="greyDarkBg"></i>
+                    </li>
+                    <li mediatype="14002">
+                        媒体智投
+                        <i class="greyBg"></i>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <a href="javascript:;" class="more" id='more'>更多</a>
+            </div>
+            
+    		<table border="0" cellspacing="1" cellpadding="0">
+    			<thead>
+    				<tr>
+    					<th style='width: 10%;'>推广ID</th>
+    					<th style='width: 10%;'>推广名称</th>
+    					<th style='width: 20%;'>推广时间</th>
+    					<th style='width: 10%;'>推广预算</th>
+                        <th style='width: 10%;' class="Modele0 Modele">账号/媒体数量</th>
+                        <th style='width: 10%;' class="Modele1 Modele">计费模式</th>
+						<th style='width: 10%;'>创建时间</th>
+						<th style='width: 10%;'>状态</th>
+						<th style='width: 10%;'>操作</th>
+    				</tr>
+    			</thead>
+    			<tbody class="list-table"></tbody>    				
+    		</table>
+            <div id="listLoading"></div>
+    	</div>
+    </div>
+</div>
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+<script type="text/template" id="personal-order">
+    <% List.forEach(function(item){%>
+        <tr RecID='<%= item.RecID %>'>
+            <td><%= item.RecID %></td>                         
+            <td><p class="limitWidth"><%= item.Name %></p> </td>
+            <td><%= item.BeginTime.substr(0,10) %>至<%= item.EndTime.substr(0,10) %> </td>
+            <td><%= formatMoney(item.BudgetPrice,0,'') %>元</td>
+            <td class="Modele0 Modele"><%= item.MediaCount %></td>
+            <td class="Modele1 Modele"><%= formatMoney(item.BillingModeName,0,'') %>元</td> 
+            <td><%= item.CreateTime.substr(0,10) %></td>
+            <td><%= item.StatusName %></td>
+            <td>
+                <a href="javascript:;" class="goIntoDetail">查看</a>
+            </td>
+        </tr>
+    <%}) %>    
+</script>
+
+
+</body>
+</html>

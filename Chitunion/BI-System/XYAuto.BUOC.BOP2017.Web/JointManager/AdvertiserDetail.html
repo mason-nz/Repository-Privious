@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>客户管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <link rel="stylesheet" href="/css/StyleOfAdd.css">
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.jmpopups-0.5.1.pack.js" ></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="js/AdvertiserDetail.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <div class="install_box">
+                
+            </div>
+        </div>    
+    </div>
+</div>
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+
+<script type="text/template" id="Advertiser-detail">
+    <div class="customer_head">
+        <p>用户名：<%= UserName %></p>
+        <p>手机号：<%= Mobile %></p>
+        <p>公司名：<% if(CompanyName == null){%> 一 <%}else{%> <%= CompanyName %> <%} %></p>
+   
+        <p>需求个数：<%= Number %></p>
+        <p>所属运营：<% if(Operater == null){%> 一 <%}else{%> <%= Operater %> <%} %> </p>
+    </div>
+
+
+    <div class="customer_main">
+        <ul class="customer_first">
+            <li>广点通广告主ID：<% if(AccountId == 0){%> 一 <%}else{%> <%= AccountId %> <%} %></li>
+            <% if(CustomerName != null){%> 
+            <li style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">客户名称：<%= CustomerName %></li>
+            <%}else{%>
+            <li>客户名称：一</li>
+            <%} %>
+            <li class="operation_btn" style="text-align: right;">
+                <% if( AccountId == 0){%>
+                    <a href="javascript:;" Username="<%= UserName %>" Corporatename="<%= CompanyName %>" phone="<%= Mobile %>" UserId="<%= UserId %>" class="Accountbinding"><img src="/ImagesNew/icon绑定.png"><strong>绑定</strong></a>
+                <%}else{%>
+                    <a href="javascript:;" class="Modifyoperation" Username="<%= UserName %>" Corporatename="<%= CompanyName %>" phone="<%= Mobile %>" UserId="<%= UserId %>" ><img src="/ImagesNew/icon绑定.png"> <strong>修改绑定</strong></a>
+                    <a href="javascript:;" class="Unbound"  AccountId="<%= AccountId %>"><img src="/ImagesNew/icon解绑.png"> <strong>解除绑定</strong>
+                <%} %>                
+            </li>
+        </ul>
+        <ul class="customer_second">
+            <li>
+                <a href="javascript:;"><img src="/ImagesNew/icon现金.png"> <span>现金账户：
+                    <strong><%= formatMoney(CashBalance/100,2,'') %>元</strong>
+                </span></a>
+            </li>
+            <li><a href="javascript:;"><img src="/ImagesNew/icon虚拟.png"> <span>虚拟账户：<strong><%= formatMoney(VirtualBalance/100,2,'') %>元</strong></span></a></li>
+            <li><a href="javascript:;"><img src="/ImagesNew/icon分成.png"> <span>分成账户：<strong><%= formatMoney(DividedBalance/100,2,'') %>元</strong></span></a></li>
+            <li><a href="javascript:;"><img src="/ImagesNew/icon银证.png"> <span>银证账户：<strong><%= formatMoney(SilverCardBalance/100,2,'') %>元</strong></span></a></li>
+            <li><a href="javascript:;"><img src="/ImagesNew/icon今日花费.png"> <span>今日花费：<strong style="color: #FF4F4F"><%= formatMoney(TodaySpend/100,2,'') %>元</strong></span></a></li>
+        </ul>
+    </div>
+</script>
+
+</body>
+</html>

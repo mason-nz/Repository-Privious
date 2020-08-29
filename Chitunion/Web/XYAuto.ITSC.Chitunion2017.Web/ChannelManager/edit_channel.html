@@ -1,0 +1,396 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="js/edit_channel.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script src="../js/laydate.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order" style="position:relative">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div id="zhezhao" style="position:absolute;left:0;right:0;top:0;bottom:0;background-color:grey;opacity:0.5;z-index:1;display:none"></div>
+    <div class="order_r" id="rendering1">
+        <div class="install">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+                <div class="clear"></div>
+            </div>
+            <div class="install_box">
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 渠道名称：</li>
+                    <li><input type="text" name="Username" id="channel_name" ></li>
+                    <li class="grey" id="channel_info" style="display:none;color:red;font-size:12px">渠道名称不能为空</li>
+                    <li class="grey" id="channel_info_two" style="display:none;color:red;font-size:12px">请输入汉字，字母，数字且渠道名称不能超过20个汉字</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 政策：</li>
+                    <li ><div class="but_add but_query" style="padding:0 20px;height:28px">添加</div></li>
+                    <li class="grey" id="add_channel_info" style="display:none;color:red;font-size:12px">请添加政策</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul style="display:none" id="policy">
+                    <li class="ins_a">&nbsp;</li>
+                    <li style="width:80%">
+                        <!-- 表格插入位置 -->
+                        <div class="table">
+
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+
+                <ul id="tax">
+                    <li class="ins_a"><span class="red f12">*</span> 是否含税：</li>
+                    <li><input name="1" type="radio" value="是" >&nbsp;是</li>
+                    <li><input name="1" type="radio" value="否" checked="checked">&nbsp;否</li>
+                    <div class="clear"></div>
+                </ul>
+
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 合作周期：</li>
+                    <li><input name="Username" type="text" style="width:120px;height:24px;border-radius:5px" class="laydate-icon" id="startTime"> 至 <input name="Username" type="text" style="width:120px;height:24px;border-radius:5px" class="laydate-icon" id="endTime"></li>
+                    <li class="grey" id="cycle" style="display:none;color:red;font-size:12px">请选择合作周期</li>
+                    <li class="grey" id="cycle_two" style="display:none;color:red;font-size:12px">开始日期必须小于等于结束日期</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">备注：</li>
+                    <li><textarea name="" cols="" rows="5" style="width:400px;height:200px;resize:none;" id="show_logic"></textarea></li>
+                    <li class="grey" id="remark" style="display:none;color:red;font-size:12px">备注最多允许输入200个汉字</li>
+                    <div class="clear"></div>
+                </ul>
+                <!-- 底部按钮 -->
+                <div class="mb10" style="margin-left:150px">
+                    <!--<a href="javascript:;" class="but_data closePopup" style="width:140px;margin-right: 10px">取消</a>-->
+                    <a href="javascript:void(0);" class="but_data" style="width:140px;" id='add_button'>保存</a>
+                    <a href="javascript:void(0);" class="but_data" style="width:140px;" id='re_button'>返回</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<script type="text/template" id="edit_channel">
+    <ul>
+        <li class="ins_a"><span class="red f12">*</span> 渠道名称：</li>
+        <li><input type="text" name="Username" id="channel_name" value="<%=data.ChannelName%>" style="width:300px;height:28px"></li>
+        <li class="grey" id="channel_info" style="display:none;color:red;font-size:12px">渠道名称不能为空</li>
+        <li class="grey" id="channel_info_two" style="display:none;color:red;font-size:12px">请输入汉字，字母，数字且渠道名称不能超过20个汉字</li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a"><span class="red f12">*</span> 政策：</li>
+        <li ><div class="but_add but_query" style="padding:0 20px">添加</div></li>
+        <li class="grey" id="add_channel_info" style="display:none;color:red;font-size:12px;height:28px">请添加政策</li>
+        <div class="clear"></div>
+    </ul>
+    <ul style="" id="policy">
+        <li class="ins_a">&nbsp;</li>
+        <li style="width:80%">
+            <!-- 表格插入位置 -->
+            <div class="table">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                    <tr>
+                        <th width="15%">满额（元）</th>
+                        <th width="15%">单个账号金额</th>
+                        <th width="15%">采购折扣（%）</th>
+                        <th width="10%">返点类型</th>
+                        <th width="15%">返点金额（元）</th>
+                        <th width="15%">返点比例（%）</th>
+                        <th width="20%">返点时间</th>
+                        <th width="15%">操作</th>
+                    </tr>
+                    <%for(var i=0;i<data.PolicyList.length;i++){%>
+                        <tr>
+                            <td judge="<%=data.PolicyList[i].QuotaIncludingEqual%>">
+                                <%if(data.PolicyList[i].QuotaIncludingEqual){%>
+                                    ≥<span><%=data.PolicyList[i].Quota%></span>
+                                <%}else{%>
+                                    ＞<span><%=data.PolicyList[i].Quota%></span>
+                                <%}%>
+                            </td>
+                            <td judge="<%=data.PolicyList[i].SingleAccountSumType%>">
+                                <%if(data.PolicyList[i].SingleAccountSumType==55001){%>
+                                    ＞<span><%=data.PolicyList[i].SingleAccountSum%></span>
+                                <%}else if(data.PolicyList[i].SingleAccountSumType==55002){%>
+                                    ≤<span><%=data.PolicyList[i].SingleAccountSum%></span>
+                                <%}%>
+                            </td>
+                            <td>
+                                <span><%=data.PolicyList[i].PurchaseDiscount%></span> %
+                            </td>
+                            <td difference = "<%=data.PolicyList[i].RebateType1%>">
+                                <%if(data.PolicyList[i].RebateType1==56001){%>
+                                    返现
+                                <%}else if(data.PolicyList[i].RebateType1==56002){%>
+                                    返货
+                                <%}else{%>
+                                    无
+                                <%}%>
+                            </td>
+                            <!-- 返点金额 -->
+                            <td difference = "<%=data.PolicyList[i].RebateType2%>">
+                                <%if(data.PolicyList[i].RebateType2==57001){%>
+                                <%}else if(data.PolicyList[i].RebateType2==57002){%>
+                                    <span><%=(data.PolicyList[i].RebateValue)%></span> 元
+                                <%}%>
+                            </td>
+                            <!-- 返点比例 -->
+                            <td difference = "<%=data.PolicyList[i].RebateType1%>">
+                                <%if(data.PolicyList[i].RebateType2!=57002 && data.PolicyList[i].RebateValue != 0){%>
+                                    <span><%=(data.PolicyList[i].RebateValue*100)%></span> %
+                                <%}%>
+                            </td>
+                            <!-- 返点时间 -->
+                            <td difference = "<%=data.PolicyList[i].RebateDateType%>">
+                                <%if(data.PolicyList[i].RebateDateType==58001){%>
+                                    立返
+                                <%}else if(data.PolicyList[i].RebateDateType==58002){%>
+                                    到期返
+                                <%}%>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="edit_btn">
+                                    <img src="../ImagesNew/edit.png" title="编辑"/>
+                                </a> &nbsp;
+
+                                <a href="javascript:void(0);" class="delete_btn">
+                                    <img src="../ImagesNew/delete.png" title="删除"/>
+                                </a> &nbsp;
+                            </td>
+                        </tr>
+                    <%}%>
+                </table>
+            </div>
+        </li>
+        <div class="clear"></div>
+    </ul>
+
+    <ul id="tax">
+        <li class="ins_a"><span class="red f12">*</span> 是否含税：</li>
+        <%if(data.IncludingTax == true){%>
+            <li><input name="1" type="radio" value="是" checked="checked">&nbsp;是</li>
+            <li><input name="1" type="radio" value="否" >否</li>
+        <%}else{%>
+            <li><input name="1" type="radio" value="是">是</li>
+            <li><input name="1" type="radio" value="否" checked="checked">&nbsp;否</li>
+        <%}%>
+        <div class="clear"></div>
+    </ul>
+
+    <ul>
+        <li class="ins_a"><span class="red f12">*</span> 合作周期：</li>
+        <li><input name="Username" type="text" style="width:120px;height:28px;border-radius:5px" class="laydate-iconNew" id="startTime" value="<%=data.CooperateBeginDate.split(" ")[0]%>"> 至 <input name="Username" type="text" style="width:120px;height:28px;border-radius:5px" class="laydate-iconNew" id="endTime" value="<%=data.CooperateEndDate.split(" ")[0]%>"></li>
+        <li class="grey" id="cycle" style="display:none;color:red;font-size:12px">请选择合作周期</li>
+        <li class="grey" id="cycle_two" style="display:none;color:red;font-size:12px">开始日期必须小于等于结束日期且结束日期必须大于今天</li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">备注：</li>
+        <li><textarea name="" cols="" rows="5" style="width:400px;height:200px;resize:none;" id="show_logic" ><%if(data.Remark){%><%=data.Remark%><%}%></textarea></li>
+        <li class="grey" id="remark" style="display:none;color:red;font-size:12px" >备注最多允许输入200个汉字</li>
+        <div class="clear"></div>
+    </ul>
+    <!-- 底部按钮 -->
+    <div class="mb10" style="margin-left:150px">
+        <!--<a href="javascript:;" class="but_data closePopup" style="width:140px;margin-right: 10px">取消</a>-->
+        <a href="javascript:void(0);" class="but_data" style="width:140px;" id='add_button'>保存</a>
+        <a href="javascript:void(0);" class="but_data" style="width:140px;" id='re_button'>返回</a>
+    </div>
+</script>
+<!-- 弹层 -->
+<div class="layer" style="position:absolute;left:400px;top:200px;display:none;z-index:2">
+    <div class="title">
+        政策
+        <div class="close"><a href="javascript:;"><img src="../ImagesNew/close_x.jpg" class='closePopup'></a></div>
+    </div>
+
+    <div class="layer_con3">
+        <div class="add_ad">
+            <ul>
+                <li class="add_ad_w1"><span class="red f12">*</span>满额：</li>
+                <li><input name="Username" type="text" value="" style="width:93px;height:28px" id="top_up"> 元</li>
+                <li style="display:none"><input name="" type="checkbox" value="" id="equal">含等于</li>
+                <li class="grey" id="mane" style="display:none;color:red;font-size:12px">请输入满额</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1">单个账号金额：</li>
+                <li id="select">
+                    <select name="" style="height:28px">
+                        <option value="55001">＞大于</option>
+                        <option value="55002">≥（大于等于）</option>
+                        <option value="55003">＜小于</option>
+                        <option value="55004">≤小于等于</option>
+                    </select>
+                </li>
+                <li><input name="2" type="text" value="" style="width:93px;height:28px" id="single"> 元</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1"><span class="red f12">*</span>采购折扣：</li>
+                <li><input name="Username" type="text" value="" style="width:100px;height:28px" id="procurement"> %</li>
+                <li class="grey" id="discount" style="display:none;color:red;font-size:12px">请输入采购折扣</li>
+                <li class="grey" id="discount_two" style="display:none;color:red;font-size:12px">采购折扣格式不正确</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="type_one">
+                <li class="add_ad_w1"><span class="red f12">*</span>返点类型：</li>
+                <li ><input name="4" type="radio" value="56001"> 返现</li>
+                <li ><input name="4" type="radio" value="56002"> 返货</li>
+                <li ><input name="4" type="radio" value="56003" checked="checked"> 无</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="type_two">
+                <li class="add_ad_w1">&nbsp;</li>
+                <li ><input name="5" type="radio" value="57001" checked="checked"> 比例</li>
+                <li ><input name="5" type="radio" value="57002"> 金额</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="type_three">
+                <li class="add_ad_w1">&nbsp;</li>
+                <li ><input name="5" type="text" value="" style="width:93px;height:28px" id="proportion_val"> %</li>
+                <li class="grey" id="proportion" style="display:none;color:red;font-size:12px">请输入返现比例</li>
+                <li class="grey" id="proportion_two" style="display:none;color:red;font-size:12px">返现比例格式不正确</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="type_six">
+                <li class="add_ad_w1">&nbsp;</li>
+                <li ><input name="5" type="text" value="" style="width:93px;height:28px" id="proportion_val_goods"> %</li>
+                <li class="grey" id="proportion_goods" style="display:none;color:red;font-size:12px">请输入返现比例</li>
+                <li class="grey" id="proportion_goods_two" style="display:none;color:red;font-size:12px">返现比例格式不正确</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="type_four" style="display:none">
+                <li class="add_ad_w1">&nbsp;</li>
+                <li ><input name="5" type="text" value="" style="width:93px;height:28px" id="amount_val"> 元</li>
+                <li class="grey" id="amount" style="display:none;color:red;font-size:12px">请输入返现金额</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="type_five">
+                <li class="add_ad_w1"><span class="red f12">*</span>返点时间：</li>
+                <li><input name="6" type="radio" value="58001" checked="checked"> 立返</li>
+                <li><input name="6" type="radio" value="58002"> 到期返</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+
+        </div>
+        <div class="keep" style="text-align:center">
+            <div class="mb10">
+                <!--<a href="javascript:;" class="but_data closePopup" style="width:140px;margin-right: 10px">取消</a>-->
+                <a href="javascript:void(0);" class="but_data" style="width:140px;" id='add_z'>添加</a>
+                <a href="javascript:void(0);" class="but_data" style="width:140px;" id='add_w'>保存</a>
+            </div>
+            <div class="red errorMeg" style='display: none'><img src="/ImagesNew/icon21.png"> <span></span></div>
+        </div>
+    </div>
+</div>
+<!-- table模板 -->
+<script type="text/template" id="table">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <tr>
+            <th width="15%">满额（元）</th>
+            <th width="15%">单个账号金额</th>
+            <th width="15%">采购折扣（%）</th>
+            <th width="10%">返点类型</th>
+            <th width="15%">返点金额（元）</th>
+            <th width="15%">返点比例（%）</th>
+            <th width="20%">返点时间</th>
+            <th width="15%">操作</th>
+        </tr>
+        <%for(var i=0;i<PolicyList.length;i++){%>
+            <tr>
+                <td judge="<%=PolicyList[i].QuotaIncludingEqual%>">
+                    <%if(PolicyList[i].QuotaIncludingEqual){%>
+                        ≥<span><%=PolicyList[i].Quota%></span>
+                    <%}else{%>
+                        ＞<span><%=PolicyList[i].Quota%></span>
+                    <%}%>
+                </td>
+                <td judge="<%=PolicyList[i].SingleAccountSumType%>">
+                    <%if(PolicyList[i].SingleAccountSumType==55001){%>
+                        ＞<span><%=PolicyList[i].SingleAccountSum%></span>
+                    <%}else if(PolicyList[i].SingleAccountSumType==55002){%>
+                        ≤<span><%=PolicyList[i].SingleAccountSum%></span>
+                    <%}%>
+                </td>
+                <td>
+                    <span><%=PolicyList[i].PurchaseDiscount%></span> %
+                </td>
+                <td difference = "<%=PolicyList[i].RebateType1%>">
+                    <%if(PolicyList[i].RebateType1==56001){%>
+                        返现
+                    <%}else if(PolicyList[i].RebateType1==56002){%>
+                        返货
+                    <%}else{%>
+                        无
+                    <%}%>
+                </td>
+                <!-- 返点金额 -->
+                <td difference = "<%=PolicyList[i].RebateType2%>">
+                    <%if(PolicyList[i].RebateType2==57001){%>
+                    <%}else if(PolicyList[i].RebateType2==57002){%>
+                        <span><%=(PolicyList[i].RebateValue)%></span> 元
+                    <%}%>
+                </td>
+                <!-- 返点比例 -->
+                <td difference = "<%=PolicyList[i].RebateType1%>">
+                    <%if(PolicyList[i].RebateType2!=57002 && PolicyList[i].RebateValue != 0){%>
+                        <span><%=(PolicyList[i].RebateValue*100)%></span> %
+                    <%}%>
+                </td>
+                <!-- 返点时间 -->
+                <td difference = "<%=PolicyList[i].RebateDateType%>">
+                    <%if(PolicyList[i].RebateDateType==58001){%>
+                        立返
+                    <%}else if(PolicyList[i].RebateDateType==58002){%>
+                        到期返
+                    <%}%>
+                </td>
+                <td>
+                    <a href="javascript:void(0);" class="edit_btn">
+                        <img src="../ImagesNew/edit.png" title="编辑"/>
+                    </a> &nbsp;
+
+                    <a href="javascript:void(0);" class="delete_btn">
+                        <img src="../ImagesNew/delete.png" title="删除"/>
+                    </a> &nbsp;
+                </td>
+            </tr>
+        <%}%>
+    </table>
+</script>
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

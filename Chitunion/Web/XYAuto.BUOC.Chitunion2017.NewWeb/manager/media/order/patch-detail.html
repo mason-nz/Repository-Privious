@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查看任务-贴片广告-任务管理-赤兔联盟</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src='/js/jquery.1.11.3.min.js'></script>
+    <script type="text/javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=false"></script> 
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src='/js/Common_chitu.js'></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/detail-order.js"></script>
+    <style type="text/css">
+        .OrderList tr{
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部导航-->
+<!--#include virtual="/base/header.html" -->
+<div class="contaner_body">
+	<!--左侧菜单-->
+    <!--#include virtual="/base/Menu.html" -->
+
+    <div class="main_right">
+        <h2 class="tit">基本信息</h2>
+        <ul class='basic_info'> </ul>  
+        <h2 class="tit">收入详情</h2>
+		<div class="Personal_table">
+            <table border="0" cellspacing="1" cellpadding="0" class="FullOrder">
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>有效点击</th>
+                        <th>点击收益</th>
+                    </tr>
+                </thead>
+                <tbody class="OrderList"></tbody>                   
+            </table>
+
+            <!-- loading -->
+            <p id="listLoading"></p>
+            <div class="last_money">
+                <p class="real_debit money" style='display: none;'>质检扣款：0元</p>
+                <p class="real_income money">实际收入：<span class="red totalmoney">50.4元</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+
+
+<!-- 基本信息 -->
+<script type="text/template" id="order-info">
+    <li>任务ID：<%= OrderId %></li>
+    <li>任务名称：<span id='taskName'><%= OrderName %></span></li>
+    <li class="PasterUrl">
+        <span style="vertical-align: top">任务图片：</span>
+        <span style="display: inline-block;" class="display_img">
+            <a target="_blank" href="<%=PasterUrl?PasterUrl:''%>">
+                <img width="250px" src="<%=PasterUrl?PasterUrl:''%>" alt="">
+            </a>
+            <a class="download_img" href="<%=PasterUrl?PasterUrl:''%>" target="_blank"></a>
+        </span>
+    </li>
+    <li>计费规则：<%= CPCPrice %>元/有效点击</li>
+    <li>状态：<%= OrderStatus %></li>
+    <li>领取时间：<%= ReceiveTime %></li>
+</script>
+
+
+<!-- 列表 -->
+<script type="text/template" id="order-list">
+    <% List.forEach(function(item){%>
+    <tr AccountStatus='<%= item.AccountStatus %>'>
+        <td><%= item.Date.substr(0,10) %></td>
+        <td><%= item.CPCCount %></td>
+        <td>
+            <%if(item.CPCTotalPrice == null || item.CPCTotalPrice == 0){%>
+                0元
+            <%}else{%>
+                <%= item.CPCTotalPrice %>元
+            <%}%>
+        </td>
+    </tr>
+    <%}) %>
+    <tr>
+        <td>总计</td>
+        <td><%= Extend.TotalCPCCount?Extend.TotalCPCCount:0 %></td>
+        <td><%= Extend.TotalCPCTotalPrice?Extend.TotalCPCTotalPrice:0 %>元</td>
+    </tr>
+</script>
+
+</body>
+</html>

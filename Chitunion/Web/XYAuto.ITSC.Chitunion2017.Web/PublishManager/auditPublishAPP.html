@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>APP资源-刊例管理-我的赤兔</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script src="/js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="js/publishAuditListAPP.js"></script>
+</head>
+
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="journal">
+                <ul class="fl">
+                    <li style="width: 210px;">媒体名称 : <a target="_blank"  href="" class="transViewOfAPP"></a></li>
+                    <li style="width: 145px;" id="publishType"></li>
+                    <li ></li></br>
+                    <li style="width: 210px;" id="sailCount"></li>
+                    <li style="width: 145px;" id="buyCount"></li>
+                    <li style="width: 145px;" id="state"></li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="fr">
+                    <span style="display: none" id="putOn" class="audit"><a href="#" target="_self" onclick="auditPass(this)" class="blue3">审核通过</a></span>
+                    <span style="display: none" id="reject" class="audit"><a href="#" target="_self" class="blue3">驳回</a></span>
+                    <span style="display: none" class="newBuild"><a href="javascript:;" class="blue3" target="_self" onclick="putOnAllOfAD(this)">申请上架</a></span>
+                    <span style="display: none" class="newBuild"><a target="_blank" href="#" class="blue3 addModify" id="addAdPos">添加广告位</a></span>
+                    <span style="display: none" class="turnDown"><a target="_blank" href="#" class="blue3 addPubMod">编辑</a></span>
+                    <span style="display: none" class="turnDown"><a href="javascript:;" target="_self" onclick="putOnAllOfAD(this)" class="blue3">申请上架</a></span>
+                    <span style="display: none" class="turnDown"><a target="_blank" href="#" class="blue3 addModify">添加广告位</a></span>
+                    <span style="display: none" class="addADPos auditPass"><a target="_blank" href="#" class="blue3 addModify">添加广告位</a></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <ul class="state">
+                <li>广告位置：<input name="Username" id="adPos" type="text"  style="width:110px;"></li>
+                <li>广告形式：<input name="Username" id="adForm" type="text"  style="width:110px;"></li>
+                <li>广告样式：<input name="Username" id="adStyle" type="text"  style="width:110px;"></li>
+                <li id="upDownState" style="display: none;">上下架状态：
+                    <select id="selectState" name="" style="width:100px;">
+                        <option value=0>不限</option>
+                        <option value=15005>上架</option>
+                        <option value=15006>下架</option>
+                    </select>
+                </li>
+                <li class="but_query" id="search" onclick="lookUpList()" style="width:70px;margin-right: 0">查询</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+            <script type="text/template" id="tmpl1">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                    <tr>
+                        <th width="13%">广告位置</th>
+                        <th width="10%">广告形式</th>
+                        <th width="12%">样式</th>
+                        <th width="8%">轮播数</th>
+                        <th width="7%">位置</th>
+                        <th width="10%">操作系统</th>
+                        <th width="8%">售卖方式</th>
+                        <th width="13%">刊例价</th>
+                        <th width="12%">操作</th>
+                    </tr>
+                    <%for(var i =0;i< list.length;i++){%>
+                    <tr>
+                        <td addID="<%=list[i].ADDetailID%>"><%=list[i].AdPosition %></td>
+                        <td>
+                            <div class="fl"><%=list[i].AdForm%></div>
+                            <div class="fr"><a class="picDemo" href="#" picUrl="<%=list[i].AdLegendURL%>">图例</a></div>
+                            <div class="clear"></div>
+                        </td>
+                        <%if(list[i].Style==null){%>
+                        <%list[i].Style=''%>
+                        <%}%>
+                        <td><%=list[i].Style%></td>
+                        <%if(list[i].CarouselCount=='0轮播'){%>
+                        <td></td>
+                        <%}else{%>
+                        <td><%=list[i].CarouselCount%></td>
+                        <%}%>
+                        <%if(list[i].PlayPosition==null){%>
+                        <%list[i].PlayPosition=''%>
+                        <%}%>
+                        <td><%=list[i].PlayPosition%></td>
+                        <td><%=list[i].SysPlatform%></td>
+                        <td><%=list[i].SaleWay %></td>
+                        <td><%=list[i].Price%></td>
+                        <td addID="<%=list[i].ADDetailID%>">
+                            <a href="javascript:;" style="display: none" class="copy"  href="#">复制</a>
+                            <a href="javascript:;" style="display: none" class="lookUp" target="_blank" href="#">查看</a>
+                            <a href="javascript:;" style="display: none" target="_self" class="modify" href="#">编辑</a>
+                            <%if(list[i].PublishStatus=='已上架'){%>
+                            <a href="javascript:;" style="display: none" class="putOn" href="#" onclick="putOn(this)" >下架</a>
+                            <%}else{%>
+                            <a href="javascript:;" style="display: none" class="putOn" href="#"  onclick="putOn(this)">上架</a>
+                            <%}%>
+                        </td>
+                    </tr>
+                    <%}%>
+                </table>
+            </script>
+        <script type="text/template" id="tmpl2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+
+                    <tr>
+                        <th width="4%">&nbsp;</th>
+                        <th width="15%">广告位置</th>
+                        <th width="12%">广告形式</th>
+                        <th width="12%">样式</th>
+                        <%if(CTLogin.RoleIDs!='SYS001RL00001'&&CTLogin.RoleIDs!='SYS001RL00004'){%>
+                        <th width="6%">轮播数</th>
+                        <th width="8%">位置</th>
+                        <%}%>
+                        <th width="10%">操作系统</th>
+                        <th width="8%">售卖方式</th>
+                        <th width="10%">单价</th>
+                        <th width="9%">上下架状态</th>
+                        <th width="8%">操作</th>
+                    </tr>
+                    <%for(var i =0;i< list.length;i++){%>
+                    <tr>
+                        <td addID="<%=list[i].ADDetailID%>"><input name="" type="checkbox" value="" /></td>
+                        <td><%=list[i].AdPosition %></td>
+                        <td>
+
+                            <div class="fl"><%=list[i].AdForm %></div>
+                            <div class="fr"><a class="picDemo" href="#" picUrl="<%=list[i].AdLegendURL%>">图例</a></div>
+                            <div class="clear"></div>
+                        </td>
+                        <%if(list[i].Style==null){%>
+                        <%list[i].Style=''%>
+                        <%}%>
+                        <td><%=list[i].Style%></td>
+                        <%if(CTLogin.RoleIDs!='SYS001RL00001'&&CTLogin.RoleIDs!='SYS001RL00004'){%>
+                        <%if(list[i].CarouselCount=='0轮播'){%>
+                        <td></td>
+                        <%}else{%>
+                        <td><%=list[i].CarouselCount%></td>
+                        <%}%>
+                        <%if(list[i].PlayPosition==null){%>
+                        <%list[i].PlayPosition=''%>
+                        <%}%>
+                        <td><%=list[i].PlayPosition %></td>
+                        <%}%>
+                        <td><%=list[i].SysPlatform%></td>
+                        <td><%=list[i].SaleWay%></td>
+                        <td><%=list[i].Price%></td>
+                        <td class="publishState"><%=list[i].PublishStatus%></td>
+                        <td addID="<%=list[i].ADDetailID%>">
+                            <a href="javascript:;" style="display: none" class="copy"  href="#">复制</a>
+                            <a href="javascript:;" style="display: none" class="lookUp" target="_blank" href="#">查看</a>
+                            <%if(list[i].PublishStatus != '已上架'){%>
+                            <a href="javascript:;" style="display: none" target="_self" class="modify" href="#">编辑</a>
+                            <%}%>
+                            <%if(list[i].PublishStatus=='已上架'){%>
+                            <a href="javascript:;" style="display: none" class="putOn" href="#" onclick="putOn(this)" >下架</a>
+                            <%}else{%>
+                            <a href="javascript:;" style="display: none" class="putOn" href="#"  onclick="putOn(this)">上架</a>
+                            <%}%>
+                            <%if(CTLogin.RoleIDs=='SYS001RL00001'||CTLogin.RoleIDs=='SYS001RL00004'||(CTLogin.BUTIDs.indexOf('SYS001BUT500507')!=-1)){%>
+                            <%if(list[i].PublishStatus=='已上架'){%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400104')!=-1){%>
+                            <%if(list[i].CanAddToRecommend&&list[i].IsRange){%>
+                            <br><a href="javascript:;" class="recommend" name="<%=list[i].ADDetailID%>" style="position:static;border: none;">推荐到首页</a>
+                            <%}%>
+                            <%}%>
+                            <%}%>
+                            <%}%>
+                        </td>
+                    </tr>
+                    <%}%>
+                </table>
+            </script>
+            <script type="text/template" id="tmpl3">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff" >
+                    <tr>
+                         <th width="15%">广告位置</th>
+                        <th width="10%">广告形式</th>
+                        <th width="12%">样式</th>
+                        <th width="6%">轮播数</th>
+                        <th width="8%">位置</th>
+                        <th width="10%">操作系统</th>
+                        <th width="8%">售卖方式</th>
+                        <th width="10%">单价</th>
+                        <th width="9%">上下架状态</th>
+                        <th width="8%">操作</th>
+                    </tr>
+                </table>
+                <div class="no_data"> <img src="/images/no_data.png"></div>
+            </script>
+            <div class="table">
+                <div class="assign">
+                    <span><input id="checkAll" name="" type="checkbox" value=""> 选择</span>
+                    <span><a href="#" onclick="putOnAll(this)">上架</a></span>
+                    <span><a href="#" onclick="putOnAll(this)">下架</a></span>
+                </div>
+                <div class="table_list">
+
+                </div>
+            </div>
+
+            <!--分页-->
+            <div class="green-black" id="pageContainer">
+                <span class="disabled">上一页</span>
+                <span class="current">1</span>
+                <a href="#?page=2">2</a>
+                <a href="#?page=3">3</a>...
+                <a href="#?page=200">100</a>
+                <a href="#?page=2">下一页</a>
+                <span>1/200</span>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+<!--驳回原因开始-->
+<div class="layer" style="width:390px;display: none;">
+    <div class="layer_con2">
+        <img src="../images/pic12.jpg" style="position: absolute;" width="350" height="420">
+    </div>
+</div>
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+<script>
+    $('#buycount').css('display','none');
+</script>
+</html>

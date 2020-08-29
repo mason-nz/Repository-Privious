@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提现管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css" />
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css" />
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!-- #include file="/base/Menu.html"  -->
+
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav"></h2>
+                </div>
+                <div id="list_switching">
+                    <ul class="tab_menu">
+                        <li class="selected" value="197003" i="197003" id="li_197003">待审核</li>
+                        <li value="197001" i="197001" id="li_197001">审核通过</li>
+                        <li value="197002" i="197002" id="li_197002">已驳回</li>
+                    </ul>
+                    <div class="clear"></div>
+                    <ul class="state">
+                        <li>
+                            <div class="ins_c">申请时间：</div>
+                            <input id="CreateTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                            至 <input id="endTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                        </li>
+                        <li id="Li_PayDate" style="display: none">
+                            <div class="ins_c">支付时间：</div>
+                            <input id="BeginPayDate" name="BeginPayDate" type="text" style="width:100px;" class="laydate-iconNew">
+                            至 <input id="EndPayDate" name="EndPayDate" type="text" style="width:100px;" class="laydate-iconNew">
+                        </li>
+                        <li>
+                            <div class="ins_c">申请人：</div><input id="Applicant" name="Username" type="text" style="width: 160px;">
+                        </li>
+                        <li id="selPayStatus" style="display: none">
+                            <div class="ins_c">支付结果：</div><select id="PayStatus" name="" style="width:170px">
+                                <option value="-2">全部</option>
+                                <option value="195001">支付中</option>
+                                <option value="195002">支付失败</option>
+                                <option value="195003">已支付</option>
+                            </select>
+                        </li>
+                        <li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+
+                        <div class="ad_table">
+                            <p style="padding: 0 0 10px 0" id="Cumulative">
+                            </p>
+                            <table id="tab_1" width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" class="channel"></table>
+
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer">
+                                <span class="disabled">上一页</span>
+                                <span class="current">1</span>
+                                <a href="#?page=2">2</a>
+                                <a href="#?page=3">3</a>...
+                                <a href="#?page=200">100</a>
+                                <a href="#?page=2">下一页</a>
+                                <span>1/200</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="/base/footer.html" -->
+    <script src="js/PresentManagement-1.js"></script>
+    <script>
+
+    $.withdws.init();
+
+    $('#CreateTime').off('click').on('click', function() {
+        laydate({
+            fixed: false,
+            elem: '#CreateTime',
+            choose: function(date) {
+                if (date > $('#endTime').val() && $('#endTime').val()) {
+                    layer.alert('起始时间不能大于结束时间！');
+                    $('#CreateTime').val('')
+                }
+            }
+        });
+    });
+    $('#endTime').off('click').on('click', function() {
+        laydate({
+            fixed: false,
+            elem: '#endTime',
+            choose: function(date) {
+                if (date < $('#CreateTime').val() && $('#CreateTime').val()) {
+                    layer.alert('结束时间不能小于起始时间！');
+                    $('#endTime').val('')
+                }
+            }
+        });
+    });
+    $('#BeginPayDate').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#BeginPayDate',
+            choose: function (date) {
+                if (date > $('#EndPayDate').val() && $('#EndPayDate').val()) {
+                    layer.alert('起始时间不能大于结束时间！');
+                    $('#BeginPayDate').val('')
+                }
+            }
+        });
+    });
+    $('#EndPayDate').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#EndPayDate',
+            choose: function (date) {
+                if (date < $('#BeginPayDate').val() && $('#BeginPayDate').val()) {
+                    layer.alert('结束时间不能小于起始时间！');
+                    $('#EndPayDate').val('')
+                }
+            }
+        });
+    });
+    </script>
+    <!--待审核-->
+    <script type="text/template" id="channel_197003">
+        <tr>
+            <th width="10%">申请ID</th>
+            <th width="25%">申请人</th>
+            <th width="20%">类型</th>
+            <th width="20%">申请时间</th>
+            <th width="10%">申请金额</th>
+            <th width="10%">代扣个税</th>
+            <th width="10%">实付</th>
+            <th width="25%">提现账号</th>
+            <th width="15%">操作</th>
+        </tr>
+        <%Result.List.forEach(function(e){%>
+        <tr>
+            <td>
+                <%=e.RecId%>
+            </td>
+            <td>
+                <%=e.UserName%>
+            </td>
+            <td>
+                <%=e.UserTypeName%>
+            </td>
+            <td>
+                <%=e.ApplicationDate%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.WithdrawalsPrice,2,''),2)+'元'%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.IndividualTaxPeice,2,''),2)+'元'%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.PracticalPrice,2,''),2)+'元'%>
+            </td>
+            <td>
+                <%=e.PayeeAccount%>
+            </td>
+            <td recid="<%=e.RecId%>" style="position: relative">
+                <a href="/FinanceManager/AuditDetails.html?recid=<%=e.RecId%>">审核</a>
+            </td>
+        </tr>
+        <%})%>
+    </script>
+    <!--审核通过-->
+<script type="text/template" id="channel_197001">
+        <tr>
+            <th width="10%">申请ID</th>
+            <th width="25%">申请人</th>
+            <th width="20%">真实姓名/公司名称</th>
+            <th width="20%">申请时间</th>
+            <th width="10%">申请金额</th>
+            <th width="10%">实付</th>
+            <th width="25%">支付结果</th>
+            <th width="15%">操作</th>
+        </tr>
+        <%Result.List.forEach(function(e){%>
+        <tr>
+            <td>
+                <%=e.RecId%>
+            </td>
+            <td>
+                <%=e.UserName%>
+            </td>
+            <td>
+                <%=e.TrueName%>
+            </td>
+            <td>
+                <%=e.ApplicationDate%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.WithdrawalsPrice,2,''),2)+'元'%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.PracticalPrice,2,''),2)+'元'%>
+            </td>
+            <td>
+                <%=e.PayStatusName%>
+            </td>
+            <td recid="<%=e.RecId%>" style="position: relative">
+                <a href="/FinanceManager/proposedetails.html?recid=<%=e.RecId%>" target="_blank">查看详情</a>
+                <%if(e.PayStatus == 195002){%>
+                <a href="javascript:;" style="margin-left: 10px;position: relative" class="fail">失败原因</a>
+                <p style="background-color: #eee;display: none;position: absolute;max-width: 200px;line-height: 14px;padding: 2px 5px;font-size: 14px;z-index: 7"><%=e.Reason%></p>
+                <%}%>
+                <%if(e.SyncPayStatus == 195002){%>
+                <a href="javascript:$.withdws.ajaxFunction.postAudit(<%=e.RecId%>)">重新支付</a>
+                <%}%>
+                <%if(e.IsLock == true){%>
+                <a style="color:red" href="javascript:;">已锁定</a>
+                <%}%>
+            </td>
+        </tr>
+        <%})%>
+    </script>
+    <!--驳回-->
+    <script type="text/template" id="channel_197002">
+        <tr>
+            <th width="10%">申请ID</th>
+            <th width="25%">申请人</th>
+            <th width="20%">真实姓名/公司名称</th>
+            <th width="20%">申请时间</th>
+            <th width="10%">申请金额</th>
+            <th width="10%">实付</th>
+            <th width="25%">审核时间</th>
+            <th width="15%">操作</th>
+        </tr>
+        <%Result.List.forEach(function(e){%>
+        <tr>
+            <td>
+                <%=e.RecId%>
+            </td>
+            <td>
+                <%=e.UserName%>
+            </td>
+            <td>
+                <%=e.TrueName%>
+            </td>
+            <td>
+                <%=e.ApplicationDate%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.WithdrawalsPrice,2,''),2)+'元'%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.PracticalPrice,2,''),2)+'元'%>
+            </td>
+            <td>
+                <%=e.AuditTime%>
+            </td>
+            <td recid="<%=e.RecId%>" style="position: relative">
+                <a href="/FinanceManager/proposedetails.html?recid=<%=e.RecId%>" target="_blank">查看详情</a>
+                <a href="javascript:;" style="margin-left: 10px;position: relative" class="fail">驳回原因</a>
+                <p style="background-color: #eee;display: none;position: absolute;max-width: 200px;line-height: 14px;padding: 2px 5px;font-size: 14px;z-index: 7"><%=e.RejectMsg%></p>
+            </td>
+        </tr>
+        <%})%>
+    </script>
+</body>
+</html>

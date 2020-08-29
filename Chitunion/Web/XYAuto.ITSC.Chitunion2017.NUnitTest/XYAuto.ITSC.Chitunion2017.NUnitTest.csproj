@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19D08E56-1633-4A51-A43D-E4D1D70681D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ITSC.Chitunion2017.NUnitTest</RootNamespace>
+    <AssemblyName>XYAuto.ITSC.Chitunion2017.NUnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\FastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\Lib\NUnit.Framework-3.6.1\net-4.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin">
+      <HintPath>..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP">
+      <HintPath>..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xy.Config">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Xy.ImageFastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.ImageFastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils, Version=2.0.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChituAPP\Android_Call_API_HelperTest.cs" />
+    <Compile Include="ChituAPP\JsonResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FileShareHelper.cs" />
+    <Compile Include="Utils\UtilsTest.cs" />
+    <Compile Include="WebService\GDT\ServiceHelperTest.cs" />
+    <Compile Include="WebService\GSData\ServiceHelperTest.cs" />
+    <Compile Include="WebService\ITSupport\SMSServiceHelperTest.cs" />
+    <Compile Include="WebService\Qichedaquan\UserInfoHelperTest.cs" />
+    <Compile Include="Weixin\MenuHelperTest.cs" />
+    <Compile Include="Weixin\SendTempMsgTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ConfigFile\StorageGroupConfig.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\XYAuto.BUOC.Chitunion2017.WebAPIWeChat.csproj">
+      <Project>{8D643B84-FE3B-4E58-B55D-76849AE7E684}</Project>
+      <Name>XYAuto.BUOC.Chitunion2017.WebAPIWeChat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.BLL\XYAuto.ITSC.Chitunion2017.BLL.csproj">
+      <Project>{b31bb524-1886-4f97-8871-7b517f1b27d4}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.WebService\XYAuto.ITSC.Chitunion2017.WebService.csproj">
+      <Project>{64399042-f595-43a8-8d11-8713b871d01b}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\logo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="赤兔联盟,个人中心,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,账号管理,基本信息,认证信息,修改密码,提现账号">
+	<title>账号管理-赤兔联盟</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/Area2.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/accountManage.js"></script>
+    <style type="text/css">
+        #uploadImg{
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<!--#include virtual="/base/header.html" -->
+<!-- 主体部分 -->
+<div class="contaner_body">
+	<!--左侧菜单-->
+    <!--#include virtual="/base/Menu.html" -->
+
+    <div class="main_right">
+		<ul class="list_switch" style="padding-left: 3px;">
+			<li index="0"  class="selected">基本信息</li>
+			<li index="1">认证信息</li>
+			<li index="2">提现账号</li>
+			<li index="3">修改密码</li>
+		</ul>
+
+    	<div class="Personal_table2">
+            <!-- 基本信息 -->
+            <div class="holder basicInfo">
+                <div class="forPc hide">
+                    <ul>
+                        <li class="tr100">用户名：</li>
+                        <li><input type="text" placeholder="请输入用户名称" id="userName" class="hide"></li>
+                        <li><span id="UserName" class="hide"></span></li>
+                        <li class="tipInfo">
+                            <img src="/images/icon7.png"> 请输入用户名
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    
+                </div>
+                <div class="forWeChat hide">
+                    <ul>
+                        <li class="tr100">昵称：</li>
+                        <li><span id="UserName1" class=""></span></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="noPhone hide">
+                        <li class="tr100"><span class="red">*</span> 手机号：</li>
+                        <li class="phone">
+                            <input type="text" placeholder="请输入手机号" id="phone_number1" isFirst="" style="width: 164px;">
+                        </li>
+                        <li class="tipInfo">
+                            <img src="/images/icon7.png"> 请输入手机号
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="codeYa hide">
+                        <li class="tr100"><span class="red">*</span> 验证码：</li>
+                        <li>
+                            <input type="text" name="" placeholder="请输入验证码" id="codeForWeChat" style="width: 164px;margin-right: 20px;">
+                        </li>
+                        <li>
+                            <img id="vertifyCodeYa" src=""  style="width: 60px;height: 28px;cursor: pointer;">
+                        </li>
+                        <li class="tipInfo">
+                            <img src="/images/icon7.png"> 请输入验证码
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="codeYa hide">
+                        <li class="tr100"><span class="red">*</span> 手机验证码：</li>
+                        <li>
+                            <input type="text" name="" placeholder="请输入手机验证码" id="codeForWeChat1" style="width: 164px;margin-right: 20px;">
+                            <span class="btn_price" id="getCodeYa" style="padding: 0 5px;cursor: pointer;width: auto;">获取验证码</span>
+                        </li>
+                        <li class="tipInfo">
+                            <img src="/images/icon7.png"> 请输入手机验证码
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <ul class="hasPhone hide">
+                    <li class="tr100">手机号：</li>
+                    <li class="phone" id="phone_number"></li>
+                    <li><a href="javascript:void(0);" class="btn_price" id="changePhone">更改</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr100">所在城市：</li>
+                    <li>
+                        <select name="" id="province">
+                            <option value="-2">请选择省/直辖市</option>
+                        </select>
+                        <select name="" id="city" class="mr0">
+                            <option value="-2">请选择所在城市</option>
+                        </select>
+                    </li>
+                    <li class="tipInfo">
+                        <img src="/images/icon7.png"> 请选择所在城市
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr100">联系地址：</li>
+                    <li><input type="text" placeholder="请填写详细地址" id="address"></li>
+                    <li class="tipInfo">
+                         <img src="/images/icon7.png"> 联系地址最多输入100个汉字 
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            
+            <!-- 认证信息 -->
+            <div class="hide holder authInfo">
+                <div class="before">
+                    <ul>
+                        <li class="tr100"><span class="red">*</span> 类型：</li>
+                        <li class='radio_type' id="identityType"  type="1001">
+                            <span><input type="radio" name='type' checked="checked" value="1001">企业</span>
+                            <span><input type="radio" name='type' value="1002">个人</span>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr100"><span class="red">*</span> 公司名称：</li>
+                        <li class="before"><input type="text" placeholder="请填写公司名称" id="nameInfo"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入公司名称 
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="hide identify_number">
+                        <li class="tr100"><span class="red">*</span> 身份证号：</li>
+                        <li><input type="text" placeholder="请输入身份证号" id="identify_number"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入身份证号
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul  class="business_license">
+                        <li class="tr100"><span class="red">*</span> 营业执照：</li>
+                        <li>
+                            <div class="add_upload">
+                                <img src="/images/icon8.png" id="loadFile" width="75" height="74">
+                                <a href="javascript:void(0)" class="uploadFile">
+                                    <img src="/images/add.png">
+                                    <input type="file" name="" id="uploadImg" style="opacity:0;width: 100%;height: 100%;">
+                                </a>
+                            </div>
+                        </li>
+                        <li style="margin: 40px 0 0 10px;">
+                             jpg、jpeg、png格式 &lt;2M
+                        </li>
+                        <li class="tipInfo" style="margin-top: 40px;">
+                             <img src="/images/icon7.png"> 请上传图片
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="display_file_name hide">
+                        <li class="tr100">&nbsp;</li>
+                        <li class="file_name">
+                            
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" id="downloadIMg" target="_blank">
+                                <img src="/images/icon3.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="after hide">
+                    <ul class="authRetrunInfo submit_success">
+                        <li>认证信息提交成功，请等待工作人员审核！</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="authRetrunInfo fail_auth hide">
+                        <li class="ml30">
+                            <img src="/images/icon15.png">
+                            认证不通过
+                        </li>
+                    </ul>
+                    <ul class="authRetrunInfo fail_auth hide">
+                        <li>
+                            <li class="tr100">驳回原因：</li>
+                            <li>
+                                <span id="reject_reason"></span>
+                                <a href="javascript:void(0);" class="btn_price reAuth">重新认证</a>
+                            </li>
+                        </li>
+                    </ul>
+                    <ul class="authRetrunInfo success_auth hide">
+                        <li class="ml30">
+                            <img src="/images/icon14.png">
+                            认证通过
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="tr100">类型：</li>
+                        <li class='radio_type'></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr100 name_type">公司名称：</li>
+                        <li class="company_name"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="hide">
+                        <li class="tr100">身份证号：</li>
+                        <li class="identify_number"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul  class="business_license">
+                        <li class="tr100">营业执照：</li>
+                        <li>
+                            <div class="add_upload" style="cursor: default;">
+                                <img src="/images/icon8.png" width="75" height="74" class="img_show">
+                            </div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <!-- 提现账号 -->
+            <div class="holder hide account">
+                <div class="before hide">
+                    <ul>
+                        <li class="tr100"><span class="red">*</span> 支付宝账号：</li>
+                        <li><input type="text" placeholder="请输入支付宝账号" id="alipayAccount"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入支付宝账号
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr100"><span class="red">*</span> 再次确认：</li>
+                        <li><input type="text" placeholder="请再次输入支付宝账号" id="sureAlipayAccount"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请再次输入支付宝账号 
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="after hide">
+                    <ul>
+                        <li class="tr" style="width: 85px;">支付宝账号：</li>
+                        <li id="alipayAccount_m"></li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span class="blue" id="modifyAlipay" style="margin-left: 10px;">修改</span>
+                            </a>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="afterSubmit hide">
+                    <ul>
+                        <li class="tr" style="width: 166px;"><span class="red">*</span> 旧支付宝账号：</li>
+                        <li><input type="text" placeholder="请输入旧支付宝账号" id="oldAlipayAccount"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入旧支付宝账号
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr" style="width: 166px;"><span class="red">*</span> 新支付宝账号：</li>
+                        <li><input type="text" placeholder="请再次输入新支付宝账号" id="newAlipayAccount"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入新支付宝账号 
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr" style="width: 166px;"><span class="red">*</span> 再次输入新支付宝账号：</li>
+                        <li><input type="text" placeholder="请再次输入支付宝账号" id="sureNewAlipayAccount"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请再次输入新支付宝账号 
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <!-- 修改密码 -->    
+            <div class="holder passWordInfo hide">
+                <div class="hasPsd hide">
+                    <ul>
+                        <li class="tr100"><span class="red">*</span> 旧密码：</li>
+                        <li><input type="password" placeholder="请输入旧密码" id="oldPsw"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入旧密码
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr100"><span class="red">*</span> 新密码：</li>
+                        <li><input type="password" placeholder="请输入新密码" id="newPsw"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入新密码
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr100"><span class="red">*</span> 确认密码：</li>
+                        <li><input type="password" placeholder="请输入确认密码" id="sureNewPsw"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入确认密码
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="noPsd hide" style="padding:50px 60px ">
+                    <img src="/images/third_login.png" class="fl" style="margin-right: 20px;">
+                    <div class="fl">
+                        <p class="desc" style="padding: 50px 0 30px 0;font-size: 15px;color: #ccc;line-height: 26px;">
+                            您当前使用的登录方式是微信<br/>
+                            没有可以修改的密码
+                        </p>
+                        <p style="color: #999;font-size: 14px;">
+                            如需设置密码，请 <a class="blue" href="javascript:void(0)" id="bindMoble">绑定手机号</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="createPsd hide">
+                    <ul>
+                        <li class="tr100" style="width: 110px;"><span class="red">*</span> 请输入密码：</li>
+                        <li><input type="password" placeholder="请输入密码（密码长度为6-20位字符）" id="createNewPsw"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入密码（密码长度为6-20位字符）
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="tr100" style="width: 110px;"><span class="red">*</span> 再次输入密码：</li>
+                        <li><input type="password" placeholder="请输入确认密码" id="createSureNewPsw"></li>
+                        <li class="tipInfo">
+                             <img src="/images/icon7.png"> 请输入输入密码
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+			
+			<ul style='margin-top: 40px;'>
+				<li class="tr">&nbsp</li>
+				<li><a href="javascript:void(0);" class="btn_price" id="submitInfo" style='width: 120px;'>提交</a></li>
+				<div class="clear"></div>
+			</ul>
+
+    	</div>
+
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+</body>
+</html>

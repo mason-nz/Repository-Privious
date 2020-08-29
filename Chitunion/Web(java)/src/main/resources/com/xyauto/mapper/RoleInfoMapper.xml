@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.RoleInfoMapper">
+	<resultMap id="BaseResultMap" type="com.xyauto.domain.RoleInfo">
+		<id column="RoleID" jdbcType="VARCHAR" property="roleID" />
+		<result column="RecID" jdbcType="INTEGER" property="recID" />
+		<result column="SysID" jdbcType="VARCHAR" property="sysID" />
+		<result column="RoleName" jdbcType="VARCHAR" property="roleName" />
+		<result column="Intro" jdbcType="VARCHAR" property="intro" />
+		<result column="Status" jdbcType="INTEGER" property="status" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="CreateUserID" jdbcType="INTEGER" property="createUserID" />
+	</resultMap>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		RoleInfo
+		where RoleID = #{roleID,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.xyauto.domain.RoleInfo">
+		insert into RoleInfo (RoleID,
+		RecID, SysID,
+		RoleName, Intro, Status,
+		CreateTime, CreateUserID)
+		values
+		(#{roleID,jdbcType=VARCHAR}, #{recID,jdbcType=INTEGER},
+		#{sysID,jdbcType=VARCHAR},
+		#{roleName,jdbcType=VARCHAR},
+		#{intro,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+		#{createTime,jdbcType=TIMESTAMP}, #{createUserID,jdbcType=INTEGER})
+	</insert>
+	<update id="updateByPrimaryKey" parameterType="com.xyauto.domain.RoleInfo">
+		update RoleInfo
+		set RecID = #{recID,jdbcType=INTEGER},
+		SysID =
+		#{sysID,jdbcType=VARCHAR},
+		RoleName = #{roleName,jdbcType=VARCHAR},
+		Intro = #{intro,jdbcType=VARCHAR},
+		Status = #{status,jdbcType=INTEGER},
+		CreateTime = #{createTime,jdbcType=TIMESTAMP},
+		CreateUserID =
+		#{createUserID,jdbcType=INTEGER}
+		where RoleID =
+		#{roleID,jdbcType=VARCHAR}
+	</update>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select RoleID, RecID, SysID, RoleName, Intro, Status,
+		CreateTime,
+		CreateUserID
+		from RoleInfo
+		where RoleID =
+		#{roleID,jdbcType=VARCHAR}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select RoleID, RecID, SysID,
+		RoleName, Intro, Status, CreateTime,
+		CreateUserID
+		from RoleInfo
+	</select>
+</mapper>

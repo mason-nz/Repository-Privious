@@ -1,0 +1,109 @@
+2018-06-13 17:33:17,676 [32] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2Findex.html
+客户端IP:127.0.0.1
+执行的时间:459.1628ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/index.html"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"A0A681B4AA6A30C2C955270DD1BE8965","Timestamp":"1528882397","Signature":"2be32c6acf1a8960bfa822b38acbc8404054989a"},"IsOverdue":null}
+
+2018-06-13 17:33:18,107 [18] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2Findex.html&response_type=code&scope=snsapi_userinfo&state=ChiTu106&connect_redirect=1#wechat_redirect
+2018-06-13 17:33:22,853 [18] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:22,854 [18] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：061phm400RRYwF1B0J2000C7400phm4J
+2018-06-13 17:33:22,961 [18] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：061phm400RRYwF1B0J2000C7400phm4J
+2018-06-13 17:33:23,185 [18] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=10_J2W2P7VK_h6uuhKzYIInodGg1kZ_3xtDzLDh-Hr--WZlyJos_ZH9srU7mhUP3_KdGYVGBsQrgYk0q2Z_WJfOiQ,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-06-13 17:33:23,301 [18] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,userInfobase=o_J_G0_aJx27xTqZeOGzunN1JB5A,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1528809204,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-06-13 17:33:23,418 [18] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=对象为空
+2018-06-13 17:33:23,423 [18] INFO  BaseLog [(null)] - OAuth2Controller>UserInfoCallback :IsExistOpneId IS false openid:ohvZzwIpMW_ROfDf7N9IvbdNrpHg
+2018-06-13 17:33:23,433 [18] INFO  BaseLog [(null)] - OAuth2Controller>UserInfoCallback :WeiXinUserOperation BEGIN
+2018-06-13 17:33:23,435 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll GetPromotionChannelID 开始 url: http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:23,440 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll GetPromotionChannelID url: http://wxtest-ct.qichedaquan.com/index.html ChannelCode:
+2018-06-13 17:33:23,450 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll GetPromotionChannelID url: http://wxtest-ct.qichedaquan.com/index.html ChannelCode: DictID:101003
+2018-06-13 17:33:23,452 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll GetPromotionChannelID url: http://wxtest-ct.qichedaquan.com/index.html OK
+2018-06-13 17:33:23,473 [18] INFO  BaseLog [(null)] - OAuth2Controller>UserInfoCallback openid：ohvZzwIpMW_ROfDf7N9IvbdNrpHg,wxuserJSON:{"WeiXinUserID":0,"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"city":"","country":"新西兰","province":"奥克兰","language":"zh_CN","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","subscribe_time":"2018-06-12T21:13:24+08:00","unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":"","UserID":0,"CreateTime":"2018-06-13T17:33:23.4268458+08:00","LastUpdateTime":"2018-06-13T17:33:23.4268458+08:00","AuthorizeTime":"2018-06-13T17:33:23.4273472+08:00","QRcode":null,"Inviter":null,"InvitationQR":null,"Status":0,"Category":0,"RegisterFrom":3006,"RegisterType":199002,"Source":0,"AdvertiserUserId":0,"PromotionChannelID":101003,"RegisterIp":"127.0.0.1","UserType":1}
+2018-06-13 17:33:23,475 [18] INFO  BaseLog [(null)] - WeiXinUserOperation BLL openid：ohvZzwIpMW_ROfDf7N9IvbdNrpHg...
+2018-06-13 17:33:23,499 [18] INFO  BaseLog [(null)] - 进入FriendFollow方法->
+2018-06-13 17:33:23,500 [18] INFO  BaseLog [(null)] - 获取被邀请用户ID:1742
+2018-06-13 17:33:23,508 [18] INFO  BaseLog [(null)] - 结束FriendFollow方法->
+2018-06-13 17:33:23,533 [18] INFO  BaseLog [(null)] - OAuth2Controller>UserInfoCallback :UserID:1742,Passport1 end...
+2018-06-13 17:33:23,536 [18] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1742,结果=PWBXLlx4KhduPNVFG4afgl19J7ykK9jUCMrxoQL4E4NWedtD6Ucv7sDa4RXAWdSLCAAbMg9MUi7JUdjML27IImVioGPiGAK/SwASbz7kNJQnQHfIfh30RB4zgahVMWTeRbZpZhwVwpg=,URL=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:23,537 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:23,544 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html OK
+2018-06-13 17:33:23,811 [33] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:23,818 [33] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html OK
+2018-06-13 17:33:23,853 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2Findex.html
+客户端IP:127.0.0.1
+执行的时间:0ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/index.html"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"6902387C9D20309ADDD22F97990122D6","Timestamp":"1528882403","Signature":"f8fb6fe1ce4b7b76ab2cc250a36fb429d0ca92df"},"IsOverdue":null}
+
+2018-06-13 17:33:23,886 [33] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2Findex.html&response_type=code&scope=snsapi_userinfo&state=ChiTu886&connect_redirect=1#wechat_redirect
+2018-06-13 17:33:26,316 [30] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:26,317 [30] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：081EK30e25tdmD0hIZYd2rVd0e2EK30i
+2018-06-13 17:33:26,400 [30] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：081EK30e25tdmD0hIZYd2rVd0e2EK30i
+2018-06-13 17:33:26,593 [30] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=10_an_TeED0vFrx38sCrat-SOAGROqoxdIdJkpRczroGD_Tl3LdXOXkpZhnMB3AS3fRNMcF6tMmki1WHnNRzht_Zg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-06-13 17:33:26,683 [30] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,userInfobase=o_J_G0_aJx27xTqZeOGzunN1JB5A,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1528809204,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-06-13 17:33:26,687 [30] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1742}
+2018-06-13 17:33:26,694 [30] INFO  BaseLog [(null)] - OAuth2Controller>UserInfoCallback :UserID:1742,Passport2 end...
+2018-06-13 17:33:26,699 [30] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1742,结果=PWBXLlx4KhduPNVFG4afgl19J7ykK9jUCMrxoQL4E4NWedtD6Ucv7sDa4RXAWdSLCAAbMg9MUi7JUdjML27IImVioGPiGAK/SwASbz7kNJQnQHfIfh30RFKla7+W8L375IPjjMHPZgs=,URL=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:26,699 [30] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:26,706 [30] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html OK
+2018-06-13 17:33:26,955 [32] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:26,962 [32] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html OK
+2018-06-13 17:33:26,978 [35] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:26,986 [35] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1742,URL=http://wxtest-ct.qichedaquan.com/index.html OK
+2018-06-13 17:33:27,005 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2Findex.html
+客户端IP:127.0.0.1
+执行的时间:0ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/index.html"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"5E66B0C1B3F56B1C5FE5044C51D19F7C","Timestamp":"1528882407","Signature":"515eb18c4627bb35692f94909eaec49da85b3bc5"},"IsOverdue":null}
+
+2018-06-13 17:33:27,129 [33] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Task/GetUserDayOrderCount,UrlRefer=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:27,133 [33] INFO  BaseLog [(null)] - [IsAuthorized]flag=true
+2018-06-13 17:33:27,134 [33] INFO  BaseLog [(null)] - [IsAuthorized]end...flag=True
+2018-06-13 17:33:27,195 [30] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetSceneInfoByUserId?r=0.2802120755099853
+客户端IP:127.0.0.1
+执行的时间:12.5389ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"CategoryList":[{"SceneID":0,"SceneName":"推荐","IsSelected":0,"Counts":10000},{"SceneID":3,"SceneName":"育儿","IsSelected":0,"Counts":11},{"SceneID":4,"SceneName":"娱乐","IsSelected":0,"Counts":11},{"SceneID":22,"SceneName":"汽车","IsSelected":0,"Counts":11},{"SceneID":24,"SceneName":"美食","IsSelected":0,"Counts":10},{"SceneID":25,"SceneName":"旅游","IsSelected":0,"Counts":10},{"SceneID":31,"SceneName":"教育","IsSelected":0,"Counts":10},{"SceneID":32,"SceneName":"家居","IsSelected":0,"Counts":10},{"SceneID":34,"SceneName":"婚恋","IsSelected":0,"Counts":10},{"SceneID":46,"SceneName":"财经","IsSelected":0,"Counts":10}],"IsSkip":false},"IsOverdue":null}
+
+2018-06-13 17:33:27,262 [32] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Sign/IsValidActivity?ActivityType=2&r=0.975358615203489
+客户端IP:127.0.0.1
+执行的时间:1.0021ms
+请求的参数:{"req":{"ActivityType":2}}
+返回的结果:{"Status":0,"Message":"OK","Result":true,"IsOverdue":null}
+
+2018-06-13 17:33:27,763 [35] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Task/GetUnionAndUserId,UrlRefer=http://wxtest-ct.qichedaquan.com/index.html
+2018-06-13 17:33:27,768 [35] INFO  BaseLog [(null)] - [IsAuthorized]flag=true
+2018-06-13 17:33:27,769 [35] INFO  BaseLog [(null)] - [IsAuthorized]end...flag=True
+2018-06-13 17:33:27,778 [30] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetUnionAndUserId
+客户端IP:127.0.0.1
+执行的时间:6.5152ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"Success","Result":{"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1742},"IsOverdue":null}
+
+2018-06-13 17:33:27,913 [18] INFO  BaseLog [(null)] - GetTaskListByUserId->开始时间：2018/6/13 17:33:27
+2018-06-13 17:33:27,918 [18] INFO  BaseLog [(null)] - GetTaskListByUserId->获取用户ID耗时：5.015毫秒
+2018-06-13 17:33:27,948 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news.app1.chitunion.com
+2018-06-13 17:33:27,949 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news1.chitu.qichedaquan.com
+2018-06-13 17:33:27,950 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news.app1.chitunion.com
+2018-06-13 17:33:27,951 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news.app1.chitunion.com
+2018-06-13 17:33:27,952 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news.app1.chitunion.com
+2018-06-13 17:33:27,953 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news.app1.chitunion.com
+2018-06-13 17:33:27,954 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news.app1.chitunion.com
+2018-06-13 17:33:27,955 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news1.chitu.qichedaquan.com
+2018-06-13 17:33:27,956 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news.app1.chitunion.com
+2018-06-13 17:33:27,957 [18] INFO  BaseLog [(null)] - [GetDomainByRandom_ShareArticle]dominUrl:news1.chitu.qichedaquan.com
+2018-06-13 17:33:27,958 [18] INFO  BaseLog [(null)] - GetTaskListByUserId->获取数据耗时：39.6041毫秒
+2018-06-13 17:33:27,966 [18] INFO  BaseLog [(null)] - GetTaskListByUserId->格式化数据耗时：8.5227毫秒
+2018-06-13 17:33:27,968 [18] INFO  BaseLog [(null)] - GetTaskListByUserId->结束时间：2018/6/13 17:33:27 总耗时：54.6464毫秒
+2018-06-13 17:33:27,983 [30] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetTaskListByUserId?PageSize=10&SceneID=0&PageIndex=0&isFirstIdOnPage=false&r=0.6557570464582052
+客户端IP:127.0.0.1
+执行的时间:58.6563ms
+请求的参数:{"res":{"OpenID":null,"PageIndex":0,"PageSize":10,"SceneID":0,"UserID":0,"isFirstIdOnPage":false}}
+返回的结果:{"Status":0,"Message":"Success","Result":{"List":{"TotalCount":0,"TaskID":-2,"TaskInfo":[{"TaskId":16460,"TaskName":"推荐一波20万左右B级车：征服70后 拿下80后 讨好90后","MaterialUrl":"http://news.app1.chitunion.com/ct_m/20180530/332.html","MaterialID":332,"BillingRuleName":"0.29元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/D6/pIYBAFsOU4uATCatAAAqYrVmoow728.JPG","TotalAmount":0.00,"TotalPrice":999.00,"IsForward":0,"CPCPrice":0.29,"HeadImg2":"http://192.168.3.76/group4/M00/1A/D6/pIYBAFsOU4uASsQVAAAjcUWI_Aw959.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/D6/pIYBAFsOU4uAUgGCAAAdUfKL2G0596.JPG","ReadCount":339},{"TaskId":16459,"TaskName":"20万城市SUV成为消费者新宠 看颜值看动力更要看综合实力","MaterialUrl":"http://news1.chitu.qichedaquan.com/ct_m/20180530/331.html","MaterialID":331,"BillingRuleName":"0.26元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/D4/pIYBAFsOPV2AAs6GAABI04fKzsQ062.JPG","TotalAmount":0.00,"TotalPrice":921.00,"IsForward":0,"CPCPrice":0.26,"HeadImg2":"http://192.168.3.76/group4/M00/1A/D4/pIYBAFsOPV2ABQjSAAA8vSinPAU306.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/D4/pIYBAFsOPV2AApqWAAAxhUMxxBc921.JPG","ReadCount":273},{"TaskId":16458,"TaskName":"再上5天班，北京人集体放假！还有重磅好消息等着你！","MaterialUrl":"http://news.app1.chitunion.com/ct_m/20180530/330.html","MaterialID":330,"BillingRuleName":"0.28元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/D4/pIYBAFsOPMOABmSXAAArZbIVGNY389.JPG","TotalAmount":0.00,"TotalPrice":970.00,"IsForward":0,"CPCPrice":0.28,"HeadImg2":"http://192.168.3.76/group4/M00/1A/D5/pIYBAFsOPaOAUECzAAA18bJpd3M543.jpg","HeadImg3":"http://192.168.3.76/group4/M00/1A/D4/pIYBAFsOPO-Af0hGAAOpttNFGCI171.BMP","ReadCount":260},{"TaskId":16457,"TaskName":"4s店提车必看的注意事项，避免“淘到”翻新车","MaterialUrl":"http://news.app1.chitunion.com/ct_m/20180530/328.html","MaterialID":328,"BillingRuleName":"0.12元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/D0/pIYBAFsOILSAFW6vAAAyc9jFhS4840.JPG","TotalAmount":0.00,"TotalPrice":553.00,"IsForward":0,"CPCPrice":0.12,"HeadImg2":"http://192.168.3.76/group4/M00/1A/D0/pIYBAFsOILSAHVcNAAAtPuOEA3g204.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/D0/pIYBAFsOILSABDLxAAA_wLioVbo764.JPG","ReadCount":258},{"TaskId":16456,"TaskName":"大气中式空间，中国人骨子里的东方意境","MaterialUrl":"http://news.app1.chitunion.com/ct_m/20180530/325.html","MaterialID":325,"BillingRuleName":"0.21元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/CF/pIYBAFsOEJ6APKU9AAOptjhjt1k191.BMP","TotalAmount":0.00,"TotalPrice":793.00,"IsForward":0,"CPCPrice":0.21,"HeadImg2":"http://192.168.3.76/group4/M00/1A/D4/pIYBAFsOPDOAN8XBAAAru2qJVnk898.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/D4/pIYBAFsOPDOAUMS3AAA0qBfnnaI468.JPG","ReadCount":257},{"TaskId":16455,"TaskName":"小户型的高级感，从入户玄关开始！","MaterialUrl":"http://news.app1.chitunion.com/ct_m/20180529/323.html","MaterialID":323,"BillingRuleName":"0.23元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/CE/pIYBAFsNIxWAb7V0AAAuiUe-W2c447.JPG","TotalAmount":0.00,"TotalPrice":848.00,"IsForward":0,"CPCPrice":0.23,"HeadImg2":"http://192.168.3.76/group4/M00/1A/CE/pIYBAFsNIxWASaTlAAApymp1XIE112.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/CE/pIYBAFsNIxWAatBYAAAiw06elhk843.JPG","ReadCount":361},{"TaskId":16454,"TaskName":"5万块的7座SUV 比路虎霸气 不买宏光就选它！","MaterialUrl":"http://news.app1.chitunion.com/ct_m/20180529/320.html","MaterialID":320,"BillingRuleName":"0.12元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/CB/pIYBAFsMupWAfcJqAAAv4OrSsEU631.JPG","TotalAmount":0.00,"TotalPrice":573.00,"IsForward":0,"CPCPrice":0.12,"HeadImg2":"http://192.168.3.76/group4/M00/1A/CB/pIYBAFsMupWACI5jAAA3UWeCvM4991.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/CB/pIYBAFsMupWADhkSAAAzvmvYDvg857.JPG","ReadCount":396},{"TaskId":16453,"TaskName":"身价不菲的宝马居然全系没有备胎 真如坊间所传为了节省成本吗？","MaterialUrl":"http://news1.chitu.qichedaquan.com/ct_m/20180529/318.html","MaterialID":318,"BillingRuleName":"0.25元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/C8/pIYBAFsMtlCAUAUlAAAuAsm1-uA786.JPG","TotalAmount":0.00,"TotalPrice":899.00,"IsForward":0,"CPCPrice":0.25,"HeadImg2":"http://192.168.3.76/group4/M00/1A/C8/pIYBAFsMtlCATGe7AAAyv2ip2a8783.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/C8/pIYBAFsMtlCAV9RGAAAj5UluJDY978.JPG","ReadCount":377},{"TaskId":16452,"TaskName":"大伙口中的“烧机油”，到底是怎么一回事？","MaterialUrl":"http://news.app1.chitunion.com/ct_m/20180529/317.html","MaterialID":317,"BillingRuleName":"0.11元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/C8/pIYBAFsMtZqAFGW4AAEzccccYys369.PNG","TotalAmount":0.00,"TotalPrice":525.00,"IsForward":0,"CPCPrice":0.11,"HeadImg2":"http://192.168.3.76/group4/M00/1A/C8/pIYBAFsMtZqAFQbmAAEt_H1zj6k920.PNG","HeadImg3":"http://192.168.3.76/group4/M00/1A/C8/pIYBAFsMtZqAMqBGAAAzN1kX7fE919.JPG","ReadCount":374},{"TaskId":16451,"TaskName":"渐进式Web应用（PWA）入门教程（下）555","MaterialUrl":"http://news1.chitu.qichedaquan.com/ct_m/20180529/315.html","MaterialID":315,"BillingRuleName":"0.17元/CPC + 0元/CPL","Synopsis":null,"ImgUrl":"http://192.168.3.76/group4/M00/1A/C5/pIYBAFsMsyaADlR_AABAlT9wmvw417.JPG","TotalAmount":0.00,"TotalPrice":681.00,"IsForward":0,"CPCPrice":0.17,"HeadImg2":"http://192.168.3.76/group4/M00/1A/CD/pIYBAFsNInGAcv0AAAA3UWeCvM4852.JPG","HeadImg3":"http://192.168.3.76/group4/M00/1A/CD/pIYBAFsNInGAQxWvAAAzvmvYDvg294.JPG","ReadCount":370}]},"SceneName":""},"IsOverdue":null}
+

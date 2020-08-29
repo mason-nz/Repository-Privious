@@ -1,0 +1,235 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>订单详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="js/OrderDetails.js"></script>
+    <style>
+        .add_ad div ul li{
+            line-height:21px
+        }
+        .add_ad .ins_c{
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!-- #include file="/base/header.html"  -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!-- #include file="/base/Menu.html"  -->
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav">
+
+            </h2>
+            <div class="clear"></div>
+
+            <div class="macro_box" style="margin-top: -20px">
+                <div class="ad_audit">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="details">
+    <div class="add_ad" style="padding: 20px 15px 10px">
+        <div style="width: 30%;float: left">
+            <ul>
+                <li class="add_ad_w1 ins_c">订单ID：</li>
+                <li><%=Result.OrderId%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">订单渠道：</li>
+                <li><%=Result.ChannelName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">创建时间：</li>
+                <li><%=Result.CreateTime.slice(0,-3)%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">点击单价：</li>
+                <li><%=formatMoney(Result.CPCPrice,2,'¥ ')%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul style="display: none">
+                <li class="add_ad_w1 ins_c">结算状态：</li>
+                <li><%=Result.StateOfSettlement%></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div style="width: 30%;float: left">
+            <ul>
+                <li class="add_ad_w1 ins_c">任务ID：</li>
+                <li><%=Result.TaskId%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">订单类型：</li>
+                <li><%=Result.OrderType%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">结束时间：</li>
+                <li><%=Result.EndTime.slice(0,-3)%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">线索单价：</li>
+                <li><%=formatMoney(Result.CPLPrice,2,'¥ ')%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul style="display: none">
+                <li class="add_ad_w1 ins_c">结算时间：</li>
+                <li><%=Result.TimeOfSettlement%></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div style="width: 30%;float: left">
+            <ul>
+                <li class="add_ad_w1 ins_c">任务名称：</li>
+                <li style="width: 60%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;"><%=Result.TaskName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">订单状态：</li>
+                <li><%=Result.Status%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">创建人：</li>
+                <li><%=Result.UserIdentity%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1 ins_c">最高收益：</li>
+                <li><%=formatMoney(Result.TotalProfit,2,'¥ ')%></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <div>
+            <%if(Result.MaterialUrl){%>
+            <ul>
+                <li  class="add_ad_w1">
+                    <%if(Result.OrderType=='内容分发'){%>
+                    任务URL：
+                    <%}else{%>
+                    任务图片：
+                    <%}%>
+                </li>
+                <li>
+                    <%if(Result.OrderType=='内容分发'){%>
+                    <a href="<%=Result.MaterialUrl%>" target="_blank"><%=Result.MaterialUrl%></a>
+                    <%}else{%>
+                    <img src="<%=Result.MaterialUrl%>" width="260px" height="104px" alt="">
+                    <%}%>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(Result.OrderUrl){%>
+            <ul>
+                <li  class="add_ad_w1">
+                    <%if(Result.OrderType=='内容分发'){%>
+                    订单URL：
+                    <%}else{%>
+                    订单图片：
+                    <%}%>
+                </li>
+                <li>
+                    <%if(Result.OrderType=='内容分发'){%>
+                    <a href="<%=Result.OrderUrl%>"><%=Result.OrderUrl%></a>
+                    <%}else{%>
+                    <img src="<%=Result.OrderUrl%>" width="260px" height="104px" alt="">
+                    <%}%>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+        </div>
+    </div>
+    <div class="ad_table" style="padding:0 15px;margin-top:0;">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="6%">日期</th>
+                <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+                <th width="8%">点击数量</th>
+                <%}%>
+                <th width="8%">点击收益</th>
+                <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+                <th width="9%">CPL数量</th>
+                <%}%>
+                <th width="8%">CPL收益</th>
+                <th width="10%">总收益</th>
+            </tr>
+            <%if(Result.List.length!=0){%>
+            <%var CPCCount=0,CPCProfit=0,CPLCount=0,CPLProfit=0,TotalProfit=0
+            Result.List.forEach(function(e){
+            CPCCount+=e.CPCCount-0;
+            CPCProfit+=e.CPCProfit-0;
+            CPLCount+=e.CPLCount-0;
+            CPLProfit+=e.CPLProfit-0;
+            TotalProfit+=e.TotalProfit-0;
+            %>
+            <tr>
+                <td><%=e.Date.split(' ')[0]%></td>
+                <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+                <td><%=e.CPCCount%></td>
+                <%}%>
+                <td><%=formatMoney(e.CPCProfit,2,'¥ ')%></td>
+                <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+                <td><%=e.CPLCount%></td>
+                <%}%>
+                <td><%=formatMoney(e.CPLProfit,2,'¥ ')%></td>
+                <td><%=formatMoney(e.TotalProfit,2,'¥ ')%></td>
+            </tr>
+            <%})%>
+            <tr>
+                <th>合计：</th>
+                <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+                <th><%=CPCCount%></th>
+                <%}%>
+                <th><%=formatMoney(CPCProfit,2,'¥ ')%></th>
+                <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+                <th><%=CPLCount%></th>
+                <%}%>
+                <th><%=formatMoney(CPLProfit,2,'¥ ')%></th>
+                <th><%=formatMoney(TotalProfit,2,'¥ ')%></th>
+            </tr>
+            <%}%>
+        </table>
+        <%if(Result.List.length==0){%>
+        <img src="/ImagesNew/no_data.png" style="display: block;margin: 70px auto;">
+        <%}%>
+    </div>
+</script>
+</body>
+</html>

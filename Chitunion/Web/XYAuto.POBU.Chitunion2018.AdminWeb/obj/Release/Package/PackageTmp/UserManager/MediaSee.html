@@ -1,0 +1,231 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>查看媒体主</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script src="js/MediaAud.js"></script>
+    <style>
+        .install .aud img{
+            width: 441px;
+            height: 358px;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!-- #include file="/base/header.html"  -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!-- #include file="/base/Menu.html"  -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <div class="clear"></div>
+            <div class="aud">
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="aud">
+    <h3>基本信息</h3>
+    <ul>
+        <li class="ins_a">用户名：</li>
+        <li><%=Result.UserName?Result.UserName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">手机号：</li>
+        <li><%=Result.Mobile?Result.Mobile:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">微信昵称：</li>
+        <li><%=Result.Nickname?Result.Nickname:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">所属城市：</li>
+        <li><%=Result.ProvinceName?Result.ProvinceName:'--'%><%=Result.CityName?'-'+Result.CityName:''%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">联系地址：</li>
+        <li><%=Result.Address?Result.Address:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">注册来源：</li>
+        <li><%=Result.RegisterFromName?Result.RegisterFromName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">注册方式：</li>
+        <li><%=Result.RegisterTypeName?Result.RegisterTypeName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">注册日期：</li>
+        <li><%=Result.CreateTime?Result.CreateTime:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">关注状态：</li>
+        <li><%=Result.AttentionName?Result.AttentionName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <h3>认证信息</h3>
+    <%if(Result.ApproveStatus==0){%>
+    <ul>
+        <li class="ins_a">认证状态：</li>
+        <li><%=Result.ApproveStatus==0?'未认证':Result.ApproveStatus==1?'待审核':Result.ApproveStatus==2?'已认证':'认证未通过'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+    <%if(Result.ApproveStatus==1){%>
+    <ul>
+        <li class="ins_a">类型：</li>
+        <li><%=Result.Type==1001?'企业':'个人'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a"><%=Result.Type==1001?'公司名称':'真实姓名'%>：</li>
+        <li><%=Result.TrueName?Result.TrueName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%if(Result.Type!=1001){%>
+    <ul>
+        <li class="ins_a">身份证号：</li>
+        <li><%=Result.Type==1002?Result.IdentityNo:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+    <ul>
+        <li class="ins_a"><%=Result.Type==1001?'营业执照':'手持身份证'%>：</li>
+        <li><img src="<%=Result.Type==1001?Result.BLicenceURL:Result.IDCardFrontURL%>" alt=""></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">申请时间：</li>
+        <li><%=Result.ApplyTime?Result.ApplyTime:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">认证状态：</li>
+        <li><%=Result.ApproveStatus==0?'未认证':Result.ApproveStatus==1?'待审核':Result.ApproveStatus==2?'已认证':'认证未通过'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+    <%if(Result.ApproveStatus==2){%>
+    <ul>
+        <li class="ins_a">类型：</li>
+        <li><%=Result.Type==1001?'企业':'个人'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a"><%=Result.Type==1001?'公司名称':'真实姓名'%>：</li>
+        <li><%=Result.TrueName?Result.TrueName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%if(Result.Type!=1001){%>
+    <ul>
+        <li class="ins_a">身份证号：</li>
+        <li><%=Result.Type==1002?Result.IdentityNo:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+    <ul>
+        <li class="ins_a"><%=Result.Type==1001?'营业执照':'手持身份证'%>：</li>
+        <li><img src="<%=Result.Type==1001?Result.BLicenceURL:Result.IDCardFrontURL%>" alt=""></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">认证状态：</li>
+        <li><%=Result.ApproveStatus==0?'未认证':Result.ApproveStatus==1?'待审核':Result.ApproveStatus==2?'已认证':'认证未通过'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">审核人：</li>
+        <li><%=Result.ApproveUserName?Result.ApproveUserName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">审核时间：</li>
+        <li><%=Result.AuditTime?Result.AuditTime:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+    <%if(Result.ApproveStatus==3){%>
+    <ul>
+        <li class="ins_a">类型：</li>
+        <li><%=Result.Type==1001?'企业':'个人'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a"><%=Result.Type==1001?'公司名称':'真实姓名'%>：</li>
+        <li><%=Result.TrueName?Result.TrueName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%if(Result.Type!=1001){%>
+    <ul>
+        <li class="ins_a">身份证号：</li>
+        <li><%=Result.Type==1002?Result.IdentityNo:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+    <ul>
+        <li class="ins_a"><%=Result.Type==1001?'营业执照':'手持身份证'%>：</li>
+        <li><img src="<%=Result.Type==1001?Result.BLicenceURL:Result.IDCardFrontURL%>" alt=""></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">认证状态：</li>
+        <li><%=Result.ApproveStatus==0?'未认证':Result.ApproveStatus==1?'待审核':Result.ApproveStatus==2?'已认证':'认证未通过'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">审核人：</li>
+        <li><%=Result.ApproveUserName?Result.ApproveUserName:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">驳回原因：</li>
+        <li><%=Result.Reason?Result.Reason:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">审核时间：</li>
+        <li><%=Result.AuditTime?Result.AuditTime:'--'%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+</script>
+
+</body>
+</html>

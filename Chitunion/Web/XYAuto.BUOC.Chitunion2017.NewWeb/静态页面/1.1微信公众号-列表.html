@@ -1,0 +1,654 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>微信列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<div id="top">
+    <div class="box">
+        <div class="left"></div>
+        <ul class="right pr">
+            <!-- <li id="anvlfteb">
+                <div class="posbox">Hi， <span class="yellow">limenghan99150</span> <img src="../images/arrow_03.png"/>
+                </div>
+            </li>
+            <li class="message"><img src="../images/icon47.png"><em>2</em></li>
+            <li><a href="#"><span style="color:#fff">退出</span></a></li> -->
+            <li>
+                <a href="javascript:void(0)">
+                    <img src="../images/person2.png">
+                    <span>广告主</span>
+                </a>
+            </li>
+            <li>
+                <img src="../images/line2.png">
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <img src="../images/person3.png">
+                    <span>媒体主</span>
+                </a>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="topBar">
+    <div class="topBox">
+        <a href="#" class="topLogo"></a>
+        <ul id="topBoxlist">
+            <li><a href="#">首页</a></li>
+            <li><a href="#" class="active">智能匹配</a></li>
+            <li><a href="#">内容分发</a></li>
+            <li><a href="#">媒体智投</a></li>
+            <li><a href="#">媒体变现</a></li>
+            <li><a href="#">客户服务</a></li>
+            <div class="clear"></div>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!--中间内容-->
+<div class="wx_box">
+    <div class="search-form">
+        <div id="search-hd" class="search-hd">
+            <div class="search-bg"></div>
+            <input type="text" class="search-input">
+            <span class="pholder">请输入关键字或品牌</span>
+            <button id="submit" class="btn-search" value="搜索">搜索</button>
+        </div>
+    </div>
+    <div class="selectMedia">
+        <ul>
+            <li>
+                <img src="../images/weixin.png">微信
+            </li>
+            <li>
+                <img src="../images/weibo.png">微博
+            </li>
+            <li>
+                <img src="../images/app.png">APP
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wx_odds">
+        <div class="wx_wrap">
+            <div class="wx_key">常见分类：</div>
+            <div class="wx_value">
+                <ul>
+                    <li><a href="#" class="active">不限</a></li>
+                    <li><a href="#">新闻市政</a></li>
+                    <li><a href="#">金融理财</a></li>
+                    <li><a href="#">互联网</a></li>
+                    <li><a href="#">创意/生活</a></li>
+                    <li><a href="#">美食</a></li>
+                    <li><a href="#">时尚搭配</a></li>
+                    <li><a href="#">个人媒体</a></li>
+                    <li><a href="#">汽车</a></li>
+                    <li><a href="#">美妆媒体</a></li>
+                    <li><a href="#">健康养生</a></li>
+                    <li><a href="#">星座命里</a></li>
+                    <li><a href="#">创意/生活</a></li>
+                    <li><a href="#">美食</a></li>
+                    <li><a href="#">时尚搭配</a></li>
+                    <li><a href="#">个人媒体</a></li>
+                    <li><a href="#">汽车</a></li>
+                    <li><a href="#">美妆媒体</a></li>
+                    <li><a href="#">健康养生</a></li>
+                    <li><a href="#">星座命里</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="wx_ext">展开 <img src="../images/arrow_01.png"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_wrap">
+            <div class="wx_key">粉丝数量：</div>
+            <div class="wx_value" style="width: 640px;">
+                <ul>
+                    <li><a href="#" class="active">不限</a></li>
+                    <li><a href="#">1万以下</a></li>
+                    <li><a href="#">1-5万</a></li>
+                    <li><a href="#">5-10万</a></li>
+                    <li><a href="#">10-20万</a></li>
+                    <li><a href="#">20-40万</a></li>
+                    <li><a href="#">40-80万</a></li>
+                    <li><a href="#">80-120万</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="price-set">
+                <input type="text" name="">
+                —
+                <input type="text" name="">
+                <span class="button_blue_sure">确定</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_wrap">
+            <div class="wx_key">价格：</div>
+            <div class="wx_value" style="width: 400px;">
+                <ul>
+                    <li><a href="#" class="active">不限</a></li>
+                    <li><a href="#">1000-3000元</a></li>
+                    <li><a href="#">3000元以上</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="price-set">
+                <select>
+                    <option>多图文头条</option>
+                    <option>多图文头条</option>
+                    <option>多图文头条</option>
+                    <option>多图文头条</option>
+                </select>
+                <input type="text" name="">
+                —
+                <input type="text" name="">
+                <span class="button_blue_sure">确定</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_wrap">
+            <div class="wx_key">覆盖地区：</div>
+            <div class="wx_value" style="width:500px;">
+                <ul>
+                    <li><a href="#" class="active">不限</a></li>
+                    <li><a href="#">全国</a></li>
+                    <li><a href="#">北京</a></li>
+                    <li><a href="#">上海</a></li>
+                    <li><a href="#">广州</a></li>
+                    <li><a href="#">深圳</a></li>
+                    <li><a href="#">杭州</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="price-set">
+                <select>
+                    <option>选择省份</option>
+                    <option>北京</option>
+                </select>
+                <select>
+                    <option>选择城市</option>
+                    <option>北京</option>
+                </select>
+                <span class="button_blue_sure">确定</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_already_wrap">
+            <div class="wx_already_key">已选择：</div>
+            <div class="wx_already_value">
+                <ul>
+                    <li>常见分类：<span>金融理财</span><i class="close">×</i></li>
+                    <li>粉丝数量：<span>5-10万</span><i class="close">×</i></li>
+                    <li>价格：<span>50-100元</span><i class="close">×</i></li>
+                    <a>清空条件</a>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="wx_box">
+        <div class="wx_form" style="padding: 0 10px;">
+            <div class="wx_table3">
+                <div class="wx_check"><input name="" type="checkbox" value=""></div>
+                <div class="wechat_list3">
+                    <div class="wx_content7">全选</div>
+                    <div>共计<span>31656</span>个</div>
+                </div>
+                <div class="wechat_list2">
+                    行业分类
+                </div>
+                <div class="wechat_list2">
+                    粉丝数
+                    <a href="javascript:void(0)">
+                        <img src="../images/bottom_red.png">
+                    </a>
+                </div>
+                <div class="wechat_list2">
+                    平均阅读数
+                    <a href="javascript:void(0)">
+                        <img src="../images/bottom_grey.png">
+                    </a>
+                </div>
+                <div class="wechat_list2">
+                    位置
+                </div>
+                <div class="wechat_list2">
+                    发布参考价
+                </div>
+                <div class="wechat_list2">
+                    原创+发布参考价
+                </div>
+                <div class="wechat_list2">
+                    操作
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wx_table2">
+                <div class="wx_check">
+                    <input type="checkbox" name="">
+                </div>
+                <div class="wechat_list3">
+                    <div class="portrait"><img src="../images/pic08.jpg"></div>
+                    <div class="content">
+                        <h2><span class="wx_name">上海微生活上海微生活上海微生活上海微生活</span>
+                            <span class="Original">原创</span>
+                            <a href="javascript:void(0)" class="noBigPic">
+                                <img class="viewBigpic" src="../images/icon80.png">
+                                <img class="Bigpic" src="../images/erweima.png">
+                            </a>
+
+                        </h2>
+                        <p>shanghaiweishegnhuo</p>
+                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list2">
+                    <p>情感</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>12万</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>5,3045</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>多图文第一条</p>
+                    <p>多图文第3-N条</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000元</p>
+                    <p>999,000元</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000元</p>
+                    <p>999,000元</p>
+                </div>
+                <div class="wechat_list2">
+                    <span class="cart"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wx_table2">
+                <div class="wx_check">
+                    <input type="checkbox" name="">
+                </div>
+                <div class="wechat_list3">
+                    <div class="portrait"><img src="../images/pic08.jpg"></div>
+                    <div class="content">
+                        <h2>
+                            <span class="wx_name">上海微生活</span>
+                            <a href="javascript:void(0)" class="noBigPic">
+                                <img class="viewBigpic" src="../images/icon80.png">
+                                <img class="Bigpic" src="../images/erweima.png">
+                            </a>
+                        </h2>
+                        <p>shanghaiweishegnhuo</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list2">
+                    <p>情感</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>12万+</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>5,3045</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>单图文</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <span class="cart"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wx_table2">
+                <div class="wx_check">
+                    <input type="checkbox" name="">
+                </div>
+                <div class="wechat_list3">
+                    <div class="portrait"><img src="../images/pic08.jpg"></div>
+                    <div class="content">
+                        <h2>
+                            <span class="wx_name">上海微生活</span>
+                            <span class="Original">原创</span>
+                            <a href="javascript:void(0)" class="noBigPic">
+                                <img class="viewBigpic" src="../images/icon80.png">
+                                <img class="Bigpic" src="../images/erweima.png">
+                            </a>
+                        </h2>
+                        <p>shanghaiweishegnhuo</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list2">
+                    <p>情感</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>12万</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>5,3045</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>多图文第一条</p>
+                    <p>多图文第一条</p>
+                    <p>多图文第一条</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                    <p>999,000</p>
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                    <p>999,000</p>
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <span class="cart"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wx_table2">
+                <div class="wx_check">
+                    <input type="checkbox" name="">
+                </div>
+                <div class="wechat_list3">
+                    <div class="portrait"><img src="../images/pic08.jpg"></div>
+                    <div class="content">
+                        <h2>
+                            <span class="wx_name">上海微生活</span>
+                            <span class="Original">原创</span>
+                            <a href="javascript:void(0)" class="noBigPic">
+                                <img class="viewBigpic" src="../images/icon80.png">
+                                <img class="Bigpic" src="../images/erweima.png">
+                            </a>
+                        </h2>
+                        <p>shanghaiweishegnhuo</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list2">
+                    <p>情感</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>12万</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>5,3045</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>多图文第一条</p>
+                    <p>多图文第一条</p>
+                    <p>多图文第一条</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                    <p>999,000</p>
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                    <p>999,000</p>
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <span class="cart"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wx_table2">
+                <div class="wx_check">
+                    <input type="checkbox" name="">
+                </div>
+                <div class="wechat_list3">
+                    <div class="portrait"><img src="../images/pic08.jpg"></div>
+                    <div class="content">
+                        <h2>
+                            <span class="wx_name">上海微生活</span>
+                            <span class="Original">原创</span>
+                            <a href="javascript:void(0)" class="noBigPic">
+                                <img class="viewBigpic" src="../images/icon80.png">
+                                <img class="Bigpic" src="../images/erweima.png">
+                            </a>
+                        </h2>
+                        <p>shanghaiweishegnhuo</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list2">
+                    <p>情感</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>12万</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>5,3045</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>多图文第一条</p>
+                    <p>多图文第一条</p>
+                    <p>多图文第一条</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                    <p>999,000</p>
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <p>999,000</p>
+                    <p>999,000</p>
+                    <p>999,000</p>
+                </div>
+                <div class="wechat_list2">
+                    <span class="cart"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--分页-->
+        <div class="green-black">
+            <span class="disabled prev"> < </span>
+            <span class="current">1</span>
+            <a href="#?page=2">2</a>
+            <a href="#?page=3">3</a>...
+            <a href="#?page=200">100</a>
+            <a href="#?page=2" class="next"> ></a>
+            <span class="ml10">共 99 页</span>
+        </div>
+
+    </div>
+</div>
+
+
+<!--底部-->
+<div id="footer">
+    <div class="main">
+        <p>@2016-2017 www.chitunion.com All Rights Reserved. 北京行圆汽车信息技术有限公司所有 京ICP备17011360号-3</p>
+    </div>
+</div>
+
+<div class="mui-mbar-tabs">
+    <div class="quick_links_wrap">
+        <div class="quick_link_mian">
+            <div class="quick_links_panel">
+                <ul id="quick_links" class="quick_links">
+                    <li id="shopCart">
+                        <!-- 鼠标移入时加class current -->
+                        <a href="javascript:void(0)" class="message_list">
+                            <!-- <i class="message"></i> -->
+                            <div class="span">选号车</div>
+                            <span class="cart_num">12</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="quick_toggle">
+                    <li>
+                        <a href="#top" class="return_top">
+                            <i class="top"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="quick_links_pop" class="quick_links_pop quick_message_list" style="left: 280px;">
+                <a href="javascript:;" class="ibar_closebtn" title="关闭"></a>
+                <!-- <div class="ibar_plugin_title">
+                    <h3>购物车</h3>
+                </div> -->
+                <div class="pop_panel">
+                    <div class="ibar_plugin_content">
+                        <div class="ibar_cart_group ibar_cart_product">
+                            <div class="ibar_cart_group_header">
+                                <span class="ibar_cart_group_title">
+                                    <!-- <input name="" type="checkbox" value="">  -->
+                                    全屏查看
+                                </span>
+                                <a href="#">×</a>
+                            </div>
+                            <div class="cart_shop">
+                                <div class="ping01">
+                                    <!-- <input name="" type="checkbox" value=""> -->
+                                </div>
+                                <div class="ping02">
+                                    <div class="img">
+                                        <img src="../images/pic08.jpg" width="42" height="42">
+                                        <img src="../images/weixin.png" class="mediaImg">
+                                    </div>
+                                    <div class="h2">艺然飘逸艺然飘逸艺然飘逸艺然飘逸</div>
+                                    <div class="p">微信号：yiranpiaoyi99anpiaoyi991anpiaoyi9911</div>
+                                </div>
+                                <div class="ping03">
+                                    <a href="#">×</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="cart_shop">
+                                <div class="ping01">
+                                    <!-- <input name="" type="checkbox" value=""> -->
+                                </div>
+                                <div class="ping02">
+                                    <div class="img">
+                                        <img src="../images/pic08.jpg" width="42" height="42" class="headImg">
+                                        <img src="../images/weixin.png" class="mediaImg">
+                                    </div>
+                                    <div class="h2">艺然飘逸</div>
+                                    <div class="p">微博号：yiranpiaoyi991</div>
+                                </div>
+                                <div class="ping03">
+                                    <a href="#">×</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="cart_shop">
+                                <div class="ping01">
+                                    <!-- <input name="" type="checkbox" value=""> -->
+                                </div>
+                                <div class="ping02">
+                                    <div class="img">
+                                        <img src="../images/pic08.jpg" width="42" height="42">
+                                        <img src="../images/weixin.png" class="mediaImg">
+                                    </div>
+                                    <div class="h2">艺然飘逸</div>
+                                    <div class="p">微博号：yiranpiaoyi991</div>
+                                </div>
+                                <div class="ping03">
+                                    <a href="#">×</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="countMedia">
+                            <ul>
+                                <li>
+                                    <img src="../images/weixin.png">
+                                    <p>1</p>
+                                </li>
+                                <li>
+                                    <img src="../images/weibo.png">
+                                    <p>1</p>
+                                </li>
+                                <li>
+                                    <img src="../images/app.png">
+                                    <p>1</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cart_handler">
+                            <div class="cart_handler_header">
+                                <p class="cart_handler_top">共：
+                                    <span class="cart_num"> 3个 </span>
+                                    <span class="importNumber button_import">导出账号</span>
+                                </p>
+                                <p>
+                                    <span class="allDel">全部删除</span>
+                                    <span class="button_extension">
+                                        立即推广
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="arrow"><i></i></div> -->
+                <div class="fix_bg"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $('#shopCart').off('click').on('click',function(){
+        var $pop = $('#quick_links_pop');
+        if($pop.css('left') == '280px'){
+            $('.mui-mbar-tabs,.quick_links_wrap').css('width','320px')
+            $pop.animate({left:0});
+        }else{
+            $('.mui-mbar-tabs,.quick_links_wrap').css('width','0')
+            $pop.animate({left:'280px'});
+        }
+    })
+    $('.wx_ext').off('click').on('click',function(){
+        var _this = $(this),
+            imgSrc = _this.find('img').attr('src');
+
+        if(imgSrc == '../images/arrow_01.png'){
+            _this.parents('.wx_wrap').css('height','auto');
+            _this.html('收起 <img src="../images/arrow_02.png">')
+        }else{
+            _this.parents('.wx_wrap').css('height','36px');
+            _this.html('展开 <img src="../images/arrow_01.png">')
+        }
+
+    })
+    $('.viewBigpic').off('mouseover').on('mouseover',function(){
+        $(this).parent().removeClass('noBigPic');
+    }).off('mouseout').on('mouseout',function(){
+        $(this).parent().addClass('noBigPic');
+    })
+    
+</script>
+</html>

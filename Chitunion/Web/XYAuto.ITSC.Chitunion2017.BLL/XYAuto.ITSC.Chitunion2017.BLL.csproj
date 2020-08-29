@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B31BB524-1886-4F97-8871-7B517F1B27D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ITSC.Chitunion2017.BLL</RootNamespace>
+    <AssemblyName>XYAuto.ITSC.Chitunion2017.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\AutoMapper.4.0.4\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BitAuto.EP.Common.Lib.Excel">
+      <HintPath>..\sln\packages\BitAuto.EP.Common.Lib.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\FastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="GeetestSDK">
+      <HintPath>..\..\..\Lib\GeetestSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\Lib\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\Lib\NPOI_2.0\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\sln\XYAuto.ITSC.Chitunion2017.LuceneMediaConsole\Lib\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\sln\packages\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\sln\packages\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\sln\packages\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\sln\packages\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu">
+      <HintPath>..\sln\XYAuto.ITSC.Chitunion2017.LuceneMediaConsole\Lib\PanGu.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.HighLight">
+      <HintPath>..\sln\XYAuto.ITSC.Chitunion2017.LuceneMediaConsole\Lib\PanGu.HighLight.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.Lucene.Analyzer">
+      <HintPath>..\sln\XYAuto.ITSC.Chitunion2017.LuceneMediaConsole\Lib\PanGu.Lucene.Analyzer.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin, Version=4.11.6.3690, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=14.3.139.3690, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.Open, Version=2.3.8.3691, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.Open.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Doc">
+      <HintPath>..\..\..\Lib\Sprire.doc\NET4.0\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="sysglobl" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Xy.Config">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="XY.Framework, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\XY.Framework.1.3.2\lib\net45\XY.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xy.ImageFastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.ImageFastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="XY.Web.ApiProxy.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\XY.Web.ApiProxy.Common.3.0.0\lib\net45\XY.Web.ApiProxy.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils, Version=2.0.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\Lib\XYAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing">
+      <HintPath>..\..\..\Lib\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activity\ActivityConfigManage.cs" />
+    <Compile Include="Activity\OneYuanActivityEntity.cs" />
+    <Compile Include="Activity\OneYuanTxProvider.cs" />
+    <Compile Include="ADDetailInfo\ADDetailInfo.cs" />
+    <Compile Include="ADOrderInfo\ADOrderInfo.cs" />
+    <Compile Include="ADOrderInfo\Dto\RequestADOrderInfoDto.cs" />
+    <Compile Include="ADOrderInfo\Dto\ResponseADMasterDto.cs" />
+    <Compile Include="ADOrderInfo\Dto\ResponseADOrderInfoDto.cs" />
+    <Compile Include="ADOrderInfo\V1_8_3\Dto\IRecommendExportDto.cs" />
+    <Compile Include="ADOrderInfo\V1_8_3\IntelligenceADOrderInfo.cs" />
+    <Compile Include="ADOrderInfo\V2_3\ShareOrderInfo.cs" />
+    <Compile Include="AdTemplate\AppAdTemplate.cs" />
+    <Compile Include="AdTemplate\AppAdTemplateExtend.cs" />
+    <Compile Include="Advertiser\Advertiser.cs" />
+    <Compile Include="AppAuth\AppAuth.cs" />
+    <Compile Include="AppAuth\AppAuthHelper.cs" />
+    <Compile Include="AppAuth\DESHelper.cs" />
+    <Compile Include="AppAuth\EnumAppAuthRequestVerify.cs" />
+    <Compile Include="AppAuth\OrdinalComparer.cs" />
+    <Compile Include="AppTemplate.cs" />
+    <Compile Include="APP\FeedbackBll.cs" />
+    <Compile Include="APP\GenericProfilesBll.cs" />
+    <Compile Include="AreaInfo.cs" />
+    <Compile Include="AutoMapperConfig\AutoResolver\AdTemplateRsolver.cs" />
+    <Compile Include="AutoMapperConfig\AutoResolver\MediaAppResolver.cs" />
+    <Compile Include="AutoMapperConfig\AutoResolver\MediaBaseAppResolver.cs" />
+    <Compile Include="AutoMapperConfig\AutoResolver\MediaWeiXinResolver.cs" />
+    <Compile Include="AutoMapperConfig\Profile\AdTemplateProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\LeTask\OrderInfoProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\MaterielProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\GDT\GdtServerProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\GDT\GdtUserInfoProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\MediaAppInfoProfile.cs" />
+    <Compile Include="CarSerialInfo\CarSerial.cs" />
+    <Compile Include="CarSerialInfo\Dto\Request\RequestCarBrandDto.cs" />
+    <Compile Include="Channel.cs" />
+    <Compile Include="ChituMedia\CartBll.cs" />
+    <Compile Include="ChituMedia\Common\ConvertHelper.cs" />
+    <Compile Include="ChituMedia\Common\EnumExtensions.cs" />
+    <Compile Include="ChituMedia\Common\HighlightHelper.cs" />
+    <Compile Include="ChituMedia\Common\SimplePager.cs" />
+    <Compile Include="ChituMedia\Common\SplitHelper.cs" />
+    <Compile Include="ChituMedia\ExcelHelper.cs" />
+    <Compile Include="ChituMedia\ResourcesExportBll.cs" />
+    <Compile Include="ChituMedia\TagVehicleBll.cs" />
+    <Compile Include="ChituMedia\MediaUserBll.cs" />
+    <Compile Include="ChituMedia\WeiXinVisvitBll.cs" />
+    <Compile Include="ChituMedia\WithdrawalsBll.cs" />
+    <Compile Include="Controller\Dto\IsValidActivity\ReqDto.cs" />
+    <Compile Include="Controller\Sign.cs" />
+    <Compile Include="FileShareHelper.cs" />
+    <Compile Include="DictInfo\DictInfo.cs" />
+    <Compile Include="DTO\MediaListDTO.cs" />
+    <Compile Include="DTO\PublishInfoDTO.cs" />
+    <Compile Include="GeetestHelper.cs" />
+    <Compile Include="IpBlacklist\IpBlacklist.cs" />
+    <Compile Include="Json.cs" />
+    <Compile Include="ChituMedia\Common\VerifyUserBll.cs" />
+    <Compile Include="ChituMedia\Dto\BasicResultDto.cs" />
+    <Compile Include="LeadsTask.cs" />
+    <Compile Include="LETask\LeWeixinOAuth.cs" />
+    <Compile Include="ChituMedia\SmartSearchBll.cs" />
+    <Compile Include="LETask\Provider\AppPushMsgSwitchLogProvider.cs" />
+    <Compile Include="LETask\Provider\BindingWeiBoProvider.cs" />
+    <Compile Include="LETask\Provider\BindingWeiXinProvider.cs" />
+    <Compile Include="LETask\Provider\ChannelStatMonthProvider.cs" />
+    <Compile Include="LETask\Provider\Dto\ReqKeyValueDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\QrLogin\ReqPostLoginQrDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\QrLogin\ReqSimulationLoginDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\QrLogin\ReqVerifyQrLoginDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqAppPushSwitchDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqChannelStatMonthPayDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqMediaInfoDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqMediaUpdateOfferDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqMediaUpdateWbOfferDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqMediaUpdateWxOfferDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqOrderInfoDto.cs" />
+    <Compile Include="ChituMedia\MediaBll.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqTaskReceiveDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqTaskStatusNoteDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ReqTaskStorageDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\ThirdApi\ReqOrderStorageDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\User\ReqUserDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\User\ReqUserPasswordDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\Withdrawals\ReqFillWithdrawalsInfoDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\Withdrawals\ReqWithdrawalsAgainDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\Withdrawals\ReqWithdrawalsAuditDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Request\Withdrawals\ReqWithdrawalsDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\QrLogin\RespQrLoginDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\RespAppPushDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\RespIncomeInfoDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\RespOrderIncomeDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\RespOrderInfoDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\RespWeiXinInfoDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\Withdrawals\RespWithdrawalsAuditDetailDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\Withdrawals\RespWithdrawalsInfoDto.cs" />
+    <Compile Include="LETask\Provider\Dto\Response\Withdrawals\RespWithdrawalsPriceClc.cs" />
+    <Compile Include="LETask\Provider\Dto\TaskConfigEntity.cs" />
+    <Compile Include="LETask\Provider\OrderProvider.cs" />
+    <Compile Include="LETask\Provider\QrLoginProvider.cs" />
+    <Compile Include="LETask\Provider\TaskProvider.cs" />
+    <Compile Include="LETask\Provider\UserProvider.cs" />
+    <Compile Include="LETask\Provider\WithdrawalsProvider.cs" />
+    <Compile Include="LETask\V2_3\LE_Task.cs" />
+    <Compile Include="LETask\V2_3\LE_WXUserScene.cs" />
+    <Compile Include="LuckDrawActivity\LuckDraw.cs" />
+    <Compile Include="Materiel\Dto\RequestDistributeDto.cs" />
+    <Compile Include="Materiel\Dto\RequestSubmitCleanDto.cs" />
+    <Compile Include="Materiel\Dto\Response\RespCleanInfoDto.cs" />
+    <Compile Include="Materiel\MaterielExtend.cs" />
+    <Compile Include="Materiel\MaterielChannel.cs" />
+    <Compile Include="Materiel\MaterielChannelData.cs" />
+    <Compile Include="LabelTask\LabelTask.cs" />
+    <Compile Include="LabelTask\LB_Project.cs" />
+    <Compile Include="LabelTask\LB_Task.cs" />
+    <Compile Include="Demand.cs" />
+    <Compile Include="GDT\AppSettingsForZhy.cs" />
+    <Compile Include="GDT\Dto\Request\RequestBaseTokenDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestPushDemandDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestPushUserDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestRechargeReceiptDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestReportByZhyDto.cs" />
+    <Compile Include="GDT\Dto\Request\ToAccountFundNotes.cs" />
+    <Compile Include="GDT\Dto\Request\ToDemandNotes.cs" />
+    <Compile Include="GDT\Dto\Response\GetToZhyReportDto.cs" />
+    <Compile Include="GDT\Dto\Response\RespZhyBaseDto.cs" />
+    <Compile Include="GDT\GdtAccessToken.cs" />
+    <Compile Include="GDT\GdtAccountInfo.cs" />
+    <Compile Include="GDT\GdtDataEnumProvider.cs" />
+    <Compile Include="GDT\GdtLogicProvider.cs" />
+    <Compile Include="GDT\HttpClient.cs" />
+    <Compile Include="GDT\LogicByZhyProvider.cs" />
+    <Compile Include="GDT\LogicTransferProvider.cs" />
+    <Compile Include="GDT\SignUtility.cs" />
+    <Compile Include="Materiel\MaterielTaskSchedulerProvider.cs" />
+    <Compile Include="MediaOrderInfo.cs" />
+    <Compile Include="HolidaysInfo.cs" />
+    <Compile Include="Media\Business\Base\IMediaOperate.cs" />
+    <Compile Include="Media\Business\QrCodeProvider.cs" />
+    <Compile Include="Media\Business\V1_1\AdTemplateProvider.cs" />
+    <Compile Include="Media\Business\V1_1\AdTemplateRelationDataProvider.cs" />
+    <Compile Include="Media\Business\V1_1\AppOperate.cs" />
+    <Compile Include="Media\Business\V1_1_11\MaterielProvider.cs" />
+    <Compile Include="Media\Business\V1_4\MediaCommonInfo.cs" />
+    <Compile Include="Media\Business\V1_8\ChannelInfoProvider.cs" />
+    <Compile Include="Media\Business\V1_8\TwoBarCodeHistoryProvider.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestAppDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestAppInfoDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestGetWeiXinQualificationDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestTemplateDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestTemplateInfoDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1_11\RequestMaterielGetInfoDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1_11\RequestTaskSchedulerDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_2_1\RequestArticleQueryDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_8\RequestTwoBarCodeDto.cs" />
+    <Compile Include="Media\Dto\ResponseDto\V1_1_11\RespMaterielInfoDto.cs" />
+    <Compile Include="Media\Dto\ResponseDto\V1_1_11\RespMaterielListDto.cs" />
+    <Compile Include="Media\Dto\ResponseDto\V1_2_1\ResponseArticleListDto.cs" />
+    <Compile Include="Media\MediaQualification.cs" />
+    <Compile Include="Media\Support\CacheHelper.cs" />
+    <Compile Include="Media\TwoBarCodeHistory.cs" />
+    <Compile Include="Media\Verification\VerifyOperateBase.cs" />
+    <Compile Include="OperateWord.cs" />
+    <Compile Include="Profit\Profit.cs" />
+    <Compile Include="Provider\App\ReportAppInfoProvider.cs" />
+    <Compile Include="Provider\App\ShareProvider.cs" />
+    <Compile Include="Provider\Dto\Request\ReqCreateShareDto.cs" />
+    <Compile Include="Provider\Dto\Request\ReqReportAppDto.cs" />
+    <Compile Include="Provider\Dto\Response\RespBaseChituDto.cs" />
+    <Compile Include="Provider\Dto\Response\RespPostReceiceDto.cs" />
+    <Compile Include="Provider\Dto\Response\RespShareRewardDto.cs" />
+    <Compile Include="Provider\Dto\ShareSuccessTipsDto.cs" />
+    <Compile Include="Provider\Enums\ShareChannelIdEnum.cs" />
+    <Compile Include="Publish\Dto\RequestDto\V1_1\RequestAuditInfoQueryDto.cs" />
+    <Compile Include="Publish\Dto\RequestDto\V1_1_1\RequestAdQueryDto.cs" />
+    <Compile Include="Publish\Dto\RequestDto\V1_1_1\RequestMediaAppQueryDto.cs" />
+    <Compile Include="Publish\Dto\ResponseDto\V1_1_1\RespAdTemplateDto.cs" />
+    <Compile Include="Publish\Dto\ResponseDto\V1_1_1\RespAdWeiXinAuditPassDto.cs" />
+    <Compile Include="Publish\Dto\ResponseDto\V1_1_1\RespMediaAppDto.cs" />
+    <Compile Include="Publish\V1_1\PbWeiXinQueryByYunYing.cs" />
+    <Compile Include="Publish\V1_1_11\MaterielQuery.cs" />
+    <Compile Include="Publish\V1_1_11\MaterielTaskByAdminQuery.cs" />
+    <Compile Include="Publish\V1_1_11\MaterielTaskQuery.cs" />
+    <Compile Include="Publish\V1_1_11\TaskSchedulerQueryProxy.cs" />
+    <Compile Include="Publish\V1_1_1\AdQueryProxy.cs" />
+    <Compile Include="Publish\V1_1_1\AdTemplate\AdTemplateYunYingQuery.cs" />
+    <Compile Include="Publish\V1_1_1\AdWeiXinAuditPassQuery.cs" />
+    <Compile Include="Publish\V1_1_1\AdWeiXinNotPassQuery.cs" />
+    <Compile Include="Publish\V1_1_1\AdWeiXinQueryByYunYing.cs" />
+    <Compile Include="Publish\V1_1_1\MediaAppAuditPassQuery.cs" />
+    <Compile Include="Publish\V1_1_1\MediaAppNotPassQuery.cs" />
+    <Compile Include="Publish\V1_1_1\MediaAppQueryByYunYing.cs" />
+    <Compile Include="Publish\V1_1_1\MediaAppQueryByYunYingAudit.cs" />
+    <Compile Include="Publish\V1_1_1\MediaQueryProxy.cs" />
+    <Compile Include="Publish\V1_2_1\ArticleQuery.cs" />
+    <Compile Include="Query\ChannelStat\ChannelStatMonthQuery.cs" />
+    <Compile Include="Query\Dto\Request\AdOrder\ReqOrderCoverImageDto.cs" />
+    <Compile Include="Query\Dto\Request\ChannelStat\ReqChannelStatDto.cs" />
+    <Compile Include="Query\Dto\Request\InCome\ReqInComeByMediaOwnDto.cs" />
+    <Compile Include="Query\Dto\Request\InCome\ReqInComeDto.cs" />
+    <Compile Include="Query\Dto\Request\Media\ReqMediaBindingsDto.cs" />
+    <Compile Include="Query\Dto\Request\Task\ReqTaskH5Dto.cs" />
+    <Compile Include="Query\Dto\Request\Withdrawals\ReqWithdrawalsDto.cs" />
+    <Compile Include="Query\Dto\Response\AdOrder\RespOrderCoverImageDto.cs" />
+    <Compile Include="Query\Dto\Response\AdOrder\RespOrderDistributeDto.cs" />
+    <Compile Include="Query\Dto\Response\ChannelStat\RespChannelStatDto.cs" />
+    <Compile Include="Query\Dto\Response\InCome\RespInComeByMediaOwnDto.cs" />
+    <Compile Include="Query\Dto\Response\InCome\RespInComeDto.cs" />
+    <Compile Include="Query\Dto\Response\InCome\RespWithdrawalsDto.cs" />
+    <Compile Include="Query\Dto\Response\Media\RespTaskSelectWeiXinDto.cs" />
+    <Compile Include="Query\Dto\Response\Media\RespWeiBoBindingsDto.cs" />
+    <Compile Include="Query\Dto\Response\Media\RespWeiXinBindingsDto.cs" />
+    <Compile Include="Query\Dto\Response\Task\RespReceiveTaskInfoDto.cs" />
+    <Compile Include="Query\Dto\Response\Task\RespTaskH5Dto.cs" />
+    <Compile Include="Query\Dto\Response\Withdrawals\RespWithdrawalsDto.cs" />
+    <Compile Include="Query\InCome\InComeByMediaOwnQuery.cs" />
+    <Compile Include="Query\InCome\IncomeQuery.cs" />
+    <Compile Include="Query\InCome\IncomeWithdrawalsQuery.cs" />
+    <Compile Include="Query\LeOrder\OrderCoverImageQuery.cs" />
+    <Compile Include="Query\LeOrder\OrderDistributeQuery.cs" />
+    <Compile Include="Query\LeTask\TaskH5Query.cs" />
+    <Compile Include="Query\LeTask\TaskQueryProxy.cs" />
+    <Compile Include="Query\LeTask\TaskRecCoverImageQuery.cs" />
+    <Compile Include="Query\LeTask\TaskRecDistributeQuery.cs" />
+    <Compile Include="Query\Media\BindingsWeiBoQuery.cs" />
+    <Compile Include="Query\Media\BindingsWeiXinQuery.cs" />
+    <Compile Include="Query\Media\TaskSelectWeiXinQuery.cs" />
+    <Compile Include="Query\Withdrawals\WithdrawalsQuery.cs" />
+    <Compile Include="Ranking\StatWeixinRankList.cs" />
+    <Compile Include="Service References\EmployeeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart\Dto\RequestADScheduleOptDto.cs" />
+    <Compile Include="ShoppingCart\Dto\RequestAPPAddShoppingDto.cs" />
+    <Compile Include="ShoppingCart\Dto\RequestDeliveryShoppingDto.cs" />
+    <Compile Include="ShoppingCart\Dto\RequestPubDetailVertifyDto.cs" />
+    <Compile Include="ShoppingCart\Dto\ResponseQueryShoppingDto.cs" />
+    <Compile Include="StockBroker\StockBroker.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="ThirdApi\Config\KrFundsConfigSection.cs" />
+    <Compile Include="ThirdApi\Config\OpApiNoteDistributeConfigSection.cs" />
+    <Compile Include="ThirdApi\ContentDistribute\DistributeProvider.cs" />
+    <Compile Include="ThirdApi\Dto\Enum\KrAccountTypeEnum.cs" />
+    <Compile Include="ThirdApi\Dto\Enum\KrCardTypeEnum.cs" />
+    <Compile Include="ThirdApi\Dto\Enum\KrDisbursementStatusEnum.cs" />
+    <Compile Include="ThirdApi\Dto\Enum\KrIdTypeEnum.cs" />
+    <Compile Include="ThirdApi\Dto\KrProxy\CustomerAccountDto.cs" />
+    <Compile Include="ThirdApi\Dto\KrProxy\DisbursementStatusMessage.cs" />
+    <Compile Include="ThirdApi\Dto\Request\Kr\ReqDisbursementInputDto.cs" />
+    <Compile Include="ThirdApi\Dto\Request\ReqDistributeDto.cs" />
+    <Compile Include="ThirdApi\Dto\Response\Kr\RespDisbursementDto.cs" />
+    <Compile Include="ThirdApi\Dto\Response\RespChituOpBaseDto.cs" />
+    <Compile Include="ThirdApi\Dto\Response\RespKrBaseDto.cs" />
+    <Compile Include="ThirdApi\Exceptions\KrPayCreateDisbursementException.cs" />
+    <Compile Include="ThirdApi\Kr\KrErrorMessageProvider.cs" />
+    <Compile Include="ThirdApi\Kr\KrFundsProvider.cs" />
+    <Compile Include="ThirdApi\ZhySignatureProvider.cs" />
+    <Compile Include="UserManage\Dto\CheckSMSCode\ReqDto.cs" />
+    <Compile Include="UserManage\Dto\LoginForWeChat\RespLoginForWeChatDto.cs" />
+    <Compile Include="UserManage\ValidateCode.cs" />
+    <Compile Include="V2_0_Advertiser_Front\ContentDistribute.cs" />
+    <Compile Include="UserManage\Dto\EditUserAuthenticationInfo\ReqDto.cs" />
+    <Compile Include="UserManage\Dto\EditUserBasicInfo\ReqDto.cs" />
+    <Compile Include="UserManage\Dto\EditUserMobileInfo\ReqDto.cs" />
+    <Compile Include="UserManage\Dto\EditUserPasswordInfo\ReqDto.cs" />
+    <Compile Include="UserManage\Dto\ReqQueryUserBasicInfoDto.cs" />
+    <Compile Include="UserManage\Dto\ResQueryUserBasicInfoDto.cs" />
+    <Compile Include="UserManage\UserManage.cs" />
+    <Compile Include="V2_0_Advertiser_Front\MediaPromotion.cs" />
+    <Compile Include="WechatDataStatic\WechatDataStatic.cs" />
+    <Compile Include="WechatInvite\WechatInvite.cs" />
+    <Compile Include="WeChatOperateMsg\WeChatOperateMsg.cs" />
+    <Compile Include="ADOrderOperateInfo\ADOrderOperateInfo.cs" />
+    <Compile Include="AuthorizationCommon.cs" />
+    <Compile Include="CartScheduleInfo\CartScheduleInfo.cs" />
+    <Compile Include="AutoMapperConfig\MediaMapperConfig.cs" />
+    <Compile Include="AutoMapperConfig\Profile\MediaInfoProfile.cs" />
+    <Compile Include="CartInfo\CartlInfo.cs" />
+    <Compile Include="ADScheduleInfo\ADScheduleInfo.cs" />
+    <Compile Include="DataImport.cs" />
+    <Compile Include="EmailHelper.cs" />
+    <Compile Include="ExcelDataImport.cs" />
+    <Compile Include="FeedbackData.cs" />
+    <Compile Include="FileAuthority.cs" />
+    <Compile Include="HomeCategory.cs" />
+    <Compile Include="ImportData\AutoMapperConfiguration.cs" />
+    <Compile Include="ImportData\Dto\ImportMediaAppDto.cs" />
+    <Compile Include="ImportData\Dto\ImportMediaBroadcastDto.cs" />
+    <Compile Include="ImportData\Profile\ImportMediaProfile.cs" />
+    <Compile Include="ImportData\ReadDataListClient.cs" />
+    <Compile Include="Interaction\InteractionBroadcast.cs" />
+    <Compile Include="Interaction\InteractionVideo.cs" />
+    <Compile Include="Interaction\InteractionWeibo.cs" />
+    <Compile Include="Interaction\InteractionWeixin.cs" />
+    <Compile Include="Loger.cs" />
+    <Compile Include="MediaInfo.cs" />
+    <Compile Include="Media\Business\Base\OperateBase.cs" />
+    <Compile Include="Media\Business\BroadcastOperate.cs" />
+    <Compile Include="Media\Business\MediaBusinessProxy.cs" />
+    <Compile Include="Media\Business\PcAppOperate.cs" />
+    <Compile Include="Media\Business\V1_1\CollectionListQuery.cs" />
+    <Compile Include="Media\Business\V1_1\CollectPullBackProxy.cs" />
+    <Compile Include="Media\Business\V1_1\MediaCase.cs" />
+    <Compile Include="Media\Business\V1_1\MediaStatusOperate.cs" />
+    <Compile Include="Media\Business\V1_1\PullBackListQuery.cs" />
+    <Compile Include="Media\Business\V1_1\WeiXinOperate.cs" />
+    <Compile Include="Media\Business\V1_1\MediaOperateProxy.cs" />
+    <Compile Include="Media\Business\VideoOperate.cs" />
+    <Compile Include="Media\Business\WeiBoOperate.cs" />
+    <Compile Include="Media\Business\WeiXinOperate.cs" />
+    <Compile Include="Media\Dto\OperateType.cs" />
+    <Compile Include="Media\Dto\RequestDto\CreateBusinessBaseDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\RequestMediaBroadcastDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\RequestMediaPcAppDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\RequestMediaPublicParam.cs" />
+    <Compile Include="Media\Dto\RequestDto\RequestMediaWeiBoDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\RequestMediaWeiXinDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\AddToCollectPullBackDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestGetCommonlyCalssDto.cs" />
+    <Compile Include="Media\Business\Base\CurrentOperateBase.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\ReqCollectPullBackQueryDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestMediaDto.cs" />
+    <Compile Include="Media\Dto\RequestDto\V1_1\RequestWeiXinDto.cs" />
+    <Compile Include="Media\Dto\ResponseDto\OperateResult.cs" />
+    <Compile Include="Media\Dto\ResponseDto\V1_1\RespGetWeiXinForBackDto.cs" />
+    <Compile Include="Media\Dto\ResponseDto\V1_1\ResponseCollectionDto.cs" />
+    <Compile Include="Media\Dto\ResponseDto\V1_1\ResponseCommonlyMediaDto.cs" />
+    <Compile Include="Media\Dto\ResponseDto\V1_1\ResponsePullBackDto.cs" />
+    <Compile Include="Media\ErrorException\NotFindMediaException.cs" />
+    <Compile Include="ImportData\Dto\ImportMediaVideoDto.cs" />
+    <Compile Include="ImportData\Dto\ImportMediaWeiBoDto.cs" />
+    <Compile Include="ImportData\Dto\ImportMediaWeiXinDto.cs" />
+    <Compile Include="Media\MediaAreaMapping.cs" />
+    <Compile Include="Media\MediaBroadcast.cs" />
+    <Compile Include="Media\MediaPCAPP.cs" />
+    <Compile Include="Media\MediaVideo.cs" />
+    <Compile Include="Media\MediaWeibo.cs" />
+    <Compile Include="Media\MediaWeixin.cs" />
+    <Compile Include="Media\Support\Utility.cs" />
+    <Compile Include="Media\Verification\Base\ReturnValue.cs" />
+    <Compile Include="Media\Verification\Base\Verifiction.cs" />
+    <Compile Include="Media\Verification\DataAnnotationManage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\Verification\Enums\VerifyDataTypeEnum.cs" />
+    <Compile Include="Media\Verification\VerifyOfNecessaryParameters.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\Verification\Verify\VerifyOfBroadcastOperate.cs" />
+    <Compile Include="Media\Verification\Verify\VerifyOfMediaOperateRole.cs" />
+    <Compile Include="Media\Verification\Verify\VerifyOfPcAppOperate.cs" />
+    <Compile Include="Media\Verification\Verify\VerifyOfVideoOperate.cs" />
+    <Compile Include="Media\Verification\Verify\VerifyOfWeiBoOperate.cs" />
+    <Compile Include="Media\Verification\Verify\VerifyOfWeiXinOperate.cs" />
+    <Compile Include="PageCommon.cs" />
+    <Compile Include="Periodication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishAuditInfo\PublishAuditInfo.cs" />
+    <Compile Include="PublishInfo.cs" />
+    <Compile Include="Publish\CityMapping.cs" />
+    <Compile Include="Publish\Dto\ConfigEntity.cs" />
+    <Compile Include="Publish\Dto\RequestDto\RequestPublishQueryDto.cs" />
+    <Compile Include="Publish\Dto\RequestDto\V1_1\RequestSearchTitleDto.cs" />
+    <Compile Include="Publish\Dto\ResponseDto\BaseResponseEntity.cs" />
+    <Compile Include="Publish\Dto\ResponseDto\ResponseFrontWeiXinDto.cs" />
+    <Compile Include="Publish\Dto\ResponseDto\ResponseWeiXinDto.cs" />
+    <Compile Include="Publish\Dto\ResponseDto\V1_1\RespPbWeiXinAuditPassDto.cs" />
+    <Compile Include="Publish\FrontPage\FpBroadcastQuery.cs" />
+    <Compile Include="Publish\FrontPage\FpAppQuery.cs" />
+    <Compile Include="Publish\FrontPage\FpPcWapQuery.cs" />
+    <Compile Include="Publish\FrontPage\FpVideoQuery.cs" />
+    <Compile Include="Publish\FrontPage\FpWeiBoQuery.cs" />
+    <Compile Include="Publish\FrontPage\FpWeiXinQuery.cs" />
+    <Compile Include="Publish\FrontPage\PublishQueryProxy.cs" />
+    <Compile Include="Publish\FrontPage\SearchAutoComplete.cs" />
+    <Compile Include="Publish\PbAppQuery.cs" />
+    <Compile Include="Publish\PbAppQueryByYunYing.cs" />
+    <Compile Include="Publish\PbBroadcastQuery.cs" />
+    <Compile Include="Publish\PbVideoQuery.cs" />
+    <Compile Include="Publish\PbWeiBoQuery.cs" />
+    <Compile Include="Publish\PbWeiXinQuery.cs" />
+    <Compile Include="Publish\PublishInfoQueryClient.cs" />
+    <Compile Include="Publish\PublishInfoQuery.cs" />
+    <Compile Include="Publish\RoleInfoMapping.cs" />
+    <Compile Include="Publish\V1_1\PbWeiXinAuditPassQuery.cs" />
+    <Compile Include="Publish\V1_1\PbWeiXinNotPassQuery.cs" />
+    <Compile Include="Recommend\Dto\RequestDto\AddRecommendDto.cs" />
+    <Compile Include="Recommend\Dto\RequestDto\RecommendSearchDto.cs" />
+    <Compile Include="Recommend\Dto\ResponseDto\ResponseRecommendSearch.cs" />
+    <Compile Include="Recommend\Extend\ExtendFunction.cs" />
+    <Compile Include="Recommend\FilterHomeMediaCountConfig.cs" />
+    <Compile Include="Recommend\HomeMedia.cs" />
+    <Compile Include="Recommend\RecommendBroadcastQuery.cs" />
+    <Compile Include="Recommend\RecommendAppQuery.cs" />
+    <Compile Include="Recommend\RecommendQueryProxy.cs" />
+    <Compile Include="Recommend\RecommendVideoQuery.cs" />
+    <Compile Include="Recommend\RecommendWeiBoQuery.cs" />
+    <Compile Include="Recommend\RecommendWeiXinQuery.cs" />
+    <Compile Include="SubADInfo\SubADInfo.cs" />
+    <Compile Include="SysRight\DomainInfo.cs" />
+    <Compile Include="SysRight\ModuleInfo.cs" />
+    <Compile Include="SysRight\RoleInfo.cs" />
+    <Compile Include="SysRight\RoleModule.cs" />
+    <Compile Include="SysRight\SysInfo.cs" />
+    <Compile Include="SysRight\UserRole.cs" />
+    <Compile Include="UploadFileInfo\UploadFileInfo.cs" />
+    <Compile Include="UserDetailInfo\UserDetailInfo.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="WechatShare\WechatShare.cs" />
+    <Compile Include="WechatSign\WechatSign.cs" />
+    <Compile Include="WechatUser.cs" />
+    <Compile Include="WechatUserMsg\WechatUmsg.cs" />
+    <Compile Include="WechatWithdrawals\WechatWithdrawals.cs" />
+    <Compile Include="WeChat\ActivityVerifyBll.cs" />
+    <Compile Include="WeChat\Dto\GetUserSceneByUserId\ResDto.cs" />
+    <Compile Include="WeChat\Dto\VerifyUser\VerifyUserDto.cs" />
+    <Compile Include="WeChat\Dto\WxMenu\SaveWxMenuDataDto.cs" />
+    <Compile Include="WeChat\Dto\WxMenu\WxMenuDataDto.cs" />
+    <Compile Include="WeChat\Dto\WxTemp\SendWxTempDataDto.cs" />
+    <Compile Include="WeChat\Dto\WxTemp\WxTempDataDto.cs" />
+    <Compile Include="WeChat\ImageOperate.cs" />
+    <Compile Include="WeChat\IpAnalysisBll.cs" />
+    <Compile Include="WeChat\LE_WXUserScene.cs" />
+    <Compile Include="WeChat\MenuHelper.cs" />
+    <Compile Include="WeChat\Order.cs" />
+    <Compile Include="WeChat\TempHelper.cs" />
+    <Compile Include="WeChat\UtilityHelper.cs" />
+    <Compile Include="WeChat\WeixinInfo.cs" />
+    <Compile Include="WeChat\WeiXinUser.cs" />
+    <Compile Include="WeChat_V_2.3\CustomMessageHandler.cs" />
+    <Compile Include="WeixinOAuth.cs" />
+    <Compile Include="WxEditor\WxArticleGroup.cs" />
+    <Compile Include="WxEditor\WxPictureMaterial.cs" />
+    <Compile Include="ZHY\ZhyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Dal\XYAuto.ITSC.Chitunion2017.Dal.csproj">
+      <Project>{0971EA85-1CC7-4289-B99B-ADC03D47F02F}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Entities\XYAuto.ITSC.Chitunion2017.Entities.csproj">
+      <Project>{97C0ABA4-8A8F-41A2-A28F-EB470DDBCBB1}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.WebService\XYAuto.ITSC.Chitunion2017.WebService.csproj">
+      <Project>{64399042-f595-43a8-8d11-8713b871d01b}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interaction\Business\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ChituMedia\Dict\Dict.dct">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <Compile Include="Publish\V1_1\PbQueryProxy.cs" />
+    <None Include="Service References\EmployeeService\EmployeeService.wsdl" />
+    <None Include="Service References\EmployeeService\XYAuto.ITSC.Chitunion2017.BLL.EmployeeService.Department.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EmployeeService\XYAuto.ITSC.Chitunion2017.BLL.EmployeeService.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EmployeeService\XYAuto.ITSC.Chitunion2017.BLL.EmployeeService.LoginResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EmployeeService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmployeeService\EmployeeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmployeeService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmployeeService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmployeeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChituMedia\Dict\ChsDoubleName1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChituMedia\Dict\ChsDoubleName2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChituMedia\Dict\ChsSingleName.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChituMedia\Dict\Stopword.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChituMedia\Dict\Synonym.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChituMedia\Dict\Wildcard.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

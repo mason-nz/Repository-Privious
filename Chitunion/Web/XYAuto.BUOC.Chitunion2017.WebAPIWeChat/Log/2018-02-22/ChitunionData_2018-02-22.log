@@ -1,0 +1,751 @@
+2018-02-22 10:59:08,614 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:36.5551ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:
+
+2018-02-22 10:59:08,614 [25] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.ApplicationException: 请在配置文件的appSettings中配置'WxLoginEncryptKey'的值。
+   在 XYAuto.Utils.Config.ConfigurationUtil.GetAppSettingValue(String configKey, Boolean isThrowExceptionIfNotExist)
+   在 XYAuto.ITSC.Chitunion2017.BLL.LETask.Provider.QrLoginProvider.get_GetWxLoginEncryptKey() 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\LETask\Provider\QrLoginProvider.cs:行号 189
+   在 XYAuto.ITSC.Chitunion2017.BLL.LETask.Provider.QrLoginProvider.Encrypt(String value) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\LETask\Provider\QrLoginProvider.cs:行号 171
+   在 XYAuto.ITSC.Chitunion2017.BLL.LETask.Provider.QrLoginProvider.GetLoginQr(ReqPostLoginQrDto reqPostLoginQrDto) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\LETask\Provider\QrLoginProvider.cs:行号 44
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.OAuth2Controller.GetLoginQr(ReqPostLoginQrDto request) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\OAuth2Controller.cs:行号 192
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-02-22 10:59:09,361 [25] INFO  BaseLog [(null)] - 发邮件开始：
+2018-02-22 10:59:09,448 [25] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\EmailHelper.cs:行号 28
+2018-02-22 10:59:10,031 [25] INFO  BaseLog [(null)] - 发邮件结束！
+2018-02-22 11:00:12,722 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:910.4201ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE48DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyVUszdHQyMVdmV2kxenpQZXhxYzIAAgSnM45aAwQ8AAAA","Ticket":"Nhvhm7hfJow="},"IsOverdue":null}
+
+2018-02-22 11:10:22,069 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:803.9689ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQF58DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyOUVRQ3NRMVdmV2kxeDRTZTFxYzAAAgQINo5aAwQ8AAAA","Ticket":"yk5ozZNGky4="},"IsOverdue":null}
+
+2018-02-22 11:10:32,812 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:170.4511ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQF_7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyek45bXNnMVdmV2kxeGZTZXhxYzUAAgQTNo5aAwQ8AAAA","Ticket":"G5UmTOpuXFI="},"IsOverdue":null}
+
+2018-02-22 11:10:55,297 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:124.532ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHB7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySzZRSnREMVdmV2kxeEJTZXhxY3QAAgQpNo5aAwQ8AAAA","Ticket":"fkYEBB2NP0s="},"IsOverdue":null}
+
+2018-02-22 11:11:05,352 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:129.3431ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEG8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRVQzdHNNMVdmV2kxeExTZTFxYzYAAgQzNo5aAwQ8AAAA","Ticket":"nL4ym1YxBSU="},"IsOverdue":null}
+
+2018-02-22 11:11:28,760 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:141.3751ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHL7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyal84SHNRMVdmV2kxeTdTZU5xY0MAAgRLNo5aAwQ8AAAA","Ticket":"M10NU7xuI+Y="},"IsOverdue":null}
+
+2018-02-22 11:11:38,980 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:157.4542ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEv7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyblNWRHR3MVdmV2kxeWhTZWhxY1EAAgRVNo5aAwQ8AAAA","Ticket":"kIvEAFGyN2Q="},"IsOverdue":null}
+
+2018-02-22 11:13:19,689 [49] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:779.0713ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHX7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySkRncnRtMVdmV2kxelNTZWhxY1YAAgS6No5aAwQ8AAAA","Ticket":"B8HPkYa/Skw="},"IsOverdue":null}
+
+2018-02-22 11:15:48,053 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:749.9953ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGU7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYmZVNXNWMVdmV2kxeWFUZTFxY1oAAgRON45aAwQ8AAAA","Ticket":"UHtHRZo4jnc="},"IsOverdue":null}
+
+2018-02-22 11:15:51,938 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:131.3473ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE_7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMnVoU3R4MVdmV2kxeWVUZTFxY3UAAgRSN45aAwQ8AAAA","Ticket":"4TH8miIIF+o="},"IsOverdue":null}
+
+2018-02-22 11:22:05,943 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:575.388ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEU8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMHN4Z3RNMVdmV2kxdzRWZWhxYy0AAgTIOI5aAwQ8AAAA","Ticket":"/PQJMUUrwPY="},"IsOverdue":null}
+
+2018-02-22 11:22:15,424 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:137.0106ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQH97zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAybU5Td3NaMVdmV2kxd2RWZTFxYzMAAgTROI5aAwQ8AAAA","Ticket":"Lo1PyPK3C00="},"IsOverdue":null}
+
+2018-02-22 11:22:25,746 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:133.3607ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHO7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyR2dobHQ4MVdmV2kxd29WZWhxYzkAAgTcOI5aAwQ8AAAA","Ticket":"aVBPj06sdKE="},"IsOverdue":null}
+
+2018-02-22 11:22:31,103 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:129.3328ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFI8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRDVJOXM1MVdmV2kxd3RWZU5xY1oAAgThOI5aAwQ8AAAA","Ticket":"BdpHhDEC/A8="},"IsOverdue":null}
+
+2018-02-22 11:24:51,630 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:512.5108ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGE7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyUVJXSXNSMVdmV2kxeUdWZU5xY1YAAgRuOY5aAwQ8AAAA","Ticket":"aoSbuCzfnSA="},"IsOverdue":null}
+
+2018-02-22 11:24:52,833 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:149.0689ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFU7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMGp5WXNQMVdmV2kxeUhWZWhxY0MAAgRvOY5aAwQ8AAAA","Ticket":"jeLuZNpARiE="},"IsOverdue":null}
+
+2018-02-22 11:24:54,597 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:150.4361ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGl7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyREFNTXRRMVdmV2kxeUpWZWhxYzkAAgRxOY5aAwQ8AAAA","Ticket":"G8HbZmPS9QU="},"IsOverdue":null}
+
+2018-02-22 11:24:56,109 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:138.3665ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFf7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMzR2WHRSMVdmV2kxeUtWZWhxY2YAAgRyOY5aAwQ8AAAA","Ticket":"fDKg1xvQL/I="},"IsOverdue":null}
+
+2018-02-22 11:24:57,574 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:131.6015ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEh7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaGs2Z3R3MVdmV2kxeU1WZU5xY1oAAgR0OY5aAwQ8AAAA","Ticket":"h/yrNMeaxpo="},"IsOverdue":null}
+
+2018-02-22 11:24:58,946 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:160.516ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFW7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycnE0RXNCMVdmV2kxeU5WZWhxY1MAAgR1OY5aAwQ8AAAA","Ticket":"ivT9mxEGBis="},"IsOverdue":null}
+
+2018-02-22 11:25:07,729 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:141.8779ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFL7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydEtUTHNFMVdmV2kxeVdWZXhxYzYAAgR_OY5aAwQ8AAAA","Ticket":"BztNytz1Y04="},"IsOverdue":null}
+
+2018-02-22 11:25:09,063 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:135.3554ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHn7jwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyeHo0ZXN5MVdmV2kxeVhWZXhxYzgAAgR-OY5aAwQ8AAAA","Ticket":"GGFXRxre18E="},"IsOverdue":null}
+
+2018-02-22 11:25:11,095 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:163.4337ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFv8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAybURLUHRQMVdmV2kxeVpWZTFxY1oAAgSBOY5aAwQ8AAAA","Ticket":"1CcQumHUC+I="},"IsOverdue":null}
+
+2018-02-22 11:25:12,709 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:147.3907ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEK8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyS1liZ3RtMVdmV2kxeV9WZTFxY3oAAgSDOY5aAwQ8AAAA","Ticket":"sQlkQltfOOI="},"IsOverdue":null}
+
+2018-02-22 11:25:45,744 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:206.5492ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHC7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRndNb3RwMVdmV2kxendWZXhxYzIAAgSkOY5aAwQ8AAAA","Ticket":"qTrua91dwlQ="},"IsOverdue":null}
+
+2018-02-22 11:25:48,127 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:124.3288ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEd8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySGlxSHNQMVdmV2kxenlWZU5xYy0AAgSmOY5aAwQ8AAAA","Ticket":"R2ayxxQBsnE="},"IsOverdue":null}
+
+2018-02-22 11:25:51,934 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:146.4126ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFx8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyR0xSTXRoMVdmV2kxekNWZTFxY0cAAgSqOY5aAwQ8AAAA","Ticket":"4k947nn8Oeg="},"IsOverdue":null}
+
+2018-02-22 11:25:53,321 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:151.8897ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyR3c3ZHRUMVdmV2kxekRWZXhxY3kAAgSrOY5aAwQ8AAAA","Ticket":"+p4zFdxbkiQ="},"IsOverdue":null}
+
+2018-02-22 11:25:55,655 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:107.2847ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFU8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyM1BWdXQwMVdmV2kxekdWZTFxY3gAAgSuOY5aAwQ8AAAA","Ticket":"3rdgXx2/gmk="},"IsOverdue":null}
+
+2018-02-22 11:26:00,764 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:192.0036ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE78DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTy1aNXRSMVdmV2kxekxWZXhxY2EAAgSzOY5aAwQ8AAAA","Ticket":"cD9hBVw6Jeg="},"IsOverdue":null}
+
+2018-02-22 11:26:02,198 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:116.3075ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEk8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySkR5RXNxMVdmV2kxek1WZU5xY0EAAgS0OY5aAwQ8AAAA","Ticket":"54MD6yIIgSg="},"IsOverdue":null}
+
+2018-02-22 11:26:03,502 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:146.5042ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGz7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyU2VrWnR0MVdmV2kxek5WZXhxY1EAAgS1OY5aAwQ8AAAA","Ticket":"t1PU/rGnG14="},"IsOverdue":null}
+
+2018-02-22 11:26:04,452 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:121.3214ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEA8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySDdzYnRHMVdmV2kxek9WZWhxY2gAAgS2OY5aAwQ8AAAA","Ticket":"fwnwBQe67Yc="},"IsOverdue":null}
+
+2018-02-22 11:26:07,191 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:154.829ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHE7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyQmVveXRtMVdmV2kxelJWZXhxYy0AAgS5OY5aAwQ8AAAA","Ticket":"H2aJCGpamBo="},"IsOverdue":null}
+
+2018-02-22 11:26:08,697 [44] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:120.3199ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEs8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyV0NMWHMxMVdmV2kxelRWZXhxY08AAgS7OY5aAwQ8AAAA","Ticket":"mkqooFnnL6A="},"IsOverdue":null}
+
+2018-02-22 11:26:11,929 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:112.5415ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEo8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyS04yY3NkMVdmV2kxeldWZU5xY1QAAgS_OY5aAwQ8AAAA","Ticket":"pQDR9nin9Tg="},"IsOverdue":null}
+
+2018-02-22 11:26:13,626 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:104.8021ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFC8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydUFDMXRCMVdmV2kxellWZXhxYzEAAgTAOY5aAwQ8AAAA","Ticket":"pAYFECofnBs="},"IsOverdue":null}
+
+2018-02-22 11:26:14,546 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:121.3206ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHw7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRG4ybnRLMVdmV2kxelpWZU5xY3oAAgTBOY5aAwQ8AAAA","Ticket":"zyL10As+4qs="},"IsOverdue":null}
+
+2018-02-22 11:26:15,075 [44] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:101.2681ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGt7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyVHdmRXNNMVdmV2kxelpWZXhxY24AAgTBOY5aAwQ8AAAA","Ticket":"BMfF9vdoqHY="},"IsOverdue":null}
+
+2018-02-22 11:26:15,765 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:129.9973ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQH07zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyVWFjWHN4MVdmV2kxei1WZU5xY1cAAgTCOY5aAwQ8AAAA","Ticket":"i0NbX+5P4Ss="},"IsOverdue":null}
+
+2018-02-22 11:27:07,736 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:259.689ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHy7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRlNnUHRlMVdmV2kxd09XZTFxY1UAAgT2OY5aAwQ8AAAA","Ticket":"5Z36eFclrp8="},"IsOverdue":null}
+
+2018-02-22 11:27:10,784 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:119.9615ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHO7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZ1hEV3Q5MVdmV2kxd1JXZXhxY04AAgT5OY5aAwQ8AAAA","Ticket":"LihFbnF5I50="},"IsOverdue":null}
+
+2018-02-22 11:27:23,115 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:137.8104ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHu7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyUmk2cnN3MVdmV2kxeDFXZTFxY0IAAgQFOo5aAwQ8AAAA","Ticket":"WrRiHmdOQvY="},"IsOverdue":null}
+
+2018-02-22 11:27:26,329 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:129.3434ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHm7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyeFg2OHRDMVdmV2kxeDRXZXhxY1UAAgQIOo5aAwQ8AAAA","Ticket":"f8lo9t9lZxo="},"IsOverdue":null}
+
+2018-02-22 11:27:27,356 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:103.7792ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE68DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySV84NnRvMVdmV2kxeDVXZTFxY0IAAgQJOo5aAwQ8AAAA","Ticket":"M7CeulLfhNQ="},"IsOverdue":null}
+
+2018-02-22 11:27:28,417 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:133.353ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHZ7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYzhLUHRIMVdmV2kxeDZXZXhxY2EAAgQKOo5aAwQ8AAAA","Ticket":"/ftW5dB4UBw="},"IsOverdue":null}
+
+2018-02-22 11:27:41,322 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:138.3672ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHW7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySHQ4OHN4MVdmV2kxeGpXZTFxY0UAAgQXOo5aAwQ8AAAA","Ticket":"lkGc4XDmcvY="},"IsOverdue":null}
+
+2018-02-22 11:27:42,916 [36] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:100.2667ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFo7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYlZRdXRoMVdmV2kxeGxXZTFxY2wAAgQZOo5aAwQ8AAAA","Ticket":"pghFMw4/GnI="},"IsOverdue":null}
+
+2018-02-22 11:27:44,594 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:173.076ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFh7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycjU4eHNWMVdmV2kxeG5XZWhxY3IAAgQbOo5aAwQ8AAAA","Ticket":"ZqvrZ2TUKIU="},"IsOverdue":null}
+
+2018-02-22 11:32:24,433 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:537.0426ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHa7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRzZWQ3RuMVdmV2kxeEtYZTFxY2IAAgQyO45aAwQ8AAAA","Ticket":"mHnYsUxpPAk="},"IsOverdue":null}
+
+2018-02-22 11:32:25,655 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:108.2869ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQF-7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyUFVGcXRZMVdmV2kxeE1YZU5xY2sAAgQ0O45aAwQ8AAAA","Ticket":"bMiORgK+pZo="},"IsOverdue":null}
+
+2018-02-22 11:32:26,887 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:107.2844ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGp7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyOXY0a3MxMVdmV2kxeE5YZU5xY3YAAgQ1O45aAwQ8AAAA","Ticket":"n07aU8jk0hU="},"IsOverdue":null}
+
+2018-02-22 11:34:17,806 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:766.0387ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGz7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAybm5EN3NsMVdmV2kxendYZXhxY2QAAgSkO45aAwQ8AAAA","Ticket":"fjQ1OdNxt9o="},"IsOverdue":null}
+
+2018-02-22 11:34:16,865 [40] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.HostAuthenticationFilter.<AuthenticateAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-02-22 11:34:20,369 [40] INFO  BaseLog [(null)] - 发邮件开始：
+2018-02-22 11:34:20,379 [40] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver)
+2018-02-22 11:34:23,810 [40] INFO  BaseLog [(null)] - 发邮件结束！
+2018-02-22 11:34:21,103 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:181.4821ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGk7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycXVVdHQxMVdmV2kxenpYZXhxY08AAgSnO45aAwQ8AAAA","Ticket":"v/VR+FH5wD0="},"IsOverdue":null}
+
+2018-02-22 11:34:22,781 [36] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:138.3676ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHn7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAybEVyMXNtMVdmV2kxekJYZXhxY2IAAgSpO45aAwQ8AAAA","Ticket":"+5coZnUEJ1M="},"IsOverdue":null}
+
+2018-02-22 11:34:24,122 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:115.3061ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFy8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyazJTSXQ3MVdmV2kxekNYZWhxYzUAAgSqO45aAwQ8AAAA","Ticket":"qtBtWeGDX6k="},"IsOverdue":null}
+
+2018-02-22 11:34:31,166 [44] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:137.3648ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQH97zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyN1VsaXNMMVdmV2kxekpYZXhxY1AAAgSxO45aAwQ8AAAA","Ticket":"PUWH8TDi3lc="},"IsOverdue":null}
+
+2018-02-22 11:34:34,372 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:141.6887ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGC7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyeHFQV3RzMVdmV2kxek1YZXhxY24AAgS0O45aAwQ8AAAA","Ticket":"jp1TnRccrds="},"IsOverdue":null}
+
+2018-02-22 11:34:41,715 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:119.3186ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEX8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyV1pLSnRhMVdmV2kxelVYZWhxYzUAAgS8O45aAwQ8AAAA","Ticket":"W1Qb9qTk6Vk="},"IsOverdue":null}
+
+2018-02-22 13:10:23,114 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:801.131ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHz7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySFJDWXROMVdmV2kxQkJpZWhxYzIAAgQpUo5aAwQ8AAAA","Ticket":"UAlCEYv7t/Y="},"IsOverdue":null}
+
+2018-02-22 13:28:08,886 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:726.9107ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGT7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRWJJdnRaMVdmV2kxQ2ZtZTFxYzYAAgRTVo5aAwQ8AAAA","Ticket":"7LHqFozS+mU="},"IsOverdue":null}
+
+2018-02-22 13:28:14,975 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:132.0293ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEn7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMXk5enRuMVdmV2kxQ2xtZWhxY1QAAgRZVo5aAwQ8AAAA","Ticket":"QVZcaH8gYV4="},"IsOverdue":null}
+
+2018-02-22 13:29:15,202 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:242.2511ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHy7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyN3JSSHRtMVdmV2kxRGhtZWhxY2sAAgSVVo5aAwQ8AAAA","Ticket":"4t6oXJMMNDI="},"IsOverdue":null}
+
+2018-02-22 13:29:39,426 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:114.3532ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHt7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyclJRaXRNMVdmV2kxREZtZXhxY08AAgStVo5aAwQ8AAAA","Ticket":"GUK/70Ul8WY="},"IsOverdue":null}
+
+2018-02-22 13:30:15,624 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:243.647ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEA8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMmN6aHNTMVdmV2kxQWVuZTFxY0MAAgTSVo5aAwQ8AAAA","Ticket":"W6SIGuPp71w="},"IsOverdue":null}
+
+2018-02-22 13:31:58,065 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:532.4171ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQES8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRzhkT3M0MVdmV2kxQlFuZTFxY0EAAgQ4V45aAwQ8AAAA","Ticket":"8KdZMuauVgk="},"IsOverdue":null}
+
+2018-02-22 13:31:59,521 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:137.3677ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEY7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyT3V5THR6MVdmV2kxQlNuZWhxY2IAAgQ6V45aAwQ8AAAA","Ticket":"PzTKmfcSKfo="},"IsOverdue":null}
+
+2018-02-22 13:32:02,806 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:344.3484ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEM7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyek9Gc3RoMVdmV2kxQlZuZXhxY3EAAgQ9V45aAwQ8AAAA","Ticket":"sV2v8un0AUs="},"IsOverdue":null}
+
+2018-02-22 13:32:04,599 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:162.2831ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEI8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRy1OMXM3MVdmV2kxQlhuZWhxY0IAAgQ-V45aAwQ8AAAA","Ticket":"JhrJhl6+bqo="},"IsOverdue":null}
+
+2018-02-22 13:32:08,535 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:145.3864ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFE7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyR2xuNnN4MVdmV2kxQl9uZU5xY3AAAgRDV45aAwQ8AAAA","Ticket":"NM1Zi7Qn2nE="},"IsOverdue":null}
+
+2018-02-22 13:32:25,261 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:156.4145ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFB7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydmxVMXRwMVdmV2kxQ2ZuZWhxYzcAAgRTV45aAwQ8AAAA","Ticket":"zV7rJ1+OmU0="},"IsOverdue":null}
+
+2018-02-22 13:33:33,118 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:268.3393ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGx8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMTg4RHREMVdmV2kxRGpuZTFxY2QAAgSXV45aAwQ8AAAA","Ticket":"dXyA1yPXjhg="},"IsOverdue":null}
+
+2018-02-22 13:33:35,717 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:142.3779ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEt8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWkZyaHRHMVdmV2kxRG1uZU5xYy0AAgSaV45aAwQ8AAAA","Ticket":"zRo6mPTWEbg="},"IsOverdue":null}
+
+2018-02-22 13:33:38,890 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:135.3642ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQH97zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMEJRbnNnMVdmV2kxRHBuZWhxY2cAAgSdV45aAwQ8AAAA","Ticket":"HW9DjQdr4WI="},"IsOverdue":null}
+
+2018-02-22 13:33:41,394 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:128.6207ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQH27zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaWFEUHNXMVdmV2kxRHJuZU5xY2cAAgSfV45aAwQ8AAAA","Ticket":"6FWoQkNLe3s="},"IsOverdue":null}
+
+2018-02-22 13:33:41,773 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:161.4273ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFd8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMzBQLXMyMVdmV2kxRHNuZXhxY3cAAgSgV45aAwQ8AAAA","Ticket":"tY7B/pCE0Kk="},"IsOverdue":null}
+
+2018-02-22 13:33:42,046 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:139.3701ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFB8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyb0tpQ3Q2MVdmV2kxRHNuZU5xYzIAAgSgV45aAwQ8AAAA","Ticket":"FjjTC5qnw9w="},"IsOverdue":null}
+
+2018-02-22 13:33:42,570 [24] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:138.3676ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFm8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyOS1NQXRGMVdmV2kxRHRuZXhxY0MAAgShV45aAwQ8AAAA","Ticket":"OSECpdgh910="},"IsOverdue":null}
+
+2018-02-22 13:34:04,177 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:113.3008ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE58DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWlcwdnRWMVdmV2kxRE9uZTFxY1QAAgS2V45aAwQ8AAAA","Ticket":"lyb7lfpdsxg="},"IsOverdue":null}
+
+2018-02-22 13:34:16,041 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:144.4187ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQH47zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaVhXUXRYMVdmV2kxRC1uZXhxY1AAAgTCV45aAwQ8AAAA","Ticket":"+s7YmmTNmYY="},"IsOverdue":null}
+
+2018-02-22 13:34:35,424 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:130.6143ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHC7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYlo5cXRzMVdmV2kxQWhvZU5xY0wAAgTVV45aAwQ8AAAA","Ticket":"S3z9RlhsboU="},"IsOverdue":null}
+
+2018-02-22 13:34:40,790 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:143.38ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEq8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWTlsOXNDMVdmV2kxQW5vZU5xYzgAAgTbV45aAwQ8AAAA","Ticket":"wDjV5bdLzY4="},"IsOverdue":null}
+
+2018-02-22 13:34:41,927 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:118.5273ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEN8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyejk3THNRMVdmV2kxQW9vZU5xY0YAAgTcV45aAwQ8AAAA","Ticket":"GL3DDyJ+MiY="},"IsOverdue":null}
+
+2018-02-22 13:34:42,436 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:104.2393ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGL7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyajRBcnNuMVdmV2kxQW9vZXhxY2YAAgTcV45aAwQ8AAAA","Ticket":"DLWoSgHfwJ0="},"IsOverdue":null}
+
+2018-02-22 13:34:42,623 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:119.3124ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEp8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRzRHVnMxMVdmV2kxQXBvZWhxY0wAAgTdV45aAwQ8AAAA","Ticket":"TxAX/ke0jB8="},"IsOverdue":null}
+
+2018-02-22 13:34:43,458 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:127.3381ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGz7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAya2hQS3RrMVdmV2kxQXBvZTFxY2gAAgTdV45aAwQ8AAAA","Ticket":"w+ZOglA8z7s="},"IsOverdue":null}
+
+2018-02-22 13:34:44,255 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:140.4922ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGw7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaUZuNHRoMVdmV2kxQXFvZWhxY1IAAgTeV45aAwQ8AAAA","Ticket":"WTZ0aoSRFZ8="},"IsOverdue":null}
+
+2018-02-22 13:47:45,218 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:577.5356ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFs7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyV2d2anR2MVdmV2kxQURyZXhxY0UAAgTrWo5aAwQ8AAAA","Ticket":"Lssq1o2bTmA="},"IsOverdue":null}
+
+2018-02-22 13:47:57,181 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:140.3736ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFk7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycE5jcXRNMVdmV2kxQVByZXhxY2oAAgT3Wo5aAwQ8AAAA","Ticket":"bZps/dFGb+M="},"IsOverdue":null}
+
+2018-02-22 13:49:04,411 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:249.9449ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQF37zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAybjYxSHN5MVdmV2kxQlNyZWhxY2kAAgQ6W45aAwQ8AAAA","Ticket":"x076B3sOCCE="},"IsOverdue":null}
+
+2018-02-22 13:49:14,913 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:127.8337ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHG7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyOXRzWnQ1MVdmV2kxQzFyZU5xYzAAAgRFW45aAwQ8AAAA","Ticket":"Beb9B18lqIY="},"IsOverdue":null}
+
+2018-02-22 13:50:24,902 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:239.1214ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEo8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaGhfQ3QwMVdmV2kxRDdyZXhxY2QAAgSLW45aAwQ8AAAA","Ticket":"pjcNMfyPgHI="},"IsOverdue":null}
+
+2018-02-22 13:50:37,855 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:127.9475ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGk7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyS21sbHNYMVdmV2kxRGtyZXhxY2IAAgSYW45aAwQ8AAAA","Ticket":"bjxNo4D1PAA="},"IsOverdue":null}
+
+2018-02-22 13:50:42,416 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:117.5127ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFk8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyV1QzR3RPMVdmV2kxRG9yZTFxY1QAAgScW45aAwQ8AAAA","Ticket":"qUm5DopbqoU="},"IsOverdue":null}
+
+2018-02-22 13:50:48,403 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:131.6503ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGH7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaFhMbXRuMVdmV2kxRHVyZXhxY2sAAgSiW45aAwQ8AAAA","Ticket":"IKebuaTOYds="},"IsOverdue":null}
+
+2018-02-22 13:51:30,749 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:231.719ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHp7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydzRWWXRKMVdmV2kxQTlzZWhxY28AAgTNW45aAwQ8AAAA","Ticket":"Te9Oy8Jk1p8="},"IsOverdue":null}
+
+2018-02-22 13:51:34,614 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:125.9349ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGO7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyclB5MnNyMVdmV2kxQWRzZWhxY2EAAgTRW45aAwQ8AAAA","Ticket":"j/HlIK+Bun4="},"IsOverdue":null}
+
+2018-02-22 13:51:39,328 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:163.4334ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEe8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyM2VIMnRJMVdmV2kxQWhzZWhxY0wAAgTVW45aAwQ8AAAA","Ticket":"d1LCRcl7yGs="},"IsOverdue":null}
+
+2018-02-22 13:51:43,737 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:119.3157ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHX7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyOFlSbnRhMVdmV2kxQW1zZWhxYzIAAgTaW45aAwQ8AAAA","Ticket":"UXFat9FBtKc="},"IsOverdue":null}
+
+2018-02-22 13:52:30,188 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:264.9384ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQF97zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydnp0UnNmMVdmV2kxQjRzZTFxY2MAAgQIXI5aAwQ8AAAA","Ticket":"e/zxiJYdbX8="},"IsOverdue":null}
+
+2018-02-22 13:52:34,135 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:140.2082ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEH8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyN3ZDcHRYMVdmV2kxQjhzZTFxYzQAAgQMXI5aAwQ8AAAA","Ticket":"eUSrOBhuxNE="},"IsOverdue":null}
+
+2018-02-22 13:52:38,779 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:135.9261ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQF47zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydVVjY3RPMVdmV2kxQmRzZU5xY04AAgQRXI5aAwQ8AAAA","Ticket":"MKSpV8vZZIY="},"IsOverdue":null}
+
+2018-02-22 13:52:49,110 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:137.5628ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEs7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycldTb3N3MVdmV2kxQm5zZWhxY0oAAgQbXI5aAwQ8AAAA","Ticket":"IKcJ/4DFCTA="},"IsOverdue":null}
+
+2018-02-22 13:52:53,263 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:131.5471ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQG97zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTVRZU3MzMVdmV2kxQnJzZWhxYzMAAgQfXI5aAwQ8AAAA","Ticket":"SOv1Fhl0bL0="},"IsOverdue":null}
+
+2018-02-22 13:52:57,904 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:122.4216ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGF7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWFhpY3MtMVdmV2kxQndzZU5xY1IAAgQkXI5aAwQ8AAAA","Ticket":"wiaocPp38EA="},"IsOverdue":null}
+
+2018-02-22 14:27:37,360 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:834.3542ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQG37zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMmFsMHMyMVdmV2kxQl9BZWhxY3EAAgRDZI5aAwQ8AAAA","Ticket":"StV1EY2f440="},"IsOverdue":null}
+
+2018-02-22 14:29:41,952 [16] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:508.316ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFG8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyQkwxaHRsMVdmV2kxRFlBZU5xY1AAAgTAZI5aAwQ8AAAA","Ticket":"hoTyMctM+Bw="},"IsOverdue":null}
+
+2018-02-22 14:29:48,309 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:148.3965ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFp8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRzVoTHQ4MVdmV2kxQTJCZXhxY1EAAgTGZI5aAwQ8AAAA","Ticket":"zjIc85RNQZI="},"IsOverdue":null}
+
+2018-02-22 14:29:50,613 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:157.2952ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEt8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaWdHNXNXMVdmV2kxQTVCZU5xY3cAAgTJZI5aAwQ8AAAA","Ticket":"S0BllDtwXVg="},"IsOverdue":null}
+
+2018-02-22 14:29:50,963 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:155.412ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFv8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySlNaZ3RjMVdmV2kxQTVCZTFxYzMAAgTJZI5aAwQ8AAAA","Ticket":"J/ByXWG+tEc="},"IsOverdue":null}
+
+2018-02-22 14:29:51,262 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:147.7714ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEI8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY1pWVnR3MVdmV2kxQTVCZWhxY0QAAgTJZI5aAwQ8AAAA","Ticket":"QyH8wANikkg="},"IsOverdue":null}
+
+2018-02-22 14:29:51,537 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:141.6679ms
+请求的参数:{"request":{"LoginType":1,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEo8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyR3dWcXMwMVdmV2kxQTZCZU5xY2gAAgTKZI5aAwQ8AAAA","Ticket":"pfxPl4Xllow="},"IsOverdue":null}
+
+2018-02-22 16:48:30,369 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr
+执行的时间:863.6114ms
+请求的参数:{"request":{"LoginType":2,"ScenceId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"Url":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGV8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyS1RVVXRnMVdmV2kxRzQ1ZU5xY2kAAgRIhY5aAwQ8AAAA","Ticket":"7o62pcodHLs="},"IsOverdue":null}
+

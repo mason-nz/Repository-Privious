@@ -1,0 +1,50 @@
+2018-05-18 09:12:14,718 [8] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.HostAuthenticationFilter.<AuthenticateAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-05-18 09:12:14,718 [7] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.HostAuthenticationFilter.<AuthenticateAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-05-18 09:12:15,788 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://localhost:8091/api/WeixinJSSDK/GetInfo?url=http:%2F%2Flocalhost:8091%2Ftest%2Ftest.html
+执行的时间:859.2838ms
+请求的参数:{"url":"http://localhost:8091/test/test.html"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"FA37994AE042D67928778459647DE743","Timestamp":"1526605934","Signature":"c47d617977f4868987aa8b2e6cad101330a05831"},"IsOverdue":null}
+
+2018-05-18 09:12:14,718 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://localhost:8091/api/Sign/DaySignList?SignYear=2018&SignMonth=2,UrlRefer=http://localhost:8091/test/test.html
+2018-05-18 09:12:16,521 [8] INFO  BaseLog [(null)] - 发邮件开始：
+2018-05-18 09:12:16,998 [7] INFO  BaseLog [(null)] - 发邮件开始：
+2018-05-18 09:12:17,175 [8] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver)
+2018-05-18 09:12:17,182 [7] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver)
+2018-05-18 09:12:18,968 [7] INFO  BaseLog [(null)] - 发邮件结束！
+2018-05-18 09:12:18,578 [8] INFO  BaseLog [(null)] - 发邮件结束！
+2018-05-18 09:12:19,937 [6] INFO  BaseLog [(null)] - [AuthorizedResult]用户验证失败,CheckLogin=False

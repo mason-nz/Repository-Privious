@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟广告在线交易平台">
+    <meta name="keywords" content="赤兔联盟">
+    <title>Cyrpto-js Demo测试</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/crypto/core.js"></script>
+    <script type="text/javascript" src="/js/crypto/cipher-core.js"></script>
+    <script type="text/javascript" src="/js/crypto/tripledes.js"></script>
+    <script type="text/javascript" src="/js/crypto/mode-ecb.js"></script>
+    <script type="text/javascript" src="/js/crypto/enc-base64.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+        });
+        // DES加密
+        function encryptByDES(message, key) {
+            var keyHex = CryptoJS.enc.Utf8.parse(key);
+            var encrypted = CryptoJS.DES.encrypt(message, keyHex, {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7
+            });
+            var b = encrypted.ciphertext.toString();
+            var c = CryptoJS.enc.Hex.parse(b);
+            var d = CryptoJS.enc.Base64.stringify(c);
+            return d;
+        }
+        //// DES解密
+        //function decryptByDES(ciphertext, key) {
+        //    var keyHex = CryptoJS.enc.Utf8.parse(key);
+        //    var decrypted = CryptoJS.DES.decrypt({
+        //        ciphertext: CryptoJS.enc.Hex.parse(ciphertext)
+        //    }, keyHex, {
+        //        mode: CryptoJS.mode.ECB,
+        //        padding: CryptoJS.pad.Pkcs7
+        //    });
+
+        //    return decrypted.toString(CryptoJS.enc.Utf8);
+        //}
+
+        function JiaMi() {
+            var key = $('#txtDesKey').val();
+            var content = $('#txtContent').val();
+            var result = encryptByDES(content, key);
+            $('#lblDesEncryptStr').text(result);
+        }
+
+        function JieMi() {
+            var key = $('#txtDesKey').val();
+            var content = $('#lblDesEncryptStr').text();
+            $('#txtContent').text(decryptByDES(content, key));
+        }
+    </script>
+</head>
+<body>
+    <div>测试JS-DES加密-Demo</div>
+    加密Key：<input type="text" id="txtDesKey" /><br />
+    原始内容：<input type="text" id="txtContent" /><br />
+    加密后的内容：<label id="lblDesEncryptStr"></label><br />
+
+    <a href="javascript:JiaMi();">加密</a>
+    <a href="javascript:JieMi();">解密</a><br />
+</body>
+</html>

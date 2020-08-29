@@ -1,0 +1,393 @@
+2018-03-26 14:26:10,243 [8] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.HostAuthenticationFilter.<AuthenticateAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-03-26 14:26:10,803 [15] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.HostAuthenticationFilter.<AuthenticateAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-03-26 14:26:12,463 [8] INFO  BaseLog [(null)] - 发邮件开始：
+2018-03-26 14:26:12,465 [15] INFO  BaseLog [(null)] - 发邮件开始：
+2018-03-26 14:26:12,507 [15] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\EmailHelper.cs:行号 28
+2018-03-26 14:26:12,507 [8] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\EmailHelper.cs:行号 28
+2018-03-26 14:26:13,694 [8] INFO  BaseLog [(null)] - 发邮件结束！
+2018-03-26 14:26:12,762 [18] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FmoneyManager%2Fmake_money.html%3Fchannel%3Dctlmcaidan&response_type=code&scope=snsapi_userinfo&state=ChiTu729&connect_redirect=1#wechat_redirect
+2018-03-26 14:26:13,239 [15] INFO  BaseLog [(null)] - 发邮件结束！
+2018-03-26 14:26:13,486 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetSceneInfoByUserId?r=0.4714921285605542
+执行的时间:333.4613ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"CategoryList":[{"SceneID":0,"SceneName":"推荐","IsSelected":0,"Counts":10000},{"SceneID":3,"SceneName":"育儿","IsSelected":0,"Counts":0},{"SceneID":4,"SceneName":"娱乐","IsSelected":0,"Counts":0},{"SceneID":22,"SceneName":"汽车","IsSelected":0,"Counts":0},{"SceneID":24,"SceneName":"美食","IsSelected":0,"Counts":0},{"SceneID":25,"SceneName":"旅游","IsSelected":0,"Counts":0},{"SceneID":31,"SceneName":"教育","IsSelected":0,"Counts":0},{"SceneID":32,"SceneName":"家居","IsSelected":0,"Counts":0},{"SceneID":34,"SceneName":"婚恋","IsSelected":0,"Counts":0},{"SceneID":46,"SceneName":"财经","IsSelected":0,"Counts":0}],"IsSkip":false},"IsOverdue":null}
+
+2018-03-26 14:26:14,587 [8] ERROR BaseLog [(null)] - [GetTaskListByUserId]报错
+System.Data.SqlClient.SqlException (0x80131904): 除非另外还指定了 TOP、OFFSET 或 FOR XML，否则，ORDER BY 子句在视图、内联函数、派生表、子查询和公用表表达式中无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.ITSC.Chitunion2017.Dal.LETask.LeTaskInfo.GetDataByPageV2_5(TaskResDTO res, String randomNumberConfig) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.Dal\LETask\LeTaskInfo.cs:行号 511
+   在 XYAuto.ITSC.Chitunion2017.BLL.LETask.V2_3.LE_Task.GetDataByPageV2_5(TaskResDTO res) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\LETask\V2_3\LE_Task.cs:行号 48
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.TaskController.GetTaskListByUserId(TaskResDTO res) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\TaskController.cs:行号 44
+ClientConnectionId:454205bc-ee2c-4c95-b269-fd4cd6774371
+Error Number:1033,State:1,Class:15
+2018-03-26 14:26:15,203 [15] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetTaskListByUserId?PageSize=10&SceneID=0&PageIndex=0&r=0.1788071730897116
+执行的时间:777.5244ms
+请求的参数:{"res":{"OpenID":null,"PageIndex":0,"PageSize":10,"SceneID":0,"UserID":0}}
+返回的结果:{"Status":-1,"Message":"出错：除非另外还指定了 TOP、OFFSET 或 FOR XML，否则，ORDER BY 子句在视图、内联函数、派生表、子查询和公用表表达式中无效。","Result":null,"IsOverdue":null}
+
+2018-03-26 14:26:15,597 [5] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:15,606 [5] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：081h29rX1fP7QS0P4CrX1JYlrX1h29rK
+2018-03-26 14:26:16,007 [5] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：081h29rX1fP7QS0P4CrX1JYlrX1h29rK
+2018-03-26 14:26:16,109 [5] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=8_eAnuwo5h1d1MYTUHE9Is0QEkJ5HUxAIPXHCvK3Zg3avN5L5TAcQ2Ws3S-XLQocHkobGurnUHnuCIu1yrqNrDtA,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-03-26 14:26:16,272 [5] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=8_eAnuwo5h1d1MYTUHE9Is0QEkJ5HUxAIPXHCvK3Zg3avN5L5TAcQ2Ws3S-XLQocHkobGurnUHnuCIu1yrqNrDtA,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-03-26 14:26:16,493 [5] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-03-26 14:26:16,509 [5] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1612}
+2018-03-26 14:26:16,608 [5] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1612,结果=fq0esYvUWd972wEauXMdHKw0OtpNIywRF3NC0ph/wlOEwwEEdAoDNNgLvyMBWVpNF5xEYe8ioPNpQiH3YHWNntS9/PPqz1Ov3nAuXHw1ArNQwQoP9Zd81phSiIXDYMwxuognGUlk0prn8gkxDr8aQycxKucc9Kd92UL5xTD6rautNfrQUTArF2Z/jomimGjb,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:16,649 [5] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:16,686 [5] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan OK
+2018-03-26 14:26:16,855 [8] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:16,920 [8] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan OK
+2018-03-26 14:26:17,063 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetSceneInfoByUserId?r=0.3921046677886133
+执行的时间:10.0339ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"CategoryList":[{"SceneID":0,"SceneName":"推荐","IsSelected":0,"Counts":10000},{"SceneID":3,"SceneName":"育儿","IsSelected":0,"Counts":0},{"SceneID":4,"SceneName":"娱乐","IsSelected":0,"Counts":0},{"SceneID":22,"SceneName":"汽车","IsSelected":0,"Counts":0},{"SceneID":24,"SceneName":"美食","IsSelected":0,"Counts":0},{"SceneID":25,"SceneName":"旅游","IsSelected":0,"Counts":0},{"SceneID":31,"SceneName":"教育","IsSelected":0,"Counts":0},{"SceneID":32,"SceneName":"家居","IsSelected":0,"Counts":0},{"SceneID":34,"SceneName":"婚恋","IsSelected":0,"Counts":0},{"SceneID":46,"SceneName":"财经","IsSelected":0,"Counts":0}],"IsSkip":false},"IsOverdue":null}
+
+2018-03-26 14:26:17,723 [15] ERROR BaseLog [(null)] - [GetTaskListByUserId]报错
+System.Data.SqlClient.SqlException (0x80131904): 除非另外还指定了 TOP、OFFSET 或 FOR XML，否则，ORDER BY 子句在视图、内联函数、派生表、子查询和公用表表达式中无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.ITSC.Chitunion2017.Dal.LETask.LeTaskInfo.GetDataByPageV2_5(TaskResDTO res, String randomNumberConfig) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.Dal\LETask\LeTaskInfo.cs:行号 511
+   在 XYAuto.ITSC.Chitunion2017.BLL.LETask.V2_3.LE_Task.GetDataByPageV2_5(TaskResDTO res) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\LETask\V2_3\LE_Task.cs:行号 48
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.TaskController.GetTaskListByUserId(TaskResDTO res) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\TaskController.cs:行号 44
+ClientConnectionId:454205bc-ee2c-4c95-b269-fd4cd6774371
+Error Number:1033,State:1,Class:15
+2018-03-26 14:26:18,186 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetTaskListByUserId?PageSize=10&SceneID=0&PageIndex=0&r=0.5867504670516452
+执行的时间:469.9967ms
+请求的参数:{"res":{"OpenID":null,"PageIndex":0,"PageSize":10,"SceneID":0,"UserID":0}}
+返回的结果:{"Status":-1,"Message":"出错：除非另外还指定了 TOP、OFFSET 或 FOR XML，否则，ORDER BY 子句在视图、内联函数、派生表、子查询和公用表表达式中无效。","Result":null,"IsOverdue":null}
+
+2018-03-26 14:26:53,107 [18] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FmoneyManager%2Fmake_money.html%3Fchannel%3Dctlmcaidan&response_type=code&scope=snsapi_userinfo&state=ChiTu106&connect_redirect=1#wechat_redirect
+2018-03-26 14:26:54,563 [6] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:54,578 [6] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：001w3nig1Dpipy0CV7ig10j1ig1w3niI
+2018-03-26 14:26:54,813 [6] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：001w3nig1Dpipy0CV7ig10j1ig1w3niI
+2018-03-26 14:26:54,880 [6] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=8_4ssoGaJ5-yY41QMT7aNwA8zX2LBeeXsv3zDVCiUSZFvrTGdkMe0AlZ-ZIJ_RZdTzeSXGZj6evL22nSG_t6dHBw,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-03-26 14:26:54,963 [6] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=8_4ssoGaJ5-yY41QMT7aNwA8zX2LBeeXsv3zDVCiUSZFvrTGdkMe0AlZ-ZIJ_RZdTzeSXGZj6evL22nSG_t6dHBw,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-03-26 14:26:55,085 [6] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-03-26 14:26:55,097 [6] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1612}
+2018-03-26 14:26:55,116 [6] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1612,结果=fq0esYvUWd972wEauXMdHKw0OtpNIywRF3NC0ph/wlOEwwEEdAoDNNgLvyMBWVpNF5xEYe8ioPNpQiH3YHWNntS9/PPqz1Ov3nAuXHw1ArNQwQoP9Zd81phSiIXDYMwxuognGUlk0prn8gkxDr8aQycxKucc9Kd9NvH96wmc+DPLbwx5P3SNRLuSrV8kgmRi,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:55,122 [6] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:55,130 [6] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan OK
+2018-03-26 14:26:55,323 [15] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan
+2018-03-26 14:26:55,339 [15] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/moneyManager/make_money.html?channel=ctlmcaidan OK
+2018-03-26 14:26:55,493 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetSceneInfoByUserId?r=0.3184636666721694
+执行的时间:8.5301ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"CategoryList":[{"SceneID":0,"SceneName":"推荐","IsSelected":0,"Counts":10000},{"SceneID":3,"SceneName":"育儿","IsSelected":0,"Counts":0},{"SceneID":4,"SceneName":"娱乐","IsSelected":0,"Counts":0},{"SceneID":22,"SceneName":"汽车","IsSelected":0,"Counts":0},{"SceneID":24,"SceneName":"美食","IsSelected":0,"Counts":0},{"SceneID":25,"SceneName":"旅游","IsSelected":0,"Counts":0},{"SceneID":31,"SceneName":"教育","IsSelected":0,"Counts":0},{"SceneID":32,"SceneName":"家居","IsSelected":0,"Counts":0},{"SceneID":34,"SceneName":"婚恋","IsSelected":0,"Counts":0},{"SceneID":46,"SceneName":"财经","IsSelected":0,"Counts":0}],"IsSkip":false},"IsOverdue":null}
+
+2018-03-26 14:26:56,067 [7] ERROR BaseLog [(null)] - [GetTaskListByUserId]报错
+System.Data.SqlClient.SqlException (0x80131904): 除非另外还指定了 TOP、OFFSET 或 FOR XML，否则，ORDER BY 子句在视图、内联函数、派生表、子查询和公用表表达式中无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.ITSC.Chitunion2017.Dal.LETask.LeTaskInfo.GetDataByPageV2_5(TaskResDTO res, String randomNumberConfig) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.Dal\LETask\LeTaskInfo.cs:行号 511
+   在 XYAuto.ITSC.Chitunion2017.BLL.LETask.V2_3.LE_Task.GetDataByPageV2_5(TaskResDTO res) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\LETask\V2_3\LE_Task.cs:行号 48
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.TaskController.GetTaskListByUserId(TaskResDTO res) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\TaskController.cs:行号 44
+ClientConnectionId:454205bc-ee2c-4c95-b269-fd4cd6774371
+Error Number:1033,State:1,Class:15
+2018-03-26 14:26:56,548 [15] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Task/GetTaskListByUserId?PageSize=10&SceneID=0&PageIndex=0&r=0.5990532221236167
+执行的时间:484.9898ms
+请求的参数:{"res":{"OpenID":null,"PageIndex":0,"PageSize":10,"SceneID":0,"UserID":0}}
+返回的结果:{"Status":-1,"Message":"出错：除非另外还指定了 TOP、OFFSET 或 FOR XML，否则，ORDER BY 子句在视图、内联函数、派生表、子查询和公用表表达式中无效。","Result":null,"IsOverdue":null}
+
+2018-03-26 14:27:31,189 [7] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:31,206 [7] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:27:31,367 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.6603127586554189,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:31,383 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5196453842552544,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:31,491 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5196453842552544
+执行的时间:62.6666ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:27:31,577 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.6603127586554189
+执行的时间:194.5177ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:27:36,541 [15] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:36,563 [15] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:27:36,779 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5934192872143016,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:36,793 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.2510204441180186,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:36,816 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5934192872143016
+执行的时间:6.5192ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:27:36,907 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.2510204441180186
+执行的时间:9.0213ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:27:40,594 [5] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fchannel%3Dctlmcaidan&response_type=code&scope=snsapi_userinfo&state=ChiTu594&connect_redirect=1#wechat_redirect
+2018-03-26 14:27:42,170 [7] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:42,178 [7] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：061tQHfZ1HG1yZ0kbSdZ1OtCfZ1tQHfX
+2018-03-26 14:27:42,336 [7] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：061tQHfZ1HG1yZ0kbSdZ1OtCfZ1tQHfX
+2018-03-26 14:27:42,441 [7] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=8_rmvqgIwT022cqJiGBEioyljA66vYObuJg65EJ4SBQE5nCDSlJr8IpWOevmYkNBhFxTZfIiv6pRdePUVO-_PPjg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-03-26 14:27:42,573 [7] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=8_rmvqgIwT022cqJiGBEioyljA66vYObuJg65EJ4SBQE5nCDSlJr8IpWOevmYkNBhFxTZfIiv6pRdePUVO-_PPjg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-03-26 14:27:42,644 [7] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-03-26 14:27:42,653 [7] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1612}
+2018-03-26 14:27:42,670 [7] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1612,结果=fq0esYvUWd972wEauXMdHKw0OtpNIywRF3NC0ph/wlOEwwEEdAoDNNgLvyMBWVpNF5xEYe8ioPNpQiH3YHWNntS9/PPqz1Ov3nAuXHw1ArNQwQoP9Zd81phSiIXDYMwxuognGUlk0prn8gkxDr8aQzpkrg5E8ok0O0XUIy+3TszJdO7oZ39cVijrfE5+xpuQ,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:42,684 [7] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:42,695 [7] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:27:42,849 [5] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:42,863 [5] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:27:42,978 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.37841402667858115,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:42,979 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.7496115723623833,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:27:43,013 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.37841402667858115
+执行的时间:11.028ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:27:43,088 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.7496115723623833
+执行的时间:33.5881ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:29:20,536 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:29:20,563 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:29:20,658 [5] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.5341310272072046,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:29:20,659 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.7701213508816385,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:29:20,681 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.5341310272072046
+执行的时间:11.5298ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:29:20,738 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.7701213508816385
+执行的时间:5.0128ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:29:55,039 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:29:55,055 [18] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:29:55,204 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.9562978327426102,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:29:55,204 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.6703821746761565,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:29:55,229 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.9562978327426102
+执行的时间:9.0366ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:29:55,240 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.6703821746761565
+执行的时间:9.0238ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:30:05,253 [5] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.6622951030419015,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:05,262 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.33265263707390913,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:05,322 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.6622951030419015
+执行的时间:5.0102ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:30:05,350 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.33265263707390913
+执行的时间:9.5314ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:30:24,830 [8] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fchannel%3Dctlmcaidan&response_type=code&scope=snsapi_userinfo&state=ChiTu830&connect_redirect=1#wechat_redirect
+2018-03-26 14:30:26,803 [37] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:26,810 [37] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：011TPBc60yihMK1r2Fb60P1Kc60TPBcg
+2018-03-26 14:30:26,958 [37] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：011TPBc60yihMK1r2Fb60P1Kc60TPBcg
+2018-03-26 14:30:27,062 [37] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=8_FipCgQ1526k0MZbshFd8BUZV22pN6oj6NyxgHJHaJFq0EWWYHI9dyTCYfSbWbS5eqUPMUkyPgBp0m1l3nKblOg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-03-26 14:30:27,170 [37] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=8_FipCgQ1526k0MZbshFd8BUZV22pN6oj6NyxgHJHaJFq0EWWYHI9dyTCYfSbWbS5eqUPMUkyPgBp0m1l3nKblOg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-03-26 14:30:27,269 [37] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-03-26 14:30:27,277 [37] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1612}
+2018-03-26 14:30:27,308 [37] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1612,结果=fq0esYvUWd972wEauXMdHKw0OtpNIywRF3NC0ph/wlOEwwEEdAoDNNgLvyMBWVpNF5xEYe8ioPNpQiH3YHWNntS9/PPqz1Ov3nAuXHw1ArNQwQoP9Zd81phSiIXDYMwxuognGUlk0prn8gkxDr8aQzJP9gmW4a9lAE84HcfM6tub2RAUho05VVnniKxq0ESB,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:27,314 [37] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:27,325 [37] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:30:27,446 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:27,459 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:30:27,543 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.7605838033148662,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:27,544 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.32022958635817966,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:30:27,622 [34] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.7605838033148662
+执行的时间:8.522ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:30:27,641 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.32022958635817966
+执行的时间:4.007ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:31:39,266 [37] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:39,278 [37] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：021KxVr427K5vN0df5v42s7wr42KxVrl
+2018-03-26 14:31:39,454 [37] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：021KxVr427K5vN0df5v42s7wr42KxVrl
+2018-03-26 14:31:39,553 [37] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=8_gyRNyQnSeOHFWWsNeaoyW9W3EcPFMnQoue4NpNY9nGkVTu1mqx67VOh9M4jgd0WzljkDN2J3akL6A_jTR6Mxng,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-03-26 14:31:39,574 [37] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:39,591 [37] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:31:39,823 [32] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.965386973917016,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:39,824 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.4018972949662871,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:39,849 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.965386973917016
+执行的时间:10.5285ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:31:39,898 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.4018972949662871
+执行的时间:21.5575ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:31:46,526 [30] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fchannel%3Dctlmcaidan&response_type=code&scope=snsapi_userinfo&state=ChiTu526&connect_redirect=1#wechat_redirect
+2018-03-26 14:31:47,647 [7] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:47,653 [7] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：071VUsDi2fLaoI0pcjEi2yJIDi2VUsDq
+2018-03-26 14:31:47,724 [7] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：071VUsDi2fLaoI0pcjEi2yJIDi2VUsDq
+2018-03-26 14:31:47,783 [7] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=8_gyRNyQnSeOHFWWsNeaoyW0JrjoqXiKm68103JSzeYovEk9wjLZ2xygsRo9nNIAasnNz0h1O_V1oe4Ec9ovHxTA,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-03-26 14:31:47,979 [7] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=8_gyRNyQnSeOHFWWsNeaoyW0JrjoqXiKm68103JSzeYovEk9wjLZ2xygsRo9nNIAasnNz0h1O_V1oe4Ec9ovHxTA,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-03-26 14:31:48,079 [7] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-03-26 14:31:48,088 [7] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1612}
+2018-03-26 14:31:48,110 [7] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1612,结果=fq0esYvUWd972wEauXMdHKw0OtpNIywRF3NC0ph/wlOEwwEEdAoDNNgLvyMBWVpNF5xEYe8ioPNpQiH3YHWNntS9/PPqz1Ov3nAuXHw1ArNQwQoP9Zd81phSiIXDYMwxuognGUlk0prn8gkxDr8aQ/W3dg7ZjxQaHZawEf0mGbAlM1XLcen82rMQcuVCSnVc,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:48,119 [7] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:48,129 [7] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:31:48,294 [38] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:48,309 [38] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:31:48,435 [31] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.7339681367687574,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:48,437 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.32208677266301167,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:31:48,459 [31] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.7339681367687574
+执行的时间:7.0269ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:31:48,489 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.32208677266301167
+执行的时间:9.0246ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:34:50,460 [21] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:34:50,549 [21] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:34:50,925 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5544200672937525,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:34:50,934 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.4370935102018958,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:34:51,409 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.4370935102018958
+执行的时间:53.6432ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+
+2018-03-26 14:34:51,411 [31] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5544200672937525
+执行的时间:54.1443ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:43:28,329 [8] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:43:28,346 [8] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1612,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan OK
+2018-03-26 14:43:28,630 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5180004989053737,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:43:28,633 [32] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=False,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.7088356579778934,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=ctlmcaidan
+2018-03-26 14:43:28,650 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.5180004989053737
+执行的时间:5.5146ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.0,"EarningsPrice":0.0,"AlreadyWithdrawalsMoney":0.0,"WithdrawalsMoneyIng":0.0},"IsOverdue":null}
+
+2018-03-26 14:43:28,692 [32] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.7088356579778934
+执行的时间:9.5259ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"o_J_G0_aJx27xTqZeOGzunN1JB5A","Mobile":" "},"AuthenticationInfo":{"Type":"","Status":"","TrueName":"","IdentityNo":"","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"","AccountType":""}},"IsOverdue":null}
+

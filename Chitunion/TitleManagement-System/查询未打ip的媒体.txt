@@ -1,0 +1,24 @@
+SELECT MR.BrandID,CB.NAME AS BrandNAME,MR.SerialID,CS.Name as SerialName FROM  dbo.MediaLabelResult MR LEFT JOIN  BaseData2017.dbo.CarBrand  CB ON MR.BrandID=CB.BrandID 
+LEFT JOIN  BaseData2017.dbo.CarSerial CS ON MR.SerialID =CS.SerialID
+WHERE  MediaResultID NOT IN (SELECT  MediaResultID  FROM  dbo.ResultLabel WHERE Type=65003) AND TaskType=2003
+
+
+SELECT MediaNumber,MediaName FROM  dbo.MediaLabelResult MR 
+WHERE  MediaResultID NOT IN (SELECT  MediaResultID  FROM  dbo.ResultLabel WHERE Type=65003) AND TaskType=2001 and MediaType=14001
+
+
+
+
+
+SELECT MediaNumber,MediaName FROM  dbo.MediaLabelResult MR 
+WHERE  MediaResultID NOT IN (SELECT  MediaResultID  FROM  dbo.ResultLabel WHERE Type=65003) AND TaskType=2001 AND MediaType=14002
+
+
+
+SELECT MediaName,HomeUrl FROM  dbo.MediaLabelResult MR 
+WHERE  MediaResultID NOT IN (SELECT  MediaResultID  FROM  dbo.ResultLabel WHERE Type=65003) AND TaskType=2001 AND MediaType=14006
+
+
+
+
+select * from  MediaLabelResult where MediaResultID not in  (SELECT MediaResultID from  MediaResultIPSubLabe) 

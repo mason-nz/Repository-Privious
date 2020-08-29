@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>需求管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/StyleOfAdd.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/Common_IE.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src='js/clipboard.min.js'></script>
+    <script type="text/javascript" src='js/PubAddCan.js'></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <div class="install_box"></div>                
+        </div>
+    </div>
+</div>
+
+
+<!-- 表格信息 -->
+<script type="text/template" id="detail-table">
+    <div class="customer_head">
+        <p>需求订单号：<%= DemandBillNo %></p>
+        <p>需求名称：<%= DemandName %></p>
+        <p>状态：<%= AuditStatusName %></p>
+    </div>
+
+    <div class="to_b_list">
+    <% GroundInfo.forEach(function(item){%>
+        <div class="each_item" style="position: relative;" GroundId='<%= item.GroundId %>'>
+            <ul>
+                <li>品牌车型：<%= item.CarInfo[0].BrandName %>-<%= item.CarInfo[0].SerialName %></li>
+                <div class="clear"></div>
+                <li>省份城市：<%= item.AreaInfo[0].ProvinceName %>-<%= item.AreaInfo[0].CityName %></li>
+                <div class="clear"></div>
+                <li>落地页URL：<%= item.PromotionUrl %> </li>
+                <li style="float: right;"><a href="javascript:;" style="color: #FF4F4F;" class="AddCanShu">+添加参数</a></li>
+            </ul>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" style='border-collapse:collapse;margin-bottom: 15px;' GroundId='<%= item.GroundId %>'>
+                <thead>
+                    <tr>
+                        <th width="10%" style="background:#f5f5f5">投放平台</th>
+                        <th width="10%" style='background:#f5f5f5'>广告创意</th>
+                        <th width="10%" style='background:#f5f5f5'>广告名称</th>
+                        <th width="30%" style='background:#f5f5f5'>URL</th>
+                        <th width="20%" style='background:#f5f5f5'>关联广告组</th>
+                        <th width="12%" style='background:#f5f5f5'>操作</th>
+                    </tr>
+                </thead>                        
+                <tbody class="Detail_table">
+                    <% if(item.DeliveryList.length > 0){%>
+                        <% item.DeliveryList.forEach(function(each){%>
+                            <tr DeliveryId='<%= each.DeliveryId %>' AdgroupId='<%= each.AdgroupId %>'>
+                               <td><%= each.DeliveryTypeName %></td>
+                               <td><%= each.AdCreativeName %></td>
+                               <td><%= each.AdName %></td>
+                               <td><%= each.PromotionUrl %>  <a href="javascript:;" class="Copy_url" data-clipboard-text='<%= each.PromotionUrl %>'><img src="/ImagesNew/copy.png"></a></td>
+                               <% if(each.CampaignName == null && each.AdgroupName == null){%>
+                                    <td>一</td>
+                               <%}else{%>
+                                    <td><%= each.CampaignName %>-<%= each.AdgroupName %></td>
+                               <%} %>
+                               <td class="last_td"> 
+                                    <% if(each.CampaignName != null || each.AdgroupName != null){%>
+                                        <a href="javascript:;" class="Data_detail">数据</a>
+                                    <%} %>
+                                    <a href="javascript:;" class="relevance_po">关联广告</a>
+                                    <a href="javascript:;" class="delete_url">删除</a>
+                               </td>
+                            </tr>
+                        <%}) %>
+                    <%}else{%>
+                        <tr>    
+                            <td>一</td>
+                            <td>一</td>
+                            <td>一</td>
+                            <td>一</td>
+                            <td>一</td>
+                            <td>一</td>
+                        </tr>
+                    <%} %>
+                </tbody>
+            </table>
+            <a href="javascript:;" class="bg_color" style="position: absolute;left: 0;top:0;width: 100%;height: 100%;background:#ccc;opacity:0.1;display: none;"></a>
+        </div>
+    <%}) %>
+    </div>
+</script>
+
+
+<!-- 关联广告的弹层 -->
+<div class="channel_box" style="display: none">
+    <div class="layer" style='overflow: auto;width: 500px;max-height: 550px;'>
+        <div class="title">
+            <div class="fl">选择要关联的广告组</div>
+            <div class="fr"><a href="javascript:void(0)" id="closebt1"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="layer_con" style='margin: 15px'>
+            <table width="100%" cellspacing="0" cellpadding="0" style='border-collapse:collapse;'>
+            <thead>
+                <tr style='background: #F5F5F5'>
+                    <td width="15%">单选</td>
+                    <td width="25%">广告组ID</td>
+                    <td width="30%">广告组名称</td>
+                    <td width="30%">所属推广计划</td>
+                </tr>
+            </thead>
+            <tbody class="ChooseChannel"></tbody>
+                                
+            </table>
+            <div class="keep">
+                <span><a href="javascript:;" class="button" style="width:150px" id='submitMessage'>确定</a></span>
+                <span><a href="javascript:;" class="button" style="width:150px"  id='cancleMessage'>取消</a></span>
+            </div>
+            <div class="mb25"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 广告组关联 -->
+<script type="text/template" id="choose-channel">
+    <% data.forEach(function(item){%>
+    <tr AdgroupId='<%= item.AdgroupId %>'>
+        <td style="padding: 0 20px;">
+        <% if(item.IsChecked == true){%>
+            <input type="radio" name='PitchUp' class='onebox' checked="checked">
+        <%}else{%>
+            <input type="radio" name='PitchUp' class='onebox'>
+        <%} %>
+        </td>
+        <td><%= item.AdgroupId %></td>
+        <td><%= item.AdgroupName %></td>
+        <td><%= item.CampaignName %></td>
+    </tr>
+    <%})  %>
+</script>
+
+
+<!-- 落地页加参数 -->
+<div class="Addurl_box" style="display: none">
+    <div class="layer" style='overflow: auto;width: 370px;'>
+        <div class="title">
+            <div class="fl">落地页加参</div>
+            <div class="fr"><a href="javascript:void(0)" id="closebt2"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="layer_con" style='margin: 15px'>
+            <ul>
+                <li>
+                    <span class="ins_c">投放平台:</span>
+                    <span style="float: left;"><input type="radio" style="height: 26px;" checked>&nbsp广点通</span>
+                    <span style="float: left;"><input type="radio" disabled="disabled" style="height: 26px;">&nbsp今日头条</span>
+                </li>
+                <li>
+                    <span class="ins_c"><a style="color:#FF4F4F">*</a>广告创意:</span>
+                    <select style="width: 250px;" id="AdCreative">
+                        <option AdCreative='-1'>请选择广告创意</option>
+                    </select>
+                </li>
+                <li>
+                    <span class="ins_c"><a style="color:#FF4F4F">*</a>广告名称:</span>
+                    <input type="text" style="width: 240px;height: 26px;line-height: 28px;" id='AdName' maxlength="40">
+                </li>
+                <li style="text-align: right;color: #FF4F4F;font-size: 12px;visibility: hidden;" class="meg_tip">请选择广告创意</li>
+            </ul>
+            <div class="clear"></div>
+            <div class="keep" style="margin-top: 0">
+                <a href="javascript:;" class="button" style="width:100px" id='submitMessage1'>确定</a>
+                <a href="javascript:;" class="button" style="width:100px;margin-left: 30px;margin-right: -10px;"  id='cancleMessage1'>取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--#include file="/base/footer.html" -->
+</body>
+</html>

@@ -1,0 +1,121 @@
+<link rel="stylesheet" type="text/css" href="/css/movie_adverts.css">
+<style type="text/css">
+    .image_text ul{
+        height: auto;
+    }
+    .layer ul li{
+        line-height: 20px;
+    }
+    /*movie_adverts.css:3408*/
+    .layer .count .image_text ul:nth-child(1) {
+        width: 16%;
+        margin-left: -2%;
+    }
+    .layer .count .countInfo li ol {
+        float: left;
+        width: 83%;
+        margin-bottom: 20px;
+        margin-left: -6px;
+    }
+    .layer .count .countInfo li .h_info{
+        margin-top: 5px;
+    }
+</style>
+<div class="layer" style="width: 585px;">
+    <div class="title">
+        <div class="fl">报价信息</div>
+        <div class="fr"><a href="javascript:void(0)" id="closebt"><img src="/images/close_x.jpg" width="16" height="16"></a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="layer_con2" style='padding-bottom: 1px;margin:0;'> 
+        <div class="personInfo">
+            <dl>
+                <dt><img src="" alt="" id="headImg"></dt>
+                <dd>
+                    <p id="mediaName"></p>
+                    <p id="mediaNumber"></p>
+                </dd>
+            </dl>     
+        </div>
+    </div>
+    <div class="count">
+        <div class="countTit">
+            账号信息
+        </div>
+        <div class="countInfo">
+            <ul>
+                <li>
+                    <div class="h_info">&nbsp;&nbsp;&nbsp;<span class="f_baseColor">*</span>粉丝数：</div><input type="text" placeholder="请输入粉丝数" style="width: 140px;" id="fansCount">
+                </li>
+                <li id="sex_choose">
+                    <div class="h_info"><span class="f_baseColor">*</span>粉丝性别：</div>男&nbsp; <input type="text" class="boy" style="width: 60px;"> %&nbsp;&nbsp; &nbsp; &nbsp; 女 &nbsp; <input type="text" class="girl" style="width: 60px;"> %
+                </li>
+                <li>
+                    <div class="h_info">
+                        <span class="f_baseColor" style="float: left;">*</span>
+                        粉丝覆盖：
+                    </div>
+                    <input type="radio" name="area" checked="checked" value="0"> 
+                    全国&nbsp; &nbsp;
+                    <input type="radio" name="area" value="1">
+                    区域&nbsp; &nbsp; 
+                    <select  style="width:120px;" id="province_select">
+                            <option value='-2'>选择省份</option>
+                    </select>&nbsp; 
+                    <select style="width:120px;" id="city_select">
+                            <option value='-2'>选择城市</option>
+                    </select>
+                </li>
+                <li style="width: 100%;">
+                    <div class="h_info" style="padding-top: 5px;"><span class="f_baseColor" >*</span>行业分类：</div>
+                    <ol id="category_list">
+                        <li><input type="radio" value="10" checked="checked">时事</li>
+                    </ol>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            
+        </div>
+        <div class="clear"></div>
+        <div class="countTit">
+            投放价格<span class="priceTip">至少填写一条价格</span>
+        </div>
+        <div class="image_text" id="deleverPrice">
+            <ul>
+                <li style="color: #fff;">投放形式形式<br/></li>
+                <li>转发：</li>
+                <li>原创+发布：</li>
+            </ul>
+            <!-- ADPosition1 是   int 单图文: 6001 多图文头条:6002 多图文第二条:6003 多图文3-N条:6004
+            ADPosition2      是   int 直发：9001 原创+发布：9002 转发：9003 -->
+            <ul>
+                <li>单图文</li>
+                <li  value="6001"><input type="text" placeholder="元" id="price0" adPosition="9003"></li>
+                <li  value="6001"><input type="text" placeholder="元" id="price1" adPosition="9002"></li>
+            </ul>
+            <ul>
+                <li>多图文头条</li>
+                <li value="6002"><input type="text" placeholder="元" id="price2" adPosition="9003"></li>
+                <li value="6002"><input type="text" placeholder="元" id="price3" adPosition="9002"></li>
+            </ul>
+            <ul>
+                <li>多图第二条</li>
+                <li value="6003"><input type="text" placeholder="元" id="price4" adPosition="9003"></li>
+                <li value="6003"><input type="text" placeholder="元" id="price5" adPosition="9002"></li>
+            </ul>
+            <ul>
+                <li>多图文头条3-N条</li>
+                <li value="6004"><input type="text" placeholder="元" id="price6" adPosition="9003"></li>
+                <li value="6004"><input type="text" placeholder="元" id="price7" adPosition="9002"></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="layer_con" style='padding-bottom: 1px;margin:0;'>
+        <div class="keep" style="margin:15px;">
+            <p class="tip red"></p>
+            <span><a href="javascript:void(0)" class="button but_global" style="width:150px" id='submitMessage'>确定</a></span>
+        </div>
+    </div>
+</div>

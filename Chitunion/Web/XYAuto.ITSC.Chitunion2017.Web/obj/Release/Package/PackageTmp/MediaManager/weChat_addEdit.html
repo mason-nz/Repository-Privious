@@ -1,0 +1,271 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>添加微信公众号-媒体管理-我的赤兔</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script type="text/javascript" src="../js/Common_area.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="./js/mediaCommon.js"></script>
+    <script type="text/javascript" src="./js/weChat.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<div class="list_main">
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2>添加微信公众号</h2>
+            <h3>第一步：填写微信号信息</h3>
+            <div class="clear"></div>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 微信号：</li>
+                <li><input name="Username" type="text"  style="width:315px;" class="weChatId editText mediaId" ></li>
+                <li style="color: red;display: none" class="mediaIDAlert"><img src="/images/icon21.png" alt=""> 该媒体已存在，请不要重复添加</li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入微信公众号</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 微信名称：</li>
+                <li><input name="Username" type="text"  style="width:315px;" class="wechatName editText mediaName" maxlength="50"></li>
+                <li style="color: red;display: none" class="mediaNameAlert"><img src="/images/icon21.png" alt=""> 该媒体名称已存在，请核实</li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入微信名称</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 头像：</li>
+                <li class="frame"><img src="" class="uploadImg headImg uploadBigimg" id="headimgUploadFile" width="80" height="80"/><span style="width: 200px;height: 200px;display: none;position:absolute;z-index: 999;" class="bigImgshow"><img src="" alt="" id="headBigImg" style="width: 200px;height: 200px;"></span><span class="set"><input type="file" name="file_upload" id="headUploadify" accept="image/jpeg,image/jpg,image/png" class="file-prew but_upload"/></span></li>
+                <li id="headimgErr" style="color: red"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请上传微信头像</li>
+                <div class="clear"></div>
+            </ul>
+
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 二维码：</li>
+                <li class="frame"><img src="" class="uploadImg Tcode uploadBigimg"  id="codeimgUploadFile"  width="80" height="80" /><span style="width: 200px;height: 200px;display: none;position:absolute;z-index: 999;" class="bigImgshow"><img src="" alt="" id="codeBigImg" style="width: 200px;height: 200px;"></span><span class="set"><input type="file" name="file_upload" id="codeUploadify" accept="image/jpeg,image/jpg,image/png" class="file-prew but_upload headImg"/></span></li>
+                <li id="codeimgErr" style="color: red"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请上传二维码</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 粉丝数：</li>
+                <li><input name="Username" type="text"  style="width:315px;" class="editText fansCount" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                <li class="red FansCount" style="display: none"><img src="/images/icon21.png" /> 只能填写大于0的整数</li>
+                <li class="red FansCountControl" style="display: none"><img src="/images/icon21.png" /> 粉丝数小于等于500不能添加该媒体</li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请填写粉丝数</li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="fansCountImg">
+                <li class="ins_a"><span class="red f12">*</span> 粉丝数截图：</li>
+                <li class="frame"><img class="uploadImg fansImg uploadBigimg" id="fansimgUploadify" src="" width="80" height="80"/><span style="width: 200px;height: 200px;display: none;position:absolute;z-index: 999;" class="bigImgshow"><img src="" alt="" id="fansBigImg" style="width: 200px;height: 200px;"></span><span class="set"><input type="file" name="file_upload" id="fansUploadify" accept="image/jpeg,image/jpg,image/png" class="file-prew but_upload"/></span></li>
+                <li id="fansimgErr" style="color: red"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请上传粉丝截图</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span>粉丝性别比例：</li>
+                <li>男 <input id="male" class="editText" name="Username" type="text"  style="width:50px;height:30px;" onkeyup="this.value=this.value.replace(/[^\d\.]/g, '')" onafterpaste="this.value=this.value.replace(/[^\d\.]/g, '')"> %</li>
+                <li>女 <input id="female" class="editText" name="Username" type="text"  style="width:50px;height:30px;" onkeyup="this.value=this.value.replace(/[^\d\.]/g, '')" onafterpaste="this.value=this.value.replace(/[^\d\.]/g, '')"> %</li>
+                <li id="fans" style="color: red;display: none"><img src="/images/icon21.png" alt=""> 男女比例之和不能大于100</li>
+                <li class="red FanssexCount" style="display: none"><img src="/images/icon21.png" /> 只能填写大于0的整数</li>
+                <li style="color: red;display: none" class="fansProp"><img src="/images/icon21.png" alt=""> 请填写粉丝性别比例</li>
+
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 行业分类：</li>
+                <li>
+                    <select name="industryClassify" id="Industry" class="Industry industryEnumType" style="width:315px;line-height: 30px">
+                    </select>
+                </li>
+                <li style="color: red;display: none" class="classifiy"><img src="/images/icon21.png" alt=""> 请选择行业分类</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 媒体领域：</li>
+                <li>
+                    <select name="mediaArea" id="mediaArea" class="mediaEnumType" style="width:315px;line-height: 30px">
+                    </select>
+                </li>
+                <li style="color: red;display: none" class="mediaArea"><img src="/images/icon21.png" alt=""> 请选择媒体领域</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span>覆盖区域：</li>
+                <li>
+                    <select id="ddlProvince" name="ddlProvince"  style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerProvince();">
+                        <!--<option value="-1">省/直辖市</option>-->
+                        <!--<option>全国</option>-->
+                    </select>
+                </li>
+                <li>
+                    <select id="ddlCity" name="ddlCity" style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerCity();">
+                        <option value="-1">覆盖区域--市</option>
+                    </select>
+              </li>
+                <li><a href="javascript:;" class="yellow saveArea">添加</a></li>
+                <li style="color: red;display: none" class="sameArea"><img src="/images/icon21.png" alt=""> 所选区域不能有包含关系</li>
+                <li style="color: red;display: none" id="overlay"><img src="/images/icon21.png" alt=""> 请选择覆盖区域</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="checkArea" style="display: none">
+                <li class="ins_a" >&nbsp;</li>
+                <div class="clear area"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">所在地区：</li>
+                <li>
+                    <select id="ddlProvince1" name="ddlProvince1" style="width:120px;line-height: 30px" class="w50" onchange="crmCustCheckHelper.triggerProvince1();">
+                        <!--<option value="-1">省/直辖市</option>-->
+                    </select>
+                </li>
+                <li>
+                    <select id="ddlCity1" name="ddlCity1" class="w50" onchange="crmCustCheckHelper.triggerCity();" style="width:120px;line-height: 30px">
+                        <option value="-1">城市</option>
+                    </select>
+                </li>
+                <li style="color: red;display: none" class="Area"><!--<img src="/images/icon21.png" alt="">--><!-- 请选择所在地区--></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="radioValue mediaLevel">
+                <li class="ins_a"><span class="red f12">*</span> 媒体级别：</li>
+                <li><input name="level" value="4001" type="radio" /> 意见领袖</li>
+                <li><input name="level" value="4002" type="radio" /> 普通</li>
+                <li style="color: red;display: none" class="level"><img src="/images/icon21.png" alt=""> 请选择媒体级别</li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="radioValue weChatConfirm">
+                <li class="ins_a"><span class="red f12">*</span> 微信认证：</li>
+                <li><input name="identification" type="radio" data-id="1" value="是" /> 是</li>
+                <li><input name="identification" type="radio" data-id="0" value="否"/> 否</li>
+                <li style="color: red;display: none" class="identification"><img src="/images/icon21.png" alt=""> 请选择微信认证</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 描述／签名：</li>
+                <li><textarea name=""  class="editText sign" cols="" rows="5" style="width:315px;height:50px;resize:none;"></textarea></li>
+                <li style="color: red;display: none" class="desc"><img src="/images/icon21.png" alt=""> 请填写描述/个人签名</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">下单备注：</li>
+                <li><input name="orderRemark" type="checkbox" data-id="5001" value="可接硬广" /> 可接硬广</li>
+                <li><input name="orderRemark" type="checkbox" data-id="5002" value="可接微店" /> 可接微店</li>
+                <li><input name="orderRemark" type="checkbox" data-id="5003" value="可接管理培训" /> 可接管理培训</li>
+                <li><input name="orderRemark" type="checkbox" data-id="5004" value="仅接品牌" /> 仅接品牌</li>
+                <li style="color: red;display: none"  class="ad"><!--<img src="/images/icon21.png" alt=""> 请选择下单备注--></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 预约情况：</li>
+                <li><input name="appointment" type="radio" value="无需" data-id="0"/> 无需预约</li>
+                <li><input name="appointment" type="radio" value="需" data-id="1"/> 需预约</li>
+                <li style="color: red;display: none" class="appointment"><img src="/images/icon21.png" alt=""> 请选择预约情况</li>
+                <div class="clear"></div>
+            </ul>
+
+            <h3 class="mt20">互动参数</h3>
+            <div class="clear"></div>
+            <div class="binary">
+                <div class="parameter">
+                    <ul>
+                        <li><span style="color: red;">*</span> 参考阅读数</li>
+                         <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div class="annotation" style="display: none;z-index: 100;">最近90天所有图文阅读数的平均值<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input class="referReadCount" name="Username" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 平均点赞数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div class="annotation" style="display: none;z-index: 100;"> 最近90天所有图文点赞平均值<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input class="averagePointCount" name="Username" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 10W+阅读量的文章数</li>
+                        <li style="position: relative;" >
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">最近90天所有图文中的阅读数超过 10W 的文数量<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="moreReadCount" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                    <ul>
+                        <li><span style="color: red;">*</span> 原创文章数</li>
+                        <li style="position: relative;" >
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">最近90天所有图文中的原创文章数<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="origArticleCount" type="text"  style="width:90px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 周更新频次</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100" class="annotation">最近90天平均每周图文消息推送次数。<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="updateCount" type="text"  style="width:90px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 最高阅读数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation"> 最近90天所有图文中的最高阅读数<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="maxinumReading" type="text"  style="width:90px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                    <div style="color: red;display: none" class="parameterInfo"><img src="/images/icon21.png" alt=""><!--参考阅读数／平均点赞数／原创文章数／周更新频次／最高阅读数／10W+阅读数的文章--></div>
+                    <div class="clear"></div>
+
+                    <div class="keep">
+                        <span><a href="javascript:;" class="button save" style="width:150px">保存</a></span>
+                        <span><a href="javascript:;" class="but_keep but_keep_add" style="width:150px">保存并新增</a></span>
+                        <span><a href="javascript:;" class="but_keep but_keep_establish" style="width:150px">保存并创建刊例</a></span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+</div>
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+<script type="text/javascript">
+    changeType(14001);
+</script>
+</body>
+</html>

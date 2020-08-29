@@ -1,0 +1,52 @@
+2017-07-27 20:50:17,301 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:50:18,341 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:50:18,514 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:50:40,347 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:50:41,394 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:50:41,563 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:51:01,393 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:51:02,421 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:51:05,478 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:51:36,243 [6] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据，出错;
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.105.13:23004
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 FastDFS.Client.Pool.GetPooldConncetion()
+   在 FastDFS.Client.Pool.GetConnection()
+   在 FastDFS.Client.ConnectionManager.GetStorageConnection(IPEndPoint endPoint)
+   在 FastDFS.Client.UPLOAD_FILE.GetRequest(Object[] paramList)
+   在 FastDFS.Client.FastDFSClient.UploadFile(StorageNode storageNode, Byte[] contentByte, String fileExt)
+   在 Xy.ImageFastDFS.StreamFastDFSAdapter.Upload()
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(Image img) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 314
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(String url) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 332
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.BusinessLL.ArticleInfo.SyncDataByJinRiTouTiao(Int32 topNum) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\BusinessLL\ArticleInfo.cs:行号 145
+2017-07-27 20:51:36,268 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----结束
+2017-07-27 20:51:36,268 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----结束
+2017-07-27 20:51:46,365 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:51:47,397 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:51:49,126 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:52:39,598 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:52:40,657 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:52:42,393 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:53:08,390 [6] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据，出错;
+System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.Utilities.ValidationUtils.ArgumentNotNull(Object value, String parameterName)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.BusinessLL.ArticleInfo.SyncDataByJinRiTouTiao(Int32 topNum) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\BusinessLL\ArticleInfo.cs:行号 156
+2017-07-27 20:53:08,396 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----结束
+2017-07-27 20:53:08,396 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----结束
+2017-07-27 20:54:21,036 [8] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:54:22,083 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:54:22,190 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:57:58,748 [9] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:57:59,799 [11] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:57:59,993 [11] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:58:06,746 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:58:07,777 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:58:07,802 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-27 20:58:49,955 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-27 20:58:51,020 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-27 20:58:51,193 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始

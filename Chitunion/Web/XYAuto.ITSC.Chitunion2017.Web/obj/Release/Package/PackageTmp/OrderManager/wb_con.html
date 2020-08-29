@@ -1,0 +1,290 @@
+<!--中间内容-->
+<div class="wx_box">
+    <div class="search-form">
+        <div id="search-hd" class="search-hd">
+            <div class="search-bg"></div>
+            <input type="text" class="search-input">
+            <span class="pholder">请输入微博昵称</span>
+            <button id="submit" class="btn-search" value="搜索">搜新浪微博</button>
+        </div>
+    </div>
+    <div class="wx_odds">
+         <div class="wx_wrap" style='height:35px'>
+             <div class="wx_key" data-name='CategoryID'>常见分类：</div>
+             <div class="wx_value catagory">
+                <ul></ul>
+             </div>
+             <div class="wx_ext">展开 <img src="/images/arrow_01.png"></div>
+             <div class="clear"></div>
+         </div>
+         <div class="wx_wrap">
+             <div class="wx_key" data-name='FansCount'>粉丝数量：</div>
+             <div class="wx_value">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" class="active">不限</a>
+                        <input type="hidden" name="" value=''>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">1万以下</a>
+                        <input type="hidden" name="" value='0-1'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">1-5万</a>
+                        <input type="hidden" name="" value='1-5'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">5-10万</a>
+                        <input type="hidden" name="" value='5-10'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">10-20万</a>
+                        <input type="hidden" name="" value='10-20'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">20-40万</a>
+                        <input type="hidden" name="" value='20-40'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">40-80万</a>
+                        <input type="hidden" name="" value='40-80'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">80-120万</a>
+                        <input type="hidden" name="" value='80-120'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">120-200万</a>
+                        <input type="hidden" name="" value='120-200'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">200万以上</a>
+                        <input type="hidden" name="" value='200-0'>
+                    </li>
+                     <div class="clear"></div>
+                </ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+         <div class="wx_wrap">
+             <div class="wx_key" data-name='Price'>价格：</div>
+             <div class="wx_value">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" class="active">不限</a>
+                        <input type="hidden" name="" value=''>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">50元以下</a>
+                        <input type="hidden" name="" value='0-50'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">50-100元</a>
+                        <input type="hidden" name="" value='50-100'>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">100-200元</a>
+                        <input type="hidden" name="" value='100-200'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">200-500元</a>
+                        <input type="hidden" name="" value='200-500'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">500-1000元</a>
+                        <input type="hidden" name="" value='500-1000'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">1000-3000元</a>
+                        <input type="hidden" name="" value='1000-3000'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">3000元以上</a>
+                        <input type="hidden" name="" value='3000-0'>
+                    </li>
+                     <div class="clear"></div>
+                </ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+         <div class="wx_wrap">
+             <div class="wx_key">其他筛选：</div>
+             <div class="wx_value">
+                 <ul>
+                     <li>
+                         <select data-name='微博认证' name="AuthType" class='AuthType' style="width:108px;line-height: 30px">
+                         </select>
+                     </li>
+                     <li>
+                         <select data-name='性别' name="Sex" style="width:108px;line-height: 30px">
+                             <option value='-2'>性别</option>
+                             <option value='-2'>不限</option>
+                             <option value='-1'>未知</option>
+                             <option value='1'>女</option>
+                             <option value='0'>男</option>
+                         </select>
+                     </li>
+                     <li>
+                         <select data-name='媒体级别' name="LevelType" style="width:108px;line-height: 30px;display:none">
+                             <option value='-2'>媒体级别</option>
+                             <option value='4001'>意见领袖</option>
+                             <option value='4002'>普通</option>
+                         </select>
+                     </li>
+                     <li>
+                         <select data-name='下单备注' name="OrderRemark"  class='OrderRemark'  style="width:108px;line-height: 30px;display: none;"></select>
+                     </li>
+                     <li>
+                         <select data-name='职业' name="Profession" class='Profession'   style="width:108px;line-height: 30px;display: none;"></select>
+                     </li>
+                     <li>
+                         <select data-name='覆盖区域'  id="ddlProvince" name="ProvinceID" style="width:108px;line-height: ;display: none;">
+                             <option>覆盖区域 -- 省</option>
+                         </select>
+                         <select data-name=''  id="ddlCity" name="CityID" style="width:108px;line-height: 30px; display: none;">
+                             <option>覆盖区域 -- 市</option>
+                         </select>
+                     </li>
+                     <div class="clear"></div>
+                 </ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+           <div class="wx_already_wrap"  style='display: none;'>
+             <div class="wx_already_key">已选择：</div>
+             <div class="wx_already_value">
+                 <ul></ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+     </div>
+    <div class="wx_box">
+        <div class="wx_form">
+             <div class="wx_table1">
+                <div class="wx_check"><input name="" type="checkbox" class='selectAll'></div>
+                <div class="wx_content1">共计<span class='totalCount'>0</span>个</div>
+                <div class="sorting">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="active"  data-orderBy='-1'>默认排序</a></li>
+                        <li><a href="javascript:void(0)" data-orderBy='1001' is_click=''>粉丝数 <img src="/images/icon16_c.png"></a> </li>
+                        <li><a href="javascript:void(0)" data-orderBy='2001' is_click=''>平均转发数 <img src="/images/icon16_c.png"></a> </li>
+                        <li><a href="javascript:void(0)" data-orderBy='3001' is_click=''>平均评论数 <img src="/images/icon16_c.png"></a></li>
+                        <li><a href="javascript:void(0)" data-orderBy='3001' is_click=''>平均点赞数 <img src="/images/icon16_c.png"></a></li>
+                        <div class="clear"></div>
+                     </ul>
+                 </div>
+                 <div class="clear"></div>
+             </div>
+             <div class="list"></div>
+       </div>
+         <!--分页-->
+        <div id="pageContainer" class="green-black"></div>
+    </div>
+</div>
+<script type="text/template" id='wx_list'>
+    <% for(var i=0;i< data.length;i++){%>
+   <div class="wx_table2">
+        <div class="wx_check">
+            <input name="<%= i%>" type="checkbox" value="">
+             <input class='PubID' type="hidden" name="" value='<%=data[i].PubID%>'>
+             <input class='MediaID' type="hidden" name="" value='<%=data[i].MediaID%>'>
+        </div>
+        <div class="wx_content1">
+            <div class="portrait">
+                <%if(data[i].HeadIconURL){%>
+                <img src="<%= data[i].HeadIconURL%>" width="80" height="80">
+                <%}else{%>
+                <img src="/images/default_touxiang.png" width="80" height="80">
+                <%}%>
+            </div>
+            <div class="content">
+                <div class='flyer' style='width: 80px;height: 80px; position: absolute;display: none;border-radius: 50%;z-index: 5;'>
+                    <%if(data[i].HeadIconURL){%>
+                    <img src="<%= data[i].HeadIconURL%>" width="80" height="80" style='border-radius: 50%;'>
+                    <%}else{%>
+                    <img src="/images/default_touxiang.png" width="80" height="80" style='border-radius: 50%;'>
+                    <%}%>
+                </div>
+                <h2 ><span class='name'><%= data[i].Name%></span>
+                <%if(data[i].AuthType){%>
+                    <%if(data[i].AuthType == 30001){%>
+                        <img src="/images/goldV.png">
+                    <%}else if(data[i].AuthType == 30002){%>
+                    <img src="/images/yellowV.png" >
+                    <%}else if(data[i].AuthType == 30003){%>
+                    <img src="/images/blueV.png">
+                     <%}else if(data[i].AuthType == 30004){%>
+                    <img src="/images/dr.png">
+                <%}}%>
+                </h2>
+                <p><span class='number'><%=data[i].Sign%></span></p>
+                <% if(data[i].IsReserve && !data[i].CanOriginal){%><p class='blue3'>需预约</p><%}%>
+                <% if(data[i].CanOriginal && !data[i].IsReserve){%><p class='blue3'>可原创</p><%}%>
+                <% if(data[i].CanOriginal && data[i].IsReserve){ %><p class='blue3'>需预约，可原创</p><%}%>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_content2">
+            <h2>粉丝数</h2>
+            <%if(data[i].FansCountName){%>
+            <p><%=data[i].FansCountName%></p>
+            <%}else{%>
+            <p> -- </p>
+            <%}%>
+        </div>
+        <div class="wx_content3">
+            <h2>分类</h2>
+            <%if(data[i].CategoryName){%>
+            <p><%= data[i].CategoryName%></p>
+            <%}else{%>
+            <p> -- </p>
+            <%}%>
+        </div>
+        <div class="wx_content3">
+            <h2>平均转发数</h2>
+            <%if(data[i].AverageForwardCount){%>
+            <p><%=data[i].AverageForwardCount%></p>
+            <%}else{%>
+            <p>--</p>
+            <%}%>
+        </div>
+        <div class="wx_content3">
+            <h2>平均评论数</h2>
+            <%if(data[i].AverageCommentCount){%>
+            <p><%=data[i].AverageCommentCount%></p>
+            <%}else{%>
+            <p>--</p>
+            <%}%>
+        </div>
+        <div class="wx_content3">
+            <h2>平均点赞数</h2>
+              <%if(data[i].AveragePointCount){%>
+            <p><%=data[i].AveragePointCount%></p>
+            <%}else{%>
+            <p>--</p>
+            <%}%>
+        </div>
+        <div class="wx_content4">
+            <h2>直发价</h2>
+             <%if(data[i].FirstName.length !=0){%>
+                <%for(var j=0;j< data[i].FirstName.length;j++){%>
+                    <p><span><%=data[i].FirstName[j].AdName%>：</span><span style='text-align: left;'><%= formatMoney(data[i].FirstName[j].Price,2)%></span></p>
+                <%}%>
+            <%}else{%>
+                <p class='grey'>不接单</p>
+            <%}%>
+        </div>
+        <div class="wx_content4">
+            <h2>转发价</h2>
+            <%if(data[i].SecondName.length !=0){%>
+                <%for(var j=0;j< data[i].SecondName.length;j++){%>
+                    <p><span><%=data[i].SecondName[j].AdName%>：</span><span style='text-align: left;'><%= formatMoney(data[i].SecondName[j].Price,2)%></span></p>
+                <%}%>
+            <%}else{%>
+                <p class='grey'>不接单</p>
+            <%}%>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <%}%>
+</script>

@@ -1,0 +1,137 @@
+<style>
+    .release_video {
+        display: inline-block;
+        padding: 5px 30px;
+        margin: 5px auto 0;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #E9E9E9;
+        color: #fff;
+        background-color: #FF9100;
+        cursor:pointer;
+    }
+    .release_video:hover {
+        -webkit-box-shadow: 0 0 10px #ccc;
+        -moz-box-shadow: 0 0 10px #ccc;
+        box-shadow: 0 0 10px #ccc;
+    }
+</style>
+<div style="background-color: #f7f7f7; padding: 5px 10px; border: 1px solid #888; border-radius: 8px">
+    <div><h3 style="float: left;">&nbsp;&nbsp;预览</h3><span id="z_Close" style="cursor:pointer;float: right; color: blue; margin-right: 10px">关闭</span></div>
+    <div style="clear: both"></div>
+    <div class="video" style="margin: 10px auto 0 auto;">
+        <div class="video_title"><h2>视频</h2></div>
+        <ul class="nav">
+        </ul>
+        <div class="video_more"><a href="#" style="outline:none;">更多推荐></a></div>
+    </div>
+    <div class="video_nr">
+
+    </div>
+    <div style="text-align: center">
+        <span class="release_video">发布</span>
+    </div>
+    <!-- 视频模板 -->
+    <script type="text/html" id="template_video">
+        <div class="video_ang">
+            <%if(data.length!=0){%>
+            <%for(var i=0,len=data.length;i
+            <len
+                    ;i++){%>
+                <%if(i==3){%>
+                <%break;%>
+                <%}%>
+                <div class="box">
+                    <ul>
+                        <li class="portrait">
+                            <%if(data[i].HeadIconURL==""){%>
+                            <img src="images/default_touxiang.png">
+                            <%}else{%>
+                            <img src=<%=data[i].HeadIconURL%> >
+                            <%}%>
+                            <!--小图像标志 <span>&nbsp;</span> -->
+                        </li>
+                        <li>
+                            <div class="name">
+                                <h2><%=data[i].Name%></h2>
+                                <div class="span">演员</div>
+                                <div class="offer"><a href="javascript:void(0)">查看报价</a></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="number">
+                                <div>粉丝数<br/><span class="fb"><%=formatMoney(data[i].FansCount/10000+0.1,1,"") %>万</span></div>
+                                <div>平均评论数<br/><span
+                                        class="fb"><%=formatMoney(data[i].AverageCommentCount/10000+0.1,1,"") %>万</span></div>
+                                <div>平均点赞数<br/><span
+                                        class="fb"><%=formatMoney(data[i].AveragePointCount/10000+0.1,1,"") %>万</span></div>
+                                <div class="clear"></div>
+                            </div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="video_bf">
+                        <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="337"
+                               height="232" poster="<%=data[i].PosterUrl%>" data-setup="{}">
+                            <source src="<%=data[i].VideoUrl%>" type="video/mp4">
+                            <!--  <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+                             <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg"> -->
+
+                            <!-- Tracks need an ending tag thanks to IE9 -->
+
+                            <!-- Tracks need an ending tag thanks to IE9 -->
+                            <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web
+                                browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5
+                                    video</a></p>
+                        </video>
+                    </div>
+                </div>
+                <%}%>
+                <%}else{%>
+                <img src="/images/no_data.png" style="margin: 0 auto;display:block;padding: 100px 0">
+                <%}%>
+                <div class="clear"></div>
+        </div>
+        <div class="video_ang_h">
+            <%for(var i=3,len=data.length;i
+            <len
+                    ;i++){%>
+                <%if(i==8){%>
+                <%break;%>
+                <%}%>
+                <ul>
+                    <li class="portrait">
+                        <%if(data[i].HeadIconURL==""){%>
+                        <img src="images/default_touxiang.png">
+                        <%}else{%>
+                        <img src=<%=data[i].HeadIconURL%>>
+                        <%}%>
+                        <span>&nbsp;</span>
+                    </li>
+                    <li>
+                        <h2><%=data[i].Name%></h2>
+                        <div class="num">
+                            <div>粉丝数<br/><span class="fb"><%=formatMoney(data[i].FansCount/10000+0.1,1,"") %>万</span></div>
+                            <div>平均播放量<br/><span class="fb"><%=formatMoney(data[i].AveragePlayCount/10000+0.1,1,"") %>万</span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="mt10"><a href="javascript:void(0)" class="wechat_see">查看报价</a></div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <%}%>
+                <div class="clear"></div>
+        </div>
+    </script>
+    <script type="text/template" id="nav_list">
+        <% for(var i = 0; i < data.length; i++) {%>
+        <li><a href="javascript:void(0)"  name="<%=data[i].CategoryID%>">
+            <%= data[i].CategoryName %>
+            <!-- <%=data[i].CategroryCount*1000 %>
+            <em>+</em> -->
+        </a></li>
+        <%}%>
+        <div class="clear"></div>
+    </script>
+</div>

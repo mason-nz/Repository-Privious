@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>选择分类</title>
+	<link rel="stylesheet" href="../css/_personal.css">
+</head>
+<body class='wx_body'>
+
+	<div class="sort_content" id="sort">
+		<div class="top">
+			<span class="tit">请至少选择5个分类</span>
+			<a href="javascript:;" class='skip_btn' id='skip_btn' v-on:click='SkipBtn'>跳过 ></a>
+		</div>
+		<ul>
+			<li v-for="(item, index) in sortArr" v-bind:SceneID="item.SceneID" v-bind:class='{selected: item.IsSelected==1}'>
+		    	{{ item.SceneName }}
+		  	</li>
+		</ul>
+		<a href="javascript:;" class='grey_btn' id='sort_btn' v-on:click='UpdateUserScene'>确定</a>
+	</div>
+
+	<script src="../js/flexible.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+	<script src="../js/layer_mobile/layer.js"></script>
+	<script src="../js/common_weChat.js"></script>
+	<script src="../js/common_share.js"></script>
+	<script src="/js/vue.min.js"></script>
+	<script src="js/sort.js?v=20180315"></script> 
+</body>
+</html>

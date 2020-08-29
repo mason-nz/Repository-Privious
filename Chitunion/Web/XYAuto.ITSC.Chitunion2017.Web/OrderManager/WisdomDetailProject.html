@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src='js/DetailProjectWisdom.js'></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+    <style>
+        .main_message  li{
+            width:30%;
+            float: left;
+            margin-right: 10px;
+            line-height: 35px;
+            height: 35px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .city_icon{
+            width: 68px;
+            height: 25px;
+            background: #f77777;
+            color:#fff;
+            text-align: center;
+            line-height: 25px;
+            font-size: 12px;
+            display: inline-block;
+        }
+        .react_reason{
+            background: #f5f5f5;
+            padding: 15px 0;
+            margin:0 24px;
+            border:solid  #E9E9E9 1px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .react_reason span{
+            display: inline-block;
+            padding-left: 8px;
+        }
+        .react_reason p{
+            float: right;
+            width: 92%;
+        }
+        .react_reason .but_add{
+            padding-right: 8px;
+            position: absolute;
+            right: 12px;
+            top:10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class='menu_nav'></h2>
+            <div class="install_box"></div>            
+        </div>
+    </div>
+
+    <script type="text/template" id="wisdom-project">
+
+        <% if(CTLogin.RoleIDs != 'SYS001RL00002'){%>
+            <% if(ADOrderInfo.Status == 16006){%>
+                <% if(ADOrderInfo.RejectMsg != '' && ADOrderInfo.RejectMsg != null){%>
+                <div class="react_reason">
+                    <span>驳回原因：</span>
+                    <p><%= ADOrderInfo.RejectMsg %></p>
+                    <span class="but_query but_add">确认提交</span>
+                </div>
+                <%} %>
+            <%} %>
+        <%} %>  
+    
+        <ul style="padding-left: 24px;" class="main_message">                
+            <li>项目编号：<%= ADOrderInfo.OrderID %></li>
+            <li>项目名称：<%= ADOrderInfo.OrderName %></li>
+            <li>
+                项目类型：
+                <% if( ADOrderInfo.OrderType == 1){%> 代客下单 <%}else if( ADOrderInfo.OrderType == 2 ){%> 自助下单 <%}else if( ADOrderInfo.OrderType == 3 ){%> 智投订单 <%} %>
+            </li>
+
+            <li>推广目的：
+                <% if(ADOrderInfo.OrderRemark.indexOf('60001') != -1){%>
+                车型促销
+                <%} %>
+                <% if(ADOrderInfo.OrderRemark.indexOf('60002') != -1 ){%>
+                新车上市
+                <%} %>
+                <% if(ADOrderInfo.OrderRemark.indexOf('60003') != -1 ){%>
+                车主回馈
+                <%} %>
+                <% if(ADOrderInfo.OrderRemark.indexOf('60004') != -1 ){%>
+                店庆活动
+                <%} %>
+            </li>
+            <li>品牌/车型：<%= ADOrderInfo.MasterName %><%= ADOrderInfo.BrandName %><%= ADOrderInfo.SerialName %></li>
+            <li>
+                集客入口：
+                <% if(ADOrderInfo.JKEntrance == true){%>
+                    是
+                <%}else if(ADOrderInfo.JKEntrance == false){%>
+                    否
+                <%} %>
+            </li>
+
+            <li>预算总计：<%= formatMoney(ADOrderInfo.BudgetTotal,2) %></li>
+            <!-- <li>销售参考价总计：<%= formatMoney(ADOrderInfo.TotalAmount,2) %></li> -->
+            <li>成本参考价总计：<%= formatMoney(ADOrderInfo.CostTotal,2) %></li>
+            <li>下单时间：<%= ADOrderInfo.CreateTime %></li>
+
+            <% if(ADOrderInfo.CRMCustomerID != ''){%>
+                <li>广告主：<%= ADOrderInfo.CustomerText %></li>
+            <%}else{%>
+                <li>广告主：<%= ADOrderInfo.CustomerName %></li>
+            <%}  %>
+
+            <li>下单人：<%= ADOrderInfo.CreatorName %></li>
+            
+            <li>预计投放日期：<%= ADOrderInfo.LaunchTime.substr(0,10) %></li>
+            <li>项目状态：<span class="orderStatus"></span></li>
+        </ul>
+        <div class="clear"></div>
+        <div class="to_b_list_box">
+        <% AreaInfos.forEach(function(item){%>
+            <div class="to_b_list">
+                <!-- <div><span class='city_icon'><%= item.ProvinceName %> <% if(item.CityName != ''){%>-<%= item.CityName %><%} %></span><span style='padding-right: 6px;padding-left:10px;'>推广预算：<%= item.Budget %></span><span>媒体数量：<%= item.MediaCount %></span></div> -->
+                <div class="cityList">
+                    <span style="display: inline-block;background-image: url('../images/redBg1.jpg');height: 22px;float: left;color: #fff;padding:0 5px;font-size: 12px;line-height: 22px;"><%= item.ProvinceName %> <% if(item.CityName != ''){%>-<%= item.CityName %><%} %></span><span style="display: inline-block;background-image: url('../images/redBg2.jpg');width: 12px;height: 22px;float: left;"></span>
+                    <span style='padding-right: 6px'>推广预算：<%= item.Budget %></span><span>媒体数量：<%= item.MediaCount %></span>
+                    <div class="clear"></div>
+                </div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd">
+                    <tbody>
+                        <tr>
+                            <th width="24%" style="background:#f5f5f5"></th>
+                            <th width="12%" style='background:#f5f5f5'>广告位信息</th>
+                            <th width="12%" style='background:#f5f5f5'>预计投放日期</th>
+                            <th width="10%" style='background:#f5f5f5'>投放次数</th>
+                            <!-- <th width="10%" style='background:#f5f5f5'>销售参考价</th> -->
+                            <th width="10%" style='background:#f5f5f5'>成本参考价</th>
+                            <th width="10%" style='background:#f5f5f5'>原创参考价</th>
+                            <% if(CTLogin.RoleIDs == 'SYS001RL00001' || CTLogin.RoleIDs == 'SYS001RL00004' || CTLogin.RoleIDs == 'SYS001RL00005'){%>
+                            <th width="10%" style='background:#f5f5f5'>最终成本价</th>
+                            <%} %>
+                        </tr>
+                        <% item.PublishDetails.forEach(function(each){%>
+                        <tr class='Tr' SalePrice='<%= each.SalePrice %>' OriginalReferencePrice='<% if(each.EnableOriginPrice == true){%> <%=each.OriginalReferencePrice %> <%}else{%> <%= 0 %> <%} %> ' CostReferencePrice='<%= each.CostReferencePrice %>' FinalCostPrice='<%= each.FinalCostPrice %>'>
+                            <td>
+                                <% if(!each.HeadIconURL){%>
+                                    <div class="portrait"><img src="/ImagesNew/no_portrait.jpg"></div>
+                                <%}else{%>
+                                    <div class="portrait"><img src="<%= each.HeadIconURL %>"></div>
+                                <%} %>
+                                <div class="content" style="width: 140px">
+                                    <div><%= each.MediaName %></div>
+                                    <!-- <p style="margin-left: -40px;"><img src="/ImagesNew/collection04.png">酷我音乐</p>       -->                          
+                                    <p style="margin-left: -90px;"><img src="../images/collection01.png"></p>
+                                </div>
+                            </td>
+                            <td><%= each.ADPosition %><br><%= each.CreateType %></td>
+                            <td><%= each.LaunchTime.substr(0,10) %></td>
+                            <td><%= each.ADLaunchDays %>次</td>
+                           <!--  <td><%= formatMoney(each.SalePrice,2) %></td> -->
+                            <td>
+                                <span><%= formatMoney(each.CostReferencePrice,2) %></span><br>
+                            </td>
+
+                            <!-- 原创参考价 -->
+                            <% if(each.EnableOriginPrice == true){%>
+                                <td><%= formatMoney(each.OriginalReferencePrice,2) %></td>
+                            <%}else{%>
+                                <td></td>
+                            <%} %>
+
+                            <!-- 最终成本价 -->
+                            <% if(CTLogin.RoleIDs == 'SYS001RL00001' || CTLogin.RoleIDs == 'SYS001RL00004' || CTLogin.RoleIDs == 'SYS001RL00005'){%>
+                            <td>
+                                <span><%= formatMoney(each.FinalCostPrice) %></span><br>
+                                【<span><%= each.ChannelName %></span>】
+                            </td>
+                            <%} %>                            
+                            
+                        </tr>
+                        <%}) %>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td class='SalePrice'></td> -->
+                            <td class='CostReferencePrice'></td>
+                            <td class='OriginalReferencePrice'></td>
+                            <% if(CTLogin.RoleIDs == 'SYS001RL00001' || CTLogin.RoleIDs == 'SYS001RL00004' || CTLogin.RoleIDs == 'SYS001RL00005'){%>
+                            <td class="FinalCostPrice"></td>
+                            <%} %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        <%}) %>
+        </div>
+
+        <div class="to_b_ad">
+            <div class="fr">
+                <span>共 <em class='allPositionCount'>2</em> 个媒体</span>
+                <!-- <span>销售参考价 <em class='SalePrice'>¥179,000</em></span>
+                <span>成本参考价 <em class='CostReferencePrice'>¥179,000</em></span>
+                <span>原创参考价 <em class='OriginalReferencePrice'>¥179,000</em></span> -->
+                <!-- <span>销售参考价总计 <em class='SalePriceTotal'>¥179,000</em></span> -->
+                <span>成本参考价总计 <em class='CostReferencePriceTotal'>¥179,000</em></span>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="demand">
+            <h3>微信公众号广告需求 <!-- <a href="javascript:;" class="fr" id="layoutChanges"><img src="../images/collection09.png"></a> --></h3>
+            <ul>
+                <li class="ins_a">营销政策：</li>
+                <li><%= ADOrderInfo.MarketingPolices %></li>
+                <div class="clear"></div>
+            </ul>
+            <% if(ADOrderInfo.UploadFileURL != ''){%>
+            <ul style="height: 40px">
+                <li class="ins_a">相关资料：</li>
+                <li><li><%= ADOrderInfo.UploadFileName %></li></li>
+                <li>
+                    <a href="<%= ADOrderInfo.UploadFileURL %>" target='_blank'><img src="/ImagesNew/icon19.png"></a>
+                </li>
+            </ul>
+            <%} %>
+            <ul style="height: 40px">
+                <li class="ins_a">营销政策图片：</li>
+                <li>营销政策<a href="<%= ADOrderInfo.MarketingUrl %>" target='_blank'><img src="/ImagesNew/icon19.png"></a></li>
+            </ul>
+        </div>
+    </script>
+
+    
+    <div class="clear"></div>
+</div>
+
+<!--#include file="/base/footer.html" -->
+
+
+</body>
+</html>

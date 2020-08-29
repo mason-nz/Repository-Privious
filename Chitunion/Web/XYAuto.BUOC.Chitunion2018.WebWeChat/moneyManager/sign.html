@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>签到</title>
+	<link rel="stylesheet" href="../css/_personal.css">
+</head>
+<body class='wx_body sign_body'>
+
+	<div class="sign_container">
+		<div class="content_top">
+	        <div class="content_top_begin">
+	            <p>已获得奖励(元)</p>
+	            <p id='TotalPrice'>0.00</p>	            	
+	            <p>连续签到7天 可获得2.1元</p>
+	        </div>
+	    </div>
+	    
+		<div class="laydate_container">
+			<div class="sign_con" id='sign_con'>
+
+			</div>
+			<div class="tit" id='tit'>
+				<a href="javascript:;" target="_blank">提现规则 &nbsp </a>|
+				&nbsp<a href="javascript:;" target="_blank">查看收益</a>
+			</div>
+			<a href="javascript:;" class="" id='go_sign' isSign='false'></a>
+		</div>
+	</div>
+
+	<!-- 活动结束 -->
+    <div class="no_data noTime" style="display: none;">
+        <img src="../images/no_time.png">
+        <p class="desc_text">很遗憾，你来晚了</p>
+    </div>
+	
+
+	<script src="../js/flexible.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+	<script src="../js/laydate/laydate.js"></script> 
+	<script src="../js/layer_mobile/layer.js"></script>
+	<script src="../js/common_weChat.js"></script>
+	<script src="../js/common_share.js"></script>
+	<script src="js/sign.js"></script> 
+	
+</body>
+</html>

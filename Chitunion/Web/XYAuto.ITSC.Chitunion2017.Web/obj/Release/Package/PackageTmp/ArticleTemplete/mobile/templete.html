@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en" style="font-size:50px">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <link rel="stylesheet" type="text/css" href="/uploadfiles/Article/Mobilecss/style.css"/>
+    <script type="text/javascript">
+        //根据屏幕大小改变根元素字体大小
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+</head>
+<body>
+
+
+<!--文章预览开始-->
+<div class="box">
+    <h2>@@@标题@@@</h2>
+    <ul>
+        <li>@@@日期@@@</li>
+        <li>@@@作者@@@</li>
+        <div class="clear"></div>
+    </ul>
+    <div>
+    @@@内容@@@
+    </div>
+    <ul><li>@@@查看原文@@@</li></ul>
+</div>
+<!--文章预览结束-->
+</body>
+</html>

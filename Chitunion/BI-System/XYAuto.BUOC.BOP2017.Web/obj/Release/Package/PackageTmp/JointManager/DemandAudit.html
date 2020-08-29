@@ -1,0 +1,99 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>需求管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/DemandAudit.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <div class="Detail_basic" style="margin: 0 20px;"></div>                
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+<script type="text/template" id="detailForDemand">
+    <ul>
+        <li>需求名称：<%=list.Name?list.Name:''%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>需求订单号：<%= list.DemandBillNo?list.DemandBillNo:''%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>品牌/车型：<%= list.BrandAndCarSerialList %></li>            
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>省份/城市：<%= list.ProvinceAndCityList %> </li>           
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>经销商列表：<%= list.DistributorList %> </li>            
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>促销政策：<%= list.PromotionPolicy?list.PromotionPolicy:'---'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>投放预算：<span class="red"><%= formatMoney(list.TotalBudget/100,2) %>元</span></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>时间周期：<span class="red"><%= list.DuringDate?list.DuringDate:''%></span></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>线索数量：<span class="red"><%=list.ClueNumberStr?list.ClueNumberStr:''%></span></li>
+
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li>创建人：<%=list.CreateUserName?list.CreateUserName:'---'%></li>
+        <div class="clear"></div>
+    </ul>
+    <h3>审核结果 </h3>
+    <ul>
+        <li><input name="shenhe" i="89003" type="radio" value="" checked="checked" class='shenhe1'/> 通过
+        </li>
+        <li><input name="shenhe" i="89002" type="radio" value="" class="shenhe2"/> 驳回</li>
+        <div class="clear"></div>
+    </ul>
+    <div id="parameter" style="margin-left:24px;display: none">
+        <textarea name="" cols="" rows="5" style="width:900px;height:70px;resize:none;"
+                  placeholder="请输入驳回原因"></textarea>
+    </div>
+    <div class="keep" style="text-align: center">
+        <span><a href="javascript:;" class="button" id="Submit1" style="width:150px;">提交</a></span>
+    </div>
+</script>
+</body>
+</html>

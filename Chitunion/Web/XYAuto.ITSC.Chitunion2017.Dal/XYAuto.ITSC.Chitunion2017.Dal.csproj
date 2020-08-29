@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0971EA85-1CC7-4289-B99B-ADC03D47F02F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ITSC.Chitunion2017.Dal</RootNamespace>
+    <AssemblyName>XYAuto.ITSC.Chitunion2017.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Lib\NewtonSoft 4.5\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils">
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADDetailInfo\ADDetailInfo.cs" />
+    <Compile Include="ADOrderInfo\ADOrderInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ADOrderInfo\ShareOrderInfo.cs" />
+    <Compile Include="AdTemplate\AppAdTemplate.cs" />
+    <Compile Include="AdTemplate\AppAdTemplateStyle.cs" />
+    <Compile Include="AdTemplate\SaleAreaInfo.cs" />
+    <Compile Include="Advertiser\Advertiser.cs" />
+    <Compile Include="AppTemplate.cs" />
+    <Compile Include="APP\AppPushMsgSwitchLog.cs" />
+    <Compile Include="APP\FeedbackDa.cs" />
+    <Compile Include="APP\IpManageDal.cs" />
+    <Compile Include="AreaInfo.cs" />
+    <Compile Include="CarSerialInfo\CarSerial.cs" />
+    <Compile Include="Channel.cs" />
+    <Compile Include="ChituMedia\CartDa.cs" />
+    <Compile Include="ChituMedia\MediaDa.cs" />
+    <Compile Include="ChituMedia\MediaImportDa.cs" />
+    <Compile Include="ChituMedia\MediaUserDa.cs" />
+    <Compile Include="ChituMedia\SmartSearchDa.cs" />
+    <Compile Include="ChituMedia\TagVehicleDa.cs" />
+    <Compile Include="ChituMedia\WeiXinVisvitDa.cs" />
+    <Compile Include="ChituMedia\WithdrawalsDa.cs" />
+    <Compile Include="DictInfo\DictInfo.cs" />
+    <Compile Include="IpBlacklist\IpBlacklist.cs" />
+    <Compile Include="LETask\AppDevice.cs" />
+    <Compile Include="LETask\AuditInfo.cs" />
+    <Compile Include="LETask\EmployeeInfo.cs" />
+    <Compile Include="LETask\LeChannelStatMonthRelation.cs" />
+    <Compile Include="LETask\LeDisbursementPay.cs" />
+    <Compile Include="LETask\LeIPBlacklist.cs" />
+    <Compile Include="LETask\LeTaskInfo.cs" />
+    <Compile Include="LETask\LeAdOrderInfo.cs" />
+    <Compile Include="LETask\LeAccountBalance.cs" />
+    <Compile Include="LETask\LeUserBlacklist.cs" />
+    <Compile Include="LETask\LeWeixin.cs" />
+    <Compile Include="LETask\LeMediaAreaMapping.cs" />
+    <Compile Include="LETask\LePublishDetailInfo.cs" />
+    <Compile Include="LETask\LeWeibo.cs" />
+    <Compile Include="LETask\LeWithdrawalsStatistics.cs" />
+    <Compile Include="LETask\LeWithdrawalsDetail.cs" />
+    <Compile Include="LETask\LeUserBankAccount.cs" />
+    <Compile Include="LETask\LeShareDetail.cs" />
+    <Compile Include="LuckDrawActivity\LuckDraw.cs" />
+    <Compile Include="Materiel\MaterielChannel.cs" />
+    <Compile Include="Materiel\MaterielChannelData.cs" />
+    <Compile Include="Materiel\MaterielExtend.cs" />
+    <Compile Include="LabelTask\LabelTask.cs" />
+    <Compile Include="LabelTask\LB_Project.cs" />
+    <Compile Include="LabelTask\LB_Task.cs" />
+    <Compile Include="Demand.cs" />
+    <Compile Include="GDT\GdtAccessToken.cs" />
+    <Compile Include="GDT\GdtAdGroup.cs" />
+    <Compile Include="GDT\GdtDemand.cs" />
+    <Compile Include="GDT\GdtAccountBalance.cs" />
+    <Compile Include="GDT\GdtAccountInfo.cs" />
+    <Compile Include="GDT\GdtAccountRelation.cs" />
+    <Compile Include="GDT\GdtCampaign.cs" />
+    <Compile Include="GDT\GdtDailyRrport.cs" />
+    <Compile Include="GDT\GdtDemandRelation.cs" />
+    <Compile Include="GDT\GdtHourlyRrport.cs" />
+    <Compile Include="GDT\GdtHourlyRrportForZHY.cs" />
+    <Compile Include="GDT\GdtRealtimeCost.cs" />
+    <Compile Include="GDT\GdtRechargeRelation.cs" />
+    <Compile Include="GDT\GdtRoleUser.cs" />
+    <Compile Include="GDT\GdtStatementDaily.cs" />
+    <Compile Include="GDT\GdtStatementsDetailed.cs" />
+    <Compile Include="Materiel\TaskSchedulerUser.cs" />
+    <Compile Include="MediaOrderInfo.cs" />
+    <Compile Include="HolidaysInfo.cs" />
+    <Compile Include="Media\MediaBasePCAPP.cs" />
+    <Compile Include="Media\MediaQualification.cs" />
+    <Compile Include="Media\MediaRemark.cs" />
+    <Compile Include="Media\OperateAuditMsg.cs" />
+    <Compile Include="Media\TwoBarCodeHistory.cs" />
+    <Compile Include="Profit\Profit.cs" />
+    <Compile Include="Ranking\StatWeixinRankList.cs" />
+    <Compile Include="StockBroker\StockBroker.cs" />
+    <Compile Include="EmployeeInfo\UserConstant.cs" />
+    <Compile Include="EmployeeInfo\EmployeeInfo.cs" />
+    <Compile Include="EmployeeInfo\UserRoleInfo.cs" />
+    <Compile Include="UserManage\LE_WeiXinUser.cs" />
+    <Compile Include="V2_0_Advertiser_Front\ContentDistribute.cs" />
+    <Compile Include="UserManage\LE_UserBankAccount.cs" />
+    <Compile Include="UserManage\UserDetailInfo.cs" />
+    <Compile Include="UserManage\UserInfo.cs" />
+    <Compile Include="UserManage\UserManage.cs" />
+    <Compile Include="V2_0_Advertiser_Front\MediaPromotion.cs" />
+    <Compile Include="WechatDataStatic\WechatDataStatic.cs" />
+    <Compile Include="WechatInvite\WechatInvite.cs" />
+    <Compile Include="WeChatOperateMsg\WeChatOperateMsg.cs" />
+    <Compile Include="ADOrderOperateInfo\ADOrderOperateInfo.cs" />
+    <Compile Include="ADScheduleInfo\ADScheduleInfo.cs" />
+    <Compile Include="CartScheduleInfo\CartScheduleInfo.cs" />
+    <Compile Include="CartInfo\CartInfo.cs" />
+    <Compile Include="DataBase.cs" />
+    <Compile Include="DataImport.cs" />
+    <Compile Include="ExcelDataImport.cs" />
+    <Compile Include="FeedbackData.cs" />
+    <Compile Include="HomeCategory.cs" />
+    <Compile Include="Interaction\InteractionBroadcast.cs" />
+    <Compile Include="Interaction\InteractionVideo.cs" />
+    <Compile Include="Interaction\InteractionWeibo.cs" />
+    <Compile Include="Interaction\InteractionWeixin.cs" />
+    <Compile Include="Media\MediaAreaMapping.cs" />
+    <Compile Include="Media\MediaCase.cs" />
+    <Compile Include="Media\MediaCollectionBlacklist.cs" />
+    <Compile Include="Media\MediaCommonlyClass.cs" />
+    <Compile Include="Media\MediaFansArea.cs" />
+    <Compile Include="Media\MediaStatusOperate.cs" />
+    <Compile Include="Media\MediaVideo.cs" />
+    <Compile Include="Media\MediaWeibo.cs" />
+    <Compile Include="Media\MediaWeixin.cs" />
+    <Compile Include="Media\MediaBroadcast.cs" />
+    <Compile Include="Media\MediaPCAPP.cs" />
+    <Compile Include="Periodication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishInfo.cs" />
+    <Compile Include="PublishAuditInfo\PublishAuditInfo.cs" />
+    <Compile Include="Publish\PublishInfoQuery.cs" />
+    <Compile Include="Recommend\HomeMedia.cs" />
+    <Compile Include="SubADInfo\SubADInfo.cs" />
+    <Compile Include="SysRight\DomainInfo.cs" />
+    <Compile Include="SysRight\ModuleInfo.cs" />
+    <Compile Include="SysRight\RoleInfo.cs" />
+    <Compile Include="SysRight\RoleModule.cs" />
+    <Compile Include="SysRight\SysInfo.cs" />
+    <Compile Include="SysRight\UserDataPower.cs" />
+    <Compile Include="SysRight\UserRole.cs" />
+    <Compile Include="UploadFileInfo\UploadFileInfo.cs" />
+    <Compile Include="UserDetailInfo\UserDetailInfo.cs" />
+    <Compile Include="WechatSign\WechatSign.cs" />
+    <Compile Include="WechatUser.cs" />
+    <Compile Include="WechatUserMsg\WechatUmsg.cs" />
+    <Compile Include="WechatWithdrawals\WechatWithdrawals.cs" />
+    <Compile Include="WeChat\ActivityVerifyDa.cs" />
+    <Compile Include="WeChat\LE_WXUserScene.cs" />
+    <Compile Include="WeChat\Order.cs" />
+    <Compile Include="WeChat\WeixinInfo.cs" />
+    <Compile Include="WeChat\WeiXinUser.cs" />
+    <Compile Include="WeixinOAuth.cs" />
+    <Compile Include="WxEditor\WxArticleGroup.cs" />
+    <Compile Include="WxEditor\WxPictureMaterial.cs" />
+    <Compile Include="WXUserScene.cs" />
+    <Compile Include="ZHY\ZhyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Entities\XYAuto.ITSC.Chitunion2017.Entities.csproj">
+      <Project>{97C0ABA4-8A8F-41A2-A28F-EB470DDBCBB1}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.TitleBasicInfoMapper">
+  <resultMap id="BaseResultMap" type="com.xyauto.domain.TitleBasicInfo">
+    <id column="TitleID" jdbcType="INTEGER" property="titleid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="INTEGER" property="type" />
+    <result column="Status" jdbcType="INTEGER" property="status" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="CreateUserID" jdbcType="INTEGER" property="createuserid" />
+  </resultMap>
+  <resultMap type="com.xyauto.domain.CarTitleListQuery" id="CarTitleListMap" >
+          <result property="brandID" column="BrandID"/>
+          <result property="serialID" column="SerialID"/>
+          <result property="BrandName" column="BrandName"/>
+          <result property="SerialName" column="SerialName"/>
+          <result property="titles" column="titles"/>
+          <result property="createUserName" column="CreateUserName"/>
+          <result property="modifiedTime" column="ModifiedTime"/>
+         
+	</resultMap>
+   <resultMap type="com.xyauto.domain.TitleBasicInfo" id="titleListMap" >
+          <result property="titleid" column="TitleID"/>
+          <result property="name" column="Name"/>
+          <result property="pipId" column="PIP"/>
+          <result property="type" column="type"/>
+          <result property="rp" column="rp"/>
+	</resultMap>
+	
+	<resultMap  type="com.xyauto.domain.IpTitleInfo" id="ipTitleInfoMap">
+		<result property="pTitleName" column="pTitleName"/>
+          <result property="subTitleName" column="subTitleName"/>
+          <result property="thisTitleName" column="ThisTitleName"/>
+          <result property="relation" column="Relation"/>
+	</resultMap>
+	
+	<resultMap type="com.xyauto.domain.MediaInfoQuery" id="mediaWxMap">
+		 <result property="mediaName" column="Name"/>
+          <result property="mediaNum" column="Number"/>
+	</resultMap>
+	<resultMap type="com.xyauto.domain.MediaInfoQuery" id="mediaAppMap">
+		 <result property="mediaName" column="Name"/>
+	</resultMap>
+	<resultMap type="com.xyauto.domain.MediaInfoQuery" id="mediaWbMap">
+		<result property="mediaName" column="Name"/>
+          <result property="mediaNum" column="Number"/>
+	</resultMap>
+	<resultMap type="com.xyauto.domain.MediaInfoQuery" id="mediaVedioMap">
+		<result property="mediaName" column="Name"/>
+          <result property="mediaNum" column="Number"/>
+	</resultMap>
+	<resultMap type="com.xyauto.domain.MediaInfoQuery" id="mediaBroadCastMap">
+		<result property="mediaName" column="Name"/>
+          <result property="mediaNum" column="Number"/>
+	</resultMap>
+	
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from TitleBasicInfo
+    where TitleID = #{titleid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xyauto.domain.TitleBasicInfo">
+    insert into TitleBasicInfo (TitleID, Name, Type, 
+      Status, CreateTime, CreateUserID
+      )
+    values (#{titleid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{createuserid,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.xyauto.domain.TitleBasicInfo">
+    update TitleBasicInfo
+    set Name = #{name,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=INTEGER},
+      Status = #{status,jdbcType=INTEGER},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      CreateUserID = #{createuserid,jdbcType=INTEGER}
+    where TitleID = #{titleid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select TitleID, Name, Type, Status, CreateTime, CreateUserID
+    from TitleBasicInfo
+    where TitleID = #{titleid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select TitleID, Name, Type, Status, CreateTime, CreateUserID
+    from TitleBasicInfo
+  </select>
+  <select id="selectAllTitle"  resultMap="titleListMap">
+		select TitleID,0 PIP,Name,0 as type,0 as rp from TitleBasicInfo tb where tb.Type= 31001
+		union all
+	select  distinct ipi.SubIP TitleID,ipi.PIP,(select tb1.Name from TitleBasicInfo tb1 where tb1.TitleID = ipi.SubIP) as Name,1 as type,ipi.PIP as rp from IPTitleInfo ipi inner join TitleBasicInfo tb on ipi.SubIP = tb.TitleID
+	union all
+	select  tb.TitleID,ipi.SubIP PIP,tb.Name,2 as type,ipi.PIP as rp from TitleBasicInfo tb inner join IPTitleInfo ipi on tb.TitleID = ipi.TitleID 
+	
+	</select>
+  <select id="getRelationByTitleID" parameterType="java.lang.Integer" resultMap="ipTitleInfoMap">
+  select (select Name from TitleBasicInfo tb where tb.TitleID = iti.PIP) as pTitleName,(select Name from TitleBasicInfo tb where tb.TitleID = iti.SubIP) as subTitleName,Name as ThisTitleName,null as Relation from IPTitleInfo iti left join TitleBasicInfo tb1 on iti.TitleID = tb1.TitleID 
+  	where iti.TitleID = #{titleId} union all select distinct (select Name from TitleBasicInfo tb where tb.TitleID = iti.PIP) as pTitleName,'' as subTitleName,(select Name from TitleBasicInfo tb where tb.TitleID = #{titleId}) as ThisTitleName,Relation from IPTitleInfo iti  where iti.SubIP = #{titleId}
+  </select>
+  <select id="selectWxInfoById" resultMap="mediaWxMap" parameterType="java.lang.Integer">
+  		select  Name,Number from Media_Weixin mw where  mw.MediaID=#{mediaId}
+  </select>
+   <select id="selectAppInfoById" resultMap="mediaAppMap" parameterType="java.lang.Integer">
+  		select  Name from Media_PCAPP mw where  mw.MediaID=#{mediaId}
+  </select>
+   <select id="selectWbInfoById" resultMap="mediaWbMap" parameterType="java.lang.Integer">
+  		select  Name,Number from Media_Weibo mw where  mw.MediaID=#{mediaId}
+  </select>
+  
+   <select id="selectVideoInfoById" resultMap="mediaVedioMap" parameterType="java.lang.Integer">
+  		select  Name,Number from Media_Video mw where  mw.MediaID=#{mediaId}
+  </select>
+   <select id="selectBroadCastInfoById" resultMap="mediaBroadCastMap" parameterType="java.lang.Integer">
+  		select  Name,Number from Media_Broadcast mw where  mw.MediaID=#{mediaId}
+  </select>
+  
+  <select id="selectSerialName" resultMap="CarTitleListMap">
+  			select cb.Name BrandName,cs.Name SerialName from Car_Serial cs left join Car_Brand cb on cs.BrandID = cb.BrandID where cs.BrandID =#{brandID} and cs.SerialID = #{serialID}
+  </select>
+  
+  <select id="selectBrandName" parameterType="java.lang.Integer"  resultType="java.lang.String">
+  		select Name BrandName from Car_Brand where BrandID = #{brandID}
+  </select>
+  
+  
+	
+	<select id="test" resultMap="BaseResultMap" parameterMap="getUserCountMap" statementType="CALLABLE">
+    p_Page 'select * yanfafrom TitleBasicInfo','TitleID',?,?,?
+    </select>
+  <parameterMap type="java.util.Map" id="getUserCountMap">
+        <parameter property="curPage" mode="IN" jdbcType="INTEGER"/>
+        <parameter property="pageRows" mode="IN" jdbcType="INTEGER"/>
+        <parameter property="count" mode="OUT" jdbcType="INTEGER"/>
+    </parameterMap>
+</mapper>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>媒体文章列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="js/commonMethod.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/MediaArticleList.js"></script>
+    <style type="text/css">
+        .ad_table a:hover{
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <ul>
+                <li>
+                    <div class="frame_n" style="float: left;margin:0 10px 0 0">   
+                        <img src="" width="80" height="80" id="mediaImg">
+                    </div>
+                </li>
+                <li class="wechat_name" style="float: left;margin-right: 40px;">
+                    <div class="mediaNumber" style="margin-bottom: 15px;"></div>
+                    <div class="mediaName"></div>
+                </li>
+                <li style="line-height: 80px;" class="mediaType"></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="state">
+                <li class="commitDate">
+                    发文日期：
+                    <input name="Username" id="StartDate" type="text"   style="width:120px;"  class="laydate-iconNew"> 至 <input  name="Username" id="EndDate" type="text" style="width:120px;"   class="laydate-iconNew">
+                </li>
+                <li>
+                    文章数量：
+                    <input id="articleNumber" name="Username" type="text" style="width:150px;" placeholder="请输入文章数量" value="50">
+                </li>
+                <li class="but_query" id="searchList" style="width:70px;;margin:0 0 0 50px;">查询</li>
+            </ul>
+            <div class="clear"></div>
+            <div class="tab_box">
+                <div class="box">
+                    <div class="ad_table">
+                        <div style="padding:8px;border:1px solid #eee;border-bottom: none;">
+                            <input type="checkbox" name="" id="AllCheck">
+                            全选
+                            <a href="javascript:void(0)" style="float: right;display: none;margin-right:10px;" id="addTag">打标签</a>
+                            <a href="javascript:void(0)" style="float: right;" id="getAllArticle"> 领取查询出的所有文章 </a>
+                            <a href="javascript:void(0)" style="float: right;margin-right: 10px;" id="getArticle">领取 | </a>
+                        </div>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                            <thead>
+                                <tr>
+                                    <th width="8%">选择</th>
+                                    <th width="30%">标题</th>
+                                    <th width="10%">
+                                        <a href="javascript:void(0)" data-orderby="1001" is_click="">阅读数 <img src="../ImagesNew/icon16_c.png"></a>
+                                    </th>
+                                    <th width="10%">
+                                        <a href="javascript:void(0)" data-orderby="2001" is_click="">点赞数 <img src="../ImagesNew/icon16_c.png"></a>
+                                    </th>
+                                    <th width="10%">
+                                        <a href="javascript:void(0)" data-orderby="3001" is_click="">评论数 <img src="../ImagesNew/icon16_c.png"></a>
+                                    </th>
+                                    <th width="10%">
+                                        <a href="javascript:void(0)" data-orderby="4001" is_click="">发文时间 <img src="../ImagesNew/icon16_c.png"></a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer" style="display:none;">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span class="NormalText">共有3条数据</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+<!-- 未打标签 -->
+<script type="text/template" id="tagList">
+    <%if(list){%>
+    <%list.forEach(function(item){%>
+        <tr>
+            <td><input type="checkbox" name="" class="oneCheck" ArticleId="<%=item.ArticleId%>"></td>
+            <td>
+                <a href="<%= item.Url%>">
+                    <%= item.Title %>
+                </a>
+            </td>
+            <td><%= item.ReadNum %></td>
+            <td><%= item.LikeNum %></td>
+            <td><%= item.ComNum %></td>
+            <td><%= item.PublishTime %></td>
+        </tr>
+    <%})%>
+    <%}%>
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+引入方法：
+在html父页面里面相应位置替换为 <!--#include file="/Base/header.html" -->
+                            <!--#include file="/Base/footer.html" -->
+每个引入header.html的页面都需加上当前用户是否登录的判断；
+即在head标签中引入,可看接口文档说明http://192.168.3.51:8090/showdoc/index.php?s=/4&page_id=84
+ <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+
+
+IIS站点配置：
+通过IIS访问页面，相对应的站点需配置处理程序映射——添加ServerSideIncludeModule
+
+首页登录，账号13146611863 密码111
+
+
+
+
+
+
+
+
+
+
+
+添加映射方式：
+	1.打开控制面板，找到：程序和功能 -- 启用或关闭windows功能 -- Internet Information Services -- 万维网服务 -- 应用程序开发功能  --应用程序端包含
+--服务器端包含，勾选上，点击确定；
+	2.打开计算机管理， 点击本地站点，找到处理程序映射，右上角添加模块映射
+	依次填入：
+		请求路径： *.html
+		模块：ServerSideIncludeModule
+		名称 ：include
+
+
+
+公共js文件引用类似，先引入公共的js.html，后引入各自页面单独的script标签
+
+引入路径改为根目录路径。如上所示；

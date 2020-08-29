@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>工作量统计</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src= "/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/workload-account.js"></script> 
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>                
+                <div class="clear"></div>
+            </div>
+            
+            <div id="list_switching">
+                <ul class="tab_menu">
+                    <li name="1002" class="selected">初筛</li>
+                    <li name="1003">清洗</li>
+                    <li name="1004">封装</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        
+            <ul class="state">
+                <li>操作人：<input id="UserName" name="Username" type="text"></li>
+                <li>查询周期：
+                    <input id="BeginTime" name="Username" type="text" class="laydate-iconNew">至
+                    <input id="EndTime" name="Username" type="text" class="laydate-iconNew">
+                </li>
+                <li class="but_query" id='searchBtn' style="width:70px;margin-right: 0">搜索</li>
+                <a class="but_query" id='download' style="width:70px;margin-left: 10px">导出数据</a>
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="table"></div>
+
+                    <!--分页-->
+                    <div class="green-black" id="pageContainer"></div>
+                    <!-- loading -->
+                    <p id="listLoading"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+
+<!-- 初筛列表 -->
+<script type="text/template" id="Workload0">
+    <% TitleList.forEach(function(item){%>
+        <p style="line-height: 28px;">初筛累计：待处理<%= item.PendingCountTotal %>；已领取<%= item.ReceiveCountTotal %>；已完成<%= item.CompletedCountTotal %>；未完成<%= item.UncompletedCountTotal %>；保留<%= item.RetainCountTotal %>；置为腰<%= item.SetToWaistTotal %>；作废<%= item.InvalidCountTotal %>；被作废<%= item.CancelledCountTotal %>；<span style="color:#ccc;float: right;">截止统计时间：<%= item.StatisticsDate.substr(0,10) %></span></p>
+    <%}) %>
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>操作人姓名</th>
+                <th>文章类型</th>
+                <th>领取数</th>
+                <th>未完成数</th>
+                <th>已完成数</th>
+                <th>保留数</th>
+                <th>作废数</th>
+                <th>置为腰</th>
+                <th>被作废数</th>
+                <th>被退回数</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.Date.substr(0,10) %></td>
+                <td><%= item.UserName %></td>
+                <td><%= item.ArticleTypeName %></td>
+                <td><%= item.ReceiveCount %></td>
+                <td><%= item.UncompletedCount %></td>
+                <td><%= item.CompletedCount %></td>
+                <td><%= item.RetainCount %></td>
+                <td><%= item.InvalidCount %></td>
+                <td><%= item.SetToWaist %></td>
+                <td><%= item.CancelledCount %></td>
+                <td><%= item.BeReturnedCount %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+    <p class="no_data"></p>
+</script>
+
+<!-- 清洗列表 -->
+<script type="text/template" id="Workload1">
+    <% TitleList.forEach(function(item,i){%>
+        <% if(i == 0){%>
+        <p style="line-height: 28px;">头文章清洗累计：
+        <%}else if(i == 1){%>
+        <p style="line-height: 28px;">腰文章清洗累计：
+        <%} %>
+        待处理<%= item.PendingCountTotal %>；已领取<%= item.ReceiveCountTotal %>；已完成<%= item.CompletedCountTotal %>；未完成<%= item.UncompletedCountTotal %>；保留<%= item.RetainCountTotal %>；退回<%= item.ReturnCountTotal %>；作废<%= item.InvalidCountTotal %>；被作废<%= item.CancelledCountTotal %>；被退回<%= item.BeReturnedCountTotal %>；<span style="color:#ccc;float: right;">截止统计时间：<%= item.StatisticsDate.substr(0,10) %></span></p>
+    <%}) %>
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>操作人姓名</th>
+                <th>文章类型</th>
+                <th>领取数</th>
+                <th>未完成数</th>
+                <th>已完成数</th>
+                <th>保留数</th>
+                <th>作废数</th>
+                <th>置为腰</th>
+                <th>退回数</th>
+                <th>被作废数</th>
+                <th>被退回数</th>
+            </tr>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item){%>
+                <tr>
+                    <td><%= item.Date.substr(0,10) %></td>
+                    <td><%= item.UserName %></td>
+                    <td><%= item.ArticleTypeName %></td>
+                    <td><%= item.ReceiveCount %></td>
+                    <td><%= item.UncompletedCount %></td>
+                    <td><%= item.CompletedCount %></td>
+                    <td><%= item.RetainCount %></td>
+                    <td><%= item.InvalidCount %></td>
+                    <td><%= item.SetToWaist %></td>
+                    <td><%= item.ReturnCount %></td>
+                    <td><%= item.CancelledCount %></td>
+                    <td><%= item.BeReturnedCount %></td>
+                </tr>    
+            <%}) %>
+        </tbody>
+    </table>
+    <p class="no_data"></p>
+</script>
+
+
+<!-- 封装列表 -->
+<script type="text/template" id="Workload2">
+    <% TitleList.forEach(function(item){%>
+        <p style="line-height: 28px;">封装累计：已完成物料<%= item.CompletedCountTotal  %>；退回头文章<%= item.ReturnHeadCountTotal %>；退回腰文章<%= item.CancelledWaistCountTotal %>；作废头文章<%= item.CancelledHeadCountTotal %>；作废腰文章<%= item.CancelledWaistCountTotal %>；放弃头文章<%= item.GiveUpHeadTotal %>；放弃腰文章<%= item.GiveUpWaistTotal %>；被作废物料<%= item.CancelledCountTotal %>；<span style="color:#ccc;float: right;">截止统计时间：<%= item.StatisticsDate.substr(0,10) %></span></p>
+    <%}) %>
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>操作人姓名</th>
+                <th>已完成（物料）</th>
+                <th>退回数（头）</th>
+                <th>退回数（腰）</th>
+                <th>作废数（头）</th>
+                <th>作废数（腰）</th>
+                <th>放弃（头）</th>
+                <th>放弃（腰）</th>
+                <th>被作废数（物料）</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.Date.substr(0,10) %></td>
+                <td><%= item.UserName %></td>
+                <td><%= item.CompletedCount %></td>
+                <td><%= item.ReturnHeadCount %></td>
+                <td><%= item.ReturnWaistCount %></td>
+                <td><%= item.CancelledHeadCount %></td>
+                <td><%= item.CancelledWaistCount %></td>
+                <td><%= item.GiveUpHead %></td>
+                <td><%= item.GiveUpWaist %></td>
+                <td><%= item.CancelledCount %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+    <p class="no_data"></p>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<style>
+    .release_sina {
+        display: inline-block;
+        padding: 5px 30px;
+        margin: 5px auto 0;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #E9E9E9;
+        color: #fff;
+        background-color: #FF9100;
+        cursor:pointer;
+    }
+    .release_sina:hover {
+        -webkit-box-shadow: 0 0 10px #ccc;
+        -moz-box-shadow: 0 0 10px #ccc;
+        box-shadow: 0 0 10px #ccc;
+    }
+</style>
+<div style="background-color: #f7f7f7; padding: 5px 10px; border: 1px solid #888; border-radius: 8px">
+    <div><h3 style="float: left;">&nbsp;&nbsp;预览</h3><span id="z_Close" style="cursor:pointer;float: right; color: blue; margin-right: 10px">关闭</span></div>
+    <div style="clear: both"></div>
+    <div class="sina_blog" style="margin: 10px auto 0 auto;">
+        <div class="sina_title"><h2>新浪微博</h2></div>
+        <div class="nav">
+
+        </div>
+        <div class="sina_more"><a href="javascript:void(0)" style="outline:none;">更多推荐></a></div>
+    </div>
+    <div class="sina_nr">
+
+    </div>
+    <div style="text-align: center">
+        <span class="release_sina">发布</span>
+    </div>
+    <script type="text/html" id="template_sina">
+        <div class="sina_ang">
+            <%if(data.length!=0){%>
+            <%for(var i=0,len=data.length;i<len;i++){%><%if(i==3){%>
+                <%break;%>
+                <%}%>
+                <ul>
+                    <li class="portrait">
+                        <%if(data[i].HeadIconURL==""){%>
+                        <img src="/images/default_touxiang.png">
+                        <%}else{%>
+                        <img src=<%=data[i].HeadIconURL%> >
+                        <%}%>
+                        <%if(data[i].AuthType==30001){%>
+                        <span style="background: url('/images/goldV.png');">&nbsp;</span>
+                        <%}else if(data[i].AuthType==30002){%>
+                        <span style="background: url('/images/yellowV.png');">&nbsp;</span>
+                        <%}else if(data[i].AuthType==30003){%>
+                        <span style="background: url('/images/blueV.png');">&nbsp;</span>
+                        <%}else if(data[i].AuthType==30004){%>
+                        <span style="background: url('/images/dr.png');">&nbsp;</span>
+                        <%}else{%>
+
+                        <%}%>
+                    </li>
+                    <li>
+                        <h2><%=data[i].Name%></h2>
+                        <p>
+                            <span>粉丝数 <span class="fb"><%=formatMoney(data[i].FansCount/10000+0.1,1,"") %>万</span></span>
+                            <span class="ml10">评论数 <span class="fb"><%=formatMoney(data[i].AverageCommentCount/10000+0.1,1,"") %>万</span></span>
+                        </p>
+                        <p>
+                    <span>转发数 <span
+                            class="fb"><%=formatMoney(data[i].AverageForwardCount/10000+0.1,1,"") %>万</span></span>
+                            <span class="ml10">点赞数 <span
+                                    class="fb"><%=formatMoney(data[i].AveragePointCount/10000+0.1,1,"") %>万</span></span>
+                        </p>
+                        <div class="mt10"><a href="javascript:void(0)" class="wechat_see">查看报价</a></div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <%}%>
+                <%}else{%>
+            <img src="/images/no_data.png" style="margin: 0 auto;display:block;padding: 50px 0">
+            <%}%>
+        </div>
+        <div class="sina_ang_h">
+            <%for(var i=3,len=data.length;i<len;i++){%>
+                <%if(i==8){%>
+                <%break;%>
+                <%}%>
+                <ul>
+                    <li class="portrait">
+                        <%if(data[i].HeadIconURL==""){%>
+                        <img src="/images/default_touxiang.png">
+                        <%}else{%>
+                        <img src=<%=data[i].HeadIconURL%>>
+                        <%}%>
+                        <%if(data[i].AuthType==30001){%>
+                        <span style="background: url('/images/goldV.png');">&nbsp;</span>
+                        <%}else if(data[i].AuthType==30002){%>
+                        <span style="background: url('/images/yellowV.png');">&nbsp;</span>
+                        <%}else if(data[i].AuthType==30003){%>
+                        <span style="background: url('/images/blueV.png');">&nbsp;</span>
+                        <%}else if(data[i].AuthType==30004){%>
+                        <span style="background: url('/images/dr.png');">&nbsp;</span>
+                        <%}else{%>
+
+                        <%}%>
+                    </li>
+                    <li>
+                        <h2><%=data[i].Name%></h2>
+                        <p>粉丝数 <span class="fb"><%=formatMoney(data[i].FansCount/10000+0.1,1,"") %>万</span></p>
+                        <p>评论数 <span class="fb"><%=formatMoney(data[i].AverageCommentCount/10000+0.1,1,"") %>万</span></p>
+                        <div class="mt10"><a href="javascript:void(0)" class="wechat_see">查看报价</a></div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <%}%>
+                <div class="clear"></div>
+        </div>
+    </script>
+    <script type="text/template" id="nav_list">
+        <% for(var i = 0; i < data.length; i++) {%>
+        <li><a href="javascript:void(0)" name="<%=data[i].CategoryID%>">
+            <%= data[i].CategoryName%>
+            <!-- <%=data[i].CategroryCount*1000 %>
+            <em>+</em> -->
+        </a></li>
+        <%}%>
+        <div class="clear"></div>
+    </script>
+</div>
+
+

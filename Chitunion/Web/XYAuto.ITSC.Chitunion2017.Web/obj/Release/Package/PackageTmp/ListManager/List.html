@@ -1,0 +1,148 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layout.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_area.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/posfixed.js"></script>
+    <script type="text/javascript" src="js/List.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header_List.html" -->
+
+
+<!--中间内容-->
+<div class="wx_box">
+     <div class="ranking_left" id="example1">
+         <h2>常见分类</h2>
+         <ul id="fenlei2">
+
+         </ul>
+     </div>
+     <div class="ranking_right">
+         <div class="title" id="example2" style="background: #F4F5F6;width: 1035px;">
+             <h2>玛丽榜单 > 微信公众号</h2>
+             <ul>
+                 <!--<li>数据周期：2017年7月1日至7月7日</li>-->
+                 <li id="riqi"></li>
+                 <li>数据说明 <a href="javascript:;" id="Explain"><img src="/images/ranking_5.png"></a></li>
+             </ul>
+             <div class="clear"></div>
+         </div>
+         <div class="content">
+             <div class="ranking_table">
+                 <div id="example3" style="height: 51px;width: 1033px;margin-bottom: -51px;background-color: #E9E9E9;    color: #555;">
+                     <span style="width: 10%;display: inline-block;text-align: center;line-height: 51px">排名</span>
+                     <span style="width: 25%;display: inline-block;text-align: center;line-height: 51px">公众号</span>
+                     <span style="width: 10%;display: inline-block;text-align: center;line-height: 51px">玛丽指数</span>
+                     <span style="width: 10%;display: inline-block;text-align: center;line-height: 51px">头条阅读数</span>
+                     <span style="width: 10%;display: inline-block;text-align: center;line-height: 51px">头条点赞数</span>
+                     <span style="width: 11%;display: inline-block;text-align: center;line-height: 51px">最高阅读数</span>
+                     <span style="width: 10%;display: inline-block;text-align: center;line-height: 51px">发布文章数</span>
+                     <span style="width: 10%;display: inline-block;text-align: center;line-height: 51px">发布次数</span>
+                 </div>
+                 <table style="width: 100%"  border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd">
+                     <tr>
+                         <th width="10%"></th>
+                         <th width="25%"></th>
+                         <th width="10%"></th>
+                         <th width="11%"></th>
+                         <th width="11%"></th>
+                         <th width="11%"></th>
+                         <th width="11%"></th>
+                         <th width="11%"></th>
+                     </tr>
+                     <tbody id="liebiao2">
+
+                     </tbody>
+
+                 </table>
+                 <div id="table"></div>
+             </div>
+         </div>
+     </div>
+     <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+<!--分类-->
+<script type="text/template" id="fenlei1">
+    <li><a href="javascript:;" CategoryId="-2" class="active">不限</a></li>
+    <%for(var i=0;i<Result.length;i++){%>
+    <%if(Result[i].CategoryId>0){%>
+    <li><a href="javascript:;" CategoryId="<%=Result[i].CategoryId%>"><%=Result[i].CategoryName%></a></li>
+    <%}%>
+    <%}%>
+    <div class="clear"></div>
+</script>
+<!--列表-->
+<script type="text/template" id="liebiao1">
+<%for(var i=0;i<Result.length;i++){%>
+<%if(i<3){%>
+<tr style="cursor: pointer" MediaID="<%=Result[i].MediaID%>" BaseMediaID="<%=Result[i].BaseMediaID%>">
+    <td><img src="/images/ranking_<%=i+7%>.png"></td>
+    <td>
+        <div class="wechat_ae">
+            <div class="portrait"><img src="<%=Result[i].HeadIconURL%>"></div>
+            <div class="public">
+                <h2><%=Result[i].Name%></h2>
+                <p>(<%=Result[i].WxNum%>)</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </td>
+    <td class="red"  style="color:#f77777;"><%=Result[i].MaLiIndex%></td>
+    <td><%=Result[i].AvgTopArticleReadNum%></td>
+    <td><%=Result[i].AvgTopArticleLikeNum%></td>
+    <td><%=Result[i].MaxReadNum%></td>
+    <td><%=Result[i].PublishArticleNum%></td>
+    <td><%=Result[i].PublishCount%></td>
+</tr>
+<%}else{%>
+
+<tr style="cursor: pointer" MediaID="<%=Result[i].MediaID%>" BaseMediaID="<%=Result[i].BaseMediaID%>">
+    <td><%=i+1%></td>
+    <td>
+        <div class="wechat_ae">
+            <div class="portrait"><img src="<%=Result[i].HeadIconURL%>"></div>
+            <div class="public">
+                <h2><%=Result[i].Name%></h2>
+                <p>(<%=Result[i].WxNum%>)</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </td>
+    <td class="red" style="color:#f77777;"><%=Result[i].MaLiIndex%></td>
+    <td><%=quantum(Result[i].AvgTopArticleReadNum)%></td>
+    <td><%=quantum(Result[i].AvgTopArticleLikeNum)%></td>
+    <td><%=quantum(Result[i].MaxReadNum)%></td>
+    <td><%=Result[i].PublishArticleNum%></td>
+    <td><%=Result[i].PublishCount%></td>
+</tr>
+<%}%>
+  <%}%>
+</script>
+
+<div id="fanhuidingbu" style="position: fixed;right: 20px;bottom: 72px;display: none;cursor: pointer"><img width="40px" height="40px" src="/images/backto_front_hover_v2.png" alt=""></div>
+</body>
+</html>

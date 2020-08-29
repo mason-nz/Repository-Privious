@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容分发-任务管理-赤兔联盟</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src='/js/jquery.1.11.3.min.js'></script>
+    <script type="text/javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=false"></script> 
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src='/js/Common_chitu.js'></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src='js/content-list.js'></script>
+</head>
+<body>
+
+<!-- 顶部导航-->
+<!--#include virtual="/base/header.html" -->
+
+<div class="contaner_body">
+	<!--左侧菜单-->
+    <!--#include virtual="/base/Menu.html" -->
+
+    <div class="main_right">
+    	
+		<ul class="search_box">
+			<li>任务名称：<input type="text" placeholder="请输入任务名称" id='OrderName'></li>
+			<li>任务状态：
+				<select name="" id="OrderStatus">
+					<option value="">全部</option>
+					<option value="">进行中</option>
+					<option value="">已结束</option>
+				</select>
+			</li>
+			<li><a href="javascript:;" class="but_global btn_price" id='searchBtn'>查询</a></li>
+            <li style='float: right;margin-right: 20px;'><a href="/static/media/contentDistribution.html" class="but_global btn_price">去变现</a></li>
+		</ul>
+
+    	<div class="Personal_table">
+    		<span class="extension">&nbsp</span>
+    		<table border="0" cellspacing="1" cellpadding="0" class="FullOrder">
+    			<thead>
+    				<tr>
+    					<th style='width: 10%;'>任务ID</th>
+    					<th style='width: 20%;'>任务名称</th>
+    					<th style='width: 15%;'>计费规则</th>
+    					<th style='width: 10%;'>任务收入</th>
+    					<th style='width: 10%;'>任务状态</th>
+						<th style='width: 10%;'>领取时间</th>
+						<th style='width: 10%;'>操作</th>
+    				</tr>
+    			</thead>
+    			<tbody></tbody>
+    		</table>
+
+    		<!--分页-->
+            <div class="green-black" id="pageContainer"></div>
+            <!-- loading -->
+            <p id="listLoading"></p>
+    	</div>
+    </div>
+</div>
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+
+<script type="text/template" id="full-order">
+	<% List.forEach(function(item){%>
+	    <tr OrderId='<%= item.OrderId %>'>
+	        <td><%= item.OrderId %></td>
+	        <td><p class="limitWidth"><%= item.OrderName %></p></td>
+	        <!-- <td><%= item.BillingRuleName %></td> -->
+            <td><%= item.CPCPrice %>元/CPC</td>
+	        <td>
+                <%= item.TotalAmount?item.TotalAmount:0 %>元          
+            </td>
+	        <td><%= item.OrderStatus %></td>
+	        <td><%= item.ReceiveTime.substr(0,10) %></td>
+            <td><a href="/manager/media/order/content-detail.html?OrderId=<%= item.OrderId %>" target='_blank'>查看</a></td>
+	    </tr>    
+	<%}) %>    
+</script>
+</body>
+</html>

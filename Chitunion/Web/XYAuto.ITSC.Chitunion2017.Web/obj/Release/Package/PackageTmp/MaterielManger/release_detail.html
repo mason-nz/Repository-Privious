@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src='js/clipboard.min.js'></script>
+    <script type="text/javascript" src='js/ReleaseDetail.js'></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+    <style>
+        .main_message  li{
+            width:24%;
+            float: left;
+            line-height: 35px;
+            height: 35px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .to_b_list  table td,th{
+            border : 1px solid #E4E4E4;
+            font-size: 12px;
+            line-height: 22px;
+        }
+        .release_tobar{
+            margin:0 20px;
+            overflow: auto;
+        }
+        /* .release_tobar .fabu{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            background: #FF4F4F;
+            color: #fff;
+            border: 1px solid #fff;
+            text-align: center;
+            float: left;
+        } */
+        .release_tobar li{
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2>物料管理</h2>
+            <div class="install_box"></div>            
+        </div>
+    </div>
+
+    <script type="text/template" id="release-detail">
+    
+        <ul style="padding-left: 24px;" class="main_message">                
+            <li>物料ID：<%= MaterielId %></li>
+            <li>物料名称：<%= Name %></li>
+            <li>文章来源：<%= ArticleFromName %></li>                
+            <li>关联车型：<%= SerialName %></li>               
+            <li>关联合同号：<% if(ContractNumber != null){%> <%= ContractNumber %> <%}else{%> --- <%} %></li>           
+        </ul>
+        <div class="clear"></div>
+        <h3 style="margin: 0 20px;padding: 0;background: none">头部信息</h3>
+        <ul style="padding-left: 24px;" class="main_message">                
+            <li>内容形式：<%= Head.ContentTypeName %></li>
+            <li>内容分类：<% if(Head.ContentClass){%> <%= Head.ContentClass %> <%}else{%> --- <%} %> </li>
+            <li>标签：<% if(Head.ContentTag){%> <%= Head.ContentTag %> <%}else{%> --- <%} %>  </li>                
+            <li>URL地址：<a href="<%= Head.Url %>" target='_blank'><%= Head.Url %></a></li>               
+        </ul>
+        <div class="clear"></div>
+        <h3 style="margin: 0 20px;padding: 0;background: none">腰部信息</h3>
+        <ul style="padding-left: 24px;" class="main_message">                
+            <li>内容形式：<%= Body.ContentTypeName %></li>
+        </ul>
+        <div class="clear"></div>
+        <h3 style="margin: 0 20px;padding: 0;background: none">腿部信息</h3>
+        <ul style="padding-left: 24px;">                
+            <li>阅读原文：<a href="<%= Foot.Url %>" target='_blank'><%= Foot.Url %></a></li>               
+        </ul>
+        <div class="clear"></div>
+
+        <ul class="release_tobar" style="margin-bottom : -14px;">
+            <h3 style="margin-bottom: 4px;">发布渠道</h3>
+            <li style="margin-top: 8px;"><input type="checkbox" id="selectAll">全选 <a href="javascript:;" id="PackageDownload" style="margin-left: 10px;color: #FF4F4F">打包下载</a></li>
+            <li style="float: right;margin-top: 8px;"><a href="javascript:;" class="but_query see_channel_btn" style="width:70px;height: 26px;line-height: 26px;">查看数据</a></li>
+            <li style="float: right;margin-top: 8px;"><a href="javascript:;" class="but_query edit_btn_channel" style="width:70px;height: 26px;line-height: 26px;">编辑渠道</a></li>
+            <li style="float: right;margin-top: 8px;"><a href="javascript:;" class="but_query add_btn_channel" style="width:70px;height: 26px;line-height: 26px;">添加渠道</a></li>
+
+        </ul>
+        <div class="clear"></div>
+
+        <div class="to_b_list_box" style="margin-top: 15px;">
+        <% if(ChannelItem){%>
+            <% ChannelItem.forEach(function(item){%>
+            <div class="to_b_list">
+                <div class="title">
+                    <div class="fl"><%= item.Name %></div>
+                    <div class="clear"></div>
+                </div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" style='border-collapse:collapse;'> 
+                    <tbody>
+                        <tr>
+                            <th width="8%">选择</th>
+                            <th width="26%">名称</th>
+                            <th width="10%">渠道类型</th>
+                            <th width="14%">费用类型</th>
+                            <th width="52%">推广URL地址</th>
+                        </tr>
+                        <% item.Channelinfo.forEach(function(each){%>
+                        <tr>
+                            <td><input type="checkbox" name='PitchUp' class='onecheck onebox' arrid='<%= each.ChannelID %>'></td>
+                            <td><%= each.MediaNumber %> | <% if(each.MediaName && each.MediaName != 'null'){%> <%= each.MediaName %> <%} %> </td>
+                            <td><%= each.ChannelTypeName %></td>
+                            <td><%= each.PayTypeName %> <% if(each.PayType == 71001){%> <span><%= each.UnitCost %>元/ <%= each.PayModeName %> </span> <%} %></td>
+                            <td style="text-align: left">
+                                <span style="text-align: left;line-height: 22px;" id='ClonedUrl'><%= each.PromotionUrl %></span>
+                                <a href="javascript:;" class="clone" data-clipboard-text='<%= each.PromotionUrl %>'>复制</a>
+                                <a href="javascript:;" arrid='<%= each.ChannelID %>' class='download'>下载二维码</a>
+                            </td>
+                        </tr>
+                        <%}) %>
+                    </tbody>
+                </table>
+            </div>
+            <%}) %>
+            <form action="http://www.chitunion.com/api/Materiel/DownloadZip" method="post" target="_blank" style="display: none" id='Form_Code'>
+                <p>
+                    <input type="text" name="ChannelIds" value="21,22" />
+                </p>
+                <p>
+                    <input type="text" name="MaterielId" value="<%= MaterielId %>" />
+                </p>
+                <input type="submit" value="Submit" id='SubmitToCode'/>
+            </form>
+        <%}else{%>
+            <div id="No_Data">
+                <div style="text-align: center">
+                    <img src="../images/no_data.png" alt="">
+                </div>
+            </div>
+        <%} %>
+        </div>
+    </script>
+
+    
+    <div class="clear"></div>
+</div>
+
+<!--#include file="/base/footer.html" -->
+
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF23D1D6-5294-40F4-B4C0-734FE49C8D55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ChiTu2018.Service.App</RootNamespace>
+    <AssemblyName>XYAuto.ChiTu2018.Service.App</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XYAuto.CTUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\XYAuto.CTUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppAuth\AppAuth.cs" />
+    <Compile Include="AppAuth\AppAuthHelper.cs" />
+    <Compile Include="AppAuth\DESHelper.cs" />
+    <Compile Include="AppAuth\EnumAppAuthRequestVerify.cs" />
+    <Compile Include="AppAuth\OrdinalComparer.cs" />
+    <Compile Include="AppInfo\Dto\LeFeedbackDto.cs" />
+    <Compile Include="AppInfo\Dto\Request\ReqAppPushSwitchDto.cs" />
+    <Compile Include="AppInfo\Dto\Request\ReqCreateShareDto.cs" />
+    <Compile Include="AppInfo\Dto\Request\ReqReportAppDto.cs" />
+    <Compile Include="AppInfo\Dto\Request\Withdrawals\ReqWithdrawalsDto.cs" />
+    <Compile Include="AppInfo\Dto\Response\RespAppPushDto.cs" />
+    <Compile Include="AppInfo\Dto\Response\RespBaseChituDto.cs" />
+    <Compile Include="AppInfo\Dto\Response\RespIncomeInfoDto.cs" />
+    <Compile Include="AppInfo\Dto\Response\RespPostReceiceDto.cs" />
+    <Compile Include="AppInfo\Dto\Response\RespShareRewardDto.cs" />
+    <Compile Include="AppInfo\Dto\Response\RespWithdrawalsPriceClc.cs" />
+    <Compile Include="AppInfo\Dto\ShareSuccessTipsDto.cs" />
+    <Compile Include="AppInfo\Enums\ShareChannelIdEnum.cs" />
+    <Compile Include="AppInfo\LeFeedbackService.cs" />
+    <Compile Include="AppInfo\LeWithdrawalsDetailService.cs" />
+    <Compile Include="AppInfo\LeWithdrawalsStatisticsService.cs" />
+    <Compile Include="AppInfo\Provider\AppPushMsgSwitchLogProvider.cs" />
+    <Compile Include="AppInfo\Provider\ReportAppInfoProvider.cs" />
+    <Compile Include="AppInfo\Provider\ShareProvider.cs" />
+    <Compile Include="AppInfo\Provider\AppWithdrawalsProvider.cs" />
+    <Compile Include="AppInfo\VerifyEntity\VerifyResultCode.cs" />
+    <Compile Include="AutoMapperConfig\MapperConfig.cs" />
+    <Compile Include="AutoMapperConfig\Profile\AndroidAppProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\UserProfile.cs" />
+    <Compile Include="BaseDto\PaginationDto.cs" />
+    <Compile Include="IpMonitor\IpAnalysisService.cs" />
+    <Compile Include="IpMonitor\Dto\IpRequestLogDto.cs" />
+    <Compile Include="LuckDrawActivity\AppLuckDrawService.cs" />
+    <Compile Include="OptionBootStarp.cs" />
+    <Compile Include="OptionBootStarpManage.cs" />
+    <Compile Include="Profiles\Dto\ConfigurationDto.cs" />
+    <Compile Include="Profiles\Dto\AppProfitModelDto.cs" />
+    <Compile Include="Profiles\Dto\AppProfitQueryDto.cs" />
+    <Compile Include="Profiles\GenericProfilesService.cs" />
+    <Compile Include="Profiles\AppProfitService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicService\Dto\Request\User\PsReqPostWxUserOperationDto.cs" />
+    <Compile Include="PublicService\Dto\Request\Withdrawals\PsReqWithdrawalsDto.cs" />
+    <Compile Include="PublicService\Dto\Request\Withdrawals\PsReqThirdBaseDto.cs" />
+    <Compile Include="PublicService\Dto\Response\User\PsRespUserOpeationDto.cs" />
+    <Compile Include="PublicService\Dto\Response\Withdrawals\RespWithdrawalsPriceClc.cs" />
+    <Compile Include="PublicService\PsVerifyWithdrawlsService.cs" />
+    <Compile Include="PublicService\PsWithdrawalsService.cs" />
+    <Compile Include="PublicService\PsWxUserAuthService.cs" />
+    <Compile Include="Query\Dto\BaseRequestQueryEntity.cs" />
+    <Compile Include="Query\Dto\BaseResponseEntity.cs" />
+    <Compile Include="Query\Dto\Request\ReqInComeDto.cs" />
+    <Compile Include="Query\Dto\Request\ReqQueryWithdrawalsDto.cs" />
+    <Compile Include="Query\Dto\Response\RespWithdrawalsDto.cs" />
+    <Compile Include="Query\Dto\Response\RespWithdrawalsInfoDto.cs" />
+    <Compile Include="Sign\AppSignService.cs" />
+    <Compile Include="Sign\Dto\AppLeDaySignDto.cs" />
+    <Compile Include="Sign\Dto\AppReqInviteRecIdDto.cs" />
+    <Compile Include="Sign\Dto\AppReqKeyValueDto.cs" />
+    <Compile Include="Sign\Dto\AppRespLeDaySignDto.cs" />
+    <Compile Include="Sign\Dto\AppRespWeChatSignDto.cs" />
+    <Compile Include="Sign\Dto\AppSignReqDto.cs" />
+    <Compile Include="Task\Dto\GetDataByPage\ReqDto.cs" />
+    <Compile Include="Task\Dto\GetOrderByStatus\ReqDto.cs" />
+    <Compile Include="Task\Dto\GetOrderByStatus\ResDto.cs" />
+    <Compile Include="Task\Dto\GetOrderInfo\ResDto.cs" />
+    <Compile Include="Task\Dto\GetOrderInfo\ResTotalAccountBalanceDto.cs" />
+    <Compile Include="Task\Dto\GetOrderUrl\ResDto.cs" />
+    <Compile Include="Task\Dto\GetShareOrderInfo\ResDto.cs" />
+    <Compile Include="Task\Dto\GetUnionAndUserId\ResDto.cs" />
+    <Compile Include="Task\Dto\GetUserSceneByUserId\ResDto.cs" />
+    <Compile Include="Task\Dto\SubmitOrderUrl\ReqDto.cs" />
+    <Compile Include="Task\Dto\SubmitOrderUrl\ResReceiveByWxDto.cs" />
+    <Compile Include="Task\Dto\TaskResDto.cs" />
+    <Compile Include="Task\Dto\UpdateUserScene\ReqDto.cs" />
+    <Compile Include="Task\Enum.cs" />
+    <Compile Include="Task\LeTaskInfoService.cs" />
+    <Compile Include="ThirdApi\Config\AppPostThirdApiConfigSection.cs" />
+    <Compile Include="ThirdApi\Dto\Request\ReqTaskReceiveDto.cs" />
+    <Compile Include="ThirdApi\Dto\Response\RespChituBaseDto.cs" />
+    <Compile Include="User\Dto\AppReqMobileInfoDto.cs" />
+    <Compile Include="User\Dto\AppRespUseInfoDto.cs" />
+    <Compile Include="User\Dto\AppRespUserBaseDto.cs" />
+    <Compile Include="User\Dto\AppRespUserDto.cs" />
+    <Compile Include="User\Dto\LoginForMobile\ReqMobileLoginDto.cs" />
+    <Compile Include="User\Dto\LoginForWeChat\RespLoginForWeChatDto.cs" />
+    <Compile Include="User\Dto\ModifyAttestationReqDto.cs" />
+    <Compile Include="User\Dto\ModifyMobileReqDto.cs" />
+    <Compile Include="User\Dto\AppUpdateUserIdDto.cs" />
+    <Compile Include="User\Dto\LoginForWeChat\ReqLoginDto.cs" />
+    <Compile Include="User\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.BO\XYAuto.ChiTu2018.BO.csproj">
+      <Project>{d4073898-e4d0-4931-a1e9-5c454737ac9f}</Project>
+      <Name>XYAuto.ChiTu2018.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.Entities\XYAuto.ChiTu2018.Entities.csproj">
+      <Project>{4d08e097-daa0-4a36-9a9f-33156cd82fea}</Project>
+      <Name>XYAuto.ChiTu2018.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.Infrastructure\XYAuto.ChiTu2018.Infrastructure.csproj">
+      <Project>{4a61c0a1-bfa5-4057-80ec-58939ffbb8ef}</Project>
+      <Name>XYAuto.ChiTu2018.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.WeChat.CommonService\XYAuto.ChiTu2018.WeChat.CommonService.csproj">
+      <Project>{8296AFCC-F771-4E57-A0DA-A94A0CA5E904}</Project>
+      <Name>XYAuto.ChiTu2018.WeChat.CommonService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppInfo\Dto\Request\User\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

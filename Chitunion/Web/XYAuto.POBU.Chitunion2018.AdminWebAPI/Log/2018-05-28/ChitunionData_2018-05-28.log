@@ -1,0 +1,972 @@
+2018-05-28 13:25:32,755 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.7719924750073172,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 13:25:32,755 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 13:25:32,956 [19] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 13:25:32,989 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.7719924750073172
+执行的时间:48.1287ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 13:25:41,259 [21] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/MediaUser/GetPromotionChannelList?Level=1&r=0.8012127790951432,UrlRefer=http://admin1.chitunion.com/usermanager/mediauserlist.html
+2018-05-28 13:25:41,259 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/MediaUser/GetMediaUserList?UserName=&Mobile=&RegisterFrom=-2&RegisterType=-2&Level1=&Status=-2&ApproveStatus=-2&AttentionStatus=-2&ListType=m_user&BeginTime=&EndTime=&PageSize=20&PageIndex=1&r=0.23738117154824778,UrlRefer=http://admin1.chitunion.com/usermanager/mediauserlist.html
+2018-05-28 13:25:41,292 [12] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/MediaUser/GetPromotionChannelList?Level=1&r=0.8012127790951432
+执行的时间:4.0103ms
+请求的参数:{"CheckLogin":true,"Level":1}
+返回的结果:
+
+2018-05-28 13:25:41,337 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/usermanager/mediauserlist.html
+2018-05-28 13:25:41,357 [21] ERROR BaseLog [(null)] - Chitunion_WebApi——异常
+System.Data.SqlClient.SqlException (0x80131904): 对象名 'dbo.v_PromotionChannelList' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.ITSC.Chitunion2017.Dal.ChituMedia.MediaUserDa.GetPromotionChannelList(Int32 Level) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.Dal\ChituMedia\MediaUserDa.cs:行号 172
+   在 XYAuto.ITSC.Chitunion2017.BLL.ChituMedia.MediaUserBll.GetPromotionChannelList(Int32 Level) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\ChituMedia\MediaUserBll.cs:行号 84
+   在 XYAuto.POBU.Chitunion2018.AdminWebAPI.Controllers.MediaUserController.GetPromotionChannelList(Int32 Level) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.POBU.Chitunion2018.AdminWebAPI\Controllers\MediaUserController.cs:行号 55
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ClientConnectionId:9a5e6de2-f895-45c8-a736-974dca0d4e5f
+Error Number:208,State:1,Class:16
+2018-05-28 13:25:41,427 [7] ERROR BaseLog [(null)] - Chitunion_WebApi——异常
+System.Data.SqlClient.SqlException (0x80131904): 对象名 'v_PromotionChannelList' 无效。
+对象名 'v_PromotionChannelList' 无效。
+
+                                    SELECT * , ROW_NUMBER() OVER(ORDER BY   CreateTime DESC ) as RowNumber FROM (SELECT  U.UserID ,
+                                            U.UserName ,
+                                            U.Mobile ,
+                                            D.DictName AS RegisterFromName,
+											DT.DictName AS RegisterTypeName,
+                                            U.Source AS SourceID ,
+                                            U.CreateTime ,
+                                            U.Status ,
+											(CASE u.Status WHEN 0 THEN '启用' ELSE '禁用' END ) AS StatusName,
+                                            UD.Status AS ApproveStatus ,
+                                            ( CASE ISNULL(UD.Status,0)
+                                                WHEN 0 THEN '未认证'
+                                                WHEN 1 THEN '待审核'
+                                                WHEN 2 THEN '已认证'
+                                                WHEN 3 THEN '认证未通过'
+                                              END ) AS ApproveStatusName ,
+											UD.ApplyTime,
+											UD.AuditTime,
+                                            UD.Reason ,
+                                            U.Category,
+                                            WU.nickname,
+											(CASE  WHEN WU.Status=0 THEN '关注中' WHEN WU.Status=-1 THEN '取消关注' ELSE '无' END ) AS AttentionName
+                                    FROM    dbo.UserInfo AS U
+                                            LEFT JOIN v_PromotionChannelList AS PC ON PC.DictID=U.PromotionChannelID
+											LEFT JOIN dbo.LE_WeiXinUser AS WU ON wu.UserID=u.UserID
+                                            LEFT JOIN dbo.UserDetailInfo AS UD ON U.UserID = UD.UserID
+                                            LEFT JOIN dbo.DictInfo AS D ON D.DictId = U.Source AND D.Status=0
+											LEFT JOIN dbo.DictInfo AS  DT ON DT.DictId=U.RegisterType
+                                    WHERE   U.Category = 29002 AND U.Status>=0  AND PC.Level1=0  ) as A 
+WITH tmp AS (
+                                    SELECT * , ROW_NUMBER() OVER(ORDER BY   CreateTime DESC ) as RowNumber FROM (SELECT  U.UserID ,
+                                            U.UserName ,
+                                            U.Mobile ,
+                                            D.DictName AS RegisterFromName,
+											DT.DictName AS RegisterTypeName,
+                                            U.Source AS SourceID ,
+                                            U.CreateTime ,
+                                            U.Status ,
+											(CASE u.Status WHEN 0 THEN '启用' ELSE '禁用' END ) AS StatusName,
+                                            UD.Status AS ApproveStatus ,
+                                            ( CASE ISNULL(UD.Status,0)
+                                                WHEN 0 THEN '未认证'
+                                                WHEN 1 THEN '待审核'
+                                                WHEN 2 THEN '已认证'
+                                                WHEN 3 THEN '认证未通过'
+                                              END ) AS ApproveStatusName ,
+											UD.ApplyTime,
+											UD.AuditTime,
+                                            UD.Reason ,
+                                            U.Category,
+                                            WU.nickname,
+											(CASE  WHEN WU.Status=0 THEN '关注中' WHEN WU.Status=-1 THEN '取消关注' ELSE '无' END ) AS AttentionName
+                                    FROM    dbo.UserInfo AS U
+                                            LEFT JOIN v_PromotionChannelList AS PC ON PC.DictID=U.PromotionChannelID
+											LEFT JOIN dbo.LE_WeiXinUser AS WU ON wu.UserID=u.UserID
+                                            LEFT JOIN dbo.UserDetailInfo AS UD ON U.UserID = UD.UserID
+                                            LEFT JOIN dbo.DictInfo AS D ON D.DictId = U.Source AND D.Status=0
+											LEFT JOIN dbo.DictInfo AS  DT ON DT.DictId=U.RegisterType
+                                    WHERE   U.Category = 29002 AND U.Status>=0  AND PC.Level1=0  ) as A ) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.ITSC.Chitunion2017.Dal.ChituMedia.MediaUserDa.GetMediaUserList(UserQueryArgs queryArgs, EnumInfo order) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.Dal\ChituMedia\MediaUserDa.cs:行号 156
+   在 XYAuto.ITSC.Chitunion2017.BLL.ChituMedia.MediaUserBll.GetMediaUserList(UserQueryArgs queryArgs) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\ChituMedia\MediaUserBll.cs:行号 71
+   在 XYAuto.POBU.Chitunion2018.AdminWebAPI.Controllers.MediaUserController.GetMediaUserList(UserQueryArgs queryArgs) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.POBU.Chitunion2018.AdminWebAPI\Controllers\MediaUserController.cs:行号 41
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ClientConnectionId:1fd6070d-c882-451d-aec6-61f16982164a
+Error Number:208,State:1,Class:16
+2018-05-28 13:25:42,423 [7] INFO  BaseLog [(null)] - 发邮件开始：
+2018-05-28 13:25:41,428 [12] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/MediaUser/GetMediaUserList?UserName=&Mobile=&RegisterFrom=-2&RegisterType=-2&Level1=&Status=-2&ApproveStatus=-2&AttentionStatus=-2&ListType=m_user&BeginTime=&EndTime=&PageSize=20&PageIndex=1&r=0.23738117154824778
+执行的时间:11.0291ms
+请求的参数:{"CheckLogin":true,"queryArgs":{"ListType":"m_user","PageIndex":1,"PageSize":20,"UserName":null,"Mobile":null,"Source":0,"RegisterFrom":-2,"RegisterType":-2,"Status":-2,"ApproveStatus":-2,"BeginTime":null,"EndTime":null,"AttentionStatus":-2,"Level1":0}}
+返回的结果:
+
+2018-05-28 13:25:41,920 [21] INFO  BaseLog [(null)] - 发邮件开始：
+2018-05-28 13:25:42,486 [21] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2018-05-28 13:25:42,496 [21] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2018-05-28 13:25:42,505 [21] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2018-05-28 13:25:42,517 [21] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2018-05-28 13:25:42,486 [7] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2018-05-28 13:25:42,535 [7] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2018-05-28 13:25:42,544 [7] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2018-05-28 13:25:42,554 [7] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2018-05-28 13:25:42,526 [21] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2018-05-28 13:25:42,573 [21] INFO  BaseLog [(null)] - 发送邮件给谁:zhangjl@xingyuanauto.com
+2018-05-28 13:25:42,563 [7] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2018-05-28 13:25:42,592 [7] INFO  BaseLog [(null)] - 发送邮件给谁:zhangjl@xingyuanauto.com
+2018-05-28 13:25:43,064 [7] ERROR BaseLog [(null)] - 发邮件失败: 
+System.Net.Mail.SmtpException: 事务失败。 服务器响应为:RCPT (hant@xingyuanauto.com) dosn't exist
+   在 System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   在 System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   在 System.Net.Mail.SmtpClient.Send(MailMessage message)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail.Send(String host, String userName, String password)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail.Send()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\EmailHelper.cs:行号 44
+2018-05-28 13:25:43,064 [21] ERROR BaseLog [(null)] - 发邮件失败: 
+System.Net.Mail.SmtpException: 事务失败。 服务器响应为:RCPT (hant@xingyuanauto.com) dosn't exist
+   在 System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   在 System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   在 System.Net.Mail.SmtpClient.Send(MailMessage message)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail.Send(String host, String userName, String password)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail.Send()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.BLL\EmailHelper.cs:行号 44
+2018-05-28 13:25:43,956 [21] INFO  BaseLog [(null)] - 发邮件结束！
+2018-05-28 13:25:43,480 [7] INFO  BaseLog [(null)] - 发邮件结束！
+2018-05-28 13:25:53,994 [12] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.25573474830517806,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:25:54,004 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:25:54,016 [12] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 13:25:54,031 [21] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.25573474830517806
+执行的时间:15.0398ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 13:25:56,705 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195003&PageSize=20&PageIndex=1&r=0.3428621676847351,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:25:56,721 [20] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195003,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195003","UserId":0}
+2018-05-28 13:25:56,734 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195003&PageSize=20&PageIndex=1&r=0.3428621676847351
+执行的时间:12.0341ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195003,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 13:25:58,026 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195002&PageSize=20&PageIndex=1&r=0.7572986015741653,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:25:58,047 [20] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195002,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195002","UserId":0}
+2018-05-28 13:25:58,058 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195002&PageSize=20&PageIndex=1&r=0.7572986015741653
+执行的时间:11.0288ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195002,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 13:25:59,046 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9908170507626759,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:25:59,068 [22] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 13:25:59,078 [12] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9908170507626759
+执行的时间:10.0263ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 13:26:20,395 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.8731422762979453,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:26:20,417 [24] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 13:26:20,427 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.8731422762979453
+执行的时间:10.0303ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 13:28:55,199 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.3807288441987069,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:29:09,122 [19] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 13:29:22,032 [19] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 13:29:37,162 [19] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 13:32:48,231 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.3807288441987069
+执行的时间:232827.3859ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 13:32:52,762 [33] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.4966302496670981,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:32:52,763 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 13:32:52,788 [33] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 13:32:52,807 [33] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.4966302496670981
+执行的时间:19.0497ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:15:09,375 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:15:09,375 [10] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9743154741352231,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:15:09,559 [10] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:15:09,610 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9743154741352231
+执行的时间:28.0739ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:16:11,571 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.8224868335594353,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:16:11,586 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:16:11,627 [8] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:16:11,668 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.8224868335594353
+执行的时间:40.107ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:17:41,943 [14] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:17:41,946 [10] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.5155627962415057,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:17:42,157 [10] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:17:42,172 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.5155627962415057
+执行的时间:15.0496ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:20:36,916 [26] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:20:36,916 [15] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9650293854495572,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:21:12,421 [15] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:21:12,544 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9650293854495572
+执行的时间:291.7745ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:21:44,186 [28] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9870774860745017,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:21:44,193 [30] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:21:44,204 [28] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:21:44,233 [16] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.9870774860745017
+执行的时间:29.0771ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:23:00,066 [31] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.19207829954729205,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:23:00,074 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:23:00,093 [31] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:23:00,130 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.19207829954729205
+执行的时间:38.1064ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:23:02,388 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetInfo?WithdrawalsId=22&r=0.9963897758405962,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:23:02,553 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetInfo?WithdrawalsId=22&r=0.9963897758405962
+执行的时间:91.247ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsInfo":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayStatus":195001,"PayStatusName":"支付中","PayDate":"0001-01-01 00:00:00","Reason":null,"OrderNum":null,"RejectMsg":null},"AuditInfo":null},"IsOverdue":null}
+
+2018-05-28 14:23:09,407 [30] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/order/GetIncomeList?StartDate=&EndDate=&ChannelId=-2&OrderType=-2&OrderId=&TaskId=&MaterielId=&UserName=null&PageSize=20&PageIndex=1&r=0.4776292754911968,UrlRefer=http://admin1.chitunion.com/FinanceManager/IncomeManagement.html?TrueName=null
+2018-05-28 14:23:09,417 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/IncomeManagement.html?TrueName=null
+2018-05-28 14:23:09,440 [30] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderId":null,"TaskId":null,"MaterielId":null,"UserName":"null","ChannelId":-2,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND AO.Status = 193002 AND (UI.SysName = 'null' OR UI.UserName= 'null')","UserId":1188}
+2018-05-28 14:23:09,520 [29] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/order/GetIncomeList?StartDate=&EndDate=&ChannelId=-2&OrderType=-2&OrderId=&TaskId=&MaterielId=&UserName=null&PageSize=20&PageIndex=1&r=0.4776292754911968
+执行的时间:82.2189ms
+请求的参数:{"CheckLogin":true,"request":{"OrderId":null,"TaskId":null,"MaterielId":null,"UserName":"null","ChannelId":-2,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:23:17,782 [30] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetInfo?WithdrawalsId=22&r=0.00690839362553497,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:23:17,799 [31] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetInfo?WithdrawalsId=22&r=0.00690839362553497
+执行的时间:3.0217ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsInfo":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayStatus":195001,"PayStatusName":"支付中","PayDate":"0001-01-01 00:00:00","Reason":null,"OrderNum":null,"RejectMsg":null},"AuditInfo":null},"IsOverdue":null}
+
+2018-05-28 14:26:08,800 [34] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195002&PageSize=20&PageIndex=1&r=0.9012075551068375,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:26:08,813 [34] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195002,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195002","UserId":0}
+2018-05-28 14:26:08,823 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195002&PageSize=20&PageIndex=1&r=0.9012075551068375
+执行的时间:10.0102ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195002,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:26:10,265 [35] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195003&PageSize=20&PageIndex=1&r=0.47010726918083434,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:26:10,288 [35] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195003,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195003","UserId":0}
+2018-05-28 14:26:10,300 [34] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195003&PageSize=20&PageIndex=1&r=0.47010726918083434
+执行的时间:12.0323ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195003,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:26:10,889 [36] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.4139738203742698,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:26:10,900 [36] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:26:10,911 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.4139738203742698
+执行的时间:11.0335ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:26:11,207 [35] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.6590790423853794,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:26:11,218 [35] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 0 AND WD.Status = 195001","UserId":0}
+2018-05-28 14:26:11,229 [36] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&OrderStatus=195001&PageSize=20&PageIndex=1&r=0.6590790423853794
+执行的时间:11.0324ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":195001,"UserName":null,"AuditStatus":0,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:26:45,744 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetInfo?WithdrawalsId=22&r=0.1011919254774889,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement.html
+2018-05-28 14:26:45,767 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetInfo?WithdrawalsId=22&r=0.1011919254774889
+执行的时间:4.0088ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsInfo":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayStatus":195001,"PayStatusName":"支付中","PayDate":"0001-01-01 00:00:00","Reason":null,"OrderNum":null,"RejectMsg":null},"AuditInfo":null},"IsOverdue":null}
+
+2018-05-28 14:27:26,111 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.4899414979522314,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:26,112 [37] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:26,124 [38] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:27:26,157 [29] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.4899414979522314
+执行的时间:33.0888ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:27:27,695 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.20671426550817795,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:27,713 [38] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197001","UserId":0}
+2018-05-28 14:27:27,744 [31] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.20671426550817795
+执行的时间:31.0821ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":30,"RecId":30,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":8888,"PayStatusName":null,"TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":29,"RecId":29,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":28,"RecId":28,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":27,"RecId":27,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"0001-01-01 00:00:00","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"2018-05-04 17:42:33","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":""},{"Id":20,"RecId":20,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null}],"TotleCount":5,"Extend":{"TotalMoney":1200.00}},"IsOverdue":null}
+
+2018-05-28 14:27:28,108 [29] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.5023810711931627,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:28,124 [29] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:27:28,133 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.5023810711931627
+执行的时间:9.0238ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:27:28,650 [35] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.4157595470967428,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:28,665 [35] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197001","UserId":0}
+2018-05-28 14:27:28,679 [30] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.4157595470967428
+执行的时间:14.0727ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":30,"RecId":30,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":8888,"PayStatusName":null,"TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":29,"RecId":29,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":28,"RecId":28,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":27,"RecId":27,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"0001-01-01 00:00:00","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"2018-05-04 17:42:33","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":""},{"Id":20,"RecId":20,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null}],"TotleCount":5,"Extend":{"TotalMoney":1200.00}},"IsOverdue":null}
+
+2018-05-28 14:27:28,994 [37] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.6212032641971927,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:29,012 [37] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197002","UserId":0}
+2018-05-28 14:27:29,036 [34] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.6212032641971927
+执行的时间:24.0632ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:27:29,473 [29] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.5387206861247933,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:29,488 [29] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197001","UserId":0}
+2018-05-28 14:27:29,501 [30] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.5387206861247933
+执行的时间:13.0356ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":30,"RecId":30,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":8888,"PayStatusName":null,"TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":29,"RecId":29,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":28,"RecId":28,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":27,"RecId":27,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"0001-01-01 00:00:00","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"2018-05-04 17:42:33","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":""},{"Id":20,"RecId":20,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null}],"TotleCount":5,"Extend":{"TotalMoney":1200.00}},"IsOverdue":null}
+
+2018-05-28 14:27:29,795 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8569177434354684,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:27:29,810 [38] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:27:29,819 [33] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8569177434354684
+执行的时间:9.023ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:29:17,572 [29] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.041086281943437,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:29:17,584 [29] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197001","UserId":0}
+2018-05-28 14:29:17,597 [23] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.041086281943437
+执行的时间:13.0344ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":30,"RecId":30,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":8888,"PayStatusName":null,"TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":29,"RecId":29,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":28,"RecId":28,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":27,"RecId":27,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"0001-01-01 00:00:00","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"2018-05-04 17:42:33","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":""},{"Id":20,"RecId":20,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null}],"TotleCount":5,"Extend":{"TotalMoney":1200.00}},"IsOverdue":null}
+
+2018-05-28 14:29:19,352 [28] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8738601591276973,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:29:19,370 [28] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197002","UserId":0}
+2018-05-28 14:29:19,378 [22] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8738601591276973
+执行的时间:8.987ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:29:19,941 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.12422367425589043,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:29:19,957 [25] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197001","UserId":0}
+2018-05-28 14:29:19,971 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.12422367425589043
+执行的时间:14.0055ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":30,"RecId":30,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":8888,"PayStatusName":null,"TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":29,"RecId":29,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":28,"RecId":28,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":27,"RecId":27,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"0001-01-01 00:00:00","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"2018-05-04 17:42:33","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":""},{"Id":20,"RecId":20,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null}],"TotleCount":5,"Extend":{"TotalMoney":1200.00}},"IsOverdue":null}
+
+2018-05-28 14:29:20,279 [28] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.22997939868427264,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:29:20,297 [28] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:29:20,308 [24] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.22997939868427264
+执行的时间:11.0303ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:30:19,764 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.5575605543520903,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:30:19,782 [22] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:30:19,798 [37] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:30:19,800 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.5575605543520903
+执行的时间:19.0508ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:30:25,568 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.059140643644053914,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:30:25,579 [19] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:30:25,589 [37] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.059140643644053914
+执行的时间:10.027ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 14:31:29,054 [33] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.7618906425398461,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:31:31,965 [34] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:31:55,506 [33] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:32:57,132 [33] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.7618906425398461
+执行的时间:88002.2661ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197003,"AuditStatusName":"待审核","RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:32:57,447 [33] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:32:57,458 [11] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.21175517219504503,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:32:57,543 [11] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:32:57,622 [11] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.21175517219504503
+执行的时间:78.2064ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197003,"AuditStatusName":"待审核","RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:33:00,195 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.012574219762785832,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:33:00,196 [34] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:33:00,220 [6] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:33:00,254 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.012574219762785832
+执行的时间:34.092ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197003,"AuditStatusName":"待审核","RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:33:01,574 [42] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.03953457687504636,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 14:33:01,577 [43] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 14:33:01,624 [42] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.03953457687504636
+执行的时间:19.0501ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003},"IsOverdue":null}
+
+2018-05-28 14:33:06,319 [41] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8408363898702158,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html
+2018-05-28 14:33:06,336 [41] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 14:33:06,354 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8408363898702158
+执行的时间:18.0465ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197003,"AuditStatusName":"待审核","RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 14:35:18,298 [41] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9650049373817299,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 14:35:18,318 [41] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9650049373817299
+执行的时间:3.0027ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003},"IsOverdue":null}
+
+2018-05-28 14:35:18,331 [48] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 14:36:55,688 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.8863369637287839,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 14:36:55,698 [48] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 14:36:55,709 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.8863369637287839
+执行的时间:3.0079ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003},"IsOverdue":null}
+
+2018-05-28 15:13:11,966 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:13:11,966 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.5908543631478943,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:13:12,204 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.5908543631478943
+执行的时间:57.1521ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 15:29:43,972 [52] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:29:43,972 [49] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.5060129342446206,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:29:44,159 [54] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.5060129342446206
+执行的时间:50.135ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 15:30:56,551 [54] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.821403652907372,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:30:56,555 [41] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:30:56,570 [52] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.821403652907372
+执行的时间:6.0149ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 15:34:35,895 [35] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9003366128911364,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:34:35,902 [37] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:34:35,918 [51] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9003366128911364
+执行的时间:4.0114ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 15:34:54,451 [36] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.08503184814982068,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:34:54,470 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.08503184814982068
+执行的时间:5.0131ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 15:34:54,495 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:35:04,360 [31] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.2275154215793428,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 15:35:04,378 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.2275154215793428
+执行的时间:4.0114ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 15:35:04,392 [51] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:23:18,517 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.12333923404732416,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:23:18,517 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:23:18,712 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.12333923404732416
+执行的时间:47.1266ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:23:51,164 [5] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.4103635315564762,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:23:51,164 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:23:51,184 [11] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.4103635315564762
+执行的时间:6.016ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:24:29,956 [5] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:24:29,957 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9722124415249003,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:24:30,186 [11] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9722124415249003
+执行的时间:67.1798ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:25:21,447 [11] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.12684619935887265,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:25:21,466 [14] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:25:21,468 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.12684619935887265
+执行的时间:3.0081ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:25:49,063 [5] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.4938437538121707,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:25:49,079 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.4938437538121707
+执行的时间:3.0078ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:25:49,168 [11] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:25:57,404 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.8614075392269094,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:25:57,420 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.8614075392269094
+执行的时间:2.005ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:25:57,443 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:27:27,499 [14] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.11304482298650398,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:27:27,523 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.11304482298650398
+执行的时间:1.9868ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:27:27,557 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:32:52,699 [21] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.48444352396233903,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:32:52,712 [11] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:32:52,716 [22] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.48444352396233903
+执行的时间:3.0079ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:32:58,297 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.21934905708991215,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:32:58,306 [26] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:32:58,327 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.21934905708991215
+执行的时间:3.0133ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:33:00,511 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9560594905504913,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:00,516 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:00,529 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9560594905504913
+执行的时间:2.0054ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:33:18,220 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9147155461529823,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:18,259 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:18,263 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9147155461529823
+执行的时间:4.0122ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:33:27,177 [26] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.6343100912892525,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:27,177 [14] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:27,200 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.6343100912892525
+执行的时间:3.0081ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:33:27,839 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.20742620333500983,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:27,842 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:27,863 [19] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.20742620333500983
+执行的时间:3.0081ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":true},"IsOverdue":null}
+
+2018-05-28 16:33:40,971 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=SYS008BUT100201,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/Audit,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:33:41,077 [23] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/Audit
+执行的时间:29.0782ms
+请求的参数:{"CheckLogin":true,"CheckModuleRight":"SYS008BUT100201","request":{"WithdrawalsId":22,"AuditStatus":197002,"RejectMsg":"因存在财务税务风险，行圆内部员工不可在赤兔联盟后台提现，具体流程请联系吕琳燕，15650708968"}}
+返回的结果:{"Status":0,"Message":"操作成功","Result":{"RecID":22,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","Status":195001,"ApplicationDate":"2018-01-30 17:10:49","PayDate":"0001-01-01 00:00:00","OrderID":0,"PayeeID":1552,"Reason":null,"CreateTime":"2018-01-30 17:10:49","UserName":null,"TrueName":null,"UserTypeName":null,"PayStatusName":null,"SyncResult":null,"AsynResult":null,"AuditStatus":197003,"ApplySource":0,"AccumulatedIncome":0.0,"HaveWithdrawals":0.0,"SyncPayStatus":0},"IsOverdue":null}
+
+2018-05-28 16:33:41,302 [11] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.9400929820365918,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:33:41,317 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:33:41,475 [11] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 16:33:41,563 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.9400929820365918
+执行的时间:150.3993ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 16:33:43,306 [19] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.43639980778695575,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:33:43,324 [19] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197001","UserId":0}
+2018-05-28 16:33:43,343 [11] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.43639980778695575
+执行的时间:16.0423ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":30,"RecId":30,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":8888,"PayStatusName":null,"TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":29,"RecId":29,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":28,"RecId":28,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":27,"RecId":27,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"0001-01-01 00:00:00","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"2018-05-04 17:42:33","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":""},{"Id":20,"RecId":20,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null}],"TotleCount":5,"Extend":{"TotalMoney":1200.00}},"IsOverdue":null}
+
+2018-05-28 16:33:43,633 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.7924096803389611,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:33:43,648 [24] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197002","UserId":0}
+2018-05-28 16:33:43,662 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.7924096803389611
+执行的时间:14.034ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":"驳回","PayStatus":195002,"PayStatusName":"支付失败","TrueName":null,"AuditTime":"2018-05-28 16:33:41","AuditStatus":197002,"AuditStatusName":"驳回","RejectMsg":"因存在财务税务风险，行圆内部员工不可在赤兔联盟后台提现，具体流程请联系吕琳燕，15650708968"}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 16:50:26,739 [40] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:50:26,739 [44] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.942304345243036,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:50:26,870 [44] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 16:50:26,904 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.942304345243036
+执行的时间:28.0743ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotleCount":0,"Extend":{"TotalMoney":0.0}},"IsOverdue":null}
+
+2018-05-28 16:50:28,812 [50] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.25545406307720797,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:50:28,833 [50] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197001","UserId":0}
+2018-05-28 16:50:28,857 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197001&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.25545406307720797
+执行的时间:19.0847ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197001,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":30,"RecId":30,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":8888,"PayStatusName":null,"TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":29,"RecId":29,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":28,"RecId":28,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 17:42:35","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null},{"Id":27,"RecId":27,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"0001-01-01 00:00:00","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"2018-05-04 17:42:33","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":""},{"Id":20,"RecId":20,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197001,"AuditStatusName":"审核通过","RejectMsg":null}],"TotleCount":5,"Extend":{"TotalMoney":1200.00}},"IsOverdue":null}
+
+2018-05-28 16:50:29,563 [50] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.6637806605840888,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:50:29,583 [50] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197002","UserId":0}
+2018-05-28 16:50:29,595 [44] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197002&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.6637806605840888
+执行的时间:11.0302ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197002,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":"驳回","PayStatus":195002,"PayStatusName":"支付失败","TrueName":null,"AuditTime":"2018-05-28 16:33:41","AuditStatus":197002,"AuditStatusName":"驳回","RejectMsg":"因存在财务税务风险，行圆内部员工不可在赤兔联盟后台提现，具体流程请联系吕琳燕，15650708968"}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 16:50:54,864 [48] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8355719385678686,UrlRefer=http://admin1.chitunion.com/financemanager/presentmanagement-1.html?AuditStatus=197003
+2018-05-28 16:50:54,877 [48] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.AuditStatus = 197003","UserId":0}
+2018-05-28 16:50:54,895 [50] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetList?UserName=&StartDate=&EndDate=&AuditStatus=197003&OrderStatus=-2&BeginPayDate=&EndPayDate=&PageSize=20&PageIndex=1&r=0.8355719385678686
+执行的时间:19.0457ms
+请求的参数:{"CheckLogin":true,"request":{"OrderStatus":-2,"UserName":null,"AuditStatus":197003,"BeginPayDate":null,"EndPayDate":null,"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null,"UserId":0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":22,"RecId":22,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeAccount":"13717519733","PayDate":null,"Reason":"驳回","PayStatus":195002,"PayStatusName":"支付失败","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":197003,"AuditStatusName":"待审核","RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":800.00}},"IsOverdue":null}
+
+2018-05-28 16:50:56,631 [40] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.7781121200342394,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:50:56,657 [48] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:50:56,789 [20] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.7781121200342394
+执行的时间:100.2654ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:51:00,819 [50] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.7669582832928798,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:51:00,825 [26] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:51:00,852 [40] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.7669582832928798
+执行的时间:7.0189ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:51:01,043 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.04119248057104685,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:51:01,043 [40] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:51:01,072 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.04119248057104685
+执行的时间:5.0131ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:54:56,117 [21] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.8628975953795589,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:54:56,144 [21] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.8628975953795589
+执行的时间:11.0288ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:54:56,159 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:55:13,246 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.7935152675904563,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:55:13,266 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.7935152675904563
+执行的时间:4.0103ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:55:13,287 [48] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:55:28,055 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9303179876425524,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:55:28,066 [21] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:55:28,073 [22] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.9303179876425524
+执行的时间:5.0124ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+
+2018-05-28 16:56:09,034 [40] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.11236012244259652,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:56:09,055 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-05-28 16:56:09,067 [48] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.11236012244259652
+执行的时间:5.0136ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="xyautopageid" content="xyh5_chitu_news_list" />
+	<title>抢单赚钱</title>
+	<link rel="stylesheet" href="../dist/mescroll.min.css">
+	<link rel="stylesheet" href="../dist/swiper-3.3.1.min.css">
+	<link rel="stylesheet" href="../css/_personal.css?v=20180404">
+</head>
+	<body>
+
+		<!--滑动区域-->
+		<div id="mescroll" class="mescroll">
+			<!--轮播-->
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+					<!--<div class="swiper-slide">
+						<a href="http://mp.weixin.qq.com/s/lE0aHgJDlUFc7kul0ZM1Jg" class="task_banner"><img src="/images/banner1.png" ></a>
+					</div>-->
+			        <div class="swiper-slide">
+						<a href="https://mp.weixin.qq.com/s/VoXV2GFYOZFettx6mVxpKw" class="task_banner"><img src="/images/banner.png" ></a>
+					</div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <!--<div class="swiper-pagination"></div>-->
+			</div>
+
+			<!--
+				悬浮菜单:
+				1.ios的悬停效果,通过给navWarp添加sticky样式来实现
+				2.android和pc端悬停效果,通过监听mescroll的scroll事件,控制navContent是否为fixed定位来实现
+			-->
+			<div id="navWarp" class="navWarp mescroll-touch-x">
+				<ul id="navContent" class="nav">
+
+				</ul>
+				<a href="javascript:;" class='more' target="_blank" id='more' baidu_track_name='a' baidu_track_action='click' baidu_track_label="添加" baidu_track_val=""><img src="../images/add.png" alt=""></a>
+			</div>
+
+			<!--upscrollWarp用于装载上拉进度和数据列表,避免清空列表不满屏,导致点击悬浮菜单时会滑下来-->
+			<div id="upscrollWarp">
+				<!--展示上拉加载的数据列表-->
+				<div id="dataList" class="data-list">
+
+				</div>
+			</div>
+			<div class="shareBox"></div>
+			<img src="/images/tanchuang-2.png" class='shareImg' id='shareImg'>
+		</div>
+	</body>
+
+	<script src="../js/flexible.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="/api/weixincheck.ashx"></script>
+	<script src="../js/layer_mobile/layer.js"></script>
+	<script src="../dist/mescroll.min.js"></script>
+	<script src='../dist/swiper-3.3.1.min.js'></script>
+	<script src="../js/common_weChat.js"></script>
+	<script src="../js/common_share.js"></script>
+	<script src="js/make_money.js?v=20180510"></script>
+</html>

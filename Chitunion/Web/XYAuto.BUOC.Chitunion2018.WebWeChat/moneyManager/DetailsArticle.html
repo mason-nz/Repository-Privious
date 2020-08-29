@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情</title>
+    <!--<meta name="viewport"-->
+          <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <!--<link rel="stylesheet" href="/css/module.css">-->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="/js/common_weChat.js"></script>
+    <script src="../js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+    <script src="js/DetailsArticle.js"></script>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        body,html,iframe,.detailsArticle{
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        iframe{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="no_data" style="display: none">
+    <div>
+        <img src="../images/no_net.png">
+    </div>
+    <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+</div>
+<div class="detailsArticle netOk" id="app">
+    <iframe :src="MaterialUrl"></iframe>
+    <!--<div class="flex_justify_spaceBetween">-->
+        <!--<button>{{Price}}</button>-->
+        <!--<button @click="click_Share"><span>{{Share}}</span></button>-->
+    <!--</div>-->
+</div>
+</body>
+<script>
+    $('.detailsArticle>iframe').height($(window).height()+'px')
+</script>
+</html>

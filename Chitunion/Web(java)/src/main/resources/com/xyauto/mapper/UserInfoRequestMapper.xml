@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.UserInfoRequestMapper">
+	<resultMap id="BaseResultMap" type="com.xyauto.domain.UserInfoRequest">
+		<id column="UserID" jdbcType="INTEGER" property="userID" />
+		<id column="Category" jdbcType="INTEGER" property="category" />
+		<id column="UserName" jdbcType="VARCHAR" property="userName" />
+		<result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+		<result column="RoleID" jdbcType="VARCHAR" property="roleID" />
+		<result column="RoleName" jdbcType="VARCHAR" property="roleName" />
+		<result column="SysUserID" jdbcType="VARCHAR" property="sysUserID" />
+		<result column="SysID" jdbcType="VARCHAR" property="sysID" />
+		<result column="Pwd" jdbcType="VARCHAR" property="pwd" />
+		<result column="Type" jdbcType="INTEGER" property="type" />
+		<result column="Source" jdbcType="INTEGER" property="source" />
+		<result column="AuthAEUserID" jdbcType="INTEGER" property="authAEUserID" />
+		<result column="IsAuthAE" jdbcType="BIT" property="IsAuthAE" />
+		<result column="IsAuthMTZ" jdbcType="BIT" property="isAuthMTZ" />
+		<result column="AuthAEUserID" jdbcType="INTEGER" property="authAEUserID" />
+		<result column="Status" jdbcType="INTEGER" property="status" />
+		<result column="TrueName" jdbcType="VARCHAR" property="trueName" />
+		<result column="BusinessID" jdbcType="INTEGER" property="businessID" />
+		<result column="Count" jdbcType="INTEGER" property="count" />
+		<result column="PageRows" jdbcType="INTEGER" property="pageRows" />
+		<result column="CurPage" jdbcType="INTEGER" property="curPage" />
+		<result column="ProvinceID" jdbcType="INTEGER" property="provinceID" />
+		<result column="CityID" jdbcType="INTEGER" property="cityID" />
+		<result column="CounntyID" jdbcType="INTEGER" property="counntyID" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="CreateUserID" jdbcType="INTEGER" property="createUserID" />
+		<result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+		<result column="LastUpdateUserID" jdbcType="INTEGER" property="lastUpdateUserID" />
+	</resultMap>
+	<resultMap id="UserInfoOrderResultMap" type="com.xyauto.domain.UserInfoOrder">
+		<id column="CreateUserID" jdbcType="INTEGER" property="createUserID" />
+		<id column="SubOrderID" jdbcType="VARCHAR" property="subOrderID" />
+		<id column="MediaName" jdbcType="INTEGER" property="mediaTypeName" />
+		<id column="Status" jdbcType="INTEGER" property="status" />
+		<result column="OrderName" jdbcType="VARCHAR" property="orderName" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createTime" />
+	</resultMap>
+
+
+	<select id="getUserInfoOrder" parameterType="java.lang.String"
+		resultMap="UserInfoOrderResultMap">
+		p_SelectHomeMediuSubOrder #{strWhere}
+	</select>
+
+	<select id="checkMobileRegister" parameterType="com.xyauto.domain.UserInfoRequest"
+		resultMap="BaseResultMap">
+		select UserID,Mobile from UserInfo where Mobile
+		=
+		#{mobile,jdbcType=VARCHAR} and Category=#{category,jdbcType=INTEGER}
+	</select>
+	<insert id="registerUserInfo" useGeneratedKeys="true"
+		keyProperty="userID" parameterType="com.xyauto.domain.UserInfoRequest">
+		insert into UserInfo
+		(UserName,
+		Mobile, Pwd,Type,
+		Source, IsAuthAE, IsAuthMTZ,
+		Status,Category,
+		CreateTime,
+		LastUpdateTime)
+		values
+		(#{userName,jdbcType=VARCHAR},
+		#{mobile,jdbcType=VARCHAR},
+		#{pwd,jdbcType=VARCHAR},
+		#{type,jdbcType=INTEGER},
+		#{source,jdbcType=INTEGER},
+		#{IsAuthAE,jdbcType=BIT},
+		#{isAuthMTZ,jdbcType=BIT},
+		#{status,jdbcType=INTEGER},
+		#{category,jdbcType=INTEGER},
+		#{createTime,jdbcType=TIMESTAMP},
+		#{lastUpdateTime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="registerUserRole" parameterType="com.xyauto.domain.UserInfo">
+		insert into UserRole
+		(UserID,
+		RoleID, SysID,Status,CreateUserID,
+		CreateTime)
+		values
+		(#{userID,jdbcType=INTEGER},
+		#{roleID,jdbcType=VARCHAR},
+		#{sysID,jdbcType=VARCHAR},
+		#{status,jdbcType=INTEGER},
+		#{createUserID,jdbcType=INTEGER},
+		#{createTime,jdbcType=TIMESTAMP})
+	</insert>
+	<update id="updateUserInfo" parameterType="com.xyauto.domain.UserInfoRequest">
+		update UserInfo
+		set
+		<if test="userName != null and userName != ''">
+			UserName = #{userName,jdbcType=VARCHAR},
+		</if>
+		<if test="mobile != null and mobile != ''">
+			Mobile =#{mobile,jdbcType=VARCHAR},
+		</if>
+		<if test="pwd != null and pwd != ''">
+			Pwd = #{pwd,jdbcType=VARCHAR},
+		</if>
+		<if test="type != null">
+			Type = #{type,jdbcType=INTEGER},
+		</if>
+		<if test="source != null">
+			Source = #{source,jdbcType=INTEGER},
+		</if>
+		<if test="isAuthMTZ != null">
+			IsAuthMTZ= #{isAuthMTZ,jdbcType=BIT},
+		</if>
+		<if test="isAuthAE != null">
+			IsAuthAE= #{isAuthAE,jdbcType=BIT},
+		</if>
+		<if test="authAEUserID != null">
+			AuthAEUserID =#{authAEUserID,jdbcType=INTEGER},
+		</if>
+		<if test="sysUserID != null and sysUserID != ''">
+			SysUserID = #{sysUserID,jdbcType=VARCHAR},
+		</if>
+		<if test="employeeNumber != null and employeeNumber != ''">
+			EmployeeNumber =#{employeeNumber,jdbcType=VARCHAR},
+		</if>
+		<if test="status != null">
+			Status =#{status,jdbcType=INTEGER},
+		</if>
+		<if test="createUserID != null">
+			CreateUserID=#{createUserID,jdbcType=INTEGER},
+		</if>
+		LastUpdateTime =#{lastUpdateTime,jdbcType=TIMESTAMP},
+		LastUpdateUserID
+		=#{lastUpdateUserID,jdbcType=INTEGER}
+		where UserID
+		=#{userID,jdbcType=INTEGER}
+	</update>
+	<update id="updateUserAuthAE" parameterType="com.xyauto.domain.UserInfoRequest">
+		<foreach collection="list" item="item" index="index" open="begin"
+			close="end;" separator=";">
+			update UserInfo
+			<set>
+				<if test="item.lastUpdateTime != null ">
+					LastUpdateTime=#{item.lastUpdateTime,jdbcType=TIMESTAMP}
+				</if>
+				<if test="item.lastUpdateUserID != null ">
+					,LastUpdateUserID=#{item.lastUpdateUserID,jdbcType=INTEGER}
+				</if>
+				<if test="item.authAEUserID != null">
+					,AuthAEUserID=#{item.authAEUserID,jdbcType=INTEGER}
+				</if>
+			</set>
+			where UserID = #{item.userID}
+		</foreach>
+	</update>
+	<update id="updateUserPWD" parameterType="com.xyauto.domain.UserInfoRequest">
+		update UserInfo set
+		<if test="lastUpdateTime != null ">
+			LastUpdateTime=#{lastUpdateTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="lastUpdateUserID != null">
+			LastUpdateUserID=#{lastUpdateUserID,jdbcType=INTEGER},
+		</if>
+		<if test="pwd != null and pwd != '' ">
+			Pwd=#{pwd}
+		</if>
+		where UserID = #{userID} and Category=#{category}
+	</update>
+	<update id="upUserInfoByRquest" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="begin"
+			close="end;" separator=";">
+			update UserInfo
+			<set>
+				<if test="item.lastUpdateTime != null ">
+					LastUpdateTime=#{item.lastUpdateTime,jdbcType=TIMESTAMP}
+				</if>
+				<if test="item.lastUpdateUserID != null">
+					,LastUpdateUserID=#{item.lastUpdateUserID,jdbcType=INTEGER}
+				</if>
+				<if test="item.authAEUserID != null and item.authAEUserID!=-1">
+					,AuthAEUserID=#{item.authAEUserID}
+				</if>
+				<if test="item.status != null">
+					,Status=#{item.status}
+				</if>
+				<if test="item.pwd != null and item.pwd != '' ">
+					,Pwd=#{item.pwd}
+				</if>
+			</set>
+			where UserID = #{item.userID}
+		</foreach>
+	</update>
+	<select id="getUserOperationList" parameterType="com.xyauto.domain.UserInfoRequest"
+		resultMap="BaseResultMap" statementType="CALLABLE">
+		p_Page
+		'select
+		t1.UserID,t1.CreateTime,t1.UserName,t1.Mobile,t1.SysUserID,
+		t1.Status,t2.TrueName,ur.RoleID roleID,ri.RoleName,
+		t1.Category
+		yanfafrom UserInfo t1
+		left join
+		UserDetailInfo t2 on t1.UserID =
+		t2.UserID
+		left join UserDetailInfo t3
+		on t1.AuthAEUserID = t3.UserID
+		left join UserRole ur on
+		ur.UserID=t1.UserID
+		left join RoleInfo ri on
+		ri.RoleID=ur.RoleID
+		where ur.RoleID=''SYS001RL00001'' or
+		ur.RoleID=''SYS001RL00004'' or ur.RoleID=''SYS001RL00005'' or
+		ur.RoleID=''SYS001RL00006''
+		','t1.CreateTime
+		desc',#{curPage},#{pageRows},#{count,
+		jdbcType=INTEGER,mode=OUT}
+	</select>
+	<select id="selectAddUserList" parameterType="com.xyauto.domain.UserInfoRequest"
+		resultMap="BaseResultMap" statementType="CALLABLE">
+		p_Page 'select r.UserID,r.CreateTime,r.UserName,r.Mobile,r.SysUserID,
+		r.Status,r.TrueName,r.RoleID,r.RoleName, r.Category
+		yanfafrom (select
+		t1.UserID,t1.CreateTime,t1.UserName,t1.Mobile,t1.SysUserID,
+		t1.Status,t2.TrueName,ur.RoleID,ri.RoleName, t1.Category from UserInfo
+		t1 left join UserDetailInfo t2 on t1.UserID = t2.UserID left join
+		UserDetailInfo t3 on t1.AuthAEUserID = t3.UserID left join UserRole ur
+		on ur.UserID=t1.UserID left join RoleInfo ri on ri.RoleID=ur.RoleID
+		where ur.RoleID=''SYS001RL00001'' or ur.RoleID=''SYS001RL00004'' or
+		ur.RoleID=''SYS001RL00005'' or ur.RoleID=''SYS001RL00006'') r where
+		1=1
+		<if test="mobile != null and mobile != '' ">
+			AND r.Mobile LIKE ''%${mobile}%''
+		</if>
+		<if test="status != null and status!=-1 ">
+			AND r.Status = ''${status}''
+		</if>
+		<if test="trueName != null and trueName != '' ">
+			AND r.TrueName LIKE ''%${trueName}%''
+		</if>
+		<if test="roleID != null and roleID != ''and roleID !='-1'">
+			AND r.RoleID=''${roleID}''
+		</if>
+		','r.CreateTime desc',#{curPage},#{pageRows},#{count,
+		jdbcType=INTEGER,mode=OUT}
+	</select>
+	<select id="getAERole" parameterType="com.xyauto.domain.UserInfoRequest"
+		resultMap="BaseResultMap" statementType="CALLABLE">
+		p_Page
+		'select
+		ui.UserID,ud.TrueName,ui.UserName,ur.RoleID
+		yanfafrom UserInfo ui
+		left
+		join UserRole ur on ur.UserID=ui.UserID
+		left
+		join UserDetailInfo ud on
+		ud.UserID=ui.UserID
+		where 1=1 and
+		ur.RoleID=''${roleID}''','','','',''
+	</select>
+	<select id="getAEList" parameterType="java.lang.String"
+		resultType="com.xyauto.domain.AEAutocompleter">
+		p_Page
+		'select
+		ui.UserID value,ud.TrueName label
+		yanfafrom
+		UserInfo ui
+		left
+		join UserRole ur on ur.UserID=ui.UserID
+		left join
+		UserDetailInfo ud on ud.UserID=ui.UserID
+		where
+		ur.RoleID=''${_parameter}''','','','','-1'
+	</select>
+	<select id="getUserInfoReq" parameterType="com.xyauto.domain.UserInfoRequest"
+		resultMap="BaseResultMap" statementType="CALLABLE">
+		p_Page
+		'select
+		t1.UserID,t1.CreateTime,t1.UserName,t1.Mobile,t1.Type,t1.Source,t1.IsAuthAE,t1.AuthAEUserID,t1.SysUserID,
+		t1.EmployeeNumber,t1.Status,t2.TrueName,t2.BusinessID,t2.ProvinceID,t2.CityID,t2.CounntyID,
+		t2.Contact,t2.Address,t2.BLicenceURL,t2.IDCardFrontURL,t2.IDCardBackURL,t3.TrueName
+		as aeName,ur.RoleID roleID,
+		t1.Category
+		yanfaFrom UserInfo t1
+		left join
+		UserDetailInfo t2 on t1.UserID = t2.UserID
+		left join UserDetailInfo t3
+		on t1.AuthAEUserID = t3.UserID
+		left join UserRole ur on
+		ur.UserID=t1.UserID
+		where 1=1
+		<if test="roleID != null and roleID !=''">
+			AND ur.RoleID = ''${roleID}''
+		</if>
+		<if test="type != null and type !=-1 ">
+			AND t1.Type = ''${type}''
+		</if>
+		<if test="category != null">
+			AND t1.Category = ''${category}''
+		</if>
+		<if test="mobile != null and mobile != '' ">
+			AND t1.Mobile LIKE ''%${mobile}%''
+		</if>
+		<if test="source != null and source != -1 ">
+			AND t1.Source = ''${source}''
+		</if>
+		<if test="authAEUserID !=null and authAEUserID != '' ">
+			AND t1.AuthAEUserID = ''${authAEUserID}''
+		</if>
+		<if test="status != null and status!=-1 ">
+			AND t1.Status = ''${status}''
+		</if>
+		<if
+			test="createStartTime != null and createStartTime != '' and createEndTime != null and createEndTime != '' ">
+			AND ''${createStartTime}'' &lt;= t1.CreateTime and
+			t1.CreateTime&lt;=
+			''${createEndTime}''
+		</if>
+		<if test="createStartTime != null and createStartTime != ''">
+			<if test="createEndTime == null || createEndTime == ''">
+				AND t1.CreateTime >= ''${createStartTime}''
+			</if>
+		</if>
+		<if test="createEndTime != null and createEndTime != '' ">
+			<if test="createStartTime == null || createStartTime == ''">
+				AND t1.CreateTime &lt;= ''${createEndTime}''
+			</if>
+		</if>
+		<if test="trueName != null and trueName != '' ">
+			AND t2.TrueName LIKE ''%${trueName}%''
+		</if>
+		<if test="aeName != null and aeName != '' ">
+			AND t3.TrueName LIKE ''%${aeName}%''
+		</if>
+		<if test="businessID != null and businessID != -1 ">
+			AND t2.BusinessID =''${businessID}''
+		</if>
+		<if test="provinceID !=null and provinceID != -1 ">
+			AND t2.ProvinceID = ''${provinceID}''
+		</if>
+		<if test="counntyID !=null and counntyID != -1 ">
+			AND t2.CounntyID = ''${counntyID}''
+		</if>
+		<if test="cityID !=null and cityID != -1 ">
+			AND t2.CityID =''${cityID}''
+		</if>
+		','t1.CreateTime desc',#{curPage},#{pageRows},#{count,
+		jdbcType=INTEGER,mode=OUT}
+	</select>
+</mapper>

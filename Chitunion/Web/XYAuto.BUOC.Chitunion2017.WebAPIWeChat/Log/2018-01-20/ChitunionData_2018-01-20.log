@@ -1,0 +1,13 @@
+2018-01-20 17:54:26,326 [16] INFO  BaseLog [(null)] - [GetInfo jssdkUiPackage]:Senparc.Weixin.Exceptions.ErrorJsonResultException: 微信请求发生错误！错误代码：40125，说明：invalid appsecret, view more at http://t.cn/RAEkdVq hint: [UeZ9ea03712976]
+   在 Senparc.Weixin.HttpUtility.Get.GetJson[T](String url, Encoding encoding, Nullable`1 maxJsonLength)
+   在 Senparc.Weixin.MP.CommonAPIs.CommonApi.GetToken(String appid, String secret, String grant_type)
+   在 Senparc.Weixin.MP.Containers.AccessTokenContainer.GetAccessTokenResult(String appId, Boolean getNewToken)
+   在 Senparc.Weixin.MP.Containers.JsApiTicketContainer.GetJsApiTicketResult(String appId, Boolean getNewTicket)
+   在 Senparc.Weixin.MP.Helpers.JSSDKHelper.GetJsSdkUiPackage(String appId, String appSecret, String url)
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.WeixinJSSDKController.GetInfo() 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\WeixinJSSDKController.cs:行号 52
+2018-01-20 18:47:10,650 [9] INFO  BaseLog [(null)] - [GetInfo jssdkUiPackage]:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.WeixinJSSDKController.GetInfo(JsSdkUI para) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\WeixinJSSDKController.cs:行号 52
+2018-01-20 18:47:35,916 [34] INFO  BaseLog [(null)] - [GetInfo jssdkUiPackage]:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.WeixinJSSDKController.GetInfo(JsSdkUI para) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\WeixinJSSDKController.cs:行号 52
+2018-01-20 18:51:41,158 [9] INFO  BaseLog [(null)] - [GetInfo jssdkUiPackage]:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.WeixinJSSDKController.GetInfo(JsSdkUI para) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\WeixinJSSDKController.cs:行号 52

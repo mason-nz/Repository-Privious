@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #f3f3f3;">
+<head>
+    <meta charset="UTF-8">
+    <title>手机号码</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/_common.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/_userInfo.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="/js/common_weChat.js"></script>
+    <script src="/js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+</head>
+<body>
+<div class="no_data" style="display: none">
+    <div>
+        <img src="../images/no_net.png">
+    </div>
+    <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+</div>
+<div class="container-fluid PersonalInformation userinfo-wrap netOk" id="app">
+    <input type="hidden" id="type">
+    <!--<header :class="header_hide">-->
+        <!--{{header_text}}-->
+    <!--</header>-->
+    <main>
+        <article class="personalData" v-if="type == 'addAccount'">
+            <div class="flex_justify_spaceBetween">
+                <input type="text" placeholder="请输入支付宝账号" v-model="Alipay">
+            </div>
+        </article>
+        <article class="personalData" v-else-if="type == 'changeAccount'">
+            <div class="flex_justify_spaceBetween">
+                <input type="text" placeholder="请输入旧支付宝账号" v-model="Alipay">
+            </div>
+            <div class="flex_justify_spaceBetween">
+                <input type="text" placeholder="请输入新支付宝账号" v-model="newAlipay">
+            </div>
+        </article>
+        <div class="flex_justify_center">
+            <button id="js_save_btn" @click="toClickSaveBtn" class="btn_bg Thegrey">保存</button>
+        </div>
+    </main>
+</div>
+</body>
+<script src="js/userInfoAccount.js?v=20180409"></script>
+</html>

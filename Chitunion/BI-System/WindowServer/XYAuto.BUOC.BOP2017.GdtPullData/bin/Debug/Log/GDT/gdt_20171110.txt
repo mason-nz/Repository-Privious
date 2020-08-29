@@ -1,0 +1,714 @@
+2017-11-10 14:38:37,910 [9] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 14:44:45,630 [9] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 14:44:50,949 [9] INFO  GDTLog [(null)] -  GdtAccuntScheduler DoPullAccountUserInfo start..
+2017-11-10 14:47:01,788 [9] ERROR GDTLog [(null)] - CurrentSchedulerServer Start is error :未能找到文件“D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-商业运营系统\WindowServer\XYAuto.BUOC.BOP2017.GdtPullData\bin\Debug\PullConfigLable\config_lable_account.txt”。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   在 System.IO.File.InternalReadAllText(String path, Encoding encoding, Boolean checkHost)
+   在 System.IO.File.ReadAllText(String path, Encoding encoding)
+   在 XYAuto.BUOC.BOP2017.BLL.GDT.PullConfigLable.PullConfigLableProvider.GetConfig[T](PullCategoryEnum pullCategoryEnum) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-商业运营系统\XYAuto.BUOC.BOP2017.BLL\GDT\PullConfigLable\PullConfigLableProvider.cs:行号 28
+   在 XYAuto.BUOC.BOP2017.BLL.GDT.GdtLogicProvider.DoPullAccountUserInfo(Int32 accountId) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-商业运营系统\XYAuto.BUOC.BOP2017.BLL\GDT\GdtLogicProvider.cs:行号 55
+   在 XYAuto.BUOC.BOP2017.GdtPullData.Provider.GdtAccuntScheduler.Execute() 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-商业运营系统\WindowServer\XYAuto.BUOC.BOP2017.GdtPullData\Provider\GdtAccuntScheduler.cs:行号 23
+   在 XYAuto.BUOC.BOP2017.GdtPullData.Scheduler.CurrentRegistryScheduler.SetSchedulerEveryHoursList() 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-商业运营系统\WindowServer\XYAuto.BUOC.BOP2017.GdtPullData\Scheduler\CurrentRegistryScheduler.cs:行号 34
+   在 XYAuto.BUOC.BOP2017.GdtPullData.Scheduler.CurrentRegistryScheduler..ctor() 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-商业运营系统\WindowServer\XYAuto.BUOC.BOP2017.GdtPullData\Scheduler\CurrentRegistryScheduler.cs:行号 109
+   在 XYAuto.BUOC.BOP2017.GdtPullData.CurrentSchedulerServer.Start(HostControl hostControl) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-商业运营系统\WindowServer\XYAuto.BUOC.BOP2017.GdtPullData\CurrentSchedulerServer.cs:行号 23
+2017-11-10 14:47:22,745 [10] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 14:47:28,951 [10] INFO  GDTLog [(null)] -  GdtAccuntScheduler DoPullAccountUserInfo start..
+2017-11-10 14:48:54,019 [10] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 14:49:02,215 [10] INFO  GDTLog [(null)] -  GdtAccuntScheduler DoPullAccountUserInfo start..
+2017-11-10 14:56:52,766 [9] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 14:56:52,801 [9] INFO  GDTLog [(null)] -  GdtAccuntScheduler DoPullAccountUserInfo start..
+2017-11-10 14:57:55,131 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://sandbox-api.e.qq.com/v1.0/advertiser/get?access_token=39d1314ff788dce84f7b533f23d39b0b&timestamp=1510297068&nonce=429b294aab42431a8f6d01e7f4e2f376&page=1&page_size=20
+请求参数:
+花费时间:2425.4372ms
+接口返回数据:{"data":{"list":[{"account_id":100000606,"corporation_name":"????????1","system_status":"CUSTOMER_STATUS_NORMAL","reject_message":"","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474836686,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"1308:f35510517eefec24c188be6120e72de2","certification_image":"","website":"http:\/\/www.chitunion.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"1308:8c15fd8541f9d943362eae5f88b1f22e","icp_image":"","mp_info":{"wechat_account_name":"hugo_test","system_status":"MP_STATUS_NORMAL","system_industry_id":3003,"industry_name":"汽车-汽车用品","contact_person":"bella","contact_person_telephone":"13588889999","business_type":"UNKNOWN","business_content":""}},{"account_id":100000607,"corporation_name":"????????2","system_status":"CUSTOMER_STATUS_NORMAL","reject_message":"","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474836686,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"1308:f35510517eefec24c188be6120e72de2","certification_image":"","website":"http:\/\/www.chitunion.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"1308:8c15fd8541f9d943362eae5f88b1f22e","icp_image":"","mp_info":{"wechat_account_name":"hugo_test","system_status":"MP_STATUS_NORMAL","system_industry_id":3003,"industry_name":"汽车-汽车用品","contact_person":"bella","contact_person_telephone":"13588889999","business_type":"UNKNOWN","business_content":""}},{"account_id":100000608,"corporation_name":"%e4%bc%81%e4%b8%9a%e5%90%8d%e7%a7%b0%e2%80%94%e2%80%94%e6%b5%8b%e8%af%952","system_status":"CUSTOMER_STATUS_NORMAL","reject_message":"","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474836686,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"1308:f35510517eefec24c188be6120e72de2","certification_image":"","website":"http:\/\/www.chitunion.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"1308:8c15fd8541f9d943362eae5f88b1f22e","icp_image":"","mp_info":{"wechat_account_name":"hugo_test","system_status":"MP_STATUS_NORMAL","system_industry_id":3003,"industry_name":"汽车-汽车用品","contact_person":"bella","contact_person_telephone":"13588889999","business_type":"UNKNOWN","business_content":""}},{"account_id":100000611,"corporation_name":"企业名称——测试2","system_status":"CUSTOMER_STATUS_NORMAL","reject_message":"","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474836686,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"1308:f35510517eefec24c188be6120e72de2","certification_image":"","website":"http:\/\/www.chitunion.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"1308:8c15fd8541f9d943362eae5f88b1f22e","icp_image":"","mp_info":{"wechat_account_name":"hugo_test","system_status":"MP_STATUS_NORMAL","system_industry_id":3003,"industry_name":"汽车-汽车用品","contact_person":"bella","contact_person_telephone":"13588889999","business_type":"UNKNOWN","business_content":""}},{"account_id":100000612,"corporation_name":"企业名称——测试2","system_status":"CUSTOMER_STATUS_NORMAL","reject_message":"","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474836686,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"1308:f35510517eefec24c188be6120e72de2","certification_image":"","website":"http:\/\/www.chitunion.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"1308:8c15fd8541f9d943362eae5f88b1f22e","icp_image":"","mp_info":{"wechat_account_name":"hugo_test","system_status":"MP_STATUS_NORMAL","system_industry_id":3003,"industry_name":"汽车-汽车用品","contact_person":"bella","contact_person_telephone":"13588889999","business_type":"UNKNOWN","business_content":""}}],"page_info":{"page":1,"page_size":20,"total_number":5,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 14:58:41,927 [9] INFO  GDTLog [(null)] - GdtAccuntScheduler DoPullAccountUserInfo is completed,DoPullAccountUserInfo  获取资金账户流水入库完成
+2017-11-10 15:43:04,943 [10] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 15:43:05,011 [10] INFO  GDTLog [(null)] -  GdtAccuntScheduler DoPullAccountUserInfo start..
+2017-11-10 15:58:45,153 [10] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/advertiser/get?access_token=dc5dff01afbf47df5b11d2bf425b62b8&timestamp=1510300670&nonce=29d959559e5e423aa938d5fd23fa04e8&page=1&page_size=100
+请求参数:
+花费时间:9832.154ms
+接口返回数据:{"code":11002,"message":"Access token is invalid."}
+
+2017-11-10 16:39:15,225 [9] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 16:39:15,261 [9] INFO  GDTLog [(null)] -  GdtAccuntScheduler DoPullAccountUserInfo start..
+2017-11-10 16:39:30,721 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/advertiser/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303155&nonce=e8400ba07bfe405bb5847d205ab84965&page=1&page_size=100
+请求参数:
+花费时间:721.92ms
+接口返回数据:{"data":{"list":[{"account_id":5469050,"corporation_name":"行圆-子客1","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"请正确上传申请企业营业执照 || 推广行业内容不明确，请使用与申请公司相关的网站链接，若网站非申请企业备案，还需在账户中心提交开户申请页面下载授权书模板填写相关信息并加盖双方公章上传","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AD0ADyAAQBZnOZFDo7_gzy-.jpg\/0?ck=eea94981769fd42fe867fc3e65c6913f","website":"http:\/\/oa.xingyuanauto.com\/login.aspx?gourl=http:\/\/oa.xingyuanauto.com\/index.html","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1ACxACwAAKBZnOZRAL975a5J.jpg\/0?ck=b5742f522fad0f68b4715fa7782ba658"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]},{"account_id":5469086,"corporation_name":"行圆-子客2","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"请正确上传申请企业营业执照 || 推广行业内容不明确，请使用与申请公司相关的网站链接，若网站非申请企业备案，还需在账户中心提交开户申请页面下载授权书模板填写相关信息并加盖双方公章上传","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB3AB3AAFBZnOakAHuaNy5p.jpg\/0?ck=fc98854869d9545a8a94a216451b2331","website":"http:\/\/oa.xingyuanauto.com","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB-AB3AAFBZnOauA9lEif0U.jpg\/0?ck=14a11aa76088ac9fe60441e7786082aa"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]},{"account_id":5469137,"corporation_name":"行圆-子客3","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"请正确上传申请企业营业执照 || 推广行业内容不明确，请使用与申请公司相关的网站链接，若网站非申请企业备案，还需在账户中心提交开户申请页面下载授权书模板填写相关信息并加盖双方公章上传","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB6AB9AAFBZnOdDBbjp8Ibg.jpg\/0?ck=956c891c9a2002052aea1f4e0d832f67","website":"http:\/\/oa.xingyuanauto.com\/login.aspx","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB6AB9AAFBZnOdOCi-wbk87.jpg\/0?ck=956c891c9a2002052aea1f4e0d832f67"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]},{"account_id":6310269,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"重复提交开户，请发送邮件至ads_ss@tencent.com说明需要重复开户的原因","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474840481,"customized_industry":"","corporation_licence":"91110108MA009QYB3C","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4ACaBZ7xCXB2W78ngn.jpg\/0?ck=a106f72ddee82570c7cf8c186994c428","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4AC_BZ7xCeB9o39pmX.jpg\/0?ck=17e2bad6b0cdd5b95fb12516a870a0d8"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ7xCMA2R9muEH.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ7xPSDVRpov_y.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":6317333,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_NORMAL","reject_message":"","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839381,"customized_industry":"","corporation_licence":"91110108MA009QYB3C","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AH5AFVABvBZ8AOlBMYng_nt.png\/0?ck=90edf31900186ed1fe7a2dbd4fb51afc","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AH7AExAByBZ8AOqB4JKIJQq.png\/0?ck=61123addd7f20c5fe69a63371d3a36e1"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ8AOaDoVWYQ91.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ8AK0ARjTLLeZ.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":6315342,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"重复提交开户，请发送邮件至ads_ss@tencent.com说明需要重复开户的原因","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474840481,"customized_industry":"","corporation_licence":"91110108MA009QYB3C","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4ACaBZ7-edDkUavgED.jpg\/0?ck=a106f72ddee82570c7cf8c186994c428","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4AC_BZ7-eiDd6PIrw2.jpg\/0?ck=17e2bad6b0cdd5b95fb12516a870a0d8"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ7-ePCZjmpi4j.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ7-eKBKIjg8Tz.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":6310390,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"法人身份证涉嫌PS","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474840481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4ACaBZ7xblDiBc--Hf.jpg\/0?ck=a106f72ddee82570c7cf8c186994c428","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4AC_BZ7xbpDhdq8la0.jpg\/0?ck=17e2bad6b0cdd5b95fb12516a870a0d8"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ7xbVClZNWECh.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ7xbJDFaL0YXM.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":5389952,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"重复提交开户，请发送邮件至ads_ss@tencent.com说明需要重复开户的原因 || 请正确上传申请企业营业执照","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1ADIADIAACBZlUbKBph9sV1g.png\/0?ck=5fd574fc990b180805e10e814319c4d7","website":"http:\/\/www.chitunion.com","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1ADIADIAADBZlUb2Ck-tQzGZ.png\/0?ck=f0cfd4126d8d3a5b5c247eceb604d029"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]}],"page_info":{"page":1,"page_size":100,"total_number":8,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:40:12,883 [9] INFO  GDTLog [(null)] - GdtAccuntScheduler DoPullAccountUserInfo is completed,DoPullAccountUserInfo  获取资金账户流水入库完成
+2017-11-10 16:45:51,052 [9] INFO  GDTLog [(null)] - CurrentSchedulerServer服务开始
+2017-11-10 16:45:51,080 [9] INFO  GDTLog [(null)] -  GdtAccuntScheduler DoPullAccountUserInfo start..
+2017-11-10 16:45:55,520 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/advertiser/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303551&nonce=1c7ca5638b1a4c25a13891b9706676ec&page=1&page_size=100
+请求参数:
+花费时间:660.3823ms
+接口返回数据:{"data":{"list":[{"account_id":5469050,"corporation_name":"行圆-子客1","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"请正确上传申请企业营业执照 || 推广行业内容不明确，请使用与申请公司相关的网站链接，若网站非申请企业备案，还需在账户中心提交开户申请页面下载授权书模板填写相关信息并加盖双方公章上传","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AD0ADyAAQBZnOZFDo7_gzy-.jpg\/0?ck=eea94981769fd42fe867fc3e65c6913f","website":"http:\/\/oa.xingyuanauto.com\/login.aspx?gourl=http:\/\/oa.xingyuanauto.com\/index.html","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1ACxACwAAKBZnOZRAL975a5J.jpg\/0?ck=b5742f522fad0f68b4715fa7782ba658"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]},{"account_id":5469086,"corporation_name":"行圆-子客2","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"请正确上传申请企业营业执照 || 推广行业内容不明确，请使用与申请公司相关的网站链接，若网站非申请企业备案，还需在账户中心提交开户申请页面下载授权书模板填写相关信息并加盖双方公章上传","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB3AB3AAFBZnOakAHuaNy5p.jpg\/0?ck=fc98854869d9545a8a94a216451b2331","website":"http:\/\/oa.xingyuanauto.com","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB-AB3AAFBZnOauA9lEif0U.jpg\/0?ck=14a11aa76088ac9fe60441e7786082aa"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]},{"account_id":5469137,"corporation_name":"行圆-子客3","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"请正确上传申请企业营业执照 || 推广行业内容不明确，请使用与申请公司相关的网站链接，若网站非申请企业备案，还需在账户中心提交开户申请页面下载授权书模板填写相关信息并加盖双方公章上传","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB6AB9AAFBZnOdDBbjp8Ibg.jpg\/0?ck=956c891c9a2002052aea1f4e0d832f67","website":"http:\/\/oa.xingyuanauto.com\/login.aspx","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AB6AB9AAFBZnOdOCi-wbk87.jpg\/0?ck=956c891c9a2002052aea1f4e0d832f67"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]},{"account_id":6310269,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"重复提交开户，请发送邮件至ads_ss@tencent.com说明需要重复开户的原因","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474840481,"customized_industry":"","corporation_licence":"91110108MA009QYB3C","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4ACaBZ7xCXB2W78ngn.jpg\/0?ck=a106f72ddee82570c7cf8c186994c428","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4AC_BZ7xCeB9o39pmX.jpg\/0?ck=17e2bad6b0cdd5b95fb12516a870a0d8"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ7xCMA2R9muEH.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ7xPSDVRpov_y.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":6317333,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_NORMAL","reject_message":"","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839381,"customized_industry":"","corporation_licence":"91110108MA009QYB3C","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AH5AFVABvBZ8AOlBMYng_nt.png\/0?ck=90edf31900186ed1fe7a2dbd4fb51afc","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AH7AExAByBZ8AOqB4JKIJQq.png\/0?ck=61123addd7f20c5fe69a63371d3a36e1"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ8AOaDoVWYQ91.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ8AK0ARjTLLeZ.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":6315342,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"重复提交开户，请发送邮件至ads_ss@tencent.com说明需要重复开户的原因","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474840481,"customized_industry":"","corporation_licence":"91110108MA009QYB3C","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4ACaBZ7-edDkUavgED.jpg\/0?ck=a106f72ddee82570c7cf8c186994c428","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4AC_BZ7-eiDd6PIrw2.jpg\/0?ck=17e2bad6b0cdd5b95fb12516a870a0d8"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ7-ePCZjmpi4j.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ7-eKBKIjg8Tz.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":6310390,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"法人身份证涉嫌PS","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474840481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":{"identification_front":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4ACaBZ7xblDiBc--Hf.jpg\/0?ck=a106f72ddee82570c7cf8c186994c428","identification_back":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AWgAQ4AC_BZ7xbpDhdq8la0.jpg\/0?ck=17e2bad6b0cdd5b95fb12516a870a0d8"},"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQ4AWgACZBZ7xbVClZNWECh.jpg\/0?ck=bc88e8b1c5b0b07ee47e6a4fe5de4f3c","website":"http:\/\/www.qichedaquan.com","industry_qualification_image_id_list":[],"industry_qualification_image":[],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1AQFAEQAAaBZ7xbJDFaL0YXM.png\/0?ck=f5ec3eaae5b7d627ba3cf8ba727e3db7","mp_info":[]},{"account_id":5389952,"corporation_name":"北京行圆汽车信息技术有限公司","system_status":"CUSTOMER_STATUS_DENIED","reject_message":"重复提交开户，请发送邮件至ads_ss@tencent.com说明需要重复开户的原因 || 请正确上传申请企业营业执照","corporate_image_name":"","corporate_image_logo":"","icp_number":"","system_industry_id":21474839481,"customized_industry":"","corporation_licence":"","identity_number":"","contact_person":"","contact_person_email":"","contact_person_telephone":"","contact_person_mobile":"","individual_qualification":[],"certification_image_id":"","certification_image":"http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1ADIADIAACBZlUbKBph9sV1g.png\/0?ck=5fd574fc990b180805e10e814319c4d7","website":"http:\/\/www.chitunion.com","industry_qualification_image_id_list":[],"industry_qualification_image":["http:\/\/pgdt.gtimg.cn\/gdt\/0\/DC-PUC1ADIADIAADBZlUb2Ck-tQzGZ.png\/0?ck=f0cfd4126d8d3a5b5c247eceb604d029"],"ad_qualification_image_id_list":[],"ad_qualification_image":[],"daily_budget":1000000,"icp_image_id":"","icp_image":"","mp_info":[]}],"page_info":{"page":1,"page_size":100,"total_number":8,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:46:44,683 [9] INFO  GDTLog [(null)] - GdtAccuntScheduler DoPullAccountUserInfo is completed,DoPullAccountUserInfo  获取资金账户流水入库完成
+2017-11-10 16:46:51,192 [9] INFO  GDTLog [(null)] -  GdtAdsScheduler DoPullGetAdGroupList start..
+2017-11-10 16:46:51,311 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303611&nonce=7fa2a1f74bc045f2809fed7ea45d3409&account_id=1308&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:105.2799ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:46:51,318 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":1308,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:46:51,323 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":1308,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:46:52,280 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303612&nonce=b9c55bfd9a284b9fa8f80f746c0b260b&account_id=100000606&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:102.2732ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:46:52,280 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000606,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:46:52,280 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000606,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:46:53,323 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303613&nonce=a798365540ca48dbbf35d13533e52192&account_id=100000607&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:113.3034ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:46:53,323 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000607,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:46:53,324 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000607,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:46:54,361 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303614&nonce=edd91f70673e419880a28aca712e0e8d&account_id=100000608&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:103.2757ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:46:54,361 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000608,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:46:54,361 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000608,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:46:55,280 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303615&nonce=8b94eaa9c81141c4908552e7085acc02&account_id=100000611&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:107.822ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:46:55,280 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000611,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:46:55,280 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000611,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:46:59,097 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303618&nonce=ab4668690d724f18bdb23a94a1e492fe&account_id=100000612&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:107.775ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:46:59,097 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000612,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:46:59,097 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000612,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:00,076 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303619&nonce=7d372c0e17d74d27bd30cdccdd3b19b8&account_id=5469050&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:296.4157ms
+接口返回数据:{"data":{"list":[],"page_info":{"page":1,"page_size":20,"total_number":0,"total_page":0}},"code":0,"message":""}
+
+2017-11-10 16:47:00,082 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5469050,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:00,082 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5469050,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:00,963 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303620&nonce=b8d9c8c3d0f645aa8dd41ef939960ba0&account_id=5469086&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:261.6952ms
+接口返回数据:{"data":{"list":[],"page_info":{"page":1,"page_size":20,"total_number":0,"total_page":0}},"code":0,"message":""}
+
+2017-11-10 16:47:00,963 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5469086,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:00,963 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5469086,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:01,895 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303621&nonce=d48e569037ff48d7bcab56473a608384&account_id=5469137&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:271.6205ms
+接口返回数据:{"data":{"list":[],"page_info":{"page":1,"page_size":20,"total_number":0,"total_page":0}},"code":0,"message":""}
+
+2017-11-10 16:47:01,895 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5469137,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:01,895 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5469137,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:03,067 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303622&nonce=59bdd2ad715e4d958e22d5ef26cc0db2&account_id=6310269&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:270.6089ms
+接口返回数据:{"data":{"list":[],"page_info":{"page":1,"page_size":20,"total_number":0,"total_page":0}},"code":0,"message":""}
+
+2017-11-10 16:47:03,067 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":6310269,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:03,067 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":6310269,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:04,155 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303623&nonce=36330181080749f296f1ccdea52d9c19&account_id=6317333&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:427.6333ms
+接口返回数据:{"data":{"list":[{"adgroup_id":39513561,"campaign_id":7211217,"configured_status":"AD_STATUS_SUSPEND","adgroup_name":"浏览器、手腾网、手机QQ-640×288单图(文)-20171109","billing_event":"BILLINGEVENT_CLICK","bid_amount":101,"optimization_goal":"OPTIMIZATIONGOAL_CLICK","targeting_id":25114952,"time_series":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","site_set":["SITE_SET_MOBILE_INNER"],"product_type":"PRODUCT_TYPE_LINK","product_refs_id":"","sub_product_refs_id":"","reject_message":"null","created_time":1510210537,"last_modified_time":1510220518,"customized_category":"","frequency_capping":0,"daily_budget":0,"system_status":"AD_STATUS_NORMAL","begin_date":"2017-11-09","end_date":"1970-01-01"},{"adgroup_id":39512295,"campaign_id":7211217,"configured_status":"AD_STATUS_NORMAL","adgroup_name":"QQ浏览器-640×200单图(文)-20171109","billing_event":"BILLINGEVENT_CLICK","bid_amount":82,"optimization_goal":"OPTIMIZATIONGOAL_CLICK","targeting_id":25431331,"time_series":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","site_set":["SITE_SET_MOBILE_INNER"],"product_type":"PRODUCT_TYPE_LINK","product_refs_id":"","sub_product_refs_id":"","reject_message":"null","created_time":1510210030,"last_modified_time":1510212454,"customized_category":"","frequency_capping":0,"daily_budget":0,"system_status":"AD_STATUS_NORMAL","begin_date":"2017-11-09","end_date":"1970-01-01"},{"adgroup_id":39143688,"campaign_id":7211217,"configured_status":"AD_STATUS_NORMAL","adgroup_name":"Feed消息流-1000×560单图(文)创意3-20171103","billing_event":"BILLINGEVENT_CLICK","bid_amount":110,"optimization_goal":"OPTIMIZATIONGOAL_CLICK","targeting_id":25254252,"time_series":"000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","site_set":["SITE_SET_MOBILE_INNER"],"product_type":"PRODUCT_TYPE_LINK","product_refs_id":"","sub_product_refs_id":"","reject_message":"null","created_time":1509697886,"last_modified_time":1510220457,"customized_category":"","frequency_capping":0,"daily_budget":0,"system_status":"AD_STATUS_NORMAL","begin_date":"2017-11-09","end_date":"2017-11-15"},{"adgroup_id":39067709,"campaign_id":7211217,"configured_status":"AD_STATUS_SUSPEND","adgroup_name":"手机QQ-147×147单图(文)-20171102","billing_event":"BILLINGEVENT_CLICK","bid_amount":101,"optimization_goal":"OPTIMIZATIONGOAL_CLICK","targeting_id":25385211,"time_series":"000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","site_set":["SITE_SET_MOBILE_INNER"],"product_type":"PRODUCT_TYPE_LINK","product_refs_id":"","sub_product_refs_id":"","reject_message":"null","created_time":1509615766,"last_modified_time":1510277168,"customized_category":"","frequency_capping":0,"daily_budget":0,"system_status":"AD_STATUS_NORMAL","begin_date":"2017-11-09","end_date":"2017-11-15"},{"adgroup_id":39066789,"campaign_id":7211217,"configured_status":"AD_STATUS_NORMAL","adgroup_name":"浏览器及手腾网-240×180多图(文)-20171102","billing_event":"BILLINGEVENT_CLICK","bid_amount":131,"optimization_goal":"OPTIMIZATIONGOAL_CLICK","targeting_id":25385271,"time_series":"000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","site_set":["SITE_SET_MOBILE_INNER"],"product_type":"PRODUCT_TYPE_LINK","product_refs_id":"","sub_product_refs_id":"","reject_message":"null","created_time":1509615361,"last_modified_time":1510209331,"customized_category":"","frequency_capping":0,"daily_budget":0,"system_status":"AD_STATUS_NORMAL","begin_date":"2017-11-09","end_date":"2017-11-15"},{"adgroup_id":39063254,"campaign_id":7211217,"configured_status":"AD_STATUS_NORMAL","adgroup_name":"Feed消息流-1000×560单图(文)创意2-20171102","billing_event":"BILLINGEVENT_CLICK","bid_amount":110,"optimization_goal":"OPTIMIZATIONGOAL_CLICK","targeting_id":25385366,"time_series":"000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","site_set":["SITE_SET_MOBILE_INNER"],"product_type":"PRODUCT_TYPE_LINK","product_refs_id":"","sub_product_refs_id":"","reject_message":"null","created_time":1509613766,"last_modified_time":1510220457,"customized_category":"","frequency_capping":0,"daily_budget":0,"system_status":"AD_STATUS_NORMAL","begin_date":"2017-11-09","end_date":"2017-11-15"},{"adgroup_id":39062607,"campaign_id":7211217,"configured_status":"AD_STATUS_NORMAL","adgroup_name":"Feed消息流-1000×560单图(文)创意1-20171102","billing_event":"BILLINGEVENT_CLICK","bid_amount":110,"optimization_goal":"OPTIMIZATIONGOAL_CLICK","targeting_id":25385449,"time_series":"000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","site_set":["SITE_SET_MOBILE_INNER"],"product_type":"PRODUCT_TYPE_LINK","product_refs_id":"","sub_product_refs_id":"","reject_message":"null","created_time":1509613589,"last_modified_time":1510220457,"customized_category":"","frequency_capping":0,"daily_budget":0,"system_status":"AD_STATUS_NORMAL","begin_date":"2017-11-09","end_date":"2017-11-15"}],"page_info":{"page":1,"page_size":20,"total_number":7,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:04,261 [9] INFO  GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is completed,DoPullGetAdGroupList  获取广告组列表入库完成
+2017-11-10 16:47:04,504 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303624&nonce=2efb177737ce4dffb0bd2aed08b6fbee&account_id=6315342&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:243.1885ms
+接口返回数据:{"data":{"list":[],"page_info":{"page":1,"page_size":20,"total_number":0,"total_page":0}},"code":0,"message":""}
+
+2017-11-10 16:47:04,504 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":6315342,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:04,504 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":6315342,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:05,434 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303625&nonce=971769fe4b1548399011aac6d35f99de&account_id=6310390&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:290.2229ms
+接口返回数据:{"data":{"list":[],"page_info":{"page":1,"page_size":20,"total_number":0,"total_page":0}},"code":0,"message":""}
+
+2017-11-10 16:47:05,434 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":6310390,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:05,434 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":6310390,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:06,614 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/adgroups/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303626&nonce=770eaa11fb0b4e52931e54c8cdde1250&account_id=5389952&page=1&page_size=20&filtering=[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}]
+请求参数:
+花费时间:224.5059ms
+接口返回数据:{"data":{"list":[],"page_info":{"page":1,"page_size":20,"total_number":0,"total_page":0}},"code":0,"message":""}
+
+2017-11-10 16:47:06,614 [9] INFO  GDTLog [(null)] - 获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5389952,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":[{"field":"system_status","operator":"EQUALS","values":["AD_STATUS_NORMAL"]}],"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:06,614 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdGroupList is error,{"HasError":true,"ErrorCode":"10007","Message":"获取广告组列表 GetAdGroupList为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5389952,\"DateRange\":null,\"Date\":null,\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":[{\"field\":\"system_status\",\"operator\":\"EQUALS\",\"values\":[\"AD_STATUS_NORMAL\"]}],\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:10,729 [9] INFO  GDTLog [(null)] -  GdtAdsScheduler DoPullGetAdCampaignsList start..
+2017-11-10 16:47:10,916 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303630&nonce=7fc184c70c1040148cbbd751338d907d&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:185.2365ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180784686.8622.165054.9103.23659"}
+
+2017-11-10 16:47:10,917 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:10,917 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,070 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303630&nonce=10fdb8526fa8423f84c36cfc0cc64ff8&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:152.8748ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783403.9662.165054.3244.69868"}
+
+2017-11-10 16:47:11,070 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,070 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,281 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303631&nonce=18a38041c0964bfca224a50c3180bde0&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:211.1811ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783404.8120.165054.4541.49567"}
+
+2017-11-10 16:47:11,281 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,281 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,443 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303631&nonce=04a76a88072c4daa86febf53dccc107d&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:161.2534ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180784686.7586.165054.6635.78905"}
+
+2017-11-10 16:47:11,443 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,443 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,632 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303631&nonce=22ea1c04dfd54920b902056de9c35608&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:189.1991ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783404.9518.165054.8027.57058"}
+
+2017-11-10 16:47:11,632 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,632 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,810 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303631&nonce=b5a6c92b64c14ecfadb44da3122a3b44&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:178.4744ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783403.26085.165055.4164.57223"}
+
+2017-11-10 16:47:11,810 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,810 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,989 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303631&nonce=229593899a8e48a082db1ad478053d35&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:178.4755ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783404.10637.165055.2221.20258"}
+
+2017-11-10 16:47:11,989 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:11,989 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,176 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303631&nonce=89e5b20d3dce423ea708f2c14baa1d30&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:187.4978ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180784686.21125.165055.4141.52870"}
+
+2017-11-10 16:47:12,176 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,176 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,355 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303632&nonce=3dc2c002b6c147b8b0ebb6a71a8d582c&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:178.4748ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783403.2500.165055.5842.18269"}
+
+2017-11-10 16:47:12,355 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,355 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,515 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303632&nonce=97d8205485414e3b96b72210a94b8f20&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:160.4574ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783404.26240.165055.7788.96705"}
+
+2017-11-10 16:47:12,515 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,515 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,693 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303632&nonce=99ed88349b344a768bac382b3e7c3d0b&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:176.468ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180784686.26182.165055.9238.33427"}
+
+2017-11-10 16:47:12,693 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,693 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,899 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303632&nonce=1d2026d35df34eababecdd088415436b&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:206.5505ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783403.21705.165056.1257.93224"}
+
+2017-11-10 16:47:12,899 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:12,899 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:13,055 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303632&nonce=bf4188dcc6bf4b1b99edc28a3b893207&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:155.4136ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180783404.7010.165056.2801.67882"}
+
+2017-11-10 16:47:13,055 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:13,055 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:13,214 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/campaigns/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303633&nonce=248cf2a2c7eb49978cf60e9ed06dd8a5&account_id=5385895&page=1&page_size=20
+请求参数:
+花费时间:159.4235ms
+接口返回数据:{"code":31038,"message":"You are not permitted to do this request. trace_id: 180784686.7616.165056.4381.23256"}
+
+2017-11-10 16:47:13,215 [9] INFO  GDTLog [(null)] - 获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:13,215 [9] ERROR GDTLog [(null)] - GdtAdsScheduler DoPullGetAdCampaignsList is error,获取推广计划 GetAdCampaignsList 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5385895,"DateRange":null,"Date":null,"AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:14,950 [9] INFO  GDTLog [(null)] -  GdtFundScheduler DoPullGetFundStatementsDetailed start..
+2017-11-10 16:47:15,084 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303634&nonce=82ab9d6c1b974808889994a7d16f00da&account_id=1308&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:131.3496ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:15,087 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":1308,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:15,087 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":1308,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:15,200 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303635&nonce=3728891022b948869223f42bccb5bcdb&account_id=100000606&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:113.3366ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:15,200 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":100000606,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:15,200 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":100000606,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:15,325 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303635&nonce=c8ccc224418c4b54b22bbd08485e1b94&account_id=100000607&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:124.2954ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:15,325 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":100000607,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:15,325 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":100000607,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:15,464 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303635&nonce=4cbfa2d8848b40eb9c145a9132af9c24&account_id=100000608&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:139.3705ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:15,464 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":100000608,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:15,464 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":100000608,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:15,566 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303635&nonce=b9f5ac80f45a4c85bfdf76e8a1f7c16d&account_id=100000611&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:101.2703ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:15,566 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":100000611,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:15,566 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":100000611,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:15,717 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303635&nonce=ebb54d7cff7f4fcb92a863229e867195&account_id=100000612&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:150.3983ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:15,717 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":100000612,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:15,718 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":100000612,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:15,965 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303635&nonce=21c752daac564f20a0d52bacc1a909e1&account_id=5469050&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:247.6627ms
+接口返回数据:{"code":32110,"message":"The specified account does not exist. trace_id: 180783404.7615.165059.9821.86949"}
+
+2017-11-10 16:47:15,965 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":5469050,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:15,965 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":5469050,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:16,183 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303635&nonce=7d9ce625f6484e6ea64d926f37397790&account_id=5469086&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:217.5749ms
+接口返回数据:{"code":32110,"message":"The specified account does not exist. trace_id: 180784686.22074.165059.3791.86980"}
+
+2017-11-10 16:47:16,183 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":5469086,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:16,183 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":5469086,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:16,400 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303636&nonce=35ceb82c85804d319d1e373918d96414&account_id=5469137&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:216.5772ms
+接口返回数据:{"code":32110,"message":"The specified account does not exist. trace_id: 180783404.18629.165059.6531.47231"}
+
+2017-11-10 16:47:16,400 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":5469137,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:16,400 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":5469137,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:16,634 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303636&nonce=44646233fb704aec8fc49e2496561147&account_id=6310269&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:234.6577ms
+接口返回数据:{"code":32110,"message":"The specified account does not exist. trace_id: 180784686.25673.165059.8280.71421"}
+
+2017-11-10 16:47:16,634 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":6310269,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:16,634 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":6310269,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:16,858 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303636&nonce=08d40203f07c4593b71856cd78c092ff&account_id=6317333&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:223.56ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"total_page":0,"page_size":20,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:16,862 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":6317333,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:16,862 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":6317333,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:17,057 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303636&nonce=80eae840a88d4f159c8deb15f834fd0c&account_id=6315342&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:195.5502ms
+接口返回数据:{"code":32110,"message":"The specified account does not exist. trace_id: 180783404.26537.165100.2680.91242"}
+
+2017-11-10 16:47:17,057 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":6315342,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:17,057 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":6315342,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:17,261 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303637&nonce=9e649d53251548ce95443cf1820c16e6&account_id=6310390&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:203.5486ms
+接口返回数据:{"code":32110,"message":"The specified account does not exist. trace_id: 180784686.4649.165100.3395.97719"}
+
+2017-11-10 16:47:17,261 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":6310390,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:17,261 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":6310390,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:17,483 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/fund_statements_detailed/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303637&nonce=76a216fa5d9c461a98ed6af8f749572f&account_id=5389952&fund_type=BANK&date_range={"start_date":"2017-11-10","end_date":"2017-11-10"}&page=1&page_size=20
+请求参数:
+花费时间:222.5563ms
+接口返回数据:{"code":32110,"message":"The specified account does not exist. trace_id: 180783403.26731.165100.6686.47797"}
+
+2017-11-10 16:47:17,483 [9] INFO  GDTLog [(null)] - 获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{"AccountId":5389952,"FundType":3,"DateRange":{"start_date":"2017-11-10","end_date":"2017-11-10"},"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:17,483 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundStatementsDetailed is error,{"HasError":true,"ErrorCode":"10005","Message":"获取获取资金账户流水 GetFundStatementsDetailed为null，拉取信息业务参数:{\"AccountId\":5389952,\"FundType\":3,\"DateRange\":{\"start_date\":\"2017-11-10\",\"end_date\":\"2017-11-10\"},\"page\":1,\"page_size\":20,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:19,800 [9] INFO  GDTLog [(null)] -  GdtFundScheduler DoPullGetFundsInfo start..
+2017-11-10 16:47:19,938 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303639&nonce=951bf0351af240ed83763a070ca3101e&account_id=1308
+请求参数:
+花费时间:136.9535ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:19,940 [9] INFO  GDTLog [(null)] - 获取资金账户信息GetFundsInfo为null，accountId:1308等待下一次执行
+2017-11-10 16:47:19,940 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is error,获取资金账户信息GetFundsInfo为null，accountId:1308等待下一次执行
+2017-11-10 16:47:20,067 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303639&nonce=13ca51cd70984ff296bfd5cd344732ba&account_id=100000606
+请求参数:
+花费时间:127.762ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:20,067 [9] INFO  GDTLog [(null)] - 获取资金账户信息GetFundsInfo为null，accountId:100000606等待下一次执行
+2017-11-10 16:47:20,067 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is error,获取资金账户信息GetFundsInfo为null，accountId:100000606等待下一次执行
+2017-11-10 16:47:20,239 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303640&nonce=d0ac0fd39699439195823236b05cbf88&account_id=100000607
+请求参数:
+花费时间:171.0744ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:20,239 [9] INFO  GDTLog [(null)] - 获取资金账户信息GetFundsInfo为null，accountId:100000607等待下一次执行
+2017-11-10 16:47:20,239 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is error,获取资金账户信息GetFundsInfo为null，accountId:100000607等待下一次执行
+2017-11-10 16:47:20,364 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303640&nonce=897071866d8d4c51965707482105f9af&account_id=100000608
+请求参数:
+花费时间:123.8289ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:20,364 [9] INFO  GDTLog [(null)] - 获取资金账户信息GetFundsInfo为null，accountId:100000608等待下一次执行
+2017-11-10 16:47:20,364 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is error,获取资金账户信息GetFundsInfo为null，accountId:100000608等待下一次执行
+2017-11-10 16:47:20,494 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303640&nonce=82c091c4a88e4550a173c4e2034cbf96&account_id=100000611
+请求参数:
+花费时间:128.9026ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:20,494 [9] INFO  GDTLog [(null)] - 获取资金账户信息GetFundsInfo为null，accountId:100000611等待下一次执行
+2017-11-10 16:47:20,494 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is error,获取资金账户信息GetFundsInfo为null，accountId:100000611等待下一次执行
+2017-11-10 16:47:20,617 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303640&nonce=c04d3e0611ba4d75ab8e790791243786&account_id=100000612
+请求参数:
+花费时间:123.6131ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:20,618 [9] INFO  GDTLog [(null)] - 获取资金账户信息GetFundsInfo为null，accountId:100000612等待下一次执行
+2017-11-10 16:47:20,618 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is error,获取资金账户信息GetFundsInfo为null，accountId:100000612等待下一次执行
+2017-11-10 16:47:20,895 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303640&nonce=8f43b469424642358b118c0fb88a21e7&account_id=5469050
+请求参数:
+花费时间:277.0804ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0}]},"code":0,"message":""}
+
+2017-11-10 16:47:20,927 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:21,202 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303640&nonce=a3541a4e60004f168c798032a969fa70&account_id=5469086
+请求参数:
+花费时间:275.2982ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0}]},"code":0,"message":""}
+
+2017-11-10 16:47:21,218 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:21,456 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303641&nonce=7fa552a0d86a4473ac2266e7c1f9e520&account_id=5469137
+请求参数:
+花费时间:237.2129ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0}]},"code":0,"message":""}
+
+2017-11-10 16:47:21,464 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:21,684 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303641&nonce=b5fd0f659188444ab57d8568c7fc2113&account_id=6310269
+请求参数:
+花费时间:220.0853ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0}]},"code":0,"message":""}
+
+2017-11-10 16:47:21,692 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:21,934 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303641&nonce=ba4b3d5bf80643d9b8e3366a51cb59b8&account_id=6317333
+请求参数:
+花费时间:242.105ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0},{"balance":375465,"fund_status":"FUND_STATUS_NORMAL","fund_type":"BANK","realtime_cost":24535}]},"code":0,"message":""}
+
+2017-11-10 16:47:21,944 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:22,165 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303641&nonce=8a05acf124d446a6854cc6feca8f0c3e&account_id=6315342
+请求参数:
+花费时间:220.868ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0}]},"code":0,"message":""}
+
+2017-11-10 16:47:22,186 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:22,403 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303642&nonce=9e7041d0a3954dbfb78406783973a21e&account_id=6310390
+请求参数:
+花费时间:216.5772ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0}]},"code":0,"message":""}
+
+2017-11-10 16:47:22,416 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:22,682 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/funds/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303642&nonce=772b4514852641d696681dce208ee1b8&account_id=5389952
+请求参数:
+花费时间:266.44ms
+接口返回数据:{"data":{"list":[{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_CASH","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_GIFT","realtime_cost":0},{"balance":0,"fund_status":"FUND_STATUS_NOT_ENOUGH","fund_type":"GENERAL_SHARED","realtime_cost":0}]},"code":0,"message":""}
+
+2017-11-10 16:47:22,691 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetFundsInfo is completed,DoPullGetFundsInfo 资金账户信息拉取完成
+2017-11-10 16:47:22,692 [9] INFO  GDTLog [(null)] -  GdtFundScheduler DoPullGetRealtimeCost start..
+2017-11-10 16:47:22,805 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303642&nonce=ceca164390eb49ddaa9272d419b8eb0d&account_id=1308&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:110.941ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:22,807 [9] INFO  GDTLog [(null)] - 获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":1308,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:22,807 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is error,获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":1308,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:22,933 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303642&nonce=2f435b7195074ce7b6a3f935280284f4&account_id=100000606&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:125.8077ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:22,933 [9] INFO  GDTLog [(null)] - 获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000606,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:22,933 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is error,获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000606,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,054 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303642&nonce=09410a18299549688dba2166786e0182&account_id=100000607&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:121.3229ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:23,054 [9] INFO  GDTLog [(null)] - 获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000607,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,054 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is error,获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000607,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,489 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303643&nonce=a9810aac076f4ad69dbd552d0da394c9&account_id=100000608&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:434.8053ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:23,489 [9] INFO  GDTLog [(null)] - 获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000608,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,489 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is error,获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000608,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,595 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303643&nonce=7e3029caa99b40829ea1d97b5c5c2b79&account_id=100000611&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:105.7831ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:23,596 [9] INFO  GDTLog [(null)] - 获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000611,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,596 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is error,获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000611,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,717 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303643&nonce=55cf046f09ad46038edbc373a4b2144c&account_id=100000612&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:121.3233ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:23,717 [9] INFO  GDTLog [(null)] - 获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000612,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,717 [9] ERROR GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is error,获取今日消耗信息GetRealtimeCost为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000612,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":20,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:23,901 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303643&nonce=4b1b76fb06d94fbe9101b01b2bf3663e&account_id=5469050&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:183.9678ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":0}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:23,929 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:24,152 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303643&nonce=487f368abfd840fb98f0e148a23bff26&account_id=5469086&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:223.0775ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":0}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:24,160 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:24,380 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303644&nonce=f607ecdc28b14a80a11fc8d1651d72d6&account_id=5469137&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:220.6608ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":0}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:24,393 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:24,606 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303644&nonce=9992166cc86f44738465ba8eedcf6b64&account_id=6310269&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:212.8845ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":0}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:24,614 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:24,825 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303644&nonce=e81597fde12e42b9954ac96f63ea2a6d&account_id=6317333&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:210.4325ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":24535}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:24,833 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:25,015 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303644&nonce=6fdc6827dd9442c89c282fca4dc8f42f&account_id=6315342&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:182.0077ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":0}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:25,022 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:25,249 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303645&nonce=72a4f141ac6e4d63a05a53f6dca11821&account_id=6310390&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:226.788ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":0}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:25,256 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:25,455 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/realtime_cost/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303645&nonce=ba5f67ac1a794b51b0329b44d589c796&account_id=5389952&level=ADVERTISER&date=2017-11-10&page=1&page_size=20
+请求参数:
+花费时间:198.8559ms
+接口返回数据:{"data":{"list":[{"campaign_id":0,"adgroup_id":0,"cost":0}],"page_info":{"page":"1","page_size":"20","total_number":1,"total_page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:25,464 [9] INFO  GDTLog [(null)] - GdtFundScheduler DoPullGetRealtimeCost is completed,DoPullGetRealtimeCost  获取今日消耗入库完成
+2017-11-10 16:47:25,465 [9] INFO  GDTLog [(null)] -  GdtReportScheduler DoPullGetReportHourly start..
+2017-11-10 16:47:25,588 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303645&nonce=d2422f01da984b4682fd12428dc061fc&level=ADVERTISER&account_id=1308&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:121.3236ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:25,590 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":1308,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:25,590 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":1308,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:25,717 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303645&nonce=50f27f220fa249119b7e48cb832a2b41&level=ADVERTISER&account_id=100000606&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:126.8568ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:25,717 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000606,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:25,718 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000606,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:25,851 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303645&nonce=1518f990ecf34b528fe4f22e349057d8&level=ADVERTISER&account_id=100000607&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:133.8556ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:25,851 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000607,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:25,851 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000607,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:25,967 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303645&nonce=139adb4e3bd9483ab17a901a364793d3&level=ADVERTISER&account_id=100000608&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:115.8087ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:25,967 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000608,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:25,967 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000608,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:26,096 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303645&nonce=c3ef9de3993a446b915c883c2b78db65&level=ADVERTISER&account_id=100000611&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:128.3615ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:26,096 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000611,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:26,096 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000611,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:26,215 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303646&nonce=bf086ebb08964e29ab5de34af622a8d2&level=ADVERTISER&account_id=100000612&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:118.8199ms
+接口返回数据:{"code":12201,"message":"Parameter 'account_id' is invalid."}
+
+2017-11-10 16:47:26,215 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":100000612,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:26,215 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":100000612,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:26,432 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303646&nonce=95cd0c3e8a4c481bae2da286f8bf58f3&level=ADVERTISER&account_id=5469050&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:216.2829ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"page_size":30,"total_page":0,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:26,436 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5469050,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:26,436 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5469050,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:26,684 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303646&nonce=73d5e1897401427b97a5430f87cd7db8&level=ADVERTISER&account_id=5469086&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:246.9107ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"page_size":30,"total_page":0,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:26,684 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5469086,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:26,684 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5469086,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:26,923 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303646&nonce=894844c6c4a1448bb72ea442a09d3743&level=ADVERTISER&account_id=5469137&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:239.0716ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"page_size":30,"total_page":0,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:26,923 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5469137,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:26,923 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5469137,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:27,188 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303646&nonce=20f80ffa21a7425a8a1e517b88f42882&level=ADVERTISER&account_id=6310269&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:264.547ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"page_size":30,"total_page":0,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:27,188 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":6310269,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:27,188 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":6310269,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:27,477 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303647&nonce=45eba12fe86e49a382bfd5099ed71283&level=ADVERTISER&account_id=6317333&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:289.2973ms
+接口返回数据:{"data":{"list":[{"hour":9,"impression":3824,"click":34,"conversion":0,"download":0,"follow":0,"activation":0,"cost":3256,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":1,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":8,"impression":7992,"click":66,"conversion":0,"download":0,"follow":0,"activation":0,"cost":6056,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":7,"impression":6768,"click":60,"conversion":0,"download":0,"follow":0,"activation":0,"cost":5299,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":6,"impression":8499,"click":71,"conversion":0,"download":0,"follow":0,"activation":0,"cost":6062,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":5,"impression":1908,"click":30,"conversion":0,"download":0,"follow":0,"activation":0,"cost":1711,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":4,"impression":1139,"click":15,"conversion":0,"download":0,"follow":0,"activation":0,"cost":887,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":3,"impression":1132,"click":9,"conversion":0,"download":0,"follow":0,"activation":0,"cost":494,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":2,"impression":1418,"click":9,"conversion":0,"download":0,"follow":0,"activation":0,"cost":629,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0},{"hour":1,"impression":528,"click":2,"conversion":0,"download":0,"follow":0,"activation":0,"cost":141,"app_payment_count":0,"app_payment_amount":0,"share":0,"image_click":0,"like_or_comment":0,"campaign_id":0,"adgroup_id":0}],"page_info":{"total_number":9,"page_size":30,"total_page":1,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:28,457 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303648&nonce=09d62deaea234b2e9e2073feb6b1bd71&level=ADVERTISER&account_id=6315342&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:245.4429ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"page_size":30,"total_page":0,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:28,457 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":6315342,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:28,457 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":6315342,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:28,722 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303648&nonce=f8eb3c55e2a2461ba46687eec816fd95&level=ADVERTISER&account_id=6310390&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:264.4951ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"page_size":30,"total_page":0,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:28,722 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":6310390,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:28,722 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":6310390,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}
+2017-11-10 16:47:28,968 [9] INFO  GDTLog [(null)] - 
+请求url地址:https://api.e.qq.com/v1.0/hourly_reports/get?access_token=0e3a09a6ed3165ef10452cf756e330cc&timestamp=1510303648&nonce=41c479bf15184eb3ad04ed9609f2d5fa&level=ADVERTISER&account_id=5389952&date=2017-11-10&page=1&page_size=30
+请求参数:
+花费时间:245.3648ms
+接口返回数据:{"data":{"list":[],"page_info":{"total_number":0,"page_size":30,"total_page":0,"page":1}},"code":0,"message":""}
+
+2017-11-10 16:47:28,968 [9] INFO  GDTLog [(null)] - 获取小时报表 GetReportHourly 为null，拉取信息业务参数:{"Level":0,"system_status":"None","AccountId":5389952,"DateRange":null,"Date":"2017-11-10","AdGroupId":-2,"CampaignId":-2,"GroupBy":null,"filtering":null,"page":1,"page_size":30,"total_number":0,"total_page":0}等待下一次执行
+2017-11-10 16:47:28,968 [9] ERROR GDTLog [(null)] - GdtReportScheduler DoPullGetReportHourly is error,{"HasError":true,"ErrorCode":"10010","Message":"获取小时报表 GetReportHourly 为null，拉取信息业务参数:{\"Level\":0,\"system_status\":\"None\",\"AccountId\":5389952,\"DateRange\":null,\"Date\":\"2017-11-10\",\"AdGroupId\":-2,\"CampaignId\":-2,\"GroupBy\":null,\"filtering\":null,\"page\":1,\"page_size\":30,\"total_number\":0,\"total_page\":0}等待下一次执行","ReturnObject":null}

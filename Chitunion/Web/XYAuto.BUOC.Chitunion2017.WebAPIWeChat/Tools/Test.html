@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+    $(function() {
+        post();
+        //post1();
+    });
+
+    function post1() {
+        var postUrl = 'http://localhost:5124/WechatShare/CreateOrder';
+        var data = {
+            "ShareType": 202004,
+            "ShareContent":
+            { "TaskId": 14328, "ShareContentType": 208001, "ShareUrl": "http://newscdn.chitunion.com/ct_m/20180110/51565.html?utm_source=chitu&utm_term=mfq3cber0h" }
+        };
+        $.ajax({
+            url: postUrl,
+            type: 'post',
+            dataType: 'json',
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    }
+
+    function post() {
+        var postUrl = 'http://localhost:5124/WechatShare/CreateOrder';
+        var data = {
+            "ShareType": 202004,
+            "ShareContent":
+            { "TaskId": 14328, "ShareContentType": 208001, "ShareUrl": "http://newscdn.chitunion.com/ct_m/20180110/51565.html?utm_source=chitu&utm_term=mfq3cber0h" }
+        };
+        $.ajax({
+            url: postUrl,
+            type: 'post',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

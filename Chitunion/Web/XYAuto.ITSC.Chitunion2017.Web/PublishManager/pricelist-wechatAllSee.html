@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/pricelist-seeAllwechat.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+                <div class="clear"></div>
+            </div>
+            <div class="install_box"></div>
+        </div>
+
+    </div>
+
+    <script type="text/template" id="rendData">
+        <ul>
+            <li class="ins_a">
+                <div class="frame_n"><img src="<%= HeadIconURL %>" width="80" height="80"></div>
+            </li>
+            <li class="wechat_name">
+                <div>微信名称：<%= Name %></div>
+                <div>微信帐号：<%= Number %></div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a">广告名称：</li>
+            <li><%= ADName %></li>
+            <div class="clear"></div>
+        </ul>
+
+        <% PublishInfo.forEach(function(item){%>
+        <ul>
+            <li class="ins_a">有效期：</li>
+            <li><%= item.BeginTime %>至<%= item.EndTime %></li>
+            <!-- <li class="ml20">采购折扣：</li>
+            <li><%= formatMoney(item.PurchaseDiscount*100,2,'') %>%</li>
+            <li class="ml20">销售折扣：</li>
+            <li><%= formatMoney(item.SaleDiscount*100,2,'') %>%</li> -->
+            <li style="float: right;margin-right:80px">状态：
+            <% if(item.PublishStatus == 42001){%>
+                待审核
+            <%}else if(item.PublishStatus == 42002){%>
+                已通过
+            <%}else if(item.PublishStatus == 42003){%>
+                已驳回
+            <%}else if(item.PublishStatus == 42006){%>
+                已过期
+            <%}else if(item.PublishStatus == 42007){%>
+                刊例过期1天
+            <%}else if(item.PublishStatus == 42008){%>
+                刊例过期3天
+            <%}else if(item.PublishStatus == 42009){%>
+                刊例过期7天
+            <%}else if(item.PublishStatus == 42010){%>
+                刊例过期30天
+            <%}else if(item.PublishStatus == 42011){%>
+                上架（广告）
+            <%}else if(item.PublishStatus == 42012){%>
+                下架（广告）
+            <%}%>
+            </li>
+        </ul>
+        <div class="clear"></div>
+
+        <ul>
+            <li class="ins_a">&nbsp;</li>
+            <li class="ad_r">
+                <div class="table" style="margin: 15px 0">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                        <tbody>
+                        <tr>
+                            <th width="27%">广告位信息</th>
+                            <th width="25%">广告位宣传图</th>
+                            <th width="20%">刊例价（元\次）</th>
+                            <th width="20%">销售价（元\次）</th>
+                        </tr>
+
+                        <% item.PublishDetail.forEach(function(single){%>
+                        <tr>
+                            <td><%= single.ADPosition1Name %>-<%= single.ADPosition2Name %></td>
+                            <td style='padding-left: 20px;'>
+                                <% if(single['ImageUrl1-sl'] != ''){%>
+                                <div class="ad_map" style="position: relative;">
+                                    <img src="<%= single['ImageUrl1-sl'] %>" width="60" height="60">
+                                    <div class="Bigpicture">
+                                        <img src="<%= single['ImageUrl1']%>" width="250" height="250">
+                                    </div>
+                                </div>
+                                <%} %>
+                                <% if(single['ImageUrl2-sl'] != ''){%>
+                                <div class="ad_map" style="position: relative;">
+                                    <img src="<%= single['ImageUrl2-sl'] %>" width="60" height="60">
+                                    <div class="Bigpicture">
+                                        <img src="<%= single['ImageUrl2']%>" width="250" height="250">
+                                    </div>
+                                </div>
+                                <%} %>
+                                <% if(single['ImageUrl3-sl'] != ''){%>
+                                <div class="ad_map" style="position: relative;">
+                                    <img src="<%= single['ImageUrl3-sl'] %>" width="60" height="60">
+                                    <div class="Bigpicture">
+                                        <img src="<%= single['ImageUrl3']%>" width="250" height="250">
+                                    </div>
+                                </div>
+                                <%} %>
+                                <div class="clear"></div>
+                            </td>
+                            <td><%= formatMoney(single.Price,2,'¥') %></td>
+                            <td><%= formatMoney(single.SalePrice,2,'¥') %></td>
+                        </tr>
+                        <%}) %>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+
+        <div class="clear"></div>
+
+        <%if(CTLogin.RoleIDs!='SYS001RL00003'){%>
+        <ul>
+            <li class="ins_a">刊例原稿：</li>
+            <% item.UploadFileList.forEach(function(single){%>
+            <li><a href="<%= single.UploadFile %>" style='color: red' target='_blank'><%= single.UploadFileName %></a></li>
+            <%}) %>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+
+        <!--审核结果   审核时间  驳回原因-->
+
+        <% if(item.CheckResult != ''){%>
+        <ul>
+            <li class="ins_a">&nbsp;</li>
+            <li class="administration">
+                <div>
+                    <span>审核结果：</span>
+                    <% if(item.CheckResult == '27001'){%>
+                    <span>通过</span>
+                    <%}else{%>
+                    <span>驳回</span>
+                    <%} %>
+                    <span class="ml30">审核人：</span>
+                    <span><%= item.CheckMan %></span>
+                    <span class="ml30">审核时间：</span>
+                    <span><%= item.CheckTime %></span>
+                </div>
+                <% if(item.CheckResult == '27002'){%>
+                    <div>驳回原因：<%= item.RejectMsg %></div>
+                <%} %>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <%} %>
+
+        <div class="line3" style="margin: 30px auto">&nbsp;</div>
+
+        <%}) %>
+        <!--<div class="keep" style="text-align: center">
+            <span><a href="javascript:;" class="button" id="shut" style="width:100px;">关闭</a></span>
+        </div>-->
+
+    </script>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF9C6C0A-C34B-4F81-8137-B8BECF80F8BE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.Chitunion2018.WebWeChat</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.Chitunion2018.WebWeChat</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GeetestSDK, Version=3.1.6590.30894, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\GeetestSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Senparc.Weixin, Version=4.18.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=14.3.139.3690, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Senparc.Net4.5\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils">
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="accountManager\js\OrderDetails.js" />
+    <Content Include="accountManager\js\order_list.js" />
+    <Content Include="accountManager\OrderDetails.html" />
+    <Content Include="accountManager\order_list.html" />
+    <Content Include="cashManager\json\account_money.json" />
+    <Content Include="cashManager\json\baseInfo.json" />
+    <Content Include="cashManager\json\judge.json" />
+    <Content Include="cashManager\json\money.json" />
+    <Content Include="cashManager\js\profitLsit.js" />
+    <Content Include="cashManager\js\withdrawlsList.js" />
+    <Content Include="cashManager\profitList.html" />
+    <Content Include="cashManager\rule.html" />
+    <Content Include="cashManager\withdrawalsList.html" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="css\lauout.less" />
+    <Content Include="css\main.less" />
+    <Content Include="css\module.less" />
+    <Content Include="css\MSite.css" />
+    <Content Include="css\PcSite.css" />
+    <Content Include="css\webuploader.css" />
+    <Content Include="css\wu-ui.css" />
+    <Content Include="css\_common.less" />
+    <Content Include="css\_personal.less" />
+    <Content Include="css\_userInfo.css" />
+    <Content Include="css\_veriables.less" />
+    <Content Include="dist\dropload.js" />
+    <Content Include="dist\dropload.min.js" />
+    <Content Include="dist\mescroll.m.js" />
+    <Content Include="dist\mescroll.min.css" />
+    <Content Include="dist\mescroll.min.js" />
+    <Content Include="dist\swiper-3.3.1.min.css" />
+    <Content Include="dist\swiper-3.3.1.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="images\addbg.png" />
+    <Content Include="images\Arrow.png" />
+    <Content Include="images\banner.png" />
+    <Content Include="images\btn_bg_grey.jpg" />
+    <Content Include="images\ct\ct_zhaomu01.jpg" />
+    <Content Include="images\ct\ct_zhaomu02.jpg" />
+    <Content Include="images\ct\ct_zhaomu03.jpg" />
+    <Content Include="images\ct\ct_zhaomu04.jpg" />
+    <Content Include="images\data_no.png" />
+    <Content Include="images\default_img.png" />
+    <Content Include="images\default_share.jpg" />
+    <Content Include="images\demoIcon.jpg" />
+    <Content Include="images\demoIcon.png" />
+    <Content Include="images\demoIcon_ceshi.jpg" />
+    <Content Include="images\error.png" />
+    <Content Include="images\font_bg.png" />
+    <Content Include="images\icon18.gif" />
+    <Content Include="images\idCard.png" />
+    <Content Include="images\idCard1.png" />
+    <Content Include="images\info_edit.png" />
+    <Content Include="images\inviteBg%402x.png" />
+    <Content Include="images\invite_bg5.jpg" />
+    <Content Include="images\invite_bg6.png" />
+    <Content Include="images\left_img.png" />
+    <Content Include="images\line.png" />
+    <Content Include="images\line_bg.png" />
+    <Content Include="images\line_row.png" />
+    <Content Include="images\list_bottom.png" />
+    <Content Include="images\list_top.png" />
+    <Content Include="images\logo_chat.png" />
+    <Content Include="images\mescroll-totop.png" />
+    <Content Include="images\no_net.png" />
+    <Content Include="images\no_person.png" />
+    <Content Include="images\no_person1.png" />
+    <Content Include="images\no_time.png" />
+    <Content Include="images\person.png" />
+    <Content Include="images\pic_default.png" />
+    <Content Include="images\redBag%402x.png" />
+    <Content Include="images\regular.png" />
+    <Content Include="images\right_img.png" />
+    <Content Include="images\round2.png" />
+    <Content Include="images\rule.png" />
+    <Content Include="images\rule_img.png" />
+    <Content Include="images\save_img.png" />
+    <Content Include="images\select.png" />
+    <Content Include="images\shadow.png" />
+    <Content Include="images\share.jpg" />
+    <Content Include="images\share_icon.png" />
+    <Content Include="images\share_it.png" />
+    <Content Include="images\tanchuang-2.png" />
+    <Content Include="images\text.png" />
+    <Content Include="images\top_img.png" />
+    <Content Include="images\year.png" />
+    <Content Include="inviteManager\invite.html" />
+    <Content Include="inviteManager\inviteCode.html" />
+    <Content Include="inviteManager\js\invite.js" />
+    <Content Include="inviteManager\js\inviteCode.js" />
+    <Content Include="js\common_share.js" />
+    <Content Include="js\crypto\cipher-core.js" />
+    <Content Include="js\crypto\enc-base64.js" />
+    <Content Include="js\crypto\core.js" />
+    <Content Include="js\crypto\mode-ecb.js" />
+    <Content Include="js\crypto\tripledes.js" />
+    <Content Include="js\ejs.min.js" />
+    <Content Include="js\footer.js" />
+    <Content Include="js\GetADImagePostionInfo.js" />
+    <Content Include="js\jquery.1.11.3.min.js" />
+    <Content Include="js\MSile.js" />
+    <Content Include="js\NativeShare.js" />
+    <Content Include="js\PcSite.js" />
+    <Content Include="js\PcSiteOld.js" />
+    <Content Include="js\share.js" />
+    <Content Include="js\Statistics.js" />
+    <Content Include="js\webuploader.min.js" />
+    <Content Include="js\wu-ui.js" />
+    <Content Include="moneyManager\DetailsArticle.html" />
+    <Content Include="moneyManager\js\DetailsArticle.js" />
+    <Content Include="moneyManager\js\make_money.js" />
+    <Content Include="moneyManager\js\make_money1.js" />
+    <Content Include="moneyManager\js\sign.js" />
+    <Content Include="moneyManager\js\sort.js" />
+    <Content Include="moneyManager\make_money.html" />
+    <Content Include="moneyManager\make_money1.html" />
+    <Content Include="moneyManager\sign.html" />
+    <Content Include="moneyManager\sort.html" />
+    <Content Include="js\laydate\theme\default\font\iconfont.eot" />
+    <Content Include="js\laydate\theme\default\font\iconfont.ttf" />
+    <Content Include="js\laydate\theme\default\font\iconfont.woff" />
+    <Content Include="ajaxservers\LoginManager.ashx" />
+    <Content Include="moneyManager\json\DaySign.json" />
+    <Content Include="moneyManager\json\DaySignList.json" />
+    <Content Include="moneyManager\json\GetSceneInfoByUserId.json" />
+    <Content Include="moneyManager\json\GetTaskListByUserId.json" />
+    <None Include="Properties\PublishProfiles\XYAuto.BUOC.Chitunion2018.WebWeChat.pubxml" />
+    <None Include="test\TempTest.html" />
+    <Content Include="test\Crypto-js_Test.html" />
+    <Content Include="userManager\Auditingiformation.html" />
+    <Content Include="userManager\certification.html" />
+    <Content Include="userManager\js\Auditingiformation.js" />
+    <Content Include="userManager\js\certification.js" />
+    <Content Include="userManager\js\RejectIformation.js" />
+    <Content Include="userManager\js\userInfo.js" />
+    <Content Include="userManager\js\userInfoAccount.js" />
+    <Content Include="userManager\js\userInfoTel.js" />
+    <Content Include="userManager\NotAccessMsgPage.html" />
+    <Content Include="userManager\RejectIformation.html" />
+    <Content Include="userManager\userInfo.html" />
+    <Content Include="userManager\userInfoAccount.html" />
+    <Content Include="userManager\userInfoTel.html" />
+    <None Include="静态页面\分享引导层.html" />
+    <None Include="静态页面\收益记录 - 新.html" />
+    <None Include="静态页面\邀请好友 - 新.html" />
+    <None Include="静态页面\邀请好友.html" />
+    <Content Include="userManager\json\user.json" />
+    <Content Include="inviteManager\json\person.json" />
+    <Content Include="inviteManager\json\result.json" />
+    <Content Include="cashManager\json\detail.json" />
+    <Content Include="cashManager\json\list.json" />
+    <Content Include="cashManager\json\list1.json" />
+    <Content Include="accountManager\json\GetDistributeList.json" />
+    <Content Include="ajaxservers\UploadFile.ashx" />
+    <Content Include="ConfigFile\StorageGroupConfig.config" />
+    <Content Include="css\_userInfo.less" />
+    <None Include="Properties\PublishProfiles\WEB.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cashManager\accountInfo.html" />
+    <Content Include="cashManager\cashDetail.html" />
+    <Content Include="cashManager\getCash.html" />
+    <Content Include="cashManager\js\acccountInfo.js" />
+    <Content Include="cashManager\js\cashDetail.js" />
+    <Content Include="cashManager\js\getCash.js" />
+    <Content Include="css\lauout.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\module.css" />
+    <Content Include="css\_common.css" />
+    <Content Include="css\_personal.css" />
+    <Content Include="css\_veriables.css" />
+    <Content Include="images\add.png" />
+    <Content Include="images\bot_bg.png" />
+    <Content Include="images\btn_bg.png" />
+    <Content Include="images\car.png" />
+    <Content Include="images\cd_icon_10.png" />
+    <Content Include="images\chevon_right%402x.png" />
+    <Content Include="images\default.png" />
+    <Content Include="images\demo1.png" />
+    <Content Include="images\icon1.png" />
+    <Content Include="images\icon_end%402x.png" />
+    <Content Include="images\icon_fail%402x.png" />
+    <Content Include="images\icon_process%402x.png" />
+    <Content Include="images\input_error%402x.png" />
+    <Content Include="images\no_data.png" />
+    <Content Include="images\no_money.png" />
+    <Content Include="images\no_sign.png" />
+    <Content Include="images\round.png" />
+    <Content Include="images\share-5%402x.png" />
+    <Content Include="images\share-5%403x.png" />
+    <Content Include="images\sign.png" />
+    <Content Include="images\sign_bg.png" />
+    <Content Include="images\top_bg%402x.png" />
+    <Content Include="js\common_weChat.js" />
+    <Content Include="js\flexible.js" />
+    <Content Include="js\jquery-3.2.1.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\laydate\laydate.js" />
+    <Content Include="js\laydate\theme\default\font\iconfont.svg" />
+    <Content Include="js\laydate\theme\default\laydate.css" />
+    <Content Include="js\layer_mobile\layer.js" />
+    <Content Include="js\layer_mobile\need\layer.css" />
+    <Content Include="js\vue.min.js" />
+    <None Include="test\test.html" />
+    <Content Include="userManager\addIformation.html" />
+    <Content Include="userManager\js\addIformation.js" />
+    <Content Include="Web.config" />
+    <None Include="静态页面\share.html" />
+    <None Include="静态页面\个人信息1.html" />
+    <None Include="静态页面\个人信息2.html" />
+    <None Include="静态页面\余额提现.html" />
+    <None Include="静态页面\提现.html" />
+    <None Include="静态页面\提现规则.html" />
+    <None Include="静态页面\提现记录.html" />
+    <None Include="静态页面\提现详情--已支付支付成功支付失败.html" />
+    <None Include="静态页面\收益记录.html" />
+    <None Include="静态页面\订单详情.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ajaxservers\LoginManager.ashx.cs">
+      <DependentUpon>LoginManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajaxservers\UploadFile.ashx.cs">
+      <DependentUpon>UploadFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajaxservers\ValidateCode.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\mui\" />
+    <Folder Include="js\art-template\" />
+    <Folder Include="js\mui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.BLL\XYAuto.ITSC.Chitunion2017.BLL.csproj">
+      <Project>{b31bb524-1886-4f97-8871-7b517f1b27d4}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Entities\XYAuto.ITSC.Chitunion2017.Entities.csproj">
+      <Project>{97c0aba4-8a8f-41a2-a28f-eb470ddbcbb1}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.WebService\XYAuto.ITSC.Chitunion2017.WebService.csproj">
+      <Project>{64399042-f595-43a8-8d11-8713b871d01b}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>35340</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:35340/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\sln\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\sln\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

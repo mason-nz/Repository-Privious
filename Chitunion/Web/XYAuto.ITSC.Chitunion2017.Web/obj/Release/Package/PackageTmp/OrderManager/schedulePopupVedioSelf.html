@@ -1,0 +1,40 @@
+﻿<!-- 视频和直播选择广告位的弹层 -->
+<script type="text/template" id="pubBasicInfo">
+    <tr>
+        <th width="30%">发布形式</th>
+        <th width="50%">价格</th>
+        <th width="20%">操作</th>
+    </tr>
+    <%for(var i=0;i<data.Result.length;i++){%>
+    <tr ADDetailID="<%=data.Result[i].ADDetailID%>" ADPosition2="<%=data.Result[i].ADPosition2%>"  ADPosition3="<%=data.Result[i].ADPosition3%>"  ADPosition1="<%=data.Result[i].ADPosition1%>" Price="<%=data.Result[i].Price%>">
+        <td><%=data.Result[i].ADPosition1%></td>
+        <td> <%=formatMoney(data.Result[i].Price,2)%>元/次</td>
+        <td><input name="1" type="radio" value=""/></td>
+    </trADDetailID>
+    <%}%>
+</script>
+
+<!--请选择具体的广告形式及位置开始-->
+<div class="layer" style="width: 700px">
+    <div class="title">
+        <div class="fl">请选择具体的广告形式及位置</div>
+        <div class="fr"><a href="javascript:void(0)" id="closebt"><img src="/images/icon13.png" width="16" height="16"  onMouseOver="this.src='/images/icon14.png'" onMouseOut="this.src='/images/icon13.png'"></a></div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="layer_con">
+            <div class="table" id="tableInfo" style="max-height: 300px;overflow:auto;">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff" >
+
+                </table>
+
+            </div>
+        <div class="keep">
+            <span><a href="javascript:void(0)" class="button" style="width:100px">提交</a></span>
+            <span><a href="javascript:void(0)" class="but_keep" style="width:100px">取消</a></span>
+        </div>
+    </div>
+</div>
+<!--请选择具体的广告形式及位置结束-->
+
+<div style="height:50px"></div>

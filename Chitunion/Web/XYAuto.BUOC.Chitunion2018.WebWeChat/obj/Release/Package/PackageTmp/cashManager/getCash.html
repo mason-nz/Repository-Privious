@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>提现</title>
+    <link rel="stylesheet" type="text/css" href="../css/lauout.css"/>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/layer_mobile/layer.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/common_weChat.js"></script>
+    <script type="text/javascript" src="./js/getCash.js"></script>
+</head>
+<body>
+<div class="main_container netOk">
+    <div class="content_top_list">
+        <ul class="account_num">
+            <li>提现账号</li>
+            <li class="text_grey" id="account_number"></li>
+        </ul>
+        <div class="weChat_list pd30">
+            <p class="des_text">提现金额</p>
+            <p id="getMoney" class="input_text border-bottom">
+                <span>￥</span><input type="number" value="" id="waitCashMoney" onkeyup="onlyNumber(this)" /> 
+                <div class="clear"></div>
+            </p>
+            <p class="text_grey last_text">可提现余额<span id="canCash"></span>元，<span class="text_blue" id="cashAll">全部提现</span></p>
+        </div>
+    </div>
+    <div class="content_center">
+        <ul class="pageChange tl pd30 hide">
+            <li>
+                请将发票快递到赤兔联盟，地址详情见
+                <a href="/cashManager/rule.html" class="blue_link">提现规则</a>
+            </li>
+        </ul>
+        <div class="text_button">
+            <span class="button_grey" id="getCach">确认提现</span>
+        </div>
+    </div>
+</div>
+<div class="main_container netNo">
+    <div class="no_data">
+        <div>
+            <img src="../images/no_net.png">
+        </div>
+        <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ThriftSharp</name>
+    </assembly>
+    <members>
+        <member name="T:ThriftSharp.Internals.ThriftClientMessageReader">
+            <summary>
+            Reads Thrift messages sent from a server to a client.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftClientMessageReader.CreateReaderForMethod(ThriftSharp.Internals.ThriftMethod)">
+            <summary>
+            Creates a reader for the specified method.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftClientMessageReader.Read``1(ThriftSharp.Internals.ThriftMethod,ThriftSharp.Protocols.IThriftProtocol)">
+            <summary>
+            Reads a ThriftMessage returned by the specified method on the specified protocol.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftClientMessageWriter">
+            <summary>
+            Writes Thrift messages from a client to a server.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftClientMessageWriter.CreateWriterForMethod(ThriftSharp.Internals.ThriftMethod)">
+            <summary>
+            Creates a writer for the specified method.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftClientMessageWriter.Write(ThriftSharp.Internals.ThriftMethod,System.Object[],ThriftSharp.Protocols.IThriftProtocol)">
+            <summary>
+            Writes the specified method call on the specified protocol.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftConverter">
+            <summary>
+            Thrift converter, including commonly-needed properties.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftConverter.FromType">
+            <summary>
+            Gets the type the converter converts from.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftConverter.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the ThriftConverter class with the specified type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftConverter.CreateCall(System.String,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates an expression calling the specified method on the converter, with the specified argument.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftWireField">
+            <summary>
+            Component of a Thrift struct; can represent either a real field, or a virtual one.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.Id">
+            <summary>
+            Gets the field's ID.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.Name">
+            <summary>
+            Gets the field's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.WireType">
+            <summary>
+            Gets the field's type as used when serializing it to the wire.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.UnderlyingTypeInfo">
+            <summary>
+            Gets the field's type as specified in code.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.Kind">
+            <summary>
+            Gets the field's presence state.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.DefaultValue">
+            <summary>
+            Gets the field's default value, if any.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.Converter">
+            <summary>
+            Gets the field's converter, if any.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.Getter">
+            <summary>
+            Gets an expression reading the field, if any.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireField.Setter">
+            <summary>
+            Gets an expression writing its argument to the field, if any.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftWireField.#ctor(System.Int16,System.String,ThriftSharp.Internals.ThriftType,System.Reflection.TypeInfo,ThriftSharp.Internals.ThriftWireFieldState,System.Object,ThriftSharp.Internals.ThriftConverter,System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Initializes a new instance of the ThriftWireField class with the specified values.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftWireField.Field(ThriftSharp.Internals.ThriftField,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates a wire field representing a struct field.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftWireField.Parameter(ThriftSharp.Internals.ThriftParameter,System.Linq.Expressions.Expression,System.Int32)">
+            <summary>
+            Creates a virtual wire field representing a method parameter.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftWireField.ThrowsClause(ThriftSharp.Internals.ThriftThrowsClause)">
+            <summary>
+            Creates a virtual wire field representing a method "throws" clause.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftWireField.ReturnValue(ThriftSharp.Internals.ThriftReturnValue,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates a virtual wire field representing a return value.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftStructReader">
+            <summary>
+            Reads Thrift structs.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.CreateTypeIdAssert(ThriftSharp.Models.ThriftTypeId,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates an expression checking whether the specified IDs are equal, and throwing if they aren't.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.CreateReaderForMap(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType)">
+            <summary>
+            Creates an expression reading the specified map type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.CreateReaderForArray(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType)">
+            <summary>
+            Creates an expression reading the specified array type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.CreateReaderForListOrSet(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType)">
+            <summary>
+            Creates an expression reading the specified list or set type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.CreateReaderForType(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType)">
+            <summary>
+            Creates an expression reading for the specified type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.CreateReaderForStruct(ThriftSharp.Internals.ThriftStruct)">
+            <summary>
+            Creates an expression reading the specified struct type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.CreateReaderForFields(System.Linq.Expressions.ParameterExpression,System.Collections.Generic.List{ThriftSharp.Internals.ThriftWireField})">
+            <summary>
+            Creates an expression reading the specified fields.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.Skip(ThriftSharp.Models.ThriftTypeId,ThriftSharp.Protocols.IThriftProtocol)">
+            <summary>
+            Skips the specified ID from the specified protocol.
+            </summary>
+            <remarks>
+            This method is only called from generated expressions.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructReader.Read``1(ThriftSharp.Protocols.IThriftProtocol)">
+            <summary>
+            Reads the specified struct from the specified protocol.
+            </summary>
+            <remarks>
+            This method is only called from generated expressions.
+            </remarks>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftWireFieldState">
+            <summary>
+            Possible kinds for a wire field.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireFieldState.AlwaysPresent">
+            <summary>
+            The field is guaranteed to always exist.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireFieldState.Required">
+            <summary>
+            The field is required, but its existence must be validated.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftWireFieldState.Optional">
+            <summary>
+            The field is not required.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftStructWriter">
+            <summary>
+            Writes Thrift structs.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructWriter.CreateWriterForMap(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates an expression writing the specified map type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructWriter.CreateWriterForArray(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates an expression writing the specified array type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructWriter.CreateWriterForListOrSet(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates an expression writing the specified list or set type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructWriter.CreateWriterForType(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftType,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates an expression writing the specified type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructWriter.CreateWriterForStruct(ThriftSharp.Internals.ThriftStruct)">
+            <summary>
+            Creates an expression writing the specified struct type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructWriter.CreateWriterForField(System.Linq.Expressions.ParameterExpression,ThriftSharp.Internals.ThriftWireField)">
+            <summary>
+            Creates an expression writing the specified field.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStructWriter.Write``1(``0,ThriftSharp.Protocols.IThriftProtocol)">
+            <summary>
+            Writes the specified value to the specified protocol.
+            </summary>
+            <remarks>
+            This method is only called from compiled expressions.
+            </remarks>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftConvertibleValue">
+            <summary>
+            Base class for models that can have a converter.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftConvertibleValue.WireType">
+            <summary>
+            Gets the field's type used when serializing to the wire.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftConvertibleValue.Converter">
+            <summary>
+            Gets the converter associated with the field, if any.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftConvertibleValue.#ctor(System.Reflection.TypeInfo,ThriftSharp.Internals.ThriftConverter)">
+            <summary>
+            Initializes a new instance of the ThriftConvertibleValue class with the specified underlying type and converter.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftField">
+            <summary>
+            Thrift field.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftField.Id">
+            <summary>
+            Gets the field's ID.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftField.Name">
+            <summary>
+            Gets the field's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftField.IsRequired">
+            <summary>
+            Gets a value indicating whether the field is required.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftField.DefaultValue">
+            <summary>
+            Gets the field's default value, if any.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftField.BackingProperty">
+            <summary>
+            Gets the property associated with the field, if any.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftField.#ctor(System.Int16,System.String,System.Boolean,System.Object,ThriftSharp.Internals.ThriftConverter,System.Reflection.PropertyInfo)">
+            <summary>
+            Initializes a new instance of the ThriftField class with the specified values.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftStruct">
+            <summary>
+            Thrift struct.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftStruct.Header">
+            <summary>
+            Gets the struct's header.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftStruct.Fields">
+            <summary>
+            Gets the struct's fields.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftStruct.TypeInfo">
+            <summary>
+            Gets the struct's underlying TypeInfo.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftStruct.#ctor(ThriftSharp.Models.ThriftStructHeader,System.Collections.Generic.IReadOnlyList{ThriftSharp.Internals.ThriftField},System.Reflection.TypeInfo)">
+            <summary>
+            Initializes a new instance of the ThriftStruct class with the specified values.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftThrowsClause">
+            <summary>
+            Thrift method "throws" clause.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftThrowsClause.Id">
+            <summary>
+            Gets the clause's ID.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftThrowsClause.Name">
+            <summary>
+            Gets the clause's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftThrowsClause.UnderlyingTypeInfo">
+            <summary>
+            Gets the clause's TypeInfo as declared in code.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftThrowsClause.#ctor(System.Int16,System.String,System.Reflection.TypeInfo,ThriftSharp.Internals.ThriftConverter)">
+            <summary>
+            Initializes a new instance of the ThriftThrowsClause class with the specified values.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftParameter">
+            <summary>
+            Thrift method parameter.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftParameter.Id">
+            <summary>
+            Gets the parameter's ID.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftParameter.Name">
+            <summary>
+            Gets the parameter's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftParameter.UnderlyingTypeInfo">
+            <summary>
+            Gets the parameter's TypeInfo as declared in code.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftParameter.#ctor(System.Int16,System.String,System.Reflection.TypeInfo,ThriftSharp.Internals.ThriftConverter)">
+            <summary>
+            Initializes a new instance of the ThriftParameter class with the specified values.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftReturnValue">
+            <summary>
+            Thrift method return value.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftReturnValue.UnderlyingTypeInfo">
+            <summary>
+            Gets the value's TypeInfo as declared in code.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftReturnValue.#ctor(System.Reflection.TypeInfo,ThriftSharp.Internals.ThriftConverter)">
+            <summary>
+            Initializes a new instance of the ThriftReturnValue class with the specified values.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftMethod">
+            <summary>
+            Thrift method.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftMethod.Name">
+            <summary>
+            Gets the method's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftMethod.IsOneWay">
+            <summary>
+            Gets a value indicating whether the method is one-way.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftMethod.ReturnValue">
+            <summary>
+            Gets the method's return value.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftMethod.Exceptions">
+            <summary>
+            Gets the method's "throws" clauses.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftMethod.Parameters">
+            <summary>
+            Gets the method's parameters.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftMethod.#ctor(System.String,System.Boolean,ThriftSharp.Internals.ThriftReturnValue,System.Collections.Generic.IReadOnlyList{ThriftSharp.Internals.ThriftThrowsClause},System.Collections.Generic.IReadOnlyList{ThriftSharp.Internals.ThriftParameter})">
+            <summary>
+            Initializes a new instance of the ThriftMethod class with the specified values.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftService">
+            <summary>
+            Thrift service.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftService.Name">
+            <summary>
+            Gets the service's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Internals.ThriftService.Methods">
+            <summary>
+            Gets the service's Thrift methods, mapped by their underlying name.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftService.#ctor(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,ThriftSharp.Internals.ThriftMethod})">
+            <summary>
+            Initializes a new instance of the ThriftService class with the specified values.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.Thrift">
+            <summary>
+            Single entry point to Thrift#'s internals.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.Thrift.CallMethodAsync``1(ThriftSharp.ThriftCommunication,ThriftSharp.Internals.ThriftService,System.String,System.Object[])">
+            <summary>
+            Calls the specified method with the specified arguments using the specified means of communication.
+            </summary>
+            <param name="communication">The means of communication with the server.</param>
+            <param name="service">The Thrift service containing the method.</param>
+            <param name="methodName">The .NET method name.</param>
+            <param name="args">The method arguments.</param>
+            <returns>The method result.</returns>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftType">
+            <summary>
+            Thrift type, either a primitive, a collection or a struct.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftType.Id">
+            <summary>
+            Gets the type's ID.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftType.TypeInfo">
+            <summary>
+            Gets the TypeInfo of the underlying type.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftType.IsEnum">
+            <summary>
+            Gets a value indicating whether the type is an enum.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftType.NullableType">
+            <summary>
+            Gets the underlying type, if the type is a nullable type.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftType.ElementType">
+            <summary>
+            Gets the type of the collection elements, if the type is a list or set.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftType.KeyType">
+            <summary>
+            Gets the type of the map keys, if the type is a map.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.Internals.ThriftType.ValueType">
+            <summary>
+            Gets the type of the map values, if the type is a map.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftType.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the ThriftType class from the specified .NET type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftType.Get(System.Type)">
+            <summary>
+            Gets the Thrift wire type associated with the specified type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftType.GetInstantiableVersion(System.Reflection.TypeInfo,System.Type,System.Type,System.Func{System.Reflection.TypeInfo,System.Exception})">
+            <summary>
+            Gets an instantiable version of the specified type, for the specified interface type,
+            with the specified concrete type if needed, throwing the specified exception if the type 
+            does implement the interface but cannot be instantiated.
+            Returns null if the type does not implement the interface.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Internals.ThriftAttributesParser">
+            <summary>
+            Parses attributes to build a Thrift interface definition.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftAttributesParser.ParseField(System.Reflection.PropertyInfo)">
+            <summary>
+            Parses a Thrift field from the specified PropertyInfo.
+            If the PropertyInfo is not declared as a Thrift field, returns null.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftAttributesParser.ParseStruct(System.Reflection.TypeInfo)">
+            <summary>
+            Parses a Thrift struct from the specified TypeInfo.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftAttributesParser.ParseMethodParameter(System.Reflection.ParameterInfo)">
+            <summary>
+            Parses a Thrift method parameter from the specified ParameterInfo.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftAttributesParser.ParseThrowsClauses(System.Reflection.MethodInfo)">
+            <summary>
+            Parses all Thrift "throws" clauses on the specified MethodInfo.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftAttributesParser.ParseMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Parses a Thrift method from the specified MethodInfo.
+            If the MethodInfo is not declared as a Thrift method, returns null.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Internals.ThriftAttributesParser.ParseService(System.Reflection.TypeInfo)">
+            <summary>
+            Parses a Thrift service from the specified TypeInfo.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Models.ThriftTypeId">
+            <summary>
+            Thrift type IDs.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Empty">
+            <summary>
+            Marks the lack of a field.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Boolean">
+            <summary>
+            Boolean.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.SByte">
+            <summary>
+            Signed byte.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Double">
+            <summary>
+            64-bit IEEE-754 floating-point number.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Int16">
+            <summary>
+            16-bit integer.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Int32">
+            <summary>
+            32-bit integer.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Int64">
+            <summary>
+            64-bit integer.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Binary">
+            <summary>
+            Array of signed bytes, or UTF-8 string.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Struct">
+            <summary>
+            User-defined struct.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Map">
+            <summary>
+            Key -> value map.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.Set">
+            <summary>
+            Set. (list with no duplicates)
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftTypeId.List">
+            <summary>
+            List.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Models.ThriftCollectionHeader">
+            <summary>
+            Header of Thrift collections (List and Set).
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftCollectionHeader.Count">
+            <summary>
+            Gets the number of elements in the collection.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftCollectionHeader.ElementTypeId">
+            <summary>
+            Gets the collection elements' type ID.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftCollectionHeader.#ctor(System.Int32,ThriftSharp.Models.ThriftTypeId)">
+            <summary>
+            Initializes a new instance of the ThriftCollectionHeader class with the specified values.
+            </summary>
+            <param name="count">The number of elements.</param>
+            <param name="elementTypeId">The elements' type ID.</param>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftCollectionHeader.Equals(ThriftSharp.Models.ThriftCollectionHeader)">
+            <summary>
+            Determines whether the header is equal to the specified header.
+            </summary>
+            <param name="other">The header to check for equality.</param>
+            <returns>A value indicating whether the two headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftCollectionHeader.Equals(System.Object)">
+            <summary>
+            Determines whether the header is equal to the specified object.
+            </summary>
+            <param name="obj">The object to check for equality.</param>
+            <returns>A value indicating whether the two objects are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftCollectionHeader.GetHashCode">
+            <summary>
+            Computes a hash of the header.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftCollectionHeader.op_Equality(ThriftSharp.Models.ThriftCollectionHeader,ThriftSharp.Models.ThriftCollectionHeader)">
+            <summary>
+            Checks whether the specified headers are equal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftCollectionHeader.op_Inequality(ThriftSharp.Models.ThriftCollectionHeader,ThriftSharp.Models.ThriftCollectionHeader)">
+            <summary>
+            Checks whether the specified headers are unequal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are unequal.</returns>
+        </member>
+        <member name="T:ThriftSharp.Models.ThriftMapHeader">
+            <summary>
+            Header of Thrift maps.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMapHeader.Count">
+            <summary>
+            Gets the number of elements in the map.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMapHeader.KeyTypeId">
+            <summary>
+            Gets the map keys' type ID.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMapHeader.ValueTypeId">
+            <summary>
+            Gets the map values' type ID.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMapHeader.#ctor(System.Int32,ThriftSharp.Models.ThriftTypeId,ThriftSharp.Models.ThriftTypeId)">
+            <summary>
+            Initializes a new instance of the ThriftMapHeader class with the specified values.
+            </summary>
+            <param name="count">The number of elements.</param>
+            <param name="keyTypeId">The keys' type ID.</param>
+            <param name="valueTypeId">The values' type ID.</param>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMapHeader.Equals(ThriftSharp.Models.ThriftMapHeader)">
+            <summary>
+            Determines whether the header is equal to the specified header.
+            </summary>
+            <param name="other">The header to check for equality.</param>
+            <returns>A value indicating whether the two headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMapHeader.Equals(System.Object)">
+            <summary>
+            Determines whether the header is equal to the specified object.
+            </summary>
+            <param name="obj">The object to check for equality.</param>
+            <returns>A value indicating whether the two objects are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMapHeader.GetHashCode">
+            <summary>
+            Computes a hash of the header.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMapHeader.op_Equality(ThriftSharp.Models.ThriftMapHeader,ThriftSharp.Models.ThriftMapHeader)">
+            <summary>
+            Checks whether the specified headers are equal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMapHeader.op_Inequality(ThriftSharp.Models.ThriftMapHeader,ThriftSharp.Models.ThriftMapHeader)">
+            <summary>
+            Checks whether the specified headers are unequal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are unequal.</returns>
+        </member>
+        <member name="T:ThriftSharp.Models.ThriftFieldHeader">
+            <summary>
+            Header of Thrift fields.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftFieldHeader.Id">
+            <summary>
+            Gets the field's ID.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftFieldHeader.Name">
+            <summary>
+            Gets the field's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftFieldHeader.TypeId">
+            <summary>
+            Gets the field's type ID.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftFieldHeader.#ctor(System.Int16,System.String,ThriftSharp.Models.ThriftTypeId)">
+            <summary>
+            Initializes a new instance of the ThriftFieldHeader class with the specified values.
+            </summary>
+            <param name="id">The field's ID.</param>
+            <param name="name">The field's name.</param>
+            <param name="typeId">The field's type ID.</param>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftFieldHeader.Equals(ThriftSharp.Models.ThriftFieldHeader)">
+            <summary>
+            Determines whether the header is equal to the specified header.
+            </summary>
+            <param name="other">The header to check for equality.</param>
+            <returns>A value indicating whether the two headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftFieldHeader.Equals(System.Object)">
+            <summary>
+            Determines whether the header is equal to the specified object.
+            </summary>
+            <param name="obj">The object to check for equality.</param>
+            <returns>A value indicating whether the two objects are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftFieldHeader.GetHashCode">
+            <summary>
+            Computes a hash of the header.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftFieldHeader.op_Equality(ThriftSharp.Models.ThriftFieldHeader,ThriftSharp.Models.ThriftFieldHeader)">
+            <summary>
+            Checks whether the specified headers are equal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftFieldHeader.op_Inequality(ThriftSharp.Models.ThriftFieldHeader,ThriftSharp.Models.ThriftFieldHeader)">
+            <summary>
+            Checks whether the specified headers are unequal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are unequal.</returns>
+        </member>
+        <member name="T:ThriftSharp.Models.ThriftStructHeader">
+            <summary>
+            Header of Thrift structs.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftStructHeader.Name">
+            <summary>
+            Gets the struct's name.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftStructHeader.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ThriftStructHeader class with the specified parameters.
+            </summary>
+            <param name="name">The struct name.</param>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftStructHeader.Equals(ThriftSharp.Models.ThriftStructHeader)">
+            <summary>
+            Determines whether the header is equal to the specified header.
+            </summary>
+            <param name="other">The header to check for equality.</param>
+            <returns>A value indicating whether the two headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftStructHeader.Equals(System.Object)">
+            <summary>
+            Determines whether the header is equal to the specified object.
+            </summary>
+            <param name="obj">The object to check for equality.</param>
+            <returns>A value indicating whether the two objects are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftStructHeader.GetHashCode">
+            <summary>
+            Computes a hash of the header.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftStructHeader.op_Equality(ThriftSharp.Models.ThriftStructHeader,ThriftSharp.Models.ThriftStructHeader)">
+            <summary>
+            Checks whether the specified headers are equal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftStructHeader.op_Inequality(ThriftSharp.Models.ThriftStructHeader,ThriftSharp.Models.ThriftStructHeader)">
+            <summary>
+            Checks whether the specified headers are unequal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are unequal.</returns>
+        </member>
+        <member name="T:ThriftSharp.Models.ThriftMessageHeader">
+            <summary>
+            Header of Thrift messages.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMessageHeader.Name">
+            <summary>
+            Gets the message's name.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMessageHeader.MessageType">
+            <summary>
+            Gets the message's type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMessageHeader.#ctor(System.String,ThriftSharp.Models.ThriftMessageType)">
+            <summary>
+            Initializes a new instance of the ThriftMessageHeader class with the specified values.
+            </summary>
+            <param name="name">The message name.</param>
+            <param name="messageType">The message type.</param>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMessageHeader.Equals(ThriftSharp.Models.ThriftMessageHeader)">
+            <summary>
+            Determines whether the header is equal to the specified header.
+            </summary>
+            <param name="other">The header to check for equality.</param>
+            <returns>A value indicating whether the two headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMessageHeader.Equals(System.Object)">
+            <summary>
+            Determines whether the header is equal to the specified object.
+            </summary>
+            <param name="obj">The object to check for equality.</param>
+            <returns>A value indicating whether the two objects are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMessageHeader.GetHashCode">
+            <summary>
+            Computes a hash of the header.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMessageHeader.op_Equality(ThriftSharp.Models.ThriftMessageHeader,ThriftSharp.Models.ThriftMessageHeader)">
+            <summary>
+            Checks whether the specified headers are equal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are equal.</returns>
+        </member>
+        <member name="M:ThriftSharp.Models.ThriftMessageHeader.op_Inequality(ThriftSharp.Models.ThriftMessageHeader,ThriftSharp.Models.ThriftMessageHeader)">
+            <summary>
+            Checks whether the specified headers are unequal.
+            </summary>
+            <param name="left">The first header.</param>
+            <param name="right">The second header.</param>
+            <returns>A value indicating whether the headers are unequal.</returns>
+        </member>
+        <member name="T:ThriftSharp.Models.ThriftMessageType">
+            <summary>
+            Thrift message types.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMessageType.Call">
+            <summary>
+            Client to server.
+            Indicates a method call.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMessageType.Reply">
+            <summary>
+            Server to client.
+            Indicates a method reply.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMessageType.Exception">
+            <summary>
+            Server to client.
+            Indicates an exception occured during a method processing.
+            </summary>
+            <remarks>
+            Exceptions sent using ThriftMessageType.Exception are fatal errors that occured during processing, not the declared "throws" exceptions.
+            </remarks>
+        </member>
+        <member name="F:ThriftSharp.Models.ThriftMessageType.OneWay">
+            <summary>
+            Client to server.
+            Indicates a one-way method call, i.e. a call that does not expect a reply.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.IThriftTransportPicker">
+            <summary>
+            Part of the build chain for Thrift communications.
+            Picks the mode of transport.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.IThriftTransportPicker.OverHttp(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Nullable{System.TimeSpan})">
+            <summary>
+            Communicates over HTTP at the specified URL.
+            </summary>
+            <param name="url">The URL, including the port.</param>
+            <param name="headers">Optional. The headers to use with the requests. No additional headers by default.</param>
+            <param name="timeout">Optional. The timeout in milliseconds. The default is 5 seconds.</param>
+            <returns>A finished ThriftCommunication object.</returns>
+        </member>
+        <member name="M:ThriftSharp.IThriftTransportPicker.UsingCustomTransport(System.Func{System.Threading.CancellationToken,ThriftSharp.Transport.IThriftTransport})">
+            <summary>
+            Communicates using the specified transport.
+            </summary>
+            <param name="transportCreator">A function taking a cancellation token and creating a transport from it.</param>
+            <returns>A finished ThriftCommunication object.</returns>
+        </member>
+        <member name="T:ThriftSharp.ThriftCommunication">
+            <summary>
+            Builds a Thrift communication method.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.#ctor(System.Func{ThriftSharp.Transport.IThriftTransport,ThriftSharp.Protocols.IThriftProtocol})">
+            <summary>
+            Initializes a new instance of the ThriftCommunication class with the specified protocol creator.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.#ctor(ThriftSharp.ThriftCommunication,System.Func{System.Threading.CancellationToken,ThriftSharp.Transport.IThriftTransport})">
+            <summary>
+            Initializes a new instance of the ThriftCommunication class as a second part of the build step with the specified transport factory.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.Binary">
+            <summary>
+            Transmit data in binary format.
+            </summary>
+            <returns>A builder object to select the means of transport.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.UsingCustomProtocol(System.Func{ThriftSharp.Transport.IThriftTransport,ThriftSharp.Protocols.IThriftProtocol})">
+            <summary>
+            Communicates using the specified protocol.
+            </summary>
+            <param name="protocolCreator">A function taking a transport and creating a protocol from it.</param>
+            <returns>A builder object to select the means of transport.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.ThriftSharp#IThriftTransportPicker#OverHttp(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Nullable{System.TimeSpan})">
+            <summary>
+            Communicate over HTTP at the specified URL.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.ThriftSharp#IThriftTransportPicker#UsingCustomTransport(System.Func{System.Threading.CancellationToken,ThriftSharp.Transport.IThriftTransport})">
+            <summary>
+            Communicates using the specified transport.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.CreateProtocol(System.Threading.CancellationToken)">
+            <summary>
+            Creates a single-use IThriftProtocol object.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.Equals(System.Object,System.Object)">
+            <summary>
+            Redeclaration hiding the <see cref="M:System.Object.Equals(System.Object,System.Object)" /> method from IntelliSense.
+            Do not use this method.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftCommunication.ReferenceEquals(System.Object,System.Object)">
+            <summary>
+            Redeclaration hiding the <see cref="M:System.Object.ReferenceEquals(System.Object,System.Object)" /> method from IntelliSense.
+            Do not use this method.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftUnixDateConverter">
+            <summary>
+            Converts 32-bit integer timestamps to <see cref="T:System.DateTime" /> values using the Unix format, 
+            i.e. the number of seconds since Jan. 1, 1970 00:00:00 UTC.
+            </summary>
+            <remarks>
+            Consider using <see cref="T:ThriftSharp.ThriftUnixDateOffsetConverter" /> instead; 
+            the <see cref="T:System.DateTimeOffset" /> class replaces the old <see cref="T:System.DateTime" /> class for most use cases.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixDateConverter.Convert(System.Int32)">
+            <summary>
+            Converts the specified 32-bit Unix timestamp to a DateTime.
+            </summary>
+            <param name="value">The timestamp.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixDateConverter.ConvertBack(System.DateTime)">
+            <summary>
+            Converts the specified DateTime to a 32-bit Unix timestamp.
+            </summary>
+            <param name="value">The DateTime.</param>
+            <returns>The resulting timestamp.</returns>
+        </member>
+        <member name="T:ThriftSharp.ThriftUnixDate64Converter">
+            <summary>
+            Converts 64-bit integer timestamps to <see cref="T:System.DateTime" /> values using the Unix format, 
+            i.e. the number of seconds since Jan. 1, 1970 00:00:00 UTC.
+            </summary>
+            <remarks>
+            Consider using <see cref="T:ThriftSharp.ThriftUnixLongDateOffsetConverter" /> instead; 
+            the <see cref="T:System.DateTimeOffset" /> class replaces the old <see cref="T:System.DateTime" /> class for most use cases.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixDate64Converter.Convert(System.Int64)">
+            <summary>
+            Converts the specified 64-bit Unix timestamp to a DateTime.
+            </summary>
+            <param name="value">The timestamp.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixDate64Converter.ConvertBack(System.DateTime)">
+            <summary>
+            Converts the specified DateTime to a 64-bit Unix timestamp.
+            </summary>
+            <param name="value">The DateTime.</param>
+            <returns>The resulting timestamp.</returns>
+        </member>
+        <member name="T:ThriftSharp.ThriftJavaDateConverter">
+            <summary>
+            Converts 64-bit integer timestamps to <see cref="T:System.DateTime" /> values using the Java format, 
+            i.e. the number of milliseconds since Jan. 1, 1970 00:00:00.000 UTC.
+            </summary>
+            <remarks>
+            Consider using <see cref="T:ThriftSharp.ThriftJavaDateOffsetConverter" /> instead; 
+            the <see cref="T:System.DateTimeOffset" /> class replaces the old <see cref="T:System.DateTime" /> class for most use cases.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.ThriftJavaDateConverter.Convert(System.Int64)">
+            <summary>
+            Converts the specified 64-bit Java timestamp to a DateTime.
+            </summary>
+            <param name="value">The timestamp.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftJavaDateConverter.ConvertBack(System.DateTime)">
+            <summary>
+            Converts the specified DateTime to a 64-bit Java timestamp.
+            </summary>
+            <param name="value">The DateTime.</param>
+            <returns>The resulting timestamp.</returns>
+        </member>
+        <member name="T:ThriftSharp.ThriftUnixDateOffsetConverter">
+            <summary>
+            Converts 32-bit integer timestamps to <see cref="T:System.DateTimeOffset" /> values using the Unix format, 
+            i.e. the number of seconds since Jan. 1, 1970 00:00:00 UTC.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixDateOffsetConverter.Convert(System.Int32)">
+            <summary>
+            Converts the specified 32-bit Unix timestamp to a DateTime.
+            </summary>
+            <param name="value">The timestamp.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixDateOffsetConverter.ConvertBack(System.DateTimeOffset)">
+            <summary>
+            Converts the specified DateTime to a 32-bit Unix timestamp.
+            </summary>
+            <param name="value">The DateTime.</param>
+            <returns>The resulting timestamp.</returns>
+        </member>
+        <member name="T:ThriftSharp.ThriftUnixLongDateOffsetConverter">
+            <summary>
+            Converts 64-bit integer timestamps to <see cref="T:System.DateTimeOffset" /> values using the Unix format, 
+            i.e. the number of seconds since Jan. 1, 1970 00:00:00 UTC.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixLongDateOffsetConverter.Convert(System.Int64)">
+            <summary>
+            Converts the specified 64-bit Unix timestamp to a DateTime.
+            </summary>
+            <param name="value">The timestamp.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftUnixLongDateOffsetConverter.ConvertBack(System.DateTimeOffset)">
+            <summary>
+            Converts the specified DateTime to a 64-bit Unix timestamp.
+            </summary>
+            <param name="value">The DateTime.</param>
+            <returns>The resulting timestamp.</returns>
+        </member>
+        <member name="T:ThriftSharp.ThriftJavaDateOffsetConverter">
+            <summary>
+            Converts 64-bit integer timestamps to <see cref="T:System.DateTimeOffset" /> values using the Java format, 
+            i.e. the number of milliseconds since Jan. 1, 1970 00:00:00.000 UTC.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftJavaDateOffsetConverter.Convert(System.Int64)">
+            <summary>
+            Converts the specified 64-bit Java timestamp to a DateTime.
+            </summary>
+            <param name="value">The timestamp.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftJavaDateOffsetConverter.ConvertBack(System.DateTimeOffset)">
+            <summary>
+            Converts the specified DateTime to a 64-bit Java timestamp.
+            </summary>
+            <param name="value">The DateTime.</param>
+            <returns>The resulting timestamp.</returns>
+        </member>
+        <member name="T:ThriftSharp.IThriftValueConverter`2">
+            <summary>
+            Converter between types, used to serialize and deserialize complex objects into Thrift types.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.IThriftValueConverter`2.Convert(`0)">
+            <summary>
+            Converts the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <remarks>A converted form of the value.</remarks>
+        </member>
+        <member name="M:ThriftSharp.IThriftValueConverter`2.ConvertBack(`1)">
+            <summary>
+            Converts back the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <remarks>A converted form of the value.</remarks>
+        </member>
+        <member name="T:ThriftSharp.Utilities.IFluent">
+            <summary>
+            Interface used to build fluent APIs by hiding methods declared by <see cref="T:System.Object"/> from IntelliSense.
+            </summary>
+            <remarks>
+            See http://bit.ly/ifluentinterface for more information.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.Utilities.IFluent.GetType">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.GetType" /> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.IFluent.GetHashCode">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.GetHashCode" /> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.IFluent.ToString">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.ToString" /> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.IFluent.Equals(System.Object)">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.Equals(System.Object)" /> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.Types">
+            <summary>
+            Cached Types used by the rest of the code.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.TypeInfos">
+            <summary>
+            Cached TypeInfos used by the rest of the code.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.Constructors">
+            <summary>
+            Cached ConstructorInfos used by the rest of the code.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.Methods">
+            <summary>
+            Cached MethodInfos used by the rest of the code.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.Fields">
+            <summary>
+            Cached FieldInfos used by the rest of the code.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.ReflectionExtensions">
+            <summary>
+            Reflection utility extension methods.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.ReflectionExtensions.GetGenericInterfaces(System.Reflection.TypeInfo,System.Type)">
+            <summary>
+            Gets all implementations of the specified generic interface definitions on the TypeInfo.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.ReflectionExtensions.Extends(System.Reflection.TypeInfo,System.Type)">
+            <summary>
+            Checks whether the TypeInfo extends the specified type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.ReflectionExtensions.UnwrapTask(System.Type)">
+            <summary>
+            Unwraps a Task if the Type is one, or returns null.
+            Returns typeof(void) if the Task is not a generic one.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.TaskEx">
+            <summary>
+            Task utility methods.
+            </summary>
+            <remarks>
+            The naming of this class is not optimal, but a class named TaskExtensions already exists in S.T.Tasks.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.Utilities.TaskEx.TimeoutAfter``1(System.Threading.Tasks.Task{``0},System.TimeSpan)">
+            <summary>
+            Makes the <see cref="T:System.Threading.Tasks.Task`1" /> timeout after the specified amount of time.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.TaskEx.MarshalTaskResults``1(System.Threading.Tasks.Task{``0},System.Threading.Tasks.TaskCompletionSource{``0})">
+            <summary>
+            Marshals the results of the specified task to the specified task source.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Utilities.Validation">
+            <summary>
+            Utility class for validating method parameters, using expressions to avoid hardcoded parameter names.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.Validation.IsNotNull``1(``0,System.String)">
+            <summary>
+            Ensures the specified object is not null.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Utilities.Validation.IsNeitherNullNorWhitespace(System.String,System.String)">
+            <summary>
+            Ensures the specified string is not null, empty or entirely composed of whitespace.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftProtocolException">
+            <summary>
+            Fatal server exception transmitted to the client instead of the message.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftProtocolException.Message">
+            <summary>
+            Gets the exception's message.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftProtocolException.ExceptionType">
+            <summary>
+            Gets the exception's type.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftProtocolException.#ctor">
+            <summary>
+            For deserialization purposes only.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftProtocolException.#ctor(ThriftSharp.ThriftProtocolExceptionType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ThriftSharp.ThriftProtocolException" /> class with the specified values.
+            </summary>
+            <param name="exceptionType">The exception type.</param>
+        </member>
+        <member name="T:ThriftSharp.ThriftProtocolExceptionType">
+            <summary>
+            The Thrift protocol exception types.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.Unknown">
+            <summary>
+            An unknown exception occured.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.UnknownMethod">
+            <summary>
+            The method requested by the client is unknown to the server.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.InvalidMessageType">
+            <summary>
+            The message type is invalid.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.WrongMethodName">
+            <summary>
+            The method name sent by the client is unknown to the server.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.BadSequenceId">
+            <summary>
+            The sequence ID of the message is wrong.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.MissingResult">
+            <summary>
+            The server did not send a result when one was expected.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.InternalError">
+            <summary>
+            An internal error occured.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.ProtocolError">
+            <summary>
+            A protocol error occured.
+            This can happen when the client and server Thrift versions do not match.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.InvalidTransform">
+            <summary>
+            An invalid transform occured.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.InvalidProtocol">
+            <summary>
+            An invalid protocol was used.
+            </summary>
+        </member>
+        <member name="F:ThriftSharp.ThriftProtocolExceptionType.UnsupportedClientType">
+            <summary>
+            The client is of an unsupported type.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Protocols.ThriftBinaryProtocol">
+            <summary>
+            Thrift's binary protocol. 
+            A compact but simple way to represent Thrift data.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.#ctor(ThriftSharp.Transport.IThriftTransport)">
+            <summary>
+            Initializes a new instance of the ThriftBinaryProtocol class using the specified transport.
+            </summary>
+            <param name="transport">The transport used to transmit data.</param>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadMessageHeader">
+            <summary>
+            Reads a message header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadMessageEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadStructHeader">
+            <summary>
+            Returns an empty struct header.
+            The binary protocol does not store struct headers.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadStructEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadFieldHeader">
+            <summary>
+            Reads a field header.
+            Returns null if there are no more fields in the struct currently being read.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadFieldEnd">
+            <summary>
+            Does nothing.
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadListHeader">
+            <summary>
+            Reads a list header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadListEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadSetHeader">
+            <summary>
+            Reads a set header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadSetEnd">
+            <summary>
+            Does nothing.
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadMapHeader">
+            <summary>
+            Reads a map header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadMapEnd">
+            <summary>
+            Does nothing.
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadBoolean">
+            <summary>
+            Reads a boolean value as a byte, where 0 is true and anything else is false.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadSByte">
+            <summary>
+            Reads a signed byte.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadDouble">
+            <summary>
+            Reads a big-endian, IEEE-754 double-precision floating-point number.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadInt16">
+            <summary>
+            Reads a big-endian 16-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadInt32">
+            <summary>
+            Reads a big-endian 32-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadInt64">
+            <summary>
+            Reads a big-endian 64-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadString">
+            <summary>
+            Reads an UTF-8 string whose length is a leading 32-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.ReadBinary">
+            <summary>
+            Reads an array of signed bytes whose length is a leading 32-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.FlushAndReadAsync">
+            <summary>
+            Asynchronously flushes the written data and reads all input.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteMessageHeader(ThriftSharp.Models.ThriftMessageHeader)">
+            <summary>
+            Writes the specified message header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteMessageEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteStructHeader(ThriftSharp.Models.ThriftStructHeader)">
+            <summary>
+            Writes the specified struct header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteStructEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteFieldHeader(ThriftSharp.Models.ThriftFieldHeader)">
+            <summary>
+            Writes the specified field header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteFieldEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteFieldStop">
+            <summary>
+            Writes a token signaling the end of fields in a struct.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteListHeader(ThriftSharp.Models.ThriftCollectionHeader)">
+            <summary>
+            Writes the specified list header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteListEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteSetHeader(ThriftSharp.Models.ThriftCollectionHeader)">
+            <summary>
+            Writes the specified set header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteSetEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteMapHeader(ThriftSharp.Models.ThriftMapHeader)">
+            <summary>
+            Writes the specified map header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteMapEnd">
+            <summary>
+            Does nothing. 
+            The binary protocol does not use end tokens.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteBoolean(System.Boolean)">
+            <summary>
+            Writes the specified boolean as a byte, 1 for true and 0 for false.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteSByte(System.SByte)">
+            <summary>
+            Writes the specified signed byte.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteDouble(System.Double)">
+            <summary>
+            Writes the specified double-precision floating-point number, using the IEEE 754 big-endian format.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteInt16(System.Int16)">
+            <summary>
+            Writes the specified 16-bit integer in big-endian format.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteInt32(System.Int32)">
+            <summary>
+            Writes the specified 32-bit integer in big-endian format.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteInt64(System.Int64)">
+            <summary>
+            Writes the specified 64-bit integer in big-endian format.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteString(System.String)">
+            <summary>
+            Writes the specified string in UTF-8 encoding, leading it with its length as a 32-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.WriteBinary(System.SByte[])">
+            <summary>
+            Writes the specified array of signed bytes, leading it with its length as a 32-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.Finalize">
+            <summary>
+            Finalizes the ThriftBinaryProtocol.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.Dispose">
+            <summary>
+            Disposes of the ThriftBinaryProtocol.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.ThriftBinaryProtocol.DisposePrivate">
+            <summary>
+            Disposes of the ThriftBinaryProtocol's internals.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Protocols.IThriftProtocol">
+            <summary>
+            Protocol that can send and receive Thrift types and messages.
+            </summary>
+            <remarks>
+            Implementations of this interface will never be passed null arguments.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadMessageHeader">
+            <summary>
+            Reads a message header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadMessageEnd">
+            <summary>
+            Reads an end-of-message token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadStructHeader">
+            <summary>
+            Reads a struct header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadStructEnd">
+            <summary>
+            Reads an end-of-struct token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadFieldHeader">
+            <summary>
+            Reads a field header.
+            Returns null if there are no more fields in the struct currently being read.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadFieldEnd">
+            <summary>
+            Reads an end-of-field token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadListHeader">
+            <summary>
+            Reads a list header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadListEnd">
+            <summary>
+            Reads an end-of-list token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadSetHeader">
+            <summary>
+            Reads a set header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadSetEnd">
+            <summary>
+            Reads an end-of-set token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadMapHeader">
+            <summary>
+            Reads a map header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadMapEnd">
+            <summary>
+            Reads an end-of-map token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadBoolean">
+            <summary>
+            Reads a boolean.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadSByte">
+            <summary>
+            Reads a signed byte.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadDouble">
+            <summary>
+            Reads an IEEE 754 double-precision floating-point number.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadInt16">
+            <summary>
+            Reads a 16-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadInt32">
+            <summary>
+            Reads a 32-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadInt64">
+            <summary>
+            Reads a 64-bit integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadString">
+            <summary>
+            Reads an UTF-8 string.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.ReadBinary">
+            <summary>
+            Reads an array of signed bytes.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.FlushAndReadAsync">
+            <summary>
+            Asynchronously flushes the written data and reads all input.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteMessageHeader(ThriftSharp.Models.ThriftMessageHeader)">
+            <summary>
+            Writes the specified message header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteMessageEnd">
+            <summary>
+            Writes an end-of-message token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteStructHeader(ThriftSharp.Models.ThriftStructHeader)">
+            <summary>
+            Writes the specified struct header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteStructEnd">
+            <summary>
+            Writes an end-of-struct token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteFieldHeader(ThriftSharp.Models.ThriftFieldHeader)">
+            <summary>
+            Writes the specified field header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteFieldEnd">
+            <summary>
+            Writes an end-of-field token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteFieldStop">
+            <summary>
+            Writes a token signaling the end of fields in a struct.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteListHeader(ThriftSharp.Models.ThriftCollectionHeader)">
+            <summary>
+            Writes the specified list header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteListEnd">
+            <summary>
+            Writes an end-of-list token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteSetHeader(ThriftSharp.Models.ThriftCollectionHeader)">
+            <summary>
+            Writes the specified set header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteSetEnd">
+            <summary>
+            Writes an end-of-set token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteMapHeader(ThriftSharp.Models.ThriftMapHeader)">
+            <summary>
+            Writes the specified map header.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteMapEnd">
+            <summary>
+            Writes an end-of-map token.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteBoolean(System.Boolean)">
+            <summary>
+            Writes the specified boolean.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteSByte(System.SByte)">
+            <summary>
+            Writes the specified signed byte.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteDouble(System.Double)">
+            <summary>
+            Writes the specified IEEE 754 double-precision floating-point number.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteInt16(System.Int16)">
+            <summary>
+            Writes the specified 16-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteInt32(System.Int32)">
+            <summary>
+            Writes the specified 32-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteInt64(System.Int64)">
+            <summary>
+            Writes the specified 64-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteString(System.String)">
+            <summary>
+            Writes the specified string.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Protocols.IThriftProtocol.WriteBinary(System.SByte[])">
+            <summary>
+            Writes the specified array of signed bytes.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftParsingException">
+            <summary>
+            Raised when a parsing error occurs.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftParsingException.#ctor(System.String)">
+            <summary>
+            Prevents a default instance of the ThriftParsingException class from being created.
+            This is meant to force the use one of the static factory methods.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftSerializationException">
+            <summary>
+            Raised when a serialization error occurs.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftSerializationException.#ctor(System.String)">
+            <summary>
+            Prevents a default instance of the ThriftSerializationException class from being created.
+            This is meant to force customers to use one of the static factory methods.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftServiceImplementation`1">
+            <summary>
+            Helper base class to define a Thrift service implementation.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.#ctor(ThriftSharp.ThriftCommunication)">
+            <summary>
+            Initializes a new instance of the ThriftServiceImplementation class with the specified means of communication.
+            </summary>
+            <param name="communication">The means of communication with the server.</param>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``1(System.String,System.Object[])">
+            <summary>
+            Asynchronously calls the specified method name, with the specified arguments.
+            </summary>
+            <typeparam name="T">The method's asynchronous return type.</typeparam>
+            <param name="methodName">The method's name.</param>
+            <param name="args">The method arguments.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+            <remarks>
+            Clients should prefer the overloads that take expressions, to avoid hardcoded string constants.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``1(System.Linq.Expressions.Expression{System.Func{`0,System.Func{System.Threading.Tasks.Task{``0}}}})">
+            <summary>
+            Asynchronously calls the specified method.
+            </summary>
+            <typeparam name="T">The method's return type.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``2(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,System.Threading.Tasks.Task{``1}}}},``0)">
+            <summary>
+            Asynchronously calls the specified method, with the specified argument.
+            </summary>
+            <typeparam name="T">The type of the method's only argument.</typeparam>
+            <typeparam name="TReturn">The method's return type.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg">The method's only argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``3(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,``1,System.Threading.Tasks.Task{``2}}}},``0,``1)">
+            <summary>
+            Asynchronously calls the specified method, with the specified arguments.
+            </summary>
+            <typeparam name="T1">The type of the method's first argument.</typeparam>
+            <typeparam name="T2">The type of the method's second argument.</typeparam>
+            <typeparam name="TReturn">The method's return type.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg1">The method's first argument.</param>
+            <param name="arg2">The method's second argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``4(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,``1,``2,System.Threading.Tasks.Task{``3}}}},``0,``1,``2)">
+            <summary>
+            Asynchronously calls the specified method, with the specified arguments.
+            </summary>
+            <typeparam name="T1">The type of the method's first argument.</typeparam>
+            <typeparam name="T2">The type of the method's second argument.</typeparam>
+            <typeparam name="T3">The type of the method's third argument.</typeparam>
+            <typeparam name="TReturn">The method's return type.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg1">The method's first argument.</param>
+            <param name="arg2">The method's second argument.</param>
+            <param name="arg3">The method's third argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``5(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,``1,``2,``3,System.Threading.Tasks.Task{``4}}}},``0,``1,``2,``3)">
+            <summary>
+            Asynchronously calls the specified method, with the specified arguments.
+            </summary>
+            <typeparam name="T1">The type of the method's first argument.</typeparam>
+            <typeparam name="T2">The type of the method's second argument.</typeparam>
+            <typeparam name="T3">The type of the method's third argument.</typeparam>
+            <typeparam name="T4">The type of the method's fourth argument.</typeparam>
+            <typeparam name="TReturn">The method's return type.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg1">The method's first argument.</param>
+            <param name="arg2">The method's second argument.</param>
+            <param name="arg3">The method's third argument.</param>
+            <param name="arg4">The method's fourth argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync(System.String,System.Object[])">
+            <summary>
+            Asynchronously calls the specified method name, with the specified arguments.
+            </summary>
+            <param name="methodName">The method's name.</param>
+            <param name="args">The method arguments.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+            <remarks>
+            Clients should prefer the overloads that take expressions, to avoid hardcoded string constants.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Func{System.Threading.Tasks.Task}}})">
+            <summary>
+            Asynchronously calls the specified method.
+            </summary>
+            <param name="expr">An expression representing the method.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``1(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,System.Threading.Tasks.Task}}},``0)">
+            <summary>
+            Asynchronously calls the specified method, with the specified argument.
+            </summary>
+            <typeparam name="T">The type of the method's only argument.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg">The method's only argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``2(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,``1,System.Threading.Tasks.Task}}},``0,``1)">
+            <summary>
+            Asynchronously calls the specified method, with the specified arguments.
+            </summary>
+            <typeparam name="T1">The type of the method's first argument.</typeparam>
+            <typeparam name="T2">The type of the method's second argument.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg1">The method's first argument.</param>
+            <param name="arg2">The method's second argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``3(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,``1,``2,System.Threading.Tasks.Task}}},``0,``1,``2)">
+            <summary>
+            Asynchronously calls the specified method, with the specified arguments.
+            </summary>
+            <typeparam name="T1">The type of the method's first argument.</typeparam>
+            <typeparam name="T2">The type of the method's second argument.</typeparam>
+            <typeparam name="T3">The type of the method's third argument.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg1">The method's first argument.</param>
+            <param name="arg2">The method's second argument.</param>
+            <param name="arg3">The method's third argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.CallAsync``4(System.Linq.Expressions.Expression{System.Func{`0,System.Func{``0,``1,``2,``3,System.Threading.Tasks.Task}}},``0,``1,``2,``3)">
+            <summary>
+            Asynchronously calls the specified method, with the specified arguments.
+            </summary>
+            <typeparam name="T1">The type of the method's first argument.</typeparam>
+            <typeparam name="T2">The type of the method's second argument.</typeparam>
+            <typeparam name="T3">The type of the method's third argument.</typeparam>
+            <typeparam name="T4">The type of the method's fourth argument.</typeparam>
+            <param name="expr">An expression representing the method.</param>
+            <param name="arg1">The method's first argument.</param>
+            <param name="arg2">The method's second argument.</param>
+            <param name="arg3">The method's third argument.</param>
+            <param name="arg4">The method's fourth argument.</param>
+            <returns>The task object representing the asynchronous call.</returns>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceImplementation`1.GetMethodName``1(System.Linq.Expressions.Expression{``0})">
+            <summary>
+            Gets the method name from an expression returning it, of the form `x => x.Method`.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftConvertibleAttribute">
+            <summary>
+            Base class for attributes that can specify a converter to be used when serializing values.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftConvertibleAttribute.Converter">
+            <summary>
+            Gets the converter's type.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftConvertibleAttribute.ThriftConverter">
+            <summary>
+            Gets the converter.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftConvertibleAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the ThriftConvertibleAttribute class, ensuring only Thrift# classes can inherit from it.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftEnumAttribute">
+            <summary>
+            Required attribute marking enums as Thrift enums.
+            </summary>
+            <remarks>
+            This is only a marker attribute that ensures the wrong enums are not involuntarily used.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.ThriftEnumAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the ThriftEnumAttribute class.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.ThriftFieldAttribute">
+            <summary>
+            Required attribute marking properties as Thrift fields.
+            Properties without this attribute will be ignored.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftFieldAttribute.Id">
+            <summary>
+            Gets the Thrift field's ID.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftFieldAttribute.IsRequired">
+            <summary>
+            Gets a value indicating whether the field is required.
+            </summary>
+            <remarks>
+            If the Thrift field is required, an exception will be thrown if it is not set during serialization.
+            </remarks>
+        </member>
+        <member name="P:ThriftSharp.ThriftFieldAttribute.Name">
+            <summary>
+            Gets the Thrift field's name.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftFieldAttribute.DefaultValue">
+            <summary>
+            Gets or sets the field's default value.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftFieldAttribute.#ctor(System.Int16,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the ThriftFieldAttribute class with the specified values.
+            </summary>
+            <param name="id">The Thrift ID of the field the attribute is applied to.</param>
+            <param name="isRequired">Whether the field the attribute is applied to is required.</param>
+            <param name="name">The Thrift name of the field the attribute is applied to.</param>
+        </member>
+        <member name="T:ThriftSharp.ThriftStructAttribute">
+            <summary>
+            Required attribute marking classes as Thrift structs.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftStructAttribute.Name">
+            <summary>
+            Gets the Thrift struct's name.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftStructAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ThriftStructAttribute class with the specified name.
+            </summary>
+            <param name="name">The Thrift name of the struct the attribute is applied to.</param>
+        </member>
+        <member name="T:ThriftSharp.ThriftParameterAttribute">
+            <summary>
+            Required attribute marking Thrift method parameters.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftParameterAttribute.Id">
+            <summary>
+            Gets the parameter's ID.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftParameterAttribute.Name">
+            <summary>
+            Gets the parameter's name.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftParameterAttribute.#ctor(System.Int16,System.String)">
+            <summary>
+            Initializes a new instance of the ThriftParameterAttribute class with the specified ID and name.
+            </summary>
+            <param name="id">The Thrift ID of the parameter the attribute is applied to.</param>
+            <param name="name">The Thrift name of the parameter the attribute is applied to.</param>
+        </member>
+        <member name="T:ThriftSharp.ThriftThrowsAttribute">
+            <summary>
+            Optional attribute marking methods to specify a Thrift "throws" clause.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftThrowsAttribute.Id">
+            <summary>
+            Gets the clause's ID.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftThrowsAttribute.Name">
+            <summary>
+            Gets the clause's name.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftThrowsAttribute.ExceptionTypeInfo">
+            <summary>
+            Gets the type of the exception specified by the clause.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftThrowsAttribute.#ctor(System.Int16,System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the ThriftThrowsAttribute class with the specified values.
+            </summary>
+            <param name="id">The Thrift ID of the clause defined by the attribute.</param>
+            <param name="name">The Thrift name of the clause defined by the attribute.</param>
+            <param name="exceptionType">The type of the exception whose clause is defined by the attribute.</param>
+        </member>
+        <member name="T:ThriftSharp.ThriftMethodAttribute">
+            <summary>
+            Required attribute marking methods as Thrift methods.
+            Methods without this attribute will be ignored.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftMethodAttribute.Name">
+            <summary>
+            Gets the method's name.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftMethodAttribute.IsOneWay">
+            <summary>
+            Gets or sets a value indicating whether the method is a one-way method.
+            One-way methods are sent by the client but not replied to by the server.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftMethodAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ThriftMethodAttribute class with the specified name.
+            </summary>
+            <param name="name">The Thrift name of the method the attribute is applied to.</param>
+        </member>
+        <member name="T:ThriftSharp.ThriftServiceAttribute">
+            <summary>
+            Required attribute marking interfaces as Thrift services.
+            </summary>
+        </member>
+        <member name="P:ThriftSharp.ThriftServiceAttribute.Name">
+            <summary>
+            Gets the service's name.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.ThriftServiceAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ThriftServiceAttribute class with the specified name.
+            </summary>
+            <param name="name">The Thrift name of the service the attribute is applied to.</param>
+        </member>
+        <member name="T:ThriftSharp.Transport.HttpThriftTransport">
+            <summary>
+            Transports binary data over HTTP POST requests.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Transport.HttpThriftTransport.#ctor(System.String,System.Threading.CancellationToken,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the HttpThriftTransport class using the specified values.
+            </summary>
+            <param name="url">The URL, including the port if necessary.</param>
+            <param name="token">The cancellation token that will cancel asynchronous tasks.</param>
+            <param name="headers">The HTTP headers to include with every request.</param>
+            <param name="timeout">The timeout.</param>
+        </member>
+        <member name="M:ThriftSharp.Transport.HttpThriftTransport.WriteBytes(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes the specified array of unsigned bytes.
+            </summary>
+            <param name="bytes">The array.</param>
+            <param name="offset">The offset at which to start.</param>
+            <param name="count">The number of bytes to write.</param>
+        </member>
+        <member name="M:ThriftSharp.Transport.HttpThriftTransport.ReadBytes(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads unsigned bytes, and puts them in the specified array.
+            </summary>
+            <param name="output">The array in which to write read bytes.</param>
+            <param name="offset">The offset at which to start writing in the array.</param>
+            <param name="count">The number of bytes to read.</param>
+        </member>
+        <member name="M:ThriftSharp.Transport.HttpThriftTransport.FlushAndReadAsync">
+            <summary>
+            Asynchronously flushes the written bytes and reads all input.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Transport.HttpThriftTransport.Finalize">
+            <summary>
+            Finalizes the HttpThriftTransport.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Transport.HttpThriftTransport.Dispose">
+            <summary>
+            Disposes of the HttpThriftTransport.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Transport.HttpThriftTransport.DisposePrivate">
+            <summary>
+            Disposes of the HttpThriftTransport's internals.
+            </summary>
+        </member>
+        <member name="T:ThriftSharp.Transport.IThriftTransport">
+            <summary>
+            Transports data at the byte level.
+            </summary>
+            <remarks>
+            Implementations of this interface will never be passed null arguments.
+            </remarks>
+        </member>
+        <member name="M:ThriftSharp.Transport.IThriftTransport.WriteBytes(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes the specified array of unsigned bytes.
+            </summary>
+            <param name="bytes">The array.</param>
+            <param name="offset">The offset at which to start.</param>
+            <param name="count">The number of bytes to write.</param>
+        </member>
+        <member name="M:ThriftSharp.Transport.IThriftTransport.FlushAndReadAsync">
+            <summary>
+            Asynchronously flushes the written bytes and reads all input bytes.
+            </summary>
+        </member>
+        <member name="M:ThriftSharp.Transport.IThriftTransport.ReadBytes(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads unsigned bytes, and puts them in the specified array.
+            </summary>
+            <param name="output">The array in which to write read bytes.</param>
+            <param name="offset">The offset at which to start writing in the array.</param>
+            <param name="count">The number of bytes to read.</param>
+        </member>
+    </members>
+</doc>

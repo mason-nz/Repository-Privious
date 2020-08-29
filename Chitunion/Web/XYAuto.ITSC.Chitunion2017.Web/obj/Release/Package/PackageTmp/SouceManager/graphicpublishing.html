@@ -1,0 +1,184 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew_editor.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew_editor.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script src="../js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/graphicpublishing.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2>素材管理 > 图文发布</h2>
+            </div>
+            <div class="graphic_publishing">
+                <div id="Graphic_rendering">
+
+                </div>
+                <div id="graphics">
+
+                </div>
+
+                <div class="clear"></div>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+<script type="text/template" id="graphicrendering">
+    <%if(Result.ArticleGroups.length>1){%>
+    <div class="gp_left2">
+        <%for(var i=0;i<Result.ArticleGroups.length;i++){%>
+        <%if(i==0){%>
+        <div class="figure">
+            <img src="<%=Result.ArticleGroups[i].CoverPicUrl%>">
+            <div class="mask">
+                <%=Result.ArticleGroups[i].Title%>
+                <!--<div>来源：赤兔联盟</div>-->
+            </div>
+        </div>
+        <%}else{%>
+        <div class="list">
+            <div class="l_content">
+                <h4><%=Result.ArticleGroups[i].Title%></h4>
+                <!--<p>来源：站酷</p>-->
+            </div>
+            <div class="r_img"><img src="<%=Result.ArticleGroups[i].CoverPicUrl%>"></div>
+            <div class="clear"></div>
+        </div>
+        <%}%>
+        <%}%>
+    </div>
+    <%}else{%>
+    <div class="gp_left">
+        <%for(var i=0;i<Result.ArticleGroups.length;i++){%>
+        <ul>
+
+            <li><img src="<%=Result.ArticleGroups[i].CoverPicUrl%>"></li>
+            <li><%=Result.ArticleGroups[i].Title%></li>
+        </ul>
+        <%}%>
+    </div>
+
+    <%}%>
+</script>
+<script type="text/template" id="graphics_add">
+    <div class="gp_right">
+        <div class="gp_table">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" >
+                <%if(Result.WxSyncStatus.length>0){%>
+                <%for(var i=0;i<Result.WxSyncStatus.length;i++){%>
+                <tr>
+                    <td width="5%">
+                        <%var disabled=' ',checked=' ';
+                        if(Result.WxSyncStatus[i].Status==54001||Result.WxSyncStatus[i].Status==54002||Result.WxSyncStatus[i].Status==0){
+                        disabled='disabled';
+                        };
+                        if(Result.WxSyncStatus[i].Status==54001||Result.WxSyncStatus[i].Status==54002){
+                        checked='checked';
+                        }
+                        %>
+                        <input name="checkbox" ArticleID="<%=Result.WxSyncStatus[i].WxID%>" class="onebox" <%=checked%> type="checkbox" <%=disabled%> value="">
+                    </td>
+                    <td width="65%">
+                        <div class="portrait"><img src="<%=Result.WxSyncStatus[i].HeadImg%>"/></div>
+                        <div class="public">
+                            <p><%=Result.WxSyncStatus[i].WxName%></p>
+                        </div>
+                        <div class="clear"></div>
+                    </td>
+                    <%var WxStatus,Status;
+                    if(Result.WxSyncStatus[i].Status==54001){WxStatus='/ImagesNew/syn_01.png';Status='待同步'}
+                    if(Result.WxSyncStatus[i].Status==54002){WxStatus='/ImagesNew/syn_01.png';Status='同步中'}
+                    if(Result.WxSyncStatus[i].Status==54003){WxStatus='/ImagesNew/syn_02.png';Status='同步成功'}
+                    if(Result.WxSyncStatus[i].Status==54004){WxStatus='/ImagesNew/syn_03.png';Status='同步失败'}%>
+                    <td width="30%" style="text-align:right">
+                        <%if(Result.WxSyncStatus[i].Status!=1&&Result.WxSyncStatus[i].Status!=0){%>
+                        <img src="<%=WxStatus%>"/> &nbsp; <%=Status%>
+                        <%}%>
+                        <%if(Result.WxSyncStatus[i].Status==0){%>
+                        <form id="form3" action=" /wx/WeChat.ashx?m=oauth" method="post">
+
+                        </form>
+                        <%}%>
+                    </td>
+                </tr>
+                <%}%>
+                <%}else{%>
+
+                <div style="margin-top: 10px;margin-left: 10px;display: block">
+                    <form id="form1" action=" /wx/WeChat.ashx?m=oauth" method="post">
+
+                    </form>
+                </div>
+
+                <%}%>
+            </table>
+            <div class="immediate">
+                <!--<div><a href="#" class="but_data" style="width:160px;margin-left:10px">立即同步</a></div>-->
+                <%if(Result.WxSyncStatus.length>0){%>
+                <form id="form2" action=" /wx/WeChat.ashx?m=oauth" method="post">
+                <div id="Addauthorization">
+                    <input type="hidden" name="GroupID" value="<%=GetRequest().GroupID%>">
+                    <input type="hidden" name="Type" value="38001">
+                    <input type="submit" style="cursor: pointer;color: #f77777;background: #fff;border: 0" value="增加授权账号"></div>
+
+                </form>
+                <%}%>
+                <div class="mt20"><span id="mt20"  style="width: 160px;"><a id="tongbu" href="javascript:;" class="but_data_h" style="width:160px;margin-left:10px">立即同步</a></span></div>
+            </div>
+        </div>
+
+        <div class="situation">
+            <div class="close"><img src="/ImagesNew/close_h1.png"/></div>
+            <h2>下面几种情况可能导致同步失败</h2>
+            <p>1､未授权素材管理权限</p>
+            <p>2､文中包含音频</p>
+            <p>3､封面图片大于5M</p>
+            <p>4､封面图片格式错误（支持bmp、 png、 jpeg、jpg、gif格式）</p>
+            <p>5､文本内容敏感（涉及政治等话题）</p>
+            <p>6､封面未上传成功</p>
+            <p>7､5秒内连续同步同一篇文章</p>
+            <p>8､正文图片大于5M</p>
+            <p>9､微信后台正在维护下面几种情况可能导致同步失败</p>
+        </div>
+    </div>
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/appsee.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <!-- <ul style="width:1200px;background:#F4F5F6;height:80px;line-height:80px">
+                <li style="font-size:30px;margin-left:60px;line-height:80px;width:240px;text-align:center" id="basic" class="active">媒体信息</li>
+                <li style="font-size:30px;margin-left:60px;line-height:80px;width:240px;text-align:center" id="case">案例展示</li>
+            </ul> -->
+
+            <div id="essentia"></div>
+            <div id="case_div"></div>
+            <script type="text/template" id="essentialinformation">
+                <ul>
+                    <li class="ins_a">APP名称：</li>
+                    <li><%=Result.Name%></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">媒体Logo：</li>
+                    <li>
+                        <div class="frame"><img src="<%=Result.HeadIconURL%>" width="80" height="80"></div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="switch" style="display:none">
+                    <span class="current" id="basic">基本信息</span>
+                    <span id="case">案例展示</span>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div id="Hidebasicinformation">
+                <%if(Result.CommonlyClass!=null){%>
+                <%if(Result.CommonlyClass.length!=0){%>
+                <ul>
+                    <li class="ins_a">常见分类：</li>
+                    <%for(var i=0;i<Result.CommonlyClass.length;i++){%>
+                    <li>
+                        <div class="classification">
+                            <%=Result.CommonlyClass[i].CategoryName%>
+                            <%if(Result.CommonlyClass[i].SortNumber==1){%>
+                            <em style="position: absolute;right: 0;top: 3px;bottom: -3px;"><img src="/ImagesNew/icon85.png" /></em>
+                            <%}%>
+                        </div>
+                    </li>
+                    <%}%>
+                    <div class="clear"></div>
+                </ul>
+                <%}%>
+                <%}%>
+
+                <%if(Result.CoverageArea!=null){%>
+                <%if(Result.CoverageArea.length!=0){%>
+            <ul>
+                <li class="ins_a">覆盖地区：</li>
+                <%for(var i=0;i<Result.CoverageArea.length;i++){%>
+                <li>
+                    <div class="classification">
+                        <%=Result.CoverageArea[i].ProvinceName?Result.CoverageArea[i].ProvinceName:''%> <%=Result.CoverageArea[i].CityName?Result.CoverageArea[i].CityName:''%>
+                    </div>
+                </li>
+                <%}%>
+                <div class="clear"></div>
+            </ul>
+                <%}%>
+                <%}%>
+                <%if(Result.ProvinceName!=null){%>
+            <ul>
+                <li class="ins_a">所在地区：</li>
+                <li><%=Result.ProvinceName%> <%=Result.CityName?Result.CityName:''%></li>
+                <div class="clear"></div>
+            </ul>
+                <%}%>
+
+            <ul>
+                <li class="ins_a">APP日活：</li>
+                <li><%=Result.DailyLive%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">媒体介绍：</li>
+                <li>
+                    <div class="beyond"><%=Result.Remark%></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+                <%if(Result.OrderRemark!=null){%>
+                <%if(Result.OrderRemark.length!=0){%>
+            <ul>
+                <li class="ins_a">下单备注：</li>
+                <li>
+                    <div class="answer">
+                        <%for(var i=0;i<Result.OrderRemark.length;i++){%>
+                        <%if(Result.OrderRemark[i].Id==40009){%>
+                        <span><%=Result.OrderRemark[i].Descript%></span>
+                        <%}else{%>
+                        <span><%=Result.OrderRemark[i].Name%></span>
+                        <%}%>
+                        <%}%>
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+                <%}%>
+                <%}%>
+                </div>
+            </script>
+            <div id="Relevant">
+
+            </div>
+            <script type="text/template" id="Relevantquali">
+            <h3>相关资质</h3>
+            <%if(Result.MediaRelationsName!=null){%>
+            <ul>
+                <li class="ins_a">媒体主关系：</li>
+                <li><%=Result.MediaRelationsName%></li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(Result.OperatingTypeName!=null){%>
+            <ul>
+                <li class="ins_a">运营者类型：</li>
+                <li><%=Result.OperatingTypeName%></li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(Result.OperatingTypeName=='个人'){%>
+            <ul>
+                <li class="ins_a">真实姓名：</li>
+                <li><%=Result.EnterpriseName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">身份证：</li>
+                <li>
+                    <div class="frame"><img src="<%=Result.Q1%>" width="80" height="80"/></div>
+                </li>
+
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(Result.MediaRelationsName=='代理'&&Result.OperatingTypeName=='企业'){%>
+            <ul>
+                <li class="ins_a">企业名称：</li>
+                <li><%=Result.EnterpriseName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">营业执照：</li>
+                <li>
+                    <div class="frame"><img src="<%=Result.BusinessLicense%>" width="80" height="80"/></div>
+                </li>
+                <li style="margin-left:170px">代理授权资质：</li>
+                <li>
+                    <div class="frame"><img src="<%=Result.Q1%>" width="80" height="80"/></div>
+                </li>
+                <li style="margin-left:30px">
+                    <div class="frame"><img src="<%=Result.Q2%>" width="80" height="80"/></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(Result.MediaRelationsName=='自有'&&Result.OperatingTypeName=='企业'){%>
+            <ul>
+                <li class="ins_a">企业名称：</li>
+                <li><%=Result.EnterpriseName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">营业执照：</li>
+                <li>
+                    <div class="frame"><img src="<%=Result.BusinessLicense%>" width="80" height="80"/></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+
+            </script>
+            <div id="Audit">
+
+            </div>
+            <script type="text/template" id="Auditinformation">
+            <h3>审核信息</h3>
+            <ul>
+                <li class="ins_a">审核结果：</li>
+                <li><%=Result[0].PubStatusName%></li>
+                <%if(Result[0].PubStatus==43002||Result[0].PubStatus==43003){%>
+                <li class="ins_a">审核时间：</li>
+                <li><%=Result[0].CreateTime%></li>
+                <%}%>
+                <div class="clear"></div>
+            </ul>
+            <%if(Result[0].PubStatus==43003){%>
+            <ul>
+                <li class="ins_a">驳回原因：</li>
+                <li><%=Result[0].RejectMsg%></li>
+                <div class="clear"></div>
+            </ul>
+                <%}%>
+            </script>
+
+            <div class="keep">
+                <span><a href="javascript:;" id="afdsfs" class="button" style="width:100px;margin-left:55px;">提交</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+
+</body>
+</html>

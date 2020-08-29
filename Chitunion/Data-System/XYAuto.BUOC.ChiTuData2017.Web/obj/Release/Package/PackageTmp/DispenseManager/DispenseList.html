@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>物料分发数据汇总</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script src="js/dispense-list.js"></script>
+</head>
+
+<body>
+
+<!--#include file="/base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>                    
+            </div>
+            <div id="list_switching" style="padding-top: 20px;">
+                <ul class="state">
+                    <li><span style="float: left;">封装时间：</span>
+                        <select name="" id="DispenseTime">
+                            <!-- <option class="selected">昨日</option> -->
+                            <option class="selected">最近7天</option>
+                            <option>最近30天</option>
+                        </select>
+                        <!-- <p style="float: left;" id='DispenseTime'>
+                            <a href="javascript:;" class="selected">昨日</a><a href="javascript:;">最近7天</a><a href="javascript:;">最近30天</a>
+                        </p> -->
+                    </li>
+                    <li>
+                        <input type="text" id="StartDate" class='laydate-iconNew'> 至
+                        <input type="text" id="EndDate" class='laydate-iconNew'>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+                <ul class="state">
+                    <li>分发渠道类型：
+                        <select id='DistributeType'>
+                            <option DistributeType='-2'>全部</option>
+                            <option DistributeType='73001'>全网域</option>
+                            <option DistributeType='73002'>经纪人</option>
+                            <!-- <option>青鸟-经销商</option>
+                            <option>青鸟-厂商</option>
+                            <option>青鸟-厂商大区</option> -->
+                        </select>    
+                    </li>
+                    <li style="position: relative;">组装操作人：
+                        <input type="text" placeholder="请输入用户名/手机号" maxlength="11" id='AssembleUser'> <!-- <span class="Choose_Ul"><img src="/ImagesNew/simulation.png"></span> -->
+                        <!-- <ul class="SimulationUl">
+                            <li class="selected">赤兔系统</li>
+                            <li>青鸟系统</li>
+                        </ul> -->
+                    </li>
+                    <li style="position: relative;">分发操作人：
+                        <input type="text" placeholder="请输入用户名/手机号" maxlength="11" id='DistributeUser'><span class="Choose_Ul"><img src="/ImagesNew/simulation.png"></span>
+                        <ul class="SimulationUl">
+                            <li class="selected">经纪人</li>
+                        </ul>
+                    </li>
+                    <li>物料：
+                        <input type="text" placeholder="请输入标题/URL" maxlength="11" id='MaterielName'>
+                    </li>
+                </ul> 
+                <div class="clear"></div>
+                <ul class="state">
+                    <li>品牌：
+                        <select class="brand" id="hhh" name="" style="width:120px;line-height: 30px">
+                            <option MasterId="-2">请选择品牌</option>
+                        </select>   
+                        <select class="series"  name="" style="width:120px;line-height: 30px">
+                            <option BrandId="-2">请选择子品牌</option>
+                        </select>  
+                        <select class="Models" name="" style="width:120px;line-height: 30px">
+                            <option CarSerialId="-2">请选择车型</option>
+                        </select>
+                        <input type="text" placeholder="请输入关键字" maxlength="11" id='CarSerialName'>
+                    </li>                    
+                </ul> 
+                <div class="clear"></div>
+                <ul class="state">
+                    <li>场景/渠道：
+                        <select id='ChannelId'>
+                            <option ChannelId='-2'>请选择</option>
+                        </select>    
+                    </li>
+                </ul> 
+                <div class="clear"></div>
+                <ul class="state">
+                    <li>IP/子IP：
+                        <select id="IP">
+                            <option TitleId="-2">请选择IP</option>
+                        </select> 
+                        <select id='ChildIp'>
+                            <option ChildIp="-2">请选择子IP</option>
+                        </select>   
+                    </li>
+                </ul> 
+                <a href="javascript:;" class="but_query" id='searchBtn'>查询</a>   
+                <a href="javascript:;" class="downloading"  style="padding-left: 16px;"><img src="/ImagesNew/icon19.png">下载报表</a>
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <p class="TotalBar">汇总：该条件下，累计封装<span class="TotalMateriel"></span>条物料 | 其中<span class="TotalDistribute"></span>条已分发 | 产生转发<span class="TotalForwardNumber"></span>次 |获取线索<span class="TotalClue"></span>条（询价数<span class="InquiryNumber"></span>条 、 会话数<span class="SessionNumber"></span>条  、 电话接通数<span class="TelConnectNumber"></span>条 ）</p>
+                    <div class="ad_table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                            <tr class="HeadOrderBy">
+                                <th width="4%">ID</th>
+                                <th width="12%">物料</th>
+                                <th width="5%">渠道类型</th>
+                                <th width="5%">PV <a href="javascript:;" class="PV" tit='PV'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="5%">UV <a href="javascript:;" class="UV" tit='UV'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="9%">平均在线时长 <a href="javascript:;" class="OnLineAvgTimeFormt" tit='OnLineAvgTimeFormt'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="6%">跳出率 <a href="javascript:;" class="JumpProportion" tit='JumpProportion'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="10%">人均浏览页面数 <a href="javascript:;" class="BrowsePageAvg" tit='BrowsePageAvg'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="6%">转发数 <a href="javascript:;" class="ForwardNumber" tit='ForwardNumber'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="6%">询价数 <a href="javascript:;" class="InquiryNumber" tit='InquiryNumber'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="6%">会话数 <a href="javascript:;" class="SessionNumber" tit='SessionNumber'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="8%">电话接通数 <a href="javascript:;" class="TelConnectNumber" tit='TelConnectNumber'><img src="/ImagesNew/icon16_c.png"></a></th>
+                                <th width="7%">组装操作人</th>
+                                <th width="7%">分发操作人</th>
+                                <th width="7%">组装时间</th>
+                                <th width="7%">分发时间</th>
+                            </tr>
+                            <tbody class="DispenseList">
+
+                            </tbody>
+
+                        </table>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                        </div>
+                        <p id="listLoading"></p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+
+
+<!-- 列表数据 -->
+<script type="text/template" id="Dispense-List">
+    <% if(Result.TotalCount != 0 && Result.List != null){%>
+        <% Result.List.forEach(function(item){%>
+           <tr DistributeType='<%= item.DistributeType %>' MaterielId='<%= item.MaterielId %>'>
+                <td><%= item.MaterielId %></td>
+                <td><%= item.Title %></td>
+                <td><%= item.DistributeTypeName %></td>
+                <td><%= item.PV %></td>
+                <td><%= item.UV %></td>
+                <td><%= item.OnLineAvgTimeFormt %></td>
+                <% if(item.JumpProportion == -1){%>
+                    <td>一</td>
+                <%}else{%>
+                    <td><%=  formatMoney(item.JumpProportion*100,2,'') %>%</td>
+                <%} %>
+                <td><%= item.BrowsePageAvg %></td>
+                <td><%= item.ForwardNumber %></td>
+                <td><%= item.InquiryNumber %></td>
+                <td><%= item.SessionNumber %></td>
+                <td><%= item.TelConnectNumber %></td>
+                <td><% if(!item.AssembleUser){%> 一 <%}else{%> <%= item.AssembleUser %> <%} %> </td>
+                <td><% if(!item.DistributeUser){%> 一 <%}else{%> <%= item.DistributeUser %> <%} %></td> 
+                <td><%= item.AssembleTime %></td>
+                <td><%= item.DistributeDate %></td>
+           </tr>
+        <%}) %>
+    <%} %>
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟,推广管理,媒体智投,查看推广计划,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,推广管理,媒体智投,查看推广计划">
+    <title>查看推广计划-媒体智投-推广管理-赤兔联盟</title>
+    <link rel="stylesheet" type="text/css" href="/css/movie_adverts.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="js/mediaRealizationDetail.js"></script>
+
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include virtual="/base/header.html" -->
+<div class="contaner_body">
+    <!--左边菜单 导航-->
+    <!--#include virtual="/base/Menu.html" -->
+    <div class="right_body">
+        <div class="detalDemand">
+            <ul class="examinemedia_realization">
+                
+             </ul>
+
+        </div>
+    <div class="clear"></div>
+    </div>
+</div>
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+<script  type="text/template" id="examinemedia_realization">
+    <div class="search_boxadd">
+        <div class="order_status">推广状态：<span class="f_red"><%=data.StatusName?data.StatusName:''%></span></div>   
+    </div>
+    <div>
+    <li class="ins_de det_w">推广ID：<span><%=data.RecID?data.RecID:''%></span></li>
+    <li class="ins_de det_w">推广名称：<span><%=data.Name?data.Name:''%></span></li>
+    <li class="ins_de det_w"><span style="float:left;width:74px;display:inline-block">推广车型：</span><span style="display:inline-block;float:left;width:90%;"><%=data.CarStyleText?data.CarStyleText:''%></span></li>
+    <li class="ins_de det_w"><span style="float:left;width:74px;display:inline-block">推广城市：</span><span style="display:inline-block;float:left;width:90%;"><%=data.AreaText?data.AreaText:''%></span></li>
+    <%
+    var link_c=''
+        if(data.MaterialUrl){
+            var link=data.MaterialUrl;
+            link=link.split('/');
+            var link_a=link[link.length-1];
+            var link_b=link_a.split('.')[link_a.split('.').length-1];
+            if(link_a.indexOf('$')!=-1){
+                link_a=link_a.split('$')[0];
+                link_c=link_a+'.'+link_b
+            }else{
+                link_c=link_a
+            }
+
+        }
+    %>
+    <li class="ins_de det_w">推广素材：
+        <%if(data.MaterialUrl){%>
+        <span>
+            <%=link_c%>
+            <a href="<%= data.MaterialUrl%>">
+                <img src="/images/icon3.png">
+            </a>
+        </span>
+        <%}else{%>
+            无
+        <%}%>
+    </li>
+    <li class="ins_de det_w">推广预算：<span><%=formatMoney(data.BudgetPrice,0,'')%>元</span></li>
+    <li class="ins_de det_w">推广时间：<span><%=data.BeginTime?data.BeginTime:''%>至<%=data.EndTime?data.EndTime:''%></span></li>
+    <li class="ins_de det_w" style="text-align: left"><span style="vertical-align: top">其它说明：</span><span style="width: 700px;display: inline-block"><%=data.Remark?data.Remark:''%></span></li>
+    </li>
+</script>
+</html>

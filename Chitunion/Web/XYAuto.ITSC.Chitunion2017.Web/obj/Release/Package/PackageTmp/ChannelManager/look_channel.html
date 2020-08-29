@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="js/look_channel.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r" id="rendering1">
+        <div class="install">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+                <div class="clear"></div>
+            </div>
+            <div class="install_box">
+                <!-- <ul>
+                    <li class="ins_a">渠道名称：</li>
+                    <li>微博易</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">政策：</li>
+                    <li style="width:80%">
+                        <div class="table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                                <tr>
+                                    <th width="15%">满额（元）</th>
+                                    <th width="15%">单个账号金额</th>
+                                    <th width="15%">采购折扣（%）</th>
+                                    <th width="10%">返点类型</th>
+                                    <th width="10%">返点金额（元）</th>
+                                    <th width="10%">返点比例（%）</th>
+                                    <th width="15%">返点时间</th>
+                                </tr>
+                                <tr>
+                                    <td>>1,000,000</td>
+                                    <td>≤15,000</td>
+                                    <td>90%</td>
+                                    <td>无</td>
+                                    <td></td>
+                                    <td>2,000</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+
+                <ul>
+                    <li class="ins_a">是否含税：</li>
+
+                    <li>是</li>
+
+                    <div class="clear"></div>
+                </ul>
+
+                <ul>
+                    <li class="ins_a">合作周期：</li>
+                    <li>2017-01-01至2017-12-31</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">备注：</li>
+                    <li>100万以上客户经理可申请更高优惠</li>
+                    <div class="clear"></div>
+                </ul> -->
+            </div>
+        </div>
+
+        <script type="text/template" id="channel">
+            <ul>
+                <li class="ins_a">渠道名称：</li>
+                <li><%=data.ChannelName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">政策：</li>
+                <li style="width:80%">
+                    <div class="table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                            <tr>
+                                <th width="15%">满额（元）</th>
+                                <th width="15%">单个账号金额</th>
+                                <th width="15%">采购折扣（%）</th>
+                                <th width="10%">返点类型</th>
+                                <th width="15%">返点金额（元）</th>
+                                <th width="15%">返点比例（%）</th>
+                                <th width="20%">返点时间</th>
+
+                            </tr>
+                            <%for(var i=0;i<data.PolicyList.length;i++){%>
+                                <tr>
+                                    <td judge="<%=data.PolicyList[i].QuotaIncludingEqual%>">
+                                        <%if(data.PolicyList[i].QuotaIncludingEqual){%>
+                                            ≥<span><%=data.PolicyList[i].Quota%></span>
+                                        <%}else{%>
+                                            ＞<span><%=data.PolicyList[i].Quota%></span>
+                                        <%}%>
+                                    </td>
+                                    <td judge="<%=data.PolicyList[i].SingleAccountSumType%>">
+                                        <%if(data.PolicyList[i].SingleAccountSumType==55001){%>
+                                            ＞<span><%=data.PolicyList[i].SingleAccountSum%></span>
+                                        <%}else if(data.PolicyList[i].SingleAccountSumType==55002){%>
+                                            ≤<span><%=data.PolicyList[i].SingleAccountSum%></span>                                      
+                                        <%}%>
+                                    </td>
+                                    <td>
+                                        <span><%=data.PolicyList[i].PurchaseDiscount%></span> %
+                                    </td>
+                                    <td difference = "<%=data.PolicyList[i].RebateType1%>">
+                                        <%if(data.PolicyList[i].RebateType1==56001){%>
+                                            返现
+                                        <%}else if(data.PolicyList[i].RebateType1==56002){%>
+                                            返货
+                                        <%}else{%>
+                                            无
+                                        <%}%>
+                                    </td>
+                                    <!-- 返点金额 -->
+                                    <td difference = "<%=data.PolicyList[i].RebateType2%>">
+                                        <%if(data.PolicyList[i].RebateType2==57001){%>
+                                        <%}else if(data.PolicyList[i].RebateType2==57002){%>
+                                            <span><%=(data.PolicyList[i].RebateValue)%></span> 元
+                                        <%}%>
+                                    </td>
+                                    <!-- 返点比例 -->
+                                    <td difference = "<%=data.PolicyList[i].RebateType1%>">
+                                        <%if(data.PolicyList[i].RebateType2!=57002 && data.PolicyList[i].RebateValue != 0){%>
+                                            <span><%=(data.PolicyList[i].RebateValue*100)%></span> %
+                                        <%}%>
+                                    </td>
+                                    <!-- 返点时间 -->
+                                    <td difference = "<%=data.PolicyList[i].RebateDateType%>">
+                                        <%if(data.PolicyList[i].RebateDateType==58001){%>
+                                            立返
+                                        <%}else if(data.PolicyList[i].RebateDateType==58002){%>
+                                            到期返
+                                        <%}%>
+                                    </td>
+
+                                </tr>
+                            <%}%>
+                        </table>
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+
+            <ul>
+                <li class="ins_a">是否含税：</li>
+
+                <li>
+                    <%if(data.IncludingTax == true){%>
+                        是
+                    <%}else{%>
+                        否
+                    <%}%>
+                </li>
+                <div class="clear"></div>
+            </ul>
+
+            <ul>
+                <li class="ins_a">合作周期：</li>
+                <li><%=data.CooperateBeginDate.split(" ")[0]%>至<%=data.CooperateEndDate.split(" ")[0]%></li>
+                <div class="clear"></div>
+            </ul>
+            <%if(data.Remark != null){%>
+                <ul>
+                    <li class="ins_a">备注：</li>
+                    <li><%=data.Remark%></li>
+                    <div class="clear"></div>
+                </ul>
+            <%}%>
+        </script>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

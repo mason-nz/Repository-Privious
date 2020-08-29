@@ -1,0 +1,214 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script src="../js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/CostList.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+                </h2>
+            </div>
+            <div id="list_switching">
+
+                <div class="clear"></div>
+                <ul class="state">
+                    <li><div class="ins_c">所属媒体：</div><input id="meideName" name="Username" type="text"  style="width:173px;"></li>
+                    <li><div class="ins_c">渠道：</div><select id="channel" name="" style="width:155px;line-height: 30px">
+                        <option value="-2">不限</option>
+                    </select></li>
+                    <li><div class="ins_c">广告状态：</div><select id="ggstart" name="" style="width:105px;line-height: 30px">
+                        <option value="-2">不限</option>
+                        <option value="44001">启用</option>
+                        <option value="44002">停用</option>
+                    </select></li>
+                    <li class="but_query" id="seach" style="width:70px;margin-right:0">搜索</li>
+                    <div class="clear"></div>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div>
+                        <div class="fl"><input name="" id="allbox" type="checkbox" value=""> 全选</div>
+                        <div class="fr" style="margin-bottom: 5px;">
+                            <span class="but_query Batchshelves" style="width:50px;height: 26px;line-height: 26px">启用</span>
+                            <span class="but_query Batchrelease" style="width:50px;height: 26px;line-height: 26px;margin-left:5px">停用</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ad_table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+
+                        </table>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+<script type="text/template" id="Cost">
+    <tr>
+        <th width="8%">选择</th>
+        <th width="22%">媒体</th>
+        <th width="9%">渠道</th>
+        <th width="16%">成本参考价</th>
+        <th width="16%">销售参考价</th>
+        <th width="10%">原创参考价</th>
+        <th width="18%">有效期</th>
+        <th width="8%">状态</th>
+        <th width="10%">操作</th>
+    </tr>
+    <%for(var i=0;i<Result.List.length;i++){%>
+    <tr>
+        <%var date=0;%>
+        <%if(new Date().format("yyyy-MM-dd")<=Result.List[i].CooperateDate.split('至')[1]){
+        date=1
+        }%>
+        <td>
+            <div><input date=<%=date%> name="checkbox" CostID="<%=Result.List[i].CostID%>" class="onebox" type="checkbox" value=""></div>
+        </td>
+        <td class="See" style="cursor: pointer;" CostID="<%=Result.List[i].CostID%>">
+            <div class="portrait"><img src="<%=Result.List[i].HeadIconUrl?Result.List[i].HeadIconUrl:'/ImagesNew/default_touxiang.png'%>"/></div>
+            <div class="public">
+                <p style="font-size: 14px;margin-top: 5px;font-weight:400;"><%=Result.List[i].WxName%></p>
+                <p><%=Result.List[i].WxNumber%></p>
+            </div>
+            <div class="clear"></div>
+        </td>
+        <td><%=Result.List[i].ChannelName%></td>
+        <%
+        console.log(formatMoney(Result.List[i].CostPriceRange.split("-")[1],2,'¥'))
+        %>
+        <td>
+            <!--if(Result.List[i].CostPriceRange.split("-")[0]){-->
+            <div><%=formatMoney(Result.List[i].CostPriceRange.split("-")[0],2,'¥')%>~<%=formatMoney(Result.List[i].CostPriceRange.split("-")[1],2,'¥')%></div>
+            <!--}-->
+        </td>
+        <td>
+            <!--if(Result.List[i].SalePriceRange.split("-")[0]){-->
+            <div><%=formatMoney(Result.List[i].SalePriceRange.split("-")[0],2,'¥')%>~<%=formatMoney(Result.List[i].SalePriceRange.split("-")[1],2,'¥')%></div>
+            <!--}-->
+        </td>
+        <td>
+            <div><%=formatMoney(Result.List[i].OriginalPrice,2,'¥')%></div>
+        </td>
+        <td>
+            <div><%=Result.List[i].CooperateDate%></div>
+        </td>
+        <td>
+            <%if(Result.List[i].SaleStatusName=="上架"){%>
+            <div>启用</div>
+            <%}%>
+            <%if(Result.List[i].SaleStatusName=="下架"){%>
+            <div>停用</div>
+            <%}%>
+        </td>
+        <td>
+            <div>
+                <%if(Result.List[i].SaleStatusName=="上架"){%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600202')!=-1){%>
+                <a href="javascript:;" class="Offtheshelf" CostID="<%=Result.List[i].CostID%>" starttime="<%=Result.List[i].CooperateDate.split('至')[0]%>" endtime="<%=Result.List[i].CooperateDate.split('至')[1]%>">
+                    <img src="/images/icon56_2.png" title="停用"/>
+                </a>
+                <%}%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600201')!=-1){%>
+                <a href="javascript:;" style="display: none" class="Theshelves" CostID="<%=Result.List[i].CostID%>" starttime="<%=Result.List[i].CooperateDate.split('至')[0]%>" endtime="<%=Result.List[i].CooperateDate.split('至')[1]%>">
+                    <img src="/images/icon56.png" title="启用"/>
+                </a>
+                <%}%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600203')!=-1){%>
+                <a href="javascript:;" style="display: none" class="delete" CostID="<%=Result.List[i].CostID%>">
+                    <img src="/ImagesNew/delete.png" title="删除"/>
+                </a>
+                <%}%>
+                <%}%>
+                <%if(Result.List[i].SaleStatusName=="下架"){%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600202')!=-1){%>
+                <a href="javascript:;" style="display: none" class="Offtheshelf" CostID="<%=Result.List[i].CostID%>" starttime="<%=Result.List[i].CooperateDate.split('至')[0]%>" endtime="<%=Result.List[i].CooperateDate.split('至')[1]%>">
+                    <img src="/images/icon56_2.png" title="停用"/>
+                </a>
+                <%}%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600201')!=-1){%>
+                <a href="javascript:;" class="Theshelves" CostID="<%=Result.List[i].CostID%>" starttime="<%=Result.List[i].CooperateDate.split('至')[0]%>" endtime="<%=Result.List[i].CooperateDate.split('至')[1]%>">
+                    <img src="/images/icon56.png" title="启用"/>
+                </a>
+                <%}%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT1600203')!=-1){%>
+                <a href="javascript:;" class="delete" CostID="<%=Result.List[i].CostID%>">
+                    <img src="/ImagesNew/delete.png" title="删除"/>
+                </a>
+                <%}%>
+                <%}%>
+            </div>
+        </td>
+    </tr>
+    <%}%>
+</script>
+<script>
+    if(CTLogin.BUTIDs.indexOf('SYS001BUT1600202')==-1){
+        $('.Batchrelease').hide();
+    }
+    if(CTLogin.BUTIDs.indexOf('SYS001BUT1600201')==-1){
+        $('.Batchshelves').hide();
+    }
+</script>
+</body>
+</html>

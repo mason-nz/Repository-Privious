@@ -1,0 +1,117 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>标签管理--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/ViewTasks.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav">
+            </h2>
+            <div class="main_info">
+                
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+<script type="text/template" id="detailFforArticle">
+    <ul>
+        <li class="ins_a">项目名称：</li>
+        <li><%=list.Name%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">类型设置：</li>
+        <li>
+            <%if(list.ProjectType == '61001'){%>
+                媒体
+            <%}else{%>
+                文章
+            <%}%>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">
+            媒体账号：
+        </li>
+        <li>
+            <%=list.UploadFileName%>
+            <a href="<%= list.UploadFileURL %>" title="点击下载">
+                <img src="../images/icon19.png">
+            </a>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">本次设置任务量：</li>
+        <li><%=list.TaskCount%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">进度：</li>
+        <li>
+            任务总量：<%=list.GenerateTaskCount%> <br/>
+            已审核：<%=list.ExamineCount%>&nbsp;&nbsp;
+            待审核：<%=list.DealCount%><br>
+            未处理：<%=list.NoDealCount%> &nbsp;&nbsp;
+            一人处理：<%=list.SingleCount%>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">状态：</li>
+        <li>
+            <%if(list.Status == '62001'){%>
+                待执行
+            <%}else if(list.Status == '62002'){%>
+                执行中
+            <%}else if(list.Status == '62003'){%>
+                执行完毕
+            <%}else{%>
+                已停止
+            <%}%>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">创建人：</li>
+        <li><%=list.CreatorName%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">创建时间：</li>
+        <li><%=list.CreateTime%></li>
+        <div class="clear"></div>
+    </ul>
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>客户管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js" ></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="js/AdvertiserSubList.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>                   
+            </div>
+            <div id="list_switching">
+                <div class="clear"></div>
+                <ul class="state">
+                    <li><div class="ins_c">手机号：</div><input id="phone" name="Username" type="text"  style="width:173px;"></li>
+                    <li class="but_query" style="width:70px;margin-right:0">查询</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="ad_table">
+                        <div id="Rendering">
+
+                        </div>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span>1/200</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+<!--广告运营-->
+<script type="text/template" id="Operate">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+        <tr>
+            <th width="16%">用户名</th>
+            <th width="12%">手机号</th>
+            <th width="18%">公司名称</th>
+            <th width="11%">绑定的广告主</th>
+            <th width="10%">需求个数</th>
+            <th width="16%">操作</th>
+        </tr>
+        <%Result.AdvertiserInfo.forEach(function(e){%>
+        <tr UserId='<%= e.UserId %>'>
+            <td><%=e.UserName?e.UserName:''%></td>
+            <td><%=e.Mobile?e.Mobile:''%></td>
+            <td><%=e.CompanyName?e.CompanyName:''%></td>
+            <td><%=e.SubGuestType?e.SubGuestType:''%></td>
+            <td><%=e.Number%></td>
+            <td>
+                <a href='javascript:;' target="_blank" class="GetInto_detail">查看</a>
+            </td>
+        </tr>
+        <%})%>
+    </table>
+    <div id="img"></div>
+</script>
+
+<!--超管-->
+<script type="text/template" id="Supertube">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+            <tr>
+                <th width="16%">用户名</th>
+                <th width="12%">手机号</th>
+                <th width="18%">公司名称</th>
+                <th width="11%">绑定的广告主</th>
+                <th width="10%">需求个数</th>
+                <th width="10%">所属运营</th>
+                <th width="16%">操作</th>
+            </tr>
+            <% Result.AdvertiserInfo.forEach(function(e){%>
+            <tr UserId='<%= e.UserId %>'>
+                <td><%=e.UserName?e.UserName:''%></td>
+                <td><%=e.Mobile?e.Mobile:''%></td>
+                <td><%=e.CompanyName?e.CompanyName:''%></td>
+                <td>
+                    <% if($.inArray(1, e.SubGuestType) != -1){%>
+                        <img src="/ImagesNew/icon广点通1.png">
+                    <%}else{%>
+                        <img src="/ImagesNew/icon广点通2.png">
+                    <%} %>
+
+                    <% if($.inArray(2, e.SubGuestType) != -1){%>
+                        <img src="/ImagesNew/icon今日头条1.png">
+                    <%}else{%>
+                        <img src="/ImagesNew/icon今日头条2.png">
+                    <%} %>
+                </td>
+                <td><%=e.Number%></td>
+                <td><%=e.Operater?e.Operater:''%></td>
+                <td>
+                    <a href='javascript:;' target="_blank" class="GetInto_detail">查看</a>
+                </td>
+            </tr>
+            <%}) %>
+        </table>
+        <div id="img"></div>
+</script>
+
+</body>
+</html>

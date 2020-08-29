@@ -1,0 +1,10 @@
+﻿auth:lixiong
+desc:是为了统一架构里面设计到的sql脚本执行的方法，因为有些特定场景必须要用到sql。集中管理，切换到mysql 可能会涉及到语法修改
+
+
+方法：UpdateBonusBaseDrawNum
+sql：UPDATE dbo.HD_LuckDrawActivity SET DrawNum=DrawNum+1 WHERE ActivityId={activityId}
+
+方法：UpdatePostWithdrawas
+UPDATE  dbo.LE_WithdrawalsStatistics SET WithdrawalsProcess = ISNULL(WithdrawalsProcess, 0) + {money} , RemainingAmount = ISNULL(RemainingAmount,0) - {money}
+WHERE   UserID = {userId};

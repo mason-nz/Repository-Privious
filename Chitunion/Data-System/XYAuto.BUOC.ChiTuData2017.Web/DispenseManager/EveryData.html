@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>物料每日数据</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js" ></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script src="js/every-data.js"></script>
+</head>
+
+<body>
+
+
+<!--#include file="/base/header.html" -->
+
+<!--中间内容-->
+ <div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+            </div>
+            <div class="react_reason">
+                
+            </div>
+            
+            <div class="detail_box">
+                <p class="data_detail"><img src="/ImagesNew/triangle.png"><span>数据明细</span></p>
+                <p>日期：<input type="text" id="StartDate" class='laydate-iconNew'> 至
+                        <input type="text" id="EndDate" class='laydate-iconNew'>
+                    <a class="but_query select_for_data" id='searchBtn'>查询</a>
+                    <a href="javascript:;" class="downloading" target="_blank"><img src="/ImagesNew/icon19.png">下载报表</a>  
+                </p>
+            </div>
+
+            <div class="ad_table">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                    <thead>
+                        <tr>
+                            <th>统计时间</th>
+                            <th>PV</th>
+                            <th>UV</th>
+                            <th>平均在线时长</th>
+                            <th>人均浏览页面数</th>
+                            <th>跳出率</th>
+                            <th>转发数</th>
+                            <th>询价数</th>
+                            <th>会话数</th>
+                            <th>电话接通数</th>
+                        </tr>
+                    </thead>
+                    <tbody class="DispenseList">
+                        
+                    </tbody>                    
+                </table>
+                <!--分页-->
+                <div class="green-black" id="pageContainer">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+
+
+<!-- 基本信息-->
+<script type="text/template" id="Dispense-Base">
+    <ul>
+        <li>物料ID：<%= MaterielId %></li> 
+        <li>文章标题：<%= Title %></li>
+        <li>落地页URL：<% if(!DistributeUrl){%> 一 <%}else{%> <a href="<%= DistributeUrl %>" target='_blank'><%= DistributeUrl %></a> <%} %> </li>
+        <li>分发渠道类型：<% if(!DistributeTypeName){%> 一 <%}else{%> <%= DistributeTypeName %> <%} %> </li>
+        <li>品牌/车型：<% if(!SerialName){%> 一 <%}else{%> <%= SerialName %> <%} %></li>
+        <li>场景：<% if(!Scene){%> 一 <%}else{%> <%= Scene %> <%} %></li>
+        <li>渠道：<% if(!Channel){%> 一 <%}else{%> <%= Channel %> <%} %></li>
+        <li>IP：<% if(!Ip){%> 一 <%}else{%> <%= Ip %> <%} %></li>
+        <li>子IP：<% if(!ChildIp){%> 一 <%}else{%> <%= ChildIp %> <%} %></li>
+        <li>组装操作人：<% if(!AssembleUser){%> 一 <%}else{%> <%= AssembleUser %> <%} %></li>
+        <li>分发操作人：<% if(!DistributeUser){%> 一 <%}else{%> <%= DistributeUser %> <%} %></li>
+        <li>分发时间：<% if(!DistributeTime){%> 一 <%}else{%> <%= DistributeTime %> <%} %></li>   
+        <li>组装时间：<% if(!AssembleTime){%> 一 <%}else{%> <%= AssembleTime %> <%} %></li>
+    </ul>
+</script>
+
+
+<!-- 列表数据 -->
+<script type="text/template" id="Dispense-List">
+    <% if(Result.TotalCount != 0){%>
+        <% Result.List.forEach(function(item){%>
+           <tr MaterielId='<%= item.MaterielId %>' DistributeId='<%= item.DistributeId %>' Date='<%= item.Date.substr(0,10) %>'>
+                <td><span class="increase_add" triTit='on' style="display: none;"><img src="/ImagesNew/addCh.png" style="padding-right: 4px;"></span>  <%= item.Date.substr(0,10) %></td>
+                <td><%= item.PV %></td>
+                <td><%= item.UV %></td>
+                <td><%= item.OnLineAvgTimeFormt %></td>
+                <td><%= item.BrowsePageAvg %></td>
+                <% if(item.JumpProportion == -1){%>
+                    <td>一</td>
+                <%}else{%>
+                    <td><%=  formatMoney(item.JumpProportion*100,2,'') %>%</td>
+                <%} %>
+                <td><%= item.ForwardNumber %></td>
+                <td><%= item.InquiryNumber %></td>
+                <td><%= item.SessionNumber %></td>
+                <td><%= item.TelConnectNumber %></td>
+            </tr>
+            <tr style="display: none;" class="triggle_channel">
+                <td colspan="9">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" class="triggle_table">
+                        <thead>
+                            <tr class="triangle"></tr>
+                            <tr>
+                                <th colspan="9" style="text-align: left;">渠道</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if(item.Channel != null){%>
+                                <% item.Channel.forEach(function(each){%>
+                                <tr>
+                                    <td><%= each.ChannelName %></td>
+                                    <td><%= each.PV %></td>
+                                    <td><%= each.UV %></td>
+                                    <td><%= each.OnLineAvgTimeFormt %></td>
+                                    <td><%= each.BrowsePageAvg %></td>
+                                    <% if(each.JumpProportion == -1){%>
+                                        <td>一</td>
+                                    <%}else{%>
+                                        <td><%=  formatMoney(each.JumpProportion*100,2,'') %>%</td>
+                                    <%} %>
+                                    <td><%= each.InquiryNumber %></td>
+                                    <td><%= each.SessionNumber %></td>
+                                    <td><%= each.TelConnectNumber %></td>
+                                </tr>
+                                <%}) %>
+                            <%} %>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        <%}) %>
+    <%} %>
+</script>
+
+
+<!-- 下载明细来源 -->
+<div class="channel_box" style="display: none;">
+    <div class="layer" style='overflow: auto;width: 256px;'>
+        <div class="title">
+            <div class="fl">请选择</div>
+            <div class="clear"></div>
+        </div>
+        <div class="layer_con" style='margin: 15px'>
+            <ul class="drop_reason">
+                <li style="text-align: left;"><input type="radio" name='theReason' ExportType='1'>渠道数据</li>
+                <li style="text-align: left;"><input type="radio" name='theReason' ExportType='2'>物料日数据</span></li>
+            </ul> 
+            <div style="margin-top: 15px;">
+                <a href="javascript:void(0)" class="but_query" style="width: 78px;margin-right: 8px" id='alredayChoose'>确定</a>
+                <a href="javascript:void(0)" class="but_query" style="width: 78px;" id='cancleMessage'>取消</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

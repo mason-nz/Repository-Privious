@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟广告在线交易平台">
+    <meta name="keywords" content="赤兔联盟">
+    <title>微信JS-SDK Demo测试</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <!--<script type="text/javascript" src="/api/weixincheck.ashx"></script>-->
+    <script>
+        $(document).ready(function () {
+            WxJSInit();
+            AjaxBuinessLogic();
+
+        });
+        function WxJSInit() {
+            $.ajax({
+                url: '/api/WeixinJSSDK/GetInfo?url=' + encodeURIComponent(window.location.href),
+                type: 'get',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                //data: { 'URL': location.href.split('#')[0] },
+                success: function (data) {
+                    var configInfo = data.Result;
+                    console.log(configInfo, 'configInfo');
+                    wx.config({
+                        debug: false,
+                        appId: configInfo.AppId,
+                        nonceStr: configInfo.NonceStr,
+                        timestamp: configInfo.Timestamp,
+                        signature: configInfo.Signature,
+                        jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ',
+                            'onMenuShareWeibo',
+                            'onMenuShareQZone',
+                            'hideMenuItems',
+                            'showMenuItems',
+                            'hideAllNonBaseMenuItem',
+                            'showAllNonBaseMenuItem',
+                            'translateVoice',
+                            'startRecord',
+                            'stopRecord',
+                            'onVoiceRecordEnd',
+                            'playVoice',
+                            'onVoicePlayEnd',
+                            'pauseVoice',
+                            'stopVoice',
+                            'uploadVoice',
+                            'downloadVoice',
+                            'chooseImage',
+                            'previewImage',
+                            'uploadImage',
+                            'downloadImage',
+                            'getNetworkType',
+                            'openLocation',
+                            'getLocation',
+                            'hideOptionMenu',
+                            'showOptionMenu',
+                            'closeWindow',
+                            'scanQRCode',
+                            'chooseWXPay',
+                            'openProductSpecificView',
+                            'addCard',
+                            'chooseCard',
+                            'openCard'
+                        ]
+                    });
+                }
+            })
+        }
+
+        wx.ready(function () {
+            // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+            alert('ok');
+
+            //获取“分享给朋友”按钮点击状态及自定义分享内容接口
+            wx.onMenuShareAppMessage({
+                title: '赤兔联盟分享-测试标题', // 分享标题
+                desc: '赤兔联盟分享-分享描述', // 分享描述
+                link: 'http://wxtest-ct.qichedaquan.com/images/赤兔联盟.png', //http://imgcdn.chitunion.com/group4/M00/2B/0C/Qw0DAFpocIGAM97IAACx0cd1wtI787.jpg 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://wxtest-ct.qichedaquan.com/images/ctewm.jpg', // 分享图标
+                type: 'link', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    alert('分享成功');
+                },
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回.
+                    alert('click shared');
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                    alert('取消分享');
+                }
+            });
+            // 获取“分享到QQ”按钮点击状态及自定义分享内容接口
+            wx.onMenuShareQQ({
+                title: '赤兔联盟分享-测试标题', // 分享标题
+                desc: '赤兔联盟分享-分享描述', // 分享描述
+                link: 'http://wxtest-ct.qichedaquan.com/images/赤兔联盟.png', //http://imgcdn.chitunion.com/group4/M00/2B/0C/Qw0DAFpocIGAM97IAACx0cd1wtI787.jpg 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://wxtest-ct.qichedaquan.com/images/ctewm.jpg', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    alert('分享成功');
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                    alert('取消分享');
+                }
+            });
+            wx.error(function (res) {
+                // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                console.log(JSON.stringify(res));
+                alert(JSON.stringify(res));
+            });
+
+
+
+
+        });
+
+
+
+
+
+        function checkJsApi() {
+            wx.checkJsApi({
+                jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+                success: function (res) {
+                    // 以键值对的形式返回，可用的api值true，不可用为false
+                    // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                    console.log(res);
+                }
+            });
+        }
+
+        function chooseImage() {
+            wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function (res) {
+                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    console.log(localIds);
+                }
+            });
+        }
+
+        function closeWindow() {
+            wx.closeWindow();
+        }
+
+        function downloadImage() {
+            wx.downloadImage({
+                serverId: '1p0PWCv7472LBaImHcIC4n2gHJLvtCT2reXltTF-vgeBqqM0uwxaSrqLQAINVlHW', // 需要下载的图片的服务器端ID，由uploadImage接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                    var localId = res.localId; // 返回图片下载后的本地ID
+                    alert(localId);
+                }
+            });
+        }
+
+        function AjaxBuinessLogic() {
+            $.ajax({
+                url: '/api/Sign/DaySignList?SignYear=2018&SignMonth=2',
+                type: 'get',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                //data: { 'URL': location.href.split('#')[0] },
+                success: function (data) {
+                    console.log(data);
+                    alert(data.Message);
+                }
+            });
+        }
+
+        function MoniLogin() {
+            $.ajax({
+                url: 'http://wxtest-ct.qichedaquan.com/api/oauth2/MoniLogin?userId=' + $('#txtUserid').val(),
+                type: 'get',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                //data: { 'URL': location.href.split('#')[0] },
+                success: function (data) {
+
+                    alert(data.Result);
+                    $('#txtResult').val(data.Result);
+                }
+            });
+        }
+
+        function RequestAPITest() {
+            var url = 'http://wxtest-ct.qichedaquan.com/api/task/GetTaskListByUserId';
+            url = url + '?PageIndex=1&PageSize=10';
+            $.ajax({
+                url: url,
+                type: 'get',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                //data: { 'URL': location.href.split('#')[0] },
+                success: function (data) {
+
+                    alert(JSON.stringify(data));
+                    $('#txtResult').val(JSON.stringify(data));
+                }
+            });
+        }
+
+        function RequestErrorTest(errorMsg) {
+            var url = 'http://wxtest-ct.qichedaquan.com/api/oauth2/ErrorLog';
+            $.ajax({
+                url: url,
+                type: 'post',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: { 'ErrorContent': errorMsg },
+                success: function (data) {
+                    //alert(JSON.stringify(data));
+                    $('#txtResult').val(JSON.stringify(data));
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>test</div>
+
+    <a href="javascript:checkJsApi();">checkJsApi()</a><br />
+    <a href="javascript:chooseImage();">chooseImage()</a><br />
+    <a href="javascript:closeWindow();">closeWindow()</a><br />
+    <a href="javascript:downloadImage();">downloadImage()</a><br />
+
+    <a href="javascript:AjaxBuinessLogic();">根据月份查询签到信息(测试)</a><br />
+
+    请输入UserID：<input type="text" id="txtUserid" />
+<a href="javascript:MoniLogin();">模拟登陆</a><br/>
+<textarea id="txtResult"></textarea><br/>
+<a href="javascript:RequestAPITest();">测试请求业务接口（已登陆状态）</a><br/>
+    <a href="javascript:RequestErrorTest('errorMsg');">记录微信jssdk-Error日志</a><br />
+    
+</body>
+</html>

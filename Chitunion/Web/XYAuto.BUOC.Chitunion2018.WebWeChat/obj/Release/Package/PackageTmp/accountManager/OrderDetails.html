@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/module.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="/js/common_weChat.js"></script>
+    <script src="/js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+    <script src="js/OrderDetails.js"></script>
+</head>
+<body>
+<div class="no_data" style="display: none">
+    <div>
+        <img src="../images/no_net.png">
+    </div>
+    <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+</div>
+<div class="container-fluid OrderDetails netOk" style="display: none" id="app">
+    <div>
+        <section>
+            <div>
+                <p v-if="OrderId">
+                    <label>订单编号：</label>
+                    <span class="OrderUrl_a"><a :href="OrderUrl">{{OrderId}}</a></span>
+                </p>
+                <p v-if="OrderName">
+                    <label>订单名称：</label>
+                    <span>{{OrderName}}</span>
+                </p>
+                <!--<p v-if="OrderUrl">-->
+                    <!--<label>专属链接：</label>-->
+                    <!--<span>{{OrderUrl}}</span>-->
+                <!--</p>-->
+                <p v-if="CPCUnitPrice">
+                    <label>计费规则：</label>
+                    <span>{{CPCUnitPrice}}</span>
+                </p>
+                <p v-if="ReceiveTime">
+                    <label>领取时间：</label>
+                    <span>{{ReceiveTime}}</span>
+                </p>
+                <p>
+                    <label style="font-size: 12px;color: #999">当天订单数据会在次日7点后展示</label>
+                    <span></span>
+                </p>
+            </div>
+        </section>
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <td width="33.33%">日期</td>
+                    <td width="33.33%">有效阅读/(次)</td>
+                    <td width="33.33%">阅读收益/(元)</td>
+                </tr>
+            </thead>
+            <tbody v-if="List.length!=0">
+                <tr v-for="item in List">
+                    <td>{{item.Date | Date}}</td>
+                    <td>{{item.CPCCount}}</td>
+                    <td>{{item.CPCTotalPrice}}</td>
+                </tr>
+            </tbody>
+            <tfoot v-if="List.length!=0">
+                <tr>
+                    <td>汇总</td>
+                    <td>{{Extend.TotalCPCCount}}</td>
+                    <td>{{Extend.TotalCPCTotalPrice}}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div v-if="List.length==0" class="Nodata">
+            <img src="/images/data_no.png" alt="">
+            <p>当天订单数据</p>
+            <!--<p @click="shuaxin">刷新试一下</p>-->
+            <p>会在次日7点后展示</p>
+        </div>
+    </div>
+    <!--底部-->
+    <footer>
+        <!--<div>-->
+            <!--最高可赚 <span>1000元</span>-->
+        <!--</div>-->
+        <div>
+            <span><a href="/moneyManager/make_money.html">分享更多文章</a></span>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

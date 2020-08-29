@@ -1,0 +1,100 @@
+<style>
+    select {
+        width: 200px;
+        height: 270px !important;
+        font-size: 14px !important;
+    }
+    .layer{
+        width: 520px;
+    }
+    .btn-box {
+        width: 30px;
+        display: inline-block;
+    }
+    .layer_data{
+        text-align: center;
+    }
+    select option {
+        margin-left: 7px;
+        margin-top: 3px;
+    }
+    .keep {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="layer">
+    <div class="title">
+        <div class="fl" style="margin-left: 210px;">关联广告主</div>
+        <div class="fr"><a href="javascript:void(0)" id="closebt"><img src="/ImagesNew/close_x.jpg" width="16" height="16"></a></div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="layer_con2" style='padding-bottom: 8px;'>
+        <div class="layer_data">
+            <span style="margin-right: 100px">未关联广告主</span>
+            <span style="margin-left: 80px" id="gld"></span>
+        </div>
+        <div class="layer_data">
+            <select id="src-city" name="src-city" multiple>
+
+            </select>
+
+            <div class="btn-box">
+                <button id="btn3">&nbsp;&gt;&nbsp;</button>
+                <button id="btn4">&nbsp;&lt;&nbsp;</button>
+            </div>
+            <select id="tar-city" name="tar-city" multiple>
+
+            </select>
+
+            <div id="tipsInfo" style="text-align: left;padding-left: 80px;line-height: 16px;">
+        </div>
+        <div class="keep">
+            <span><a href="javascript:void(0)" class="button" style="width:150px" id='submitMessage'>确认</a></span>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    $.ajax({
+        url: public_url + '/api/ZhyInfo/SelectFreeAdvertiserList',
+        type: 'get',
+        data: {},
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        async: false,
+        success: function (data) {
+            console.log(data);
+            if(data.Status==0){
+                data.Result.AdvertiserInfo.forEach(function (e) {
+                    $('#src-city').append('<option value='+e.UserId+'>'+e.UserName+'-'+e.Mobile+'</option>')
+                })
+            }
+        }
+    });
+
+    //左边的下拉框
+    var $leftSelect=$("#src-city");
+    //右边的下拉框
+    var $rightSelect=$("#tar-city");
+    //要将左边所有的内容追加到右边，而且左边的内容要被剪切掉.
+    $("#btn1").click(function () {
+        $rightSelect.append($leftSelect.children("option"));
+    });
+    //要将右边所有的option 添加到左边.
+    $("#btn2").click(function () {
+        $leftSelect.append($rightSelect.children("option"));
+    });
+    //要将左边选中的option 添加到右边
+    $("#btn3").click(function () {
+        $rightSelect.append($leftSelect.children("option:selected"))
+    });
+    $("#btn4").click(function () {
+        $leftSelect.append($rightSelect.children("option:selected"))
+    })
+</script>

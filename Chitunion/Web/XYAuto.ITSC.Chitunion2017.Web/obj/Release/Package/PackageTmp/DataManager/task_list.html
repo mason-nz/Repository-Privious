@@ -1,0 +1,322 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script src="../js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/task_list.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order" style="position:relative">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+                </h2>
+            </div>
+            <div id="list_switching">
+
+                <div class="clear"></div>
+                <ul class="state">
+                    <!-- <li><div class="ins_c">所属媒体：</div><input id="meideName" name="Username" type="text"  style="width:173px;"></li> -->
+                    <li >渠道：
+                        <select id="channel" name="" style="width:120px;">
+                            <option value="-2">不限</option>
+                            <option value="1">微信</option>
+                            <option value="2">汽车之家</option>
+                            <option value="3">今日头条</option>
+                            <option value="4">网易汽车</option>
+                            <option value="5">行圆汽车后台</option>
+                            <option value="6">搜狐</option>
+                        </select>
+                    </li>
+                    <li>分类：
+                        <select id="CategoryId" name="" style="width:120px;">
+                            <option value="-2">不限</option>
+                            <option value="44001">启用</option>
+                            <option value="44002">停用</option>
+                        </select>
+                    </li>
+                    <!-- <li>车型：
+                        <select class="brand" id="ggstart1" name="" style="width:120px;">
+                        <option value="-2">选择品牌</option>
+                        <option value="44001">启用</option>
+                        <option value="44002">停用</option>
+                        </select>
+                        <select class="series" id="ggstart2" name="" style="width:120px;">
+                        <option value="-2">选择子品牌</option>
+                        <option value="44001">启用</option>
+                        <option value="44002">停用</option>
+                        </select>
+                        <select class="Models" id="ggstart3" name="" style="width:120px;">
+                        <option value="-2">选择车型</option>
+                        <option value="44001">启用</option>
+                        <option value="44002">停用</option>
+                        </select>
+                    </li> -->
+                    <li><span class="ins_c1">关联车型：</span></li>
+                    <li>
+                        <select class="brand" id="hhh" name="" style="width:120px;line-height: 30px">
+                            <option MasterId="-2">请选择品牌</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="series"  name="" style="width:120px;line-height: 30px">
+                            <option BrandId="-2">请选择子品牌</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="Models" name="" style="width:120px;line-height: 30px">
+                            <option CarSerialId="-2">请选择车型</option>
+                        </select>
+                    </li>
+
+                    <li class="operation_people">操作人：
+                        <select id="User" name="" style="width:100px;">
+                            <option value="-2">请选择</option>
+                        </select>
+                    </li>
+
+                    <li>创建时间：
+                        <input name="Username" type="text" style="width:120px;height:28px;border-radius:5px" class="laydate-iconNew" id="startTime"> 至 <input name="Username" type="text" style="width:120px;height:28px;border-radius:5px" class="laydate-iconNew" id="endTime">
+                    </li>
+                    <li >状态：
+                        <select id="status" name="" style="width:100px;">
+                            <option value="-2">未分配</option>
+                            <option value="3">已分配</option>
+                            <option value="-2">处理中</option>
+                            <option value="-2">未处理</option>
+                        </select>
+                    </li>
+
+                    <li class="but_query" id="seach" style="width:70px;margin-right:0;">搜索</li>
+                    <div class="clear"></div>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="top_info">
+                        <!-- <div class="fl"><input name="" id="allbox" type="checkbox" value=""> 全选</div> -->
+                        <div class="fl">此前条件下有<span>1000</span>条数据</div>
+                        <div class="fr" style="margin-bottom: 5px;">
+                            <span class="but_query distribution" style="width:50px;height: 26px;line-height: 26px">分配</span>
+                            <span class="but_query take_back" style="width:50px;height: 26px;line-height: 26px;margin-left:5px">收回</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ad_table">
+                        <!-- <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                            <tr>
+                                <th width="8%" id="all"><input type="checkbox" value="1" id="select_all">&nbsp;全选</th>
+                                <th width="9%">ID</th>
+                                <th width="22%">标题</th>
+                                <th width="10%">来源</th>
+                                <th width="10%">分类</th>
+                                <th width="15%">关联车型</th>
+                                <th width="10%">状态</th>
+                                <th width="15%">创建时间</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                            <tr>
+                                <td class="single"><input type="checkbox" value="id1" class="select_single"></td>
+                                <td>2323</td>
+                                <td>东风标致5008(订单包名称)</td>
+                                <td>青鸟</td>
+                                <td>旅游</td>
+                                <td>奥迪（一汽奥迪）-奥迪A</td>
+                                <td>未分配</td>
+                                <td>2017-09-09 12:12</td>
+                                <td ><a style="text-decoration:none">清洗</a></td>
+                            </tr>
+                            <tr>
+                                <td class="single"><input type="checkbox" value="id2" class="select_single"></td>
+                                <td>2323</td>
+                                <td>东风标致5008(订单包名称)</td>
+                                <td>青鸟</td>
+                                <td>旅游</td>
+                                <td>奥迪（一汽奥迪）-奥迪A</td>
+                                <td>未分配[sss]</td>
+                                <td>2017-09-09 12:12</td>
+                                <td ><a style="text-decoration:none">清洗</a></td>
+                            </tr>
+                        </table> -->
+                    </div>
+
+
+                </div>
+
+                <!--分页-->
+                <div class="fen" style="float:right">
+                    <div class="left green-black" style="float:left;margin-left:0px;margin-top:20px;">
+                        每页显示条数：
+                        <select class="pagesize" name="">
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                    <div class="green-black" id="pageContainer" style="float:right">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span class="NormalText">共有3条数据</span>
+                    </div>
+                </div>
+
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+
+
+
+    <div class="layer" style="position:absolute;left:400px;top:200px;display:none;z-index:2">
+        <div class="title">
+            请选择分配用户
+            <div class="close"><a href="javascript:;"><img src="../ImagesNew/close_x.jpg" class='closePopup'></a></div>
+        </div>
+
+        <div class="layer_con3">
+            <div class="add_ad">
+                <ul>
+                    <li class="add_ad_w1"><input type="radio" name="" value="1">用户1</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="add_ad_w1"><input type="radio" name="" value="2">用户1</li>
+                    <div class="clear"></div>
+                </ul>
+
+
+            </div>
+            <div class="keep" style="text-align:center">
+                <div class="mb10">
+                    <!--<a href="javascript:;" class="but_data closePopup" style="width:140px;margin-right: 10px">取消</a>-->
+                    <a href="javascript:void(0);" class="but_data" style="width:140px;" id='add_z'>确认分配</a>
+                    <a href="javascript:void(0);" class="but_data" style="width:140px;" id='add_w'>暂不分配</a>
+                </div>
+                <div class="red errorMeg" style='display: none'><img src="/ImagesNew/icon21.png"> <span></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+<script type="text/template" id="info_tmp">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+        <tr>
+            <th width="8%" id="all"><input type="checkbox" value="1" id="select_all">&nbsp;全选</th>
+            <th width="9%">ID</th>
+            <th width="22%">标题</th>
+            <th width="10%">来源</th>
+            <th width="10%">分类</th>
+            <th width="15%">关联车型</th>
+            <th width="10%">状态</th>
+            <th width="15%">创建时间</th>
+            <th width="10%" id="opration">操作</th>
+        </tr>
+        <%for(var i=0;i<data.length;i++){%>
+            <tr>
+
+                <td class="single"><input type="checkbox" value="<%=data[i].GroupId%>" class="select_single"></td>
+                <td><%=data[i].GroupId%></td>
+                <td class="pp" GroupId = "<%=data[i].GroupId%>"><%=data[i].Title%></td>
+                <td>
+                    <%if(data[i].Resource == 1){%>
+                        微信
+                    <%}else if(data[i].Resource == 2){%>
+                        汽车之家
+                    <%}else if(data[i].Resource == 3){%>
+                        今日头条
+                    <%}else if(data[i].Resource == 4){%>
+                        网易汽车
+                    <%}else if(data[i].Resource == 5){%>
+                        行圆新闻后台
+                    <%}else{%>
+                        搜狐
+                    <%}%>
+
+                </td>
+                <td><%=data[i].Category%></td>
+                <td><%=data[i].SerialName%></td>
+
+                <td>
+                    <%if(!data[i].TaskStatus){%>
+                        待分配
+                    <%}else{%>
+                        <%=data[i].TaskStatusName%>[<%=data[i].UserName%>]
+                    <%}%>
+
+                </td>
+                <td><%=data[i].CreateTime%></td>
+                <td class="qingxi" GroupId = "<%=data[i].GroupId%>"><a style="text-decoration:none" >清洗</a></td>
+            </tr>
+        <%}%>
+    </table>
+</script>
+<script type="text/template" id="layer_tmp">
+    <%for(var i=0;i<data.length;i++){%>
+        <ul style="padding:0 50px">
+            <li class=""><input type="radio" name="" value="<%=data[i].UserId%>"> <%=data[i].UserName%></li>
+
+        </ul>
+        <div class="clear"></div>
+    <%}%>
+
+</script>
+<!-- <script>
+    if(CTLogin.BUTIDs.indexOf('SYS001BUT1600202')==-1){
+        $('.Batchrelease').hide();
+    }
+    if(CTLogin.BUTIDs.indexOf('SYS001BUT1600201')==-1){
+        $('.Batchshelves').hide();
+    }
+</script> -->
+</body>
+</html>

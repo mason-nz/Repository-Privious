@@ -1,0 +1,11 @@
+using System;
+
+namespace XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Areas.HelpPage.ModelDescriptions
+{
+    public class ParameterAnnotation
+    {
+        public Attribute AnnotationAttribute { get; set; }
+
+        public string Documentation { get; set; }
+    }
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.UserRoleMapper">
+	<resultMap id="BaseResultMap" type="com.xyauto.domain.UserRole">
+		<id column="UserID" jdbcType="INTEGER" property="userID" />
+		<id column="RoleID" jdbcType="VARCHAR" property="roleID" />
+		<result column="RecID" jdbcType="INTEGER" property="recID" />
+		<result column="SysID" jdbcType="VARCHAR" property="sysID" />
+		<result column="Status" jdbcType="INTEGER" property="status" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="CreateUserID" jdbcType="INTEGER" property="createUserID" />
+	</resultMap>
+	<insert id="insert" parameterType="com.xyauto.domain.UserRole">
+		insert into UserRole (
+		UserID,
+		RoleID,
+		<if test="sysID != null and sysID != ''">
+			SysID,
+		</if>
+		Status,
+		CreateUserID
+		)
+		values
+		(
+		#{userID,jdbcType=INTEGER},
+		#{roleID,jdbcType=VARCHAR},
+		<if test="sysID != null and sysID != ''">
+			#{sysID,jdbcType=VARCHAR},
+		</if>
+		#{status,jdbcType=INTEGER},
+		#{createUserID,jdbcType=INTEGER})
+	</insert>
+	<delete id="deleteByPrimaryKey" parameterType="map">
+		delete from
+		UserRole
+		where UserID = #{userID,jdbcType=INTEGER}
+		and RoleID =
+		#{roleID,jdbcType=VARCHAR}
+	</delete>
+	<update id="updateByPrimaryKey" parameterType="com.xyauto.domain.UserRole">
+		update UserRole
+		<set>
+			<if test="userID != null">
+				UserID = #{userID,jdbcType=INTEGER},
+			</if>
+			<if test="newRoleID != null">
+				RoleID = #{newRoleID,jdbcType=INTEGER},
+			</if>
+			<if test="recID != null and recID != ''">
+				RecID = #{recID,jdbcType=INTEGER},
+			</if>
+			<if test="sysID != null and sysID != ''">
+				SysID =#{sysID,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null and status != ''">
+				Status = #{status,jdbcType=INTEGER},
+			</if>
+		</set>
+		where UserID =#{userID,jdbcType=INTEGER}
+		and RoleID =#{roleID,jdbcType=VARCHAR}
+	</update>
+	<select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+		select UserID, RoleID, RecID, SysID, Status, CreateTime, CreateUserID
+		from UserRole
+		where UserID = #{userID,jdbcType=INTEGER}
+		and RoleID =
+		#{roleID,jdbcType=VARCHAR}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select UserID, RoleID, RecID,
+		SysID, Status, CreateTime, CreateUserID
+		from UserRole
+	</select>
+</mapper>

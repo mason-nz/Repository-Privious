@@ -1,0 +1,152 @@
+﻿<script>
+    /*置空排期选择*/
+    function clearSchedule(){
+        var selectList = $(".select");
+        for (var i = 0; i < selectList.length; i++) {
+            $(selectList[i]).removeClass("select");
+        }
+    }
+    /*计算当前日期是星期几*/
+    function getWeek(strDate) {
+        var week = new Date(strDate).getDay();
+        return week;
+    }
+    //获取所有被选择的日期
+    function getDataArr() {
+        var dataA = [];
+        var selectList = $(".select");
+        for (var i = 0; i < selectList.length; i++) {
+            dataA.push($(selectList[i]).parent().attr("data"));
+        }
+        return dataA;
+    }
+/*==============排期选择（全选、单日、双日等）==================*/
+   //全选
+    $('#allChose').click(function () {
+        clearSchedule();
+        var orderList = $('.choseLi');
+        for(var i=0;i<orderList.length;i++){
+            $(orderList[i]).html('<span>'+ $(orderList[i]).text()+'</span>');
+            $(orderList[i]).children().addClass('select');
+        }
+        var dataArr = getDataArr();
+        $('.ml20').text("投放天数:" + dataArr.length + "天");
+    })
+    //置空
+    $('#allClear').click(function () {
+        clearSchedule();
+        var dataArr = getDataArr();
+        $('.ml20').text("投放天数:" + dataArr.length + "天");
+    })
+    //单选
+    $('#singleSelect').click(function () {
+        clearSchedule();
+        var orderList = $(".choseLi");
+        for (var i = 0; i < orderList.length; i++) {
+            //获取日期最后一位
+            var curDate = $(orderList[i]).attr('data').charAt(9);
+            if(curDate%2==1){
+                $(orderList[i]).html("<span>" + $(orderList[i]).text() + "</span>")
+                $(orderList[i]).children().addClass("select");
+            }
+        }
+        var dataArr = getDataArr();
+        $('.ml20').text("投放天数:" + dataArr.length + "天");
+    })
+    //双日
+    $("#twoSelect").click(function () {
+        clearSchedule();
+        var orderList = $(".choseLi");
+        for (var i = 0; i < orderList.length; i++) {
+            //获取日期最后一位
+            var curDate = $(orderList[i]).attr('data').charAt(9);
+            if(curDate%2==0){
+                $(orderList[i]).html("<span>" + $(orderList[i]).text() + "</span>")
+                $(orderList[i]).children().addClass("select");
+            }
+        }
+        var dataArr = getDataArr();
+        $('.ml20').text("投放天数:" + dataArr.length + "天");
+    })
+
+    //工作日
+    $("#workSelect").click(function () {
+        clearSchedule();
+        var orderList = $(".choseLi");
+        for (var i = 0; i < orderList.length; i++) {
+            var thisDay=orderList[i];
+            var strDate =$(orderList[i]).attr('data').split('-').join('/');
+            var theWeek= getWeek(strDate);
+            if(theWeek!=6 && theWeek!=0){
+                $(thisDay).html("<span>" + $(thisDay).text() + "</span>")
+                $(thisDay).children().addClass("select")
+            }
+        }
+        var dataArr = getDataArr();
+        $('.ml20').text("投放天数:" + dataArr.length + "天");
+    })
+    //休息日
+    $("#playSelect").click(function () {
+        clearSchedule();
+        var orderList = $(".choseLi");
+        for (var i = 0; i < orderList.length; i++) {
+            var thisDay=orderList[i];
+            var strDate =$(orderList[i]).attr('data').split('-').join('/');
+            var theWeek= getWeek(strDate);
+            if(theWeek==6 || theWeek==0){
+                $(thisDay).html("<span>" + $(thisDay).text() + "</span>")
+                $(thisDay).children().addClass("select")
+            }
+        }
+        var dataArr = getDataArr();
+        $('.ml20').text("投放天数:" + dataArr.length + "天");
+    })
+
+
+
+</script>
+<body style=" background-color:#eee">
+<div style="height:50px"></div>
+<!--设置排期开始-->
+<div class="layer" style="width:970px">
+    <div class="title">
+        <div class="fl">设置排期</div>
+        <div class="fr"><a href="javascript:void(0)" id="closebt"><img src="/images/icon13.png" width="16" height="16"
+                                                                       onMouseOver="this.src='/images/icon14.png'"
+                                                                       onMouseOut="this.src='/images/icon13.png'"></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="layer_con3">
+        <div class="mb10">
+            <span id="selectNum">广告位数量：4</span>
+            <span class="ml20">投放天数：--</span>
+        </div>
+
+        <div id="dataContet" style="max-height: 300px;width:1000px;overflow:auto;">
+
+        </div>
+    </div>
+    <div class="order_select" style="margin-left: 20px;margin-top: -20px">
+        <ul>
+            <li id="allChose">全选</li>
+            <li id="singleSelect">单日</li>
+            <li id="twoSelect">双日</li>
+            <li id="workSelect">工作日</li>
+            <li id="playSelect">休息日</li>
+            <li id="allClear">置空</li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+
+
+    <div class="keep" style="text-align: center;margin-bottom: 30px">
+        <span><a href="javascript:;" class="button getData" style="width:100px">确定</a></span>
+        <span><a href="javascript:;" class="but_keep" style="width:100px">取消</a></span>
+    </div>
+</div>
+</div>
+<!--设置排期结束-->
+
+<div style="height:50px"></div>

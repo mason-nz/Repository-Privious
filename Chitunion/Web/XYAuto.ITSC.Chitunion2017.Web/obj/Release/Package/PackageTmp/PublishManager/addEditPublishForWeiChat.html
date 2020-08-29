@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <!--<script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js" ></script>-->
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/AddEditForWechat.js"></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+    <style>
+        .allBtn_file{
+            display: inline-block;
+            color: #fff;
+            font-size: 26px;
+            font-weight: 500;
+            position: absolute;
+            left:3px;
+            top:-20px;
+        }
+        .table .ad_map{
+            margin: 3px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!--#include file="/base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r"></div>
+
+    <!--添加刊例   媒体主和AE的区别就在于   图像信息  折扣  上传附件-->
+    <script type="text/template" id="AddTemplate">
+    <div class="install">
+        <h2 class='menu_nav'><label>微信公众号</label></h2>
+        <div class="clear"></div>
+        <!--入口不一致  出来的东西也不一样   当为1的时候是从媒体列表进来的   为2的时候从刊例列表进来的  添加刊例 微信公众号-->
+        <% if(data.entrance == '1'){%>
+            <ul id='MediaMessage'>
+                <li class="ins_a">
+                    <div class="frame_n"><img src="<%= data.HeadIconURL %>" width="80" height="80"></div>
+                </li>
+                <li class="wechat_name">
+                    <div>微信名称：<%= data.MediaName %></div>
+                    <div>微信帐号：<%= data.MediaNumber %></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        <%}else{%>
+            <% if(data.increase == '1'){%>
+                <ul id='PublicNumber'>
+                    <li class="ins_a"><span class="red f12">*</span> 公众号账号：</li>
+                   <!--  <li><%= data.MediaNumber %></li> -->
+                    <li><input type="text" name="Username" value='<%= data.MediaNumber %>' style="width:315px;" disabled></li>
+                    <div class="fl errorMes" style='display: none'><img src="../images/icon21.png"> 公众号不能为空</div>
+                    <div class="clear"></div>
+                </ul>
+            <%}else{%>
+                <ul id='PublicNumber'>
+                    <li class="ins_a"><span class="red f12">*</span> 公众号账号：</li>
+                    <li><input name="Username" type="text" value="<%= $.trim(data.Publish.MediaNumber) %>" style="width:315px;" id='MediaName'></li>
+                    <div class="fl errorMes" style='display: none'><img src="../images/icon21.png"> 公众号不能为空</div>
+                    <div class="clear"></div>
+                </ul>
+            <%} %>
+        <%} %>
+
+        <ul>
+            <li class="ins_a"><span class="red f12">*</span> 广告名称：</li>
+            <li><input name="Username" type="text" value="<%= data.Publish.ADName %>" style="width:315px;" class='ADName'></li>
+            <div class="fl errorMes" style='display: none'><img src="../images/icon21.png"> 广告名称不能为空</div>
+            <div class="clear"></div>
+        </ul>
+
+        <ul>
+            <li class="ins_a"><span class="red f12">*</span> 价格有效期：</li>
+            <li><input name="Username" type="text" style="width:120px;" class="laydate-iconNew"  id='startTime' value="<%= data.Publish.BeginTime.substr(0,10) %>"> 至 <input name="Username" type="text" style="width:120px;" class="laydate-iconNew"  id='endTime' value="<%= data.Publish.EndTime.substr(0,10) %>"></li>
+            <div class="fl errorMes" style='display: none'><img src="../images/icon21.png"> 价格有效期不能为空</div>
+            <div class="clear"></div>
+        </ul>
+
+        <% if(CTLogin.RoleIDs == "SYS001RL00005"){%>
+        <ul>
+            <li class="ins_a"><span class="red f12">*</span> 采购折扣：</li>
+            <li><input name="discount" type="text" style="width:100px;height:34px;" class='purchase' value="<%= data.Publish.PurchaseDiscount %>" txt='采购折扣'> %</li>
+            <li class="ml20">销售折扣：</li>
+            <li><input name="discount" type="text" style="width:100px;height:34px;" class='sales' value="<%= data.Publish.SaleDiscount %>" txt='销售折扣'> %</li>
+            <div class="fl errorMes" style='display: none'><img src="../images/icon21.png"> 采购折扣和销售折扣不能为空</div>
+            <div class="clear"></div>
+        </ul>
+        <%} %>
+
+        <ul class="pr">
+            <li class="ins_a">广告价格：</li>
+            <li class="ad_r">
+                <div class="table">
+                    <div class="choose">
+                        <div class="fl grey"><img src="../images/icon66.png"> 广告位至少选择一个，所有价格均为含税价格 单位 : 元／次</div>
+                        <div class="fr">单图文<a href="showDemo01">[示例]</a> &nbsp; 多图文<a href="showDemo02">[示例]</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="javascript:;ddd" style='margin: 0;text-align: center'>
+                        <thead>
+                            <tr>
+                                <th width="24%">广告位信息</th>
+                                <th width="25%">广告位宣传图</th>
+                                <th width="18%">刊例价</th>
+                                <th width="18%">销售价</th>
+                                <th width="15%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody class='tbody_item'>
+                        <% data.Details.forEach(function(item,j){%>
+                        <tr Price='<%= item.Price %>'  SalePrice='<%= item.SalePrice %>' ImgUrls='' v='<%= j%>'>
+                            <% if(data.isAudit == true){%>
+                                <td><%= item.ADPositionText1 %>-<%= item.ADPositionText2 %> </td>
+                            <%}else{%>
+                                <td><%= item.allPositionStyle %></td>
+                            <%} %>
+                            <td>
+                                <%  for(var i=0;i<=2;i++){%>
+                                    <div class="ad_map" style="position: relative"  i='<%= i %>' >
+                                        <img src="<%= item.SmallImgUrls[i] %>" width="60" height="60"  id="headimgUploadFile<%=i+(j*3)%>" class='originPhoto'>
+                                        <span id="bigImgshow<%=i+(j*3)%>"  style="width:200px;height:200px; position:absolute;z-index: 999;left:62px;top:0;display: none" class='bigPhoto'><img src="<%= item.ImgUrls[i] %>" width="200" height="200" ></span>
+                                        <span style='left:0;top:0'><input type="file" name="file_upload" id="headUploadify<%=i+(j*3)%>" ></span>
+                                    </div>
+                                <%}%>
+                            </td>
+                            <td><input type="text" style='width:80px;' name='quotationRate' class='periodicationPrice' value='<%= item.Price%>'></td>
+                            <td><input type="text" style='width:80px;' name='quotationRate' class='retailPrice' value='<%= item.SalePrice%>'></td>
+                            <td><a href="javascript:;" class='deletePosition'><img src="../images/icon57.png" title="删除"></a></td>
+                        </tr>
+                        <%})%>
+                    </tbody></table>
+                    <div class="mt10">
+                        <div class="fl errorMes" style='display: none'><img src="../images/icon21.png"> 提示：请填写刊例价或者销售价</div>
+                        <div class="fr"><a href="javascript:;" class="button_add" style="width:100px;" id='addPositionPopup'>添加广告位</a></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+
+        <% if(CTLogin.RoleIDs == "SYS001RL00005"){%>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span>刊例原稿：</li>
+                <li class="button" style='width: 64px;margin-top:-3px;position: relative'><a href="javascript:;" id='lastFileSrc' style='position: absolute;left:0;top:0'>上传</a></li>
+                <div class="fl errorMes" style='display: none'><img src="../images/icon21.png"> 请上传刊例原稿</div>
+                <div class="clear"></div>
+            </ul>
+
+            <!--编辑的情况下-->
+            <% if(data.Publish.ImgUrl != ''){%>
+                <ul>
+                    <li class="ins_a">&nbsp;</li>
+                    <li><a href="<%= data.Publish.ImgUrl.split('|')[0] %>" class='lastFileUrl' target='_blank'><span class="lastFileName"><%= data.Publish.ImgUrl.split('|')[1] %></span></a></li>
+                    <div class="clear"></div>
+                </ul>
+            <%}else {%>
+                <!--新增-->
+                <ul>
+                    <li class="ins_a">&nbsp;</li>
+                    <li><a href="javascript:;" class='lastFileUrl' style='display: none' target='_blank'><span class="lastFileName"></span></a></li>
+                    <div class="clear"></div>
+                </ul>
+            <%} %>
+
+        <%}%>
+
+        <div class="keep">
+            <span><a href="javascript:;" class="button" style="width:150px;margin-left: 152px;" id='safeAllData'>保存</a></span>
+        </div>
+
+    </div>
+
+    </script>
+
+
+    <div class="clear"></div>
+</div>
+
+<div id="imgDemo" style="display:none;position: fixed;top:0;left:0;margin:0 auto;z-index: 900;text-align: center;">
+    <div class="layer"  style="width:390px;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);position: absolute;top:50%;left:50%;">
+        <div class="layer_con2" style="position: relative">
+            <img id="imgNow" src="" width="350" height="420"/>
+        </div>
+    </div>
+</div>
+
+<!--#include file="/base/footer.html" -->
+
+
+
+
+</body>
+</html>

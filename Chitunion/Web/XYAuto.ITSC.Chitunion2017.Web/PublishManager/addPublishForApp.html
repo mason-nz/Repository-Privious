@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/addApp.js"></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+    <style>
+        #menuTemplates li span{
+            border-left: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r"></div>
+
+    <script type="text/template" id="AddTemplate">
+        <div class="install">
+            <h2 class='menu_nav'></h2>
+            <div class="clear"></div>
+
+            <div class="macro_box">
+
+                <!-- 模板菜单 -->
+                <div class="ad_left" style='position: relative'>
+                    <div class="title">选择广告模版</div>
+                    <div class="h_portrait">
+                        <div><img src="<%= MediaLogo %>"></div>
+                        <p><%= MediaName %></p>
+                    </div>
+
+                    <ul id='menuTemplates' style="overflow: auto;">
+                    <% TemplateList.forEach(function(item){%>
+                        <% if(item.AuditStatusName == '已通过'){%>
+                        <li TemplateID='<%= item.TemplateID %>'><span><%= item.TemplateName %></span></li>
+                        <%}else if(item.AuditStatusName == '待审核'){%>
+                        <li TemplateID='<%= item.TemplateID %>'><span><%= item.TemplateName %></span><span>(<%= item.AuditStatusName %>)</span></li>
+                        <%}else if(item.AuditStatusName == '已驳回'){%>
+                        <li TemplateID='<%= item.TemplateID %>'><span><%= item.TemplateName %></span><span>(<%= item.AuditStatusName %>)</span><span><a href="javascript:;" class='DeleteRejected'><img src="/ImagesNew/delete.png"></a></span></li>
+                        <%} %>
+                    <%}) %>
+                    </ul>
+                    <ul style='position: absolute;width: 100%;left:0;bottom:-20px'>
+                        <li style='width:100%;height: 30px;line-height: 30px;background:#2F333C;padding: 0'><a href="javascript:;" class='addTemplate' target='_blank' MediaName='<%= MediaName %>' style='color: #fff;display: block;width: 100%;height: 100%'>新增</a></li>
+                    </ul>
+                </div>
+
+                <!-- 右侧内容 -->
+                <div class="ad_right">
+                    <% TemplateList.forEach(function(single,i){%>
+                        <div class="right_content"  TemplateID='<%= single.TemplateID %>' AdStyleList='<%= JSON.stringify(single.AdStyleList) %>' CarouselCount='<%= single.CarouselCount %>' SellingPlatformList='<%= JSON.stringify(single.SellingPlatformList) %>' SellingModeList='<%= JSON.stringify(single.SellingModeList) %>' AdGroupList='<%= JSON.stringify(single.AdGroupList) %>' AuditStatusName='<%= single.AuditStatusName %>'>
+                            <div class="h_content">
+                                <div class="hc_l">
+                                    <div>媒体名称：<%= MediaName %></div>
+                                    <div>广告名称：<%= single.TemplateName %></div>
+                                    <div>广告形式：<%= single.AdFormName %></div>
+                                </div>
+                                <% if(single.AdLegendURL != null){%>
+                                    <% if(single.AdLegendURL.split(',').length == 3){%>
+                                    <div class="hc_c">
+                                        <ul>
+                                            <li><img src="<%= single.AdLegendURL.split(',')[0] %>"></li>
+                                            <li><img src="<%= single.AdLegendURL.split(',')[1] %>"></li>
+                                            <li><img src="<%= single.AdLegendURL.split(',')[2] %>"></li>
+                                            <div class="clear"></div>
+                                        </ul>
+                                    </div>
+                                    <%}else if(single.AdLegendURL.split(',').length == 2){%>
+                                    <div class="hc_c">
+                                        <ul>
+                                            <li><img src="<%= single.AdLegendURL.split(',')[0] %>"></li>
+                                            <li><img src="<%= single.AdLegendURL.split(',')[1] %>"></li>
+                                            <div class="clear"></div>
+                                        </ul>
+                                    </div>
+                                    <%}else if(single.AdLegendURL.split(',').length == 1){%>
+                                    <div class="hc_c">
+                                        <ul>
+                                            <li><img src="<%= single.AdLegendURL.split(',')[0] %>"></li>
+                                            <div class="clear"></div>
+                                        </ul>
+                                    </div>
+                                    <%}else if(single.AdLegendURL == ''){%>
+
+                                    <%} %>
+                                <%} %>
+                                <div class="hc_r">
+                                    <div><a href="javascript:;" style='font-size: 12px' class='ViewDetails' target='_blank'>查看模板 ></a></div>
+                                    <div><a href="javascript:;" style='font-size: 12px' class='EditTemplate' target='_self'><img src="/ImagesNew/icon62.png"> 修改模板 ></a></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="add_ad" style="padding:20px 15px;">
+                                <ul>
+                                    <li class="add_ad_w1"><span class="red f12">*</span>价格有效期：</li>
+                                    <li class='hanDate'><input name="Username" type="text" style="width:140px;" class="laydate-iconNew" id='startTime<%=i%>'> 至 <input name="Username" type="text" style="width:140px;" class="laydate-iconNew" id='endTime<%=i%>'></li>
+                                    <li class="add_ad_w1 notOneData" style='display: none'>已有有效期：</li>
+                                    <li style='display: none'>
+                                        <select class='hasTheDate notOneDataSelect' name="" style="width:185px;line-height: 30px">
+                                            <option selected='selected'>请选择</option>
+                                        </select>
+                                    </li>
+                                    <div class="clear"></div>
+                                </ul>
+                                <% if(CTLogin.RoleIDs == "SYS001RL00005"){%>
+                                <ul class='bigSale'>
+                                    <li class="add_ad_w1"><span class="red f12">*</span>采购折扣：</li>
+                                    <li><input name="Username" type="text" value="" txt='采购折扣' style="width:100px;" class="purchaseDiscounting"> %</li>
+                                    <li class="add_ad_w1"><span class="red f12">*</span>销售折扣：</li>
+                                    <li><input name="Username" type="text" value="" txt='销售折扣' style="width:100px;" class="salesDiscount"> %</li>
+                                    <div class="fl errorMes" style="display: none"></div>
+                                    <div class="clear"></div>
+                                </ul>
+                                <ul>
+                                    <li class="add_ad_w1"><span class="red f12">*</span>刊例原稿：</li>
+                                    <li><a href="javascript:;" class="button_add KanLiManuscript" id='KanLiManuscript<%= i%>'>上传附件</a></li>
+                                    <li class='uploadShow' style='display: none'><img src="/ImagesNew/icon18.png" style='padding-right: 10px'><span style='padding-right: 10px' class='uploadName'></span> <a href="javascript:;" class='uploadFile' target='_blank'><img src="/ImagesNew/icon19.png" alt=""></a></li>
+                                    <div class="clear"></div>
+                                </ul>
+                                <%} %>
+                                <div class="tr red errorTit" style='display: none'><img src="/ImagesNew/icon21.png"> <span></span></div>
+                                <div class='holidays' style='margin-top: 10px' holidays='<%= JSON.stringify(single.SellingModeList) %>'>
+                                    <input name="" type="checkbox" value="" class='difHolidays'> <span>区分节假日</span>
+                                    <a href="javascript:;" class="button_add addAdvertisingPrice<%= i%>" style="width:100px;margin-left:15px;float: right" >添加广告价格</a>
+                                </div>
+                            </div>
+                            <p class='noReviewTem' style='text-align: center;display: none;line-height: 300px'>没有审核通过的模板，不可添加广告!</p>
+                            <div class="ad_table" style="padding:0 15px">
+                                <div class='price_data' style='text-align: center'>
+                                    <img src="/ImagesNew/no_data.png" class='noData_img'>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" style="display: none">
+                                        <thead>
+                                            <tr>
+                                                <th width="6%" rowspan="2">轮播</th>
+                                                <th width="10%" rowspan="2">广告样式</th>
+                                                <th width="10%" rowspan="2">售卖平台</th>
+                                                <th width="8%" rowspan="2">售卖方式</th>
+                                                <th width="8%" rowspan="2">售卖区域</th>
+                                                <th width="9%" rowspan="2">点击量</th>
+                                                <th width="9%" rowspan="2">曝光量</th>
+                                                <% if(CTLogin.RoleIDs == "SYS001RL00005"){%>
+                                                <th colspan='2'>刊例价(天/次)</th>
+                                                <%} %>
+                                                <th colspan='2'>销售价(天/次)</th>
+                                                <th width="5%" rowspan="2">操作</th>
+                                            </tr>
+                                            <tr>
+                                                <% if(CTLogin.RoleIDs == "SYS001RL00005"){%>
+                                                <th width="8%" style='height: 20px;line-height: 20px'>常日</th>
+                                                <th width="8%" style='height: 20px;line-height: 20px'>节假日</th>
+                                                <%} %>
+                                                <th width="8%" style='height: 20px;line-height: 20px'>常日</th>
+                                                <th width="8%" style='height: 20px;line-height: 20px'>节假日</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="tr red mt10 errorMeg" style='display: none'><img src="/ImagesNew/icon21.png"><span></span> </div>
+
+                                </div>
+                                <div class="keep" style="text-align: center;display: none;" >
+                                    <!--<span><a href="javascript:;" class="button" style="width:100px;">取消</a></span>-->
+                                    <span><a href="javascript:;" class="button ConfirmAndSave" style="width:100px;">确认并保存</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    <%}) %>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </script>
+
+
+    <!-- 区分工作日和节假日 -->
+    <script type="text/template" id="TableISCPD">
+
+        <tr CarouselNumber='<%= data.CarouselCount %>' SaleType='<%= data.SellingModeList.ID %>' SalePlatform='<%= data.SellingPlatformList.ID %>' ADStyle='<%= data.AdStyleList.ID %>' SaleArea='<%= data.AdGroupList.ID %>' ClickCount='<%= data.clickRate %>' ExposureCount='<%= data.quantityRate %>' PubPrice='<%= data.PubPrice %>' SalePrice='<%= data.SalePrice %>' PubPrice_Holiday='<%= data.PubPrice_Holiday %>' SalePrice_Holiday='<%= data.SalePrice_Holiday %>'>
+            <% if(data.CarouselCount == 0){%>
+                <td>--</td>
+            <%}else{%>
+                <td><%= data.CarouselCount %></td>
+            <%} %>
+            <td><%= data.AdStyleList.Name %></td>
+            <td><%= data.SellingPlatformList.Name %></td>
+            <td><%= data.SellingModeList.Name %></td>
+            <td><%= data.AdGroupList.Name %></td>
+            <td><input name="Username" type="text" style="width:48px;height:30px;" value="<%= data.clickRate %>" class="clickRate"></td>
+            <td><input name="Username" type="text" style="width:48px;height:30px;" value="<%= data.quantityRate %>" class="quantityRate"></td>
+            <% if(CTLogin.RoleIDs == "SYS001RL00005"){%>
+                <td><input name="Username" type="text" style="width:48px;height:30px;" value='<%= data.PubPrice %>' class="PubPrice require_input"></td>
+                <% if(data.PubPrice_Holiday != ''){%>
+                <td class='no_differ'>
+                    <span class='require_span' style="display: none">不区分</span>
+                    <input name="Username" type="text" style="width:48px;height:30px;" value='<%= data.PubPrice_Holiday %>' class="PubPrice_Holiday require_input">
+                </td>
+                <%}else{%>
+                <td class='no_differ'>
+                    <span class='require_span'>不区分</span>
+                    <input name="Username" type="text" style="width:48px;height:30px;border: 1px solid #FF4F4F;display: none" value='<%= data.PubPrice_Holiday %>' class="PubPrice_Holiday require_input">
+                </td>
+                <%} %>
+                <!-- <img src="/ImagesNew/mark.png"> -->
+            <%} %>
+            <td><input name="Username" type="text" style="width:48px;height:30px;" class="SalePrice require_input" value='<%= data.SalePrice %>'></td>
+            <% if(data.SalePrice_Holiday != ''){%>
+                <td class='no_differ'>
+                    <span class='require_span' style="display: none">不区分</span>
+                    <input name="Username" type="text" style="width:48px;height:30px;" class="SalePrice_Holiday require_input" value='<%= data.SalePrice_Holiday %>'>
+                </td>
+                <%}else{%>
+                <td class='no_differ'>
+                    <span class='require_span'>不区分</span>
+                    <input name="Username" type="text" style="width:48px;height:30px;border: 1px solid #FF4F4F;display: none" value='<%= data.PubPrice_Holiday %>' class="SalePrice_Holiday require_input">
+                </td>
+            <%} %>
+            <td><a href="javascript:;" class='delete_data'><img src="/ImagesNew/delete.png"></a></td>
+        </tr>
+
+    </script>
+
+    <!-- 只有工作日的情况 -->
+    <!--<script type="text/template" id="TableNOTCPD">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="6%">轮播</th>
+                <th width="12%">广告样式</th>
+                <th width="11%">售卖平台</th>
+                <th width="8%">售卖方式</th>
+                <th width="8%">售卖区域</th>
+                <th width="11%">点击量</th>
+                <th width="11%">曝光量</th>
+                <th width="13%">刊例价(天/次)</th>
+                <th width="13%">售卖价(天/次)</th>
+                <th width="7%">操作</th>
+            </tr>
+            <tr>
+                <% AdPricePopup.forEach(function(every){%>
+                <tr>
+                    <td><%= every.CarouselCount %></td>
+                    <td><%= every.AdStyleList.Name %></td>
+                    <td><%= every.SellingPlatformList.Name %></td>
+                    <td><%= every.SellingModeList.Name %></td>
+                    <td><%= every.AdGroupList.Name %></td>
+                    <td><input name="Username" type="text" style="width:48px;height:30px;" value="<%= every.clickRate %>" class="clickRate"></td>
+                    <td><input name="Username" type="text" style="width:48px;height:30px;" value="<%= every.quantityRate %>" class="quantityRate"></td>
+                    <td><input name="Username" type="text" style="width:48px;height:30px;" value='<%= every.PubPrice %>' class="PubPrice"></td>
+                    <td><input name="Username" type="text" style="width:48px;height:30px;" class="SalePrice" value='<%= every.SalePrice %>'></td>
+                    <td><a href="javascript:;"><img src="/ImagesNew/delete.png"></a></td>
+                </tr>
+                <%}) %>
+            </tr>
+        </table>
+    </script>-->
+
+</div>
+
+
+<!--#include file="/base/footer.html" -->
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #f3f3f3;">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/_common.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/_userInfo.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="/js/common_weChat.js"></script>
+    <script src="/js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+</head>
+<body>
+<div class="no_data" style="display: none">
+    <div>
+        <img src="../images/no_net.png">
+    </div>
+    <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+</div>
+<div class="container-fluid PersonalInformation netOk" id="app">
+    <!--<header :class="header_hide">-->
+        <!--{{header_text}}-->
+    <!--</header>-->
+    <main>
+        <article class="personalData">
+            <div class="flex_justify_spaceBetween">
+                微信昵称<input disabled type="text" id="NickName" :placeholder="NickName">
+            </div>
+        </article>
+        <article class="personalSupplement">
+            <div class="flex_justify_spaceBetween">
+                手机号码
+                <div class="img_dag" @click="toClickMobilePhone">
+                    <div class="upload_text" :class="{info_edit: editClassTel}">
+                        <!-- <input type="text" disabled v-model="MobilePhone"> -->
+                        <p>{{MobilePhone}}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="personalSupplement">
+            <div class="flex_justify_spaceBetween">
+                支付宝账号
+                <div class="img_dag" @click="toClickAlipay">
+                    <div class="upload_text" :class="{info_edit: editClassAlipay}">
+                        <!-- <input style="color: #000" type="text" disabled v-model="Alipay"> -->
+                        <p>{{Alipay}}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="personalSupplement">
+            <div class="flex_justify_spaceBetween">
+                认证信息
+                <div class="img_dag" @click="toClickIsCertificated">
+                    <div class="upload_text">
+                        <!-- <input style="color: #000" type="text" disabled v-model="isCertificated"> -->
+                        <p>{{isCertificated}}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+</div>
+</body>
+<script src="js/userInfo.js?v=20180409"></script>
+</html>

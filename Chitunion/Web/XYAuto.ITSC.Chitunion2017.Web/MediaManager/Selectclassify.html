@@ -1,0 +1,46 @@
+<!--选择行业开始-->
+<div class="layer" style="width:600px;">
+    <div class="title">
+        常见分类 <span style="color: red">(最多只能选择5个)</span>
+        <div class="close"><a href="javascript:;" style="outline:none;"><img src="/ImagesNew/close_x.jpg" ></a></div>
+    </div>
+
+    <div class="layer_con3">
+        <div class="familiar">
+            <ul>
+
+            </ul>
+        </div>
+        <div id="Promptfamiliar"></div>
+        <div class="keep" style="text-align: center;margin-left:0;margin-top: 0">
+            <a href="javascript:;" class="button" id="keepbutton" style="width:140px">提交</a>
+        </div>
+    </div>
+</div>
+<!--选择行业结束-->
+<script>
+    // 同步渲染选择分类  解决插件无法判断高度
+    $.ajax({
+        url: 'http://www.chitunion.com/api/DictInfo/GetDictInfoByTypeID',
+        type: 'get',
+        data: {
+            typeID:47
+        },
+        async: false,
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (data) {
+            console.log(data);
+            var a=''
+            $(data.Result).each(function (i,v) {
+                a+='<li dictid='+v.DictId+' name='+i+'>'+v.DictName+'</li>'
+            })
+            a+='<div class="clear"></div>'
+            // 渲染分类
+            $('.familiar ul').html(a)
+        }
+    });
+</script>

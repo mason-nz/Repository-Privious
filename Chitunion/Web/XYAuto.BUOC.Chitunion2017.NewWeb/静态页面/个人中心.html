@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	<script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+</head>
+<body>
+
+<!--顶部logo 导航-->
+<div id="topNew">
+    <div class="box">
+        <div class="left"></div>
+        <ul class="right">
+            <li>
+                <img src="../images/person.png">
+                <span>芳芳</span>
+            </li>
+            <li>
+                <img src="../images/house.png">
+                <span>个人中心</span>
+            </li>
+            <li>
+                <img src="../images/quit.png">
+                <span>退出</span>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- 主体部分 -->
+<div class="contaner_body">
+	<div id="navLeft">
+        <ul>
+            <li>
+                <a href="javascript:void(0)">
+                    <img src="../images/icon.png">
+                    <span>个人中心</span>
+                </a>
+                <ol>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span>智能搜索</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span>内容分发</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span>媒体智投</span>
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <img src="../images/icon.png">
+                    <span>推广管理</span>
+                </a>
+                <ol>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span>智能搜索</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span>内容分发</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span>媒体智投</span>
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <img src="../images/icon.png">
+                    <span>账号管理</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main_right">
+		<ul class="list_switch">
+			<li class="selected">基本信息</li>
+			<li>认证信息</li>
+			<!-- <li>体现账号</li> -->
+			<li>修改密码</li>
+		</ul>
+
+    	<div class="Personal_table2">
+            <!-- 基本信息 -->
+            <div>
+                <ul>
+                    <li class="tr">用户名：</li>
+                    <li><input type="text" placeholder="请输入用户名称"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr">手机号：</li>
+                    <li class="phone">134*******2451</li>
+                    <li><a href="javascript:void(0);" class="but_global">更改</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr">所在城市：</li>
+                    <li>
+                        <select name="" id="">
+                            <option value="">请选择省/直辖市</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">请选择所在城市</option>
+                        </select>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr">联系地址：</li>
+                    <li><input type="text" placeholder="请填写详细地址"></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            
+            <!-- 认证信息 -->
+            <div style='display: none;'>
+                <ul>
+                    <li class="tr">类型：</li>
+                    <li class='radio_type'>
+                        <span><input type="radio" name='type'>企业</span>
+                        <span><input type="radio" name='type'>个人</span>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr">公司名称：</li>
+                    <li><input type="text" placeholder="请填写公司名称"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul  class="business_license">
+                    <li class="tr">营业执照：</li>
+                    <li class="upload_img"></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+
+
+            <!-- 修改密码 -->    
+            <div style='display: none;'>
+                <ul>
+                    <li class="tr">旧密码：</li>
+                    <li><input type="text" placeholder="请输入旧密码"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr">新密码：</li>
+                    <li><input type="text" placeholder="请输入新密码"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="tr">确认密码：</li>
+                    <li><input type="text" placeholder="请输入确认密码"></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+			
+			<ul style='margin-top: 40px;'>
+				<li class="tr">&nbsp</li>
+				<li><a href="javascript:void(0);" class="but_global" style='width: 120px;'>提交</a></li>
+				<div class="clear"></div>
+			</ul>
+
+    	</div>
+
+    </div>
+</div>
+
+
+<!--底部-->
+<div id="footer">
+    <div class="main">
+        <p>@2016-2017 www.chitunion.com All Rights Reserved. 北京行圆汽车信息技术有限公司所有 京ICP备17011360号-3</p>
+    </div>
+</div>
+
+<script>
+    $('.list_switch li').off('click').on('click',function(){
+        var that = $(this);
+        var idx = that.index();
+        that.addClass('selected').siblings().removeClass('selected');
+        $('.Personal_table2>div').eq(idx).show().siblings('div').hide();
+    })
+
+
+</script>
+	
+</body>
+</html>

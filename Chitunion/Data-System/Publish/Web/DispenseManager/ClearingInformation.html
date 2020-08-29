@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结算信息</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="js/ClearingInformation.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!-- #include file="/base/header.html"  -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!-- #include file="/base/Menu.html"  -->
+
+    <div class="order_r">
+        <div style="padding-bottom: 0" class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+
+                </h2>
+            </div>
+            <div id="list_switching" style="margin-top: -9px">
+                <ul class="state">
+                    <li><div class="ins_c">汇总日期：</div>
+                        <input id="CreateTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                        至 <input id="endTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                </li>
+                    <li><div class="ins_c">订单渠道：</div><select id="OrderChannel" name="" style="width:105px;line-height: 30px">
+                        <option value="-2">全部</option>
+                        <option value="101001">赤兔联盟</option>
+                        <option value="101002">微博易</option>
+                    </select></li>
+                    <li style="display: none"><div class="ins_c">结算状态：</div><select id="SettleAccounts" name="" style="width:105px;line-height: 30px">
+                        <option value="-2">全部</option>
+                        <option value="0">已结算</option>
+                        <option value="1">未结算</option>
+                    </select></li>
+                    <li class="but_query" id="Inquiry" style="width:70px;margin-right:10px">查询</li>
+                    <li class="but_query" id="ExportData" style="width:70px;margin-right:0">导出数据</li>
+                    <div class="clear"></div>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="list_box mt20" style="padding-top:1px">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="ad_table">
+                        <table class="Settlement" width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+
+                        </table>
+
+                        <!--分页-->
+                        <div id="pageContainer" class="green-black">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span>1/200</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="Settlement">
+    <tr>
+        <th width="10%">月结ID</th>
+        <th width="10%">月份</th>
+        <th width="20%">汇总日期（次自然月第一天）</th>
+        <th width="8%">订单渠道</th>
+        <th width="11%">订单笔数</th>
+        <th width="13%">累计结算金额</th>
+        <th width="12%">结算状态</th>
+        <th width="12%">实际结算时间</th>
+        <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+        <th width="12%">操作人</th>
+        <%}%>
+    </tr>
+    <%Result.List.forEach(function(e){%>
+    <tr>
+        <td><%=e.RecID%></td>
+        <td><%=e.Date.split(' ')[0].split('/')[0]+'-'+e.Date.split(' ')[0].split('/')[1]%></td>
+        <td><%=e.CreateTime%></td>
+        <td><%=e.ChannelName%></td>
+        <td>
+            <%if(e.OrderNumber!=0){%>
+            <a href="/DispenseManager/ChannelOrder.html?finish=1&ChannelID=<%=e.ChannelID%>&start=<%=e.FirstDay%>&end=<%=e.EndDay%>"
+               style="text-decoration:underline;color: red">
+                <%=e.OrderNumber%>
+            </a>
+            <%}else{%>
+            <%=e.OrderNumber%>
+            <%}%>
+        </td>
+        <td><%=formatMoney(e.TotalAmount,2,'¥ ')%></td>
+        <td>
+            <%if(e.ChannelName=='赤兔联盟'){%>
+            <%=e.StateOfSettlement?e.StateOfSettlement:'-'%>
+            <%}else{%>
+            <%=e.StateOfSettlement?e.StateOfSettlement:''%>
+            <%}%>
+        </td>
+        <td>
+            <%if(e.TimeOfSettlement!="0001-01-01 00:00:00"){%>
+            <%if(e.ChannelName=='赤兔联盟'){%>
+            <%=e.TimeOfSettlement?e.TimeOfSettlement:'-'%>
+            <%}else{%>
+            <%=e.TimeOfSettlement?e.TimeOfSettlement:''%>
+            <%}%>
+            <%}else{%>
+            <%}%>
+        </td>
+        <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+        <td><%=e.OperaterName?e.OperaterName:''%></td>
+        <%}%>
+    </tr>
+    <%})%>
+</script>
+<script>
+    var voidDateRange = [];
+    var timeObj = {
+        'S': new Date().Format('yyyy-MM-dd'),
+        'E': '2020-09-15'
+    }
+    voidDateRange.push(timeObj);
+    $('#CreateTime').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#CreateTime',
+            voidDateRange : voidDateRange,
+            choose: function (date) {
+                if (date > $('#endTime').val() && $('#endTime').val()) {
+                    layer.alert('起始时间不能大于结束时间！');
+                    $('#CreateTime').val('')
+                }
+            }
+        });
+    });
+    $('#endTime').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#endTime',
+            voidDateRange : voidDateRange,
+            choose: function (date) {
+                if (date < $('#CreateTime').val() && $('#CreateTime').val()) {
+                    layer.alert('结束时间不能小于起始时间！');
+                    $('#endTime').val('')
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

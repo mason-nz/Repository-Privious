@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.TitleMediaMappingMapper">
+  <resultMap id="BaseResultMap" type="com.xyauto.domain.TitleMediaMapping">
+    <id column="recId" jdbcType="INTEGER" property="recId" />
+    <result column="TitleID" jdbcType="INTEGER" property="titleId" />
+    <result column="MediaType" jdbcType="INTEGER" property="mediaType" />
+    <result column="MediaID" jdbcType="INTEGER" property="mediaId" />
+    <result column="Status" jdbcType="INTEGER" property="status" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CreateUserID" jdbcType="INTEGER" property="createUserId" />
+  </resultMap>
+  <resultMap type="com.xyauto.domain.TitleBasicInfo" id="titleListMap" >
+          <result property="titleID" column="TitleID"/>
+          <result property="name" column="Name"/>
+          <result property="pid" column="PIP"/>
+	</resultMap>
+	<resultMap type="com.xyauto.domain.MediaTitleListQuery" id="MediaTitleListMap" >
+          <result property="mediaId" column="MediaID"/>
+          <result property="mediaName" column="Name"/>
+         <result property="mediaTypeId" column="MediaTypeId"/>
+          <result property="mediaTypeName" column="MediaTypeName"/>
+          <result property="platNumber" column="TerminalName"/>
+          <result property="platNumber" column="Number"/>
+          <result property="terminalId" column="Terminal"/>
+          <result property="mediaCreateTime" column="CreateTime"/>
+          <result property="createUserName" column="CreateUserName"/>
+          <result property="lastTitleCreateTime" column="LastTitleCreateTime"/>
+          <result property="titles" column="title"/>
+          <result property="headIconURL" column="HeadIconURL"/>
+	</resultMap>
+		<resultMap type="com.xyauto.domain.CarTitleListQuery" id="CarTitleListMap" >
+          <result property="brandID" column="BrandID"/>
+          <result property="serialID" column="SerialID"/>
+          <result property="BrandName" column="BrandName"/>
+          <result property="SerialName" column="SerialName"/>
+          <result property="titles" column="titles"/>
+          <result property="createUserName" column="CreateUserName"/>
+          <result property="modifiedTime" column="ModifiedTime"/>
+         
+	</resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Title_Media_Mapping
+    where recId = #{recId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xyauto.domain.TitleMediaMapping">
+    insert into Title_Media_Mapping (recId, TitleID, MediaType, 
+      MediaID, Status, createTime, 
+      CreateUserID)
+    values (#{recId,jdbcType=INTEGER}, #{titleId,jdbcType=INTEGER}, #{mediaType,jdbcType=INTEGER}, 
+      #{mediaId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUserId,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.xyauto.domain.TitleMediaMapping" useGeneratedKeys="true" keyColumn="RecID" keyProperty="recId">
+    insert into Title_Media_Mapping
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recId != null" >
+        RecID,
+      </if>
+      <if test="titleId != null" >
+        TitleID,
+      </if>
+      <if test="mediaType != null" >
+        MediaType,
+      </if>
+      <if test="mediaId != null" >
+        MediaID,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="createTime != null" >
+        CreateTime,
+      </if>
+      <if test="createUserId != null" >
+        CreateUserID,
+      </if>
+     
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+     
+      <if test="recId != null" >
+        #{recId,jdbcType=INTEGER},
+      </if>
+      <if test="titleId != null" >
+        #{titleId,jdbcType=INTEGER},
+      </if>
+      <if test="mediaType != null" >
+        #{mediaType,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null" >
+        #{mediaId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+     
+    </trim>
+  </insert>
+  
+  <insert id="addTitleToCarBrandByBrandIdAndSerialId" parameterType="com.xyauto.domain.TitleCarMapping" >
+    insert into Title_Car_Mapping
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recId != null" >
+        RecID,
+      </if>
+      <if test="titleId != null" >
+        TitleID,
+      </if>
+      <if test="carBrandId != null" >
+        CarBrandID,
+      </if>
+      <if test="CSID != null" >
+        CSID,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="createTime != null" >
+        CreateTime,
+      </if>
+      <if test="createUserId != null" >
+        CreateUserID,
+      </if>
+     
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+     
+      <if test="recId != null" >
+        #{recId,jdbcType=INTEGER},
+      </if>
+      <if test="titleId != null" >
+        #{titleId,jdbcType=INTEGER},
+      </if>
+      <if test="carBrandId != null" >
+        #{carBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="CSID != null" >
+        #{CSID,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+     
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.xyauto.domain.TitleMediaMapping">
+    update Title_Media_Mapping
+    set TitleID = #{titleId,jdbcType=INTEGER},
+      MediaType = #{mediaType,jdbcType=INTEGER},
+      MediaID = #{mediaId,jdbcType=INTEGER},
+      Status = #{status,jdbcType=INTEGER},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      CreateUserID = #{createuserid,jdbcType=INTEGER}
+    where recId = #{recId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select recId, TitleID, MediaType, MediaID, Status, createTime, CreateUserID
+    from Title_Media_Mapping
+    where recId = #{recId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select recId, TitleID, MediaType, MediaID, Status, createTime, CreateUserID
+    from Title_Media_Mapping
+  </select>
+  <select id="selectAllTitle"  resultMap="titleListMap">
+				select 
+			tb.TitleID,tb.Name,ip.PIP
+		from TitleBasicInfo tb left join IPTitleInfo ip on tb.TitleID=ip.TitleID
+	</select>
+	
+	 <select id="getTitleIdByMediaIdAndMediaType" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+			select  tmm.TitleID  from Title_Media_Mapping tmm where tmm.MediaID=#{mediaId} and tmm.MediaType = #{mediaType}
+	</select>
+	<select id="getTitlesByMediaIdAndMediaType" parameterType="java.lang.Integer" resultType="com.xyauto.domain.TitleBasicInfo">
+			select  tb.Name,tb.TitleID  from 
+			Title_Media_Mapping tmm left join TitleBasicInfo tb on tmm.TitleID=tb.TitleID  where tmm.MediaID=#{mediaId} and tmm.MediaType = #{mediaType}
+	</select>
+	<delete id="delTitleOfMedia" >
+		delete from Title_Media_Mapping  where  MediaType=#{mediaType} and MediaID=#{mediaId}
+	</delete>
+	<!-- 下面5个方法不同的类型的媒体通过id取得标签名字列表 -->
+	<select id="getTitleNamesByWeiXinMediaId" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select tb.Name from TitleBasicInfo tb left join Title_Media_Mapping tmm on tb.TitleID = tmm.TitleID left join Media_Weixin mwx on tmm.MediaID = mwx.MediaID where tmm.MediaId = #{mediaId};
+	</select>
+	<select id="getTitleNamesByPCAPPMediaId" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select tb.Name from TitleBasicInfo tb left join Title_Media_Mapping tmm on tb.TitleID = tmm.TitleID left join Media_PCAPP mwx on tmm.MediaID = mwx.MediaID where tmm.MediaId = #{mediaId};
+	</select>
+	<select id="getTitleNamesByWeiboMediaId" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select tb.Name from TitleBasicInfo tb left join Title_Media_Mapping tmm on tb.TitleID = tmm.TitleID left join Media_Weibo mwx on tmm.MediaID = mwx.MediaID where tmm.MediaId = #{mediaId};
+	</select>
+	<select id="getTitleNamesByVideoMediaId" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select tb.Name from TitleBasicInfo tb left join Title_Media_Mapping tmm on tb.TitleID = tmm.TitleID left join Media_Video mwx on tmm.MediaID = mwx.MediaID where tmm.MediaId = #{mediaId};
+	</select>
+	<select id="getTitleNamesByBroadcastMediaId" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select tb.Name from TitleBasicInfo tb left join Title_Media_Mapping tmm on tb.TitleID = tmm.TitleID left join Media_Broadcast mwx on tmm.MediaID = mwx.MediaID where tmm.MediaId = #{mediaId};
+	</select>
+	<!--方法结束 -->
+	
+	<!-- 查询一个媒体相同微信号的其他媒体id -->
+	<select id="getOtherMediaIdSameWithWeiXinNumberByMediaId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select MediaID from Media_Weixin where Number= (select Number from Media_Weixin where MediaID =#{mediaId})
+	</select>
+	<select id="getOtherMediaIdSameWithWeiboNumberByMediaId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select MediaID from Media_Weibo where Number= (select Number from Media_Weibo where MediaID =#{mediaId})
+	</select>
+	<select id="getOtherMediaIdSameWithVideoNumberByMediaId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select MediaID from Media_Video where Number= (select Number from Media_Video where MediaID =#{mediaId})
+	</select>
+	<select id="getOtherMediaIdSameWithBroadcastNumberByMediaId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select MediaID from Media_Broadcast where Number= (select Number from Media_Broadcast where MediaID =#{mediaId})
+	</select>
+
+	<select id="getWeiXinWithOutTitle" resultMap="MediaTitleListMap" parameterMap="getUserCountMap" statementType="CALLABLE">
+		p_Page 'select HeadIconURL, MediaID,Number,Name,CreateTime,(select DictName from DictInfo where DictId = 14001) as ''MediaTypeName'',''14001'' as ''MediaTypeId'' yanfafrom Media_Weixin where MediaID in(select max(mw.MediaID) from Media_Weixin mw left join Title_Media_Mapping tm on mw.MediaID=tm.MediaID and tm.MediaType=14001 where tm.RecID is null group by mw.Number) ','CreateTime desc',?,?,?
+    </select>
+   <select id="getAppWithOutTitle" resultMap="MediaTitleListMap" parameterMap="getUserCountMap" statementType="CALLABLE">
+		p_Page 'select HeadIconURL, ap.MediaID,Name,ap.CreateTime,ap.Terminal,(select SUBSTRING((SELECT   '','' + A.DictName
+                     FROM      (SELECT DISTINCT dif.DictName
+                                      FROM      DictInfo dif, Media_PCAPP
+                                      WHERE   dif.DictId IN (SELECT   * FROM  f_split(ap.Terminal, '',''))) AS A FOR XML PATH('''')),2,20)) as ''TerminalName'',(select DictName from DictInfo where DictId = 14002) as ''MediaTypeName'',''14002'' as ''MediaTypeId'' yanfafrom Media_PCAPP ap left join Title_Media_Mapping tm on ap.MediaID = tm.MediaID and tm.MediaType=14002 where tm.RecID is null','ap.CreateTime desc',?,?,?
+    </select>
+    <select id="getWeiBoWithOutTitle" resultMap="MediaTitleListMap" parameterMap="getUserCountMap" statementType="CALLABLE">
+		p_Page 'select HeadIconURL, MediaID,Number,Name,CreateTime,(select DictName from DictInfo where DictId = 14003) as ''MediaTypeName'',''14003'' as ''MediaTypeId'' yanfafrom Media_Weibo where MediaID in(select max(mw.MediaID) from Media_Weibo mw left join Title_Media_Mapping tm on mw.MediaID=tm.MediaID and tm.MediaType=14003 where tm.RecID is null group by mw.Number)','CreateTime desc',?,?,?
+    </select>
+    <select id="getVideoWithOutTitle" resultMap="MediaTitleListMap" parameterMap="getUserCountMap" statementType="CALLABLE">
+		p_Page 'select HeadIconURL, MediaID,Number,Name,CreateTime,(select DictName from DictInfo where DictId = 14004) as ''MediaTypeName'',''14004'' as ''MediaTypeId'' yanfafrom Media_Video where MediaID in(select max(mw.MediaID) from Media_Video mw left join Title_Media_Mapping tm on mw.MediaID=tm.MediaID and tm.MediaType=14004 where tm.RecID is null group by mw.Number)','CreateTime desc',?,?,?
+    </select>
+    <select id="getBroadCastWithOutTitle" resultMap="MediaTitleListMap" parameterMap="getUserCountMap" statementType="CALLABLE">
+		p_Page 'select HeadIconURL, MediaID,Number,Name,CreateTime,(select DictName from DictInfo where DictId = 14005) as ''MediaTypeName'',''14005'' as ''MediaTypeId'' yanfafrom Media_Broadcast where MediaID in(select max(mw.MediaID) from Media_Broadcast mw left join Title_Media_Mapping tm on mw.MediaID=tm.MediaID and tm.MediaType=14005 where tm.RecID is null group by mw.Number)','CreateTime desc',?,?,?
+    </select>
+    <parameterMap type="java.util.Map" id="getUserCountMap">
+        <parameter property="curPage" mode="IN" jdbcType="INTEGER"/>
+        <parameter property="pageRows" mode="IN" jdbcType="INTEGER"/>
+         <parameter property="count" mode="OUT" jdbcType="INTEGER"/>
+    </parameterMap>
+    
+   <parameterMap type="java.util.Map" id="getUserCountMap1">
+     	<parameter property="append" mode="IN" jdbcType="VARCHAR"/>
+        <parameter property="curPage" mode="IN" jdbcType="INTEGER"/>
+        <parameter property="pageRows" mode="IN" jdbcType="INTEGER"/>
+         <parameter property="count" mode="OUT" jdbcType="INTEGER"/>
+    </parameterMap>
+
+    
+ 	<select id="getAllMediaWithTitleList"  resultMap="MediaTitleListMap"  parameterMap="getUserCountMap1"  statementType="CALLABLE">
+	     p_Page ?,'CreateTime desc',?,?,?
+    </select>
+    <select id="getAllCarBrandListWithTitle"  resultMap="CarTitleListMap"  parameterMap="getUserCountMap1"  statementType="CALLABLE">
+	     p_Page ?,'ModifiedTime desc',?,?,?
+    </select>
+     <select id="getBrandsWithTitle"  resultMap="CarTitleListMap">
+	    select distinct cb.BrandID,cb.Name as BrandName from Car_Brand cb left join Title_Car_Mapping tcm on cb.BrandID = tcm.CarBrandID where tcm.RecID is not null
+    </select>
+     <select id="getAllBrandsWithOutTitle"  parameterMap="getUserCountMap1"  resultMap="CarTitleListMap" statementType="CALLABLE">
+	   	 p_Page ?,'BrandName asc',?,?,?
+    </select>
+     <select id="getJustBrandWithOutTitle"  resultMap="CarTitleListMap">
+		select cb.BrandID,cb.Name BrandName from Car_Brand cb
+    </select>
+    <select id="queryCarBrandByTitleName" resultMap="CarTitleListMap" parameterMap="getUserCountMap1" statementType="CALLABLE" >
+       p_Page ?,'BrandName',?,?,?
+    </select>
+      <select id="queryMediaByTitleName" resultMap="BaseResultMap" parameterMap="getUserCountMap1"  statementType="CALLABLE"  >
+		p_Page ?,'MediaType',?,?,?
+    </select>
+
+
+
+	<!-- 根据媒体id查询名称 -->
+    <select id="getWeiXinMediaNameByMediaId" resultMap="MediaTitleListMap" parameterType="java.lang.Integer">
+		select HeadIconURL,Number,Name from Media_Weixin where Media_Weixin.MediaID =#{mediaId}
+    </select>
+     <select id="getPCAPPMediaNameByMediaId" resultMap="MediaTitleListMap" parameterType="java.lang.Integer">
+		select HeadIconURL,(
+		SELECT SUBSTRING ((SELECT ', ' + A.DictName  FROM  (SELECT DISTINCT dif.DictName FROM DictInfo dif, Media_PCAPP
+ 		WHERE   dif.DictId IN (SELECT * FROM f_split(Terminal, ','))) AS A FOR XML PATH('')), 2, 20)
+		) as Number,Name from Media_PCAPP where Media_PCAPP.MediaID =#{mediaId}
+    </select>
+     <select id="getWeiBoMediaNameByMediaId" resultMap="MediaTitleListMap" parameterType="java.lang.Integer">
+		select HeadIconURL,Number,Name from Media_Weibo where Media_Weibo.MediaID =#{mediaId}
+    </select>
+     <select id="getVideoMediaNameByMediaId" resultMap="MediaTitleListMap" parameterType="java.lang.Integer">
+		select HeadIconURL,Number,Name from Media_Video where Media_Video.MediaID=#{mediaId}
+    </select>
+     <select id="getBroadCastMediaNameByMediaId" resultMap="MediaTitleListMap" parameterType="java.lang.Integer">
+		select HeadIconURL,Number,Name from Media_Broadcast where Media_Broadcast.MediaID=#{mediaId}
+    </select>
+    
+    <select id="getTitlesByBrandIdAndSerialId" resultType="com.xyauto.domain.TitleBasicInfo" parameterType="java.lang.Integer">
+		 select *  from TitleBasicInfo tbi left join Title_Car_Mapping tcm on tbi.TitleID = tcm.TitleID
+		  where tcm.CarBrandID = #{brandID} 
+		  <if test="serialID == -1">
+		  	and tcm.CSID is null
+		  </if>
+		   <if test="serialID != -1">
+		  	and tcm.CSID  = #{serialID}
+		  </if>
+    </select>
+   <!--  <insert id="addTitleToCarBrandByBrandIdAndSerialId" >
+    	 insert into Title_Car_Mapping(TitleID,CarBrandID,CSID) values(#{titleId},#{brandID},#{serialID});
+    </insert> -->
+    <delete id="deleteAllTitleAboutCarBrand">
+    	 	 delete from Title_Car_Mapping  where CarBrandID = #{brandID} 
+    	 	 <if test="serialID ==null">
+    	 	  and CSID is null
+    	 	 </if>
+    	 	 <if test="serialID != null">
+    	 	 	and CSID = #{serialID}
+    	 	 </if>
+    	 	
+    </delete>
+</mapper>

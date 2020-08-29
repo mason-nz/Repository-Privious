@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script type="text/javascript" src="../js/Common_area.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="js/look_price.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--顶部logo 导航-->
+  <!--#include file="/base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+<!--#include file="/base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2>查看广告</h2>
+            <div class="clear"></div>
+
+
+            <div class="macro_box">
+
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--底部-->
+  <!--#include file="/base/footer.html" -->
+<script type="text/template" id="look_AE">
+    <div class="h_content">
+        <div class="hc_l">
+                <div>媒体名称：<%=data.TemplateList[0].MediaName%></div>
+                <div>广告名称：<%=data.TemplateList[0].TemplateName%></div>
+                <div>广告形式：<%=data.TemplateList[0].AdFormName%></div>
+        </div>
+        <div class="hc_c">
+            <ul>
+              <%if(data.TemplateList[0].AdLegendURL){%>
+                  <%for(var i=0;i<data.TemplateList[0].AdLegendURL.split(",").length;i++){%>
+                      <li><img src="<%=data.TemplateList[0].AdLegendURL.split(",")[i]%>"></li>
+                  <%}%>
+              <%}%>
+                <!-- <li><img src="ImagesNew/pic08.jpg"></li>
+                <li><img src="ImagesNew/pic08.jpg"></li> -->
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="hc_r2">
+            <div><a href="javascript:void(0)">查看广告详情 ></a></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="add_ad" style="padding:20px 15px;">
+        <ul>
+            <li class="add_ad_w1">价格有效期：</li>
+            <li><%=data.PublishBasicInfo.BeginTime.substring(0,4)%>年<%=data.PublishBasicInfo.BeginTime.substring(5,7)%>月<%=data.PublishBasicInfo.BeginTime.substring(8,10)%> 至 <%=data.PublishBasicInfo.EndTime.substring(0,4)%>年<%=data.PublishBasicInfo.EndTime.substring(5,7)%>月<%=data.PublishBasicInfo.EndTime.substring(8,10)%></li>
+
+            <!-- <li>2017年05月22日 至 2018年05月22日</li> -->
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="add_ad_w1">采购折扣：</li>
+            <li><%=(data.PublishBasicInfo.PurchaseDiscount*100).toFixed(2)%>%</li>
+            <li class="add_ad_w1">销售折扣：</li>
+            <li><%=(data.PublishBasicInfo.SaleDiscount*100).toFixed(2)%>%</li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="add_ad_w1">刊例原件：</li>
+            <li class="red"><a target="_blank" href="<%=data.PublishBasicInfo.PubFileUrl%>"><%=getFileName(data.PublishBasicInfo.PubFileUrl)%></a></li>
+            <div class="clear"></div>
+        </ul>
+
+    </div>
+    <div class="ad_table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="6%" rowspan="2">轮播</th>
+                <th width="10%" rowspan="2">广告样式</th>
+                <th width="10%" rowspan="2">售卖平台</th>
+                <th width="8%" rowspan="2">售卖方式</th>
+                <th width="8%" rowspan="2">售卖区域</th>
+                <th width="9%" rowspan="2">点击量</th>
+                <th width="9%" rowspan="2">曝光量</th>
+                <th colspan='2'>刊例价(天/次)</th>
+                <th colspan='2'>销售价(天/次)</th>
+            </tr>
+            <tr>
+                <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+                <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+            </tr>
+            <%for(var i=0;i<data.PriceList.length;i++){%>
+                <tr RowState="<%=data.PriceList[i].RowState%>">
+                    <td sync="CarouselNumber">
+                      <%if(data.PriceList[i].CarouselNumber==0){%>
+                          --
+                      <%}else{%>
+                          <%=data.PriceList[i].CarouselNumber%>
+                      <%}%>
+                    </td>
+                    <td sync="ADStyleName"><%=data.PriceList[i].ADStyleName%></td>
+                    <td sync="SalePlatformName">
+                        <%=data.PriceList[i].SalePlatformName%>
+                    </td>
+                    <td sync="SaleTypeName">
+                        <%=data.PriceList[i].SaleTypeName%>
+                    </td>
+                    <td sync="SaleAreaName">
+                        <%=data.PriceList[i].SaleAreaName%>
+                    </td>
+                    <td sync="ClickCount">
+                        <%if(data.PriceList[i].ClickCount==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].ClickCount%>
+                        <%}%>
+                    </td>
+                    <td sync="ExposureCount">
+                        <%if(data.PriceList[i].ExposureCount==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].ExposureCount%>
+                        <%}%>
+                    </td>
+                    <td sync="PubPrice">
+                        <%if(data.PriceList[i].PubPrice==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].PubPrice%>
+                        <%}%>
+                    </td>
+                    <td sync="PubPrice_Holiday">
+                        <%if(data.PriceList[i].PubPrice_Holiday==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].PubPrice_Holiday%>
+                        <%}%>
+
+                    </td>
+                    <td sync="SalePrice">
+                        <%if(data.PriceList[i].SalePrice==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].SalePrice%>
+                        <%}%>
+
+                    </td>
+                    <td sync="SalePrice_Holiday">
+                        <%if(data.PriceList[i].SalePrice_Holiday==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].SalePrice_Holiday%>
+                        <%}%>
+
+                    </td>
+                </tr>
+            <%}%>
+        </table>
+    </div>
+    <%if(data.PubAuditInfo){%>
+
+        <div class="audit_info" >
+            <h3>审核信息</h3>
+            <ul>
+                <li class="ins_a">审核结果：</li>
+                <li class="red">
+                    <%if(data.PubAuditInfo.OptType==49004){%>
+                        通过
+                        <%}else{%>
+                            驳回
+                            <%}%>
+                        </li>
+                        <li class="ins_a">审核时间：</li>
+                        <li><%=data.PubAuditInfo.CreateTime%></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%if(data.PubAuditInfo.OptType==49003){%>
+                        <ul>
+                            <li class="ins_a">驳回原因：</li>
+                            <li><%=data.PubAuditInfo.RejectMsg%></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                    </div>
+    <%}%>
+</script>
+<!-- 媒体主下的 -->
+<script type="text/template" id="look_media">
+    <div class="h_content">
+        <div class="hc_l">
+                <div>媒体名称：<%=data.TemplateList[0].MediaName%></div>
+                <div>广告名称：<%=data.TemplateList[0].TemplateName%></div>
+                <div>广告形式：<%=data.TemplateList[0].AdFormName%></div>
+        </div>
+        <div class="hc_c">
+            <ul>
+                <%if(data.TemplateList[0].AdLegendURL){%>
+                    <%for(var i=0;i<data.TemplateList[0].AdLegendURL.split(",").length;i++){%>
+                        <li><img src="<%=data.TemplateList[0].AdLegendURL.split(",")[i]%>"></li>
+                    <%}%>
+                <%}%>
+                <!-- <li><img src="ImagesNew/pic08.jpg"></li>
+                <li><img src="ImagesNew/pic08.jpg"></li> -->
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="hc_r2">
+            <div><a href="#">查看广告详情 ></a></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="add_ad" style="padding:20px 15px;">
+        <ul>
+            <li class="add_ad_w1">价格有效期：</li>
+            <li><%=data.PublishBasicInfo.BeginTime.substring(0,4)%>年<%=data.PublishBasicInfo.BeginTime.substring(5,7)%>月<%=data.PublishBasicInfo.BeginTime.substring(8,10)%>日 至 <%=data.PublishBasicInfo.EndTime.substring(0,4)%>年<%=data.PublishBasicInfo.EndTime.substring(5,7)%>月<%=data.PublishBasicInfo.EndTime.substring(8,10)%>日</li>
+
+            <!-- <li>2017年05月22日 至 2018年05月22日</li> -->
+            <div class="clear"></div>
+        </ul>
+        <!-- <ul>
+            <li class="add_ad_w1">采购折扣：</li>
+            <li><%=data.PublishBasicInfo.PurchaseDiscount*100%>%</li>
+            <li class="add_ad_w1">销售折扣：</li>
+            <li><%=data.PublishBasicInfo.SaleDiscount*100%>%</li>
+            <div class="clear"></div>
+        </ul> -->
+        <ul style="display:none">
+            <li class="add_ad_w1">刊例原件：</li>
+            <li class="red"><a target="_blank" href="<%=data.PublishBasicInfo.PubFileUrl%>"><%=getFileName(data.PublishBasicInfo.PubFileUrl)%></a></li>
+            <div class="clear"></div>
+        </ul>
+
+    </div>
+    <div class="ad_table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="6%" rowspan="2">轮播</th>
+                <th width="10%" rowspan="2">广告样式</th>
+                <th width="10%" rowspan="2">售卖平台</th>
+                <th width="8%" rowspan="2">售卖方式</th>
+                <th width="8%" rowspan="2">售卖区域</th>
+                <th width="9%" rowspan="2">点击量</th>
+                <th width="9%" rowspan="2">曝光量</th>
+                <th colspan='2'>销售价(天/次)</th>
+            </tr>
+            <tr>
+                <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+            </tr>
+            <%for(var i=0;i<data.PriceList.length;i++){%>
+                <tr RowState="<%=data.PriceList[i].RowState%>">
+                    <td sync="CarouselNumber"><%=data.PriceList[i].CarouselNumber%></td>
+                    <td sync="ADStyleName"><%=data.PriceList[i].ADStyleName%></td>
+                    <td sync="SalePlatformName">
+                        <%=data.PriceList[i].SalePlatformName%>
+                    </td>
+                    <td sync="SaleTypeName">
+                        <%=data.PriceList[i].SaleTypeName%>
+                    </td>
+                    <td sync="SaleAreaName">
+                        <%=data.PriceList[i].SaleAreaName%>
+                    </td>
+                    <td sync="ClickCount">
+                        <%if(data.PriceList[i].ClickCount==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].ClickCount%>
+                        <%}%>
+                    </td>
+                    <td sync="ExposureCount">
+                        <%if(data.PriceList[i].ExposureCount==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].ExposureCount%>
+                        <%}%>
+                    </td>
+                    <td sync="SalePrice">
+                        <%if(data.PriceList[i].SalePrice==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].SalePrice%>
+                        <%}%>
+
+                    </td>
+                    <td sync="SalePrice_Holiday">
+                        <%if(data.PriceList[i].SalePrice_Holiday==0){%>
+                            --
+                        <%}else{%>
+                            <%=data.PriceList[i].SalePrice_Holiday%>
+                        <%}%>
+
+                    </td>
+                </tr>
+            <%}%>
+        </table>
+    </div>
+    <%if(data.PubAuditInfo){%>
+        <div class="audit_info" >
+            <h3>审核信息</h3>
+            <ul>
+                <li class="ins_a">审核结果：</li>
+                <li class="red">
+                    <%if(data.PubAuditInfo.OptType==49004){%>
+                        通过
+                        <%}else{%>
+                            驳回
+                            <%}%>
+                        </li>
+                        <li class="ins_a">审核时间：</li>
+                        <li><%=data.PubAuditInfo.CreateTime%></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%if(data.PubAuditInfo.OptType==49003){%>
+                        <ul>
+                            <li class="ins_a">驳回原因：</li>
+                            <li><%=data.PubAuditInfo.RejectMsg%></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                    </div>
+    <%}%>
+</script>
+</body>
+</html>

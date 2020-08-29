@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script src="../js/ejs.min.js"></script>
+    <script src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/layer/layer.js" ></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+</head>
+<!--引用的EJS模板-->
+<!--自媒体模板-->
+<script type="text/template" id="mediaTemplate">
+    <%for(var i=0;i<data.Result.SelfMedia.length;i++){%>
+    <%if(data.Result.SelfMedia[i].IsSelected===1){%>
+    <tr class="tableList" IsSelected="true" ADTypeName="" MediaType="<%=data.Result.MediaType%>" PublishDetailID="<%=data.Result.SelfMedia[i].PublishDetailID%>" MediaID="<%=data.Result.SelfMedia[i].MediaID%> ">
+        <td HeadIconURL="<%=data.Result.SelfMedia[i].HeadIconURL%>" Number="<%=data.Result.SelfMedia[i].Number%>"  Name="<%=data.Result.SelfMedia[i].Name%>" >
+            <div class="portrait" >
+                <%if(data.Result.SelfMedia[i].HeadIconURL == "" || data.Result.SelfMedia[i].HeadIconURL == null){%>
+                  <img style="width:44px;height:46px;" src="../images/default_touxiang.png"/>
+                <%}else{%>
+                  <img style="width:44px;height:46px;" src="<%=data.Result.SelfMedia[i].HeadIconURL%>"/>
+                <%}%>
+            </div>
+            <div class="public">
+                <h2> <%=data.Result.SelfMedia[i].Name%></h2>
+                <p> <%=data.Result.SelfMedia[i].Number%></p>
+            </div>
+            <div class="clear"></div>
+        </td>
+        <%if(data.Result.SelfMedia[i].ADTypeName==null){%>
+        <td ADTypeName="<%=data.Result.SelfMedia[i].ADTypeName%>" Price="<%=data.Result.SelfMedia[i].Price%>">--</td>
+        <td Amount="">--</td>
+        <%}else{%>
+        <td ADTypeName="<%=data.Result.SelfMedia[i].ADTypeName%>" Price="<%=data.Result.SelfMedia[i].Price%>"><%=data.Result.SelfMedia[i].ADTypeName%></td>
+        <td AdjustPrice="<%=data.Result.SelfMedia[i].Price%>"><%=data.Result.SelfMedia[i].Price%></td>
+        <%}%>
+        <td><a class="but_rotation select_banner" style="width:70px;">选择广告</a>&nbsp;&nbsp;
+            <a href="javascript:;" class="red delBtn">删除</a></td>
+    </tr>
+    <%}%>
+    <%}%>
+</script>
+<script type="text/template" id="mediaOrderTemplate">
+    <%for(var j=0;j<data.Result.SubADInfos.length;j++){%>
+    <%for(var i=0;i<data.Result.SubADInfos[j].SelfDetails.length;i++){%>
+    <tr class="tableList" IsSelected='true' ADTypeName="<%=data.Result.SubADInfos[j].SelfDetails[i].ADTypeName%>" AdjustPrice="<%=data.Result.SubADInfos[j].SelfDetails[i].AdjustPrice%>"  MediaType="<%=data.Result.SubADInfos[j].SelfDetails[i].MediaType%>"  AdjustDiscount="<%=data.Result.SubADInfos[j].SelfDetails[i].AdjustDiscount%>" PublishDetailID="<%=data.Result.SubADInfos[j].SelfDetails[i].PublishDetailID%>" MediaID="<%=data.Result.SubADInfos[j].SelfDetails[i].MediaID%>">
+        <td HeadIconURL="<%=data.Result.SubADInfos[j].SelfDetails[i].HeadIconURL%>" Number="<%=data.Result.SubADInfos[j].SelfDetails[i].Number%>"  Name="<%=data.Result.SubADInfos[j].SelfDetails[i].Name%>" >
+            <div class="portrait">
+              <%if(data.Result.SubADInfos[j].SelfDetails[i].HeadIconURL == "" || data.Result.SubADInfos[j].SelfDetails[i].HeadIconURL == null){%>
+                <img style="width:44px;height:46px;" src="../images/default_touxiang.png"/>
+              <%}else{%>
+                <img style="width:44px;height:46px;" src="<%=data.Result.SubADInfos[j].SelfDetails[i].HeadIconURL%>"/>
+              <%}%>
+
+            </div>
+            <div class="public">
+                <h2> <%=data.Result.SubADInfos[j].SelfDetails[i].Name%></h2>
+                <p> <%=data.Result.SubADInfos[j].SelfDetails[i].Number%></p>
+            </div>
+            <div class="clear"></div>
+        </td>
+        <%if(data.Result.SubADInfos[j].SelfDetails[i].PublishDetailID == -2){%>
+        <td PublishDetailID="<%=data.Result.SubADInfos[j].SelfDetails[i].PublishDetailID%>">--</td>
+        <td Amount="<%=data.Result.SubADInfos[j].SelfDetails[i].OriginalPrice%>">--</td>
+        <%}else{%>
+        <td PublishDetailID="<%=data.Result.SubADInfos[j].SelfDetails[i].PublishDetailID%>">
+        <%if(data.Result.SubADInfos[j].SelfDetails[i].ADType != ""){%><%=data.Result.SubADInfos[j].SelfDetails[i].ADType%><%}%>
+        <%if(data.Result.SubADInfos[j].SelfDetails[i].ADType != "" && data.Result.SubADInfos[j].SelfDetails[i].AdForm != ""){%>-<%}%>
+        <%if(data.Result.SubADInfos[j].SelfDetails[i].AdForm != ""){%><%=data.Result.SubADInfos[j].SelfDetails[i].AdForm%><%}%>
+        <%if(data.Result.SubADInfos[j].SelfDetails[i].AdForm != "" && data.Result.SubADInfos[j].SelfDetails[i].AdPosition != ""){%>-<%}%>
+        <%if(data.Result.SubADInfos[j].SelfDetails[i].AdPosition != ""){%><%=data.Result.SubADInfos[j].SelfDetails[i].AdPosition%><%}%>
+        <!-- <%=data.Result.SubADInfos[j].SelfDetails[i].ADType%>-<%=data.Result.SubADInfos[j].SelfDetails[i].AdForm%>-<%=data.Result.SubADInfos[j].SelfDetails[i].AdPosition%> --></td>
+        <td AdjustPrice="" OriginalPrice="<%=data.Result.SubADInfos[j].SelfDetails[i].OriginalPrice%>" SaleDiscount="<%=data.Result.SubADInfos[j].SelfDetails[i].SaleDiscount%>" >--</td>
+        <%}%>
+        <td><a class="but_rotation select_banner" style="width:70px;">选择广告</a>&nbsp;&nbsp;
+            <a href="javascript:;" class="red delBtn">删除</a></td>
+    </tr>
+    <%}%>
+    <%}%>
+</script>
+
+<body>
+<!--顶部logo 导航-->
+
+<!--#include file="/Base/header_home.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <div class="fill">
+        <img src="/images/fill_01.png"/>
+        <ul>
+            <li class="yellow">选择广告位</li>
+            <li class="tx">填写需求并提交</li>
+            <li>需求提交完成</li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="mb15 advertiser">
+        <div class="fl mb10">
+            <span class="red f12"> * </span>广告主名称 :
+            <select id="adMatser" style="height: 37px;">
+                <option value="2">CRM</option>
+                <option value="0">赤兔</option>
+            </select>
+            <input name="Username" type="text" value="" placeholder="输入广告主的公司名称、真实姓名或登录账号" style="width:315px;" maxlength="50">
+            <div class="advMsg ml20" style="display: inline-block; color: #ff2400;line-height: 40px;"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="mb15">
+        <div class="fl mb10">下面是您已选择的媒体，需要您确认具体的投放形式：</div>
+        <div class="fr"><a href="javascript:;" class="but_keep2 getShopCar" style="width: 150px;">保存并继续添加账号</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="table" id="mediaTable">
+        <table  id="tableList" width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff" class="orderTable">
+            <tr>
+                <th width="25%">媒体</th>
+                <th width="30%">广告位置及形式</th>
+                <th width="20%">价格</th>
+                <th width="25%">操作</th>
+            </tr>
+        </table>
+    </div>
+    <!--http://client.chitunion.com/OrderManager/填写需求-微信02.html-->
+    <div class="tr">共 <span class="red" id="tableNum">--</span> 媒体，订单金额:¥<span class="red" id="OrderPrice">--</span> <a href="javascript:;" id="nextBtn"  class="button orderBtn"
+    style="width:110px;margin-left: 15px">下一步</a>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+<input type="hidden" name="" class='CustomerID'>
+<script src="js/requireMentSelf01.js"></script>
+
+</body>
+</html>

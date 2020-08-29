@@ -1,0 +1,119 @@
+<style>
+    .release_zhibo {
+        display: inline-block;
+        padding: 5px 30px;
+        margin: 5px auto 0;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #E9E9E9;
+        color: #fff;
+        background-color: #FF9100;
+        cursor:pointer;
+    }
+    .release_zhibo:hover {
+        -webkit-box-shadow: 0 0 10px #ccc;
+        -moz-box-shadow: 0 0 10px #ccc;
+        box-shadow: 0 0 10px #ccc;
+    }
+</style>
+<div style="background-color: #f7f7f7; padding: 5px 10px; border: 1px solid #888; border-radius: 8px">
+    <div><h3 style="float: left;">&nbsp;&nbsp;预览</h3><span id="z_Close" style="cursor:pointer;float: right; color: blue; margin-right: 10px">关闭</span></div>
+    <div style="clear: both"></div>
+    <!--直播-->
+    <div class="seeding" style="margin: 10px auto 0 auto;">
+        <div class="seeding_title"><h2>直播</h2></div>
+        <div class="nav">
+
+        </div>
+        <div class="seeding_more"><a href="javascript:void(0)" style="outline:none;">更多推荐></a></div>
+    </div>
+    <div class="seeding_nr">
+        <div class="seeding_box">
+
+        </div>
+    </div>
+    <div style="text-align: center">
+        <span class="release_zhibo">发布</span>
+    </div>
+    <!--直播-->
+    <!-- 直播渲染 -->
+    <script type="text/template" id="seeding_list">
+        <%if(data.length!=0){%>
+        <%for(var i=0;i<data.length;i++){%>
+        <%if(i<3){%>
+        <div class="content">
+            <%if(i==0){%>
+            <div class="one_bg">
+                <%}else if(i==1){%>
+                <div class="two_bg">
+                    <%}else if(i==2){%>
+                    <div class="three_bg">
+                        <%}%>
+                        <%}else{%>
+                        <div class="content" style="margin-right: 0">
+                            <div class="four_bg">
+                                <%}%>
+                                <div class="hope">
+                                    <div class="portrait">
+                                        <%if(data[i].HeadIconURL==""){%>
+                                        <img src="/images/default_touxiang.png">
+                                        <%}else{%>
+                                        <img src='<%=data[i].HeadIconURL%>'>
+                                        <%}%>
+                                        <!--小图像标志 <span>&nbsp;</span> -->
+                                    </div>
+                                    <div class="same">
+                                        <h2><%=data[i].Name%> </h2>
+                                        <%if(data[i].Sex==0){%>
+                                        <span><img src="/images/girl.png" align="absmiddle"/></span>
+                                        <%}else{%>
+                                        <span><img src="/images/men.png" align="absmiddle"/></span>
+                                        <%}%>
+                                        <div class="clear"></div>
+                                        <p>id:<%=data[i].Number%></p>
+                                        <!-- <p><img src="images/icon46.png" align="absmiddle" /> 河北，保定</p> -->
+                                    </div>
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <li>粉丝</li>
+                                        <li>
+                                            <div style="width: 123px;height:11px;border-radius:6px;background: #EFEFEF;margin-top:5px;">
+                                            <span class="progress_fans"
+                                                  style="width: 0px;height:11px;border-radius:6px;background: #00BBFF;display: block;"></span>
+                                            </div>
+                                        </li>
+                                        <li><%=formatMoney(data[i].FansCount/10000+0.1,1,"") %>万</li>
+                                        <div class="clear"></div>
+                                    </ul>
+                                    <ul>
+                                        <li>收礼</li>
+                                        <li>
+                                            <div style="width: 123px;height:11px;border-radius:6px;background: #EFEFEF;margin-top:5px;">
+                                            <span class="progress_gifts"
+                                                  style="width: 0px;height:11px;border-radius:6px;background: #FBDD65;display: block;"></span>
+                                            </div>
+                                        </li>
+                                        <li><%=formatMoney(data[i].CumulateIncome/10000+0.1,1,"") %>万</li>
+                                        <div class="clear"></div>
+                                    </ul>
+                                </div>
+                                <div class="offer"><a href="javascript:void(0)">查看报价</a></div>
+                            </div>
+                        </div>
+                        <%}%>
+                        <%}else{%>
+                        <img src="/images/no_data.png" style="margin: 0 auto;display:block;padding: 35px 0">
+                        <%}%>
+                        <div class="clear"></div>
+    </script>
+    <script type="text/template" id="nav_list">
+        <% for(var i = 0; i < data.length; i++) {%>
+        <li><a href="javascript:void(0)" name="<%=data[i].CategoryID%>">
+            <%= data[i].CategoryName %>
+            <!-- <%=data[i].CategroryCount*1000 %>
+            <em>+</em> -->
+        </a></li>
+        <%}%>
+        <div class="clear"></div>
+    </script>
+</div>

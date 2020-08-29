@@ -1,0 +1,1068 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟广告在线交易平台">
+    <meta name="keywords" content="赤兔联盟">
+    <title>赤兔联盟广告在线交易平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true"
+            type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/css/uploadify.css" />
+    <script src="/js/jquery.uploadify.v3.2.min.js" type="text/javascript"></script>
+    <script src="/js/gt.js?v=1.0.0" type="text/javascript"></script>
+    <!--<script src="/js/json2.js" type="text/javascript"></script>
+
+    <script src="/js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="/js/jquery.pagination.js" type="text/javascript"></script>
+    <script src="/js/common_authority.js" type="text/javascript"></script>
+    <script src="/js/laydate.dev.js" type="text/javascript"></script>
+    <script src="js/Enum/Area2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/Common_area.js"></script>-->
+    <!--<style type="text/css">
+        /** {
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+            font-family: "PingFang SC", "Droid Sans Fallback", "microsoft yahei";
+            margin: 0;
+            padding: 0;
+        }*/
+
+        .wpa-container {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            z-index: 99999;
+        }
+
+        .theme-2 {
+            background: #12b7f5;
+        }
+
+        .theme-3 {
+            background: #0067ed;
+        }
+
+        .theme-4 {
+            background: #ff9232;
+        }
+
+        .theme-5 {
+            background: #ee685d;
+        }
+
+        .theme-6 {
+            background: #25cd98;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            height: 80px;
+            top: 17px;
+            cursor: pointer;
+        }
+
+        .spliter {
+            display: inline-block;
+            width: 100%;
+            height: 1px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+
+        .icon-qq {
+            display: inline-block;
+            width: 22px;
+            height: 26px;
+            background: url(/images/icon-qq-white-small.png) no-repeat;
+        }
+
+        .icon-im {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: url(/images/im-bubble-pc-white.png) no-repeat;
+        }
+    </style>-->
+
+    <script>
+
+
+
+
+
+        $(document).ready(function () {
+
+            var setting = {
+                url: '/ajaxservers/geetest/getcaptcha.ashx',
+                type: 'post',
+            };
+            setAjax(setting, function (data) {
+                // 使用initGeetest接口
+                // 参数1：配置参数
+                // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+                initGeetest({
+                    gt: data.gt,
+                    challenge: data.challenge,
+                    product: "bind", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                    offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                    new_captcha: data.new_captcha
+                    // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+                }, handler);
+            },
+                function () { alert('error'); }
+            );
+
+            loadImage($('#imgTestError'), 'http://192.168.3.76/group4/M00/01/A2/pIYBAFqPuDeAJsS0AAA74u8vuVw812-test.png');
+
+            var timeOutIndex;
+            $('#imgTestError').error(function () {
+                console.log('failure-img，正在加载中。。。');
+                if (timeOutIndex) {
+                    clearTimeout(timeOutIndex);
+                }
+                timeOutIndex = setTimeout(function () {
+                    loadImage($('#imgTestError'), 'http://192.168.3.76/group4/M00/01/A2/pIYBAFqPuDeAJsS0AAA74u8vuVw812.png');
+                }, 1000);
+            }).load(function () {
+                console.log("加载完成！");
+                clearTimeout(timeOutIndex);
+            });
+        });
+
+        function loadImage(imgObj, url) {
+            imgObj.attr('src', url);
+        }
+
+        //var handlerEmbed = function (captchaObj) {
+        //    $("#embed-submit").click(function (e) {
+        //        var validate = captchaObj.getValidate();
+        //        if (!validate) {
+        //            $("#notice")[0].className = "show";
+        //            setTimeout(function () {
+        //                $("#notice")[0].className = "hide";
+        //            }, 2000);
+        //            e.preventDefault();
+        //        }
+        //    });
+        //    // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
+        //    captchaObj.appendTo("#embed-captcha");
+        //    captchaObj.onReady(function () {
+        //        $("#wait")[0].className = "hide";
+        //    });
+        //    // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+        //};
+
+        var handler = function (captchaObj) {
+            captchaObj.onReady(function () {
+                $("#wait").hide();
+            }).onSuccess(function () {
+                var result = captchaObj.getValidate();
+                if (!result) {
+                    return alert('请完成验证');
+                }
+                var setting = {
+                    url: '/ajaxservers/geetest/verifyrequest.ashx',
+                    type: 'post',
+                    data: {
+                        'action': 'veifygeetest',
+                        'geetest_challenge': result.geetest_challenge,
+                        'geetest_validate': result.geetest_validate,
+                        'geetest_seccode': result.geetest_seccode
+                    }
+                };
+                setAjax(setting, function (data) {
+                    var s = (data + '').split(',')[0];
+                    //var r = $.evalJSON(data);
+                    if (s === '1') {
+                        setTimeout(function () {
+                            alert('登录成功');
+                        }, 1500);
+                    } else if (s === '0') {
+                        setTimeout(function () {
+                            alert('登录失败，请完成验证');
+                            captchaObj.reset();
+                        }, 1500);
+                    } else if (s === '-1') {
+                        setTimeout(function () {
+                            alert('登录验证异常' + data.split(',')[1]);
+                            captchaObj.reset();
+                        }, 1500);
+                    }
+                },
+                function () { alert('error223'); }
+                );
+
+            });
+            $('#test_Geetest').click(function () {
+                // 调用之前先通过前端表单校验
+                captchaObj.verify();
+            });
+            // 更多接口说明请参见：http://docs.geetest.com/install/client/web-front/
+        };
+    </script>
+</head>
+<body>
+
+
+    <!--<div id="div_imqq" class="im-container theme-2">
+        <a class="btn-qq btn" href="tencent://message/?uin=3212298083&Site=www.chitunion.com&Menu=yes">
+            <span class="icon-qq btn-icon"></span><br>
+            <span class="btn-text">QQ</span>
+        </a>
+        <span class="spliter"></span>
+        <a class="btn-im btn" data-event="callIm" name="e">
+            <span class="icon-im btn-icon"></span><br>
+            <span class="btn-text">咨询</span>
+        </a>
+    </div>-->
+    <!--<script>
+        $(document).ready(function () {
+            setIMPosition();
+            $(window).scroll(setIMPosition);
+        });
+
+        function setIMPosition() {
+            var popupName = $('#div_imqq');
+            var _scrollHeight = $(document).scrollTop(),//获取当前窗口距离页面顶部高度
+                _windowHeight = $(window).height(),//获取当前窗口高度
+                _windowWidth = $(window).width(),//获取当前窗口宽度
+                _popupHeight = popupName.height(),//获取弹出层高度
+                _popupWeight = popupName.width();//获取弹出层宽度
+            _posiTop = (_windowHeight - _popupHeight) / 2 + _scrollHeight;
+            //_posiLeft = (_windowWidth - _popupWeight) / 2;
+            _posiLeft = _windowWidth - _popupWeight;
+            popupName.css({ "left": _posiLeft + "px", "top": _posiTop + "px", "display": "block" });//设置position
+        }
+    </script>-->
+    <!--#include virtual="/base/header.html" -->
+    <!--中间内容-->
+    <div class="contaner_body">
+        <!--左侧菜单-->
+        <!--#include virtual="/base/Menu.html" -->
+
+        <script>
+            /**
+            * @desc  JQuery扩展，将json字符串转换为对象，需要引用类库JQuery
+            * @param   json字符串
+            * @return 返回object,array,string等对象
+            * @Add=Masj, Date: 2009-12-07
+            */
+            jQuery.extend(
+             {
+                 evalJSON: function (strJson) {
+                     if ($.trim(strJson) == '')
+                         return '';
+                     else
+                         return eval("(" + strJson + ")");
+                 }
+             });
+            function getCookie(name) {
+                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+                if (arr = document.cookie.match(reg))
+                    return unescape(arr[2]);
+                else
+                    return null;
+            }
+            function escapeStr(str) {
+                return escape(str).replace(/\+/g, '%2B').replace(/\"/g, '%22').replace(/\'/g, '%27').replace(/\//g, '%2F');
+            }
+
+            $(document).ready(function () {
+
+                //$('#divPopLayer').unbind('click').bind('click', function () {
+                //    $.openPopupLayer({
+                //        name: "popLayerDemo",
+                //        url: "popLayer.html",
+                //        error: function (dd) { alert(dd.status); }
+                //    });
+
+                //});
+                $('#divapiTest').bind('click', function () {
+                    var data = {};
+                    data.url = '/api/CarSerial/QueryBrand';
+
+                    setAjax(data, function (data) {
+                        console.log(data);
+                    }, null);
+                });
+
+                $("#uploadify").uploadify({
+                    "buttonText": "+ 上传附件",
+                    "buttonClass": "but_upload",
+                    "swf": "/Js/uploadify.swf?_=" + Math.random(),
+                    "uploader": "/AjaxServers/UploadFile.ashx",
+                    "auto": true,
+                    "multi": false,
+                    "width": 100,
+                    //"height": 32,
+                    "formData": { Action: "BatchImport", CarType: "", LoginCookiesContent: escapeStr(getCookie("ct-ouinfo")), IsGenSmallImage: 1 },
+                    //"fileTypeDesc": "支持格式:xls,jpg,png,zip",
+                    //"fileTypeExts": "*.xls;*.jpg;*.png;*.zip;",
+                    "queueSizeLimit": 1,
+                    //"fileSizeLimit": "1KB",
+                    "scriptAccess": "always",
+                    //"overrideEvents": ["onDialogClose"],
+                    "queueID": "imgShow",
+                    "onUploadStart": function (file) {
+                        //console.log(file);
+                        if ("*.xls;*.xlsx;*.jpg;*.png;*.zip;*.mp4;*.pdf;*.ppt;*.pptx;".indexOf(file.type) <= 0) {
+                            alert("您选择的文件不是有效的格式!\r\n请选择以下格式*.xls;*.jpg;*.png;*.zip;*.mp4;");
+                            this.cancelUpload(file.id);
+                            $("#" + file.id).remove();
+                        }
+                    },
+                    //                    "onSelect": function (e, queueId, fileObj) {
+                    //                        if ("*.xls;*.jpg;*.png;*.zip;".indexOf(e.type) <= 0) {
+                    //                            alert("您选择的文件不是有效的格式!\r\n请选择以下格式*.xls;*.jpg;*.png;*.zip;");
+                    //                            $(this).uploadify("stop");
+                    //                        }
+                    //                    },
+                    "onQueueComplete": function (event, data) {
+                        //enableConfirmBtn();
+                    },
+                    "onQueueFull": function () {
+                        alert("您最多只能上传1个文件！");
+                        return false;
+                    },
+                    "onUploadSuccess": function (file, data, response) {
+                        if (response == true) {
+                            var json = $.evalJSON(data);
+                            console.log(json);
+                            var array = json.Msg.split("|");
+                            for (var i = 0; i < array.length; i++) {
+                                if (i > 0) {
+                                    $("#imgUploadFile").after($("<img>").attr("src", "" + array[i]));
+                                }
+                                else {
+                                    $("#imgUploadFile").attr("src", "" + array[i]);
+                                }
+                            }
+                            //$("#imgUploadFile").attr("src", "" + json.Msg);
+                            //var jsonData = $.evalJSON(data);
+
+                            //                    if (jsonData.Result == false) {
+                            //                        $.jAlert(jsonData.Msg);
+                            //                    }
+
+                            //$("#SpanMsg").hide();
+
+                            //                            if (jsonData.FailCount > 0) {
+                            //                                //$("#hidData").val(jsonData.ErrorData);
+                            //                                $("#formExport").submit();
+                            //                            }
+                            //                            $.jAlert(jsonData.Msg);
+                        }
+                    },
+                    "onProgress": function (event, queueID, fileObj, data) { },
+                    "onUploadError": function (event, queueID, fileObj, errorObj) {
+                        //enableConfirmBtn();
+                    }
+                });
+            });
+
+        </script>
+
+        <div class="right_body">
+            <div class="rightTop">
+                <ul class="schedule">
+                    <li class="selected">① 选号车 <img src="../images/line_02.png"></li>
+                    <li>② 填写推广需求 <img src="../images/line_02.png"></li>
+                    <li>③ 完成</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="rightMain">
+                <img id="imgTestError" />
+
+                <!--<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3212298083&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:3212298083:53" alt="点击这里给我发消息" title="点击这里给我发消息" /></a>-->
+                <a href="http://wpa.qq.com/msgrd?V=1&Uin=3212298083&Site=www.chitunion.com&Menu=yes">
+                    PC版
+                </a>
+                <a href="mqqwpa://im/chat?chat_type=wpa&uin=3212298083&version=1&src_type=web&web_src=www.chitunion.com">移动版</a>
+                <!--<a href="mqqapi://card/show_pslcard?src_type=internal&version=1&uin=419834979&card_type=group&source=qrcode">打开qq群</a>-->
+
+
+
+
+                <a id="test_Geetest">测试极验-验证功能</a>
+                <div id="embed-captcha"></div>
+                <p id="wait" class="show">正在加载验证码......</p>
+                <p id="notice" class="hide">请先拖动验证码到相应位置</p>
+
+                <br />
+                <div>
+                    上传文件Demo示例：<input type="file" id="uploadify" name="uploadify" class="but_upload" />
+                </div>
+
+                <div id="divapiTest">
+                    测试调用api接口
+                </div>
+                <img id="imgUploadFile" />
+
+                <div class="wx_form" style="width:1068px;overflow: hidden;overflow-y: scroll;">
+                    <div class="wx_type">
+                        <ul>
+                            <li class="selected">
+                                微信
+                                <span>10</span>
+                                <i class="greyBg"></i>
+                            </li>
+                            <li>
+                                微博
+                                <span>3</span>
+                                <i class="greyDarkBg"></i>
+                            </li>
+                            <li>
+                                APP
+                                <span>0</span>
+                                <i class="greyBg"></i>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                    <div class="table">
+                        <div class="wx_th">
+                            <div class="wechat_list4" style="width: 310px;height: 30px;">
+                            </div>
+                            <div class="wechat_list2">
+                                行业分类
+                            </div>
+                            <div class="wechat_list5">
+                                粉丝数
+                            </div>
+                            <div class="wechat_list2">
+                                平均阅读数
+                            </div>
+                            <div class="wechat_list2">
+                                位置
+                            </div>
+                            <div class="wechat_list2">
+                                发布参考价
+                            </div>
+                            <div class="wechat_list2">
+                                原创+发布参考价
+                            </div>
+                            <div class="wechat_list5">
+                                操作
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait">
+                                    <img src="../images/pic08.jpg" class="headImg">
+                                    <img src="../images/icon6.png" class="addV">
+                                </div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活上海微生活上海微生活上海微生活</span>
+                                        <span class="Original">原创</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>多图文第一条</p>
+                                <p>多图文第3-N条</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000元</p>
+                                <p>999,000元</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000元</p>
+                                <p>999,000元</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万+</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>单图文</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活</span>
+                                        <span class="Original">原创</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活</span>
+                                        <span class="Original">原创</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活</span>
+                                        <span class="Original">原创</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活</span>
+                                        <span class="Original">原创</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活</span>
+                                        <span class="Original">原创</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                                <p>多图文第一条</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                                <p>999,000</p>
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活</span>
+                                        <a href="javascript:void(0)" class="noBigPic">
+                                            <img class="viewBigpic" src="../images/icon80.png">
+                                            <img class="Bigpic" src="../images/erweima.png">
+                                        </a>
+                                    </h2>
+                                    <p>shanghaiweishegnhuo</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <p>12万+</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>单图文</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>999,000</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="table hide">
+                        <div class="wx_th">
+                            <div class="wechat_list4" style="width: 310px;height: 30px;">
+                            </div>
+                            <div class="wechat_list6">
+                                行业分类
+                            </div>
+                            <div class="wechat_list6">
+                                粉丝数
+                            </div>
+                            <div class="wechat_list6">
+                                直发参考价
+                            </div>
+                            <div class="wechat_list6">
+                                转发参考价
+                            </div>
+                            <div class="wechat_list5">
+                                操作
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活上海微生活上海微生活上海微生活</span>
+                                        <span class="Original">需预约</span>
+                                    </h2>
+                                    <p>
+                                        <img src="../images/girl.png">
+                                        shanghaiweishegnhuohuohuohuo
+                                    </p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>999,000元</p>
+                                <p>999,000元</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活上海微生活上海微生活上海微生活</span>
+                                        <span class="Original">需预约</span>
+                                    </h2>
+                                    <p>
+                                        <img src="../images/girl.png">
+                                        shanghaiweishegnhuohuohuohuo
+                                    </p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>999,000元</p>
+                                <p>999,000元</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg" class="headImg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name">上海微生活上海微生活上海微生活上海微生活</span>
+                                        <span class="Original">需预约</span>
+                                    </h2>
+                                    <p>
+                                        <img src="../images/girl.png">
+                                        shanghaiweishegnhuohuohuohuo
+                                    </p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list6">
+                                <p>999,000元</p>
+                                <p>999,000元</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="table hide">
+                        <div class="wx_th">
+                            <div class="wechat_list4" style="width: 310px;height: 19px;">
+                            </div>
+                            <div class="wechat_list4">
+                                媒体介绍
+                            </div>
+                            <div class="wechat_list2">
+                                行业分类
+                            </div>
+                            <div class="wechat_list2">
+                                日活（万）
+                            </div>
+                            <div class="wechat_list2">
+                                用户总量（万）
+                            </div>
+                            <div class="wechat_list5">
+                                操作
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                        <!-- <div class="wx_table2">
+                            <div class="wechat_list4">
+                                <div class="portrait"><img src="../images/pic08.jpg"></div>
+                                <div class="content">
+                                    <h2>
+                                        <span class="wx_name" style="max-width: 90%;">上海微生活上海微生活上海微生活上海微生活</span>
+                                    </h2>
+                                    <p>
+                                        <span class="Original">可监测</span>
+                                        <span class="Original">可定向</span>
+                                    </p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wechat_list4">
+                                媒体介绍媒体介绍媒体介绍媒体介绍媒体介绍媒体介绍媒体介绍媒体介绍媒体介绍媒体介绍媒体介绍媒体媒体介绍
+                            </div>
+                            <div class="wechat_list2">
+                                <p>情感</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>12万</p>
+                            </div>
+                            <div class="wechat_list2">
+                                <p>5,3045</p>
+                            </div>
+                            <div class="wechat_list5">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/delete.png">
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div> -->
+                        <div class="tc">
+                            <img src="../images/no_data.png" alt="" style="margin-top: 5px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightBottom">
+                <div class="contine_choose">
+                    <img src="../images/icon1.png">
+                    继续选择广告位
+                </div>
+                <ul>
+                    <li>共<span class="total_num pink">9</span>个媒体/账号</li>
+                    <li id="sure_delever" class="button_gradient">确认投放</li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="clear">
+        </div>
+    </div>
+    <!--#include virtual="/base/footer.html" -->
+    <!--动态计算底部浮层位置-->
+    <script type="text/javascript">
+        var h = window.screen.height;
+        $('.rightMain,.wx_form').css('height', h - 300 + 'px');
+        $('#navLeft').css('height', $('#navLeft').parent().height() - 20);
+        $('.noBigPic').off('mouseover').on('mouseover', function () {
+            $(this).removeClass('noBigPic');
+        }).off('mouseout').on('mouseout', function () {
+            $(this).addClass('noBigPic');
+        })
+        $('.wx_type').off('click').on('click', 'li', function () {
+            var _this = $(this),
+                index = _this.index();
+            console.log(index)
+            _this.addClass('selected').siblings().removeClass('selected');
+            $('.rightMain').find('.table').hide().end().find('.table').eq('' + index + '').show();
+        })
+        $('#navLeft').off('click').on('click', '.modular', function () {
+            $(this).find('.level1').addClass('selected');
+            $(this).siblings().find('.level1').removeClass('selected');
+        })
+        $('#navLeft ol').off('click').on('click', '.level2', function () {
+            $(this).addClass('blue').parent('li').siblings().find('.level2').removeClass('blue');
+        })
+        $('#sure_delever').off('click').on('click', function () {
+            window.location = '3.3提交需求.html'
+        })
+    </script>
+</body>
+</html>

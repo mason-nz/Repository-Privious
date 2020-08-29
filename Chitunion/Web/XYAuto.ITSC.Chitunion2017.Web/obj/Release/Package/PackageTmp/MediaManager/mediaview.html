@@ -1,0 +1,314 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="js/viewmedia.js"></script>
+    <style>
+        .classification {
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r" style="margin-left: 140px">
+        <div class="install">
+            <h2 class="menu_nav">
+                <a href="javascript:void(0)"></a><a href="javascript:void(0)"></a>
+            </h2>
+            <div class="clear"></div>
+            <ul>
+                <li class="ins_a">
+                    <div class="frame_n"><img src="" width="80" height="80"/></div>
+                </li>
+                <li class="wechat_name">
+
+                </li>
+                <div class="clear"></div>
+            </ul>
+
+            <!-- <p  style="margin-left: 35px;margin-bottom: 30px">
+                <a href="javascript:;" id="switch1" style="font-size: 20px;color:#FF4F4F">基本信息</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="javascript:;" id="switch2" style="font-size: 20px">案例信息</a>
+            </p> -->
+            <div class="switch">
+                <span class="current" id="switch1">基本信息</span>
+                <span id="switch2">案例展示</span>
+                <div class="clear"></div>
+            </div>
+            <div id="information">
+                <script type="text/template" id="information1">
+                    <%if(Result.FansCount){%>
+                    <ul>
+                        <li class="ins_a"> 粉丝数：</li>
+                        <li><%=Result.FansCount%></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%if(GetRequest().Wx_Status!=43002){%>
+                    <%if(Result.FansCountURL||GetRequest.Wx_Status==43002){%>
+                    <ul>
+                        <li class="ins_a"> 粉丝数截图：</li>
+                        <li>
+                            <div class="frame"><img src="<%=Result.FansCountURL%>" width="80" height="80"/></div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+                    <%if(Result.CommonlyClassStr.length!=0){%>
+                    <ul>
+                        <li class="ins_a"> 常见分类：</li>
+                        <%for(var i=0;i<Result.CommonlyClassStr.length;i++){%>
+                        <li>
+                            <div class="classification">
+                                <%=Result.CommonlyClassStr[i]%>
+                                <%if(i==0){%>
+                                <em><img src="/ImagesNew/icon85.png"></em>
+                                <%}%>
+                            </div>
+                        </li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <ul>
+                        <li class="ins_a">区域媒体：</li>
+                        <%if(Result.IsAreaMedia){%>
+                        <li>是</li>
+                        <%}else{%>
+                        <li>否</li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%if(!Result.IsAreaMedia){%>
+                    <%if(Result.FansArea.length!=0){%>
+                    <ul>
+                        <li class="ins_a">粉丝分布区域：</li>
+                        <%for(var i=0;i<Result.FansArea.length;i++){%>
+                        <li>
+                            <div class="classification">
+                                <%=Result.FansArea[i].ProvinceName%> <%=Result.FansArea[i].UserScale%>%
+                            </div>
+                        </li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%if(GetRequest().Wx_Status!=43002){%>
+                    <%if(Result.FansAreaShotUrl){%>
+                    <ul>
+                        <li class="ins_a">分布区域截图：</li>
+                        <li>
+                            <div class="frame"><img src="<%=Result.FansAreaShotUrl%>" width="80" height="80"/></div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+                    <%}else{%>
+                    <%if(Result.AreaMedia.length>0){%>
+                    <ul>
+                        <li class="ins_a">覆盖地区：</li>
+                        <li>
+                            <%=Result.AreaMedia[0].ProvinceName?Result.AreaMedia[0].ProvinceName:''%>
+                        </li>
+                        <li>
+                            <%=Result.AreaMedia[0].CityName?Result.AreaMedia[0].CityName:''%>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+                    <%if(Result.FansMalePer||Result.FansFemalePer){%>
+                    <ul>
+                        <li class="ins_a">粉丝性别比例：</li>
+                        <%if(Result.FansMalePer){%>
+                        <li>男 <%=Result.FansMalePer%>%</li>
+                        <li class="grey">|</li>
+                        <%}%>
+                        <%if(Result.FansFemalePer){%>
+                        <li>女 <%=Result.FansFemalePer%>%</li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%if(GetRequest().Wx_Status!=43002){%>
+                    <%if(Result.FansSexScaleUrl){%>
+                    <ul>
+                        <li class="ins_a">性别比例截图：</li>
+                        <li>
+                            <div class="frame"><img src="<%=Result.FansSexScaleUrl%>" width="80" height="80"/></div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+                    <%if(Result.OrderRemark.length!=0){%>
+                    <ul>
+                        <li class="ins_a">下单备注：</li>
+                        <li>
+                            <div class="answer">
+                                <%for(var i=0;i<Result.OrderRemark.length;i++){%>
+                                <%if(Result.OrderRemark[i].Id==40009){%>
+                                <span><%=Result.OrderRemark[i].Descript%></span>
+                                <%}else{%>
+                                <span><%=Result.OrderRemark[i].Name%></span>
+                                <%}%>
+                                <%}%>
+                            </div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%if(!!(Result.CityName?Result.CityName:'')){%>
+                    <ul>
+                        <li class="ins_a">所在地区：</li>
+                        <li>
+                            <%=Result.ProvinceName?Result.ProvinceName:''%>
+                        </li>
+                        <li>
+                            <%=Result.CityName?Result.CityName:''%>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%if(Result.Sign?Result.Sign:''){%>
+                    <ul>
+                        <li class="ins_a">描述／签名：</li>
+                        <li style="width: 80%"><p><%=Result.Sign?Result.Sign:''%></p>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+</script>
+            </div>
+            <div id="qualifications">
+                <script type="text/template" id="qualifications1">
+                <h3>相关资质</h3>
+                <ul>
+                    <li class="ins_a">企业全称：</li>
+                    <li id="enterpriseName"><%=Result.EnterpriseName?Result.EnterpriseName:''%></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">营业执照：</li>
+                    <li id="businessLicense" style="margin-bottom: 10px;">
+                        <div class="frame">
+                            <a href="<%=Result.BusinessLicense?Result.BusinessLicense:''%>" target=_blank><img src="<%=Result.BusinessLicense?Result.BusinessLicense:''%>" width="80" height="80"/></a>
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                    <li class="ins_a">授权资质：</li>
+                    <li id="licenseQualification">
+                        <%if(Result.QualificationOne){%>
+                        <div class="frame fl" style="margin-right: 20px;">
+                            <a href="<%=Result.QualificationOne?Result.QualificationOne:''%>" target=_blank><img src="<%=Result.QualificationOne?Result.QualificationOne:''%>" width="80" height="80" /></a>
+                        </div>
+                        <%}%>
+                        <%if(Result.QualificationTwo){%>
+                        <div class="frame fl" style="margin-right: 20px;">
+                            <a href="<%=Result.QualificationTwo?Result.QualificationTwo:''%>" target=_blank><img src="<%=Result.QualificationTwo?Result.QualificationTwo:''%>" width="80" height="80" /></a>
+                        </div>
+                        <%}%>
+                        <div class="clear"></div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                </script>
+            </div>
+            <div id="Associatedmedia">
+                <script type="text/template" id="Associatedmedia1">
+                    <%if(CTLogin.RoleIDs=='SYS001RL00001'||CTLogin.RoleIDs=='SYS001RL00004'){%>
+                    <h3>关联的媒体主</h3>
+                    <ul>
+                        <%if(Result.TrueName!=''){%>
+                        <li class="ins_a"><%=Result.TrueName%></li>
+                        <%}else if(Result.UserName!=''){%>
+                        <li class="ins_a"><%=Result.UserName%></li>
+                        <%}else{%>
+                        <li class="ins_a"><%=Result.Mobile%></li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                </script>
+            </div>
+            <div id="case" style="display: none;margin-left: 35px">
+
+            </div>
+            <div id="Auditinformation">
+                <script type="text/template" id="Auditinformation1">
+                    <%if(CTLogin.RoleIDs!='SYS001RL00005'){%>
+                    <h3>审核信息</h3>
+                    <ul>
+                        <li class="ins_a">审核结果：</li>
+                        <%if(Result.length!=0){%>
+                         <li><%=Result[0].PubStatusName?Result[0].PubStatusName:''%></li>
+                        <%}%>
+                        <%if(CTLogin.RoleIDs=='SYS001RL00001'||CTLogin.RoleIDs=='SYS001RL00004'){%>
+                        <li class="ins_a">审核人：</li>
+                        <%if(Result.length!=0){%>
+                        <li><%=Result[0].TrueName?Result[0].TrueName:''%></li>
+                        <%}%>
+                        <%}%>
+                        <li class="ins_a">审核时间：</li>
+                        <%if(Result.length!=0){%>
+                        <li><%=Result[0].CreateTime?Result[0].CreateTime:''%></li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%if(Result[0].PubStatusName=='驳回'){%>
+                    <ul>
+                        <li class="ins_a">驳回原因：</li>
+                        <li style="width: 800px;"><%=Result[0].RejectMsg%></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+
+                </script>
+            </div>
+            <div class="clear"></div>
+            <div class="keep">
+                <span><a href="javascript:;" id="Editbasicinformation" class="button" style="width:150px;margin-left:55px;">编辑基本信息</a></span>
+                <!--<span><a href="javascript:;" id="Close" class="button" style="width:150px;margin-left: 20px">关闭</a></span>-->
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

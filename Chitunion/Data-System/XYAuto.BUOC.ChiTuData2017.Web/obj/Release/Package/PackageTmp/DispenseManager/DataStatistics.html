@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据统计</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script src="js/DataStatistics.js"></script>
+    <style>
+        .public_Average{
+            float: left;
+            width: 19%;
+            text-align: center;
+            border-right: 1px solid #aaa;
+        }
+        .Arrow_Icon{
+            transform:rotate(180deg);
+            -ms-transform:rotate(180deg); 	/* IE 9 */
+            -moz-transform:rotate(180deg); 	/* Firefox */
+            -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+            -o-transform:rotate(180deg);
+        }
+        .Tab_Show{
+            width: 100%;
+            background-color: #fff;
+            padding: 10px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!-- #include file="/base/header.html"  -->
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!-- #include file="/base/Menu.html"  -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+
+                </h2>
+            </div>
+
+            <div id="list_switching">
+                <div class="clear"></div>
+                <div class="AddUp" style="background-color: #f6f6f6;margin: 10px 0;">
+
+                </div>
+                <div style="font-size: 16px;margin-top: 30px">每日汇总数据</div>
+                <div class="clear"></div>
+                <ul class="state">
+                    <li><div class="ins_c" style="width: 50px">日期：</div>
+                        <input id="CreateTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                        至 <input id="endTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                    </li>
+                    <li><div class="ins_c">渠道：</div><select id="OrderChannel" name="" style="width:105px;line-height: 30px">
+                        <option value="-2">全部</option>
+                        <option value="101001">赤兔联盟</option>
+                        <option value="101002">微博易</option>
+                    </select></li>
+                    <li style="display: none"><div class="ins_c">结算：</div><select id="SettleAccounts" name="" style="width:105px;line-height: 30px">
+                        <option value="-2">全部</option>
+                        <option value="0">已结算</option>
+                        <option value="1">未结算</option>
+                    </select></li>
+                    <li class="but_query" id="Inquiry" style="width:70px;margin-right:10px">查询</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="tab_box">
+                <div class="box">
+
+                    <div class="ad_table" style="margin-top: 5px">
+                        <table class="AddUpList" width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+
+                        </table>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span>1/200</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="AddUp">
+    <div style="padding: 20px;font-size: 16px">昨日累计数据</div>
+    <div>
+        <div class="public_Average">
+            <p>昨日产生佣金</p>
+            <p><b style="font-size: 16px"><%=formatMoney(Result.ProfitOfYesterday,2,'¥ ')%></b></p>
+        </div>
+        <div class="public_Average">
+            <p>本月产生佣金</p>
+            <p><b style="font-size: 16px"><%=formatMoney(Result.ProfitOfThisMonth,2,'¥ ')%></b></p>
+        </div>
+        <div class="public_Average">
+            <p>上月产生佣金</p>
+            <p><b style="font-size: 16px"><%=formatMoney(Result.ProfitLastMonth,2,'¥ ')%></b></p>
+        </div>
+        <div class="public_Average">
+            <p>累计产生佣金</p>
+            <p><b style="font-size: 16px"><%=formatMoney(Result.Accumulated,2,'¥ ')%></b></p>
+        </div>
+        <div class="public_Average" style="border-right: none">
+            <p>累计结算佣金</p>
+            <p><b style="font-size: 16px"><%=formatMoney(Result.SettledAmount,2,'¥ ')%></b></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <%if(CTLogin.RoleIDs=='SYS004RL00018'||CTLogin.RoleIDs=='SYS004RL00027'){%>
+    <%Result.ChannelList.forEach(function(e,i){%>
+    <div class="Tab_Show" style="<%=i==0?'margin-top: 30px;':''%>">
+        <div class="public_Average" style="position: relative">
+            <span style="position: absolute;top: 0;left: 0"><%=e.ChannelName%></span>
+            <%=formatMoney(e.ProfitOfYesterday,2,'¥ ')%>
+        </div>
+        <div class="public_Average">
+            <%=formatMoney(e.ProfitOfThisMonth,2,'¥ ')%>
+        </div>
+        <div class="public_Average">
+            <%=formatMoney(e.ProfitLastMonth,2,'¥ ')%>
+        </div>
+        <div class="public_Average">
+            <%=formatMoney(e.Accumulated,2,'¥ ')%>
+        </div>
+        <div class="public_Average" style="border-right: none">
+            <%=formatMoney(e.SettledAmount,2,'¥ ')%>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <%})%>
+    <%if(Result.ChannelList.length){%>
+    <div style="text-align: center;padding: 5px 0;">
+        <img src="/ImagesNew/Arrow.png" id="Arrow_img" class="Arrow_Icon" style="cursor:pointer;width: 20px;height: 15px;margin-left: -60px;">
+    </div>
+    <%}else{%>
+    <div style="text-align: center;padding: 5px 0;height: 15px;"></div>
+    <%}%>
+    <%}else{%>
+    <div style="text-align: center;padding: 5px 0;height: 15px;"></div>
+    <%}%>
+</script>
+<script type="text/template" id="AddUpList">
+    <tr>
+        <th width="17%">日期</th>
+        <%if(CTLogin.RoleIDs.indexOf('SYS004RL00018') != -1||CTLogin.RoleIDs.indexOf('SYS004RL00027') != -1){%>
+        <th width="17%">渠道</th>
+        <%}%>
+        <th width="17%">收益金额</th>
+        <th width="17%">订单笔数</th>
+        <th width="17%">结算状态</th>
+        <th width="17%">实际结算时间</th>
+    </tr>
+    <%Result.List.forEach(function(e){%>
+    <tr>
+        <td><%=e.Date.split(' ')[0]%></td>
+        <%if(CTLogin.RoleIDs.indexOf('SYS004RL00018') != -1||CTLogin.RoleIDs.indexOf('SYS004RL00027') != -1){%>
+        <td><%=e.ChannelName%></td>
+        <%}%>
+        <td><%=formatMoney(e.Profit,2,'¥ ')%></td>
+        <td>
+            <%if(e.OrderNumber!=0){%>
+            <a href="/DispenseManager/ChannelOrder.html?finish=1&ChannelID=<%=e.ChannelID%>&start=<%=e.Date.split(' ')[0]%>&end=<%=e.Date.split(' ')[0]%>" style="text-decoration: underline;color: red"><%=e.OrderNumber%></a>
+            <%}else{%>
+            <%=e.OrderNumber%>
+            <%}%>
+        </td>
+        <td e="<%=e.StateOfSettlement%>">
+
+        </td>
+        <td e=''>
+            <%if(e.TimeOfSettlement!='0001-01-01 00:00:00'){%>
+            <%=e.TimeOfSettlement%>
+            <%}else{%>
+            <%}%>
+        </td>
+    </tr>
+    <%})%>
+</script>
+<script>
+    var voidDateRange = [];
+    var timeObj = {
+        'S': new Date().Format('yyyy-MM-dd'),
+        'E': '2020-09-15'
+    }
+    voidDateRange.push(timeObj);
+    $('#CreateTime').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#CreateTime',
+            voidDateRange : voidDateRange,
+            choose: function (date) {
+                if (date > $('#endTime').val() && $('#endTime').val()) {
+                    layer.alert('起始时间不能大于结束时间！');
+                    $('#CreateTime').val('')
+                }
+            }
+        });
+    });
+    $('#endTime').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#endTime',
+            voidDateRange : voidDateRange,
+            choose: function (date) {
+                if (date < $('#CreateTime').val() && $('#CreateTime').val()) {
+                    layer.alert('结束时间不能小于起始时间！');
+                    $('#endTime').val('')
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

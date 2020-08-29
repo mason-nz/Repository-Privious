@@ -1,0 +1,310 @@
+ <!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>查看媒体</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="js/commonMethod.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/ViewMedia.js"></script>
+    <style type="text/css">
+        .detail_mark li{
+            cursor: auto;
+        }
+        .frame_n{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="install" style="padding: 15px 15px 0 15px;">
+                <h2 style="margin-bottom: 0" class="menu_nav">
+                </h2>
+                <div class="container" style="max-width:800px;margin: 0"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+</body>
+<script type="text/template" id="temp">
+    <ul style="margin: 15px 0 0 0">
+        <li class="ins_a"  style="width: 123px;">
+            <div class="frame_n">
+                <%if(data.HeadImg){%>
+                    <img src="<%=data.HeadImg%>" width="80" height="80"/>
+                <%}else{%>
+                    <img src="../images/default_touxiang.png" width="80" height="80"/>
+                <%}%>
+            </div>
+        </li>
+        <li class="wechat_name">
+            <div><%= data.Name%></div>
+            <div>
+                <%if(data.Number){%>
+                    <%= data.Number%>
+                <%}%>
+                <%if(data.MediaType == '14001'){%>
+                    [微信]
+                <%}else if(data.MediaType == '14002'){%>
+                    [APP]
+                <%}else if(data.MediaType == '14003'){%>
+                    [微博]
+                <%}else if(data.MediaType == '14004'){%>
+                    [视频]
+                <%}else if(data.MediaType == '14005'){%>
+                    [直播]
+                <%}else if(data.MediaType == '14006'){%>
+                    [头条]
+                <%}else if(data.MediaType == '14007'){%>
+                    [搜狐]
+                <%}%>
+            </div>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <div class="mark_right" style="max-width:800px;margin-top:0;padding: 0 0 10px 0">
+        <% if(data.Category.Original.length){%>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category1.jpg" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                分类
+            </div>
+            <ul class="detail_mark" style="margin-top: 20px;">
+            <!-- 此处需判断，1、审是否存在，若存在，显示原，否则，只显示原标签，不显示原这个字 
+            2、判断原审是否相同，若相同， 显示原审
+
+            -->
+                <% if(data.Category.Audit.length ){%>
+                    <%if(data.isEqual.isCategory == true){%>
+                    <img src="../ImagesNew/original.png" style="float: left;margin-right: 10px;">
+                    <img src="../ImagesNew/afterAudit.png" style="float: left;margin-right: 20px;">
+                    <%}else{%>
+                        <img src="../ImagesNew/original.png" style="float: left;margin-right: 20px;">
+                    <%}%>
+                <%}%>
+                <% if(data.Category.Original.length){%>
+                    <% data.Category.Original.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+            <% if(data.Category.Audit.length){%>
+                <%if(data.isEqual.isCategory == false){%>
+                <ul class="detail_mark">
+                    <img src="../ImagesNew/afterAudit.png" style="float: left;margin-right: 20px;">
+                    <% data.Category.Audit.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                </ul>
+                <%}%>
+            <%}%>
+            <div class="clear"></div>
+            <div style="height:2px;border-bottom:1px dashed #eee;margin: 10px 0"></div>
+        </div>
+        <%}%>
+        <% if(data.MarketScene.Original.length){%>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category6.png" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                市场场景
+            </div>
+            <ul class="detail_mark" style="margin-top: 20px;">
+                <% if(data.MarketScene.Audit.length){%>
+                    <%if(data.isEqual.isMarketScene == true){%>
+                    <img src="../ImagesNew/original.png" style="float: left;margin-right: 10px;">
+                    <img src="../ImagesNew/afterAudit.png" style="float: left;margin-right: 20px;">
+                    <%}else{%>
+                        <img src="../ImagesNew/original.png" style="float: left;margin-right: 20px;">
+                    <%}%>
+                <%}%>
+                <% if(data.MarketScene.Original.length){%>
+                    <% data.MarketScene.Original.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+
+            <% if(data.MarketScene.Audit.length){%>
+                <%if(data.isEqual.isMarketScene == false){%>
+                <ul class="detail_mark">
+                    <img src="../ImagesNew/afterAudit.png" style="float: left;margin-right: 20px;">
+                    <% data.MarketScene.Audit.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                </ul>
+                <%}%>
+            <%}%>
+            <div class="clear"></div>
+            <div style="height:2px;border-bottom:1px dashed #eee;margin: 10px 0"></div>
+        </div>
+        <%}%>
+        <% if(data.DistributeScene.Original.length){%>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category5.png" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                分发场景
+            </div>
+            <%
+                var oldLabel = JSON.stringify(sortLable(data.DistributeScene.Original))
+                var newLabel = JSON.stringify(sortLable(data.DistributeScene.Audit))
+            %>
+            <ul class="detail_mark" style="margin-top: 20px;">
+                <% if(data.DistributeScene.Audit.length){%>
+                    <%if(data.isEqual.isDistributeScene == true){%>
+                    <img src="../ImagesNew/original.png" style="float: left;margin-right: 10px;">
+                    <img src="../ImagesNew/afterAudit.png" style="float: left;margin-right: 20px;">
+                    <%}else{%>
+                        <img src="../ImagesNew/original.png" style="float: left;margin-right: 20px;">
+                    <%}%>
+                <%}%>
+                <% if(data.DistributeScene.Original.length){%>
+                    <% data.DistributeScene.Original.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+            <% if(data.DistributeScene.Audit.length){%>
+                <%if(data.isEqual.isDistributeScene == false){%>
+                <ul class="detail_mark">
+                    <img src="../ImagesNew/afterAudit.png" style="float: left;margin-right: 20px;">
+                    <% data.DistributeScene.Audit.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                </ul>
+                <%}%>
+            <%}%>
+            <div class="clear"></div>
+            <div style="height:2px;border-bottom:1px dashed #eee;margin: 10px 0"></div>
+        </div>
+        <%}%>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category3.jpg" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                IP标签
+            </div>
+            <ul class="detail_mark changeLeft" style="position: relative;">
+                <%if(data.IPLabel.Audit.length){%>
+                    <%if(data.isEqual.isIPLabel == true){%>
+                        <img src="../ImagesNew/original.png" style="float: left;margin-right: 10px;display:inline-block;width: 17px;">
+                        <img src="../ImagesNew/afterAudit.png" style="float: left;margin-right: 20px;display:inline-block;width: 17px;">
+                    <%}else{%>
+                        <img src="../ImagesNew/original.png" style="float: left;margin-right: 20px;display:inline-block;width: 17px;">
+                    <%}%>
+                <%}%>
+                <% if(data.IPLabel.Original.length){%>
+                    <% data.IPLabel.Original.forEach(function(item){%>
+                        <div>
+                            <li class="setMarL">
+                                <span><%= item.DictName %></span>
+                            </li>
+                            <div class="clear"></div>
+                        </div>
+                        <% item.SubIP.forEach(function(single){%>
+                            <div class="SonIP" style="overflow: hidden;">
+                                <li class="sonip">
+                                    <span><%= single.DictName %></span>
+                                    <i class="add_ear"></i>
+                                </li>
+                                <% single.Label.forEach(function(one){ %>
+                                    <li>
+                                        <span><%= one.DictName %></span>
+                                    </li>
+                                <%})%>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        <%})%>
+                    <%})%>
+                <%}%>
+            </ul>
+            <% if(data.IPLabel.Audit.length){%>
+                <%if(data.isEqual.isIPLabel == false){%>
+                <ul class="detail_mark" style="padding: 0 0 0 40px;position: relative;">
+                    <img src="../ImagesNew/afterAudit.png" style="position: absolute;left: 2px;top:0;">
+                        <% data.IPLabel.Audit.forEach(function(item){%>
+                            <div>
+                                <li>
+                                    <span><%= item.DictName %></span>
+                                </li>
+                                <div class="clear"></div>
+                            </div>
+                            <% item.SubIP.forEach(function(single){%>
+                                <div class="SonIP" style="overflow: hidden;">
+                                    <li class="sonip">
+                                        <span><%= single.DictName %></span>
+                                        <i class="add_ear"></i>
+                                    </li>
+                                    <% single.Label.forEach(function(one){ %>
+                                        <li>
+                                            <span><%= one.DictName %></span>
+                                        </li>
+                                    <%})%>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            <%})%>
+
+                        <%})%>
+                </ul>
+                <%}%>
+            <%}%>
+            <div class="clear"></div>
+            <div style="height:2px;border-bottom:1px dashed #eee;margin: 0 0 12px 0"></div>
+        </div>
+    </div>
+    <div class="info" style="padding: 0 20px">
+        <%if(data.OperateInfo){%>
+        <ul>
+            <li class="ins_a" style="width:105px;">提交信息：</li>
+            <li><%=data.OperateInfo.UserName%>  &nbsp;&nbsp;<%= data.OperateInfo.CreateTime%></li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <%if(data.AuditInfo && data.AuditInfo.CreateTime.substr(0,4) != '1900'){%>
+        <ul>
+            <li class="ins_a" style="width:105px;">审核信息：</li>
+            <li><%=data.AuditInfo.UserName%>  &nbsp;&nbsp;<%= data.AuditInfo.CreateTime%></li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+    </div>
+</script>
+</html>
+

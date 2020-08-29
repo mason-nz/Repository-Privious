@@ -1,0 +1,743 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>趋势分析-数据明细</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src= "/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/data-listdetail.js"></script> 
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2>趋势分析</h2>                
+                <div class="clear"></div>
+            </div>
+            
+            <div id="list_switching">
+                <ul class="tab_menu">
+                    <li name="89001" class="selected">日汇总数据</li>
+                    <li name="89003">明细数据</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        
+            <ul class="state">
+                <li>
+                    <span class="date_tit">抓取时间：</span>
+                    <input name="Username" id="StartDate" type="text" style="width:120px;" class="laydate-iconNew"> 至
+                    <input name="Username" id="EndDate" type="text" style="width:120px;" class="laydate-iconNew">
+                </li>
+                <li id='headtype'>
+                    头腰类型：
+                    <select name="" style="width:90px;line-height: 30px" id='ArticleType' class="SelectOption0">
+                        <option DictId="-2">请选择</option>               
+                    </select>
+                </li>
+                <li id='channel'>
+                    渠道：
+                    <select name="" style="width:90px;line-height: 30px" id='ChannelId'  class="SelectOption1">
+                        <option DictId="-2">请选择</option>               
+                    </select>
+                </li>
+                <li id='scene'>
+                    场景：
+                    <select name="" style="width:90px;line-height: 30px"  id='SceneId' class="SelectOption2">
+                        <option DictId="-2">请选择</option>               
+                    </select>
+                </li>
+                <li id='score'>
+                    账号分值：
+                    <select name="" style="width:90px;line-height: 30px"  id='AAScoreTypeAccount'  class="SelectOption3">
+                        <option DictId="-2">请选择</option>               
+                    </select>
+                </li>
+                
+                <li id='matype'>
+                    物料类型：
+                    <select name="" style="width:90px;line-height: 30px"  class="SelectOption4" id='MaterialType'>
+                        <option DictId="-2">请选择</option>               
+                    </select>
+                </li>
+                <li id='outtype'>
+                    分发渠道类型：
+                    <select name="" style="width:90px;line-height: 30px"  class="SelectOption5" id='DiffChannel'>
+                        <option DictId="-2">请选择</option>               
+                    </select>
+                </li>
+                <li id='status'>
+                    状态：
+                    <select name="" style="width:90px;line-height: 30px"  class="SelectOption6" id='MatchStatus'>
+                        <option DictId="-2">请选择</option>
+                    </select>
+                </li>
+                <li class="but_query" id='searchBtn' style="width:70px;margin-right: 0">搜索</li>
+                <a class="but_query" id='download' style="width:70px;margin-left: 10px" target='_self'>导出数据</a>
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="table"></div>
+
+                    <!--分页-->
+                    <div class="green-black" id="pageContainer"></div>
+                    <!-- loading -->
+                    <p id="listLoading"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+
+<!-- 抓取 日汇总-->
+<script type="text/template" id="grab0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>抓取日期</th>
+                <th>头腰文章类型</th>
+                <th>抓取渠道</th>
+                <th>抓取文章量</th>
+                <th>抓取账号量</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.Date.substr(0,10) %></td>
+                <td><%= item.ArticleTypeName %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticleCount %></td>
+                <td><%= item.AccountCount %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+<!-- 抓取 明细-->
+<script type="text/template" id="grab1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <th>文章ID</th>
+            <th>标题</th>
+            <th>头腰类型</th>
+            <th>渠道</th>
+            <th>发布时间</th>
+            <th>抓取时间</th>
+            <th>场景</th>
+            <th>账号</th>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.ArticleId %></td>
+                <td><%= item.Title %></td>
+                <td><%= item.ArticleTypeName %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticlePublishTime %></td>
+                <td><%= item.ArticleSpiderTime %></td>
+                <td><%= item.SceneName?item.SceneName:'一' %></td>
+                <td><%= item.AccountName?item.AccountName:'一' %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 机洗入库 日汇总-->
+<script type="text/template" id="jxrk0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>入库日期</th>
+                <th>头腰文章类型</th>
+                <th>抓取渠道</th>
+                <th>抓取文章量</th>
+                <th>入库文章量</th>
+                <th>抓取账号量</th>
+                <th>入库账号量</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.Date.substr(0,10) %></td>
+                <td><%= item.ArticleTypeName %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticleCount %></td>
+                <td><%= item.StorageArticleCount %></td>
+                <td><%= item.AccountCount %></td>
+                <td><%= item.StorageAccountCount %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+<!-- 机洗入库 明细-->
+<script type="text/template" id="jxrk1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>文章ID</th>
+                <th>标题</th>
+                <th>头腰类型</th>
+                <th>渠道</th>
+                <th>发布时间</th>
+                <th>抓取时间</th>
+                <th>入库时间</th>
+                <th>场景</th>
+                <th>账号</th>
+                <th>账号分值</th>
+                <th>文章分值</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.ArticleId %></td>
+                <td><%= item.Title %></td>
+                <td><%= item.ArticleTypeName %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticlePublishTime %></td>
+                <td><%= item.ArticleSpiderTime %></td>
+                <td><%= item.StorageTime %></td>
+                <td><%= item.SceneName?item.SceneName:'一' %></td>
+                <td><%= item.AccountName?item.AccountName:'一' %></td>
+                <td><%= item.AccountScore %></td>
+                <td><%= item.ArticleScore %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 车型匹配 日汇总-->
+<script type="text/template" id="cxpp0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>渠道</th>
+                <th>已匹配车型</th>
+                <th>未匹配车型</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.Date.substr(0,10) %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.MatchArticleCount %></td>
+                <td><%= item.UnMatchArticleCount %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 车型匹配 明细-->
+<script type="text/template" id="cxpp1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>文章ID</th>
+                <th>标题</th>
+                <th>渠道</th>
+                <th>发布时间</th>
+                <th>抓取时间</th>
+                <th>匹配车型时间</th>
+                <th>品牌</th>
+                <th>车型</th>
+                <th>文章分值</th>
+                <th>状态</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.ArticleId %></td>
+                <td><%= item.Title %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticlePublishTime %></td>
+                <td><%= item.ArticleSpiderTime %></td>
+                <td><%= item.MatchCarTime %></td>
+                <td><%= item.BrandName?item.BrandName:'一' %></td> 
+                <td><%= item.SerialName?item.BrandName:'一' %></td>
+                <td><%= item.ArticleSorce %></td>
+                <td><%= item.MatchName %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 初筛 日汇总-->
+<script type="text/template" id="cs0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>初筛日期</th>
+                <th>渠道</th>
+                <th>可用文章数</th>
+                <th>可用账号数</th>
+                <th>置为腰文章数</th>
+                <th>置为腰账号数</th>
+                <th>作废文章数</th>
+                <th>作废账号数</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.Date.substr(0,10) %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticleCount %></td>
+                <td><%= item.AccountCount %></td>
+                <td><%= item.ToBodyArticleCount %></td>
+                <td><%= item.ToBodyAccountCount %></td>
+                <td><%= item.NotUseArticleCount %></td>
+                <td><%= item.NotUseAccountCount %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 初筛 明细-->
+<script type="text/template" id="cs1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>文章ID</th>
+                <th>标题</th>
+                <th>是否原创</th>
+                <th>渠道</th>
+                <th>发布时间</th>
+                <th>抓取时间</th>
+                <th>初筛时间</th>
+                <th>场景</th>
+                <th>账号</th>
+                <th>账号分值</th>
+                <th>文章分值</th>
+                <th>初筛状态</th>
+                <th>原因</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr Reason='<%= item.Reason %>'>
+                <td><%= item.ArticleId %></td>
+                <td><%= item.Title %></td>
+                <td><%= item.IsOriginal?'是':'否' %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticlePublishTime %></td>
+                <td><%= item.ArticleSpiderTime %></td>
+                <td><%= item.PrimaryTime %></td>
+                <td><%= item.SceneName?item.SceneName:'一' %></td>
+                <td><%= item.AccountName?item.AccountName:'一' %></td>
+                <td><%= item.AccountScore %></td>
+                <td><%= item.ArticleScore %></td>
+                <td><%= item.ConditionName %></td>
+                <td><a href="javascript:;" class="look_reason">查看原因</a></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 人工清洗 日汇总-->
+<script type="text/template" id="rgqx0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>清洗日期</th>
+                <th>头腰文章类型</th>
+                <th>渠道</th>
+                <th>可用</th>
+                <th>可用账号数</th>
+                <th>作废</th>
+                <th>作废账号数</th>
+                <th>置为腰</th>
+                <th>置为腰账号数</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr>
+                <td><%= item.Date.substr(0,10) %></td>
+                <td><%= item.ArticleTypeName %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticleCount %></td>
+                <td><%= item.AccountCount %></td>
+                <td><%= item.NotUseArticleCount %></td>
+                <td><%= item.NotUseAccountCount %></td>
+                <td><%= item.ToBodyArticleCount %></td>
+                <td><%= item.ToBodyAccountCount %></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 人工清洗 明细-->
+<script type="text/template" id="rgqx1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>文章ID</th>
+                <th>标题</th>
+                <th>头腰类型</th>
+                <th>渠道</th>
+                <th>发布时间</th>
+                <th>抓取时间</th>
+                <th>清洗时间</th>
+                <th>场景</th>
+                <th>账号</th>
+                <th>账号分值</th>
+                <th>文章分值</th>
+                <th>状态</th>
+                <th>原因</th>
+            </tr>
+        </thead>    
+        <tbody>
+        <% List.forEach(function(item){%>
+            <tr Reason='<%= item.Reason %>'>
+                <td><%= item.ArticleId %></td>
+                <td><%= item.Title %></td>
+                <td><%= item.ArticleTypeName %></td>
+                <td><%= item.ChannelName %></td>
+                <td><%= item.ArticlePublishTime %></td>
+                <td><%= item.ArticleSpiderTime %></td>
+                <td><%= item.CleanTime %></td>
+                <td><%= item.SceneName?item.SceneName:'一' %></td>
+                <td><%= item.AccountName?item.AccountName:'一' %></td>
+                <td><%= item.AccountScore %></td>
+                <td><%= item.ArticleScore %></td>
+                <td><%= item.ConditionName %></td>
+                <td><a href="javascript:;" class="look_reason">查看原因</a></td>
+            </tr>    
+        <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+
+<!-- 封装  日汇总 -->
+<script type="text/template" id="fz0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <% Tit.forEach(function(item){%>
+                <th><%= item %></th>        
+            <%}) %>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item,i){%>
+                <tr>
+                    <% item.forEach(function(each,j){%>
+                        <% if(j == 0){%>
+                        <td><%= item[j].substr(0,10) %></td>
+                        <%}else{%>
+                        <td><%= item[j] %></td>
+                        <%}  %>
+                    <%}) %>
+                </tr>        
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+<!-- 封装  明细 -->
+<script type="text/template" id="fz1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>物料ID</th>
+                <th>标题</th>
+                <th>URL</th>
+                <th>物料类型</th>
+                <th>封装时间</th>
+                <th>渠道</th>
+                <th>场景</th>
+                <th>头部文章抓取账号</th>
+                <th>头部文章所属账号分值</th>
+                <th>头部文章分值</th>
+                <th>品牌</th>
+                <th>车型</th>
+                <th>状态</th>
+                <th>原因</th>
+            </tr>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item){%>
+                <tr Reason='<%= item.Reason %>'>
+                    <td><%= item.MaterialID %></td>
+                    <td><%= item.Title %></td>
+                    <td><a href="<%= item.Url %>" target='_blank'><%= item.Url %></a></td>
+                    <td><%= item.MaterialName %></td>
+                    <td><%= item.EncapsulateTime %></td>
+                    <td><%= item.ChannelName %></td>
+                    <td><%= item.SceneName?item.SceneName:'一' %></td>
+                    <td><%= item.AccountName %></td>
+                    <td><%= item.AccountScore %></td>
+                    <td><%= item.ArticleScore %></td>
+                    <td><%= item.BrandNmae %> </td>
+                    <td><%= item.SerialName %> </td>
+                    <td><%= item.ConditionName %></td>
+                    <td><a href="javascript:;" class="look_reason">查看原因</a></td>
+                </tr>    
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+<!-- 分发  日汇总 -->
+<script type="text/template" id="ff0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <% Tit.forEach(function(item){%>
+                <th><%= item %></th>        
+            <%}) %>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item,i){%>
+                <tr>
+                    <% item.forEach(function(each,j){%>
+                        <% if(j == 0){%>
+                        <td><%= item[j].substr(0,10) %></td>
+                        <%}else{%>
+                        <td><%= item[j] %></td>
+                        <%}  %>
+                    <%}) %>
+                </tr>        
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+
+<!-- 分发  明细 -->
+<script type="text/template" id="ff1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>物料ID</th>
+                <th>标题</th>
+                <th>落地页URL</th>
+                <th>物料类型</th>
+                <th>场景</th>
+                <th>头部文章所属账号分值</th>
+                <th>头部文章分值</th>
+                <th>品牌</th>
+                <th>车型</th>
+                <th>封装时间</th>
+                <th>分发时间</th>
+                <th>分发渠道类型</th>
+            </tr>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item){%>
+                <tr>
+                    <td><%= item.MaterialId %></td>
+                    <td><%= item.Title %></td>
+                    <td><a href="<%= item.Url %>" target='_blank'><%= item.Url %></a></td>
+                    <td><%= item.MaterialTypeName %></td>
+                    <td><%= item.SceneName?item.SceneName:'一' %></td>
+                    <td><%= item.AccountScore %></td>
+                    <td><%= item.ArticleScore %></td>
+                    <td><%= item.BrandNmae %> </td>
+                    <td><%= item.SerialName %> </td>
+                    <td><%= item.EncapsulateTime %></td>
+                    <td><%= item.DistributeTime %> </td>
+                    <td><%= item.ChannelName %></td>
+                </tr>    
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 转发  日汇总 -->
+<script type="text/template" id="zf0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <% Tit.forEach(function(item){%>
+                <th><%= item %></th>        
+            <%}) %>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item,i){%>
+                <tr>
+                    <% item.forEach(function(each,j){%>
+                        <% if(j == 0){%>
+                        <td><%= item[j].substr(0,10) %></td>
+                        <%}else{%>
+                        <td><%= item[j] %></td>
+                        <%}  %>
+                    <%}) %>
+                </tr>        
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+<!-- 转发  明细 -->
+<script type="text/template" id="zf1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>统计时间</th>
+                <th>物料ID</th>
+                <th>标题</th>
+                <th>落地页URL</th>
+                <th>物料类型</th>
+                <th>封装时间</th>
+                <th>分发时间</th>
+                <th>分发渠道类型</th>
+                <th>场景</th>
+                <th>头部文章所属账号分值</th>
+                <th>头部文章分值</th>
+                <th>品牌</th>
+                <th>车型</th>
+                <th>转发次数</th>
+            </tr>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item){%>
+                <tr>
+                    <td><%= item.ForwardStatisticsTime.substr(0,10) %></td>
+                    <td><%= item.MaterialId %></td>
+                    <td><%= item.Title %></td>
+                    <td><a href="<%= item.Url %>" target='_blank'><%= item.Url %></a></td>
+                    <td><%= item.MaterialTypeName %></td>
+                    <td><%= item.EncapsulateTime %></td>
+                    <td><%= item.DistributeTime %></td>
+                    <td><%= item.ChannelName %></td>
+                    <td><%= item.SceneName?item.SceneName:'一' %></td>
+                    <td><%= item.AccountScore %></td>
+                    <td><%= item.ArticleScore %></td>
+                    <td><%= item.BrandNmae %></td>
+                    <td><%= item.SerialName %></td>
+                    <td><%= item.MaterialForwardCount %></td>
+                </tr>    
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+
+<!-- 线索  日汇总 -->
+<script type="text/template" id="xs0">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <% Tit.forEach(function(item){%>
+                <th><%= item %></th>        
+            <%}) %>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item,i){%>
+                <tr>
+                    <% item.forEach(function(each,j){%>
+                        <% if(j == 0){%>
+                        <td><%= item[j].substr(0,10) %></td>
+                        <%}else{%>
+                        <td><%= item[j] %></td>
+                        <%}  %>
+                    <%}) %>
+                </tr>        
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+<!-- 线索  明细 -->
+<script type="text/template" id="xs1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th>数据时间</th>
+                <th>物料ID</th>
+                <th>物料标题</th>
+                <th>落地页URL</th>
+                <th>物料类型</th>
+                <th>场景</th>
+                <th>账号分值</th>
+                <th>头部文章分值</th>
+                <th>分发渠道</th>
+                <th>品牌</th>
+                <th>车型</th>
+                <th>询价数</th>
+                <th>会话数</th>
+                <th>电话接通数</th>
+            </tr>
+        </thead>    
+        <tbody>
+            <% List.forEach(function(item){%>
+                <tr>
+                    <td><%= item.ClueDate.substr(0,10) %></td>
+                    <td><%= item.MaterialID %></td>
+                    <td><%= item.Title %></td>
+                    <td><a href="<%= item.Url %>" target='_blank'><%= item.Url %></a></td>
+                    <td><%= item.MaterialName %></td>
+                    <td><%= item.SceneName?item.SceneName:'一' %></td>
+                    <td><%= item.AccountScore %></td>
+                    <td><%= item.ArticleScore %></td>
+                    <td><%= item.ChannelName %></td>
+                    <td><%= item.BrandNmae %></td>
+                    <td><%= item.SerialName %></td>
+                    <td><%= item.InqueryCount %></td>
+                    <td><%= item.SessionCount %></td>
+                    <td><%= item.TelConnectCount %></td>
+                </tr>    
+            <%}) %>
+        </tbody>
+    </table>
+</script>
+
+
+</body>
+</html>

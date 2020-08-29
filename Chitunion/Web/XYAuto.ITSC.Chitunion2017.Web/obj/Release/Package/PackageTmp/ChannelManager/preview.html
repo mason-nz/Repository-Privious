@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/preview.js"></script>
+</head>
+</style>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r" id="rendering1">
+      <div class="install" >
+          <div class="list">
+              <h2 class="menu_nav"></h2>
+              <div class="clear"></div>
+          </div>
+          <!-- 上传成功之后的内容 -->
+          <div class="install_box">
+
+          </div>
+
+      </div>
+
+
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 页面大模板信息 -->
+<script type="text/template" id="preview">
+
+            <div id="tab">
+            <ul style="margin-left: 50px">
+                <!-- 更新媒体 -->
+                <li>
+                  <div class="table" >
+                      <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                        <tr>
+                            <th width="15%" rowspan="2">微信账号</th>
+                            <th width="15%" rowspan="2">微信名称</th>
+                            <th width="25%" rowspan="2">广告形式</th>
+                            <th width="28%" rowspan="2">广告有效期</th>
+                            <th width="15%" rowspan="2">销售参考价</th>
+                            <th width="15%" rowspan="2">成本参考价</th>                            
+                            <%for(var i=0;i<data.ColumnNameList.length;i++){%>
+                                <th width="30%" colspan="2"><%=data.ColumnNameList[i].ChannelName%><br><%=data.ColumnNameList[i].CooperateDate%></th>
+                            <%}%>
+
+                        </tr>
+                        <tr>
+                            <%for(var i=0;i<data.ColumnNameList.length;i++){%>
+                                <th width="10%">销售价</th>
+                                <th width="10%">成本价</th>
+                            <%}%>
+                        </tr>
+                        <%for(var i=0;i<data.List.length;i++){%>
+                            <tr>
+                                <td><%=data.List[i].WxNumber%></td>
+                                <td><%=data.List[i].WxName%></td>
+                                <td><%=data.List[i].ADPosition%></td>
+                                <td><%=data.List[i].CooperateDate%></td>
+                                <td><%=data.List[i].SalePrice%></td>
+                                <td><%=data.List[i].CostPrice%></td>
+                                <%console.log(data.List[i].PriceList.length/2)%>
+                                <%for(var j=0;j<data.List[i].PriceList.length/2;j++){%>
+                                  <td>
+                                    <%if(data.List[i].PriceList[2*(j+1)-2]){%>
+                                      <%=data.List[i].PriceList[2*(j+1)-2]%>
+                                    <%}%>
+                                  </td>
+                                  <td>
+                                      <%if(data.List[i].PriceList[2*(j+1)-1]){%>
+                                          <%=data.List[i].PriceList[2*(j+1)-1]%>
+                                      <%}%>
+                                  </td>
+                                <%}%>
+                            </tr>
+                        <%}%>
+                    </table>
+                  </div>
+              </li>
+
+            </ul>
+            <ul>
+                <li style="float:right;margin-right:10px;color:grey"><img src="/ImagesNew/tishi.png"> 说明：以上价格均为含税价格</li>
+                <div class="clear"></div>
+            </ul>
+
+            <div class="keep_add">
+                <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left: 500px;" id="submit">提交</a></span>
+                <!-- <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left:70px;" id="cancel">取消</a></span> -->
+
+            </div>
+
+        </div>
+
+
+
+</script>
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

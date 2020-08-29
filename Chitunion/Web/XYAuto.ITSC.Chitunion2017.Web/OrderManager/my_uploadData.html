@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js" ></script> -->
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+	<script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+	<script type="text/javascript" src="../js/layer/layer.js"></script>
+	<script type="text/javascript" src="js/MyUploadData.js"></script>
+</head>
+
+<body>
+<!--#include file="/base/header.html" -->
+
+<div class="list_main">
+<!--中间内容-->
+ <div class="order">
+	 <!--左侧菜单-->
+	 <!--#include file="/base/Menu.html" -->
+    <div class="order_r">
+
+		<div class="install">
+			<h2 class="menu_nav"></h2>
+			<div class="install_box">
+				<div id="FeedBackData"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+   	<!--app反馈数据模板-->
+    <script type="text/template" id="FeedBackDataTemplate-app">
+        <div class="order_name" style='color: #0A0A0A;border-bottom: 0'>
+			<span id="creatUser" creat-id="<%= data.MessageTit.CreateUserID %>">订单名称：<%= data.MessageTit.OrderName %></span>
+		</div>
+		<% if(data.MessageDetail.length < 1){%>
+			<div style="text-align: center;"><img src="../images/no_data.png"></div>
+		<%}else{%>
+
+		<% data.MessageDetail.forEach(function(item){ %>
+		<div class="mb15">
+			<img src="../images/line_01.png"><%= item.Describe %>
+		</div>
+		<div class="table">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+			<tbody>
+			<tr>
+				<th width="20%">
+					数据日期
+				</th>
+				<th width="16%">
+					PV(次)
+				</th>
+				<th width="16%">
+					UV(人)
+				</th>
+				<th width="18%">
+					点击数(次)
+				</th>
+				<th width="18%">
+					点击率
+				</th>
+				<th width="13%">
+					操作
+				</th>
+			</tr>
+			<% if(item.DataList.length<=1){%>
+				<tr>
+					<td colspan="6"><img src="../images/no_data.png"></td>
+				</tr>
+			<%}else{%>
+				<% item.DataList.forEach(function(data){%>
+				<tr>	
+					<% if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+						<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackEndDate %></span></td>
+					<%}else{%>
+						<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackBeginDate%></span>至<span class="endDate"><%= data.FeedbackEndDate%></span></td>
+					<%}%> 
+	                <td><%= data.PVCount %></td>
+	                <td><%= data.UVCount %></td>
+	                <td><%= data.LinkCount %></td>
+	                <td><%= formatMoney(data.ClickRate*100,2,"") %>%</td>
+	                <% if(data.FeedbackBeginDate == "总计"){%>
+	                	<td></td>
+	                <%}else{%>
+	                	<td><a href="<%= data.FilePath %>" target="_blank">下载数据</a> <a class="delete" data-id="<%= data.FeedbackID %>" data-url="<%= data.FilePath %>">删除</a></td>
+	                <%}%>                   
+	            </tr>  
+				<%}) %>
+			<%} %>
+			</tbody>
+			</table>
+			<div class="tr mt10">
+				<a href="#" data-id="<%= item.ADDetailID %>" class="but_keep2 upload_btn" style="width: 100px;">上传数据</a>
+			</div>
+		</div>
+		<% }) %>
+
+		<%} %>
+    </script>
+    <!--视频反馈数据模板-->
+    <script type="text/template" id="FeedBackDataTemplate-shipin">
+        <div class="order_name" style='color: #0A0A0A;border-bottom: 0'>
+            <span id="creatUser" creat-id="<%= data.MessageTit.CreateUserID %>">订单名称：<%= data.MessageTit.OrderName %></span>
+        </div>
+
+        <% if(data.MessageDetail.length < 1){%>
+			<div style="text-align: center;"><img src="../images/no_data.png"></div>
+		<%}else{%>
+
+        <% data.MessageDetail.forEach(function(item){ %>
+        <div class="mb15"><img src="../images/line_01.png"> <%= item.Describe %></div>
+        <div class="table">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                <tr>
+                    <th width="25%">数据日期</th>
+                    <th width="25%">曝光数</th>
+                    <th width="25%">观看数</th>
+                    <th width="25%">操作</th>
+                </tr>
+            	<%if(item.DataList.length<= 1){%>
+            		<tr>
+						<td colspan="4"><img src="../images/no_data.png"></td>
+					</tr>
+            	<%}else{%>
+            		<% item.DataList.forEach(function(data){%>
+	                <tr>
+	                    <% if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+							<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackEndDate %></span></td>
+						<%}else{%>
+							<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackBeginDate%></span>至<span class="endDate"><%= data.FeedbackEndDate%></span></td>
+						<%}%> 
+	                    <td><%= data.TransmitCount%></td>
+	                    <td><%= data.ReadCount%></td>
+	                    <% if(data.FeedbackBeginDate == "总计"){%>
+	                    <td></td>
+	                    <% }else{ %>
+	                    <td><a href="<%= data.FilePath %>" target="_blank">下载数据</a> <a class="delete" data-id="<%= data.FeedbackID %>" data-url="<%= data.FilePath %>">删除</a></td>
+	                    <% } %>
+	                </tr>
+	                <% }) %>
+            	<%} %>                
+            </table>
+            <div class="tr mt10"><a href="#" data-id="<%= item.ADDetailID %>" class="but_keep2 upload_btn" style="width: 100px;">上传数据</a></div>
+        </div>
+        <% }) %>
+
+        <%} %>
+    </script>
+    <!--微博反馈数据模板-->
+    <script type="text/template" id="FeedBackDataTemplate-weibo">
+        <div class="order_name" style='color: #0A0A0A;border-bottom: 0'>
+	        <span id="creatUser" creat-id="<%= data.MessageTit.CreateUserID %>">订单名称：<%= data.MessageTit.OrderName %></span>
+	    </div>
+		<% if(data.MessageDetail.length < 1){%>
+			<div style="text-align: center;"><img src="../images/no_data.png"></div>
+		<%}else{%>
+
+	    <% data.MessageDetail.forEach(function(item){ %>
+	    <div class="mb15"><img src="../images/line_01.png"> <%= item.Describe %></div>
+	    <div class="table">
+	        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+	            <tr>
+	                <th width="17%" rowspan="2">数据日期</th>
+	                <th colspan="5">微博原文数据</th>
+	                <th colspan="4">外链页面(Landing Page)数据</th>
+	                <th>操作</th>
+	            </tr>
+	            <tr>
+	                <th width="7%">阅读数</th>
+	                <th width="7%">点赞数</th>
+	                <th width="7%">评论数</th>
+	                <th width="6%">转发数</th>
+	                <th width="8%">链接点击数</th>
+	                <th width="15%">原文阅读点击数</th>
+	                <th width="8%">PV数</th>
+	                <th width="8%">UV数</th>
+	                <th width="8%">订单数</th>
+	                <th width="10%">&nbsp;</th>
+	            </tr>
+
+	            <% if(item.DataList.length<=1){%>
+	            	<tr>
+						<td colspan="11"><img src="../images/no_data.png"></td>
+					</tr>
+	            <%}else{%>
+	            	<% item.DataList.forEach(function(data){%>
+		            <tr>
+		                <% if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+							<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackEndDate %></span></td>
+						<%}else{%>
+							<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackBeginDate%></span>至<span class="endDate"><%= data.FeedbackEndDate%></span></td>
+						<%}%> 
+		                <td><%= data.ReadCount%></td>
+		                <td><%= data.ClickCount%></td>
+		                <td><%= data.CommentCount%></td>
+		                <td><%= data.TransmitCount%></td>
+		                <td><%= data.LinkCount%></td>
+		                <td><%= data.LinkCount%></td>
+		                <td><%= data.PVCount%></td>
+		                <td><%= data.UVCount%></td>
+		                <td><%= data.OrderCount%></td>
+		                <% if(data.FeedbackBeginDate == "总计"){%>
+		                <td></td>
+		                <% }else{ %>
+		                <td><a href="<%= data.FilePath %>" target="_blank">下载数据</a> <a class="delete" data-id="<%= data.FeedbackID %>" data-url="<%= data.FilePath %>">删除</a></td>
+		                <% } %>
+		            </tr>
+		            <% }) %>
+	            <%}%>
+	        </table>
+	        <div class="tr mt10"><a href="#" data-id="<%= item.ADDetailID %>" class="but_keep2 upload_btn" style="width: 100px;">上传数据</a></div>
+	    </div>
+	    <% }) %>
+
+	    <%} %>
+    </script>
+    <!--微信公众号反馈数据模板-->
+    <script type="text/template" id="FeedBackDataTemplate-weixin">
+        <div class="order_name" style='color: #0A0A0A;border-bottom: 0'>
+	        <span id="creatUser" creat-id="<%= data.MessageTit.CreateUserID %>">订单名称：<%= data.MessageTit.OrderName %></span>
+	    </div>
+
+	    <% if(data.MessageDetail.length < 1){%>
+			<div style="text-align: center;"><img src="../images/no_data.png"></div>
+		<%}else{%>
+
+	    <% data.MessageDetail.forEach(function(item){ %>
+	    <div class="mb15"><img src="../images/line_01.png"> <%= item.Describe %></div>
+	        <div class="table">
+	            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+	                <tr>
+	                    <th width="17%" rowspan="2">数据日期</th>
+	                    <th colspan="4">微信文章数据</th>
+	                    <th colspan="4">原文阅读页(Landing Page)数据</th>
+	                    <th>&nbsp;</th>
+	                </tr>
+	                <tr>
+	                    <th width="8%">阅读数</th>
+	                    <th width="8%">点赞数</th>
+	                    <th width="8%">送达数</th>
+	                    <th width="10%">转发数</th>
+	                    <th width="15%">原文阅读点击数</th>
+	                    <th width="8%">PV数</th>
+	                    <th width="8%">UV数</th>
+	                    <th width="8%">订单数</th>
+	                    <th width="10%">&nbsp;</th>
+	                </tr>
+
+	                <%if(item.DataList.length<=1){%>
+	                	<tr>
+							<td colspan="10"><img src="../images/no_data.png"></td>
+						</tr>
+	                <%}else{%>
+	                	<% item.DataList.forEach(function(data){%>
+		                <tr>
+		                    <% if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+								<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackEndDate %></span></td>
+							<%}else{%>
+								<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackBeginDate%></span>至<span class="endDate"><%= data.FeedbackEndDate%></span></td>
+							<%}%> 
+		                    <td><%= data.ReadCount%></td>
+		                    <td><%= data.ClickCount%></td>
+		                    <td><%= data.DeliveredCount%></td>
+		                    <td><%= data.TransmitCount%></td>
+		                    <td><%= data.LinkCount%></td>
+		                    <td><%= data.PVCount%></td>
+		                    <td><%= data.UVCount%></td>
+		                    <td><%= data.OrderCount%></td>
+		                    <% if(data.FeedbackBeginDate == "总计"){%>
+		                    <td></td>
+		                    <% }else{ %>
+		                    <td><a href="<%= data.FilePath %>"  target="_blank">下载数据</a> <a class="delete" data-id="<%= data.FeedbackID %>" data-url="<%= data.FilePath %>">删除</a></td>
+		                    <% } %>
+		                </tr>
+		                <% })%>
+	                <%}%>
+	            </table>
+	            <div class="tr mt10"><a href="#" data-id="<%= item.ADDetailID %>" class="but_keep2 upload_btn" style="width: 100px;">上传数据</a></div>
+	        </div>
+	        <% }) %>
+
+	    <%} %>
+    </script>
+    <!--直播反馈数据模板-->
+    <script type="text/template" id="FeedBackDataTemplate-zhibo">
+       	<div class="order_name" style='color: #0A0A0A;border-bottom: 0'>
+            <span id="creatUser" creat-id="<%= data.MessageTit.CreateUserID %>">订单名称：<%= data.MessageTit.OrderName %></span>
+        </div>
+
+        <% if(data.MessageDetail.length < 1){%>
+			<div style="text-align: center;"><img src="../images/no_data.png"></div>
+		<%}else{%>
+
+        <% data.MessageDetail.forEach(function(item){ %>
+        <div class="mb15"><img src="../images/line_01.png"> <%= item.Describe %></div>
+        <div class="table">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                <tr>
+                    <th width="20%">数据日期</th>
+                    <th width="14%">总观看人数</th>
+                    <th width="20%">峰值(最高同时在线人数)</th>
+                    <th width="17%">虚拟礼物价值</th>
+                    <th width="20%">提及数(eg.厂商品牌提及数)</th>
+                    <th width="10%">操作</th>
+                </tr>
+
+                <%if(item.DataList.length<=1){%>
+                	<tr>
+						<td colspan="6"><img src="../images/no_data.png"></td>
+					</tr>
+                <%}else{%>
+                	<% item.DataList.forEach(function(data){%>
+	                <tr>
+	                    <% if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+							<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackEndDate %></span></td>
+						<%}else{%>
+							<td time="<%= data.FeedbackBeginDate %>"><span class="beginDate"><%= data.FeedbackBeginDate%></span>至<span class="endDate"><%= data.FeedbackEndDate%></span></td>
+						<%}%> 
+	                    <td><%= data.ReadCount%></td>
+	                    <td><%= data.TransmitCount%></td>
+	                    <td><%= data.Value%></td>
+	                    <td><%= data.ClickCount%></td>
+	                    <% if(data.FeedbackBeginDate == "总计"){%>
+	                    <td></td>
+	                    <% }else{ %>
+	                    <td><a href="<%= data.FilePath %>" target="_blank">下载数据</a> <a class="delete" data-id="<%= data.FeedbackID %>" data-url="<%= data.FilePath %>">删除</a></td>
+	                    <% } %>
+	                </tr>
+	                <% }) %>	
+                <%}%>
+            </table>
+            <div class="tr mt10"><a href="#" data-id="<%= item.ADDetailID %>" class="but_keep2 upload_btn" style="width: 100px;">上传数据</a></div>
+        </div>
+        <% }) %>
+
+        <%} %>
+    </script>
+
+</div>
+
+</div>
+
+<!--#include file="/base/footer.html" -->
+
+
+</body>
+</html>

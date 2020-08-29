@@ -1,0 +1,115 @@
+<style type="text/css">
+    .layer{
+        width: 400px;
+        color: #323232;
+    }
+    .layer .title{
+         height: 48px;
+         line-height: 48px;
+         background: #f9f9f9;
+         border-bottom: dashed #eee 2px;   
+         border-radius: 6px;
+    }
+    .layer .title .close {
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+    }
+    .layer_con2{
+        padding: 20px 0;
+    }
+    ul {
+        height: 40px;
+        line-height: 40px;
+        
+    }
+    ul .left{
+        float: left;
+        width: 100px;
+        text-align: right;
+        clear: both;
+        margin-right: 10px;
+    }
+    ul li {
+        position: relative;
+        float: left;
+        margin-right: 15px;
+        line-height: 35px;
+    }
+</style>
+<div class="layer">
+    <div class="title">
+        提现
+        <div class="fr">
+            <a href="javascript:void(0)" id="closebt" class="close">
+                <img src="/images/close_x.jpg" width="16" height="16">
+            </a>
+        </div>
+    </div>
+    <div class="layer_con2">
+        <ul>
+            <li class="left">提现账号：</li>
+            <li id="AccountName"></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="left">提现金额：</li>
+            <li>
+                <input type="text" name="" value="" id="cashAccount" placeholder="" style="width: 200px;">&nbsp;&nbsp;元
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="hide moneyInfo">
+            <li class="left">&nbsp;</li>
+            <li class="red"></li>
+            <div class="clear"></div>
+        </ul>
+        <ul  class="forPerson hide">
+            <li class="left">&nbsp;</li>
+            <li class="red">
+                系统将会为您代缴个税：<span id="TaxPeice"></span>元<br/>实收金额：<span id="PracticalPrice"></span>元
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="forForm hide">
+            <li class="left">&nbsp;</li>
+            <li class="red">
+                请将发票快递至赤兔联盟，地址详见<a href="/static/media/operation_rule.html" target="_blank">收益规则</a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="tipInfo hide">
+            <li class="left">&nbsp;</li>
+            <li class="red"></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="left">手机号：</li>
+            <li id="mobile_number"></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="left">验证码：</li>
+            <li>
+                <input type="text" name="" placeholder="请输入验证码" id="codeForVertify" style="width: 120px;">
+            </li>
+            <li>
+                <img id="vertifyCode" src="/CheckCode.aspx"  style="width: 60px;height: 28px;">
+            </li>
+        </ul>
+        <ul>
+            <li class="left">手机验证码：</li>
+            <li>
+                <input type="text" name="" id="codeText" style="width: 120px;">
+                <a class="but_index" id="getCode" href="javascript:void(0)" style="margin-left: 10px;">获取验证码</a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <div class="tipInfo_final" style="margin: 14px 0 0 150px;"></div>
+        <ul style="margin-left: 150px;">
+            <a href="javascript:void(0)" class="but_index" id="sure_submmit" style="height: 30px;line-height: 30px;">提现</a>
+        </ul>
+    </div>
+</div>

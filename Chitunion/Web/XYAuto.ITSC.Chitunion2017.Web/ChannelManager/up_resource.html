@@ -1,0 +1,698 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/up_resource.js"></script>
+</head>
+<style>
+    #tab .tab_menu li{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background: #FFF;
+    color:#000;
+    border:1px solid #ccc;
+    border-bottom:none;
+    border-right:none;
+    margin:0;
+    }
+    #tab .tab_menu li:last-of-type{
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        background: #FFF;
+        color:#000;
+        border:1px solid #ccc;
+        border-bottom:none;
+        margin:0;
+    }
+    #tab .tab_menu li:first-child{
+    border-right: 0;
+    }
+    #tab .tab_menu{
+    margin-bottom: 0;
+    }
+    #tab .tab_menu .selected {
+    background-color: #FF4F4F;
+    cursor: pointer;
+    color: #fff;
+    margin:0;
+    font-size: 14px;
+    }
+    .but_query{
+    border-radius: 0;
+    }
+    #down_template a:hover{
+        color:blue;
+    }
+</style>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r" id="rendering1">
+        <div class="install">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+                <div class="clear"></div>
+            </div>
+            <div class="install_box" id="box_one">
+                <ul>
+                    <li class="ins_a">渠道：</li>
+                    <li id="ChannelName">效应网络</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">合作周期：</li>
+                    <li id="CooperateDate">2017-01-01 至 2017-12-31</li>
+
+                    <!-- <li style="float: right;margin-right: 80px">广告状态：<%= Result.Wx_Status %></li> -->
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <!-- <li class="ins_a">&nbsp;</li> -->
+                    <li class="ins_a">上传资源：</li>
+
+                    <li>
+                        <a href="javascript:void(0)" class="button_add" style="width:100px" class="new_upload" >
+                        上传
+                        <span id="input1"></span>
+                        </a>
+                        <span></span>
+                        <a id="success" style="display:none" target="_blank"><img src="../ImagesNew/icon19.png"></a>
+                    </li>
+                    <li  style="clear:both;color:red;font-size:12px;margin-left:150px" id="down_template"> <a target="_blank" href="http://www.chitunion.com/UploadFiles/上传模板.xlsx" style="hover">下载模板</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <!-- <ul>
+
+                    <li class="ins_a">
+                        <span><a href="javascript:void(0)" class="button" style="width:120px;">确定</a></span></li>
+                    <li>
+                        <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left:15px;" id="continue_add">取消</a></span>
+                    </li>
+                    <div class="clear"></div>
+                </ul> -->
+                <div class="keep_add">
+                   <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left: 70px;" id="determine">确定</a></span>
+                    <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left:40px;" id="cancel">取消</a></span>
+
+                </div>
+                <!-- excel表格中如果有错误信息则提示 -->
+                <div class="specification" style="white-space:pre-line;margin-left:70px;display:none" id="material">
+                    <p>Excel中有如下问题:</p>
+                    <p id="question" style="max-height:430px;overflow:auto">
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                        具体以媒体要求为准
+                    </p>
+
+                </div>
+                <div class="specification" style="white-space:pre-line;margin-left:70px;display:none" id="material_two">
+
+                </div>
+            </div>
+
+
+            <!-- 上传成功之后的内容 -->
+            <div class="install_box" id="box_two" style="display:none">
+                <div id="tab">
+                <ul>
+                    <li style="margin-left:50px"><img src="/ImagesNew/up_success.png"></li>
+                    <li>共上传成功<span>100</span>个媒体，详情如下：</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li style="margin-left:50px">渠道：</li>
+                    <li id="ChannelName_two">小樱网络</li>
+                    <li style="float: right;margin-right: 10px" id="CooperateDate">合作周期：2017-1-1 至 2017-1-1</li>
+                    <!-- <li style="float: right;margin-right: 80px">广告状态：<%= Result.Wx_Status %></li> -->
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li style="border-top:dotted #DFDFDF 1px;width:100%"></li>
+                    <li style="margin-top:20px"></li>
+                </ul>
+                <ul class="tab_menu" style="margin-left: 50px">
+                    <li class="selected" >更新媒体</li>
+                    <li>新增媒体</li>
+                    <li>无变化媒体</li>
+                    <li>更新价格</li>
+                    <li>新增价格</li>
+                    <li>无变化价格</li>
+                </ul>
+                <ul style="margin-left: 50px">
+                    <!-- 更新媒体 -->
+                    <li style="display:none">
+                      <div class="table">
+                          <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                              <tr>
+                                  <th width="15%">微信账号</th>
+                                  <th width="15%">微信名称</th>
+                                  <th width="15%">粉丝数</th>
+                                  <th width="15%">分类</th>
+                                  <th width="15%">地域</th>
+                                  <th width="15%">媒体级别</th>
+                                  <th width="20%">下单备注</th>
+                                  <!-- <th width="20%">销售价（元\次）</th> -->
+                              </tr>
+
+                              <tr>
+                                  <td rowspan="2">多图文第一条</td>
+                                  <td>
+                                      遇见
+                                  </td>
+                                  <td>5,000</td>
+                                  <td>生活</td>
+                                  <td>北京</td>
+                                  <td>普通</td>
+                                  <td>长歌行促销</td>
+                              </tr>
+                              <tr>
+
+                                  <td>
+                                      遇见
+                                  </td>
+                                  <td>5,000</td>
+                                  <td>生活</td>
+                                  <td>北京</td>
+                                  <td>普通</td>
+                                  <td>长歌行促销</td>
+                              </tr>
+
+                          </table>
+                      </div>
+                  </li>
+                    <!-- 新增媒体 -->
+                  <li>
+                    <div class="table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                            <tr>
+                                <th width="15%">微信账号</th>
+                                <th width="15%">微信名称</th>
+                                <th width="15%">广告类型</th>
+                                <th width="15%">成本价</th>
+                                <th width="15%">销售价</th>
+                                <!-- <th width="20%">销售价（元\次）</th> -->
+                            </tr>
+
+                            <tr>
+                                <td rowspan="2">多图文第一条</td>
+                                <td>
+                                    遇见
+                                </td>
+                                <td>5,000</td>
+                                <td>生活</td>
+                                <td>北京</td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+                </li>
+                </ul>
+                <ul>
+                    <li style="float:right;margin-right:10px;color:grey"><img src="/ImagesNew/tishi.png"> 说明：以上价格均为含税价格</li>
+                    <div class="clear"></div>
+                </ul>
+
+                <div class="keep_add">
+                    <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left: 400px;" >确定</a></span>
+                    <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left:70px;">取消</a></span>
+
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 页面大模板信息 -->
+<script type="text/template" id="up_success">
+    <ul>
+        <li style="margin-left:50px"><img src="/ImagesNew/up_success.png"></li>
+        <li>共上传成功<span><%=data.TotalCount%></span>个媒体，详情如下：</li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li style="margin-left:50px">渠道：</li>
+        <li id="ChannelName_two">小樱网络</li>
+        <li style="float: right;margin-right: 10px" id="CooperateDate">合作周期：<span>2017-1-1 至 2017-1-1</span></li>
+
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li style="border-top:dotted #DFDFDF 1px;width:100%"></li>
+        <li style="margin-top:20px"></li>
+    </ul>
+    <ul class="tab_menu" style="margin-left: 50px">
+        <li class="selected" tmp = "UpdateMedias">更新媒体 <span><%=data.UpdateMedias.Total%></span></li>
+        <li tmp = "NewMedias">新增媒体 <span><%=data.NewMedias.Total%></span></li>
+        <li tmp = "OldMedias">无变化媒体 <span><%=data.OldMedias.Total%></span></li>
+        <li tmp = "UpdatePrice">更新价格 <span><%=data.UpdatePrice.Total%></span></li>
+        <li tmp = "NewPrice">新增价格 <span><%=data.NewPrice.Total%></span></li>
+        <li tmp = "OldPrice">无变化价格 <span><%=data.OldPrice.Total%></span></li>
+    </ul>
+    <ul style="margin-left: 50px">
+        <li id="table">
+
+        </li>
+
+    </li>
+    </ul>
+    <ul>
+        <li style="float:right;margin-right:10px;color:grey"><img src="/ImagesNew/tishi.png"> 说明：以上价格均为含税价格</li>
+        <div class="clear"></div>
+    </ul>
+
+    <div class="keep_add">
+        <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left: 500px;" id="preview">预览</a></span>
+        <!-- <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left:70px;" id="cancel">取消</a></span> -->
+
+    </div>
+</script>
+<!-- 更新媒体的 -->
+<script type="text/template" id="UpdateMedias">
+    <div class="table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="15%">微信账号</th>
+                <th width="15%">微信名称</th>
+                <th width="15%">粉丝数</th>
+                <th width="15%">分类</th>
+                <th width="15%">地域</th>
+                <th width="15%">媒体级别</th>
+                <th width="20%">下单备注</th>
+                <!-- <th width="20%">销售价（元\次）</th> -->
+            </tr>
+            <%for(var i=0;i<data.UpdateMedias.List.length;i++){%>
+                <tr>
+                    <td rowspan="2">
+                        <%if(data.UpdateMedias.List[i].WxNumber){%>
+                            <%=data.UpdateMedias.List[i].WxNumber%>
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(data.UpdateMedias.List[i].OldWxName){%>
+                            <%=data.UpdateMedias.List[i].OldWxName%>
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(data.UpdateMedias.List[i].OldFansCount){%>
+                            <%=data.UpdateMedias.List[i].OldFansCount%>
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(data.UpdateMedias.List[i].OldCategoryName){%>
+                            <%=data.UpdateMedias.List[i].OldCategoryName%>
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(data.UpdateMedias.List[i].OldAreaName){%>
+                            <%=data.UpdateMedias.List[i].OldAreaName%>
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(data.UpdateMedias.List[i].OldLevelTypeName){%>
+                            <%=data.UpdateMedias.List[i].OldLevelTypeName%>
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(data.UpdateMedias.List[i].OldOrderRemarkName){%>
+                            <%=data.UpdateMedias.List[i].OldOrderRemarkName%>
+                        <%}%>
+                    </td>
+                </tr>
+                <tr>
+                    <%if(data.UpdateMedias.List[i].OldWxName != data.UpdateMedias.List[i].WxName){%>
+                        <td style="color:red">
+                            <%=data.UpdateMedias.List[i].WxName%>
+                        </td>
+                    <%}else{%>
+                        <td>
+                            <%=data.UpdateMedias.List[i].WxName%>
+                        </td>
+                    <%}%>
+                    <%if(data.UpdateMedias.List[i].OldFansCount != data.UpdateMedias.List[i].FansCount){%>
+                        <td style="color:red"><%=data.UpdateMedias.List[i].FansCount%></td>
+                    <%}else{%>
+                        <td><%=data.UpdateMedias.List[i].FansCount%></td>
+                    <%}%>
+                    <%if(data.UpdateMedias.List[i].OldCategoryName != data.UpdateMedias.List[i].CategoryName){%>
+                        <td style="color:red"><%=data.UpdateMedias.List[i].CategoryName%></td>
+                    <%}else{%>
+                        <td><%=data.UpdateMedias.List[i].CategoryName%></td>
+                    <%}%>
+                    <%if(data.UpdateMedias.List[i].OldAreaName != data.UpdateMedias.List[i].AreaName){%>
+                        <td style="color:red"><%=data.UpdateMedias.List[i].AreaName%></td>
+                    <%}else{%>
+                        <td><%=data.UpdateMedias.List[i].AreaName%></td>
+                    <%}%>
+                    <%if(data.UpdateMedias.List[i].OldLevelTypeName != data.UpdateMedias.List[i].LevelTypeName && data.UpdateMedias.List[i].LevelTypeName != null){%>
+                        <td  style="color:red"><%=data.UpdateMedias.List[i].LevelTypeName%></td>
+                    <%}else if (data.UpdateMedias.List[i].OldLevelTypeName == data.UpdateMedias.List[i].LevelTypeName && data.UpdateMedias.List[i].LevelTypeName != null){%>
+                        <td><%=data.UpdateMedias.List[i].LevelTypeName%></td>
+                    <%}else{%>
+                        <td></td>
+                    <%}%>
+                    <%if(data.UpdateMedias.List[i].OldOrderRemarkName != data.UpdateMedias.List[i].OrderRemarkName){%>
+                        <td  style="color:red"><%=data.UpdateMedias.List[i].OrderRemarkName%></td>
+                    <%}else{%>
+                        <td><%=data.UpdateMedias.List[i].OrderRemarkName%></td>
+                    <%}%>
+                </tr>
+            <%}%>
+        </table>
+    </div>
+</script>
+<!-- 新增媒体的 -->
+<script type="text/template" id="NewMedias">
+    <div class="table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="15%">微信账号</th>
+                <th width="15%">微信名称</th>
+                <th width="15%">粉丝数</th>
+                <th width="15%">分类</th>
+                <th width="15%">地域</th>
+                <th width="15%">媒体级别</th>
+                <th width="20%">下单备注</th>
+                <!-- <th width="20%">销售价（元\次）</th> -->
+            </tr>
+            <%for(var i=0;i<data.NewMedias.List.length;i++){%>
+                <tr>
+                    <td>
+                        <%if(data.NewMedias.List[i].WxNumber){%>
+                            <%=data.NewMedias.List[i].WxNumber%>
+                        <%}%>
+                    </td>
+                    <td>
+                    <%if(data.NewMedias.List[i].WxName){%>
+                        <%=data.NewMedias.List[i].WxName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.NewMedias.List[i].FansCount){%>
+                        <%=data.NewMedias.List[i].FansCount%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.NewMedias.List[i].CategoryName){%>
+                        <%=data.NewMedias.List[i].CategoryName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.NewMedias.List[i].AreaName){%>
+                        <%=data.NewMedias.List[i].AreaName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.NewMedias.List[i].LevelTypeName != null){%>
+                        <%=data.NewMedias.List[i].LevelTypeName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.NewMedias.List[i].OrderRemarkName){%>
+                        <%=data.NewMedias.List[i].OrderRemarkName%>
+                    <%}%>
+                    </td>
+                </tr>
+
+            <%}%>
+        </table>
+    </div>
+</script>
+<!-- 无变化媒体的 -->
+<script type="text/template" id="OldMedias">
+    <div class="table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="15%">微信账号</th>
+                <th width="15%">微信名称</th>
+                <th width="15%">粉丝数</th>
+                <th width="15%">分类</th>
+                <th width="15%">地域</th>
+                <th width="15%">媒体级别</th>
+                <th width="20%">下单备注</th>
+
+            </tr>
+            <%for(var i=0;i<data.OldMedias.List.length;i++){%>
+                <tr>
+                    <td>
+                    <%if(data.OldMedias.List[i].WxNumber){%>
+                        <%=data.OldMedias.List[i].WxNumber%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.OldMedias.List[i].WxName){%>
+                        <%=data.OldMedias.List[i].WxName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.OldMedias.List[i].FansCount){%>
+                        <%=data.OldMedias.List[i].FansCount%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.OldMedias.List[i].CategoryName){%>
+                        <%=data.OldMedias.List[i].CategoryName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.OldMedias.List[i].AreaName){%>
+                        <%=data.OldMedias.List[i].AreaName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.OldMedias.List[i].LevelTypeName){%>
+                        <%=data.OldMedias.List[i].LevelTypeName%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.OldMedias.List[i].OrderRemarkName){%>
+                        <%=data.OldMedias.List[i].OrderRemarkName%>
+                    <%}%>
+                    </td>
+                </tr>
+
+            <%}%>
+        </table>
+    </div>
+</script>
+<!-- 更新价格 -->
+<script type="text/template" id="UpdatePrice">
+    <div class="table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="15%">微信账号</th>
+                <th width="15%">微信名称</th>
+                <th width="15%">广告类型</th>
+                <th width="15%">新成本价</th>
+                <th width="15%">原成本价</th>
+                <th width="15%">新销售价</th>
+                <th width="20%">原销售价</th>
+                <!-- <th width="20%">销售价（元\次）</th> -->
+            </tr>
+            <%for(var i=0;i<data.UpdatePrice.List.length;i++){%>
+                <tr>
+                    <td>
+                    <%if(data.UpdatePrice.List[i].WxNumber){%>
+                        <%=data.UpdatePrice.List[i].WxNumber%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.UpdatePrice.List[i].WxName){%>
+
+                            <%=data.UpdatePrice.List[i].WxName%>
+
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.UpdatePrice.List[i].ADPosition){%>
+                        <%=data.UpdatePrice.List[i].ADPosition%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.UpdatePrice.List[i].CostPrice){%>
+                        <%=data.UpdatePrice.List[i].CostPrice%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.UpdatePrice.List[i].OldCostPrice){%>
+                        <%=data.UpdatePrice.List[i].OldCostPrice%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.UpdatePrice.List[i].SalePrice){%>
+                        <%=data.UpdatePrice.List[i].SalePrice%>
+                    <%}%>
+                    </td>
+                    <td>
+                    <%if(data.UpdatePrice.List[i].OldSalePrice){%>
+                        <%=data.UpdatePrice.List[i].OldSalePrice%>
+                    <%}%>
+                    </td>
+                </tr>
+
+            <%}%>
+        </table>
+    </div>
+</script>
+
+<!-- 新增价格 -->
+<script type="text/template" id="NewPrice">
+    <div class="table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="15%">微信账号</th>
+                <th width="15%">微信名称</th>
+                <th width="15%">广告类型</th>
+                <th width="15%">成本价</th>
+                <th width="15%">销售价</th>
+                <!-- <th width="20%">销售价（元\次）</th> -->
+            </tr>
+        <%for(var i=0;i<data.NewPrice.List.length;i++){%>
+            <tr>
+                <td>
+                <%if(data.NewPrice.List[i].WxNumber){%>
+                    <%=data.NewPrice.List[i].WxNumber%>
+                <%}%>
+                </td>
+                <td>
+                <%if(data.NewPrice.List[i].WxName){%>
+
+                        <%=data.NewPrice.List[i].WxName%>
+
+                <%}%>
+                </td>
+                <td>
+                <%if(data.NewPrice.List[i].ADPosition){%>
+                    <%=data.NewPrice.List[i].ADPosition%>
+                <%}%>
+                </td>
+                <td>
+                <%if(data.NewPrice.List[i].CostPrice){%>
+                    <%=data.NewPrice.List[i].CostPrice%>
+                <%}%>
+                </td>
+                <td>
+                <%if(data.NewPrice.List[i].SalePrice){%>
+                    <%=data.NewPrice.List[i].SalePrice%>
+                <%}%>
+                </td>
+            </tr>
+        <%}%>
+
+        </table>
+    </div>
+</script>
+
+<!-- 无变化价格 -->
+<script type="text/template" id="OldPrice">
+    <div class="table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="15%">微信账号</th>
+                <th width="15%">微信名称</th>
+                <th width="15%">广告类型</th>
+                <th width="15%">成本价</th>
+                <th width="15%">销售价</th>
+                <!-- <th width="20%">销售价（元\次）</th> -->
+            </tr>
+        <%for(var i=0;i<data.OldPrice.List.length;i++){%>
+            <tr>
+                <td>
+                <%if(data.OldPrice.List[i].WxNumber){%>
+                    <%=data.OldPrice.List[i].WxNumber%>
+                <%}%>
+                </td>
+                <td>
+                <%if(data.OldPrice.List[i].WxName){%>
+
+                        <%=data.OldPrice.List[i].WxName%>
+
+                <%}%>
+                </td>
+                <td>
+                <%if(data.OldPrice.List[i].ADPosition){%>
+                    <%=data.OldPrice.List[i].ADPosition%>
+                <%}%>
+                </td>
+                <td>
+                <%if(data.OldPrice.List[i].CostPrice){%>
+                    <%=data.OldPrice.List[i].CostPrice%>
+                <%}%>
+                </td>
+                <td>
+                <%if(data.OldPrice.List[i].SalePrice){%>
+                    <%=data.OldPrice.List[i].SalePrice%>
+                <%}%>
+                </td>
+            </tr>
+        <%}%>
+        </table>
+    </div>
+</script>
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

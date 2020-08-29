@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src='js/PubDetail.js'></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+    <style>
+        .install_box ul{
+            padding-left: 24px;
+            margin-bottom: 10px;
+        }
+        .to_b_list table td,th{
+            border : 1px solid #E4E4E4;
+            font-size: 12px;
+            line-height: 40px;
+        }
+        .react_reason{
+            background: #f5f5f5;
+            padding: 15px 0;
+            margin:0 24px;
+            border:solid  #E9E9E9 1px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .react_reason span{
+            display: inline-block;
+            padding-left: 8px;
+        }
+        .react_reason p{
+            float: right;
+            width: 92%;
+        }
+        .channel_box .layer_con table td{
+            border : 1px solid #E4E4E4;
+            font-size: 12px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class=''>查看需求</h2>
+            <div class="install_box"></div>            
+        </div>
+    </div>
+
+    <script type="text/template" id="detail-demand">
+
+        <div class="react_reason">
+            <span>驳回原因：</span>
+            <p><%= Demand.RejectReason %></p>
+        </div>
+        <ul>                
+            <li>需求名称：<%= Demand.Name %></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>状态：<%= Demand.AuditStatusName %></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>需求订单号：<%= Demand.DemandBillNo %></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>品牌/车型：<%= Demand.BrandAndCarSerialList %></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>省份/城市：<%= Demand.ProvinceAndCityList %></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>经销商列表：<%= Demand.DistributorList %> </li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>促销政策：
+            <% if(Demand.PromotionPolicy != null){%>
+                <%= Demand.PromotionPolicy %>
+            <%}else{%>
+                ---
+            <%} %>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>投放预算：<span style="color:red;"><%= formatMoney(Demand.TotalBudget/100,2) %>元</span></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>时间周期：<span style="color:red;"><%= Demand.DuringDate %></span></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>线索数量：<span style="color:red;"><%= Demand.ClueNumberStr %></span></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>                
+            <li>创建人：<%= Demand.CreateUserName %></li>
+            <div class="clear"></div>
+        </ul>
+                
+        <div class="to_b_list">
+            <ul style="padding: 0">
+                <h3 style="margin-bottom: 14px;">关联广告 <span style="font-size: 12px;color:grey;"> <% if(Demand.ADLastUpdateTime != '1900-01-01 00:00:00'){%>（数据最后更新时间：<%= Demand.ADLastUpdateTime %>） <%} %> </span>
+                <% if(Demand.AuditStatusName != '待投放'){%>
+                <li style="float: right;"><a href="javascript:;" class="but_query see_all_btn" style="width:98px;height: 26px;line-height: 26px;">查看整体数据</a></li>
+                <%} %>
+                <% if(Demand.AuditStatusName == '待投放' || Demand.AuditStatusName == '投放中'){%>
+                <li style="float: right;"><a href="javascript:;" class="but_query relevance_btn" style="width:70px;height: 26px;line-height: 26px;">关联广告</a></li>
+                <li style="float: right;"><a href="javascript:;" class="but_query add_po_btn" style="width:70px;height: 26px;line-height: 26px;">创建广告</a></li>
+                <%} %>
+                </h3>
+            </ul>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" style='border-collapse:collapse;'>
+                <tbody>
+                    <tr>
+                        <th width="8%" style="background:#f5f5f5">广告ID</th>
+                        <th width="11%" style='background:#f5f5f5'>广告名称</th>
+                        <th width="8%" style='background:#f5f5f5'>广告状态</th>
+                        <th width="10%" style='background:#f5f5f5'>点击量(次)</th>
+                        <th width="10%" style='background:#f5f5f5'>曝光量(次)</th>
+                        <th width="10%" style='background:#f5f5f5'>平均点击量</th>
+                        <th width="10%" style='background:#f5f5f5'>花费(元)</th>
+                        <th width="9%" style='background:#f5f5f5'>订单量</th>
+                        <th width="9%" style='background:#f5f5f5'>话单量</th>
+                        <th width="16%" style='background:#f5f5f5'>操作</th>
+                    </tr>
+                    <% if(ADGroupList.length == 0){%>
+                        <tr>
+                            <td colspan="10"><img src="/images/no_data.png" style="display: block;margin: 0 auto;"></td>
+                        </tr>
+                    <%}else{%>
+                        <% ADGroupList.forEach(function(item){%>
+                        <tr AdgroupId='<%= item.AdgroupId %>'>
+                            <td><%= item.AdgroupId %></td>
+                            <td><%= item.AdgroupName %></td>
+                            <td><%= item.SystemStatusName %></td>    
+                            <td><%= item.TotalClick %></td>
+                            <td><%= item.TotalImpression %></td>
+                            <td><%= item.AvgClickPercent %></td>
+                            <td><%= item.TotalCost %></td>
+                            <td><%= item.OrderQuantity %></td>
+                            <td><%= item.BillOfQuantities %></td>
+                            <td>
+                                <a href="javascript:;" style="padding-right: 6px;" class="effect_data"> 效果数据</a>
+                                <a href="javascript:;" class="see_position"> 广点通查看</a>
+                            </td>
+                        </tr>
+                        <%}) %>
+                    <%} %>
+                </tbody>
+            </table>
+        </div>
+    </script>
+    <div class="clear"></div>
+</div>
+
+<!-- 关联广告的弹层 -->
+<div class="channel_box" style="display: none">
+    <div class="layer" style='overflow: auto;width: 500px;'>
+        <div class="title">
+            <div class="fl">选择要关联的广告</div>
+            <div class="fr"><a href="javascript:void(0)" id="closebt1"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="layer_con" style='margin: 15px'>
+            <table width="100%" cellspacing="0" cellpadding="0" style='border-collapse:collapse;'>
+            <thead>
+                <tr style='background: #F5F5F5'>
+                    <td width="15%"><input type="checkbox" id="selectAll">&nbsp全选</td>
+                    <td width="25%">广告ID</td>
+                    <td width="30%">广告名称</td>
+                    <td width="30%">所属推广计划</td>
+                </tr>
+            </thead>
+            <tbody class="ChooseChannel"></tbody>
+                                
+            </table>
+            <div class="keep">
+                <span><a href="javascript:;" class="button" style="width:150px" id='submitMessage'>确定</a></span>
+                <span><a href="javascript:;" class="button" style="width:150px"  id='cancleMessage'>取消</a></span>
+            </div>
+            <div class="mb25"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 关联广告 -->
+<script type="text/template" id="choose-channel">
+
+    
+    <% data.forEach(function(item){%>
+    <tr AdgroupId='<%= item.AdgroupId %>'>
+        <td>
+            <% if(item.IsChecked == true){%>
+                <input type="checkbox" name='PitchUp' class='onebox' checked="checked">
+            <%}else{%>
+                <input type="checkbox" name='PitchUp' class='onebox'>
+            <%} %>
+        </td>
+        <td><%= item.AdgroupId %></td>
+        <td><%= item.AdgroupName %></td>
+        <td><%= item.CampaignName %></td>
+    </tr>
+    <%})  %>
+
+</script>
+
+<!--#include file="/base/footer.html" -->
+</body>
+</html>

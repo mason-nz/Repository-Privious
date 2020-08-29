@@ -1,0 +1,175 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="js/periodicationSee.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r" id="rendering1">
+        <div class="install">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+                <div class="clear"></div>
+            </div>
+            <div class="install_box"></div>
+        </div>
+
+        <script type="text/template" id="rendering">
+            <ul>
+                <li class="ins_a">
+                    <div class="frame_n"><img src="<%=Result.HeadIconURL%>" width="80" height="80"/></div>
+                </li>
+                <li class="wechat_name">
+                    <div>微信名称：<%=Result.Name%></div>
+                    <div>微信帐号：<%=Result.Number%></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">广告名称：</li>
+                <li><%=Result.ADName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">刊例有效期：</li>
+                <li><%=Result.BeginTime.split(' ')[0]%>至<%=Result.EndTime.split(' ')[0]%></li>
+                <%if(CTLogin.RoleIDs!='SYS001RL00003'){%>
+                    <li class="ml20">采购折扣：</li>
+                    <li><%= formatMoney(Result.PurchaseDiscount*100,2,'') %> %</li>
+                    <li class="ml20">销售折扣：</li>
+                    <li><%= formatMoney(Result.SaleDiscount*100,2,'') %> %</li>
+                <%}%>
+                <li style="float: right;margin-right: 80px">广告状态：<%= Result.Wx_Status %></li>
+                <div class="clear"></div>
+            </ul>
+
+            <ul>
+                <li class="ins_a">&nbsp;</li>
+                <li class="ad_r">
+                    <div class="table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                            <tr>
+                                <th width="27%">广告位信息</th>
+                                <th width="25%">广告位宣传图</th>
+                                <th width="20%">刊例价（元\次）</th>
+                                <th width="20%">销售价（元\次）</th>
+                            </tr>
+                            <%for(var i=0;i<Result.Detail.length;i++){%>
+                            <tr>
+                                <td><%=Result.Detail[i].ADPosition1%> - <%=Result.Detail[i].ADPosition2%></td>
+                                <td style='padding-left: 20px;'>
+                                    <% if(Result.Detail[i]['ImgUrl1-sl'] != ''){%>
+                                    <div class="ad_map">
+                                        <img src="<%=Result.Detail[i]['ImgUrl1-sl']%>" width="60" height="60">
+                                        <div class="Bigpicture">
+                                        <img src="<%=Result.Detail[i]['ImgUrl1']%>" width="250" height="250">
+                                        </div>
+                                    </div>
+                                    <%} %>
+                                    <% if(Result.Detail[i]['ImgUrl2-sl'] != ''){%>
+                                    <div class="ad_map">
+                                        <img src="<%=Result.Detail[i]['ImgUrl2-sl']%>" width="60" height="60">
+                                        <div class="Bigpicture">
+                                            <img src="<%=Result.Detail[i]['ImgUrl2']%>" width="250" height="250">
+                                        </div>
+                                    </div>
+                                    <%} %>
+                                    <% if(Result.Detail[i]['ImgUrl3-sl'] != ''){%>
+                                    <div class="ad_map">
+                                        <img src="<%=Result.Detail[i]['ImgUrl3-sl']%>" width="60" height="60">
+                                        <div class="Bigpicture">
+                                            <img src="<%=Result.Detail[i]['ImgUrl3']%>" width="250" height="250">
+                                        </div>
+                                    </div>
+                                    <%} %>
+                                    <div class="clear"></div>
+                                </td>
+                                <%if(Result.Detail[i].Price!=0){%>
+                                <td><%=formatMoney(Result.Detail[i].Price,2,'¥')%></td>
+                                <%}else{%>
+                                <td></td>
+                                <%}%>
+                                <%if(Result.Detail[i].SalePrice!=0){%>
+                                <td><%=formatMoney(Result.Detail[i].SalePrice,2,'¥')%></td>
+                                <%}else{%>
+                                <td></td>
+                                <%}%>
+                            </tr>
+                            <%}%>
+                        </table>
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+
+            <%if(CTLogin.RoleIDs!='SYS001RL00003'){%>
+            <ul>
+                <li class="ins_a">刊例原稿：</li>
+                <% Result.UploadFileList.forEach(function(single){%>
+                <li><a href="<%= single.UploadFile %>" style='color: red' target='_blank'><%= single.UploadFileName %></a></li>
+                <%}) %>
+                <div class="clear"></div>
+            </ul>
+
+            <!--审核结果   审核时间  驳回原因-->
+            <% if(Result.CheckResult != ''){%>
+            <ul>
+                <li class="ins_a">&nbsp;</li>
+                <li class="administration">
+                    <div>
+                        <span>审核结果：</span>
+                        <span><%= Result.CheckResult %></span>
+                        <span class="ml30">审核人：</span>
+                        <span><%= Result.CheckUser %></span>
+                        <span class="ml30">审核时间：</span>
+                        <span><%= Result.CheckTime %></span>
+                    </div>
+                    <% if(Result.CheckResult == '驳回'){%>
+                    <div>驳回原因：<%= Result.RejectMsg %></div>
+                    <%} %>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%} %>
+
+            <%}%>
+
+
+        </script>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

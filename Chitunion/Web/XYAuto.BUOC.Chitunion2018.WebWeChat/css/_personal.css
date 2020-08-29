@@ -1,0 +1,636 @@
+@charset 'utf-8';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: Arial, Helvetica;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+input,
+button {
+  background: none;
+  outline: none;
+  border: 0px;
+}
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  zoom: 1;
+}
+.font-arial {
+  font-family: Arial, Helvetica;
+}
+.lt {
+  float: left;
+}
+.rt {
+  float: right;
+}
+.relative {
+  position: relative;
+}
+.blue {
+  color: #1b78f0;
+}
+.no_data,
+.mescroll-empty {
+  padding: 4.21333333rem 0;
+  text-align: center;
+}
+.no_data img,
+.mescroll-empty img {
+  width: 3.73333333rem;
+  height: auto;
+}
+.no_data p,
+.mescroll-empty p {
+  font-size: 0.4rem;
+  line-height: 0.64rem;
+}
+.mescroll-empty .empty-btn {
+  color: #2f72e2;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+}
+.dropload-up,
+.dropload-down {
+  position: relative;
+  height: 0;
+  /*overflow: hidden;*/
+  font-size: 12px;
+  /* 开启硬件加速 */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.dropload-down {
+  height: 50px;
+}
+.dropload-refresh,
+.dropload-update,
+.dropload-load,
+.dropload-noData {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.dropload-load .loading {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  margin: 6px;
+  border: 2px solid #666;
+  border-bottom-color: transparent;
+  vertical-align: middle;
+  -webkit-animation: rotate 0.75s linear infinite;
+  animation: rotate 0.75s linear infinite;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.wx_body {
+  width: 100%;
+  margin: 0px auto;
+  overflow: auto;
+  background-color: #fff;
+}
+.sort_container {
+  width: 100%;
+  height: 12rem;
+}
+.sort_content {
+  overflow: auto;
+  border: 1px solid #ededed;
+  border-bottom: none;
+  position: relative;
+}
+.sort_content .top {
+  padding: 0.8rem;
+  padding-bottom: 0;
+}
+.sort_content .top .tit {
+  color: #999;
+}
+.sort_content .top .skip_btn {
+  display: none;
+  position: absolute;
+  right: 0.8rem;
+  text-align: center;
+  font-size: 0.32rem;
+  cursor: pointer;
+  color: #1b7df3;
+}
+.sort_content ul {
+  padding: 0.8rem;
+  padding-top: 0.32rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sort_content ul li {
+  flex-flow: 1;
+  width: 1.73333333rem;
+  height: 0.93333333rem;
+  padding: 0.26666667rem 0;
+  line-height: 0.9;
+  background: #fff;
+  border: 1px solid #eee;
+  text-align: center;
+  font-size: 0.4rem;
+  color: #333;
+  margin: 0 0.45333333rem 0.48rem 0;
+  border-radius: 0.08rem;
+}
+.sort_content ul li:nth-child(4n) {
+  margin-right: 0;
+}
+.sort_content ul li.selected {
+  border: 1px solid transparent;
+  background: #1b7bf0;
+  color: #fff;
+}
+.sort_content ul li.hover {
+  background: #1b7bf0;
+  color: #fff;
+  box-shadow: 1px 1px 1px rgba(154, 190, 227, 0.2);
+}
+.sort_content .sort_btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  background: url('../images/btn_bg.png') repeat-x;
+  color: #fff;
+  font-size: 0.45333333rem;
+  letter-spacing: 0.13333333rem;
+  cursor: pointer;
+}
+.sort_content .grey_btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  background: url(../images/btn_bg_grey.jpg) repeat-x;
+  color: #fff;
+  font-size: 0.45333333rem;
+  letter-spacing: 0.13333333rem;
+  cursor: pointer;
+}
+.mescroll {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+.mescroll .swiper-container {
+  width: 100%;
+  height: auto;
+}
+.mescroll .task_banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+.mescroll .task_banner img {
+  width: 100%;
+}
+.mescroll .navWarp {
+  width: 100%;
+  height: 1.2rem;
+  background: #fff;
+  border-bottom: 1px solid #f3f3f3;
+  position: relative;
+  overflow: hidden;
+}
+.mescroll .navWarp .nav {
+  width: 100%;
+  background: #fff;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+.mescroll .navWarp .nav li {
+  display: inline-block;
+  width: 1.98666667rem;
+  height: 1.2rem;
+  line-height: normal;
+  padding: 0.26666667rem 0;
+  text-align: center;
+  margin-bottom: 0.53333333rem;
+  /*把水平滚动条撑到外面,达到隐藏的目的*/
+  background: url(../images/line_bg.png) right center no-repeat;
+  background-size: 1px 0.66666667rem;
+}
+.mescroll .navWarp .nav li a {
+  display: inline-block;
+  height: 0.93333333rem;
+  color: #848484;
+  font-size: 0.42666667rem;
+}
+.mescroll .navWarp .nav li.selected a {
+  color: #333333;
+  border-bottom: 3px solid #1a7bf2;
+}
+.mescroll .navWarp .nav li:nth-last-child(1) {
+  background: none;
+  width: 1.09333333rem;
+  height: 1.17333333rem;
+  visibility: hidden;
+}
+.mescroll .navWarp .more {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1.09333333rem;
+  height: 1.17333333rem;
+  background: url(../images/addbg.png);
+  background-size: 100% 100%;
+  cursor: pointer;
+  z-index: 140;
+}
+.mescroll .navWarp .more img {
+  width: 0.42666667rem;
+  height: 0.42666667rem;
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.37333333rem;
+}
+.mescroll .nav-sticky {
+  z-index: 99;
+  /*需设置zIndex,避免在悬停时,可能会被列表数据遮住*/
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  /*相对mescroll的div悬停的位置*/
+}
+.mescroll .nav-fixed {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.mescroll .data-list div {
+  width: 100%;
+}
+.mescroll .data-list div.selected {
+  background: #f5f5f5;
+}
+.mescroll .data-list div dl {
+  margin: auto 0.4rem;
+  height: 3.2rem;
+  padding: 0.53333333rem 0;
+  border-bottom: 1px solid #f3f3f3;
+  zoom: 1;
+}
+.mescroll .data-list div dl dt {
+  float: left;
+  width: 5.73333333rem;
+}
+.mescroll .data-list div dl dt h2 {
+  width: 100%;
+  height: 1.38666667rem;
+  line-height: 0.66666667rem;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 0.45333333rem;
+  color: #333333;
+}
+.mescroll .data-list div dl dt p {
+  width: 100%;
+  margin-top: 0.4rem;
+}
+.mescroll .data-list div dl dt p img {
+  width: 0.66666667rem;
+  height: 0.32rem;
+  vertical-align: top;
+  margin-top: 0.05333333rem;
+  padding-right: 0.08rem;
+}
+.mescroll .data-list div dl dt p span {
+  color: #848484;
+  font-size: 0.29333333rem;
+}
+.mescroll .data-list div dl dt p img {
+  width: 0.66666667rem;
+  height: 0.32rem;
+  vertical-align: top;
+  margin-top: 0.05333333rem;
+  padding-right: 0.08rem;
+}
+.mescroll .data-list div dl dd {
+  float: right;
+  width: 3.2rem;
+  height: 2.13333333rem;
+  position: relative;
+}
+.mescroll .data-list div dl dd img.head_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.08rem;
+}
+.mescroll .data-list div dl dd img.icon_img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.54666667rem;
+  height: 0.48rem;
+}
+.mescroll .data-list div dl:before,
+.mescroll .data-list div dl:after {
+  content: " ";
+  display: table;
+}
+.mescroll .data-list div dl:after {
+  clear: both;
+}
+.mescroll .shareBox {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 11111;
+}
+.mescroll .shareImg {
+  display: none;
+  width: 7.36rem;
+  height: 9.17333333rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  margin-left: -3.68rem;
+  margin-top: -4.53333333rem;
+  z-index: 11112;
+}
+.order_nav {
+  width: 100%;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  border-bottom: 1px solid #f3f3f3;
+  position: fixed;
+  background: #fff;
+  z-index: 10;
+}
+.order_nav ul li {
+  float: left;
+  width: 50%;
+  height: 1.2rem;
+  line-height: normal;
+  padding: 0.26666667rem 0;
+  text-align: center;
+}
+.order_nav ul li a {
+  display: inline-block;
+  height: 0.93333333rem;
+  color: #848484;
+  font-size: 0.42666667rem;
+}
+.order_nav ul li.selected a {
+  color: #333333;
+  border-bottom: 3px solid #1a7bf2;
+}
+.order_list {
+  width: 100%;
+  position: absolute;
+  top: 1.2rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.order_list .lists {
+  overflow: auto;
+}
+.order_list ul {
+  margin: auto 0.4rem;
+  border-bottom: 1px solid #f3f3f3;
+  padding: 0.53333333rem 0 0.26666667rem 0;
+}
+.order_list ul li {
+  line-height: 0.74666667rem;
+}
+.order_list ul li:nth-child(1) h2 {
+  width: 100%;
+  max-height: 1.41333333rem;
+  line-height: 0.69333333rem;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 0.42666667rem;
+  color: #333;
+}
+.order_list ul li:nth-child(2) span {
+  color: #848484;
+  font-size: 0.29333333rem;
+}
+.order_list ul li:nth-child(2) span:last-child {
+  float: right;
+}
+.sign_body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #f3f3f3;
+}
+.sign_body .sign_container {
+  width: 100%;
+}
+.sign_body .sign_container .content_top {
+  height: 5.86666667rem;
+  text-align: center;
+  position: relative;
+}
+.sign_body .sign_container .content_top .content_top_begin {
+  width: 100%;
+  height: 100%;
+  background: url(../images/sign_bg.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 0.66666667rem 0 0 0;
+  color: #fff;
+}
+.sign_body .sign_container .content_top .content_top_begin p:nth-child(1) {
+  font-size: 0.34666667rem;
+  line-height: 0.93333333rem;
+}
+.sign_body .sign_container .content_top .content_top_begin p:nth-child(2) {
+  font-size: 1.14666667rem;
+  line-height: 1;
+  margin-top: 0.34666667rem;
+  background: -webkit-linear-gradient(bottom, rgba(165, 207, 252, 0.8) -8%, #ffffff 64%);
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sign_body .sign_container .content_top .content_top_begin p:nth-child(3) {
+  font-size: 0.37333333rem;
+  line-height: 0.93333333rem;
+}
+.sign_body .sign_container .laydate_container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0.4rem;
+  position: absolute;
+  top: 4.53333333rem;
+}
+.sign_body .sign_container .laydate_container .sign_con {
+  width: 100%;
+  height: 9.78666667rem;
+  border-radius: 0.13333333rem;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date {
+  width: 100%;
+  height: 9.78666667rem;
+  border: none;
+  padding: 0.72rem 0 0 0;
+  background: #efefef;
+  border-radius: 0.13333333rem;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main {
+  width: 100%;
+  height: 100%;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-header {
+  height: 0.61333333rem;
+  margin-bottom: 0.4rem;
+  border: none;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-header i.laydate-prev-y,
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-header i.laydate-next-y {
+  display: none;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-header i.laydate-prev-m {
+  color: #1b7df3;
+  left: 0.4rem;
+  font-size: 0.53333333rem;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-header i.laydate-next-m {
+  color: #1b7df3;
+  right: 0.4rem;
+  font-size: 0.53333333rem;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-header .laydate-set-ym {
+  font-size: 0.53333333rem;
+  line-height: 0.8rem;
+  color: #1b7df3;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content {
+  height: 5.33333333rem;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table {
+  width: 100%;
+  height: 100%;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table th,
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table td {
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  font-size: 0.32rem;
+  padding: 0;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table thead tr th {
+  color: #a4a4a4;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table tbody tr td span.cur_this,
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table tbody tr td span.alreday_sign {
+  display: inline-block;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  text-align: center;
+  line-height: 0.88rem;
+  background: url(../images/round.png) no-repeat;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  margin-top: 0.08rem;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table tbody tr td span.cur_this {
+  color: #fff;
+}
+.sign_body .sign_container .laydate_container .sign_con .laydate-theme-person_date .layui-laydate-main .layui-laydate-content table tbody tr td span.alreday_sign {
+  background: url(../images/round2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.sign_body .sign_container .laydate_container .sign_icon,
+.sign_body .sign_container .laydate_container .no_sign {
+  position: absolute;
+  right: 0.4rem;
+  top: -1.02666667rem;
+  width: 2.05333333rem;
+  height: 2.05333333rem;
+  background: url(../images/sign.png);
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 1.65333333rem;
+  color: #fff;
+  font-size: 0.4rem;
+}
+.sign_body .sign_container .laydate_container .no_sign {
+  background: url(../images/no_sign.png);
+  background-size: 100% 100%;
+}
+.sign_body .sign_container .laydate_container .tit {
+  width: 100%;
+  margin-top: 0.50666667rem;
+  text-align: center;
+  color: #a8a8a8;
+}
+.sign_body .sign_container .laydate_container .tit a {
+  color: #a8a8a8;
+  font-size: 0.32rem;
+}
+.sign_body .sign_container .laydate_container .tit a:hover {
+  color: #2f72e2;
+}
+.noTime p {
+  margin-top: 0.48rem;
+}

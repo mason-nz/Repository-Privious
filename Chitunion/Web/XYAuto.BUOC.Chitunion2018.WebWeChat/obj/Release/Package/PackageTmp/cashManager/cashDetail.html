@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>提现详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/lauout.css"/>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/common_weChat.js"></script>
+    <script type="text/javascript" src="js/cashDetail.js"></script>
+</head>
+<body>
+<div class="main_container netOk" id="content">
+    <div class="content_main">
+        <div class="content_top_start">
+            <p class="des_text account_number">{{detail.PayeeAccount}}</p>
+            <p class="total_count red">{{formatMoney(detail.PracticalPrice,2,'')}}</p>
+
+            <p class="pay_status_red" v-if="fail_status">{{detail.PayStatusName}}</p>
+            <p class="pay_status_grey" v-else>{{detail.PayStatusName}}</p>
+        </div>
+        <div class="content_top_list pd30">
+            <!-- 个人 -->
+            <ul class="list_detail prsonal_money border-top" v-if="detail.UserTypeName=='个人'">
+                <li class="text_grey">代扣个税</li>
+                <li>{{formatMoney(detail.IndividualTaxPeice,2,'')}}元</li>
+            </ul>
+            <!-- 企业 -->
+            <ul class="list_detail prsonal_money border-top" v-if="detail.UserTypeName=='企业'">
+                <li class="text_grey">发票</li>
+                <li>请将发票邮寄到xxxxxxx</li>
+            </ul>
+            <div class="clear"></div>
+            <div class="conetnt_detail border-top">
+                <ul class="list_detail">
+                    <li class="text_grey">申请时间</li>
+                    <li>{{detail.ApplicationDate}}</li>
+                </ul>
+                <ul class="list_detail" v-if="success_status">
+                    <li class="text_grey">支付时间</li>
+                    <li>{{detail.PayDate}}</li>
+                </ul>
+                <ul class="list_detail" v-if="success_status">
+                    <li class="text_grey">收款账号</li>
+                    <li>{{detail.PayeeAccount}}</li>
+                </ul>
+                <ul class="list_detail" v-if="success_status">
+                    <li class="text_grey">流水单号</li>
+                    <li>{{detail.OrderNum}}</li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="line20" v-if="fail_status"></div>
+        <div class="content_top_list pd30" v-if="fail_status">
+            <ul class="list_detail prsonal_money">
+                <li class="text_grey">失败原因</li>
+                <li class="reject_msg">{{detail.RejectMsg || detail.Reason}}</li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content_center forSuccess" v-if="success_status">
+        <ul class="pageChange">
+            <li>
+                提交提现的金额将会在7个工作日左右到账，如仍未到账
+            </li>
+        </ul>
+        <ul class="pageChange">
+            <li>
+                请微信<a href="javascript:void(0)" class="text_blue">联系客服</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content_center forFail" v-if="fail_status">
+        <ul class="pageChange">
+            <li>
+                如有任何疑问 请<a href="javascript:void(0)" class="text_blue">微信联系客服</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main_container netNo">
+    <div class="no_data">
+        <div>
+            <img src="../images/no_net.png">
+        </div>
+        <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+    </div>
+</div>
+</body>
+</html>

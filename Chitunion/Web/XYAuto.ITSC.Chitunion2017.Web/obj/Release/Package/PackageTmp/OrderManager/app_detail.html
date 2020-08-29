@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layout.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/laydate.js"></script> -->
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/Common_area.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/Common_IE.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
+    <script src="/js/jquery.jqzoom.v2.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/css/jqzoom/jquery.jqzoom.css" />
+    <script type="text/javascript" src="js/app_details.js"></script>
+    <script src="/js/laydate.js" type="text/javascript"></script>
+
+    </head>
+
+    <body>
+        <!--顶部logo 导航-->
+        <!--#include file="/Base/header_home.html" -->
+
+
+    <!--中间内容-->
+    <!-- <div class="details_side">
+        <div class="side">
+            <div class="fl">媒体 > 广告详情</div>
+            <div class="fr">
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div> -->
+    <script type="text/template" id="info_top">
+            <%if(data.PublishDetail[0].ExposureCount!=0){%>
+                <span style="padding:0 10px">参考曝光量：<%=data.PublishDetail[0].ExposureCount%></span>
+            <%}%>
+            <%if(data.PublishDetail[0].ExposureCount!=0){%>
+                <span style="padding:0 10px">参考点击量：<%=data.PublishDetail[0].ExposureCount%></span>
+            <%}%>
+
+        <span class="details_cart"><img src="/images/icon78.png"> 购物车</span>
+    </script>
+    <div class="wx_box">
+         <div class="wx_odds">
+             <div class="details_text">
+                 <div class="left">
+                     <!-- <div class="big_picture"><img src="images/pic23.jpg"></div>
+                     <ul class="small_picture">
+                         <li><img src="images/pic23.jpg"></li>
+                         <li class="current"><img src="images/pic23.jpg"></li>
+                         <li><img src="images/pic23.jpg"></li>
+                         <li><img src="images/pic23.jpg"></li>
+                         <li style="margin-right:0"><img src="images/pic23.jpg"></li>
+                         <div class="clear"></div>
+                     </ul>
+                     <div class="box_cart">
+                         <ul>
+                             <li class="collection" style="background:url(../images/icon73.png) no-repeat 0 0px">收藏</li>
+                             <li class="pull" style="background:url(../images/icon73.png) no-repeat 0 0px">拉黑</li>
+                             <div class="clear"></div>
+                         </ul>
+                     </div> -->
+                 </div>
+                 <div class="right">
+                     <!-- <h2>AE/媒体主自己编辑的信息，限制字数（若不编辑，则和副标题保持一致）</h2>
+                     <div>最新电影免费看 </div>
+                     <p><span>自营</span><span>服务号</span><span>已认证</span><span>需预约</span></p>
+                     <ul>
+                         <li>广告单价：<em style="font-size:18px;margin-right:12px">¥999,000</em><span>除定向投放城市以外的其他城市，全部投放</span></li>
+                         <li>广告样式：<a href="#"  class="active">静态3s不可点击</a><a href="#">静态5s可点击</a><a href="#">动态3s可点击</a>
+                         <li>轮播位置：<a href="#">1</a><a href="#">2</a><a href="#">3</a></li>
+                         <li>售卖平台：<a href="#">Android</a><a href="#">iOS</a><a href="#">Android&nbsp;&&nbsp;iOS</a></li>
+                         <li>售卖方式：<a href="#">CPD</a><a href="#">CPM</a></li>
+                         <li>售卖区域：<a href="#">全国</a><a href="#">一级城市</a><a href="#">二级城市</a><a href="#">三级城市</a></li>
+                         <li>投放数量：<input type="text" style="width:110px;height:24px;border-radius:5px">&nbsp;&nbsp;/次
+                         <li>投放时间：<input name="Username" type="text" style="width:120px;height:24px;border-radius:5px" class="laydate-icon" onclick="laydate({fixed:false})"> <input name="Username" type="text" style="width:120px;height:24px;border-radius:5px" class="laydate-icon" onclick="laydate({fixed:false})"></li>
+                         <li>下单备注：可接微商、可接保险</li>
+                     </ul>
+                     <div class="box_cart" style="margin-top:0px">
+                         <div><span class="button">加入购物车</span></div>
+                     </div> -->
+                 </div>
+                 <div class="clear"></div>
+             </div>
+         </div>
+
+         <div class="wx_box">
+             <div class="details_box">
+                 <div class="details_left">
+                     <h2 style="display:none">赤兔指数</h2>
+                     <ul style="display:none">
+                         <li>媒体名称：美丽时尚俏佳人</li>
+                         <li>响应速度：92m/s</li>
+                         <li>接单率：99%</li>
+                         <li>执行率：100%</li>
+                         <li>拒单率：0%</li>
+                         <li>合格率：100%</li>
+                         <li>成交单数：200</li>
+                     </ul>
+                     <h3>相似推荐</h3>
+                     <div class="recommend">
+
+                     </div>
+                 </div>
+                 <div class="details_right">
+                     <div class="switch">
+                         <ul>
+                             <li class="active">基本信息</li>
+                             <li>案例展示</li>
+                             <div class="clear"></div>
+                         </ul>
+                     </div>
+                     <h2><img src="/images/icon74.png"> 基本信息</h2>
+                     <div class="details_info">
+                         <ul>
+                             <li>媒体名称：测试专用号测试专用号</li>
+                             <li>日活：12.2万</li>
+                             <li>所属分类：IT、技术、科技、互联网、互联网、互联网</li>
+                             <li>所在地：北京市海淀区中关村创客大厦</li>
+                             <li>覆盖区域：北京，上海，天津，广州，杭州，北京，上海，天津</li>
+                             <li>起投：7天/次</li>
+                             <div class="clear"></div>
+                         </ul>
+                         <div>媒体介绍：介绍微信公众号信息，多余一行折行展示。介绍微信公众号信息，多余一行折行展示介绍微信公众号信息，多余一行折行展示介绍微信公众号信息，多余一行折行展示</div>
+                     </div>
+                     <div class="line3"></div>
+                     <h2><img src="/images/icon79.png"> 广告展示逻辑/说明</h2>
+                     <h3>素材规格</h3>
+                     <div class="specification">
+                         <p>1、app 启动时随机展示，10轮播；</p>
+                         <p>2、新安装后第一次启动时不显示广告，完全关闭进程后再次启动会正常显示广告；</p>
+                         <p>3、未关闭客户端后台进程时，展示间隔为一小时；</p>
+                         <p>4、关闭客户端后台进程后再打开可再次进行随机展示；</p>
+                         <p>5、视频支持竖版全屏视频，Wifi下预加载完成后展示，若视频加载不成功则会以普通静态开屏广告形式展示；</p>
+                         <p>6、视频自动静音播放（无法开启声音），固定6s，播放过程中可点击跳过。</p>
+                     </div>
+                     <h3>展示逻辑</h3>
+                     <div class="specification">
+                         <p>1、图片规格；</p>
+                         <ul>
+                             <li>1080*1920，720*1280；</li>
+                             <li>640x1136，640x960；</li>
+                             <li>静态图片格式：JPG/JPEG/PNG；</li>
+                             <li>动态图片格式：GIF；</li>
+                             <li>图片大小：静态≤200k，动态≤500k；</li>
+                         </ul>
+                         <p>2、广告主名称：不超过8个汉字；</p>
+                         <p>3、跳转URL：开屏点击跳转落地页时需填写。不超过1024个字符；</p>
+                         <p>4、文章ID：开屏点击跳转文章时需填写；</p>
+                         <p>5、频道名称：开屏点击频道时需填写；</p>
+                         <p>6、展示监控URL：非必填，不超过1024个字符；</p>
+                         <p>7、点击监控URL：非必填，不超过1024个字符。</p>
+                     </div>
+                     <h3>备注</h3>
+                     <div class="specification">
+                         <p>1、图片规格；</p>
+                         <ul>
+                             <li>1080*1920，720*1280；</li>
+                             <li>640x1136，640x960；</li>
+                             <li>静态图片格式：JPG/JPEG/PNG；</li>
+                             <li>动态图片格式：GIF；</li>
+                             <li>图片大小：静态≤200k，动态≤500k；</li>
+                         </ul>
+                         <p>2、广告主名称：不超过8个汉字；</p>
+                         <p>3、跳转URL：开屏点击跳转落地页时需填写。不超过1024个字符；</p>
+                         <p>4、文章ID：开屏点击跳转文章时需填写；</p>
+                         <p>5、频道名称：开屏点击频道时需填写；</p>
+                         <p>6、展示监控URL：非必填，不超过1024个字符；</p>
+                         <p>7、点击监控URL：非必填，不超过1024个字符。</p>
+                         <p class="red"><img src="images/star_new.png"> 素材制作需以制作规范为准</p>
+                     </div>
+                 </div>
+                 <div class="clear"></div>
+             </div>
+
+         </div>
+    </div>
+
+
+
+    <!--底部-->
+    <div id="footer">
+    	<div class="main">
+          <p>IT系统中心 任何建议和意见，请进入 销售管理系统-反馈中心</p>
+          <p>CopyRight © 2000-2017 XYAuto,All Rights Reserved 版权所有 北京行圆汽车信息技术有限公司</p>
+       </div>
+    </div>
+
+
+    <!--右侧贴边导航quick_links.js控制-->
+    <div class="mui-mbar-tabs">
+        <div class="quick_link_mian">
+            <div class="quick_links_panel">
+                <ul id="quick_links" class="quick_links">
+                    <li id="shopCart">
+                        <a href="javascript:void(0)" class="message_list" ><i class="message"></i><div class="span">购物车</div><span class="cart_num">0</span></a>
+                    </li>
+                </ul>
+                <ul class="quick_toggle">
+                    <li><a href="javascript:void(0)top" class="return_top"><i class="top"></i></a></li>
+                </ul>
+            </div>
+            <div id="quick_links_pop" class="quick_links_pop hide"></div>
+        </div>
+    </div>
+
+
+
+    <!-- APP详情信息渲染模板 -->
+    <script type="text/template" id="details_text">
+    <div class="left">
+        <div class="big_picture">
+            <a class="jqzoom" rel='gal1' href="<%=data.HeadIconURL%>">
+              <img src="<%=data.HeadIconURL%>">
+            </a>
+        </div>
+        <ul class="small_picture">
+            <%if(data.PublishDetail.HeadImg!=""){%>
+              <li ><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<%=data.HeadIconURL%>',largeimage: '<%=data.HeadIconURL%>'}"><img  src="<%=data.HeadIconURL%>"></a></li>
+             <%}%>
+            <%if(data.AdLegendURL1!=""){%>
+              <li ><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<%=data.AdLegendURL1_sl%>',largeimage: '<%=data.AdLegendURL1%>'}"><img src="<%=data.AdLegendURL1_sl%>"></a></li>
+             <%}%>
+              <%if(data.AdLegendURL2!=""){%>
+              <li ><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<%=data.AdLegendURL2_sl%>',largeimage: '<%=data.AdLegendURL2%>'}"><img src="<%=data.AdLegendURL2_sl%>"></a></li>
+              <%}%>
+              <%if(data.AdLegendURL3!=""){%>
+              <li style="margin-right:0"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<%=data.AdLegendURL3_sl%>',largeimage: '<%=data.AdLegendURL3%>'}"><img src="<%=data.AdLegendURL3_sl%>"></a></li>
+              <%}%>
+            <div class="clear"></div>
+        </ul>
+        <div class="fun">
+            <span class="collection" style="background:url(../images/icon73.png) no-repeat 0 0px">
+                <%if(data.Collection==1){%>
+                    已收藏
+                <%}else{%>
+                    收藏
+                <%}%>
+            </span>
+            <span class="pull" style="background:url(../images/icon73.png) no-repeat 0 0px">
+                <%if(data.Defriend==1){%>
+                    已拉黑
+                <%}else{%>
+                    拉黑
+                <%}%>
+            </span>
+        </div>
+    </div>
+    <div class="right">
+        <h2><%=data.AdTemplateName%></h2>
+        <div>
+          <%if(data.UserName=="赤兔自营"){%>
+              <img src="/images/chutu.png"><%=data.UserName%>
+          <%}else{%>
+              <img src="/images/collection06.png"><%=data.UserName%>
+          <%}%>
+        </div>
+        <!-- <p><span><%=data.Source%></span></p> -->
+        <ul>
+            <li id="price">参考价：<em><%=data.PublishDetail[0].HySalePrice%>~<%=data.PublishDetail[0].SalePrice%></em><span id="qita" style="display:none">除定向投放城市以外的其他城市，全部投放</span></li>
+            <li id="style">广告样式：
+                <%for(var i=0;i<data.AdStyleList.length;i++){%>
+                    <a href="javascript:void(0)" style="<%=i%>"><%=data.AdStyleList[i].AdStyle%></a>
+                <%}%>
+            </li>
+            <li id="location">轮播位置：
+                <%for(var i=0;i<data.CarouselCountList.length;i++){%>
+                    <a href="javascript:void(0)" location="<%=data.CarouselCountList[i].CarouselCount%>"><%=data.CarouselCountList[i].CarouselCount%></a>
+                <%}%>
+            </li>
+            <li id="platform">售卖平台：
+                <%for(var i=0;i<data.SellingPlatformList.length;i++){%>
+                    <%if(data.SellingPlatformList[i].SellingPlatform==12001){%>
+                        <a href="javascript:void(0)" Platform="12001">Android</a>
+                    <%}else if(data.SellingPlatformList[i].SellingPlatform==12002){%>
+                        <a href="javascript:void(0)" Platform="12002">iOS</a>
+                    <%}else if(data.SellingPlatformList[i].SellingPlatform==12003){%>
+                        <a href="javascript:void(0)" Platform="12003">Android&nbsp;&&nbsp;iOS</a>
+                    <%}else if(data.SellingPlatformList[i].SellingPlatform==12004){%>
+                        <a href="javascript:void(0)" Platform="12004">PAD</a>
+                    <%}else if(data.SellingPlatformList[i].SellingPlatform==12005){%>
+                        <a href="javascript:void(0)" Platform="12005">Gphone</a>
+                    <%}else if(data.SellingPlatformList[i].SellingPlatform==12006){%>
+                        <a href="javascript:void(0)" Platform="12006">Phone</a>
+                    <%}%>
+                <%}%>
+            </li>
+            <li id="way">售卖方式：
+                <%for(var i=0;i<data.SellingModeList.length;i++){%>
+                    <%if(data.SellingModeList[i].SellingMode==11002){%>
+                        <a href="javascript:void(0)" Mode="11002">CPM</a>
+                    <%}else if(data.SellingModeList[i].SellingMode==11001){%>
+                        <a href="javascript:void(0)" Mode="11001">CPD</a>
+                    <%}%>
+                <%}%>
+            </li>
+            <li id="area" class="pr">售卖区域：
+                <%for(var i=0;i<data.CityGroupList.length;i++){%>
+                    <%if(data.CityGroupList[i].GroupType==0){%>
+                        <a href="javascript:void(0)" City="0">全国</a>
+                    <%}else if(data.CityGroupList[i].GroupType==1){%>
+                        <a href="javascript:void(0)" City="1" id="ding">选择定向城市</a>
+                    <%}else{%>
+                        <a href="javascript:void(0)" City="-1">其他城市</a>
+                    <%}%>
+                <%}%>
+                <div class="add_city" style="display:none;">
+                    <div class="arrow"><img src="/images/arrow_a.png"></div>
+                    <div class="letter">
+                        <!-- <span>A</span>
+                        <span>B</span>
+                        <span>C</span>
+                        <span>D</span>
+                        <span>E</span>
+                        <span>F</span>
+                        <span>G</span>
+                        <span>H</span>
+                        <span>I</span>
+                        <span>J</span>
+                        <span>K</span>
+                        <span>L</span>
+                        <span>M</span>
+                        <span>N</span>
+                        <span>O</span>
+                        <span>P</span>
+                        <span>Q</span>
+                        <span>R</span>
+                        <span>S</span>
+                        <span>T</span>
+                        <span>U</span>
+                        <span>V</span>
+                        <span>W</span>
+                        <span>X</span>
+                        <span>Y</span>
+                        <span>Z</span> -->
+                    </div>
+                    <ul style="max-height:120px;overflow-y:auto">
+                        <!-- <li>上海市</li>
+                        <li>天津市</li>
+                        <li class="current">上海市</li>
+                        <li>黄浦区</li>
+                        <li>上海市</li>
+                        <li>天津市</li>
+                        <li>上海市</li>
+                        <li>黄浦区</li>
+                        <li>上海市</li>
+                        <li>天津市</li>
+                        <div class="clear"></div> -->
+                    </ul>
+                </div>
+                <!-- <div class="add_city_2" style="display:none">
+                    <div class="arrow"><img src="images/arrow_b.png"></div>
+                    <div class="tc">除定向投放城市以外的其他城市</div>
+                </div> -->
+            </li>
+            <%for(var i=0;i<data.SellingModeList.length;i++){%>
+                <%if(data.SellingModeList[i].SellingMode==11002){%>
+                    <li id="count">投放数量：
+                        <input name="Username" type="text" style="width:50px;" id="put_number"> 千次
+                    </li>
+                    <%}%>
+            <%}%>
+            <li>投放时间：<input name="Username" type="text" style="width:120px;height:24px;border-radius:5px" class="laydate-icon" id="startTime"> 至 <input name="Username" type="text" style="width:120px;height:24px;border-radius:5px" class="laydate-icon" id="endTime"></li>
+            <li><%=data.RemarkName%></li>
+        </ul>
+        <div class="box_cart">
+            <div style="position:relative">
+              <span class="button">加入购物车</span>
+              <div id="zhezhao" style="position:absolute;top:0;bottom:0;left:0;right:0;z-index:1;display:none"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    </script>
+    <!-- 相似推荐模板 -->
+    <script type="text/template" id="similar">
+    <%for(var i=0;i<data.length;i++){%>
+      <div style="cursor:pointer">
+          <input class="MediaID" type="hidden" name="" value="<%=data[i].MediaID%>">
+          <input class="TemplateID" type="hidden" name="" value="<%=data[i].TemplateID%>">
+          <%if(data[i].ADLogo){%>
+          <img src="<%=data[i].ADLogo%>">
+          <%}else{%>
+          <img src="../images/default_touxiang.png" width="80" height="80">
+          <%}%>
+          <p><%=data[i].ADName%></p>
+          <p class="red">¥
+            <%if(data[i].Price!="--"){%>
+              <%=(data[i].Price/1).toFixed(2)%>
+              <%}else{%>
+                <%=data[i].Price%>
+              <%}%>
+          </p>
+      </div>
+    <%}%>
+    </script>
+    <!-- 基本信息和广告展示逻辑渲染模板 -->
+    <script type="text/template" id="basic_info">
+        <div class="switch">
+            <ul>
+                <li class="active" id="basic">基本信息</li>
+                <li id="case">案例展示</li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div id="basic_div">
+            <h2><img src="/images/icon74.png"> 基本信息</h2>
+            <div class="details_info">
+                <ul>
+                    <li>媒体名称：<%=data.MediaName%></li>
+                    <li>所属分类：
+                        <%=data.CategoryName%>
+                    </li>
+                    <li>日活：
+                        <%=data.DailyLive%>
+                    </li>
+                    <li>所在地：
+                        <%=data.Location%>
+                    </li>
+                    <li>覆盖区域：
+                        <%=data.CoverArea%>
+                    </li>
+                    <li>起投：
+                        <%=data.App_AdTemplate%>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div>媒体介绍：<%=data.Remark%></div>
+            </div>
+            <div class="line3"></div>
+            <h2><img src="/images/icon79.png"> 广告展示逻辑/说明</h2>
+            <h3>素材规格</h3>
+            <div class="specification" style="white-space:pre-line" id="material">
+                <%if(data.AdDescription!=""){%>
+                    <%=data.AdDescription%>
+                <%}else{%>
+                    具体以媒体要求为准
+                <%}%>
+            </div>
+            <h3>展示逻辑</h3>
+            <div class="specification" style="white-space:pre-line" id="show">
+                <%if(data.AdDisplay!=""){%>
+                    <%=data.AdDisplay%>
+                <%}else{%>
+                    具体以媒体要求为准
+                <%}%>
+            </div>
+            <%if(data.ATRemarks!=""){%>
+            <h3>备注</h3>
+                <div class="specification" style="white-space:pre-line" id="remark">
+                    <%=data.ATRemarks%>
+                </div>
+            <%}%>
+        </div>
+        <div id="case_div"></div>
+    </script>
+    </body>
+    </html>

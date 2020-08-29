@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAD6B01F-2419-48DE-8AE7-127FE2802ADC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.IP2017.BLL</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.IP2017.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\FastDFS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Lib\NewtonSoft 4.5\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xy.Config">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Xy.ImageFastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.ImageFastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils">
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\Lib\XYAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArticleInfo\ArticleInfo.cs" />
+    <Compile Include="BatchLabelHistory\BatchLabelHistory.cs" />
+    <Compile Include="BatchMediaArticle\BatchMediaArticle.cs" />
+    <Compile Include="BatchMediaAudit\BatchMediaAudit.cs" />
+    <Compile Include="BatchMedia\BatchMedia.cs" />
+    <Compile Include="BatchMedia\DTO\RequestDto\V1_2_4\ReqBatchMediaSubmitDto.cs" />
+    <Compile Include="Business\DTO\RequestDto\CreateQueryBase.cs" />
+    <Compile Include="Business\DTO\RequestDto\V1_2_4\ReqArticleListByBactchIDQueryDto.cs" />
+    <Compile Include="Business\DTO\RequestDto\V1_2_4\ReqArticleQueryOrReciveDto.cs" />
+    <Compile Include="Business\DTO\RequestDto\V1_2_4\ReqBatchListMediaDto.cs" />
+    <Compile Include="Business\DTO\RequestDto\V1_2_4\ReqInputListCarDto.cs" />
+    <Compile Include="Business\DTO\RequestDto\V1_2_4\ReqInputListMediaDto.cs" />
+    <Compile Include="Business\DTO\ResponseDto\BaseResponseEntity.cs" />
+    <Compile Include="Business\DTO\ResponseDto\V1_2_4\ResArticleQueryOrReciveDto.cs" />
+    <Compile Include="Business\DTO\ResponseDto\V1_2_4\ResBatchListMediaDto.cs" />
+    <Compile Include="Business\DTO\ResponseDto\V1_2_4\ResInputListCarDto.cs" />
+    <Compile Include="Business\DTO\ResponseDto\V1_2_4\ResInputListMediaDto.cs" />
+    <Compile Include="Business\Query\DataListQuery.cs" />
+    <Compile Include="Business\Query\DataListQueryClient.cs" />
+    <Compile Include="Business\Query\V1_2_4\ArticleListByBactchIDQuery.cs" />
+    <Compile Include="Business\Query\V1_2_4\ArticleQuery.cs" />
+    <Compile Include="Business\Query\V1_2_4\BatchListCarQuery.cs" />
+    <Compile Include="Business\Query\V1_2_4\BatchListMediaQuery.cs" />
+    <Compile Include="Business\Query\V1_2_4\Enum.cs" />
+    <Compile Include="Business\Query\V1_2_4\InputListCarQuery.cs" />
+    <Compile Include="Business\Query\V1_2_4\InputListMediaQuery.cs" />
+    <Compile Include="Business\Support\CacheHelper.cs" />
+    <Compile Include="CarSerialInfo\CarSerialInfo.cs" />
+    <Compile Include="CarSerialInfo\DTO\RequestCarBrandDto.cs" />
+    <Compile Include="CarSerialLabel\CarSerialLabel.cs" />
+    <Compile Include="CarSerialLabel\DTO\RequestDto\V1_2_4\ReqBatchCarSubmitDto.cs" />
+    <Compile Include="CarSerialLabel\DTO\RequestDto\V1_2_4\ReqRenderBatchCarDto.cs" />
+    <Compile Include="CarSerialLabel\DTO\ResponseDto\V1_2_4\ResRenderBatchCarDto.cs" />
+    <Compile Include="CarSerialLabel\DTO\ResponseDto\V1_2_4\ResViewBatchCarDto.cs" />
+    <Compile Include="DictInfo\DictInfo.cs" />
+    <Compile Include="EmailHelper.cs" />
+    <Compile Include="ExamineLabel\BasicLabel.cs" />
+    <Compile Include="ExamineLabel\ExamineLableOperate.cs" />
+    <Compile Include="ExamineLabel\ExmaineBrandLabel.cs" />
+    <Compile Include="ExamineLabel\ExmaineMediaLabel.cs" />
+    <Compile Include="Import\ImportAPPLabel.cs" />
+    <Compile Include="IPSubLabel\IPSubLabel.cs" />
+    <Compile Include="IPTitleInfo\IPTitleInfo.cs" />
+    <Compile Include="Loger.cs" />
+    <Compile Include="MediaBase\MediaBase.cs" />
+    <Compile Include="MediaLabel\DTO\RequestDto\V1_2_4\ReqBatchMediaDto.cs" />
+    <Compile Include="MediaLabel\DTO\ResponseDto\V1_2_4\ResBatchMediaDto.cs" />
+    <Compile Include="MediaLabel\DTO\ResponseDto\V1_2_4\ResViewBatchMediaDto.cs" />
+    <Compile Include="MediaLabel\DTO\ResSummaryKeyWordDTO.cs" />
+    <Compile Include="MediaLabel\MediaLabel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultLabel\ResultLabel.cs" />
+    <Compile Include="SonIPLabel\SonIPLabel.cs" />
+    <Compile Include="TitleBasicInfo\TitleBasicInfo.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.BUOC.IP2017.Dal\XYAuto.BUOC.IP2017.Dal.csproj">
+      <Project>{cee129ef-c402-46c9-a6d2-b9a4e0553224}</Project>
+      <Name>XYAuto.BUOC.IP2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.IP2017.Entities\XYAuto.BUOC.IP2017.Entities.csproj">
+      <Project>{c47bdb95-a595-48f4-82f5-d47232af1cbb}</Project>
+      <Name>XYAuto.BUOC.IP2017.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

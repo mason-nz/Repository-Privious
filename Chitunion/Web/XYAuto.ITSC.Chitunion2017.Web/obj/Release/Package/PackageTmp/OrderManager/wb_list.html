@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>新浪微博-赤兔联盟广告在线交易平台</title>
+ <!--#include file="stage_title.html" -->
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header_home.html" -->
+<!--#include file="wb_con.html" -->
+<!--#include file="shop_cart1.html" -->
+<!--#include file="../Base/footer.html" -->
+<script type="text/javascript">
+    // 初始配置参数
+    var set = {
+        url:"/api/Publish/query",
+        data:{
+            pageIndex:1,
+            pageSize :20,
+            businesstype:14003,
+            CategoryID:-2,
+            FansCount:'',
+            Price:'',
+            ProvinceID:-2,
+            CityID:-2,
+            OrderRemark:-2,
+            AuthType:-2,
+            LevelType:-2,
+            Sex:-2,
+            orderBy:-2,
+            OrderByReference:-2
+        }
+    }
+    GetDictInfo(19,'.catagory','li');
+    GetDictInfo(18,'.OrderRemark','option');
+    GetDictInfo(21,'.Profession','option');
+    GetDictInfo(30,'.AuthType','option');
+</script>
+</body>
+</html>

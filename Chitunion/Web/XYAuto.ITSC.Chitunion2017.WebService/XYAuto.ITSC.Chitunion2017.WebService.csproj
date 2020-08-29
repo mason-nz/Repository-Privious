@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64399042-F595-43A8-8D11-8713B871D01B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ITSC.Chitunion2017.WebService</RootNamespace>
+    <AssemblyName>XYAuto.ITSC.Chitunion2017.WebService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.JsonNew">
+      <HintPath>..\..\..\Lib\Newtonsoft.JsonNew.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XYAuto.Utils">
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CacheHelper.cs" />
+    <Compile Include="Common\DoHttpClient.cs" />
+    <Compile Include="Common\DoPostApiLogClient.cs" />
+    <Compile Include="Common\HttpClient.cs" />
+    <Compile Include="Common\HttpHelper.cs" />
+    <Compile Include="Common\Util.cs" />
+    <Compile Include="GDT\Dto\Enum\GdtFundStatusEnum.cs" />
+    <Compile Include="GDT\Dto\Enum\GdtFundTypeEnum.cs" />
+    <Compile Include="GDT\Dto\Enum\GdtGrantTypeEnum.cs" />
+    <Compile Include="GDT\Dto\Enum\GdtLevelTypeEnum.cs" />
+    <Compile Include="GDT\Dto\Enum\GdtOperatorEnum.cs" />
+    <Compile Include="GDT\Dto\Enum\GdtSystemStatusEnum.cs" />
+    <Compile Include="GDT\Dto\Enum\GdtTradeTypeEnum.cs" />
+    <Compile Include="GDT\Dto\Request\ReqFundDto.cs" />
+    <Compile Include="GDT\Dto\Request\ReqReportDto.cs" />
+    <Compile Include="GDT\Dto\Response\Ads\RespAdCampaignDto.cs" />
+    <Compile Include="GDT\Dto\Response\Ads\RespAdGroupDto.cs" />
+    <Compile Include="GDT\Dto\Response\Fund\FundStatementsDaily.cs" />
+    <Compile Include="GDT\Dto\Response\Fund\RespAccountInfoDto.cs" />
+    <Compile Include="GDT\Dto\Response\Fund\RespFundDto.cs" />
+    <Compile Include="GDT\Dto\Response\Fund\RespRealtimeCostDto.cs" />
+    <Compile Include="GDT\Dto\Response\OAuth\RespTokenDto.cs" />
+    <Compile Include="GDT\Dto\Response\Report\RespReportDto.cs" />
+    <Compile Include="GDT\Dto\Response\RespBaseDto.cs" />
+    <Compile Include="GDT\Enum.cs" />
+    <Compile Include="GDT\ServiceHelper.cs" />
+    <Compile Include="GSData\GSDataHelper.cs" />
+    <Compile Include="GSData\GSDataResult.cs" />
+    <Compile Include="GSData\GSDataSDK.cs" />
+    <Compile Include="IP\IpAnalysisHelper.cs" />
+    <Compile Include="ITSupport\SMSServiceHelper.cs" />
+    <Compile Include="Common\Loger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qichedaquan\UserInfo.cs" />
+    <Compile Include="Qichedaquan\UserInfoHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Dal\XYAuto.ITSC.Chitunion2017.Dal.csproj">
+      <Project>{0971ea85-1cc7-4289-b99b-adc03d47f02f}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Entities\XYAuto.ITSC.Chitunion2017.Entities.csproj">
+      <Project>{97c0aba4-8a8f-41a2-a28f-eb470ddbcbb1}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

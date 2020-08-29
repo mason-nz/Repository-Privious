@@ -1,0 +1,803 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>视频账号-刊例管理-我的赤兔</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script src="../js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script src="../js/jquery.pagination.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script type="text/javascript" src="js/pricelist.js"></script>
+</head>
+
+<body>
+<!--#include file="/Base/header.html" -->
+
+<div class="list_main">
+
+    <!--中间内容-->
+    <div class="order" name="operate-video" style="display: none">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div id="tab_list">
+                <div class="list_box">
+                    <div class="list">
+                        <h2 class="menu_nav">
+
+                        </h2>
+                        <div class="clear"></div>
+                    </div>
+                    <div id="list_switching">
+                        <ul class="tab_menu">
+                            <li class="selected" name='0'>全部</li>
+                            <li  name='1'>待审核</li>
+                            <li  name='2'>通过</li>
+                            <li  name='3'>驳回</li>
+                        </ul>
+                        <div class="clear"></div>
+                        <div class="tab_box" id="yichu">
+                            <div class="box" >
+                                <ul class="state">
+                                    <li>平台：
+                                        <script type="text/template" id="platform1">
+                                            <option name="-2">不限</option>
+                                            <%for(var i=0;i<Result.length;i++){%>
+                                            <option name="<%=Result[i].DictId%>"><%=Result[i].DictName%></option>
+                                            <%}%>
+                                        </script>
+                                        <select class="platform3" name="" style="width:90px">
+
+                                        </select>
+                                    </li>
+                                    <li>账号：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>昵称：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>来源：
+                                        <select name="" style="width:110px">
+                                            <option name="-2">全部</option>
+                                            <option name="3001">自助</option>
+                                            <option name="3002">自营</option>
+                                        </select>
+                                    </li>
+                                    <li>到期时间：
+                                        <select name="" style="width:100px">
+                                            <option name="-2">不限</option>
+                                            <option name="7">7天内到期</option>
+                                        </select>
+                                    </li>
+                                    <li class="but_query" name="14004" style="width:70px;;margin-right: 0">查询</li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>
+                            <div class="box hide">
+                                <ul class="state">
+                                    <li>平台：
+                                        <script type="text/template" id="platform1">
+                                            <option name="-2">不限</option>
+                                            <%for(var i=0;i<Result.length;i++){%>
+                                            <option name="<%=Result[i].DictId%>"><%=Result[i].DictName%></option>
+                                            <%}%>
+                                        </script>
+                                        <select class="platform3" name="" style="width:90px">
+
+                                        </select>
+                                    </li>
+                                    <li>账号：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>昵称：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>来源：
+                                        <select name="" style="width:110px">
+                                            <option name="-2">全部</option>
+                                            <option name="3001">自助</option>
+                                            <option name="3002">自营</option>
+                                        </select>
+                                    </li>
+                                    <li>到期时间：
+                                        <select name="" style="width:100px">
+                                            <option name="-2">不限</option>
+                                            <option name="7">7天内到期</option>
+                                        </select>
+                                    </li>
+                                    <li class="but_query" name="14004" style="width:70px;;margin-right: 0">查询</li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>
+                            <div class="box hide">
+                                <ul class="state">
+                                    <li>平台：
+                                        <script type="text/template" id="platform1">
+                                            <option name="-2">不限</option>
+                                            <%for(var i=0;i<Result.length;i++){%>
+                                            <option name="<%=Result[i].DictId%>"><%=Result[i].DictName%></option>
+                                            <%}%>
+                                        </script>
+                                        <select class="platform3" name="" style="width:90px">
+
+                                        </select>
+                                    </li>
+                                    <li>账号：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>昵称：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>来源：
+                                        <select name="" style="width:110px">
+                                            <option name="-2">全部</option>
+                                            <option name="3001">自助</option>
+                                            <option name="3002">自营</option>
+                                        </select>
+                                    </li>
+                                    <li>到期时间：
+                                        <select name="" style="width:100px">
+                                            <option name="-2">不限</option>
+                                            <option name="7">7天内到期</option>
+                                        </select>
+                                    </li>
+                                    <li class="but_query" name="14004" style="width:70px;;margin-right: 0">查询</li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>
+                            <div class="box hide">
+                                <ul class="state">
+                                    <li>平台：
+                                        <script type="text/template" id="platform1">
+                                            <option name="-2">不限</option>
+                                            <%for(var i=0;i<Result.length;i++){%>
+                                            <option name="<%=Result[i].DictId%>"><%=Result[i].DictName%></option>
+                                            <%}%>
+                                        </script>
+                                        <select class="platform3" name="" style="width:90px">
+
+                                        </select>
+                                    </li>
+                                    <li>账号：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>昵称：<input name="Username" type="text"  style="width:90px;"></li>
+                                    <li>来源：
+                                        <select name="" style="width:110px">
+                                            <option name="-2">全部</option>
+                                            <option name="3001">自助</option>
+                                            <option name="3002">自营</option>
+                                        </select>
+                                    </li>
+                                    <li>到期时间：
+                                        <select name="" style="width:100px">
+                                            <option name="-2">不限</option>
+                                            <option name="7">7天内到期</option>
+                                        </select>
+                                    </li>
+                                    <li class="but_query" name="14004" style="width:70px;;margin-right: 0">查询</li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="list_box mt20">
+                <div class="tab_box" id="xianshi">
+                    <div class="box">
+
+                        <div class="list_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#E9E9E9" >
+                                <thead>
+                                <tr>
+                                    <th width="12%">媒体</th>
+                                    <th width="12%">平台</th>
+                                    <th width="12%">直发</th>
+                                    <th width="12%">原创+发布</th>
+                                    <th width="27%">执行周期</th>
+                                    <th width="12%">审核状态</th>
+                                    <th width="11%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                <script type="text/template" id="shipin1">
+                                    <%if(Result.List!=null){%>
+                                    <%for(var i=0;i< Result.List.length;i++){%>
+                                    <tr>
+                                        <td>
+                                            <div class="portrait"><img src="<%=Result.List[i].HeadIconURL%>"/></div>
+                                            <div class="public" name="<%=Result.List[i].PubID%>">
+                                                <h2 name="<%=Result.List[i].Number%>"><%=Result.List[i].Name%></h2>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%if(Result.List[i].Platform!=null){%>
+                                            <%=Result.List[i].Platform%>
+                                            <%}%>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].FirstPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].FirstPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].SecondPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].SecondPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%if(Result.List[i].BeginTime!=null){%>
+                                            <%=Result.List[i].BeginTime%>至<%=Result.List[i].EndTime%>
+                                            <%}%>
+                                        </td>
+                                        <td name="<%=Result.List[i].Status%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <span >新建</span>
+                                            <%} else if(Result.List[i].Status==15002){%>
+                                            <span >待审核</span>
+                                            <%} else if(Result.List[i].Status==15003){%>
+                                            <span >通过</span>
+                                            <%} else if(Result.List[i].Status==15004){%>
+                                            <span >驳回</span><br/>
+                                            <a href="javascript:;" class="pricelise_reject"><span >查看原因</span></a>
+                                            <span style="display: none"><%=Result.List[i].RejectMsg%></span>
+                                            <% }%>
+                                        </td>
+                                        <td name="<%=Result.List[i].EndTime%>" title="<%=Result.List[i].BeginTime%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15002){%>
+                                            <a name="<%=Result.List[i].MediaID%>" href="/MediaManager/CheckOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" class="pricelist_examine">审核</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15003){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <span name="<%=Result.List[i].Status%>">
+                            <%if(Result.List[i].PublishStatus==15006){%>
+                            <a href="javascript:;" name="15005,<%=Result.List[i].PubID%>" class="pricelist_shelves">上架</a>
+                                                 <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: inline-block">编辑</a>
+                            <%}else if(Result.List[i].PublishStatus==15005){%>
+                            <a href="javascript:;" name="15006,<%=Result.List[i].PubID%>" class="pricelist_shelves">下架</a>
+ <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: none">编辑</a>
+                            <%}%>
+                            </span>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15004){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                    <%}%>
+                                </script>
+                            </table>
+
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer1">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="box hide">
+
+                        <div class="list_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#E9E9E9" >
+                                <thead>
+                                <tr>
+                                    <th width="12%">媒体</th>
+                                    <th width="12%">平台</th>
+                                    <th width="12%">直发</th>
+                                    <th width="12%">原创+发布</th>
+                                    <th width="27%">执行周期</th>
+                                    <th width="12%">审核状态</th>
+                                    <th width="11%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                <script type="text/template" id="shipin2">
+                                    <%if(Result.List!=null){%>
+                                    <%for(var i=0;i< Result.List.length;i++){%>
+                                    <tr>
+                                        <td>
+                                            <div class="portrait"><img src="<%=Result.List[i].HeadIconURL%>"/></div>
+                                            <div class="public" name="<%=Result.List[i].PubID%>">
+                                                <h2 name="<%=Result.List[i].Number%>"><%=Result.List[i].Name%></h2>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%if(Result.List[i].Platform!=null){%>
+                                            <%=Result.List[i].Platform%>
+                                            <%}%>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].FirstPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].FirstPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].SecondPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].SecondPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%if(Result.List[i].BeginTime!=null){%>
+                                            <%=Result.List[i].BeginTime%>至<%=Result.List[i].EndTime%>
+                                            <%}%>
+                                        </td>
+                                        <td name="<%=Result.List[i].Status%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <span >新建</span>
+                                            <%} else if(Result.List[i].Status==15002){%>
+                                            <span >待审核</span>
+                                            <%} else if(Result.List[i].Status==15003){%>
+                                            <span >通过</span>
+                                            <%} else if(Result.List[i].Status==15004){%>
+                                            <span >驳回</span><br/>
+                                            <a href="javascript:;" class="pricelise_reject"><span >查看原因</span></a>
+                                            <span style="display: none"><%=Result.List[i].RejectMsg%></span>
+                                            <% }%>
+                                        </td>
+                                        <td  name="<%=Result.List[i].EndTime%>" title="<%=Result.List[i].BeginTime%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15002){%>
+                                            <a name="<%=Result.List[i].MediaID%>" href="/MediaManager/CheckOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" class="pricelist_examine">审核</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15003){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <span name="<%=Result.List[i].Status%>">
+                            <%if(Result.List[i].PublishStatus==15006){%>
+                            <a href="javascript:;" name="15005,<%=Result.List[i].PubID%>" class="pricelist_shelves">上架</a>
+                                                 <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: inline-block">编辑</a>
+                            <%}else if(Result.List[i].PublishStatus==15005){%>
+                            <a href="javascript:;" name="15006,<%=Result.List[i].PubID%>" class="pricelist_shelves">下架</a>
+ <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: none">编辑</a>
+                            <%}%>
+                            </span>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15004){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                    <%}%>
+                                </script>
+                            </table>
+
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer2">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="box hide">
+
+                        <div class="list_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#E9E9E9" >
+                                <thead>
+                                <tr>
+                                    <th width="12%">媒体</th>
+                                    <th width="12%">平台</th>
+                                    <th width="12%">直发</th>
+                                    <th width="12%">原创+发布</th>
+                                    <th width="27%">执行周期</th>
+                                    <th width="12%">审核状态</th>
+                                    <th width="11%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                <script type="text/template" id="shipin3">
+                                    <%if(Result.List!=null){%>
+                                    <%for(var i=0;i< Result.List.length;i++){%>
+                                    <tr>
+                                        <td>
+                                            <div class="portrait"><img src="<%=Result.List[i].HeadIconURL%>"/></div>
+                                            <div class="public" name="<%=Result.List[i].PubID%>">
+                                                <h2 name="<%=Result.List[i].Number%>"><%=Result.List[i].Name%></h2>
+                                            </div>
+                                        </td>
+                                        <td><%if(Result.List[i].Platform!=null){%>
+                                            <%=Result.List[i].Platform%>
+                                            <%}%></td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].FirstPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].FirstPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].SecondPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].SecondPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%if(Result.List[i].BeginTime!=null){%>
+                                            <%=Result.List[i].BeginTime%>至<%=Result.List[i].EndTime%>
+                                            <%}%>
+                                        </td>
+                                        <td name="<%=Result.List[i].Status%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <span >新建</span>
+                                            <%} else if(Result.List[i].Status==15002){%>
+                                            <span >待审核</span>
+                                            <%} else if(Result.List[i].Status==15003){%>
+                                            <span >通过</span>
+                                            <%} else if(Result.List[i].Status==15004){%>
+                                            <span >驳回</span><br/>
+                                            <a href="javascript:;" class="pricelise_reject"><span >查看原因</span></a>
+                                            <span style="display: none"><%=Result.List[i].RejectMsg%></span>
+                                            <% }%>
+                                        </td>
+                                        <td  name="<%=Result.List[i].EndTime%>" title="<%=Result.List[i].BeginTime%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15002){%>
+                                            <a name="<%=Result.List[i].MediaID%>" href="/MediaManager/CheckOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" class="pricelist_examine">审核</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15003){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <span name="<%=Result.List[i].Status%>">
+                            <%if(Result.List[i].PublishStatus==15006){%>
+                            <a href="javascript:;" name="15005,<%=Result.List[i].PubID%>" class="pricelist_shelves">上架</a>
+                                                <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: inline-block">编辑</a>
+                            <%}else if(Result.List[i].PublishStatus==15005){%>
+                            <a href="javascript:;" name="15006,<%=Result.List[i].PubID%>" class="pricelist_shelves">下架</a>
+ <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: none">编辑</a>
+                            <%}%>
+                            </span>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15004){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                    <%}%>
+                                </script>
+                            </table>
+
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer3">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="box hide">
+
+                        <div class="list_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#E9E9E9" >
+                                <thead>
+                                <tr>
+                                    <th width="12%">媒体</th>
+                                    <th width="12%">平台</th>
+                                    <th width="12%">直发</th>
+                                    <th width="12%">原创+发布</th>
+                                    <th width="27%">执行周期</th>
+                                    <th width="12%">审核状态</th>
+                                    <th width="11%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                <script type="text/template" id="shipin4">
+                                    <%if(Result.List!=null){%>
+                                    <%for(var i=0;i< Result.List.length;i++){%>
+                                    <tr>
+                                        <td>
+                                            <div class="portrait"><img src="<%=Result.List[i].HeadIconURL%>"/></div>
+                                            <div class="public" name="<%=Result.List[i].PubID%>">
+                                                <h2 name="<%=Result.List[i].Number%>"><%=Result.List[i].Name%></h2>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%if(Result.List[i].Platform!=null){%>
+                                            <%=Result.List[i].Platform%>
+                                            <%}%>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].FirstPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].FirstPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <%if(Result.List[i].SecondPrice!=0){%>
+                                                <%=formatMoney(Result.List[i].SecondPrice,2)%>
+                                                <%}else{%>
+                                                --
+                                                <%}%>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%if(Result.List[i].BeginTime!=null){%>
+                                            <%=Result.List[i].BeginTime%>至<%=Result.List[i].EndTime%>
+                                            <%}%>
+                                        </td>
+                                        <td name="<%=Result.List[i].Status%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <span >新建</span>
+                                            <%} else if(Result.List[i].Status==15002){%>
+                                            <span >待审核</span>
+                                            <%} else if(Result.List[i].Status==15003){%>
+                                            <span >通过</span>
+                                            <%} else if(Result.List[i].Status==15004){%>
+                                            <span >驳回</span><br/>
+                                            <a href="javascript:;" class="pricelise_reject"><span >查看原因</span></a>
+                                            <span style="display: none"><%=Result.List[i].RejectMsg%></span>
+                                            <% }%>
+                                        </td>
+                                        <td  name="<%=Result.List[i].EndTime%>" title="<%=Result.List[i].BeginTime%>">
+                                            <%if(Result.List[i].Status==15001){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15002){%>
+                                            <a name="<%=Result.List[i].MediaID%>" href="/MediaManager/CheckOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" class="pricelist_examine">审核</a>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15003){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <span name="<%=Result.List[i].Status%>">
+                            <%if(Result.List[i].PublishStatus==15006){%>
+                            <a href="javascript:;" name="15005,<%=Result.List[i].PubID%>" class="pricelist_shelves">上架</a>
+                                                <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: inline-block">编辑</a>
+                            <%}else if(Result.List[i].PublishStatus==15005){%>
+                            <a href="javascript:;" name="15006,<%=Result.List[i].PubID%>" class="pricelist_shelves">下架</a>
+ <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: none">编辑</a>
+                            <%}%>
+                            </span>
+                                            <%}%>
+                                            <%if(Result.List[i].Status==15004){%>
+                                            <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&MediaID=<%=Result.List[i].MediaID%>&PubID=<%=Result.List[i].PubID%>" target="_blank" class="pricelist_see">查看</a>
+                                            <a name="<%=Result.List[i].PubID%>" href="/PublishManager/addEditPublish-video.html?isAdd=1&PubID=<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                            <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                            <%}%>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                    <%}%>
+                                </script>
+                            </table>
+
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer4">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <!--中间内容-->
+    <div class="order"  name="AE-video" style="display: none">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav">
+                        <div style="display: inline-block;height:33px;line-height:33px;text-align: center; color: #FF4E4B ;border:solid #FF4E4B 1px;text-transform: uppercase;font-size: 14px;border-radius: 5px;cursor: pointer;text-decoration: none;float:right;width:140px;height: 26px;line-height: 26px;background-color: red;">
+                            <a href="/MediaManager/video_addEdit.html?operatetype=1"  style="color: #fff;">添加视频媒体</a>
+                        </div>
+                    </h2>
+                    <div class="clear"></div>
+                </div>
+                <div id="list_switching">
+                    <ul class="state">
+                        <li>账号：<input name="Username" type="text"  style="width:90px;"></li>
+                        <li>昵称：<input name="Username" type="text"  style="width:90px;"></li>
+                        <li>审核状态：
+                            <select name="" style="width:65px">
+                                <option name="-2">不限</option>
+                                <option name="15001">新建</option>
+                                <option name="15002">待审核</option>
+                                <option name="15003">通过</option>
+                                <option name="15004">驳回</option>
+                            </select>
+                        </li>
+                        <li>上下架状态：
+                            <select name="" style="width:65px">
+                                <option name="-2">不限</option>
+                                <option name="15005">上架</option>
+                                <option name="15006">下架</option>
+                            </select>
+                        </li>
+                        <li>到期时间：
+                            <select name="" style="width:77px">
+                                <option name="-2">不限</option>
+                                <option name="7">7天内到期</option>
+                            </select>
+                        </li>
+                        <li class="but_query" name="14004" style="width:70px;;margin-right: 0">查询</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="list_box mt20">
+            <div class="list_table">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff" >
+                    <thead>
+                    <tr>
+                        <th width="12%">媒体</th>
+                        <th width="16%">粉丝数</th>
+                        <th width="16%">直发</th>
+                        <th width="16%">原创+发布</th>
+                        <th width="16%">审核状态</th>
+                        <th width="11%">上下架状态</th>
+                        <th width="11%">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <script type="text/template" id="shiping">
+                        <%if(Result.List!=null){%>
+                        <%for(var i=0;i< Result.List.length;i++){%>
+                        <tr>
+                            <td>
+                                <div class="portrait"><img src="<%=Result.List[i].HeadIconURL%>"/></div>
+                                <div class="public" name="<%=Result.List[i].PubID%>">
+                                    <h2 name="<%=Result.List[i].Number%>"><%=Result.List[i].Name%></h2>
+                                </div>
+                            </td>
+                            <td><%=Result.List[i].FansCount%></td>
+                            <td>
+                                <div>
+                                    <%if(Result.List[i].FirstPrice!=0){%>
+                                    <%=formatMoney(Result.List[i].FirstPrice,2)%>
+                                    <%}else{%>
+                                    --
+                                    <%}%>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%if(Result.List[i].SecondPrice!=0){%>
+                                    <%=formatMoney(Result.List[i].SecondPrice,2)%>
+                                    <%}else{%>
+                                    --
+                                    <%}%>
+                                </div>
+                            </td>
+                            <td name="<%=Result.List[i].Status%>">
+                                <%if(Result.List[i].Status==15001){%>
+                                <span >新建</span>
+                                <%} else if(Result.List[i].Status==15002){%>
+                                <span >待审核</span>
+                                <%} else if(Result.List[i].Status==15003){%>
+                                <span >通过</span>
+                                <%} else if(Result.List[i].Status==15004){%>
+                                <span >驳回</span><br/>
+                                <a href="javascript:;" class="pricelise_reject"><span >查看原因</span></a>
+                                <span style="display: none"><%=Result.List[i].RejectMsg%></span>
+                                <% }%>
+                            </td>
+                            <td>
+                                <%if(Result.List[i].PublishStatus==15005){%>上架
+                                <%}else if(Result.List[i].PublishStatus==15006){%>下架
+                                <%}else {%>-<%}%>
+                            </td>
+                            <td name="<%=Result.List[i].EndTime%>" title="<%=Result.List[i].BeginTime%>">
+                                <%if(Result.List[i].Status==15001){%>
+                                <a name="<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                <%} else if(Result.List[i].Status==15003){%>
+                                <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&PubID=<%=Result.List[i].PubID%>&&MediaID=<%=Result.List[i].MediaID%>" target="_blank"  class="pricelist_see">查看</a>
+                                <span name="<%=Result.List[i].Status%>">
+                            <%if(Result.List[i].PublishStatus==15006){%>
+                            <a href="javascript:;" name="15005,<%=Result.List[i].PubID%>" class="pricelist_shelves">上架</a>
+                                     <a name="<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: inline-block">编辑</a>
+                            <%}else if(Result.List[i].PublishStatus==15005){%>
+                            <a href="javascript:;" name="15006,<%=Result.List[i].PubID%>" class="pricelist_shelves">下架</a>
+                                    <a name="<%=Result.List[i].PubID%>" class="pricelist_edit" style="display: none">编辑</a>
+                            <%}%>
+                            </span>
+                                <%} else if(Result.List[i].Status==15004){%>
+                                <a name="<%=Result.List[i].PubID%>" href="/MediaManager/ViewOfVedio.html?MediaType=14004&PubID=<%=Result.List[i].PubID%>&&MediaID=<%=Result.List[i].MediaID%>" target="_blank"  class="pricelist_see">查看</a>
+                                <a name="<%=Result.List[i].PubID%>" class="pricelist_edit">编辑</a>
+                                <a href="javascript:;" name="15002,<%=Result.List[i].PubID%>" class="pricelist_shelves">申请上架</a>
+                                <%} else if(Result.List[i].Status==15002){%>
+                                <a name="<%=Result.List[i].PubID%>"  href="/MediaManager/ViewOfVedio.html?MediaType=14004&PubID=<%=Result.List[i].PubID%>&MediaID=<%=Result.List[i].MediaID%>" target="_blank"   class="pricelist_see">查看</a>
+                                <%}%>
+                            </td>
+                        </tr>
+                        <%}%>
+                        <%}%>
+                    </script>
+                </table>
+
+                <!--分页-->
+                <div class="green-black" id="pageContainer">
+
+                </div>
+
+            </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+
+</body>
+<script>
+    $('.tab_menu li').off('click').on('click',function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        $('#yichu .box').eq($(this).attr('name')-0).show().siblings().hide()
+        $('#xianshi .box').eq($(this).attr('name')-0).show().siblings().hide()
+    })
+</script>
+</html>

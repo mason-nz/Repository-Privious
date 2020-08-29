@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>发送模板消息</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css" />
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css" />
+    <script language="javascript" src="/api/check.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/SendTempMsg.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+
+        #Cumulative span {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .Prompt_script {
+            width: 150px;
+            position: absolute;
+            background-color: #e5e5e5;
+            border-radius: 5px;
+            padding: 5px;
+            left: 50%;
+            margin-left: -75px;
+            display: none;
+            z-index: 100;
+            line-height: 12px;
+        }
+
+            .Prompt_script:before {
+                content: '';
+                display: block;
+                background-color: #e5e5e5;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 50%;
+                top: -3px;
+                margin-left: -5px;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+    </style>
+</head>
+<body>
+    <!--顶部logo 导航-->
+    <!-- #include file="/base/header.html"  -->
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!-- #include file="/base/Menu.html"  -->
+
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav"></h2>
+                </div>
+                <div id="list_switching">
+
+                    <div class="clear"></div>
+                    <ul class="state">
+                        <li>
+                            <div class="ins_c" style="width: 100px;">请选择微信号：</div><select id="ddlWxNum" style="width: 150px;"><option selected="selected" value="-1">请选择</option></select></li>
+                        <li>
+                            <div class="ins_c" style="width: 100px;">请选择模板：</div><select id="ddlWxTemp" style="width: 150px;"><option selected="selected" value="-1">请选择</option></select>
+                        </li>
+
+                        <!--<li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                        <a class="but_query" id='ExportData' style="width:70px;margin-left: 10px">导出数据</a>-->
+                        <div class="clear"></div>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+                        <p class="TotalBar" style="float:right;"></p><div class="clear"></div>
+                        详细内容：
+                        <div id="divTempContent">
+
+                        </div>
+                        <br />
+                        内容示例：
+                        <div id="divTempDesc">
+
+                        </div>
+                        <br />
+                        编辑内容：
+                        <div id="divPara">
+                            <!--<span>first:</span><input type="text"/><br/>
+                            <span>keyword1:</span><input type="text"/><br/>
+                            <span>keyword2:</span><input type="text"/><br/>
+                            <span>keyword3:</span><input type="text"/><br/>
+                            <span>remark:</span><input type="text"/><br/>-->
+                        </div>
+                        <br/>
+                        跳转链接URL：
+                        <div id="divTempUrl">
+                            <input type="text" id="txtTempUrl" style="width: 700px;" />
+                        </div>
+                        <br />
+                        发送给指定的人：<textarea id="txtOpenIds" cols="80" rows="5"></textarea>
+                        <li style="width: 70px; margin-right: 0" id="liSend" class="but_query">同步发送</li>
+                        <li style="width: 70px; margin-right: 0" id="liSendAsync" class="but_query">异步发送</li>
+                        <br /><span id="spanResultMsg"></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="/base/footer.html" -->
+</body>
+</html>

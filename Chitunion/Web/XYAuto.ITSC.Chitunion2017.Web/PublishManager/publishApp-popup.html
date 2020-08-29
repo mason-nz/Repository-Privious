@@ -1,0 +1,199 @@
+<style>
+    .add_ad_l ul{
+        float: left;
+    }
+    .add_ad ul li input{
+        margin-right: 5px;
+    }
+
+</style>
+
+<script>
+
+    var numberIdx = GetQueryString('numberIdx')!=null&&GetQueryString('numberIdx')!='undefined'?parseFloat  (GetQueryString('numberIdx')):null;
+    var isCPD = GetQueryString('isCPD')!=null&&GetQueryString('isCPD')!='undefined'?GetQueryString('isCPD'):null;
+
+    var rightContent = $('.ad_right').find('.right_content').eq(numberIdx);//获取右侧元素的索引
+    var AdStyleList = JSON.parse(rightContent.attr('AdStyleList'));
+    var SellingPlatformList = JSON.parse(rightContent.attr('SellingPlatformList'));
+    var SellingModeList = JSON.parse(rightContent.attr('SellingModeList'));
+    var AdGroupList = JSON.parse(rightContent.attr('AdGroupList'));
+    var CarouselCount = rightContent.attr('CarouselCount')*1;
+
+    var popupData = {
+        AdStyleList : AdStyleList,//广告形式
+        SellingPlatformList : SellingPlatformList,//售卖平台
+        SellingModeList : SellingModeList,//售卖方式
+        AdGroupList : AdGroupList,//售卖区域
+        CarouselCount : CarouselCount//轮播
+    }
+
+    $('.layer').html(ejs.render($('#additionPopupTemplate').html()),popupData);
+
+    //区分的时候   cpm不可选  不区分的时候是可选的
+    $('.saleStyle').each(function () {
+        var that = $(this);
+        var val = that.find('span').text();
+        if(val == 'CPM'){
+            if(isCPD == 'true'){
+                that.find('input').attr('disabled',true);
+            }
+        }
+    })
+
+
+    //获取url 地址参数方法
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return unescape(r[2]); return null;
+    }
+
+</script>
+
+<div class="layer"></div>
+
+<script type="text/template" id="additionPopupTemplate">
+<div>
+    <div class="title">
+        添加广告价格
+        <div class="close"><a href="javascript:;"><img src="/ImagesNew/closebt.png" class='closePopup'></a></div>
+    </div>
+
+    <div class="layer_con3">
+        <div class="add_ad">
+            <ul>
+                <li class="add_ad_w1">广告样式：</li>
+                <% AdStyleList.forEach(function(item){%>
+                <li><input name="AdStyle" type="radio" value="<%= item.Id %>"><span><%= item.Name %></span> </li>
+                <%}) %>
+                <div class="clear"></div>
+            </ul>
+            <% if(CarouselCount == 1){%>
+            <ul style='display: none'>
+                <li class="add_ad_w1">轮播：</li>
+                <% for(i = 1 ; i< CarouselCount + 1 ;i++ ){%>
+                <li><input name="CarouselCount" type="radio" value="0" checked><span><%= i %></span></li>
+                <%} %>
+                <div class="clear"></div>
+            </ul>
+            <%}else{%>
+            <ul>
+                <li class="add_ad_w1">轮播：</li>
+                <% for(i = 1 ; i< CarouselCount + 1 ;i++ ){%>
+                <li><input name="CarouselCount" type="radio" value="<%= i %>"><span><%= i %></span></li>
+                <%} %>
+                <div class="clear"></div>
+            </ul>
+            <%} %>
+            <ul>
+                <li class="add_ad_w1">售卖平台：</li>
+                <% SellingPlatformList.forEach(function(item){%>
+                <li><input name="platform" type="radio" value="<%= item.Id %>"><span><%= item.Name %></span></li>
+                <%}) %>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1">售卖方式：</li>
+                <% SellingModeList.forEach(function(item){%>
+                <li class='saleStyle'><input name="saleStyle" type="radio" value="<%= item.Id %>"> <span><%= item.Name %></span></li>
+                <%}) %>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="add_ad_w1">售卖区域：</li>
+                <% AdGroupList.forEach(function(item){%>
+                <li><input name="saleArea" type="radio" value="<%= item.Id %>"><span><%= item.Name %></span></li>
+                <%}) %>
+                <div class="clear"></div>
+            </ul>
+
+            <div class="line3"></div>
+
+            <div class="add_ad_l">
+
+                <% if(CTLogin.RoleIDs == "SYS001RL00005"){%>
+                    
+                    <%if(isCPD == 'true'){%>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>工作日刊例价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='PubPrice'></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>工作日销售价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='SalePrice' money=''></li>
+                            <div class="clear"></div>
+                        </ul>  
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>节假日刊例价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='PubPrice_Holiday'></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>节假日销售价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='SalePrice_Holiday' money=''></li>
+                            <div class="clear"></div>
+                        </ul>
+                    <%}else{%>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>刊例价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='PubPrice'></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>销售价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='SalePrice' money=''></li>
+                            <div class="clear"></div>
+                        </ul>
+                    <%} %>
+
+
+                <%}else {%>
+                    
+                    <%if(isCPD == 'true'){%>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>工作日销售价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='SalePrice' money=''></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>节假日销售价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='SalePrice_Holiday' money=''></li>
+                            <div class="clear"></div>
+                        </ul>
+                    <%}else{%>
+                        <ul>
+                            <li class="add_ad_w1"><span class="red f12">*</span>销售价：</li>
+                            <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入价格" class='SalePrice' money=''></li>
+                            <div class="clear"></div>
+                        </ul>
+                    <%} %>
+
+                <%} %>
+
+                <ul>
+                    <li class="add_ad_w1">点击量：</li>
+                    <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入点击量" class='clickRate'></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="add_ad_w1">曝光量：</li>
+                    <li><input name="Username" type="text" style="width:90px;height:34px;" placeholder="请输入曝光量" class='quantityRate'></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+
+            <div class="clear"></div>
+
+        </div>
+        <div class="keep" style="text-align:center">
+            <div class="mb10">
+                <!--<a href="javascript:;" class="but_data closePopup" style="width:140px;margin-right: 10px">取消</a>-->
+                <a href="javascript:;" class="but_data" style="width:140px;" id='safeADPrice'>保存</a>
+            </div>
+            <div class="red errorMeg" style='display: none'><img src="/ImagesNew/icon21.png"> <span></span></div>
+        </div>
+    </div>
+</div>
+</script>

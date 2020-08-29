@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>修改公众号菜单</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css" />
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css" />
+    <script language="javascript" src="/api/check.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/ModifyMenu.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+
+        #Cumulative span {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .Prompt_script {
+            width: 150px;
+            position: absolute;
+            background-color: #e5e5e5;
+            border-radius: 5px;
+            padding: 5px;
+            left: 50%;
+            margin-left: -75px;
+            display: none;
+            z-index: 100;
+            line-height: 12px;
+        }
+
+            .Prompt_script:before {
+                content: '';
+                display: block;
+                background-color: #e5e5e5;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 50%;
+                top: -3px;
+                margin-left: -5px;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+    </style>
+</head>
+<body>
+    <!--顶部logo 导航-->
+    <!-- #include file="/base/header.html"  -->
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!-- #include file="/base/Menu.html"  -->
+
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav"></h2>
+                </div>
+                <div id="list_switching">
+
+                    <div class="clear"></div>
+                    <ul class="state">
+                        <li>
+                            <div class="ins_c" style="width: 100px;">请选择微信号：</div><select id="ddlWxNum" style="width: 150px;"><option selected="selected" value="-1">请选择</option></select>
+                        </li>
+
+
+                        <!--<li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                        <a class="but_query" id='ExportData' style="width:70px;margin-left: 10px">导出数据</a>-->
+                        <div class="clear"></div>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+                        <p class="TotalBar" style="float: right;"></p>
+                        <div class="clear"></div>
+                    说明：<br/>
+                        <label style="color: red">
+                            1、自定义菜单最多包括3个一级菜单，每个一级菜单最多包含5个二级菜单。<br />
+                            2、一级菜单最多4个汉字，二级菜单最多7个汉字，多出来的部分将会以“...”代替。<br/>
+                            3、接口调用限制，每天，自定义菜单创建 1000 次；自定义菜单删除 10000次；自定义菜单查询 100000次。<br />
+                        </label> <br />
+                        <div id="divMenu">
+                            <div name="divRootMenu">
+                                一级菜单，
+                                名称：<input type="text" name="txtMenuName"/>
+                                类型：<select name="ddlMenuType">
+                                    <option value="-1" selected="selected">请选择</option>
+                                    <option value="view">链接</option>
+                                    <option value="click">图片</option>
+                                    <option value="subMenu">有子菜单</option>
+                                </select>
+                                值：<input type="text" name="txtMenuVal" style="width: 500px;"/>
+                                <br/><br/>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">1：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">2：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">3：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">4：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">5：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <br />
+                                <br />
+                            </div>
+
+                            <div name="divRootMenu">
+                                二级菜单，
+                                名称：<input type="text" name="txtMenuName"/>
+                                类型：<select name="ddlMenuType">
+                                    <option value="-1" selected="selected">请选择</option>
+                                    <option value="view">链接</option>
+                                    <option value="click">图片</option>
+                                    <option value="subMenu">有子菜单</option>
+                                </select>
+                                值：<input type="text" name="txtMenuVal" style="width: 500px;"/>
+                                <br/><br/>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">1：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">2：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">3：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">4：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">5：</label>
+                                    名称：<input type="text" name="txtSubMenuName"/>
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;"/>
+                                    <br/>
+                                </div>
+                                <br />
+                                <br />
+                            </div>
+
+                            <div name="divRootMenu">
+                                三级菜单，
+                                名称：<input type="text" name="txtMenuName" />
+                                类型：<select name="ddlMenuType">
+                                    <option value="-1" selected="selected">请选择</option>
+                                    <option value="view">链接</option>
+                                    <option value="click">图片</option>
+                                    <option value="subMenu">有子菜单</option>
+                                </select>
+                                值：<input type="text" name="txtMenuVal" style="width: 500px;" />
+                                <br /><br />
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">1：</label>
+                                    名称：<input type="text" name="txtSubMenuName" />
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;" />
+                                    <br />
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">2：</label>
+                                    名称：<input type="text" name="txtSubMenuName" />
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;" />
+                                    <br />
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">3：</label>
+                                    名称：<input type="text" name="txtSubMenuName" />
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;" />
+                                    <br />
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">4：</label>
+                                    名称：<input type="text" name="txtSubMenuName" />
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;" />
+                                    <br />
+                                </div>
+                                <div name="divSubMenu">
+                                    <label style="margin-left: 48px;">5：</label>
+                                    名称：<input type="text" name="txtSubMenuName" />
+                                    类型：<select name="ddlSubMenuType">
+                                        <option value="-1" selected="selected">请选择</option>
+                                        <option value="view">链接</option>
+                                        <option value="click">图片</option>
+                                    </select>
+                                    值：<input type="text" name="txtSubMenuVal" style="width: 500px;" />
+                                    <br />
+                                </div>
+                                <br />
+                                <br />
+                            </div>
+
+                        </div>
+
+                    <li style="width: 70px; margin-right: 0" id="liSaveMenuData" class="but_query">保存菜单</li>
+                    <li style="width: 70px; margin-right: 0" id="liClearMenuData" class="but_query">清空菜单</li>
+                        <br /><span id="spanResultMsg"></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="/base/footer.html" -->
+</body>
+</html>

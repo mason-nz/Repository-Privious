@@ -1,0 +1,113 @@
+    <div id="top">
+    <div class="box">
+        <div class="left"></div>
+        <ul id="ulNoLogined" class="right pr">
+            <li>
+                <a>
+                    <img src="/images/person2.png">
+                    <span>广告主</span>
+                </a>
+            </li>
+            <li>
+                <img src="/images/line2.png">
+            </li>
+            <li>
+                <a>
+                    <img src="/images/person3.png">
+                    <span>媒体主</span>
+                </a>
+            </li>
+            <li>
+                <img src="/images/line2.png">
+            </li>
+            <li class="wx_code">
+                <a>
+                    <img src="/images/code.png">
+                    <span>微信公众号</span>
+                </a>
+                <p class="two_img"><img src="/images/wechat_code.png"></p>
+            </li>
+        </ul>
+
+        <ul id="ulLogined" style="display:none;" class="right pr">
+            <li>
+                <img src="/images/person.png">
+                <span id="span_LoginUserName"></span>
+            </li>
+            <li>
+                <a id="aLoginMainUrl">
+                    <img src="/images/house.png">
+                    <span>个人中心</span>
+                </a>
+            </li>
+            <li class="wx_code">
+                <a>
+                    <img src="/images/code.png">
+                    <span>微信公众号</span>
+                </a>
+                <p class="two_img"><img src="/images/wechat_code.png"></p>
+            </li>
+            <li>
+                <a id="aLoginExitUrl">
+                    <img src="/images/quit.png">
+                    <span>退出</span>
+                </a>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<script>
+    //解析参数
+    function request(paras) {
+        var url = location.href;
+        var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+        var paraObj = {}
+        for (i = 0; j = paraString[i]; i++) {
+            paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+        }
+        var returnValue = paraObj[paras.toLowerCase()];
+        if (typeof (returnValue) == "undefined") {
+            return "";
+        } else {
+            return returnValue;
+        }
+    }
+
+    $(function () {
+        if (CTLogin && CTLogin.UserID > 0) {//登陆后
+            $('#ulNoLogined').remove();
+
+            if (CTLogin.UserName) {
+                $('#span_LoginUserName').html(CTLogin.UserName);
+            }
+            switch (CTLogin.Category) {
+                case 29001: $('#aLoginMainUrl').attr('href', '/manager/advertister/personal/PersonCenter.html');
+                    break;
+                case 29002: $('#aLoginMainUrl').attr('href', '/manager/advertister/personal/PersonCenter.html');
+                    break;
+            }
+            $('#aLoginExitUrl').attr('href', '/Exit.aspx?gourl=' + encodeURIComponent('/index.html'));
+            $('#ulLogined').show();
+        }
+        else {//未登录
+            var gourl = request('gourl');
+            var para = (gourl != '' ? gourl : encodeURIComponent('/index.html'));
+            $('#ulNoLogined li a:eq(0)').attr('href', '/Login.aspx?Type=1&gourl=' + para);
+            $('#ulNoLogined li a:eq(1)').attr('href', '/Login.aspx?Type=2&gourl=' + para);
+        }
+
+        //二维码
+        $('.right li.wx_code').on('mouseover',function(){
+            var that = $(this);
+            that.find('.two_img').show();
+        }).on('mouseout',function(){
+            var that = $(this);
+            that.find('.two_img').hide();
+        })
+
+    });
+
+</script>

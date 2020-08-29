@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="js/look_CostPrice.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r" id="rendering1">
+        <div class="install">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+                <div class="clear"></div>
+            </div>
+            <div class="install_box">
+
+
+
+                <ul>
+                    <li class="ins_a">
+                        <div class="frame_n">
+                          <img src="<%=Result.HeadIconURL%>" width="80" height="80"/></div>
+                    </li>
+                    <li class="wechat_name">
+                        <div>微信名称：效应</div>
+                        <div>微信帐号：速度快开发商</div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">渠道：</li>
+                    <li>效应网络</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">广告有效期：</li>
+                    <li>2017-01-01 至 2017-12-31</li>
+
+
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">&nbsp;</li>
+                    <li>状态：启用</li>
+
+                    <li style="float: right;margin-right: 150px">价格单位：元/次</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">&nbsp;</li>
+                    <li class="ad_r">
+                        <div class="table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                                <tr>
+                                    <th width="27%">广告位信息</th>
+                                    <th width="25%">销售参考价</th>
+                                    <th width="20%">成本参考价</th>
+                                    <!-- <th width="20%">销售价（元\次）</th> -->
+                                </tr>
+
+                                <tr>
+                                    <td>多图文第一条</td>
+                                    <td style='padding-left: 20px;'>
+                                        ￥5,500
+                                    </td>
+                                    <td>￥5,000</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+
+
+                <ul>
+                    <li class="ins_a">原创参考价：</li>
+                    <li>￥2,000</li>
+
+                    <li style="float: right;margin-right: 150px;color:grey">说明：以上价格均为含税价</li>
+
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+
+        <script type="text/template" id="rendering">
+            <ul>
+                <li class="ins_a">
+                    <div class="frame_n">
+                      <%if(data.HeadIconUrl){%>
+                        <img src="<%=data.HeadIconUrl%>" width="80" height="80"/>
+                      <%}else{%>
+                        <img src="/images/default_touxiang.png" width="80" height="80">
+                      <%}%>
+                    </div>
+                </li>
+                <li class="wechat_name">
+                    <div>微信名称：<%=data.WxName%></div>
+                    <div>微信帐号：<%=data.WxNumber%></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">渠道：</li>
+                <li><%=data.ChannelName%></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">广告有效期：</li>
+                <li><%=data.CooperateDate%></li>
+
+
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">&nbsp;</li>
+                <li>状态：<%=data.SaleStatusName%></li>
+                <li style="float: right;margin-right: 150px">价格单位：元/次</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">&nbsp;</li>
+                <li class="ad_r">
+                    <div class="table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                            <tr>
+                                <th width="27%">广告位信息</th>
+                                <th width="25%">销售参考价</th>
+                                <th width="20%">成本参考价</th>
+                                <!-- <th width="20%">销售价（元\次）</th> -->
+                            </tr>
+                            <%for(var i=0;i<data.CostDetailList.length;i++){%>
+                                <tr>
+                                    <td><%=data.CostDetailList[i].ADPosition%></td>
+                                    <td style='padding-left: 20px;'>
+
+                                        ￥<%=data.CostDetailList[i].SalePrice%>
+                                    </td>
+                                    <td>￥<%=data.CostDetailList[i].CostPrice%></td>
+                                </tr>
+                            <%}%>
+
+                        </table>
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+
+
+            <ul>
+                <%if(data.OriginalPrice){%>
+                    <li class="ins_a">原创参考价：</li>
+                    <li>￥<%=data.OriginalPrice%></li>
+                <%}%>
+                <li style="float: right;margin-right: 150px;color:grey">说明：以上价格均为含税价</li>
+
+                <div class="clear"></div>
+            </ul>
+
+
+        </script>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

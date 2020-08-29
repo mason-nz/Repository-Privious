@@ -1,0 +1,351 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟广告在线交易平台">
+    <meta name="keywords" content="赤兔联盟">
+    <title>效果数据</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css" />
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css" />
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+          type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/laydate.js" ></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/effect_data.js"></script>
+    <script type="text/javascript" src="/js/echarts.min.js"></script>
+</head>
+<style>
+</style>
+<body style="box-sizing:border-box;">
+    <!--#include file="/base/header.html" -->
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+      <!--#include file="../Base/Menu.html" -->
+        <!-- 插入模板的位置 -->
+        <div class="order_r">
+            <div class="new_box">
+                <div class="list">
+                    <h2>效果数据 </h2>
+                </div>
+                <div class="install effet">
+                    <div class="effect_left" >
+                        <div class="effect_left_top" style="cursor:pointer">
+                            整体情况
+                        </div>
+                        <div class="effect_left_bottom">
+                            <div class="effect_ad">
+                                <div class="">
+                                    <span DemandBillNo="1" class="accurate_requirement"><b>智慧云广告投放</b></span><span class="img_switch"><img src="/ImagesNew/up_click.png"><img src="../ImagesNew/down_click.png" style="display:none"></span>
+                                </div>
+                                <ul>
+                                    <li class="accurate_advertising">广点通广告名称1</li>
+                                    <li>广点通广告名称2</li>
+                                    <li>广点通广告名称3</li>
+                                </ul>
+                            </div>
+                            <div class="effect_ad">
+                                <div class="">
+                                    <span><b>智慧云广告投放</b></span><span class="img_switch"><img src="/ImagesNew/up_click.png" style="display:none"><img src="../ImagesNew/down_click.png" ></span>
+                                </div>
+                                <ul style="display:none">
+                                    <li class="accurate_advertising" AdgroupId="1">广点通广告名称1</li>
+                                    <li>广点通广告名称2</li>
+                                    <li>广点通广告名称3</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="bottom_info" >
+                                数据延迟约1小时
+                        </div>
+                    </div>
+                    <div class="effect_right">
+                        <!-- 右边上部分 -->
+                        <div class="effect_right_top">
+                            <div class="top_element">
+                                <div class="top_info">
+                                    <div>
+                                        <img src="../ImagesNew/icon_cash.png" alt=""><span>现金账户</span>
+                                    </div>
+                                    <ul>
+                                        <li><span>1000</span>元</li>
+                                        <li>今日花费：<span>760元</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="top_element">
+                                <div class="top_info">
+                                    <div>
+                                        <img src="../ImagesNew/icon_fictitious.png" alt=""><span>虚拟账户</span>
+                                    </div>
+                                    <ul>
+                                        <li><span>1000</span>元</li>
+                                        <li>今日花费：<span>760元</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="top_element">
+                                <div class="top_info">
+                                    <div>
+                                        <img src="../ImagesNew/icon_divided-into.png" alt=""><span>分成账户</span>
+                                    </div>
+                                    <ul>
+                                        <li><span>1000</span>元</li>
+                                        <li>今日花费：<span>760元</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="top_element">
+                                <div class="top_info">
+                                    <div>
+                                        <img src="../ImagesNew/icon_card.png" alt=""><span>银证账户</span>
+                                    </div>
+                                    <ul>
+                                        <li><span>1000</span>元</li>
+                                        <li>今日花费：<span>760元</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="top_element_two">
+                                <div class="top_info">
+                                    <div>
+                                        <img src="../ImagesNew/icon_demand.png" alt=""><span>需求统计</span>
+                                    </div>
+                                    <ul>
+                                        <li>待审核：<span>1000</span></li>
+                                        <li>待投放：<span>1000</span></li>
+                                        <li>投放中：<span>1000</span></li>
+                                        <li>已结束：<span>760</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="top_element_two" style="margin-right:0px">
+                                <div class="top_info">
+                                    <div>
+                                        <img src="../ImagesNew/icon_ad.png" alt=""><span>广告统计</span>
+                                    </div>
+                                    <ul>
+                                        <li>待审核：<span>1000</span></li>
+                                        <li>投放中：<span>1000</span></li>
+                                        <li style="width:100%;text-align:center">已暂停：<span>760</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 右边下部分 -->
+                        <div class="effect_right_bottom">
+                            <div class="effect_right_bottom_three effect_right_bottom_two">
+                                <div class='echarts_data echarts'>
+                                    <b style="float: left;line-height: 37px;">整体部分</b>
+                                    <ul  class='data' style='float: right;'>
+                                        <li class="effect_select special" DataType = "1">今天</li>
+                                        <li class="special" DataType = "-1">昨天</li>
+                                        <li class="special" DataType = "7">近7天</li>
+                                        <li class="special" DataType = "30">近30天</li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            <div class="clear"></div>
+                            <div class="effect_right_bottom_one">
+                                <div class="item_info">
+                                    <p><b>累计曝光量</b></p>
+                                    <p><b>13000000</b></p>
+                                </div>
+                                <div class="item_info">
+                                    <p><b>累计点击量</b></p>
+                                    <p><b>13000000</b></p>
+                                </div>
+                                <div class="item_info">
+                                    <p><b>累计平均点击率</b></p>
+                                    <p><b>13000000</b></p>
+                                </div>
+                                <div class="item_info">
+                                    <p><b>累计页面PV</b></p>
+                                    <p><b>130</b></p>
+                                </div>
+                                <div class="item_info">
+                                    <p><b>页面UV</b></p>
+                                    <p><b>100</b></p>
+                                </div>
+                                <div class="item_info">
+                                    <p><b>累计花费</b></p>
+                                    <p><b>15000000</b></p>
+                                </div>
+                                <div class="item_info">
+                                    <p><b>线索量</b></p>
+                                    <p><b>30</b></p>
+                                </div>
+                                <div class="item_info">
+                                    <p><b>线索单价</b></p>
+                                    <p><b>30</b></p>
+                                </div>
+                            </div>
+                            <div class="effect_right_bottom_two">
+                                <div class="clear"></div>
+                                <div class="echarts_data ">
+                                    <ul>
+                                        <li style="margin-left:10px"><b>指标：</b></li>
+                                        <li>
+                                            <select class="select" name="">
+                                                <option value="点击量" DateType = "2">点击量</option>
+                                                <option value="曝光量" DateType = "1">曝光量</option>
+                                                <option value="点击率" DateType = "3">点击率</option>
+                                                <option value="PV" DateType = "7">PV</option>
+                                                <option value="UV" DateType = "8">UV</option>
+                                                <option value="费用" DateType = "4">费用</option>
+                                                <option value="线索量" DateType = "9">线索量</option>
+                                                <option value="线索单价" DateType = "10">线索单价</option>
+                                            </select>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <div class="" id="echart" style="width:100%;height:411px;margin-left:0">图表部分</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <!--#include file="/base/footer.html" -->
+</body>
+<!-- 左侧信息模板 -->
+<script type="text/template" id="advertising">
+    <%for(var i=0;i<data.length;i++){%>
+        <div class="effect_ad">
+            <div class="" style="cursor:pointer">
+                <span style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display:block;float:left;width:85%" class="accurate_requirement" DemandBillNo = "<%=data[i].DemandBillNo%>"><b style="width:50%"><%=data[i].Name%></b></span><span class="img_switch" style="display:block;float:right;margin-right:6%"><img src="/ImagesNew/up_click.png" style="display:none"><img src="../ImagesNew/down_click.png" ></span>
+            </div>
+            <ul style="display:none">
+                <%for(var j=0;j<data[i].ADGroupList.length;j++){%>
+                    <li style="cursor:pointer" class="accurate_advertising" AdgroupId="<%=data[i].ADGroupList[j].AdgroupId%>"><%=data[i].ADGroupList[j].AdgroupName%></li>
+                <%}%>
+            </ul>
+        </div>
+    <%}%>
+  </script>
+<!-- 右侧上部分 -->
+<script type="text/template" id="right_top">
+    <div class="top_element">
+        <div class="top_info">
+            <div>
+                <img src="../ImagesNew/icon_cash.png" alt=""><span>现金账户</span>
+            </div>
+            <ul>
+                <li><span><%= formatMoney(data.XJAccount.Current/100,2,'¥')%></span>元</li>
+                <li>今日花费：<span><%= formatMoney(data.XJAccount.Cost/100,2,'¥') %></span>元</li>
+            </ul>
+        </div>
+    </div>
+    <div class="top_element">
+        <div class="top_info">
+            <div>
+                <img src="../ImagesNew/icon_fictitious.png" alt=""><span>虚拟账户</span>
+            </div>
+            <ul>
+                <li><span><%= formatMoney(data.XNAccount.Current/100,2,'¥') %></span>元</li>
+                <li>今日花费：<span><%= formatMoney(data.XNAccount.Cost/100,2,'¥') %></span>元</li>
+            </ul>
+        </div>
+    </div>
+    <div class="top_element">
+        <div class="top_info">
+            <div>
+                <img src="../ImagesNew/icon_divided-into.png" alt=""><span>分成账户</span>
+            </div>
+            <ul>
+                <li><span><%= formatMoney(data.FCAccount.Current/100,2,'¥') %></span>元</li>
+                <li>今日花费：<span><%= formatMoney(data.FCAccount.Cost/100,2,'¥') %></span>元</li>
+            </ul>
+        </div>
+    </div>
+    <div class="top_element">
+        <div class="top_info">
+            <div>
+                <img src="../ImagesNew/icon_card.png" alt=""><span>银证账户</span>
+            </div>
+            <ul>
+                <li><span><%= formatMoney(data.YZAccount.Current/100,2,'¥') %></span>元</li>
+                <li>今日花费：<span><%= formatMoney(data.YZAccount.Cost/100,2,'¥') %></span>元</li>
+            </ul>
+        </div>
+    </div>
+    <div class="top_element_two">
+        <div class="top_info">
+            <div>
+                <img src="../ImagesNew/icon_demand.png" alt=""><span>需求统计</span>
+            </div>
+            <ul>
+                <li>待审核：<span><%=data.DemandStatistic.DSH%></span></li>
+                <li>待投放：<span><%=data.DemandStatistic.DTF%></span></li>
+                <li>投放中：<span><%=data.DemandStatistic.TFZ%></span></li>
+                <li>已结束：<span><%=data.DemandStatistic.YJS%></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="top_element_two" style="margin-right:0px">
+        <div class="top_info">
+            <div>
+                <img src="../ImagesNew/icon_ad.png" alt=""><span>广告统计</span>
+            </div>
+            <ul>
+                <li>待审核：<span><%=data.ADGroupStatistic.DSH%></span></li>
+
+                <li>投放中：<span><%=data.ADGroupStatistic.TFZ%></span></li>
+                <li style="width:100%;text-align:center;margin:0">已暂停：<span><%=data.ADGroupStatistic.YZT%></span></li>
+            </ul>
+        </div>
+    </div>
+</script>
+<!-- 右边中间数据 -->
+<script type="text/template" id="center_data">
+    <div class="item_info">
+        <p><b>累计曝光量</b></p>
+        <p><b><%=data.TotalImpression%></b></p>
+    </div>
+    <div class="item_info">
+        <p><b>累计点击量</b></p>
+        <p><b><%=data.TotalClick%></b></p>
+    </div>
+    <div class="item_info">
+        <p><b>累计平均点击率</b></p>
+        <p><b><%= formatMoney(data.AvgClickPercent*100,2,'') %> %</b></p>
+    </div>
+    <div class="item_info">
+        <p><b>累计页面PV</b></p>
+        <p><b><%=data.PV%></b></p>
+    </div>
+    <div class="item_info">
+        <p><b>页面UV</b></p>
+        <p><b><%=data.UV%></b></p>
+    </div>
+    <div class="item_info">
+        <p><b>累计花费</b></p>
+        <p><b><%= formatMoney(data.TotalCost/100,2,'¥') %></b></p>
+    </div>
+    <div class="item_info">
+        <p><b>线索量</b></p>
+        <p><b><%=data.ClueCount%></b></p>
+    </div>
+    <div class="item_info">
+        <p><b>线索单价</b></p>
+        <p><b><%= formatMoney(data.CluePrice/100,2,'¥') %></b></p>
+    </div>
+</script>
+</html>

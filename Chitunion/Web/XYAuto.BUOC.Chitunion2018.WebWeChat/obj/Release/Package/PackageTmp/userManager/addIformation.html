@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #f3f3f3;">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/module.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="/js/common_weChat.js"></script>
+    <script src="/js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+    <script src="js/addIformation.js"></script>
+</head>
+<body>
+<div class="no_data" style="display: none">
+    <div>
+        <img src="../images/no_net.png">
+    </div>
+    <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+</div>
+<div class="container-fluid PersonalInformation netOk" style="display: none"  id="app">
+    <!--<header :class="header_hide">-->
+        <!--{{header_text}}-->
+    <!--</header>-->
+    <main>
+        <article class="personalData">
+            <div class="flex_justify_spaceBetween">
+                微信昵称<input disabled type="text" id="nickname" :placeholder="nickname">
+            </div>
+            <div class="flex_justify_spaceBetween">
+                手机号<input type="number" pattern="[0-9]*" placeholder="请输入11位手机号码" v-model="MobilePhone">
+            </div>
+            <div class="flex_justify_spaceBetween">
+                验证码
+                <div><input id="Verification" type="number" pattern="[0-9]*" v-model="VerificationCode">
+                    <button @click="getVerificationCode" :class="ntifyingCode">{{getyzm}}</button>
+                </div>
+            </div>
+        </article>
+        <article class="personalSupplement">
+            <div class="flex_justify_spaceBetween">
+                类型
+                <div>
+                    <div class="typeSwitching">
+                        <button @click="personalClick" :class="typecolourblue">个人</button><button :class="typecolour" @click="enterpriseClick">企业</button>
+                    </div>
+                </div>
+            </div>
+            <!--个人-->
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                真实姓名 <input type="text" v-model="RealName" placeholder="请输入真实姓名">
+            </div>
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                身份证号 <input type="text" v-model="IdNumber" placeholder="请输入身份证号">
+            </div>
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                手持身份证
+                <div class="img_dag">
+                    <div class="upload_text" @click.self="IDCardUploading">{{sfz}}<img id="photoimg" @click="photo_img" :src="photoimg" alt=""></div>
+                </div>
+            </div>
+            <!--企业-->
+            <div v-show="enterprise" class="flex_justify_spaceBetween">
+                公司名称 <input type="text" v-model="CorporateName" placeholder="请输入公司名称">
+            </div>
+            <div v-show="enterprise" class="flex_justify_spaceBetween">
+                营业执照
+                <div class="img_dag">
+                    <div class="upload_text" @click.self="ClickBLicenceURL">{{yyzz}}<img id="BLicenceURL" @click="BLicence_URL" :src="BLicenceURL" alt=""></div>
+                </div>
+            </div>
+
+            <!--遮罩-->
+            <div id="Mask"></div>
+        </article>
+        <article class="personalProperty">
+            <div class="flex_justify_spaceBetween">
+                支付宝账号 <input type="text" v-model="Alipay" placeholder="提现使用，请输入">
+            </div>
+        </article>
+        <div class="flex_justify_center">
+            <button id="PreserVation" @click="Preservation" class="btn_bg">保存</button>
+        </div>
+    </main>
+</div>
+</body>
+</html>

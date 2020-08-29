@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>赤兔联盟平台</title>
+	<link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+	
+
+	<div class="login_container">
+		<div class="logo_txt"><img src="../images/login/logo.png"></div>
+		<div class="shape">
+
+			<div class="main">
+				<div class="left">
+					<!-- 身份角色 -->
+					<ul class="nav">
+						<li class="selected"><a href="javascript:;">广告主</a></li>
+						<li><a href="javascript:;">媒体主</a></li>
+					</ul>
+					
+					<!-- 两种身份入口 -->
+					<div class="two_rules">
+
+						<!-- 广告主 1.账号登录  2.微信二维码扫描登录-->
+						<div class="role_advertisers">
+
+							<!-- 1.账号登录 -->
+							<div class="account" style='display: none;'>
+								<ul class="all_input">
+									<li>
+										<input type="text" placeholder="请输入用户名/手机号">
+									</li>
+									<li>
+										<input type="text" placeholder="请输入密码（6-20字符）">
+										<a href="javascript:;" class="close"><img src='../images/login/close.png'></a>
+									</li>
+									<li>
+										<input type="text" placeholder="请输入验证码">
+										<a href="javascript:;" class="code">获取验证码</a>
+									</li>
+									<li>
+										<img src='../images/login/error.png'>验证码错误
+									</li>
+								</ul>
+								<div class="btn">
+									<a href="javascript:;" class="login_btn">登录</a>
+								</div>
+								<ul class="bottom">
+									<li>
+										<a href="javascript:;">忘记密码</a>
+									</li>
+									<li>
+										<img src='../images/login/btn_wechat.png'>
+										微信
+										<a href="javascript:;">登陆</a>
+									</li>
+									<li>还没账号 <a href="javascript:;">注册</a></li>
+								</ul>
+							</div>
+
+							<!-- 2.微信二维码扫描登录 -->
+							<div class="we_code" style="display: block;">
+								<img src="../images/login/code.png" class="code">
+								<p class="tit">
+									<img src="../images/login/alreday.png">
+									扫描成功，请在微信点击确认即可登录
+								</p>
+								<p class="bottom">
+									<a href="javascript:;">账号登录</a>
+								</p>
+							</div>
+
+						</div>
+
+						<!-- 媒体主 -->
+						<div class="role_media">
+
+						</div>
+					</div>
+
+				</div>
+				<div class="right">
+					<img src="../images/login/right.png">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

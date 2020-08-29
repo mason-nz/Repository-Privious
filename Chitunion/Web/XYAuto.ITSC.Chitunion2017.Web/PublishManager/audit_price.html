@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+<script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+<script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+<script type="text/javascript" src="../js/laydate.js"></script>
+<script type="text/javascript" src="../js/ejs.min.js"></script>
+<script type="text/javascript" src="../js/Area2.js"></script>
+<script type="text/javascript" src="../js/Common_area.js"></script>
+<script type="text/javascript" src="../js/jquery.pagination.js"></script>
+<script type="text/javascript" src="../js/jquery.browser.js"></script>
+<script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="/js/Common_chitu.js"></script>
+<script type="text/javascript" src="../js/Common_IE.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<script src="../js/jquery-ui.min.js"></script>
+<script src="js/audit_price.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--顶部logo 导航-->
+  <!--#include file="/base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+    <!--#include file="/base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2>广告审核</h2>
+            <div class="clear"></div>
+
+
+            <div class="ad_audit">
+                    <div class="h_content">
+                        <!-- <div class="hc_l" style="width:350px;">
+                                <div>媒体名称：行圆汽车</div>
+                                <div>申 请 人：AE 李萌萌</div>
+                                <div>有 效 期：2017年05月22日 至 2018年05月22日</div>
+                                <div>刊例原件：<span class="red">行圆汽车.jpg</span></div>
+                        </div>
+                        <div class="hc_c">
+                            <ul>
+                                <li><img src="ImagesNew/pic08.jpg"></li>
+                                <li><img src="ImagesNew/pic08.jpg"></li>
+                                <li><img src="ImagesNew/pic08.jpg"></li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                        <div class="clear"></div> -->
+                    </div>
+
+                    <div class="audit_info"><input name="" type="checkbox" value=""> 全选</div>
+                    <div class="line3"></div>
+                    <div id="data">
+
+                        <!-- <div class="audit_info2"><input name="" type="checkbox" value=""> 广告名称：首页顶部banner <span class="red">|</span> 采购折扣：100% &nbsp; 销售折扣：100%</div>
+
+                        <div class="ad_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                              <tr>
+                                  <th width="6%" rowspan="2">轮播</th>
+                                  <th width="10%" rowspan="2">广告样式</th>
+                                  <th width="10%" rowspan="2">售卖平台</th>
+                                  <th width="8%" rowspan="2">售卖方式</th>
+                                  <th width="8%" rowspan="2">售卖区域</th>
+                                  <th width="9%" rowspan="2">点击量</th>
+                                  <th width="9%" rowspan="2">曝光量</th>
+                                  <th colspan='2'>刊例价(天/次)</th>
+                                  <th colspan='2'>销售价(天/次)</th>
+                              </tr>
+                              <tr>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+                              </tr>
+
+                                <tr>
+                                    <td>1/7</td>
+                                    <td>静态3s不可点击</td>
+                                    <td>android & ios</td>
+                                    <td>cpd</td>
+                                    <td>全国</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>1/7</td>
+                                    <td>静态3s不可点击</td>
+                                    <td>android & ios</td>
+                                    <td>cpd</td>
+                                    <td>全国</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="audit_info2"><input name="" type="checkbox" value=""> 广告名称：首页顶部banner <span class="red">|</span> 采购折扣：100% &nbsp; 销售折扣：100%</div>
+                        <div class="ad_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                              <tr>
+                                  <th width="6%" rowspan="2">轮播</th>
+                                  <th width="10%" rowspan="2">广告样式</th>
+                                  <th width="10%" rowspan="2">售卖平台</th>
+                                  <th width="8%" rowspan="2">售卖方式</th>
+                                  <th width="8%" rowspan="2">售卖区域</th>
+                                  <th width="9%" rowspan="2">点击量</th>
+                                  <th width="9%" rowspan="2">曝光量</th>
+                                  <th colspan='2'>刊例价(天/次)</th>
+                                  <th colspan='2'>销售价(天/次)</th>
+                              </tr>
+                              <tr>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                                  <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+                              </tr>
+
+                                <tr>
+                                    <td>1/7</td>
+                                    <td>静态3s不可点击</td>
+                                    <td>android & ios</td>
+                                    <td>cpd</td>
+                                    <td>全国</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>1/7</td>
+                                    <td>静态3s不可点击</td>
+                                    <td>android & ios</td>
+                                    <td>cpd</td>
+                                    <td>全国</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div> -->
+                    </div>
+                <div class="ad_select">
+                    <div class="left">
+                        <span><input name="" type="checkbox" value=""> 全选</span>
+                        <span><input name="1" type="radio" value="通过"> 通过</span>
+                        <span><input name="1" type="radio" value="驳回"> 驳回</span>
+                        <span id="reason" style="display:none"><input style="width:300px" name="1" type="text" placeholder="请输入驳回原因" value=""></span>
+                    </div>
+                    <div class="right">
+                        <div class="put_in">确 认</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+
+            <!-- 驳回的弹层 -->
+            <!-- <div class="layer" style="display:none">
+                <div class="title">
+                    驳回原因
+                    <div class="close"><a href="javascript:void(0)"><img src="/ImagesNew/closebt.png" ></a></div>
+                </div>
+
+                <div class="layer_con3">
+                    <div class="tc">
+                        <textarea name="" cols="" rows="5" style="width:450px;height:80px;resize:none;" placeholder="请输入驳回原因"></textarea>
+                       <div class="keep" style="margin-bottom:70px"><a href="#" class="but_data" style="width:160px;margin-left:10px">确定</a></div>
+                    </div>
+                </div>
+            </div> -->
+
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--底部-->
+  <!--#include file="/base/footer.html" -->
+  <script type="text/template" id="info">
+      <div class="hc_l" style="width:350px;">
+              <div>媒体名称：<%=data.ADInfo.MediaName%></div>
+              <div>申 请 人：<%=data.ADInfo.SubmitUserName%></div>
+              <div>有 效 期：<%=data.ADInfo.BeginTime.substring(0,4)%>年<%=data.ADInfo.BeginTime.substring(5,7)%>月<%=data.ADInfo.BeginTime.substring(8,10)%>日 至 <%=data.ADInfo.EndTime.substring(0,4)%>年<%=data.ADInfo.EndTime.substring(5,7)%>月<%=data.ADInfo.EndTime.substring(8,10)%>日</div>
+              <div>刊例原件：<a target="_blank" href="<%=data.ADInfo.PubFileUrl%>"><span class="red"><%=getFileName(data.ADInfo.PubFileName)%></span></a></div>
+      </div>
+      <div class="hc_c">
+          <ul>
+              <%if(data.ADInfo.MediaLogo){%>
+                  <%for(var i=0;i<data.ADInfo.MediaLogo.split("|").length;i++){%>
+                      <li><img src="<%=data.ADInfo.MediaLogo.split("|")[i]%>"></li>
+                  <%}%>
+              <%}%>
+              <div class="clear"></div>
+          </ul>
+      </div>
+      <div class="clear"></div>
+  </script>
+<script type="text/template" id="publish">
+    <%for(var i=0;i<data.List.length;i++){%>
+        <div>
+            <div class="audit_info2"><input name="" type="checkbox" value="" PubID="<%=data.List[i].PublishBasicInfo.PubID%>"> 广告名称：<%=data.List[i].PublishBasicInfo.ADName%> <span class="red">|</span> 采购折扣：<%=(data.List[i].PublishBasicInfo.PurchaseDiscount*100).toFixed(2)%>% &nbsp; 销售折扣：<%=(data.List[i].PublishBasicInfo.SaleDiscount*100).toFixed(2)%>%</div>
+
+            <div class="ad_table" style="padding:0 15px">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                    <tr>
+                        <th width="6%" rowspan="2">轮播</th>
+                        <th width="10%" rowspan="2">广告样式</th>
+                        <th width="10%" rowspan="2">售卖平台</th>
+                        <th width="8%" rowspan="2">售卖方式</th>
+                        <th width="8%" rowspan="2">售卖区域</th>
+                        <th width="9%" rowspan="2">点击量</th>
+                        <th width="9%" rowspan="2">曝光量</th>
+                        <th colspan='2'>刊例价(天/次)</th>
+                        <th colspan='2'>销售价(天/次)</th>
+                    </tr>
+                    <tr>
+                        <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                        <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+                        <th width="8%" style='height: 20px;line-height: 20px'>工作日</th>
+                        <th width="8%" style='height: 20px;line-height: 20px'>假期日</th>
+                    </tr>
+                        <%for(var j=0;j<data.List[i].PriceList.length;j++){%>
+
+                                <tr RowState="<%=data.List[i].PriceList[j].RowState%>">
+                                    <td sync="CarouselNumber">
+                                      <%if(data.List[i].PriceList[j].CarouselNumber==0){%>
+                                        --
+                                      <%}else{%>
+                                          <%=data.List[i].PriceList[j].CarouselNumber%>
+                                      <%}%>
+                                    </td>
+                                    <td sync="ADStyleName"><%=data.List[i].PriceList[j].ADStyleName%></td>
+                                    <td sync="SalePlatformName">
+                                        <%=data.List[i].PriceList[j].SalePlatformName%>
+                                    </td>
+                                    <td sync="SaleTypeName">
+                                        <%=data.List[i].PriceList[j].SaleTypeName%>
+                                    </td>
+                                    <td sync="SaleAreaName">
+                                        <%=data.List[i].PriceList[j].SaleAreaName%>
+                                    </td>
+                                    <td sync="ClickCount">
+                                        <%if(data.List[i].PriceList[j].ClickCount==0){%>
+                                            --
+                                        <%}else{%>
+                                            <%=data.List[i].PriceList[j].ClickCount%>
+                                        <%}%>
+                                    </td>
+                                    <td sync="ExposureCount">
+                                        <%if(data.List[i].PriceList[j].ExposureCount==0){%>
+                                            --
+                                        <%}else{%>
+                                        <%=data.List[i].PriceList[j].ExposureCount%>
+                                        <%}%>
+                                    </td>
+                                    <td sync="PubPrice">
+                                        <%if(data.List[i].PriceList[j].PubPrice==0){%>
+                                            --
+                                        <%}else{%>
+                                            <%=data.List[i].PriceList[j].PubPrice%>
+                                        <%}%>
+
+                                    </td>
+                                    <td sync="PubPrice_Holiday">
+                                        <%if(data.List[i].PriceList[j].PubPrice_Holiday==0){%>
+                                            --
+                                        <%}else{%>
+                                        <%=data.List[i].PriceList[j].PubPrice_Holiday%>
+                                        <%}%>
+
+                                    </td>
+                                    <td sync="SalePrice">
+                                        <%if(data.List[i].PriceList[j].SalePrice==0){%>
+                                            --
+                                        <%}else{%>
+                                        <%=data.List[i].PriceList[j].SalePrice%>
+                                        <%}%>
+
+                                    </td>
+                                    <td sync="SalePrice_Holiday">
+                                        <%if(data.List[i].PriceList[j].SalePrice_Holiday==0){%>
+                                            --
+                                        <%}else{%>
+                                            <%=data.List[i].PriceList[j].SalePrice_Holiday%>
+                                        <%}%>
+
+                                    </td>
+                                </tr>
+                        <%}%>
+
+                    </table>
+                </div>
+            </div>
+    <%}%>
+</script>
+
+
+</body>
+</html>

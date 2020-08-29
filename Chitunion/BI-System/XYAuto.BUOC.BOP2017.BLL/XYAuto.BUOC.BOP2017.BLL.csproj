@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70CD3F41-0D2C-4DD5-8AF0-489F1E524F76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.BOP2017.BLL</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.BOP2017.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\AutoMapper.6.1.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\FastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xy.Config">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Xy.ImageFastDFS">
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.ImageFastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ChiTu.Excel">
+      <HintPath>..\..\..\Lib\XYAuto.ChiTu.Excel\XYAuto.ChiTu.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils">
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\Lib\XYAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMapperConfig\AutoMapperConfig.cs" />
+    <Compile Include="Demand\Dto\Request\RequestDeleteDeliveryDto.cs" />
+    <Compile Include="Demand\Dto\Request\RequestGroundDeliveryDto.cs" />
+    <Compile Include="Demand\Dto\Response\RespDemandCarAndCitysDto.cs" />
+    <Compile Include="Demand\Dto\Response\RespDemandGroundPageDto.cs" />
+    <Compile Include="Demand\Dto\Response\RespGetGroundDeliveryDto.cs" />
+    <Compile Include="Demand\Resolver\DemandGroundDeliveryProvider.cs" />
+    <Compile Include="AutoMapperConfig\Profile\Demand\DemandGroundProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\Demand\DemandPushProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\GDT\GdtServerProfile.cs" />
+    <Compile Include="AutoMapperConfig\Profile\GDT\GdtUserInfoProfile.cs" />
+    <Compile Include="Demand\Demand.cs" />
+    <Compile Include="Demand\Dto\Request\RequestDeletePageDto.cs" />
+    <Compile Include="Demand\Dto\Request\RequestGroundPageDto.cs" />
+    <Compile Include="Demand\Resolver\DemandJsonAnalysis.cs" />
+    <Compile Include="Demand\Resolver\GroundPageProvider.cs" />
+    <Compile Include="DicInfo\DictInfo.cs" />
+    <Compile Include="EmailHelper.cs" />
+    <Compile Include="GDT\AppSettingsForZhy.cs" />
+    <Compile Include="GDT\Dto\Request\RequestBaseTokenDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestPushDemandDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestPushUserDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestRechargeReceiptDto.cs" />
+    <Compile Include="GDT\Dto\Request\RequestReportByZhyDto.cs" />
+    <Compile Include="GDT\Dto\Request\ToAccountFundNotes.cs" />
+    <Compile Include="GDT\Dto\Request\ToDemandNotes.cs" />
+    <Compile Include="GDT\Dto\Response\RespExcelUserOrganizeDto.cs" />
+    <Compile Include="GDT\Dto\Response\GetToZhyReportDto.cs" />
+    <Compile Include="GDT\Dto\Response\RespZhyBaseDto.cs" />
+    <Compile Include="GDT\GdtAccessToken.cs" />
+    <Compile Include="GDT\GdtAccountInfo.cs" />
+    <Compile Include="GDT\GdtDataEnumProvider.cs" />
+    <Compile Include="GDT\GDTDeriveUserInfo.cs" />
+    <Compile Include="GDT\GDTDuplicate.cs" />
+    <Compile Include="GDT\GdtLogicProvider.cs" />
+    <Compile Include="GDT\LogicByZhyProvider.cs" />
+    <Compile Include="GDT\LogicTransferProvider.cs" />
+    <Compile Include="GDT\PullConfigLable\PullCategoryEnum.cs" />
+    <Compile Include="GDT\PullConfigLable\PullConfigLableProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryPage\Entity\BaseResponseEntity.cs" />
+    <Compile Include="QueryPage\Entity\ConfigEntity.cs" />
+    <Compile Include="QueryPage\Entity\CreatePublishQueryBase.cs" />
+    <Compile Include="QueryPage\Entity\PublishQuery.cs" />
+    <Compile Include="QueryPage\Enum\OperateType.cs" />
+    <Compile Include="QueryPage\PublishInfoQueryClient.cs" />
+    <Compile Include="RoleInfoMapping.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="ZHY\ZhyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalApi\XYAuto.BUOC.BOP2017.ExternalApi\XYAuto.BUOC.BOP2017.ExternalApi.csproj">
+      <Project>{b3106eb6-62a3-40b3-8ea0-0517cf3f83a7}</Project>
+      <Name>XYAuto.BUOC.BOP2017.ExternalApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.BOP2017.Dal\XYAuto.BUOC.BOP2017.Dal.csproj">
+      <Project>{28296350-0f29-4ed6-9fb2-66922012b05e}</Project>
+      <Name>XYAuto.BUOC.BOP2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.BOP2017.Entities\XYAuto.BUOC.BOP2017.Entities.csproj">
+      <Project>{5f10f95c-9644-47a1-961c-bbb77d709f85}</Project>
+      <Name>XYAuto.BUOC.BOP2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.BOP2017.Infrastruction\XYAuto.BUOC.BOP2017.Infrastruction.csproj">
+      <Project>{e8922f24-7a3c-4bce-ba80-976ef04dfb63}</Project>
+      <Name>XYAuto.BUOC.BOP2017.Infrastruction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DicInfo\Dto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

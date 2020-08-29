@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>余额提现</title>
+    <link rel="stylesheet" type="text/css" href="../css/lauout.css"/>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/layer_mobile/layer.js"></script>
+</head>
+<body>
+<div class="main_container">
+    <div class="content_top_list">
+        <ul class="account_num">
+            <li>提现账号</li>
+            <li class="text_grey">153****2962@163.com</li>
+        </ul>
+        <div class="weChat_list pd30">
+            <p class="des_text">提现金额</p>
+            <p id="getMoney" class="input_text border-bottom">
+                <span>￥</span><input type="text" value="150.80"/> 
+                <div class="clear"></div>
+            </p>
+            <p class="text_grey last_text">可提现余额<span>150.80</span>元，<span class="text_blue">全部提现</span></p>
+        </div>
+    </div>
+    <div class="content_center">
+        <ul class="pageChange tl pd30">
+            <li>
+                请将发票快递到赤兔联盟，地址详情见
+                <a href="javascript:void(0)" class="blue_link">提现规则</a>
+            </li>
+        </ul>
+        <div class="text_button">
+            <span class="button_blue" id="getCach">确认提现</span>
+            <span class="button_grey">确认提现</span>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    layer.open({
+        // title:'弹层标题'                      //设置弹层标题
+        content: '平台将为您代缴个税：0.8元<br/>实收金额：150.00元'   //设置弹层内容
+        ,style: 'background-color:#fff; color:#000; border:none;'//自定义层的样式
+        // ,time: 1                             //控制自动关闭层所需秒数
+        // ,skin:'msg'                          //设定弹层显示风格,支持配置 footer（即底部对话框风格）、msg（普通提示）
+        // ,btn:'知道了'
+        ,btn:['确认提现','取消']
+        ,anim:'scale'   //动画配置：scale（默认）、up（从下往上弹出），如果不开启动画，设置false
+        // ,shade:false                          //控制遮罩展现，或者
+        ,shade: 'background-color: rgba(0,0,0,.8)' //自定义遮罩的透明度    
+        ,shadeClose:false                       //是否点击遮罩时关闭层，默认true
+        ,success:function(elem){                //层成功弹出层的回调
+            console.log(elem);
+        },yes: function(index){          //点确定按钮触发的回调函数，返回一个参数为当前层的索引
+            window.location = 'http://www.baidu.com'
+        },no:function(index){                   //点取消按钮触发的回调函数
+            layer.close(index)
+        },end:function(){                       //层彻底销毁后的回调函数
+
+        }
+    });
+    layer.open({
+        // title:'弹层标题'                      //设置弹层标题
+        content: '提现成功<br/>收入将会在1-5个工作日到账'   //设置弹层内容
+        ,btn:['查看','取消']
+        ,shadeClose:false                       //是否点击遮罩时关闭层，默认true
+        ,success:function(elem){                //层成功弹出层的回调
+            console.log(elem);
+        },yes: function(index){          //点确定按钮触发的回调函数，返回一个参数为当前层的索引
+            window.location = 'http://www.baidu.com'
+        },no:function(index){                   //点取消按钮触发的回调函数
+            layer.close(index)
+        },end:function(){                       //层彻底销毁后的回调函数
+
+        }
+    });
+    layer.open({
+        content: '最多提现金额为xx元'   //设置弹层内容
+        ,btn:'知道了'
+    });
+    // layer.open({
+    //     // title:''                      //设置弹层标题
+    //     content: '提交成功!<br/>企业用户需先邮寄发票至我司<br/>我司收到发票后再统一结算'   //设置弹层内容
+    //     ,btn:['完成','查看发票邮寄地址']
+    //     ,shadeClose:false                       //是否点击遮罩时关闭层，默认true
+    //     ,success:function(elem){                //层成功弹出层的回调
+    //         console.log(elem);
+    //     },yes: function(index){          //点确定按钮触发的回调函数，返回一个参数为当前层的索引
+    //         layer.close(index);
+    //     },no:function(index){                   //点取消按钮触发的回调函数
+    //         layer.close(index);
+    //     },end:function(){                       //层彻底销毁后的回调函数
+
+    //     }
+    // });
+</script>
+</html>

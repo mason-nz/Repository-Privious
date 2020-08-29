@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew_editor.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew_editor.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2>添加微信公众号</h2>
+            </div>
+
+            <div class="gave">
+                <div class="gave_l"><img src="/ImagesNew/pic26.jpg"></div>
+                <div class="gave_r">
+                    <div id="Authorizationpage">
+                        <div class="title">
+                            <h2>一键授权入驻</h2>
+                        </div>
+                        <div class="layer_con3">
+                            <div class="tc">
+                                <div><img src="/ImagesNew/wechat_2.png"></div>
+                                <div class="mt20">
+                                    <p>一键授权入驻需要您通过微信进行授权</p>
+                                    <p>授权仅获取您的微信头像和名称，我们将会保护您的隐私！</p>
+                                </div>
+                                <div class="keep" style="margin-top: 40px;">
+                                    <form id="form" action="" method='post'>
+                                        <input type="hidden" name="ct-uinfo" class="ctuinfo">
+                                        <input type="hidden" name="Type" value="38001">
+                                        <input type="submit" class="but_data" style="height:30px;line-height: 15px;width:160px;margin-left:10px;cursor: pointer"
+                                               value="授权">
+                                    </form>
+                                </div>
+                                <div class="manual" style="width: 180px;margin-top: 20px;">
+                                    <span class="fl" id="fl1"><a href="javascript:;">验证码入住</a></span>
+                                    <span class="fr" id="fr1" style="display:none;"><a href="javascript:;">手动添加</a></span>
+                                    <span class="fr" id="aptitude1" style="display:block;"><a href="#">资质认证入驻</a></span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="line3"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+
+    </div>
+</div>
+
+
+ </div>
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+<script>
+    function getCookie(cookie_name) {
+        var allcookies = document.cookie;
+        var cookie_pos = allcookies.indexOf(cookie_name);   //索引的长度
+
+        // 如果找到了索引，就代表cookie存在，
+        // 反之，就说明不存在。
+        if (cookie_pos != -1) {
+            // 把cookie_pos放在值的开始，只要给值加1即可。
+            cookie_pos += cookie_name.length + 1;      //这里容易出问题，所以请大家参考的时候自己好好研究一下
+            var cookie_end = allcookies.indexOf(";", cookie_pos);
+
+            if (cookie_end == -1) {
+                cookie_end = allcookies.length;
+            }
+
+            var value = unescape(allcookies.substring(cookie_pos, cookie_end));         //这里就可以得到你想要的cookie的值了。。。
+        }
+        return value;
+    }
+
+    // 调用函数
+    var cookie_val = getCookie("ct-uinfo");
+
+    /**
+     * @desc   escape字符串,escape不编码字符有69个：*，-，.，@，_，0-9，a-z，A-Z
+     * @param  字符串
+     * @return 返回string等对象
+     * @Add=Masj, Date: 2009-12-16
+     */
+    function escapeStr(str) {
+        return escape(str).replace(/\+/g, '%2B').replace(/\"/g, '%22').replace(/\'/g, '%27').replace(/\//g, '%2F');
+    };
+    $('.ctuinfo').val(escapeStr(cookie_val));
+    // 授权
+    (function () {
+        $('#form').attr("action", '/wx/WeChat.ashx?m=oauth');
+    })();
+
+    // 点击验证码
+    $('#fl1').off('click').on('click',function () {
+        window.location='/MediaManager/identifyingcode.html'
+    })
+    //    资质入驻
+    $('#aptitude1').off('click').on('click',function () {
+        window.location="/MediaManager/qualificationentry.html"
+    })
+    if(CTLogin.TypeID==1002){
+        $('#aptitude1').hide();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟,推广管理,媒体智投,新建推广计划,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,推广管理,媒体智投,新建推广计划">
+    <title>新建推广计划-媒体智投-推广管理-赤兔联盟</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/movie_adverts.css">
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true"" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/Area2.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/mediaRealizationCreate.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include virtual="/base/header.html" -->
+<div class="contaner_body">
+    <!--左边菜单 导航-->
+    <!--#include virtual="/base/Menu.html" -->
+    <div class="right_body">
+        <div class="detalDemand" style="padding: 30px 0 10px 16px;margin: 0 auto">
+            <ul>
+                 <li class="ins_d"> <span class="red">*</span> 推广名称：</li>
+                 <li><input type="text" class="generalize_name" placeholder="最多输入20个汉字" style="width:420px;"></li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_name notes"></div>
+             <ul id="checkCar">
+                 <li class="ins_d"> <span class="red">*</span> 推广车型：</li>
+                 <li>
+                     <a href="javascript:void(0)" id="choseType">选择</a>
+                 </li>
+
+            <!--      <li>
+                    <span class="chooseName">奔驰</span><i class="delIt">×</i>
+                 </li>
+                 <li>
+                    <span class="chooseName">宝马</span><i class="delIt">×</i>
+                 </li> -->
+                <!--  <div class="clear"></div> -->
+             </ul>
+             <ul style="float:left;" class="city_choice" id="car_choice">
+                 <!--       <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li>
+                  <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li>
+                   <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li>
+                    <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li> -->
+             </ul>
+             <div class="notes_motorcycle_type notes"></div>
+             <ul id="checkArea">
+                 <li class="ins_d"><span class="red">*</span> 推广省市：</li>
+                 <li>
+                     <a href="javascript:void(0)" id="choseCity">选择</a>
+                 </li>
+                <!--  <li>
+                    <span class="chooseName">北京</span><i class="delIt">×</i>
+                 </li>
+                 <li>
+                    <span class="chooseName">上海</span><i class="delIt">×</i>
+                 </li>
+                 <li>
+                    <span class="chooseName">杭州</span><i class="delIt">×</i>
+                 </li> -->
+                <!--  <div class="clear"></div> -->
+             </ul>
+              <ul style="float:left;" class="city_choice" id="city_choice">
+                <!--  <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li>
+                  <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li>
+                   <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li>
+                    <li><span class="chooseName">奔驰</span><i class="delIt">×</i></li> -->
+             </ul> 
+            <div class="notes_city notes"></div>
+             <ul id="material">
+                 <li class="ins_d"> 推广物料：</li>
+                 <li>
+                    <a href="javascript:void(0)" id="uploadFile" >
+                         上传
+                    </a>
+                 </li>
+                <!--  <li>
+                    <span class="chooseName">图片1.jpg</span><i class="delIt">×</i>
+                    <a href="javascript:void(0)" class="downLoad"></a>
+                 </li> -->
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_material notes"></div>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广预算：</li>
+                 <li>
+                     <input type="text" class="generalize_budget" name="" maxlength="8" style="width: 80px;"> 元
+                 </li>
+                 <li class="grey">
+                     最低费用3000元
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_budget notes"></div>
+             <ul>
+                 <li class="ins_d"><span class="red">*</span> 推广时间：</li>
+                 <li>
+                     <input type="text" style="width:120px;height: 28px;"  class="laydate-icon" id="startDate">
+                     至
+                     <input type="text" style="width:120px;height: 28px;"  class="laydate-icon" id="endDate">
+                 </li>
+                 <li>
+                     
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_time notes"></div>
+             <ul>
+                 <li class="ins_d"> 其他说明：</li>
+                 <li>
+                     <textarea rows="5" class="generalize_intro"  placeholder="" style="width: 420px;"></textarea>
+                 </li>
+                 <div class="clear"></div>
+             </ul>
+             <div class="notes_intro notes"></div>
+        </div>
+        <div class="bottomOperate" style="padding-left:10%;text-align: left;">
+            <span class="button_gradient" style="display:inline-block;width: 140px;">
+                提交
+            </span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+
+</html>

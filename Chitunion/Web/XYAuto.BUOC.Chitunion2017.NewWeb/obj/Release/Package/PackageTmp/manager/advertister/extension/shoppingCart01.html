@@ -1,0 +1,467 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟,推广管理,智能匹配,选号车,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,推广管理,智能匹配,选号车">
+    <title>选号车-智能匹配-推广管理-赤兔联盟</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/common_chitu.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/shoppingCart01.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include virtual="/base/header.html" -->
+<!-- 主体部分 -->
+<div class="contaner_body">
+    <!--左侧菜单-->
+    <!--#include virtual="/base/Menu.html" -->
+    <div class="right_body">
+        <div class="rightTop">
+            <ul class="schedule">
+                <li class="selected">① 选号车 <img src="/images/line_02.png"></li>
+                <li>② 填写推广需求 <img src="/images/line_02.png"></li>
+                <li>③ 完成</li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="rightMain">
+            <div class="wx_form" style="width:1068px;overflow: hidden;overflow-y: scroll;">
+                <div class="wx_type">
+                    <ul>
+                        <li class="selected" mediaType="14001">
+                            微信
+                            <span id="wechat_num"></span>
+                            <i class="greyBg"></i>
+                        </li>
+                        <li mediaType="14003">
+                            微博
+                            <span id="weibo_num"></span>
+                            <i class="greyDarkBg"></i>
+                        </li>
+                        <li mediaType="14002">
+                            APP
+                            <span id="app_num"></span>
+                            <i class="greyBg"></i>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="table" id="table_wechat"></div>
+                <div class="table hide" id="table_weibo"></div>
+                <div class="table hide" id="table_app"></div>
+            </div>
+        </div>
+        <div class="rightBottom">
+            <div class="contine_choose">
+                <img src="/images/icon1.png">
+                继续选择广告位
+            </div>
+            <ul>
+                <li>共<span class="total_num pink"></span>个媒体/账号</li>
+                <li id="sure_delever" class="button_gradient">确认投放</li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+<script type="text/template" id="weixin_list">
+    <div class="wx_th">
+        <div class="wechat_list4" style="width: 310px;height: 30px;">
+        </div>
+        <div class="wechat_list2">
+            行业分类
+        </div>
+        <div class="wechat_list5">
+            粉丝数
+        </div>
+        <div class="wechat_list2">
+            平均阅读数
+        </div>
+        <div class="wechat_list2">
+            位置
+        </div>
+        <div class="wechat_list2">
+            发布参考价
+        </div>
+        <div class="wechat_list2">
+            原创+发布参考价
+        </div>
+        <div class="wechat_list5">
+            操作
+        </div>
+        <div class="clear"></div>
+    </div>
+    <%if(list.length){%>
+        <%list.forEach(function(item){%>
+            <div class="wx_table2">
+                <div class="wechat_list4">
+                    <div class="portrait">
+                        <%if( item.HeadImg && item.HeadImg !='None'){%>
+                            <img src="<%= item.HeadImg %>" class="headImg">
+                        <%}else{%>
+                            <img src="/images/default1.png" class="headImg">
+                        <%}%>
+                    </div>
+                    <div class="content">
+                        <h2><span class="wx_name">
+                            <%if(item.NickName){%>
+                                <%= item.NickName %>
+                            <%}else{%>
+                                --
+                            <%}%>
+                        </span>
+                            <%if(item.IsOriginal){%>
+                                <span class="Original">原创</span>
+                            <%}%>
+                            <%if(item.QrCodeUrl){%>
+                            <a href="javascript:void(0)" class="noBigPic">
+                                <img class="viewBigpic" src="/images/icon80.png">
+                                <img class="Bigpic" src="<%= item.QrCodeUrl %>">
+                            </a>
+                            <%}%>
+                        </h2>
+                        <p>
+                            <%if(item.WxNumber){%>
+                                <%= item.WxNumber %>
+                            <%}else{%>
+                                --
+                            <%}%>
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list2">
+
+                    <p>
+                        <%if(item.CategoryName){%>
+                            <%= item.CategoryName %>
+                        <%}else{%>
+                            --
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list5">
+                    <p>
+                        <%if(item.FansCount){%>
+                            <%if(item.FansCount < 10000){%>
+                                <%= removePoint0(formatMoney(item.FansCount,2,''),2)%>
+                            <%}else{%>
+                                <%= removePoint0(formatMoney(item.FansCount/10000,1,''),1)%>万
+                            <%}%>
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list2">
+                    <p>
+                        <%if(item.ReadNum){%>
+                            <%if(item.ReadNum > 100000){%>
+                                10万+
+                            <%}else{%>
+                                <%= removePoint0(formatMoney(item.ReadNum,2,''),2)%>
+                            <%}%>
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list2">
+                    <%if(item.Position.length){%>
+                        <%item.Position.forEach(function(single){%>
+                            <p><%= single.PositionName %></p>
+                        <%})%>
+                    <%}else{%>
+                        <p>一</p>
+                    <%}%>
+                </div>
+                <div class="wechat_list2">
+                    <%if(item.Position.length){%>
+                        <%item.Position.forEach(function(single){%>
+                            <%if(single.IssuePrice){%>
+                                <p>
+                                    <%= removePoint0(formatMoney(single.IssuePrice,2,''),2)%>元
+                                </p>
+                            <%}else{%>
+                                <p>一</p>
+                            <%}%>
+                        <%})%>
+                    <%}else{%>
+                        <p>一</p>
+                    <%}%>
+                </div>
+                <div class="wechat_list2">
+                    <%if(item.Position.length){%>
+                        <%item.Position.forEach(function(single){%>
+                            <%if(single.TotalPrice){%>
+                                <p>
+                                    <%= removePoint0(formatMoney(single.TotalPrice,2,''),2)%>元
+                                </p>
+                            <%}else{%>
+                                <p>一</p>
+                            <%}%>
+                        <%})%>
+                    <%}else{%>
+                        <p>一</p>
+                    <%}%>
+                </div>
+                <div class="wechat_list5">
+                    <a href="javascript:void(0)" class="deleteIt" RecID="<%= item.RecID %>">
+                        <img src="/images/delete.png">
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        <%})%>
+    <%}else{%>
+    <div class="tc">
+        <img src="/images/no_data.png" alt="" style="margin:30px auto;">
+    </div>
+    <%}%>
+</script>
+<script type="text/template" id="weibo_list">
+    <div class="wx_th">
+        <div class="wechat_list4">
+            &nbsp;
+        </div>
+        <div class="wechat_list6">
+            行业分类
+        </div>
+        <div class="wechat_list6">
+            粉丝数
+        </div>
+        <div class="wechat_list6">
+            直发参考价
+        </div>
+        <div class="wechat_list6">
+            转发参考价
+        </div>
+        <div class="wechat_list5">
+            操作
+        </div>
+        <div class="clear"></div>
+    </div>
+    <%if(list.length){%>
+        <%list.forEach(function(item){%>
+            <div class="wx_table2">
+                <div class="wechat_list4">
+                    <div class="portrait">
+                        <%if( item.HeadIconURL && item.HeadIconURL !='None'){%>
+                            <img src="<%= item.HeadIconURL %>" class="headImg">
+                        <%}else{%>
+                            <img src="/images/default1.png" class="headImg">
+                        <%}%>
+                        <%if(item.AuthType == 30001){%>
+                            <img src="/images/icon12.png" class="addV">
+                        <%}else if(item.AuthType == 30002){%>
+                            <img src="/images/icon11.png" class="addV">
+                        <%}else if(item.AuthType == 30003){%>
+                            <img src="/images/icon13.png" class="addV">
+                        <%}else if(item.AuthType == 30004){%>
+                            <img src="/images/icon10.png" class="addV">
+                        <%}%>
+                    </div>
+                    <div class="content">
+                        <h2>
+                            <span class="wx_name">
+                                <%if(item.Name){%>
+                                    <%= item.Name %>
+                                <%}else{%>
+                                    --
+                                <%}%>
+                            </span>
+                            <%if(item.IsReserve){%>
+                                <span class="Original">需预约</span>
+                            <%}%>
+                        </h2>
+                        <p>
+                            <%if( item.Sex ){%>
+                                <img src="/images/boy.png">
+                            <%}else{%>
+                                <img src="/images/girl.png">
+                            <%}%>
+                            <%if(item.Number){%>
+                                <%= item.Number %>
+                            <%}else{%>
+                                --
+                            <%}%>
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list6">
+                    <p>
+                        <%if(item.CategoryName){%>
+                            <%= item.CategoryName %>
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list6">
+                    <p>
+                        <%if(item.FansCount){%>
+                            <%if(item.FansCount < 10000){%>
+                                <%= removePoint0(formatMoney(item.FansCount,2,''),2)%>
+                            <%}else{%>
+                                <%= removePoint0(formatMoney(item.FansCount/10000,2,''),2)%>万
+                            <%}%>
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list6">
+                    <p>
+                        <%if(item.DirectPrice){%>
+                            <%= removePoint0(formatMoney(item.DirectPrice,2,''),2)%>元
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list6">
+                    <p>
+                        <%if(item.ForwardPrice){%>
+                            <%= removePoint0(formatMoney(item.ForwardPrice,2,''),2)%>元
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list5">
+                    <a href="javascript:void(0)"  class="deleteIt"  RecID="<%= item.RecID %>">
+                        <img src="/images/delete.png">
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        <%})%>
+    <%}else{%>
+    <div class="tc">
+        <img src="/images/no_data.png" alt="" style="margin:30px auto;">
+    </div>
+    <%}%>
+</script>
+<script type="text/template" id="app_list">
+    <div class="wx_th">
+        <div class="wechat_list4">
+            &nbsp;
+        </div>
+        <div class="wechat_list4">
+            媒体介绍
+        </div>
+        <div class="wechat_list2">
+            行业分类
+        </div>
+        <div class="wechat_list2">
+            日活（万）
+        </div>
+        <div class="wechat_list2">
+            用户总量（万）
+        </div>
+        <div class="wechat_list5">
+            操作
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <%if(list.length){%>
+        <%list.forEach(function(item){%>
+            <div class="wx_table2">
+                <div class="wechat_list4">
+                    <div class="portrait">
+                        <%if( item.HeadIconURL && item.HeadIconURL !='None'){%>
+                            <img src="<%= item.HeadIconURL %>" class="headImg">
+                        <%}else{%>
+                            <img src="/images/default1.png" class="headImg">
+                        <%}%>
+                    </div>
+                    <div class="content">
+                        <h2>
+                            <span class="wx_name" style="max-width: 90%;">
+                                <%if( item.Name ){%>
+                                    <%= item.Name %>
+                                <%}else{%>
+                                    --
+                                <%}%>
+                            </span>
+                        </h2>
+                        <p>
+                            <%if(item.IsMonitor){%>
+                                <span class="Original">可监测</span>
+                            <%}%>
+                            <%if(item.IsLocate){%>
+                                <span class="Original">可定向</span>
+                            <%}%>
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="wechat_list4">
+                    <%if(item.Remark){%>
+                        <p class="content_height"><%= item.Remark %></p>
+                    <%}else{%>
+                        一
+                    <%}%>
+                </div>
+                <div class="wechat_list2">
+                    <p>
+                        <%if(item.CategoryName){%>
+                            <%= item.CategoryName %>
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list2">
+                    <p>
+                        <%if(item.DailyLive){%>
+                            <%if(item.DailyLive < 10000){%>
+                                <%= removePoint0(formatMoney(item.DailyLive,2,''),2)%>
+                            <%}else{%>
+                                <%= removePoint0(formatMoney(item.DailyLive/10000,1,''),1)%>万
+                            <%}%>
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list2">
+                    <p>
+                        <%if(item.TotalUser){%>
+                            <%if(item.TotalUser < 10000){%>
+                                <%= removePoint0(formatMoney(item.TotalUser,2,''),2)%>
+                            <%}else{%>
+                                <%= removePoint0(formatMoney(item.TotalUser/10000,1,''),1)%>万
+                            <%}%>
+                        <%}else{%>
+                            一
+                        <%}%>
+                    </p>
+                </div>
+                <div class="wechat_list5">
+                    <a href="javascript:void(0)"  class="deleteIt"  RecID="<%= item.RecID %>">
+                        <img src="/images/delete.png">
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        <%})%>
+    <%}else{%>
+    <div class="tc">
+        <img src="/images/no_data.png" alt="" style="margin:30px auto;">
+    </div>
+    <%}%>
+</script>
+</html>

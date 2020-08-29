@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #f3f3f3;">
+<head>
+    <meta charset="UTF-8">
+    <title>认证信息</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/webuploader.css" />
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <!-- <script src="/api/weixincheck.ashx" type="text/javascript"></script> -->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <script src="/js/common_weChat.js"></script>
+    <script src="/js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+    <script src="/js/webuploader.min.js"></script>
+    <script src="js/certification.js?v=20180409"></script>
+</head>
+<body>
+
+<div class="container-fluid PersonalInformation certificationWrap" id="app" style="overflow: hidden;">
+    <header v-show='showTitle'>
+        {{header_text}}
+    </header>
+    <main>
+        <article class="personalData" style='display: none;'>
+            <div class="flex_justify_spaceBetween">
+                微信昵称<input disabled type="text" id="nickname" :placeholder="nickname">
+            </div>
+        </article>
+        <article class="personalSupplement" :class='{baseOnInput:IsbaseOnInput}'>
+            <div class="flex_justify_spaceBetween">
+                类型
+                <div>
+                    <div class="typeSwitching">
+                        <button @click="personalClick" :class="typecolourblue">个人</button><button :class="typecolour" @click="enterpriseClick">企业</button>
+                    </div>
+                </div>
+            </div>
+            <!--个人-->
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                真实姓名 <input type="text" v-model="RealName" placeholder="请输入真实姓名">
+            </div>
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                身份证号 <input type="text" v-model="IdNumber" placeholder="请输入身份证号">
+            </div>
+            <!-- <div v-show="personal" class="flex_justify_spaceBetween">
+                手持身份证
+                <div class="img_dag upload_id_wrap" @click.stop="toUploadPicSfz">
+                    <div id="picker" class="upload_text"></div>
+                    <p class="upload_hide_btn" id="js_upload_sfz"></p>
+                </div>
+            </div> -->
+            <!--企业-->
+            <div v-show="enterprise" class="flex_justify_spaceBetween">
+                公司名称 <input type="text" id="js_corporate_name" v-model="CorporateName" placeholder="请输入公司名称">
+            </div>
+            <div v-show="enterprise" class="flex_justify_spaceBetween">
+                营业执照
+                <div class="img_dag upload_id_wrap" @click.stop="toUploadPicYyzz">
+                    <div class="upload_text">
+                        <div id="js_licence_picker"></div>
+                        <p class="upload_hide_btn" id="js_upload_licence"></p>
+                    </div>
+                </div>
+            </div>
+            <!--遮罩-->
+            <div id="Mask"></div>
+        </article>
+        <div class="flex_justify_center">  <!-- btn_bg Preservation保存加上 以前在上传那块 -->
+            <button id="PreserVation" :class="[IsClickBtn?'btn_bg':'Thegrey']" @click='Preservation'>保存</button>
+            <button style="display: none" class="btn_bg ctlBtn1 PreserVation">保存</button>
+            <span style="display: none" id="triggerPreserVation2"></span>
+            <span style="display: none" id="triggerPreserVation1"></span>
+        </div>
+        <img src="" style="display: none;" id="imgUploadFile" alt="">
+        <img src="" style="display: none;" id="imgBLicenceURL" alt="">
+    </main>
+
+    <div class="big_bg" id="js_upload_sfz_wrap" style="display: none;">
+        <div class="pop_opa"></div>
+        <div class="IdCardBg" id=''>
+            <img src="/images/idCard.png">
+            <p>请参考示例用后置摄像头拍照</p>
+            <p>保证照片上的文字清晰，手臂露出</p>
+            <span @click="toClickPopClose">X</span>
+            <button id="js_upload_sfz_btn">立即上传</button>
+        </div>
+    </div>
+    <div class="big_bg" id="js_upload_yyzz_wrap" style="display: none;">
+        <div class="pop_opa"></div>
+        <div class="IdCardBg" id=''>
+            <img src="/images/idCard.png">
+            <p>请参考示例用后置摄像头拍照</p>
+            <p>保证照片上的文字清晰，手臂露出</p>
+            <span @click="toClickPopClose">×</span>
+            <button id="js_upload_yyzz_btn">立即上传</button>
+        </div>
+    </div>
+    <div class="big_bg" id="js_preview_image_wrap" style="display: none;">
+        <div class="pop_opa"></div>
+        <div class="preview_image_wrap" id=''>
+            <img src="" id="js_preview_image" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>

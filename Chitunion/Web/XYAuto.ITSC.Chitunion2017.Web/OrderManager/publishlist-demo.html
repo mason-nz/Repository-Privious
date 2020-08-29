@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/vmc.slider.full.min.js"></script>
+    <script src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script src="js/publish-jiangqian.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+</head>
+<body>
+<!--#include file="../Base/header.html" -->
+<h5>媒体刊例列表页面——</h5>
+微信公众号刊例列表
+<button id="wechatAdd">创建刊例</button>
+<button id="wechatEdit">编辑刊例</button>
+<br/>
+微博刊例
+<button id="blogAdd">创建刊例</button>
+<button id="blogEdit">编辑刊例</button>
+<br/>
+视频刊例
+<button id="videoAdd">创建刊例</button>
+<button id="videoEdit">编辑刊例</button>
+<br/>
+直播刊例
+<button id="livevideoAdd">创建刊例</button>
+<button id="livevideoEdit">编辑刊例</button>
+<br/>
+App刊例
+<button id="AppAdd">创建刊例</button>
+<button id="AppEdit">编辑刊例</button>
+<br/>
+<!--#include file="../Base/footer.html" -->
+
+
+<script>
+//    window.location.href='addEditPublish.html';
+    var data = {
+        isAdd:true,
+        MediaID:14,
+        MediaType:14003,
+        MediaName:'weixin',
+        MediaNumber:'hahah',
+        PubID:2
+    };
+
+    $('button#wechatAdd').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+       data.MediaType = 14001;
+        data.isAdd = true;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#wechatEdit').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14001;
+        data.isAdd = false;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#blogAdd').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14003;
+        data.isAdd = true;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#blogEdit').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14003;
+        data.isAdd = false;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#videoAdd').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14004;
+        data.isAdd = true;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#videoEdit').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14004;
+        data.isAdd = false;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#livevideoAdd').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14005;
+        data.isAdd = true;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#livevideoEdit').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14005;
+        data.isAdd = false;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#AppAdd').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14002;
+        data.isAdd = true;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    });
+    $('button#AppEdit').click(function(){
+//        window.location.href='addEditPublish.html?isAdd=false&MediaID=14&MediaType=14001&MediaName=weixin&MediaNumber=hahahah';
+        data.MediaType = 14002;
+        data.isAdd = false;
+
+        sessionStorage.publish = JSON.stringify(data);
+        window.open('addEditPublish.html');
+    })
+
+</script>
+</body>
+</html>

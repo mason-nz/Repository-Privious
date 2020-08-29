@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>微信登录</title>
+    <meta charset="utf-8" />
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script src="../js/jquery.1.11.3.min.js"></script>
+</head>
+<body>
+    <div class="box" id="login_container">
+
+    </div>
+    <p>------------------</p>
+    <div class="box" id="login_wx">
+
+    </div>
+    <p>------------------</p>
+    <input type="button" id="btnIsStop" value="开启轮询" />
+    <h3 id="success"></h3>
+    <p>---------模拟登录---------</p>
+    <a>openId:</a>
+    <input type="text" id="txtOpenId" value="owXr60lkZZWKEHS0KhFARGmeC8Yk" /><br />
+    <a>ticket:</a>
+    <input type="text" id="txtTicket" value="" /><br />
+    <input type="button" id="btnToLogin" value="登录" />
+    <h3 id="loginSuccess"></h3>
+    <script type="text/javascript">
+
+        var Ticket = '';
+        var kent;
+        var isStop = true;
+        $(function () {
+            //loadWxLogin();
+            loadLoginQr();
+
+
+            kent = setInterval(checkLogin, 2000);
+
+            $("#btnToLogin").on("click", function () {
+                tologin();
+            });
+
+
+            $("#btnIsStop").on("click", function () {
+                isStop = false;
+            });
+        });
+
+        function loadLoginQr() {
+            //var postUrl = 'http://www1.chitunion.com/api/UserMange/GetLoginQr';
+            var postUrl = 'http://wxtest-ct.qichedaquan.com/api/OAuth2/GetLoginQr';
+            $.ajax({
+                url: postUrl,
+                type: 'post',
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: { LoginType: 1, ScenceId: 10 },
+                success: function (data) {
+                    console.log(data);
+                    $("#login_wx").html("<img style='width:150px' src='" + data.Result.Url + "'/>");
+                    Ticket = data.Result.Ticket;
+                }
+            });
+        }
+
+        function checkLogin() {
+
+            if (!Ticket.length) {
+                console.log("Ticket:", Ticket);
+                return;
+            }
+
+            if (isStop) {
+                console.log("isStop:", isStop);
+                return;
+            }
+
+            //var postUrl = 'http://www1.chitunion.com/api/UserMange/VerifyLogin';
+            var postUrl = 'http://wxtest-ct.qichedaquan.com/api/OAuth2/VerifyLogin';
+            $.ajax({
+                url: postUrl,
+                type: 'post',
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: { Ticket: Ticket },
+                success: function (data) {
+                    console.log(data);
+                    if (data.Status === 0) {
+                        $("#success").html("登录成功");
+                        clearInterval(kent);
+                    }
+                }
+            });
+        };
+
+        function tologin() {
+            var postUrl = 'http://wxtest-ct.qichedaquan.com/api/OAuth2/SimulationLogin';
+            $.ajax({
+                url: postUrl,
+                type: 'post',
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: { WeixinOpendId: $("#txtOpenId").val(), Ticket: $("#txtTicket").val() },
+                success: function (data) {
+                    console.log(data);
+                    $("#loginSuccess").html("模拟登录成功");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>标签管理--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/addTagForArticle.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<!--white-space:pre-line合并空白符序列，但是保留换行符。-->
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="list_box" style="padding: 15px 30px 0px 15px;">
+                <div class="install" style="padding: 15px 15px 0 15px;">
+                    <h2 class="menu_nav" style="margin-bottom: 0">
+
+                    </h2>
+                    <div class="container" style="min-width:1000px ">
+                        <div class="mark_left fl" id="left_z" style="width: 45%;">
+
+                        </div>
+
+                        <div class="mark_right fl" id="right_z" style="width:45%">
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+</body>
+
+<script type="text/template" id="right">
+    <div class="single_mark">
+        <div class="title">
+            <img src="../images/category1.jpg" alt=""
+                 style="width: 20px;height:20px;margin-right: 11px;">
+            分类
+            <span>（最多可选5个）</span>
+        </div>
+        <ul class="detail_mark" id="classification">
+            <%Result.CategoryInfo.forEach(function(e,i){%>
+            <%
+            var hasChecked='';
+            if(e.CreatCount){
+            hasChecked='hasChecked'
+            }
+            %>
+            <li class="<%=hasChecked%>" dictid="<%=e.DictId%>">
+                <!-- <%if(e.CreatCount==2){%>
+                <img src="../images/personTwo.jpg" alt="" style="vertical-align: sub;">
+                <%}else if(e.CreatCount==1) {%>
+                <img src="../images/personOne.jpg" alt="" style="vertical-align: sub;">
+                <%}%>
+                <span><%=e.DictName%></span>
+                <%if(e.CreatCount){%>
+                <div class="markPerson">
+                    <%e.Creater.forEach(function(e,i){%>
+                    <p><%=e%></p>
+                    <%})%>
+                    <img src="../images/leftTrangle.jpg" alt="">
+                </div>
+                <%}%> -->
+                <%if(e.CreatCount){%>
+                    <img src="../images/person.jpg" alt="" style="vertical-align: top;">
+                    <em class="tagNumer"><%=e.CreatCount%></em>
+                    <span><%=e.DictName%></span>
+                    <div class="markPerson">
+                        <%e.Creater.forEach(function(e,i){%>
+                        <p><%=e%></p>
+                        <%})%>
+                        <img src="../images/leftTrangle.jpg" alt="">
+                    </div>
+                <%}else{%>
+                    <span><%=e.DictName%></span>
+                <%}%>
+            </li>
+            <%})%>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+    <div class="single_mark">
+        <div class="title">
+            <img src="../images/category2.jpg" alt=""
+                 style="width: 20px;height:20px;margin-right: 11px;">
+            场景
+        </div>
+        <ul class="detail_mark" id="oldscene">
+            <%Result.SceneInfo.forEach(function(e,i){%>
+            <%
+            var hasChecked='';
+            if(e.CreatCount){
+            hasChecked='hasChecked'
+            }
+            %>
+            <li class="<%=hasChecked%>" dictid="<%=e.DictId%>">
+                <!-- <%if(e.CreatCount==2){%>
+                <img src="../images/personTwo.jpg" alt="" style="vertical-align: sub;">
+                <%}else if(e.CreatCount==1) {%>
+                <img src="../images/personOne.jpg" alt="" style="vertical-align: sub;">
+                <%}%>
+                <span><%=e.DictName%></span>
+                <%if(e.CreatCount){%>
+                <div class="markPerson">
+                    <%e.Creater.forEach(function(e,i){%>
+                    <p><%=e%></p>
+                    <%})%>
+                    <img src="../images/leftTrangle.jpg" alt="">
+                </div>
+                <%}%> -->
+                <%if(e.CreatCount){%>
+                    <img src="../images/person.jpg" alt="" style="vertical-align: top;">
+                    <em class="tagNumer"><%=e.CreatCount%></em>
+                    <span><%=e.DictName%></span>
+                    <div class="markPerson">
+                        <%e.Creater.forEach(function(e,i){%>
+                        <p><%=e%></p>
+                        <%})%>
+                        <img src="../images/leftTrangle.jpg" alt="">
+                    </div>
+                <%}else{%>
+                    <span><%=e.DictName%></span>
+                <%}%>
+            </li>
+            <%})%>
+        </ul>
+        <div class="clear"></div>
+        <textarea name="" cols="2" rows="3" id="newscene2" style="width: 100%;"
+                  placeholder='请输入场景文字，场景之间用";"分隔'></textarea>
+    </div>
+    <!-- 修改后的IP标签 -->
+    <div class="single_mark">
+        <div class="title">
+            <img src="../images/category3.jpg" alt=""
+                 style="width: 20px;height:20px;margin-right: 11px;">
+            IP标签
+            <span>（最多可选5个）</span>
+        </div>
+        <ul class="detail_mark forIP" id="ip">
+            <%Result.IPInfo.forEach(function(e,i){%>
+            <%
+            var hasChecked='';
+            if(e.CreatCount){
+            hasChecked='hasChecked'
+            }
+            %>
+            <li class="<%=hasChecked%>" name="selected" dictid="<%=e.DictId%>">
+                <%if(e.CreatCount){%>
+                    <img src="../images/person.jpg" alt="" style="vertical-align: top;">
+                    <em class="tagNumer"><%=e.CreatCount%></em>
+                    <span><%=e.DictName%></span>
+                    <div class="markPerson">
+                        <%e.Creater.forEach(function(e,i){%>
+                        <p><%=e%></p>
+                        <%})%>
+                        <img src="../images/leftTrangle.jpg" alt="">
+                    </div>
+                <%}else{%>
+                    <span><%=e.DictName%></span>
+                <%}%>
+            </li>
+            <%})%>
+        </ul>
+        <div class="clear"></div>
+        <div style="height:2px;border-bottom:1px dashed #eee;margin: 0 0 15px 0"></div>
+        <ul class="detail_add">
+            <div class="detail_mark sonAdd">
+                
+            </div>
+        </ul>
+    </div>
+    <div class="keep">
+        <span><a href="javascript:;" id="Submit" class="button" style="width:100px;margin-left:55px;">保存</a></span>
+        <span><a href="/TagManager/TagManageList.html" class="button" style="width:100px;;margin-left: 20px">取消</a></span>
+    </div>
+
+</script>
+<script type="text/template" id="left">
+    <div class="switch" style="width:100%;margin:0;border-left:none;">
+        <span style="width: 50%;" class="current">文章摘要及关键词</span>
+        <span style="width: 49%;border-right:none;">查看原文</span>
+    </div>
+    <div class="keyWords">
+        <h6 class="article_title">标题：<%=Result.MediaOrArticle%></h6>
+        <h6 class="article_title">摘要：
+            <input type="text" class="TaskCount1" value="<%=Result.Summary%>">
+            <button id="newsummary" articleID="<%=Result.ArticleID%>">获取新摘要</button>
+            <span>数量为1~10之间</span>
+        </h6>
+        <div class="summary">
+
+        </div>
+        <h6 class="article_title">关键词：
+            <input type="text" class="TaskCount" value="<%=Result.KeyWord%>">
+            <button id="newKeyword">获取新关键词</button>
+            <span>数量为1~50之间</span>
+        </h6>
+        <ul id="Keyword">
+
+        </ul>
+    </div>
+    <div class="article" style="display: none;">
+        <div class="article_main">
+            <%-Result.Content%>
+        </div>
+    </div>
+</script>
+<script type="text/javascript" src="js/Tagoperation.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.isIp').each(function(){
+            var h = $(this).parents('.sumHeight').height()-20+'px';
+            $(this).css('marginBottom',h)
+        })
+    })
+</script>
+</html>
+

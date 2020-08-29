@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #f3f3f3;">
+<head>
+    <meta charset="UTF-8">
+    <!-- <title>手机号码</title> -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/_common.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/_userInfo.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="/js/common_weChat.js"></script>
+    <script src="/js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+</head>
+<body>
+<div class="no_data" style="display: none">
+    <div>
+        <img src="../images/no_net.png">
+    </div>
+    <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+</div>
+<div class="container-fluid PersonalInformation userinfo-wrap netOk" id="app">
+    <input type="hidden" id="type">
+    <!--<header :class="header_hide">-->
+        <!--{{header_text}}-->
+    <!--</header>-->
+    <main>
+        <!-- 完善手机号码addTel
+        修改手机号码验证手机号码(验证手机号码不能修改)yzChangeTel
+        修改支付宝验证手机号码(验证手机号码不能修改)yzAlipayTel
+        输入新的手机号码newTel -->
+
+        <article class="personalData">
+            <div class="flex_justify_spaceBetween " v-if="type == 'addTel' || type == 'newTel'">
+                <input type="number" pattern="[0-9]*" maxlength="11" id="tel" :placeholder="placeholderTel" v-model="MobilePhone">
+            </div>
+            <div class="flex_justify_spaceBetween" v-else-if="type == 'yzChangeTel' || type === 'yzAlipayTel'">
+                <input type="number" pattern="[0-9]*" maxlength="11" id="tel" disabled placeholder="" v-model="MobilePhone">
+            </div>
+            <div class="flex_justify_spaceBetween">
+                <div>
+                    <input id="js_verification" type="number" placeholder="请输入验证码" maxlength="4" pattern="[0-9]*" v-model="VerificationCode">
+                    <button @click="getVerificationCode" :class="ntifyingCode">{{getyzm}}</button>
+                </div>
+            </div>
+        </article>
+        <div class="flex_justify_center">
+            <button id="js_save_btn" @click="toClickSaveBtn" class="btn_bg Thegrey">{{btnTxt}}</button>
+        </div>
+
+        <div class="flex_justify_center note_gray" v-if="type == 'yzChangeTel' || type === 'yzAlipayTel'">
+            为保障您的账户安全，成功验证手机号码后方可修改
+        </div>
+
+    </main>
+</div>
+</body>
+<script src="js/userInfoTel.js?v=20180409"></script>
+</html>

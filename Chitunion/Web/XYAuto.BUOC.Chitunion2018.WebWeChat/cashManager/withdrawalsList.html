@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>我的提现</title>
+    <link rel="stylesheet" href="../dist/mescroll.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/lauout.css"/>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/layer_mobile/layer.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="../dist/mescroll.min.js"></script>
+    <script type="text/javascript" src="../js/common_weChat.js"></script>
+    <script type="text/javascript" src="../js/common_share.js"></script>
+    <script type="text/javascript" src="js/withdrawlsList.js"></script>
+</head>
+<body>
+<div class="main_container" id="app">
+    <div class="content_Record mescroll" id="mescroll">
+        <div id="dataList">
+            <div class="single_row border-bottom" v-for="item in list" v-if="list.length>0" :RecId="item.RecId" @click="toDetail(item.RecId)">
+                <figure>
+                    <img v-if="item.PayStatus == 195001" src="../images/icon_process@2x.png">
+                    <img v-if="item.PayStatus == 195003" src="../images/icon_end@2x.png">
+                    <img v-if="item.PayStatus == 195002" src="../images/icon_fail@2x.png">
+                    <figcaption>
+                        <p class="pay_status">
+                            {{item.PayStatusName}}
+                        </p>
+                        <p class="pay_time">
+                            {{item.ApplicationDate}}
+                        </p>
+                        <div class="clear"></div>
+                    </figcaption>
+                </figure>
+                <div class="money_date">
+                    <p class="receive_money red">
+                        <span class="money">{{formatMoney(item.PracticalPrice,2,'')}}</span>元
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

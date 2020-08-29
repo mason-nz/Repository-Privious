@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟,推广管理,内容分发,查看推广计划,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,推广管理,内容分发,查看推广计划">
+    <title>查看推广计划-内容分发-推广管理-赤兔联盟</title>
+    <link rel="stylesheet" type="text/css" href="/css/movie_adverts.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="js/distributeGeneralizedetail.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include virtual="/base/header.html" -->
+<div class="contaner_body">
+    <!--左边菜单 导航-->
+    <!--#include virtual="/base/Menu.html" -->
+    <div class="right_body">
+        <div class="detalDemand">
+            <ul class="examinemedia_realization">
+
+             </ul>
+
+        </div>
+    <div class="clear"></div>
+    </div>
+</div>
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+<script  type="text/template" id="examinemedia_realization">
+    <div class="search_boxadd">
+        <div class="order_status">推广状态：<span class="f_red"><%=data.StatusName?data.StatusName:''%></span></div>   
+    </div>
+    <div>
+
+    <li class="ins_de">推广ID：<span><%=data.RecID?data.RecID:''%></span></li>
+    <li class="ins_de">推广名称：<span><%=data.Name?data.Name:''%></span></li>
+    <li class="ins_de">推广链接：<span><%=data.Link?data.Link:''%></span></li>
+    <li class="ins_de" style="text-align: left"><span style="vertical-align: top">推广简介：</span><span style="width: 700px;display: inline-block"><%=data.Synopsis?data.Synopsis:''%></span></li>
+    <li class="ins_de">推广图片：
+        <span style="display: inline-block;" class="display_img">
+            <a target="_blank" href="<%=data.ImgUrl?data.ImgUrl:''%>">
+                <img width="250px" src="<%=data.ImgUrl?data.ImgUrl:''%>" alt="">
+            </a>
+            <a class="download_img" href="<%=data.ImgUrl?data.ImgUrl:''%>" target="_blank"></a>
+        </span>
+        <!-- <a style="display: inline-block;vertical-align: bottom" href="<%=data.ImgUrl?data.ImgUrl:''%>" target="_blank">
+            <img  src="/images/icon3.png" alt="">
+        </a> -->
+    </li>
+    <li class="ins_de">推广平台：<span>
+        <%if(data.Platform==1){%>
+        微信
+        <%}else if(data.Platform==2){%>
+        微博
+        <%}else if(data.Platform==4){%>
+        QQ
+        <%}else if(data.Platform==3){%>
+        微信、微博
+        <%}else if(data.Platform==5){%>
+        微信、QQ
+        <%}else if(data.Platform==6){%>
+        微博、QQ
+        <%}else if(data.Platform==7){%>
+        微信、微博、QQ
+        <%}%>
+    </span></li>
+    <li class="ins_de">计费模式：<span><%=data.BillingModeName?data.BillingModeName:''%></span></li>
+    <li class="ins_de">推广预算：<span><%=formatMoney(data.BudgetPrice,0,'')%>元</span></li>
+    <li class="ins_de">推广时间：<span><%=data.BeginTime?data.BeginTime:''%>至<%=data.EndTime?data.EndTime:''%></span></li>
+
+    </div>
+</script>
+</html>

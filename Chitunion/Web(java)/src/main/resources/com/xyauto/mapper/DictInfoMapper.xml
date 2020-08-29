@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.DictInfoMapper">
+	<select id="getDictInfoList" parameterType="java.lang.String"
+		resultType="com.xyauto.domain.DictInfo">
+		SELECT
+		di1.DictId,di1.DictType,di1.DictName,di1.Status,di1.OrderNum,di1.CreateTime
+		FROM DictInfo di1
+	</select>
+</mapper>

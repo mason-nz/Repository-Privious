@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>订单列表</title>
+	<link rel="stylesheet" href="../dist/mescroll.min.css">
+	<link rel="stylesheet" href="../dist/swiper-3.3.1.min.css">
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body  class='wx_body'>
+	<div class="header_tip">
+		由于系统升级，目前可能存在订单统计不到、收益延时的情况<br>由此给您带来不便，敬请谅解！ 
+	</div>
+	<div id="order">
+
+		<!-- 导航 -->
+		<div class="order_nav mescroll-touch-x" id="scrollxContent">
+			<ul id='nav'>
+				<li status='193001' i='0' class="selected"><a href="javascript:;">进行中</a></li>
+				<li status='193002' i='1'><a href="javascript:;">已结束</a></li>
+			</ul>
+		</div>
+
+		<!-- 列表 -->
+		<div id="swiper2" class="swiper-container order_list">
+			<div id="swiperWrapper" class="swiper-wrapper">
+		        <div id="mescroll0" class="swiper-slide mescroll">
+					<div id="dataList0" class="data-list lists"> </div>
+		        </div>
+
+		        <div id="mescroll1" class="swiper-slide mescroll">
+					<div id="dataList1" class="data-list lists"> </div>
+		        </div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="../js/flexible.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="/api/weixincheck.ashx"></script>
+	<script src="../js/layer_mobile/layer.js"></script>
+	<script src="../dist/mescroll.min.js"></script>
+	<script src='../dist/swiper-3.3.1.min.js'></script>
+	<script src="../js/common_weChat.js"></script>
+	<script src="../js/common_share.js"></script>
+	<script src="js/order_list.js?v=0404"></script>
+
+</body>
+</html>

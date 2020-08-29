@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/tab.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true"
+            type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/css/uploadify.css" />
+    <script src="/js/json2.js" type="text/javascript"></script>
+    <script src="/js/jquery.uploadify.v3.2.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script src="/js/jquery.pagination.js" type="text/javascript"></script>
+    <script src="/js/common_authority.js" type="text/javascript"></script>
+    <script src="/js/laydate.js" type="text/javascript"></script>
+    <script src="js/add_template.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script src="/js/Area2.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+  <!--#include file="/base/header.html" -->
+
+<!--中间内容-->
+ <div class="order" style="position:relative">
+     <!--左侧菜单-->
+<!--#include file="/base/Menu.html" -->
+<div id="zhezhao" style="position:absolute;left:0;right:0;top:0;bottom:0;background-color:grey;opacity:0.5;z-index:1;display:none"></div>
+    <div class="order_r">
+        <div class="install">
+            <h2>新增广告模版</h2>
+            <div class="clear"></div>
+            <ul>
+                <li class="ins_a">APP名称：</li>
+                <li id="AppName">去哪儿</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 广告名称：</li>
+                <li><input name="Username" type="text" placeholder="如：页面+广告位置+广告形式" style="width:315px;"id="uname"></li>
+                <li class="grey" id="alert" style="display:none"><img src="/ImagesNew/icon21.png"> 库中已有该广告信息，请直接<a href="javascript:void(0)" class="red" target="_blank">维护广告价格</a></li>
+                <li class="grey" id="yunying" style="display:none"><img src="/ImagesNew/icon21.png"> 该模板已被添加</li>
+                <li style="display:none;color:red;font-size:12px" id="name2" >请输入汉字、数字、字母，特殊符号：“-”“_”“/”组成的名字，长度不超过20</li>
+                <div class="clear"></div>
+            </ul>
+            <div>
+                <ul style="float:left"><li class="ins_a"><span class="red f12">*</span> 广告形式：</li></ul>
+                <ul id="radio" style="float:left;width:800px;"></ul>
+                <!-- <ul style="display:none" id="alert_form"><li style="color:red">请选择一个广告形式</li></ul> -->
+                <div class="clear"></div>
+            </div>
+            <!-- <ul id="radio">
+                <li class="ins_a"><span class="red f12">*</span> 广告形式：</li>
+                <li><input name="1" type="radio" value="banner" id="51001">banner</li>
+                <li><input name="1" type="radio" value="信息流" id="51002">信息流</li>
+                <li><input name="1" type="radio" value="启动页" id="51003">启动页</li>
+                <li><input name="1" type="radio" value="其他" id="51004">其他</li>
+                <div class="clear"></div>
+            </ul> -->
+            <script type="text/template" id="adtype">
+                <%for(var i=0;i<data.length;i++){%>
+                    <li style="margin-right:25px"><input name="1" type="radio" value="<%=data[i].DictName%>" id="<%=data[i].DictId%>"> <%=data[i].DictName%></li>
+                    <%}%>
+                <li style="display:none;color:red;font-size:12px" id="alert_form">请选择一个广告形式</ul>
+              <div class="clear"></div>
+            </script>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 广告样式：</li>
+                <li><input name="Username" type="text" placeholder="如：动态+时间5s+可点击" style="width:315px;" id="style"></li>
+                <li><a href="javascript:void(0)" class="button_add" style="width:70px" id="button_style">添加</a></li>
+                <li class="grey" id="alert_style" style="display:none;color:red;font-size:12px">请填写广告样式</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="style_checkbox" style="display:none">
+                <li class="ins_a">&nbsp;</li>
+                <!-- <li><input name="2" type="checkbox" value="静态3s可点击">静态3s可点击</li>
+                <li><input name="2" type="checkbox" value="动态3s可点击">动态3s可点击</li> -->
+                <div class="clear"></div>
+            </ul>
+            <!-- 修改弹窗 -->
+            <div class="layer layer_type" style="display:none;position:fixed;top:200px;left:400px;z-index:1">
+                <div class="title">
+                    编辑内容
+                    <div class="close close_style"><a href="javascript:void(0)"><img src="/ImagesNew/closebt.png" ></a></div>
+                </div>
+
+                <div class="layer_con3" style="">
+                    <div class="tc">
+                        <input name=""  style="width:450px;height:80px;" placeholder="" value="">
+                       <div class="keepon" style="margin-bottom:70px"><a href="javascript:void(0)" class="but_data" style="width:160px;margin-left:10px">确定</a></div>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 轮播个数：</li>
+                <li><input name="Username" type="text" placeholder="请输入总轮播数" style="width:315px;" id="location"></li>
+                <li class="grey">“1”表示没有轮播</li>
+                <li class="grey" id="alert_shuffling" style="display:none;color:red;font-size:12px">只能输入大于0的数字</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="platfrom_checkbox">
+                <li class="ins_a"><span class="red f12">*</span> 售卖平台：</li>
+                <li><input name="3" type="checkbox" value="1"> Android</li>
+                <li><input name="3" type="checkbox" value="2"> ios</li>
+                <li><input name="3" type="checkbox" value="4"> Android & ios</li>
+                <li><input name="3" type="checkbox" value="8"> PAD</li>
+                <li><input name="3" type="checkbox" value="16"> Gphone</li>
+                <li><input name="3" type="checkbox" value="32"> IPhone</li>
+                <li class="grey" id="alert_platform" style="display:none;color:red;font-size:12px">请选择售卖平台</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="way_checkbox">
+                <li class="ins_a"><span class="red f12">*</span> 售卖方式：</li>
+                <li><input name="4" type="checkbox" value="1"> CPD</li>
+                <li><input name="4" type="checkbox" value="2"> CPM</li>
+                <li class="grey" id="alert_Mode" style="display:none;color:red;font-size:12px">请选择售卖方式</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 售卖区域：</li>
+                <li><a href="javascript:void(0)" class="button_add" style="width:70px" id="location_add">添加</a></li>
+                <!-- <li class="grey" id="info_location"><img src="/ImagesNew/icon21.png"> 您可以把同一级别的地区放在一组，以方便维护</li> -->
+                <li style="display:none;color:red;font-size:12px" id="name3" >请输入汉字、数字、字母，特殊符号：“-”“_”“/”组成的名字，长度不超过6</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="location_checkbox">
+                <li class="ins_a">&nbsp;</li>
+                <li><input style="visibility:hidden" name="5" type="checkbox" value="全国" checked="checked" id="0"><span>全国</span></li>
+                <!-- <li><input name="5" type="checkbox" value=""> 一级城市</li> -->
+
+                <li style="display:none" id="qita_city"><input style="visibility:hidden" name="5" type="checkbox" value="其他城市" id="-1" checked="checked" disabled="disabled"><span>其他城市</span> <span class="grey f12">（除“一级城市”以外的其他城市）</span></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12" id="kanli">*</span> 刊例原件：</li>
+                <li style="position:relative">
+                    <a href="javascript:void(0)" class="button_add" style="width:100px" class="new_upload" >
+                        上传原件
+                        <span id="input1"></span>
+
+                    </a>
+                    <span></span>
+                    <a id="success" style="display:none" target="_blank"><img src="../ImagesNew/icon19.png"></a>
+                </li>
+                <li class="grey" id="alert_file" style="display:none;color:red;font-size:12px">请上传刊例原件</li>
+                <br>
+                <div class="clear"></div>
+                <li class="grey" style="margin-left:150px" id="tishi">支持xls,xlsx,jpg,png,pdf,pptx,zip文件格式</li>
+            </ul>
+
+
+
+            <!-- <ul>
+                <li class="ins_a"><span class="red f12">*</span> 刊例原件：</li>
+                <li>
+                    <div class="report-file" style="margin-left: 0" >
+                        <input tabindex="3" size="3" name="uploadify" class="file-prew but_upload" type="file" id="input1">
+                    </div>
+                    附件:支持格式JPG/PNG/PDF/ZIP，不超过5M
+                </li>
+                <img class="imgUploadFile"/ >
+                <div class="imgMsg tipInfo grey" style="float: left;line-height: 40px;"></div>
+                <div class="clear"></div>
+            </ul> -->
+            <!-- <ul>
+                <li class="ins_d"><span class="red f12">*</span> 上传物料：</li>
+                <li>
+                    <div class="report-file" style="margin-left: 0" >
+                        <input tabindex="3" size="3" name="uploadify" class="file-prew but_upload" type="file" id="uploadify1">
+                    </div>
+                    附件:支持格式JPG/PNG/PDF/ZIP，不超过5M
+                </li>
+                <img class="imgUploadFile"/ >
+                <div class="imgMsg tipInfo grey" style="float: left;line-height: 40px;"></div>
+                <div class="clear"></div>
+            </ul> -->
+
+            <div class="line3" style="margin: 30px auto">&nbsp;</div>
+
+
+            <ul>
+                <li class="ins_a"><span class="red f12" id="shili" style="visibility:hidden">*</span>广告示例图：</li>
+                <li>
+                    <div class="new_upload" style="position:relative">
+                        <div class="add">
+                            <a href="javascript:void(0)">
+                            <img src="/ImagesNew/add2.png" style="width:75px;height:75px">
+                            <div style="position:absolute;top:0;left:0;bottom:0;right:0;">
+                                <span id="input2"></span>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="new_upload" style="margin-left:20px;position:relative">
+                        <div class="add">
+                            <a href="javascript:void(0)">
+                                <img src="/ImagesNew/add2.png" style="width:75px;height:75px">
+                                <div style="position:absolute;top:0;left:0;bottom:0;right:0;">
+                                    <span id="input3"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="new_upload" style="margin-left:20px;position:relative">
+                        <div class="add">
+                            <a href="javascript:void(0)" >
+                                <img src="/ImagesNew/add2.png" style="width:75px;height:75px">
+                                <div style="position:absolute;top:0;left:0;bottom:0;right:0;">
+                                    <span id="input4"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">广告展示逻辑：</li>
+                <li><textarea name="" cols="" rows="5" style="width:500px;height:80px;resize:none;" id="show_logic"></textarea></li>
+                <li id="show_span" class="grey" style="display:none;color:red;font-size:12px">不能超过500字</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">素材说明：</li>
+                <li><textarea name="" cols="" rows="5" style="width:500px;height:80px;resize:none;" id="material"></textarea></li>
+                <li id="material_span" class="grey" style="display:none;color:red;font-size:12px">不能超过500字</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">备注：</li>
+                <li><textarea name="" cols="" rows="5" style="width:500px;height:80px;resize:none;" id="mark"></textarea></li>
+                <li id="mark_span" class="grey" style="display:none;color:red;font-size:12px">不能超过500字</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">起投天数：</li>
+                <li><input name="Username" type="text" placeholder="请输入起投天数" style="width:315px;" id="count"></li>
+                <li>天/次</li>
+                <li id="count_span" class="grey" style="display:none;color:red;font-size:12px">只能输入大于0并小于365的正整数</li>
+                <div class="clear"></div>
+            </ul>
+
+            <div class="keep_add">
+               <span><a href="javascript:void(0)" class="button" style="width:100px;margin-left: 152px; visibility:hidden">取消</a></span>
+                <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left:15px;" id="continue_add">保存并继续添加</a></span>
+                <span><a href="javascript:void(0)" class="button" style="width:120px;margin-left:15px" id="add_price">保存</a></span>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 城市列表弹窗 -->
+<div class="layer layer_city" style="display:none;position:absolute;z-index:99">
+    <div style="position:relative">
+
+        <div class="title_new">
+            添加售卖区域城市
+            <div class="notes_n">（您可以把同一级别的地区放在一组，方便维护广告价格）</div>
+            <div class="close" style="top:-5px;right:-7px"><a href="javascript:void(0)"><img src="../ImagesNew/close_x.jpg" ></a></div>
+        </div>
+        <div class="layer_con3">
+            <div class="tc">
+                <div class="mt10"><input name="Username" id="name" type="text"  placeholder="请给城市组命名" style="width:450px;text-align: center"></div>
+                <div class="add_sell_l sort_box" >
+                    <h2 style="position: absolute;left:22px;width: 200px;border-radius: 4px 0 0 0">城市列表</h2>
+                    <!-- <h3 class="always">常用城市</h3>
+                    <ul>
+                        <li id="201" class="sort_letter">北京市</li>
+                        <li id="2401" class="sort_letter">上海市</li>
+                        <li id="501" class="sort_letter">广州市</li>
+                        <li id="502" class="sort_letter">深圳市</li>
+                    </ul> -->
+                    <h3 class="sort_letter A" style="margin-top:30px">A</h3>
+                    <h3 class="sort_letter B">B</h3>
+                    <h3 class="sort_letter C">C</h3>
+                    <h3 class="sort_letter D">D</h3>
+                    <h3 class="sort_letter E">E</h3>
+                    <h3 class="sort_letter F">F</h3>
+                    <h3 class="sort_letter G">G</h3>
+                    <h3 class="sort_letter H">H</h3>
+                    <h3 class="sort_letter I">I</h3>
+                    <h3 class="sort_letter J">J</h3>
+                    <h3 class="sort_letter K">K</h3>
+                    <h3 class="sort_letter L">L</h3>
+                    <h3 class="sort_letter M">M</h3>
+                    <h3 class="sort_letter N">N</h3>
+                    <h3 class="sort_letter O">O</h3>
+                    <h3 class="sort_letter P">P</h3>
+                    <h3 class="sort_letter Q">Q</h3>
+                    <h3 class="sort_letter R">R</h3>
+                    <h3 class="sort_letter S">S</h3>
+                    <h3 class="sort_letter T">T</h3>
+                    <h3 class="sort_letter U">U</h3>
+                    <h3 class="sort_letter V">V</h3>
+                    <h3 class="sort_letter W">W</h3>
+                    <h3 class="sort_letter X">X</h3>
+                    <h3 class="sort_letter Y">Y</h3>
+                    <h3 class="sort_letter Z">Z</h3>
+                    <!-- 右侧选择栏 -->
+                    <div class="sort_ew" style="width:20px">
+                        <ol>
+                            <li class="word" id="always"><img src="../ImagesNew/star_new.png" title="常用城市"></li>
+                            <li class="word" id="A">A</li>
+                            <li class="word" id="B">B</li>
+                            <li class="word" id="C">C</li>
+                            <li class="word" id="D">D</li>
+                            <li class="word" id="E">E</li>
+                            <li class="word" id="F">F</li>
+                            <li class="word" id="G">G</li>
+                            <li class="word" id="H">H</li>
+                            <li class="word" id="I">I</li>
+                            <li class="word" id="J">J</li>
+                            <li class="word" id="K">K</li>
+                            <li class="word" id="L">L</li>
+                            <li class="word" id="M">M</li>
+                            <li class="word" id="N">N</li>
+                            <li class="word" id="O">O</li>
+                            <li class="word" id="P">P</li>
+                            <li class="word" id="Q">Q</li>
+                            <li class="word" id="R">R</li>
+                            <li class="word" id="S">S</li>
+                            <li class="word" id="T">T</li>
+                            <li class="word" id="U">U</li>
+                            <li class="word" id="V">V</li>
+                            <li class="word" id="W">W</li>
+                            <li class="word" id="X">X</li>
+                            <li class="word" id="Y">Y</li>
+                            <li class="word" id="Z">Z</ul>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="add_sell_c">
+                        <img src="../ImagesNew/arrow_left.png">
+                        <img src="../ImagesNew/arrow_right_h.png">
+                        <!-- <a href="javascript:void(0)"><img src="../ImagesNew/arrow_left.png"></a>
+                        <a href="javascript:void(0)"><img src="../ImagesNew/arrow_right_h.png"></a> -->
+                    </div>
+                    <div class="add_sell_r selectdCity" style="overflow: auto;">
+                        <h2 style="position: absolute;left:307px;width: 217px;border-radius: 4px 0 0 0">已选城市</h2>
+                        <ul style="margin:25px 0;">
+
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="keep" style="margin-bottom:10px"><a href="javascript:void(0)" class="but_data" style="width:160px;margin-left:10px">保存</a></div>
+                </div>
+            </div>
+    </div>
+</div>
+<!--底部-->
+  <!--#include file="/base/footer.html" -->
+</body>
+</html>

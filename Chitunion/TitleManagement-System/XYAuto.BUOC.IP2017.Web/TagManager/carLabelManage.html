@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>车型标签管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="js/commonMethod.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/carLabelManage.js"></script>
+    <style type="text/css">
+        .ad_table .historyInfo{
+            position: absolute;
+            left: 1%;top:40px;
+            background: #e5e5e5;
+            width: 98%;
+            height: 50px;
+            color: #333;
+            display: none;
+            z-index: 100;
+        }
+        .ad_table a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>
+            </div>
+            <div id="list_switching">
+                <div class="clear"></div>
+                <ul class="state" id="search">
+                    <li style="margin-right: 0">
+                        <div class="ins_c">关联车型：</div>
+                        <select name="" class="brand" style="width:90px">
+                            <option MasterId="0">请选择品牌</option>
+                        </select>
+                        <select name="" class="series" style="width:100px">
+                            <option BrandId="-2">请选择子品牌</option>
+                        </select>
+                    </li>
+                    <li class="commitDate" style="margin-left: 20px;">
+                        提交日期：
+                        <input name="Username" id="StartDate" type="text"   style="width:120px;"  class="laydate-iconNew"> 至 <input  name="Username" id="EndDate" type="text" style="width:120px;"   class="laydate-iconNew">
+                    </li>
+                    <li id="reset" style="margin:0 20px;cursor: pointer;">重置</li>
+                    <li class="but_query" id="searchList" style="width:70px;">查询</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="ad_table"></div>
+                        <!--分页-->
+                    <div class="green-black" id="pageContainer" style="display:none;">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="#?page=2">2</a>
+                        <a href="#?page=3">3</a>...
+                        <a href="#?page=200">100</a>
+                        <a href="#?page=2">下一页</a>
+                        <span class="NormalText">共有3条数据</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+<script type="text/template" id="tagList">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th width="10%">品牌/车系</th>
+                <th width="10%">所属品牌</th>
+                <th width="10%">创建时间</th>
+                <th width="8%">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%if(list){%>
+            <%list.forEach(function(item,i){%>
+                <tr>
+                    <td>
+                        <%= item.BrandName %>
+                    </td>
+                    <td>
+                        <%= item.BrandType %>
+                    </td>
+                    <td><%= item.SubmitTime %></td>
+                    <td>
+                        <a href="/TagManager/ViewFinalCar.html?MediaResultID=<%= item.BatchID %>" target="_blank">
+                            <img src="../ImagesNew/view.png" title="查看">
+                        </a>
+                        <a href="javascript:void(0)" class="modifyLabel" BatchID="<%=item.BatchID%>">
+                            <img src="../ImagesNew/edit.png" title="修改">
+                        </a>
+                        <a href="javascript:void(0)" class="deleteLabel" BatchID="<%=item.BatchID%>">
+                            <img src="../ImagesNew/delete.png" title="删除">
+                        </a>
+                    </td>
+                </tr>
+            <%})%>
+            <%}%>
+        </tbody>
+    </table>
+</script>
+</body>
+</html>

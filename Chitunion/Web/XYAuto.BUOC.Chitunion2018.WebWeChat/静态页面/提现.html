@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>账户余额</title>
+    <link rel="stylesheet" type="text/css" href="../css/lauout.css"/>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/layer_mobile/layer.js"></script>
+</head>
+<body>
+<div class="main_container">
+    <div class="content_top">
+        <div class="content_top_begin">
+            <p class="des_text account_money">已获得奖励(元)</p>
+            <p class="total_count">160.90</p>
+            <p class="des_text total_receive">连续签到7天可获得160.90元</p>
+        </div>
+        <ul class="content_top_end">
+            <li>
+                <p class="money_count">150.80</p>
+                <p class="des_text">已提现金额(元)</p>
+            </li>
+            <li>
+                <p class="money_count">150.80</p>
+                <p class="des_text">提现中(元)</p>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="content_center">
+        <div class="text_button">
+            <span class="button_blue" id="getCach">提现</span>
+            <!-- <span class="button_grey">提现</span> -->
+        </div>
+        <ul class="pageChange">
+            <li>
+                您的钱包余额未超过50元，暂时无法提现
+            </li>
+        </ul>
+        <ul class="pageChange">
+            <li>
+                <a href="javascript:void(0)" class="grey_link">提现记录</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="grey_link">收益记录</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="grey_link">提现规则？</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $('#getCach').off('click').on('click',function(){
+        layer.open({
+            // title:'弹层标题'                      //设置弹层标题
+            content: '您还未实名认证<br/>不可提现'   //设置弹层内容
+            ,style: 'background-color:#fff; color:#000; border:none;'//自定义层的样式
+            // ,time: 1                             //控制自动关闭层所需秒数
+            // ,skin:'msg'                          //设定弹层显示风格,支持配置 footer（即底部对话框风格）、msg（普通提示）
+            // ,btn:'知道了'
+            ,btn:['实名认证','取消']
+            ,anim:'scale'   //动画配置：scale（默认）、up（从下往上弹出），如果不开启动画，设置false
+            // ,shade:false                          //控制遮罩展现，或者
+            ,shade: 'background-color: rgba(0,0,0,.3)' //自定义遮罩的透明度    
+            ,shadeClose:false                       //是否点击遮罩时关闭层，默认true
+            ,success:function(elem){                //层成功弹出层的回调
+                console.log(elem);
+            },yes: function(index){          //点确定按钮触发的回调函数，返回一个参数为当前层的索引
+                window.location = 'http://www.baidu.com'
+            },no:function(index){                   //点取消按钮触发的回调函数
+                layer.close(index)
+            },end:function(){                       //层彻底销毁后的回调函数
+
+            }
+        });
+    })
+</script>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script src="../js/jquery.pagination.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/advTempDetail.js"></script>
+
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install" id="container">
+        <script type="text/template" id="advDetail">
+            <h2 class="menu_nav"></h2>
+            <ul>
+                <li class="ins_a">
+                    <div class="frame_n">
+                        <img src="<%=data.BaseMediaLogoUrl%>" width="80" height="80">
+                    </div>
+                </li>
+                <li class="wechat_name"><div>APP名称：<%=data.BaseMediaName%></div></li>
+                <div class="clear"></div>
+            </ul>
+            <%if(data.AdTemplateName){%>
+            <ul>
+                <li class="ins_a">广告名称：</li>
+                <li><%=data.AdTemplateName%></li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.AdFormName){%>
+            <ul>
+                <li class="ins_a">广告形式：</li>
+                <li><%=data.AdFormName%></li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.AdTempStyle.length){%>
+            <ul class="AdTempStyle">
+                <li class="ins_a">广告样式：</li>
+                <%for(var i=0;i<data.AdTempStyle.length;i++){%>
+                    <li><span class="add_earlier"></span><%=data.AdTempStyle[i].AdStyle%></li>
+                <%}%>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.CarouselCount){%>
+            <ul>
+                <li class="ins_a">轮播数：</li>
+                <li><%=data.CarouselCount%></li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.SellingPlatform){%>
+            <ul class="SellingPlatform">
+                <li class="ins_a">售卖平台：</li>
+                <%if((1 & data.SellingPlatform) > 0){%>
+                    <li><span class="add_earlier"></span>Android</li>
+                <%}%>
+                <%if((2 & data.SellingPlatform) >0){%>
+                    <li><span class="add_earlier"></span>iOS</li>
+                <%}%>
+                <%if((4 & data.SellingPlatform) >0){%>
+                    <li><span class="add_earlier"></span>Android & iOS</li>
+                <%}%>
+                <%if((8 & data.SellingPlatform) >0){%>
+                    <li><span class="add_earlier"></span>PAD</li>
+                <%}%>
+                <%if((16 & data.SellingPlatform) >0){%>
+                    <li><span class="add_earlier"></span>Gphone</li>
+                <%}%>
+                <%if((32 & data.SellingPlatform) >0){%>
+                    <li><span class="add_earlier"></span>IPhone</li>
+                <%}%>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.SellingMode){%>
+            <ul class="">
+                <li class="ins_a">售卖方式：</li>
+                <%if(data.SellingMode == 1){%>
+                <li>CPD</li>
+                <%}else if(data.SellingMode == 2){%>
+                <li>CPM</li>
+                <%}else{%>
+                <li>CPD</li>
+                <li><span class="add_earlier">CPM</span></li>
+                <%}%>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.AdSaleAreaGroup.length != 0){%>
+            <ul class="AdSaleAreaGroup">
+                <li class="ins_a">售卖区域：</li>
+                <%for(var i=0;i<data.AdSaleAreaGroup.length;i++){%>
+                    <li class="pr" GroupType="<%=data.AdSaleAreaGroup[i].GroupType%>">
+                        <!-- 如果是全国或其他城市，不显示手型 -->
+                        <%if(data.AdSaleAreaGroup[i].GroupType == '0' || data.AdSaleAreaGroup[i].GroupType == '-1'){%>
+                            <span class="groupName"><%=data.AdSaleAreaGroup[i].GroupName%></span>
+                        <%}else{%>
+                            <span class="groupName" style="cursor: pointer;"><%=data.AdSaleAreaGroup[i].GroupName%></span>
+                        <%}%>
+                        &nbsp;&nbsp;<span class="add_earlier"></span>
+                        <div class="add_city" style="display: none;left:-98px;">
+                            <div class="arrow">
+                                <img src="../ImagesNew/arrow_top.png">
+                            </div>
+                            <ul>
+                                <%for(var j=0;j<data.AdSaleAreaGroup[i].DetailArea.length;j++){%>
+                                <li style="width: auto;"><%=data.AdSaleAreaGroup[i].DetailArea[j].CityName%></li>
+                                <%}%>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </li>
+                <%}%>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <!-- 已通过状态下，媒体主、AE不能看刊例原件 -->
+            <%if(data.AuditStatus == 48002){%>
+                <%if(CTLogin.RoleIDs != 'SYS001RL00005' && CTLogin.RoleIDs != 'SYS001RL00003'){%>
+                    <%if(data.OriginalFile){%>
+                    <ul>
+                        <li class="ins_a">刊例原件：</li>
+                        <li><%=getFileName(data.OriginalFile)%></li>
+                        <li>
+                            <a href="<%=data.OriginalFile%>" target="_blank">
+                                <img src="../ImagesNew/icon19.png">
+                            </a>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                <%}%>
+            <%}else{%>
+                <%if(data.OriginalFile){%>
+                <ul>
+                    <li class="ins_a">刊例原件：</li>
+                    <li><%=getFileName(data.OriginalFile)%></li>
+                    <li>
+                        <a href="<%=data.OriginalFile%>" target="_blank">
+                            <img src="../ImagesNew/icon19.png">
+                        </a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <%}%>
+            <%}%>
+
+            <%if(data.AdLegendURL){%>
+            <ul>
+                <li class="ins_a">广告示例图：</li>
+                <li>
+                        <%var arr = data.AdLegendURL.split(',');%>
+                        <%for(var i=0;i<arr.length;i++){%>
+                        <div class="frame" style="float: left;margin-right: 10px;">
+                            <img src="<%=arr[i]%>" width="80" height="80" style="display: inline-block;">
+                        </div>
+                        <%}%>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.AdDisplay){%>
+            <ul>
+                <li class="ins_a">广告展示逻辑：</li>
+                <li>
+                    <div class="beyond"><%=data.AdDisplay%></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.AdDescription){%>
+            <ul>
+                <li class="ins_a">素材说明：</li>
+                <li>
+                    <div class="beyond"><%=data.AdDescription%></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.Remarks){%>
+            <ul>
+                <li class="ins_a">备注：</li>
+                <li>
+                    <div class="beyond"><%=data.Remarks%></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <%if(data.AdDisplayLength){%>
+            <ul>
+                <li class="ins_a">起投天数：</li>
+                <li><%=data.AdDisplayLength%>天/次</li>
+                <div class="clear"></div>
+            </ul>
+            <%}%>
+            <div class="line3" style="margin: 30px auto">&nbsp;</div>
+            <ul class="auditResult" BaseMediaID="<%=data.BaseMediaID%>" BaseAdID="<%=data.BaseAdID%>" AuditStatus="<%=data.AuditStatus%>">
+                <li class="ins_a">审核结果：</li>
+                <!-- 如果是驳回，则标红 -->
+                <%if(data.AuditStatus == 48003){%>
+                <li class="red">驳回</li>
+                <%}else if(data.AuditStatus == 48001){%>
+                <li>待审核</li>
+                <%}else if(data.AuditStatus == 48002){%>
+                <li>已通过</li>
+                <%}%>
+                <%if(data.AuditStatus != 48001){%>
+                <li class="ml20">审核时间：</li>
+                    <%if(data.AuditStatus == 48002){%>
+                        <li class="auditTime"><%=data.CreateTime%></li>
+                    <%}else{%>
+                        <li class="auditTime"></li>
+                    <%}%>
+
+                <%}%>
+                <div class="clear"></div>
+            </ul>
+            <%if(data.AuditStatus == 48003){%>
+            <ul class="rejectReson">
+                <li class="ins_a">驳回原因：</li>
+                <li id="rejectReson"></li>
+                <div class="clear"></div>
+            </ul>
+            <!-- 如果是驳回状态，则显示，运营不显示 -->
+            <%if(CTLogin.RoleIDs != 'SYS001RL00001' && CTLogin.RoleIDs != 'SYS001RL00004'){%>
+            <div class="keep">
+                <span><a href="/PublishManager/edit_template.html?BaseMediaID=<%=data.BaseMediaID%>&TemplateID=<%=data.RecID%>" class="button" style="width:100px;margin-left:95px;" target="_blank">修改再提交</a></span>
+            </div>
+            <%}%>
+            <%}%>
+        </script>
+        <!-- 如果是驳回状态，则显示 -->
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+</body>
+</html>

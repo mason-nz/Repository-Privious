@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>标签管理--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css">
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/ViewArticle.js"></script>
+    <style type="text/css">
+        .detail_mark li{
+            cursor: auto;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="install">
+                <h2 style="margin-bottom: 0" class="menu_nav">
+                    
+                </h2>
+                <div class="container" style="min-width:1000px">
+                    
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="../Base/footer.html" -->
+
+</body>
+<script type="text/template" id="temp">
+    <div class="mark_left fl" style="width: 45%">
+        <div class="switch" style="width:100%;margin:0;border-left:none; ">
+            <span style="width: 100%;">文章原文</span>
+        </div>
+        <div class="article">
+            <!-- <div class="article_top">
+                <h6 class="article_title"></h6>
+                <div class="author"></div>
+            </div> -->
+            <div class="article_main">
+                <%-data.Content%>
+            </div>
+
+        </div>
+    </div>
+    <div class="mark_right fl" style="width: 45%">
+        <div class="keyWords" style="padding:10px 0 0 0">
+            <h6 class="article_title">标题：<%=data.MediaOrArticle%></h6>
+            <h6 class="article_title">摘要：</h6>
+            <div class="summary"  id="abstract"></div>
+        </div>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category1.jpg" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                分类
+            </div>
+            <ul class="detail_mark">
+                <% if(data.CategoryInfo){%>
+                    <% data.CategoryInfo.forEach(function(item){%>
+                        <%if(item.CreatCount > 0){%>
+                            <li>
+                                <span><%= item.DictName %></span>
+                            </li>
+                        <%}%>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category2.jpg" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                场景
+            </div>
+            <ul class="detail_mark">
+                <% if(data.SceneInfo){%>
+                    <% data.SceneInfo.forEach(function(item){%>
+                        <%if(item.CreatCount > 0){%>
+                            <li>
+                                <span><%= item.DictName %></span>
+                            </li>
+                        <%}%>
+                    <%})%>
+                <%}%>
+                <% if(data.CustomSceneInfo){%>
+                    <% data.CustomSceneInfo.forEach(function(item){%>
+                        <%if(item.CreatCount > 0){%>
+                            <li>
+                                <span><%= item.DictName %></span>
+                            </li>
+                        <%}%>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category3.jpg" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                IP标签
+            </div>
+            <ul class="detail_mark">
+                <% if(data.IPInfo){%>
+                    <% data.IPInfo.forEach(function(item){%>
+                        <%if(item.CreatCount > 0){%>
+                            <div>
+                                <li>
+                                    <span><%= item.DictName %></span>
+                                </li>
+                                <div class="clear"></div>
+                            </div>
+                            <% item.SonIP.forEach(function(single){%>
+                            <%if(single.CreatCount){%>
+                            <div class="SonIP" style="overflow: hidden;">
+                                <li class="sonip">
+                                    <span><%= single.DictName %></span>
+                                    <i class="add_ear"></i>
+                                </li>
+                                <% single.CustomLableInfo.forEach(function(one){ %>
+                                    <li>
+                                        <span><%= one.DictName %></span>
+                                    </li>
+                                <%})%>
+                                <div class="clear"></div>
+                            </div>
+                            <%}%>
+                            <div class="clear"></div>
+                            <%})%>
+                            <div style="height:2px;border-bottom:1px dashed #eee;margin: 0 0 12px 0"></div>
+                        <%}%>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="info" style="padding: 0 20px">
+        <%if(data.SubmitMan){%>
+        <ul>
+            <li class="ins_a" style="width:105px;">提交信息：</li>
+            <li><%=data.SubmitMan%>  &nbsp;&nbsp;<%= data.SubmitTime%></li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <%if(data.ExamineMan){%>
+        <ul>
+            <li class="ins_a" style="width:105px;">审核信息：</li>
+            <li><%=data.ExamineMan%>  &nbsp;&nbsp;<%= data.ExamineTime%></li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <%if(data.UpdateMan){%>
+        <ul>
+            <li class="ins_a" style="width:105px;">修改信息：</li>
+            <li><%=data.UpdateMan%>  &nbsp;&nbsp;<%= data.UpdateTime%></li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <% if(data.NowCategory && data.OldCategory != data.NowCategory) {%>
+        <ul>
+            <li style="padding: 0 0 0 56px;">[分类]：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 104px;">原有内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.OldCategory%>
+            </li>
+            <div class="clear"></div>
+            <li  style="padding: 0 0 0 104px;">改后内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.NowCategory%>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <% if(data.NewScene && data.OldScene != data.NewScene) {%>
+        <ul>
+            <li style="padding: 0 0 0 56px;">[场景]：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 104px;">原有内容：</li>
+            <div class="clear"></div>
+            <li  style="padding: 0 0 0 172px;">
+                <%= data.OldScene%>
+            </li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 104px;">改后内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.NewScene%>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <% if(data.NewIP && data.OldIP != data.NewIP) {%>
+        <ul>
+            <li style="padding: 0 0 0 56px;">[IP标签]：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 104px;">原有内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <% var arr = data.OldIP.split(',')%>
+                <% for(var j=0;j<arr.length;j++){%>
+                    <% var ip = arr[j].split(':')%>
+                    <%= ip[0]%><br>
+                    <%var arr1= ip[1].split(']')%>
+                    <% for(var k=0;k<arr1.length;k++){%>
+                        <%if(arr1[k]){%>
+                        <span style="padding-left: 40px;"><%= arr1[k]%>]</span><br>
+                        <%}%>
+                    <%}%>
+                <%}%>
+            </li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 104px;">改后内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <% var arr = data.NewIP.split(',')%>
+                <% for(var j=0;j<arr.length;j++){%>
+                    <% var ip = arr[j].split(':')%>
+                    <%= ip[0]%><br>
+                    <%var arr1= ip[1].split(']')%>
+                    <% for(var k=0;k<arr1.length;k++){%>
+                        <%if(arr1[k]){%>
+                        <span style="padding-left: 40px;"><%= arr1[k]%>]</span><br>
+                        <%}%>
+                    <%}%>
+                <%}%>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+    </div>
+</script>
+</html>
+

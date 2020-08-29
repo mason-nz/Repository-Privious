@@ -1,0 +1,113 @@
+﻿<!-- 购物车 -->
+<div class="cart_box">
+    <div class="shop_cart">
+        <ul class='shop_cart_btn' data-isClick=''>
+            <li>
+                <span class="message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span class="">订单媒体</span>
+                <span class="cart_num">0</span>
+            </li>
+        </ul>
+        <div class="top" style='display: none;'><a href="javascript:void(0)"><img src="../images/top.png" /></a></div>
+   </div>
+    <div class="cart_content" style='border:0 none;'>
+        <div class="ibar_plugin_content">
+            <div class="ibar_cart_group ibar_cart_product">
+                <div class="ibar_cart_group_header">
+                    <span class="ibar_cart_group_title"><input name="" type="checkbox" value=""> 订单名称</span>
+                    <a href="javascript:void(0)" class='clearAll'>一键清空</a>
+                </div>
+                <div class="shopcartList"></div>
+                <div class="ADOrderInfo" style='display: none;'></div>
+            </div>
+            <div class="cart_handler">
+                <div class="cart_handler_header">
+                    <span class="cart_handler_left">已选<span class="cart_price"> 0 </span>件</span>
+                </div>
+                <a href="javascript:void(0)" class="cart_go_btn">保存订单</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id='ADOrderInfo'>
+    <%if(data){%>
+    <input type="hidden" class='OrderID' name="" value='<%= data.OrderID %>'>
+    <input type="hidden" class="MediaType" value='<%= data.MediaType %>'>
+    <input type="hidden" class="OrderName" value='<%= data.OrderName %>'>
+    <input type="hidden" class="Status" value='<%= data.Status %>'>
+    <input type="hidden" class="BeginTime" value='<%= data.BeginTime %>'>
+    <input type="hidden" class="EndTime" value='<%= data.EndTime %>'>
+    <input type="hidden" class="Note" value='<%= data.Note %>'>
+    <input type="hidden" class="TotalAmount" value='<%= data.TotalAmount %>'>
+    <input type="hidden" class="CreateTime" value='<%= data.CreateTime %>'>
+    <input type="hidden" class="CreateUserID" value='<%= data.CreateUserID %>'>
+    <input type="hidden" class="CustomerID" value='<%= data.CustomerID %>'>
+    <input type="hidden" class="UploadFileURL" value='<%= data.UploadFileURL %>'>
+    <input type="hidden" class="UploadFileName" value='<%= data.UploadFileName %>'>
+    <%}%>
+</script>
+<script type="text/template" id='shopcart_temp'>             
+    <% var data = list.SubADInfos %>
+    <%for(var i=0;i<data.length;i++){%>
+        <%for(var j=0;j<data[i].SelfDetails.length;j++){%>
+        <%if(data[i].SelfDetails.PublishStatus != 15006){%>
+            <div class="cart_shop">
+                <div class="ping01">
+                    <input name="" type="checkbox" value="" checked="checked">
+                    <input class='MediaType' type="hidden" value="<%= data[i].SelfDetails[j].MediaType%>">
+                    <input class='MediaID' type="hidden" value="<%= data[i].SelfDetails[j].MediaID%>">
+                    <input class='PublishDetailID' type="hidden" value="<%= data[i].SelfDetails[j].PublishDetailID%>">
+                    <input class='AdjustDiscount' type="hidden" value="<%= data[i].SelfDetails[j].AdjustDiscount%>">
+                    <input class='AdjustPrice' type="hidden" value="<%= data[i].SelfDetails[j].AdjustPrice%>">
+                    <input class='ADLaunchDays' type="hidden" value="<%= data[i].SelfDetails[j].ADLaunchDays%>">
+                </div>
+                <div class="ping02">
+                    <div class="img">
+                    <%if(data[i].SelfDetails[j].HeadIconURL){%>
+                    <img src="<%= data[i].SelfDetails[j].HeadIconURL%>" width="42" height="42">
+                    <%}else{%>
+                    <img src="/images/default_touxiang.png" width="42" height="42">
+                    <%}%>
+                    </div>
+                    <div class="h2"><%= data[i].SelfDetails[j].Name%></div>
+                    <%if(type == 14001){%>
+                    <%if(data[i].SelfDetails[j].Number){%><div class="p"><%= data[i].SelfDetails[j].Number%></div><%}%>
+                    <%}else if(type == 14003){%>
+                    <%if(data[i].SelfDetails[j].Sign){%><div class="p"><%= data[i].SelfDetails[j].Sign%></div><%}%>
+                    <%}%>
+                </div>
+                <div class="ping03"><a href="javascript:void(0)" class="red del">删除</a></div>
+                <div class="clear"></div>
+            </div>
+        <%}else{%>
+            <div class="cart_shop">
+                <div class="ping01">
+                    <input name="" type="checkbox" value="" disabled="disabled">
+                    <input class='MediaType' type="hidden" value="<%= data[i].SelfDetails[j].MediaType%>">
+                    <input class='MediaID' type="hidden" value="<%= data[i].SelfDetails[j].MediaID%>">
+                    <input class='PublishDetailID' type="hidden" value="<%= data[i].SelfDetails[j].PublishDetailID%>">
+                    <input class='AdjustDiscount' type="hidden" value="<%= data[i].SelfDetails[j].AdjustDiscount%>">
+                    <input class='AdjustPrice' type="hidden" value="<%= data[i].SelfDetails[j].AdjustPrice%>">
+                    <input class='ADLaunchDays' type="hidden" value="<%= data[i].SelfDetails[j].ADLaunchDays%>">
+                </div>
+                <div class="ping02 grey">
+                    <div class="img">
+                    <%if(data[i].SelfDetails[j].HeadIconURL){%>
+                    <img src="<%= data[i].SelfDetails[j].HeadIconURL%>" width="42" height="42">
+                    <%}else{%>
+                    <img src="/images/default_touxiang.png" width="42" height="42">
+                    <%}%>
+                    </div>
+                    <div class="h2"><%= data[i].SelfDetails[j].Name%></div>
+                    <%if(type == 14001){%>
+                    <%if(data[i].SelfDetails[j].Number){%><div class="p"><%= data[i].SelfDetails[j].Number%></div><%}%>
+                    <%}else if(type == 14003){%>
+                    <%if(data[i].SelfDetails[j].Sign){%><div class="p"><%= data[i].SelfDetails[j].Sign%></div><%}%>
+                    <%}%>
+                </div>
+                <div class="ping03"><a href="javascript:void(0)" class="red del">删除</a></div>
+                <div class="clear"></div>
+            </div>
+        <%}%>
+    <%} }%>
+</script>

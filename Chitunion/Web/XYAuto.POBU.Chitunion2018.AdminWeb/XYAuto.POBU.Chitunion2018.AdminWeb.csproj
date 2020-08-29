@@ -1,0 +1,1382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\sln\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\sln\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\sln\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\sln\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D0D6614E-C717-419B-90A4-0CCCA7674167}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ITSC.Chitunion2018.AdminWeb</RootNamespace>
+    <AssemblyName>XYAuto.ITSC.Chitunion2018.AdminWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\NewtonSoft 4.5\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common">
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils">
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Base\footer.html" />
+    <Content Include="Base\header.html" />
+    <Content Include="Base\header_home.html" />
+    <Content Include="Base\header_List.html" />
+    <Content Include="Base\js.html" />
+    <Content Include="Base\Menu.html" />
+    <Content Include="Base\头尾部公共页面引入说明-.txt" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="css\img\btn.jpg" />
+    <Content Include="css\img\uploadify-cancel.png" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.Jcrop.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="css\layoutNew.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\resetNew.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\uploadify.css" />
+    <Content Include="exit.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="FinanceManager\AuditDetails.html" />
+    <Content Include="FinanceManager\ChannelMonthlyData.html" />
+    <Content Include="FinanceManager\IncomeManagement.html" />
+    <Content Include="FinanceManager\js\AuditDetails.js" />
+    <Content Include="FinanceManager\js\ChannelMonthlyData.js" />
+    <Content Include="FinanceManager\js\IncomeManagement.js" />
+    <Content Include="FinanceManager\js\PresentManagement-1.js" />
+    <Content Include="FinanceManager\js\PresentManagement.js" />
+    <Content Include="FinanceManager\js\proposedetails.js" />
+    <Content Include="FinanceManager\PresentAuditReview.html" />
+    <Content Include="FinanceManager\PresentManagement-1.html" />
+    <Content Include="FinanceManager\PresentManagement.html" />
+    <Content Include="FinanceManager\proposedetails.html" />
+    <Content Include="ImagesNew\4.7.png" />
+    <Content Include="ImagesNew\5.0.png" />
+    <Content Include="ImagesNew\5.5.png" />
+    <Content Include="ImagesNew\add.png" />
+    <Content Include="ImagesNew\add2.png" />
+    <Content Include="ImagesNew\addto.jpg" />
+    <Content Include="ImagesNew\agent.png" />
+    <Content Include="ImagesNew\alert_bg.jpg" />
+    <Content Include="ImagesNew\alert_logo.gif" />
+    <Content Include="ImagesNew\alert_logo_bg.gif" />
+    <Content Include="ImagesNew\alert_pic.gif" />
+    <Content Include="ImagesNew\all.gif" />
+    <Content Include="ImagesNew\allbg_r.gif" />
+    <Content Include="ImagesNew\alldel.png" />
+    <Content Include="ImagesNew\alldel1.png" />
+    <Content Include="ImagesNew\allDelete.jpg" />
+    <Content Include="ImagesNew\allDelete1.jpg" />
+    <Content Include="ImagesNew\arr.jpg" />
+    <Content Include="ImagesNew\arrow.png" />
+    <Content Include="ImagesNew\arrow_01.png" />
+    <Content Include="ImagesNew\arrow_02.png" />
+    <Content Include="ImagesNew\arrow_03.jpg" />
+    <Content Include="ImagesNew\arrow_04.png" />
+    <Content Include="ImagesNew\arrow_05.png" />
+    <Content Include="ImagesNew\arrow_l.png" />
+    <Content Include="ImagesNew\arrow_left.png" />
+    <Content Include="ImagesNew\arrow_left_h.png" />
+    <Content Include="ImagesNew\arrow_r.png" />
+    <Content Include="ImagesNew\arrow_right.png" />
+    <Content Include="ImagesNew\arrow_right_h.png" />
+    <Content Include="ImagesNew\arrow_top.png" />
+    <Content Include="ImagesNew\arr_add.gif" />
+    <Content Include="ImagesNew\arr_add.jpg" />
+    <Content Include="ImagesNew\arr_left.jpg" />
+    <Content Include="ImagesNew\arr_right.jpg" />
+    <Content Include="ImagesNew\audit.png" />
+    <Content Include="ImagesNew\banner.jpg" />
+    <Content Include="ImagesNew\banner1.jpg" />
+    <Content Include="ImagesNew\banner2.jpg" />
+    <Content Include="ImagesNew\banner_01.jpg" />
+    <Content Include="ImagesNew\bg01.jpg" />
+    <Content Include="ImagesNew\bg790.gif" />
+    <Content Include="ImagesNew\bg790.jpg" />
+    <Content Include="ImagesNew\bg_add.jpg" />
+    <Content Include="ImagesNew\bg_ask.jpg" />
+    <Content Include="ImagesNew\bg_btn.jpg" />
+    <Content Include="ImagesNew\bg_h3.jpg" />
+    <Content Include="ImagesNew\bg_roler.jpg" />
+    <Content Include="ImagesNew\bg_roler_li.jpg" />
+    <Content Include="ImagesNew\bg_top.jpg" />
+    <Content Include="ImagesNew\bg_ul_li.jpg" />
+    <Content Include="ImagesNew\bg_ul_tt.jpg" />
+    <Content Include="ImagesNew\blue-loading.gif" />
+    <Content Include="ImagesNew\blueV.png" />
+    <Content Include="ImagesNew\btn_bg.jpg" />
+    <Content Include="ImagesNew\btn_bg2.gif" />
+    <Content Include="ImagesNew\btn_bg2.jpg" />
+    <Content Include="ImagesNew\btn_default.png" />
+    <Content Include="ImagesNew\btn_down.png" />
+    <Content Include="ImagesNew\btn_up.png" />
+    <Content Include="ImagesNew\button_001.gif" />
+    <Content Include="ImagesNew\button_r.gif" />
+    <Content Include="ImagesNew\cancelorder.png" />
+    <Content Include="ImagesNew\cart_01.png" />
+    <Content Include="ImagesNew\cart_02.png" />
+    <Content Include="ImagesNew\changeContent.jpg" />
+    <Content Include="ImagesNew\changeContent1.jpg" />
+    <Content Include="ImagesNew\channel.png" />
+    <Content Include="ImagesNew\checked.png" />
+    <Content Include="ImagesNew\chitu.png" />
+    <Content Include="ImagesNew\clip_image.gif" />
+    <Content Include="ImagesNew\close.gif" />
+    <Content Include="ImagesNew\close.png" />
+    <Content Include="ImagesNew\closebt.png" />
+    <Content Include="ImagesNew\close_h.png" />
+    <Content Include="ImagesNew\close_h1.png" />
+    <Content Include="ImagesNew\close_h2.png" />
+    <Content Include="ImagesNew\close_x.jpg" />
+    <Content Include="ImagesNew\code_1.png" />
+    <Content Include="ImagesNew\code_2.png" />
+    <Content Include="ImagesNew\code_3.png" />
+    <Content Include="ImagesNew\code_4.png" />
+    <Content Include="ImagesNew\collection01.png" />
+    <Content Include="ImagesNew\collection02.png" />
+    <Content Include="ImagesNew\collection03.png" />
+    <Content Include="ImagesNew\collection04.png" />
+    <Content Include="ImagesNew\collection05.png" />
+    <Content Include="ImagesNew\collection06.png" />
+    <Content Include="ImagesNew\collection07.png" />
+    <Content Include="ImagesNew\collection10.jpg" />
+    <Content Include="ImagesNew\copy.png" />
+    <Content Include="ImagesNew\CoverDefaultPic.png" />
+    <Content Include="ImagesNew\cropImgTab.png" />
+    <Content Include="ImagesNew\cut.png" />
+    <Content Include="ImagesNew\cx_h2bg_r.gif" />
+    <Content Include="ImagesNew\default_touxiang.png" />
+    <Content Include="ImagesNew\del.gif" />
+    <Content Include="ImagesNew\delete.png" />
+    <Content Include="ImagesNew\delete_b.png" />
+    <Content Include="ImagesNew\de_bg_btn.jpg" />
+    <Content Include="ImagesNew\diandian_r.gif" />
+    <Content Include="ImagesNew\disabled.png" />
+    <Content Include="ImagesNew\dot.jpg" />
+    <Content Include="ImagesNew\down.png" />
+    <Content Include="ImagesNew\down_click.png" />
+    <Content Include="ImagesNew\dr.gif" />
+    <Content Include="ImagesNew\dr.png" />
+    <Content Include="ImagesNew\dt_bg.jpg" />
+    <Content Include="ImagesNew\dui.png" />
+    <Content Include="ImagesNew\edit.png" />
+    <Content Include="ImagesNew\editcase.png" />
+    <Content Include="ImagesNew\end.png" />
+    <Content Include="ImagesNew\error_bang.gif" />
+    <Content Include="ImagesNew\exit.png" />
+    <Content Include="ImagesNew\f.jpg" />
+    <Content Include="ImagesNew\fh.jpg" />
+    <Content Include="ImagesNew\fh_on.jpg" />
+    <Content Include="ImagesNew\fill_01.png" />
+    <Content Include="ImagesNew\fill_02.png" />
+    <Content Include="ImagesNew\fill_03.png" />
+    <Content Include="ImagesNew\firstno.jpg" />
+    <Content Include="ImagesNew\firstoff.jpg" />
+    <Content Include="ImagesNew\four_bg.jpg" />
+    <Content Include="ImagesNew\f_on.jpg" />
+    <Content Include="ImagesNew\girl.png" />
+    <Content Include="ImagesNew\goldV.png" />
+    <Content Include="ImagesNew\HeadImg.png" />
+    <Content Include="ImagesNew\HeadImg1.png" />
+    <Content Include="ImagesNew\help.png" />
+    <Content Include="ImagesNew\help_left_bg.png" />
+    <Content Include="ImagesNew\ias_off.png" />
+    <Content Include="ImagesNew\ias_on.png" />
+    <Content Include="ImagesNew\ibar_sprites.png" />
+    <Content Include="ImagesNew\ico00.png" />
+    <Content Include="ImagesNew\ico01.png" />
+    <Content Include="ImagesNew\ico02.png" />
+    <Content Include="ImagesNew\ico03.png" />
+    <Content Include="ImagesNew\ico04.png" />
+    <Content Include="ImagesNew\ico05.png" />
+    <Content Include="ImagesNew\ico06.png" />
+    <Content Include="ImagesNew\ico07.png" />
+    <Content Include="ImagesNew\ico08.png" />
+    <Content Include="ImagesNew\ico09.png" />
+    <Content Include="ImagesNew\ico10.png" />
+    <Content Include="ImagesNew\ico11.png" />
+    <Content Include="ImagesNew\ico12.png" />
+    <Content Include="ImagesNew\ico13.png" />
+    <Content Include="ImagesNew\ico14.png" />
+    <Content Include="ImagesNew\ico15.png" />
+    <Content Include="ImagesNew\ico16.png" />
+    <Content Include="ImagesNew\ico17.png" />
+    <Content Include="ImagesNew\ico18.png" />
+    <Content Include="ImagesNew\ico19.png" />
+    <Content Include="ImagesNew\ico20.png" />
+    <Content Include="ImagesNew\ico21.png" />
+    <Content Include="ImagesNew\ico22.png" />
+    <Content Include="ImagesNew\ico23.png" />
+    <Content Include="ImagesNew\ico24.png" />
+    <Content Include="ImagesNew\ico25.png" />
+    <Content Include="ImagesNew\ico26.png" />
+    <Content Include="ImagesNew\ico27.png" />
+    <Content Include="ImagesNew\ico28.png" />
+    <Content Include="ImagesNew\ico29.png" />
+    <Content Include="ImagesNew\icon13.png" />
+    <Content Include="ImagesNew\icon14.png" />
+    <Content Include="ImagesNew\icon15.png" />
+    <Content Include="ImagesNew\icon16.png" />
+    <Content Include="ImagesNew\icon16_a.png" />
+    <Content Include="ImagesNew\icon16_b.png" />
+    <Content Include="ImagesNew\icon16_c.png" />
+    <Content Include="ImagesNew\icon16_h.png" />
+    <Content Include="ImagesNew\icon17.png" />
+    <Content Include="ImagesNew\icon17_h.png" />
+    <Content Include="ImagesNew\icon18.png" />
+    <Content Include="ImagesNew\icon19.png" />
+    <Content Include="ImagesNew\icon20.png" />
+    <Content Include="ImagesNew\icon21.png" />
+    <Content Include="ImagesNew\icon22.png" />
+    <Content Include="ImagesNew\icon23.png" />
+    <Content Include="ImagesNew\icon24.png" />
+    <Content Include="ImagesNew\icon25.png" />
+    <Content Include="ImagesNew\icon26.png" />
+    <Content Include="ImagesNew\icon27.png" />
+    <Content Include="ImagesNew\icon28.png" />
+    <Content Include="ImagesNew\icon29.png" />
+    <Content Include="ImagesNew\icon30.png" />
+    <Content Include="ImagesNew\icon31.png" />
+    <Content Include="ImagesNew\icon32.png" />
+    <Content Include="ImagesNew\icon33.png" />
+    <Content Include="ImagesNew\icon34.png" />
+    <Content Include="ImagesNew\icon35.png" />
+    <Content Include="ImagesNew\icon36.png" />
+    <Content Include="ImagesNew\icon37.png" />
+    <Content Include="ImagesNew\icon38.png" />
+    <Content Include="ImagesNew\icon39.png" />
+    <Content Include="ImagesNew\icon40.png" />
+    <Content Include="ImagesNew\icon41.png" />
+    <Content Include="ImagesNew\icon42.png" />
+    <Content Include="ImagesNew\icon43.png" />
+    <Content Include="ImagesNew\icon44.png" />
+    <Content Include="ImagesNew\icon45.png" />
+    <Content Include="ImagesNew\icon46.png" />
+    <Content Include="ImagesNew\icon47.png" />
+    <Content Include="ImagesNew\icon48.png" />
+    <Content Include="ImagesNew\icon49.png" />
+    <Content Include="ImagesNew\icon50.png" />
+    <Content Include="ImagesNew\icon51.png" />
+    <Content Include="ImagesNew\icon52.png" />
+    <Content Include="ImagesNew\icon53.png" />
+    <Content Include="ImagesNew\icon62.png" />
+    <Content Include="ImagesNew\icon63.png" />
+    <Content Include="ImagesNew\icon64.png" />
+    <Content Include="ImagesNew\icon65.png" />
+    <Content Include="ImagesNew\icon66.png" />
+    <Content Include="ImagesNew\icon67.png" />
+    <Content Include="ImagesNew\icon68.png" />
+    <Content Include="ImagesNew\icon69.png" />
+    <Content Include="ImagesNew\icon70.png" />
+    <Content Include="ImagesNew\icon71.png" />
+    <Content Include="ImagesNew\icon77.png" />
+    <Content Include="ImagesNew\icon78.png" />
+    <Content Include="ImagesNew\icon79.png" />
+    <Content Include="ImagesNew\icon83.jpg" />
+    <Content Include="ImagesNew\icon84.jpg" />
+    <Content Include="ImagesNew\icon85.png" />
+    <Content Include="ImagesNew\icon87.png" />
+    <Content Include="ImagesNew\icon88.png" />
+    <Content Include="ImagesNew\icon89.png" />
+    <Content Include="ImagesNew\icon90.png" />
+    <Content Include="ImagesNew\icon_ad.png" />
+    <Content Include="ImagesNew\icon_card.png" />
+    <Content Include="ImagesNew\icon_cash.png" />
+    <Content Include="ImagesNew\icon_demand.png" />
+    <Content Include="ImagesNew\icon_divided-into.png" />
+    <Content Include="ImagesNew\icon_excel.gif" />
+    <Content Include="ImagesNew\icon_fictitious.png" />
+    <Content Include="ImagesNew\icon_loading.gif" />
+    <Content Include="ImagesNew\ico_01.png" />
+    <Content Include="ImagesNew\ico_01_h.png" />
+    <Content Include="ImagesNew\ico_02.png" />
+    <Content Include="ImagesNew\ico_02_h.png" />
+    <Content Include="ImagesNew\ico_03.png" />
+    <Content Include="ImagesNew\ico_03_h.png" />
+    <Content Include="ImagesNew\ico_04.png" />
+    <Content Include="ImagesNew\ico_04_h.png" />
+    <Content Include="ImagesNew\ico_05.png" />
+    <Content Include="ImagesNew\ico_05_h.png" />
+    <Content Include="ImagesNew\ico_06.png" />
+    <Content Include="ImagesNew\ico_06_h.png" />
+    <Content Include="ImagesNew\ico_07.png" />
+    <Content Include="ImagesNew\ico_07_h.png" />
+    <Content Include="ImagesNew\ico_08.png" />
+    <Content Include="ImagesNew\ico_08_h.png" />
+    <Content Include="ImagesNew\ico_09.png" />
+    <Content Include="ImagesNew\ico_09_h.png" />
+    <Content Include="ImagesNew\ico_10.png" />
+    <Content Include="ImagesNew\ico_10_h.png" />
+    <Content Include="ImagesNew\ico_11.png" />
+    <Content Include="ImagesNew\ico_11_h.png" />
+    <Content Include="ImagesNew\ico_12.png" />
+    <Content Include="ImagesNew\ico_12_h.png" />
+    <Content Include="ImagesNew\ico_13.png" />
+    <Content Include="ImagesNew\ico_13_h.png" />
+    <Content Include="ImagesNew\images\loginLogo.png" />
+    <Content Include="ImagesNew\imgTxt_down.png" />
+    <Content Include="ImagesNew\imgTxt_up.png" />
+    <Content Include="ImagesNew\insert.png" />
+    <Content Include="ImagesNew\lastno.jpg" />
+    <Content Include="ImagesNew\lastoff.jpg" />
+    <Content Include="ImagesNew\left-1.png" />
+    <Content Include="ImagesNew\line.png" />
+    <Content Include="ImagesNew\line_01.png" />
+    <Content Include="ImagesNew\list_bg.png" />
+    <Content Include="ImagesNew\li_nav_off.jpg" />
+    <Content Include="ImagesNew\li_nav_on.jpg" />
+    <Content Include="ImagesNew\ln_l.jpg" />
+    <Content Include="ImagesNew\ln_r.jpg" />
+    <Content Include="ImagesNew\loading.gif" />
+    <Content Include="ImagesNew\login_01.png" />
+    <Content Include="ImagesNew\login_02.png" />
+    <Content Include="ImagesNew\login_03.png" />
+    <Content Include="ImagesNew\logo.gif" />
+    <Content Include="ImagesNew\logo.png" />
+    <Content Include="ImagesNew\logonew.png" />
+    <Content Include="ImagesNew\logout.gif" />
+    <Content Include="ImagesNew\logout_on.gif" />
+    <Content Include="ImagesNew\logo\logo1.png" />
+    <Content Include="ImagesNew\logo\logo10.png" />
+    <Content Include="ImagesNew\logo\logo2.png" />
+    <Content Include="ImagesNew\logo\logo3.png" />
+    <Content Include="ImagesNew\logo\logo4.png" />
+    <Content Include="ImagesNew\logo\logo5.png" />
+    <Content Include="ImagesNew\logo\logo6.png" />
+    <Content Include="ImagesNew\logo\logo7.png" />
+    <Content Include="ImagesNew\logo\logo8.png" />
+    <Content Include="ImagesNew\logo\logo9.png" />
+    <Content Include="ImagesNew\logo_index.gif" />
+    <Content Include="ImagesNew\logo_preview.gif" />
+    <Content Include="ImagesNew\l_l.jpg" />
+    <Content Include="ImagesNew\l_r.jpg" />
+    <Content Include="ImagesNew\mark.png" />
+    <Content Include="ImagesNew\materialManage.png" />
+    <Content Include="ImagesNew\media_01.png" />
+    <Content Include="ImagesNew\media_02.png" />
+    <Content Include="ImagesNew\media_03.png" />
+    <Content Include="ImagesNew\media_04.png" />
+    <Content Include="ImagesNew\media_05.png" />
+    <Content Include="ImagesNew\media_06.png" />
+    <Content Include="ImagesNew\media_07.png" />
+    <Content Include="ImagesNew\media_h.png" />
+    <Content Include="ImagesNew\men.png" />
+    <Content Include="ImagesNew\menu_bg.gif" />
+    <Content Include="ImagesNew\menu_bg.png" />
+    <Content Include="ImagesNew\menu_bg2.png" />
+    <Content Include="ImagesNew\menu_er_bg.gif" />
+    <Content Include="ImagesNew\menu_ico01.png" />
+    <Content Include="ImagesNew\menu_ico01_h.png" />
+    <Content Include="ImagesNew\menu_ico08.png" />
+    <Content Include="ImagesNew\menu_ico08_h.png" />
+    <Content Include="ImagesNew\menu_SYS008MOD0001.png" />
+    <Content Include="ImagesNew\menu_SYS008MOD0001_h.png" />
+    <Content Include="ImagesNew\menu_SYS008MOD0002.png" />
+    <Content Include="ImagesNew\menu_SYS008MOD0002_h.png" />
+    <Content Include="ImagesNew\more.PNG" />
+    <Content Include="ImagesNew\moveto.jpg" />
+    <Content Include="ImagesNew\nav2_bg_on.jpg" />
+    <Content Include="ImagesNew\nav_bg.jpg" />
+    <Content Include="ImagesNew\nav_bg_on.jpg" />
+    <Content Include="ImagesNew\nav_bg_ul.jpg" />
+    <Content Include="ImagesNew\new_arrow.png" />
+    <Content Include="ImagesNew\next.gif" />
+    <Content Include="ImagesNew\nextno.jpg" />
+    <Content Include="ImagesNew\nextoff.jpg" />
+    <Content Include="ImagesNew\next_off.jpg" />
+    <Content Include="ImagesNew\next_on.jpg" />
+    <Content Include="ImagesNew\nodata_tip.png" />
+    <Content Include="ImagesNew\notCheck.png" />
+    <Content Include="ImagesNew\no_data.png" />
+    <Content Include="ImagesNew\no_portrait.jpg" />
+    <Content Include="ImagesNew\one_bg.jpg" />
+    <Content Include="ImagesNew\open.gif" />
+    <Content Include="ImagesNew\open2.gif" />
+    <Content Include="ImagesNew\order_up.png" />
+    <Content Include="ImagesNew\paiq.jpg" />
+    <Content Include="ImagesNew\person.jpg" />
+    <Content Include="ImagesNew\Person.png" />
+    <Content Include="ImagesNew\pic01.png" />
+    <Content Include="ImagesNew\pic01_a.gif" />
+    <Content Include="ImagesNew\pic02.jpg" />
+    <Content Include="ImagesNew\pic03.jpg" />
+    <Content Include="ImagesNew\pic04.jpg" />
+    <Content Include="ImagesNew\pic05.jpg" />
+    <Content Include="ImagesNew\pic06.jpg" />
+    <Content Include="ImagesNew\pic07.jpg" />
+    <Content Include="ImagesNew\pic08.jpg" />
+    <Content Include="ImagesNew\pic09.jpg" />
+    <Content Include="ImagesNew\pic10.jpg" />
+    <Content Include="ImagesNew\pic11.png" />
+    <Content Include="ImagesNew\pic12.jpg" />
+    <Content Include="ImagesNew\pic13.png" />
+    <Content Include="ImagesNew\pic14.png" />
+    <Content Include="ImagesNew\pic15.jpg" />
+    <Content Include="ImagesNew\pic16.jpg" />
+    <Content Include="ImagesNew\pic17.jpg" />
+    <Content Include="ImagesNew\pic18.jpg" />
+    <Content Include="ImagesNew\pic19.jpg" />
+    <Content Include="ImagesNew\pic20.jpg" />
+    <Content Include="ImagesNew\pic21.jpg" />
+    <Content Include="ImagesNew\pic22.jpg" />
+    <Content Include="ImagesNew\pic23.jpg" />
+    <Content Include="ImagesNew\pic24.jpg" />
+    <Content Include="ImagesNew\pic25.jpg" />
+    <Content Include="ImagesNew\pic26.jpg" />
+    <Content Include="ImagesNew\pic27.jpg" />
+    <Content Include="ImagesNew\pic28.png" />
+    <Content Include="ImagesNew\plus_1.png" />
+    <Content Include="ImagesNew\plus_2.png" />
+    <Content Include="ImagesNew\plus_3.png" />
+    <Content Include="ImagesNew\plus_4.png" />
+    <Content Include="ImagesNew\plus_5.png" />
+    <Content Include="ImagesNew\point.png" />
+    <Content Include="ImagesNew\popon.jpg" />
+    <Content Include="ImagesNew\popon.png" />
+    <Content Include="ImagesNew\prev.gif" />
+    <Content Include="ImagesNew\prevno.jpg" />
+    <Content Include="ImagesNew\prevoff.jpg" />
+    <Content Include="ImagesNew\qian_off.jpg" />
+    <Content Include="ImagesNew\qian_on.jpg" />
+    <Content Include="ImagesNew\recommend.png" />
+    <Content Include="ImagesNew\registered_01.png" />
+    <Content Include="ImagesNew\registered_02.png" />
+    <Content Include="ImagesNew\registered_03.png" />
+    <Content Include="ImagesNew\revoke.jpg" />
+    <Content Include="ImagesNew\right-1.png" />
+    <Content Include="ImagesNew\run.png" />
+    <Content Include="ImagesNew\s.jpg" />
+    <Content Include="ImagesNew\setright.png" />
+    <Content Include="ImagesNew\settitle.png" />
+    <Content Include="ImagesNew\shouqi.gif" />
+    <Content Include="ImagesNew\shqm_left_pic.gif" />
+    <Content Include="ImagesNew\shqm_left_pic.png" />
+    <Content Include="ImagesNew\shqm_right_pic.gif" />
+    <Content Include="ImagesNew\shqm_right_pic.png" />
+    <Content Include="ImagesNew\single.PNG" />
+    <Content Include="ImagesNew\specifyae.png" />
+    <Content Include="ImagesNew\start.png" />
+    <Content Include="ImagesNew\star_new.png" />
+    <Content Include="ImagesNew\star_new2.png" />
+    <Content Include="ImagesNew\step_01.png" />
+    <Content Include="ImagesNew\step_02.png" />
+    <Content Include="ImagesNew\stop.png" />
+    <Content Include="ImagesNew\st_icon.png" />
+    <Content Include="ImagesNew\st_icon_open.png" />
+    <Content Include="ImagesNew\syn_01.png" />
+    <Content Include="ImagesNew\syn_02.png" />
+    <Content Include="ImagesNew\syn_03.png" />
+    <Content Include="ImagesNew\syn_04.png" />
+    <Content Include="ImagesNew\syn_05.png" />
+    <Content Include="ImagesNew\syn_06.png" />
+    <Content Include="ImagesNew\syn_07.png" />
+    <Content Include="ImagesNew\s_on.jpg" />
+    <Content Include="ImagesNew\t.jpg" />
+    <Content Include="ImagesNew\tanchu_bg_r.gif" />
+    <Content Include="ImagesNew\thLine.gif" />
+    <Content Include="ImagesNew\three_bg.jpg" />
+    <Content Include="ImagesNew\timg1.png" />
+    <Content Include="ImagesNew\timg2.png" />
+    <Content Include="ImagesNew\timg3.png" />
+    <Content Include="ImagesNew\timg4.png" />
+    <Content Include="ImagesNew\tishi.png" />
+    <Content Include="ImagesNew\tomain.png" />
+    <Content Include="ImagesNew\top.png" />
+    <Content Include="ImagesNew\top_bg.png" />
+    <Content Include="ImagesNew\top_h.png" />
+    <Content Include="ImagesNew\tovoid.png" />
+    <Content Include="ImagesNew\tubiao.png" />
+    <Content Include="ImagesNew\two_bg.jpg" />
+    <Content Include="ImagesNew\t_on.jpg" />
+    <Content Include="ImagesNew\up.png" />
+    <Content Include="ImagesNew\uploadimg.png" />
+    <Content Include="ImagesNew\uploading.png" />
+    <Content Include="ImagesNew\up_click.png" />
+    <Content Include="ImagesNew\up_success.png" />
+    <Content Include="ImagesNew\view.png" />
+    <Content Include="ImagesNew\wechat.png" />
+    <Content Include="ImagesNew\WechatIMG454.png" />
+    <Content Include="ImagesNew\WechatIMG484.jpeg" />
+    <Content Include="ImagesNew\wechat_2.png" />
+    <Content Include="ImagesNew\wx.png" />
+    <Content Include="ImagesNew\xt.gif" />
+    <Content Include="ImagesNew\xt_1.gif" />
+    <Content Include="ImagesNew\yellowV.png" />
+    <Content Include="ImagesNew\ziying.png" />
+    <Content Include="ImagesNew\_notes\bgp.png" />
+    <Content Include="ImagesNew\_notes\bgpbg.png" />
+    <Content Include="ImagesNew\_notes\bgpbm.png" />
+    <Content Include="ImagesNew\_notes\popon.png" />
+    <Content Include="ImagesNew\_notes\popon_bg.png" />
+    <Content Include="ImagesNew\_notes\popon_bm.png" />
+    <Content Include="ImagesNew\城市分布.jpg" />
+    <Content Include="ImagesNew\性别分布.jpg" />
+    <Content Include="ImagesNew\示意图.jpg" />
+    <Content Include="ImagesNew\等待同步.png" />
+    <Content Include="ImagesNew\营业执照.jpg" />
+    <Content Include="ImagesNew\默认图.jpg" />
+    <Content Include="ImagesNew\默认图1.png" />
+    <Content Include="ImagesNew\默认图方.png" />
+    <Content Include="images\add.png" />
+    <Content Include="images\add2.png" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\arrow_01.png" />
+    <Content Include="images\arrow_02.png" />
+    <Content Include="images\arrow_03.png" />
+    <Content Include="images\arrow_a.png" />
+    <Content Include="images\arrow_b.png" />
+    <Content Include="images\backto_front_hover_v2.png" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\banner1.jpg" />
+    <Content Include="images\banner2.jpg" />
+    <Content Include="images\banner_01.jpg" />
+    <Content Include="images\banner_1.jpg" />
+    <Content Include="images\banner_2.jpg" />
+    <Content Include="images\banner_3.jpg" />
+    <Content Include="images\blueV.png" />
+    <Content Include="images\cart_01.png" />
+    <Content Include="images\cart_02.png" />
+    <Content Include="images\category1.jpg" />
+    <Content Include="images\category2.jpg" />
+    <Content Include="images\category3.jpg" />
+    <Content Include="images\category4.jpg" />
+    <Content Include="images\chutu.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\closebt.png" />
+    <Content Include="images\close_h.png" />
+    <Content Include="images\collection01.png" />
+    <Content Include="images\collection02.png" />
+    <Content Include="images\collection03.png" />
+    <Content Include="images\collection04.png" />
+    <Content Include="images\collection05.png" />
+    <Content Include="images\collection06.png" />
+    <Content Include="images\collection07.png" />
+    <Content Include="images\collection08.png" />
+    <Content Include="images\collection09.png" />
+    <Content Include="images\collection10.jpg" />
+    <Content Include="images\default_touxiang.png" />
+    <Content Include="images\details_bg.jpg" />
+    <Content Include="images\dr.gif" />
+    <Content Include="images\dr.png" />
+    <Content Include="images\fill_01.png" />
+    <Content Include="images\fill_02.png" />
+    <Content Include="images\fill_03.png" />
+    <Content Include="images\four_bg.jpg" />
+    <Content Include="images\girl.png" />
+    <Content Include="images\goldV.png" />
+    <Content Include="images\hd\1yuantx_banner.jpg" />
+    <Content Include="images\help_left_bg.png" />
+    <Content Include="images\ias_off.png" />
+    <Content Include="images\ias_on.png" />
+    <Content Include="images\ibar_sprites.png" />
+    <Content Include="images\ico00.png" />
+    <Content Include="images\ico01.png" />
+    <Content Include="images\ico02.png" />
+    <Content Include="images\ico03.png" />
+    <Content Include="images\ico04.png" />
+    <Content Include="images\ico05.png" />
+    <Content Include="images\ico06.png" />
+    <Content Include="images\ico07.png" />
+    <Content Include="images\ico08.png" />
+    <Content Include="images\ico09.png" />
+    <Content Include="images\ico10.png" />
+    <Content Include="images\ico11.png" />
+    <Content Include="images\ico12.png" />
+    <Content Include="images\ico13.png" />
+    <Content Include="images\ico14.png" />
+    <Content Include="images\ico15.png" />
+    <Content Include="images\ico16.png" />
+    <Content Include="images\ico17.png" />
+    <Content Include="images\ico18.png" />
+    <Content Include="images\ico19.png" />
+    <Content Include="images\ico20.png" />
+    <Content Include="images\ico21.png" />
+    <Content Include="images\ico22.png" />
+    <Content Include="images\ico23.png" />
+    <Content Include="images\ico24.png" />
+    <Content Include="images\ico25.png" />
+    <Content Include="images\ico26.png" />
+    <Content Include="images\ico27.png" />
+    <Content Include="images\ico28.png" />
+    <Content Include="images\ico29.png" />
+    <Content Include="images\icon13.png" />
+    <Content Include="images\icon14.png" />
+    <Content Include="images\icon15.png" />
+    <Content Include="images\icon16.png" />
+    <Content Include="images\icon16_a.png" />
+    <Content Include="images\icon16_b.png" />
+    <Content Include="images\icon16_c.png" />
+    <Content Include="images\icon16_h.png" />
+    <Content Include="images\icon17.png" />
+    <Content Include="images\icon17_h.png" />
+    <Content Include="images\icon18.png" />
+    <Content Include="images\icon19.png" />
+    <Content Include="images\icon20.png" />
+    <Content Include="images\icon21.png" />
+    <Content Include="images\icon22.png" />
+    <Content Include="images\icon23.png" />
+    <Content Include="images\icon24.png" />
+    <Content Include="images\icon25.png" />
+    <Content Include="images\icon26.png" />
+    <Content Include="images\icon27.png" />
+    <Content Include="images\icon28.png" />
+    <Content Include="images\icon29.png" />
+    <Content Include="images\icon30.png" />
+    <Content Include="images\icon31.png" />
+    <Content Include="images\icon32.png" />
+    <Content Include="images\icon33.png" />
+    <Content Include="images\icon34.png" />
+    <Content Include="images\icon35.png" />
+    <Content Include="images\icon36.png" />
+    <Content Include="images\icon37.png" />
+    <Content Include="images\icon38.png" />
+    <Content Include="images\icon39.png" />
+    <Content Include="images\icon40.png" />
+    <Content Include="images\icon41.png" />
+    <Content Include="images\icon42.png" />
+    <Content Include="images\icon43.png" />
+    <Content Include="images\icon44.png" />
+    <Content Include="images\icon45.png" />
+    <Content Include="images\icon46.png" />
+    <Content Include="images\icon47.png" />
+    <Content Include="images\icon48.png" />
+    <Content Include="images\icon49.png" />
+    <Content Include="images\icon50.png" />
+    <Content Include="images\icon51.png" />
+    <Content Include="images\icon52.png" />
+    <Content Include="images\icon53.png" />
+    <Content Include="images\icon54.png" />
+    <Content Include="images\icon54_h.png" />
+    <Content Include="images\icon54_hs.png" />
+    <Content Include="images\icon55.png" />
+    <Content Include="images\icon56.png" />
+    <Content Include="images\icon56_2.png" />
+    <Content Include="images\icon57.png" />
+    <Content Include="images\icon57_hs.png" />
+    <Content Include="images\icon58.png" />
+    <Content Include="images\icon59.png" />
+    <Content Include="images\icon60.png" />
+    <Content Include="images\icon61.png" />
+    <Content Include="images\icon62.png" />
+    <Content Include="images\icon63.png" />
+    <Content Include="images\icon64.png" />
+    <Content Include="images\icon65.png" />
+    <Content Include="images\icon66.png" />
+    <Content Include="images\icon67.png" />
+    <Content Include="images\icon68.png" />
+    <Content Include="images\icon69.png" />
+    <Content Include="images\icon70.png" />
+    <Content Include="images\icon71.png" />
+    <Content Include="images\icon72.png" />
+    <Content Include="images\icon72_h.png" />
+    <Content Include="images\icon73.png" />
+    <Content Include="images\icon73_h.png" />
+    <Content Include="images\icon74.png" />
+    <Content Include="images\icon75.png" />
+    <Content Include="images\icon76.png" />
+    <Content Include="images\icon77.png" />
+    <Content Include="images\icon78.png" />
+    <Content Include="images\icon79.png" />
+    <Content Include="images\ico_01.png" />
+    <Content Include="images\ico_01_h.png" />
+    <Content Include="images\ico_02.png" />
+    <Content Include="images\ico_02_h.png" />
+    <Content Include="images\ico_03.png" />
+    <Content Include="images\ico_03_h.png" />
+    <Content Include="images\ico_04.png" />
+    <Content Include="images\ico_04_h.png" />
+    <Content Include="images\ico_05.png" />
+    <Content Include="images\ico_05_h.png" />
+    <Content Include="images\ico_06.png" />
+    <Content Include="images\ico_06_h.png" />
+    <Content Include="images\ico_07.png" />
+    <Content Include="images\ico_07_h.png" />
+    <Content Include="images\ico_08.png" />
+    <Content Include="images\ico_08_h.png" />
+    <Content Include="images\ico_09.png" />
+    <Content Include="images\ico_09_h.png" />
+    <Content Include="images\ico_10.png" />
+    <Content Include="images\ico_10_h.png" />
+    <Content Include="images\ico_11.png" />
+    <Content Include="images\ico_11_h.png" />
+    <Content Include="images\ico_12.png" />
+    <Content Include="images\ico_12_h.png" />
+    <Content Include="images\ico_13.png" />
+    <Content Include="images\ico_13_h.png" />
+    <Content Include="images\left-1.png" />
+    <Content Include="images\leftTrangle.jpg" />
+    <Content Include="images\line.png" />
+    <Content Include="images\line_01.png" />
+    <Content Include="images\line_02.png" />
+    <Content Include="images\list_bg.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\loginbg.png" />
+    <Content Include="images\loginLogo.png" />
+    <Content Include="images\login_01.png" />
+    <Content Include="images\login_02.png" />
+    <Content Include="images\login_03.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo\logo1.png" />
+    <Content Include="images\logo\logo10.png" />
+    <Content Include="images\logo\logo2.png" />
+    <Content Include="images\logo\logo3.png" />
+    <Content Include="images\logo\logo4.png" />
+    <Content Include="images\logo\logo5.png" />
+    <Content Include="images\logo\logo6.png" />
+    <Content Include="images\logo\logo7.png" />
+    <Content Include="images\logo\logo8.png" />
+    <Content Include="images\logo\logo9.png" />
+    <Content Include="images\logo\pic25_x.jpg" />
+    <Content Include="images\media_01.png" />
+    <Content Include="images\media_02.png" />
+    <Content Include="images\media_03.png" />
+    <Content Include="images\media_04.png" />
+    <Content Include="images\media_05.png" />
+    <Content Include="images\media_06.png" />
+    <Content Include="images\media_07.png" />
+    <Content Include="images\media_h.png" />
+    <Content Include="images\men.png" />
+    <Content Include="images\menu_bg.png" />
+    <Content Include="images\menu_bg2.png" />
+    <Content Include="images\menu_ico01.png" />
+    <Content Include="images\menu_ico01_h.png" />
+    <Content Include="images\menu_ico02.png" />
+    <Content Include="images\menu_ico02_h.png" />
+    <Content Include="images\menu_ico03.png" />
+    <Content Include="images\menu_ico03_h.png" />
+    <Content Include="images\menu_ico04.png" />
+    <Content Include="images\menu_ico04_h.png" />
+    <Content Include="images\menu_ico05.png" />
+    <Content Include="images\menu_ico05_h.png" />
+    <Content Include="images\menu_ico06.png" />
+    <Content Include="images\menu_ico06_h.png" />
+    <Content Include="images\menu_ico07.png" />
+    <Content Include="images\menu_ico07_h.png" />
+    <Content Include="images\menu_ico08.png" />
+    <Content Include="images\menu_ico08_h.png" />
+    <Content Include="images\menu_ico09.png" />
+    <Content Include="images\menu_ico09_h.png" />
+    <Content Include="images\menu_ico10.png" />
+    <Content Include="images\menu_ico10_h.png" />
+    <Content Include="images\menu_ico11.png" />
+    <Content Include="images\menu_ico11_h.png" />
+    <Content Include="images\new_arrow.png" />
+    <Content Include="images\next.gif" />
+    <Content Include="images\no_data.png" />
+    <Content Include="images\one_bg.jpg" />
+    <Content Include="images\path_bg.jpg" />
+    <Content Include="images\path_bg.png" />
+    <Content Include="images\person.jpg" />
+    <Content Include="images\personOne.jpg" />
+    <Content Include="images\personTwo.jpg" />
+    <Content Include="images\pic01.png" />
+    <Content Include="images\pic01_a.gif" />
+    <Content Include="images\pic02.jpg" />
+    <Content Include="images\pic03.jpg" />
+    <Content Include="images\pic04.jpg" />
+    <Content Include="images\pic05.jpg" />
+    <Content Include="images\pic06.jpg" />
+    <Content Include="images\pic07.jpg" />
+    <Content Include="images\pic08.jpg" />
+    <Content Include="images\pic09.jpg" />
+    <Content Include="images\pic10.jpg" />
+    <Content Include="images\pic11.png" />
+    <Content Include="images\pic12.jpg" />
+    <Content Include="images\pic13.png" />
+    <Content Include="images\pic14.png" />
+    <Content Include="images\pic15.jpg" />
+    <Content Include="images\pic16.jpg" />
+    <Content Include="images\pic17.jpg" />
+    <Content Include="images\pic18.jpg" />
+    <Content Include="images\pic19.jpg" />
+    <Content Include="images\pic20.jpg" />
+    <Content Include="images\pic21.jpg" />
+    <Content Include="images\pic22.jpg" />
+    <Content Include="images\pic23.jpg" />
+    <Content Include="images\pic24.jpg" />
+    <Content Include="images\pic25.jpg" />
+    <Content Include="images\pic25_x.jpg" />
+    <Content Include="images\pic26.jpg" />
+    <Content Include="images\pic27.jpg" />
+    <Content Include="images\pic28.jpg" />
+    <Content Include="images\pic29.jpg" />
+    <Content Include="images\pic30.jpg" />
+    <Content Include="images\pic31.jpg" />
+    <Content Include="images\pic32.jpg" />
+    <Content Include="images\pic33.jpg" />
+    <Content Include="images\point.png" />
+    <Content Include="images\point_2.png" />
+    <Content Include="images\prev.gif" />
+    <Content Include="images\ranking_1.png" />
+    <Content Include="images\ranking_2.png" />
+    <Content Include="images\ranking_3.png" />
+    <Content Include="images\ranking_4.png" />
+    <Content Include="images\ranking_5.png" />
+    <Content Include="images\ranking_6.png" />
+    <Content Include="images\ranking_7.png" />
+    <Content Include="images\ranking_8.png" />
+    <Content Include="images\ranking_9.png" />
+    <Content Include="images\ranking_logo_1.png" />
+    <Content Include="images\ranking_logo_2.png" />
+    <Content Include="images\redBg1.jpg" />
+    <Content Include="images\redBg2.jpg" />
+    <Content Include="images\registered_01.png" />
+    <Content Include="images\registered_02.png" />
+    <Content Include="images\registered_03.png" />
+    <Content Include="images\right-1.png" />
+    <Content Include="images\rightLine.jpg" />
+    <Content Include="images\shqm_left_pic.gif" />
+    <Content Include="images\shqm_left_pic.png" />
+    <Content Include="images\shqm_right_pic.gif" />
+    <Content Include="images\shqm_right_pic.png" />
+    <Content Include="images\song_jiao_1.png" />
+    <Content Include="images\song_jiao_2.png" />
+    <Content Include="images\song_jiao_3.png" />
+    <Content Include="images\song_jiao_4.png" />
+    <Content Include="images\song_jiao_5.png" />
+    <Content Include="images\song_jiao_6.png" />
+    <Content Include="images\song_jiao_7.png" />
+    <Content Include="images\star_new.png" />
+    <Content Include="images\step_01.png" />
+    <Content Include="images\step_02.png" />
+    <Content Include="images\st_icon.png" />
+    <Content Include="images\st_icon_open.png" />
+    <Content Include="images\three_bg.jpg" />
+    <Content Include="images\top.png" />
+    <Content Include="images\top_bg.png" />
+    <Content Include="images\top_h.png" />
+    <Content Include="images\tubiao.png" />
+    <Content Include="images\two_bg.jpg" />
+    <Content Include="images\wechat.png" />
+    <Content Include="images\WechatIMG484.jpeg" />
+    <Content Include="images\wx.png" />
+    <Content Include="images\yellowV.png" />
+    <Content Include="IncomeManage\IncomeDetail.html" />
+    <Content Include="IncomeManage\IncomeList.html" />
+    <Content Include="IncomeManage\js\IncomeDetail.js" />
+    <Content Include="IncomeManage\js\IncomeList.js" />
+    <Content Include="js\Area2.js" />
+    <Content Include="js\bannerList.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\commonRejectReason.js" />
+    <Content Include="js\Common_area.js" />
+    <Content Include="js\Common_chitu.js" />
+    <Content Include="js\Common_IE.js" />
+    <Content Include="js\echarts.min.js" />
+    <Content Include="js\ejs.min.js" />
+    <Content Include="js\index.js" />
+    <Content Include="js\jqcloud-1.0.4.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery.1.11.3.min.js" />
+    <Content Include="js\jquery.browser.js" />
+    <Content Include="js\jquery.jmpopups-0.5.1.pack.js" />
+    <Content Include="js\jquery.jqzoom.js" />
+    <Content Include="js\jquery.jqzoom.v2.2.min.js" />
+    <Content Include="js\jquery.pagination.js" />
+    <Content Include="js\jquery.uploadify.v3.2.min.js" />
+    <Content Include="js\json2.js" />
+    <Content Include="js\laydate.dev.js" />
+    <Content Include="js\laydate.js" />
+    <Content Include="js\layer\layer.js" />
+    <Content Include="js\layer\mobile\layer.js" />
+    <Content Include="js\layer\mobile\need\layer.css" />
+    <Content Include="js\layer\skin\default\icon-ext.png" />
+    <Content Include="js\layer\skin\default\icon.png" />
+    <Content Include="js\layer\skin\default\layer.css" />
+    <Content Include="js\layer\skin\default\loading-0.gif" />
+    <Content Include="js\layer\skin\default\loading-1.gif" />
+    <Content Include="js\layer\skin\default\loading-2.gif" />
+    <Content Include="js\need\laydate.css" />
+    <Content Include="js\PaginationController.js" />
+    <Content Include="js\skins\default\icon.png" />
+    <Content Include="js\skins\default\iconNew.png" />
+    <Content Include="js\skins\default\laydate.css" />
+    <Content Include="js\SysRightCommon.js" />
+    <Content Include="js\tab.js" />
+    <Content Include="js\tabNew.js" />
+    <Content Include="js\ueditor-master\mip-ueditor.js" />
+    <Content Include="js\ueditor-master\mip-ueditor.min.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\anchor\anchor.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\attachment.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\attachment.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\attachment.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_jpg.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\alignicon.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\alignicon.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\bg.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\file-icons.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\file-icons.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\icons.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\icons.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\image.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\progress.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\success.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\attachment\images\success.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\background\background.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\background\background.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\background\background.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\background\images\bg.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\background\images\success.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\chart.config.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\charts.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\charts.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\charts.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\images\charts0.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\images\charts1.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\images\charts2.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\images\charts3.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\images\charts4.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\charts\images\charts5.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\emotion.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\emotion.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\emotion.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\0.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\gmap\gmap.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\help\help.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\help\help.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\help\help.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\image.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\image.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\image.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\alignicon.jpg" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\bg.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\icons.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\icons.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\image.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\progress.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\success.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\image\images\success.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\insertframe\insertframe.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\internal.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\link\link.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\map\map.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\map\show.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\music\music.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\music\music.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\music\music.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\preview\preview.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\addimg.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\brush.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\delimg.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\empty.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\eraser.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\redo.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\redoH.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\scale.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\size.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\undo.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\images\undoH.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\scrawl.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\scrawl.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\scrawl\scrawl.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\spechars\spechars.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\spechars\spechars.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\table\dragicon.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\table\edittable.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\table\edittable.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\table\edittable.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\table\edittd.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\table\edittip.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\config.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\images\bg.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\images\pre0.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\images\pre1.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\images\pre2.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\images\pre3.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\images\pre4.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\template.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\template.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\template\template.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\bg.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\file-icons.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\file-icons.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\icons.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\icons.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\image.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\progress.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\success.gif" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\images\success.png" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\video.css" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\video.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\video\video.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\webapp\webapp.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\wordimage\tangram.js" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="js\ueditor-master\ueditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="js\ueditor-master\ueditor\index.html" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\en.js" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\addimage.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\background.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\button.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\copy.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\deletedisable.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\deleteenable.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\listbackground.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\localimage.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\music.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\en\images\upload.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\zh-cn\images\copy.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\zh-cn\images\music.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\zh-cn\images\upload.png" />
+    <Content Include="js\ueditor-master\ueditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="js\ueditor-master\ueditor\net\Bin\Newtonsoft.Json.dll" />
+    <Content Include="js\ueditor-master\ueditor\net\Bin\Newtonsoft.Json.pdb" />
+    <Content Include="js\ueditor-master\ueditor\net\Bin\Newtonsoft.Json.xml" />
+    <Content Include="js\ueditor-master\ueditor\net\net.sln" />
+    <Content Include="js\ueditor-master\ueditor\net\upload\image\20170427\6362892035182559887859488.jpg" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\css\ueditor.css" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\css\ueditor.min.css" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\dialogbase.css" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\anchor.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\arrow.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\arrow_down.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\arrow_up.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\button-bg.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\cancelbutton.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\charts.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\cursor_h.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\cursor_h.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\cursor_v.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\cursor_v.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\filescan.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\highlighted.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\icons-all.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\icons.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\icons.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\loaderror.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\loading.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\lock.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\pagebreak.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\scale.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\sortable.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\spacer.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\sparator_v.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\table-cell-align.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\unhighlighted.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\upload.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\videologo.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\word.gif" />
+    <Content Include="js\ueditor-master\ueditor\themes\default\images\wordpaste.png" />
+    <Content Include="js\ueditor-master\ueditor\themes\iframe.css" />
+    <Content Include="js\ueditor-master\ueditor\third-party\codemirror\codemirror.css" />
+    <Content Include="js\ueditor-master\ueditor\third-party\codemirror\codemirror.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\adapters\standalone-framework.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\highcharts-more.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\highcharts-more.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\highcharts.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\highcharts.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\annotations.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\annotations.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\canvas-tools.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\data.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\data.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\drilldown.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\drilldown.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\exporting.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\exporting.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\funnel.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\funnel.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\heatmap.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\heatmap.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\map.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\map.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\no-data-to-display.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\themes\dark-blue.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\themes\dark-green.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\themes\gray.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\themes\grid.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\highcharts\themes\skies.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\jquery-1.10.2.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\jquery-1.10.2.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="js\ueditor-master\ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\font\vjs.svg" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\video-js.css" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\video-js.min.css" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\video-js.swf" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\video.dev.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\video.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\Uploader.swf" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.css" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.custom.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.flashonly.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.flashonly.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.html5only.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.html5only.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.withoutimage.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\xss.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\zeroclipboard\ZeroClipboard.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <Content Include="js\ueditor-master\ueditor\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <Content Include="js\ueditor-master\ueditor\ueditor.all.js" />
+    <Content Include="js\ueditor-master\ueditor\ueditor.all.min.js" />
+    <Content Include="js\ueditor-master\ueditor\ueditor.config.js" />
+    <Content Include="js\ueditor-master\ueditor\ueditor.parse.js" />
+    <Content Include="js\ueditor-master\ueditor\ueditor.parse.min.js" />
+    <Content Include="js\uploadify.swf" />
+    <Content Include="login.aspx" />
+    <Content Include="js\ueditor-master\.project" />
+    <Content Include="js\ueditor-master\README.md" />
+    <Content Include="js\ueditor-master\ueditor\net\config.json" />
+    <Content Include="js\ueditor-master\ueditor\net\controller.ashx" />
+    <Content Include="js\ueditor-master\ueditor\net\README.md" />
+    <Content Include="js\ueditor-master\ueditor\net\Web.config" />
+    <Content Include="js\ueditor-master\ueditor\third-party\jquery-1.10.2.min.map" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\font\vjs.eot" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\font\vjs.ttf" />
+    <Content Include="js\ueditor-master\ueditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="ImagesNew\_notes\bgp.png.mno" />
+    <Content Include="ConfigFile\StorageGroupConfig.config" />
+    <Content Include="ajaxservers\UploadFile.ashx" />
+    <Content Include="FinanceManager\json\ChannelMonthlyData.json" />
+    <Content Include="FinanceManager\json\IncomeManagement.json" />
+    <Content Include="FinanceManager\json\PresentManagement.json" />
+    <Content Include="FinanceManager\json\proposedetails.json" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\1.pubxml" />
+    <None Include="Properties\PublishProfiles\AdminWeb.pubxml" />
+    <Content Include="WeChatManager\js\ModifyCustomMsg.js" />
+    <Content Include="WeChatManager\js\ModifyMenu.js" />
+    <Content Include="WeChatManager\js\SendTempMsg.js" />
+    <Content Include="WeChatManager\ModifyCustomMsg.html" />
+    <Content Include="WeChatManager\ModifyMenu.html" />
+    <Content Include="WeChatManager\SendTempMsg.html" />
+    <Content Include="UserManager\json\AdvertisementAud.json" />
+    <Content Include="UserManager\json\advertisementUserList.json" />
+    <Content Include="UserManager\json\MediaAud.json" />
+    <Content Include="UserManager\json\MediaUserList.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="test.html" />
+    <Content Include="UserManager\AdvertisementAud.html" />
+    <Content Include="UserManager\AdvertisementSee.html" />
+    <Content Include="UserManager\AdvertisementUserList.html" />
+    <Content Include="UserManager\js\AdvertisementAud.js" />
+    <Content Include="UserManager\js\AdvertisementSee.js" />
+    <Content Include="UserManager\js\advertisementUserList.js" />
+    <Content Include="UserManager\js\MediaAud.js" />
+    <Content Include="UserManager\js\MediaSee.js" />
+    <Content Include="UserManager\js\MediaUserList.js" />
+    <Content Include="UserManager\MediaAud.html" />
+    <Content Include="UserManager\MediaSee.html" />
+    <Content Include="UserManager\MediaUserList.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ajaxservers\UploadFile.ashx.cs">
+      <DependentUpon>UploadFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FootPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exit.aspx.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exit.aspx.designer.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\Config.cs" />
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\ConfigHandler.cs" />
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\CrawlerHandler.cs" />
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\Handler.cs" />
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\ListFileHandler.cs" />
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\NotSupportedHandler.cs" />
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\PathFormater.cs" />
+    <Compile Include="js\ueditor-master\ueditor\net\App_Code\UploadHandler.cs" />
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="js\ueditor-master\ueditor\net\upload\image\20170721\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.BLL\XYAuto.ITSC.Chitunion2017.BLL.csproj">
+      <Project>{b31bb524-1886-4f97-8871-7b517f1b27d4}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Dal\XYAuto.ITSC.Chitunion2017.Dal.csproj">
+      <Project>{0971ea85-1cc7-4289-b99b-adc03d47f02f}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Entities\XYAuto.ITSC.Chitunion2017.Entities.csproj">
+      <Project>{97c0aba4-8a8f-41a2-a28f-eb470ddbcbb1}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.WebService\XYAuto.ITSC.Chitunion2017.WebService.csproj">
+      <Project>{64399042-f595-43a8-8d11-8713b871d01b}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14208</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:14208/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\sln\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\sln\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\sln\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\sln\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

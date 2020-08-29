@@ -1,0 +1,63 @@
+<div class="layer" style="width: 360px;">
+    <div class="title">
+        <div class="fl">账户绑定</div>
+        <div class="fr"><a href="javascript:void(0)" id="closebt"><img src="/ImagesNew/close_x.jpg" width="16" height="16"></a></div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="layer_con2" style='padding-bottom: 1px;margin:0;'>
+        <div class="layer_data" style="padding-left: 20px;">
+            <ul>
+                <li>用户名：
+                    <a id="Username" style="margin-top: 5px;"></a>
+                </li>
+            </ul>
+            <div class="clear"></div>
+            <ul class="selectCity">
+                <li>公司名称：
+                    <a id="Corporatename" style="margin-top: 5px;"></a>
+                </li>
+            </ul>
+            <div class="clear"></div>
+            <ul>
+                <li>手机号：
+                    <a id="phone1" style="margin-top: 5px;"></a>
+                </li>
+            </ul>
+            <div class="clear"></div>
+            <ul>
+                <li><span class="red f12">*</span>选择广点通广告主：
+                    <select  name="" id="bindingQQ" style="width:180px;">
+                        <option value='-2'>请选择广点通广告主</option>
+                    </select>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="keep">
+            <span><a href="javascript:void(0)" class="button" style="width:150px" id='submitMessage'>提交</a></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    $.ajax({
+        url: public_url + '/api/ZhyInfo/SelectGdtUserAndOperaterList',
+        type: 'get',
+        data: {},
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (data) {
+            console.log(data);
+            if(data.Status==0){
+                data.Result.AccountInfo.forEach(function (e) {
+                    $('#bindingQQ').append('<option value='+e+'>'+e+'</option>');
+                })
+            }
+        }
+    });
+</script>

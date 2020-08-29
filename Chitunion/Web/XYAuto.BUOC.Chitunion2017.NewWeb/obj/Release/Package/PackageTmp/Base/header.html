@@ -1,0 +1,121 @@
+<!--顶部logo 导航-->
+<div id="topNew">
+    <div class="box">
+        <a id="divTopLogo" class="left" href="/index.html" style='cursor: pointer;'></a>
+        <ul class="right">
+            <li>
+                <img src="/images/person.png">
+                <span id="span_LoginUserName"></span>
+            </li>
+            <li>
+                <img id="img_LoginMainUrl" style="cursor:pointer;" src="/images/house.png">
+                <span id="span_LoginMainUrl" style="cursor:pointer;">个人中心</span>
+            </li>
+            <li class="wx_code">
+                <a>
+                    <img src="/images/code.png">
+                    <span>微信公众号</span>
+                </a>
+                <p class="two_img"><img src="/images/wechat_code.png"></p>
+            </li>
+            <li>
+                <img id="img_LoginExitUrl" style="cursor:pointer;" src="/images/quit.png">
+                <span id="span_LoginExitUrl" style="cursor:pointer;">退出</span>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!--IM浮层href="tencent://message/?uin=3212298083&Site=www.chitunion.com&Menu=yes"-->
+<div id="div_imqq" class="im-container">
+    <ul>
+        <li><a class="btn-qq btn" id="div_a_imqq" ><img src="/images/icons/btn_qq.png"></a></li>
+        <li class="two_code">
+            <a href="javascript:;"><img src="/images/icons/btn_w.png"></a>
+            <span><img src="/images/wechat_code.png"><em></em></span>
+        </li>
+        <li class="go_back"><a href="javascript:;"><img src="/images/icons/btn_up.png"></a></li>
+    </ul>
+</div>
+
+<script>
+    //头部页面加载后自调
+    $(function () {
+        
+        var userName = CTLogin.UserName; //用户姓名
+        var userType = CTLogin.Category; //用户类型
+        var RoleIDs = CTLogin.RoleIDs;
+        if (userName) {//如果用户已登录并获取到，则显示用户姓名
+            //$('#divTopLogo').css('cursor', 'default');
+            $('#span_LoginUserName').html(userName);
+
+            if (userType == 29001) {//广告主
+                $('#divTopLogo').css('cursor', 'pointer').unbind('click').bind('click', function () {
+                    window.location = '/index.html';
+                });
+                $('#span_LoginMainUrl,#img_LoginMainUrl').unbind('click').bind('click', function () {
+                    window.location = '/manager/advertister/personal/PersonCenter.html';//替换URL
+                });
+            }
+            else if (userType == 29002) {//媒体主
+                $('#span_LoginMainUrl,#img_LoginMainUrl').unbind('click').bind('click', function () {
+                    window.location = '/manager/media/personal/personalCenter.html';//替换URL
+                });
+            }
+            
+            $('#span_LoginExitUrl,#img_LoginExitUrl').unbind('click').bind('click', function () {
+                window.location = '/Exit.aspx?gourl=' + encodeURIComponent('/index.html');
+            });
+
+        } else {//如果用户未登录，则不显示帮助中心
+            //$('#noLogin,#hasLogin,#login_message').hide();
+        }
+
+
+        //二维码
+        $('#topNew li.wx_code').on('mouseover',function(){
+            var that = $(this);
+            that.find('.two_img').show();
+        }).on('mouseout',function(){
+            var that = $(this);
+            that.find('.two_img').hide();
+        })
+
+
+        //qq 微信 返回顶部
+        $('#div_imqq .two_code').on('mouseover',function(){
+            var that = $(this);
+            that.find('span').show();
+        }).on('mouseout',function(){
+            var that = $(this);
+            that.find('span').hide();
+        })
+        var winHeight = $(window).height();
+        var toTopDom = $('.go_back');
+        toTopDom.hide();
+        $(window).scroll(function(){
+            var scrollTop = $(window).scrollTop();
+            if(scrollTop >= winHeight){
+                toTopDom.show();
+            } else {
+                toTopDom.hide();
+            }
+        })
+        $('#div_imqq .go_back').off('click').on('click',function(){
+            $("html,body").animate({scrollTop:0},500);
+        })
+        
+
+        var orderID = GetQueryString("orderID");
+        if (orderID && orderID != 'undefined') {
+           $('#topBoxlist').hide();
+        }
+        function GetQueryString(name) {
+           var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+           var r = window.location.search.substr(1).match(reg);
+           if (r != null) return unescape(r[2]); return null;
+        }
+
+    });
+</script>

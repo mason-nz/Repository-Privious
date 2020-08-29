@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写需求--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src='js/shopcartForWisdomDelivery02.js'></script>
+</head>
+<body>
+
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<!-- 中间内容 -->
+<div class="order">
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="fill_demand">
+                 <h2>填写广告需求</h2>
+                 <div class="clear"></div>
+                 <ul class="advertiser">
+                    <li class="ins_e"><span class="red f12">*</span> 广告主名称：</li>
+                    <li class="advName">
+                        <select id="adMatser" style="height: 37px;">
+                            <option value="2">CRM</option>
+                            <option value="0">赤兔</option>
+                        </select>
+                        <input name="Username" type="text" value="" placeholder="输入广告主的公司名称、真实姓名或登录账号" style="width:381px;" maxlength="50">
+                    </li>
+                    <div class="advMsg tipInfo grey" style="float: left;line-height: 40px;"></div>
+                    <div class="clear"></div>
+                 </ul>
+                 <ul>
+                     <li class="ins_e"><span class="red f12">*</span> 项目名称：</li>
+                     <li>
+                        <input name="Username" id="requireName" type="text" value="" placeholder="输入推广项目名称，最多25个汉字" style="width:438px;">
+                     </li>
+                     <div class="nameMsg tipInfo grey" style="float: left;line-height: 40px;"></div>
+                     <div class="clear"></div>
+                 </ul>
+                 <ul>
+                    <li class="ins_e"><span class="red f12">*</span> 营销政策：</li>
+                    <li>
+                        <input type="text" class="textArea" name="" placeholder="输入推广营销政策，最多输入30个汉字" maxlength="30" style="width:438px;">
+                    </li>
+                    <div class="explainMsg tipInfo grey" style="float: left;line-height: 40px;"></div>
+                    <div class="clear"></div>
+                 </ul>
+                 <ul>
+                    <li class="ins_e"> 项目需求：</li>
+                    <li>
+                        <textarea id="projectDemnd" placeholder="是否需要第三方检测&#10是否需要制作H5页面&#10是否需要落地页，如需要需填写落地页地址&#10是否需要保证KPI" style="width:438px;height:80px;resize:none;" maxlength="500"></textarea>
+                    </li>
+                    <div class="explainMsg tipInfo grey" style="float: left;line-height: 40px;"></div>
+                    <div class="clear"></div>
+                 </ul>
+                <ul>
+                    <li class="ins_e"><span class="red f12 fujian" style="display: none;">*</span>上传物料：</li>
+                    <li>
+                        <div class="report-file" style="margin-left: 0" >
+                            <input tabindex="3" size="3" name="uploadify" class="file-prew but_upload" type="file" id="uploadify">
+                        </div>
+                        附件:支持格式JPG/PNG/PDF/ZIP，不超过10M
+                    </li>
+                    <img class="imgUploadFile"/ >
+                    <div class="imgMsg tipInfo grey" style="float: left;line-height: 40px;"></div>
+                    <div class="clear"></div>
+                </ul>
+                <ul  class="ImgUp" style="display: none">
+                    <li class="ins_a">&nbsp;</li>
+                    <li><img src="/images/icon18.png"/></li>
+                    <li class="imgName"></li>
+                    <li><a class="imgDownURL" href="javascript:;" target="_blank"><img src="/images/icon19.png"/></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+
+            <div>
+                <div class="to_b_list" style="margin: 0 20px;position: relative;">
+                    <div class="but_query" id="outPut" style="position: absolute;right: 12px;top: -35px;width: 84px;">导出媒体</div>
+                    <div class="title" style="background-color:#fff;border-bottom: 1px dashed #e9e9e9;">
+                        <div class="fl">广告位信息</div>
+                        <div class="fr" id="changeDisplay">
+                            <a href="javascript:;"><img src="../images/collection09.png"></a>
+                        </div>
+                        <div class="clear"></div> 
+                    </div>
+                </div>
+                <div class="orderInfo" style="display: none;border:1px solid #e9e9e9;border-top: none;margin:-20px 20px 20px 20px;padding: 20px 0 0 0;">
+                    
+                </div>
+            </div>
+            <div class="wx_box bottom" style="width: auto;min-height: 0">
+                <div style="margin: 20px;">
+                    <div class="all_select">
+                         <div class="right">
+                             <div class="left_lh">
+                                 <span>共 <em class="tableNum">--</em> 个媒体</span>
+                                 <!-- <span>销售参考价 <em class="SalePrice">--</em></span> -->
+                                 <span>成本参考价总计 <em class="CostReferencePrice">--</em></span>
+                                 <!-- <span>原创参考价 <em class="OriginaReferencePrice"></em></span> -->
+                             </div>
+                             <div class="put_in" id="submitNeed">提交需求</div>
+                            <div class="clear"></div>
+                         </div>
+                         <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script type="text/template" id="orderInfo">
+    <%if(list.AreaInfos){%>
+    <%list.AreaInfos.forEach(function(item,i){%>
+    <%if(item.PublishDetails){%>
+    <div class="to_b_list recommendCity" CityID="<%=item.CityID%>" ProvinceID="<%=item.ProvinceID%>" style="margin: 20px 10px 20px 10px">
+        <div class="cityList">
+            <span style="display: inline-block;background-image: url('../images/redBg1.jpg');height: 22px;float: left;color: #fff;padding:0 5px;font-size: 12px;line-height: 22px;">
+                <%if(item.CityID != -2){%>
+                    <%= item.ProvinceName %>-<%= item.CityName %>
+                <%}else{%>
+                    <%= item.ProvinceName %>
+                <%}%>
+            </span>
+            <span style="display: inline-block;background-image: url('../images/redBg2.jpg');width: 12px;height: 22px;float: left;"></span>&nbsp;&nbsp;
+            <span>  推广预算：<%=item.Budget%></span>&nbsp;&nbsp;
+            <span>  媒体数：<%=item.MediaCount%></span>&nbsp;&nbsp;
+            <span>  是否包含仅原创：
+                <%if(item.OriginContain){%>
+                    是
+                <%}else{%>
+                    否
+                <%}%>
+            <div class="clear"></div>
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" style="margin-bottom: 10px">
+            <thead>
+                <tr>
+                    <th width="20%"></th>
+                    <th width="12%">广告位信息</th>
+                    <th width="8%">粉丝数</th>
+                    <!-- <th width="8%">平均阅读数</th> -->
+                    <!-- <th width="10%">销售参考价 </th> -->
+                    <th width="10%">成本参考价 </th>
+                    <th width="10%">原创参考价</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% var saleCount=0,costCount=0,originalCount=0;%>
+                <%item.PublishDetails.forEach(function(each,j){%>
+                    <% saleCount+=each.SalePrice; costCount+= each.CostReferencePrice;%>
+                    <% if(each.EnableOriginPrice==true){%>
+                        <%originalCount+=each.OriginalReferencePrice%>
+                    <%}%>
+                <tr class="mediaInfo" SalePrice="<%=each.SalePrice%>" CostReferencePrice="<%=each.CostReferencePrice%>" OriginaReferencePrice="<%=each.OriginalReferencePrice%>" PublishDetailID="<%=each.PublishDetailID%>" MediaID="<%=each.MediaID%>" MediaType="<%=each.MediaType%>" EnableOriginPrice="<%=each.EnableOriginPrice%>">
+                    <td style="text-align: left">
+                        <div class="portrait">
+                            <%if(each.HeadIconURL){%>
+                                <img src="<%=each.HeadIconURL%>">
+                            <%}else{%>
+                                <img src="../ImagesNew/default_touxiang.png"/>
+                            <%}%>
+                        </div>
+                        <div class="content" style="margin-left: 5px;width: 125px">
+                            <div><a href="javascript:;"><%=each.MediaName%></a></div>
+                            <%if( each.MediaType == '14001'){%>
+                            <p><img src="../images/collection01.png"></p>
+                            <%}%>
+                        </div>
+                        <div class="clear"></div>
+                    </td>
+                    <!-- 广告位信息 -->
+                    <td style="text-align: left">
+                        <p>广告位置：<%=each.ADPosition%></p>
+                        <p>广告样式：<%=each.CreateType%></p>
+                    </td>
+                    <!--粉丝数-->
+                    <td>
+                        <div>
+                            <p style="line-height: 24px">
+                                <%if(each.FansCount<10000){%>
+                                    <span><%=formatMoney(each.FansCount,0,"")%></span><br>
+                                <%}else{%>
+                                    <span><%=(each.FansCount/10000).toFixed(2)%></span>万<br>
+                                <%}%>
+                            </p>
+                        </div>
+                    </td>
+                    <!-- 平均阅读数 -->
+                    <!-- <td><%=each.AverageReadCount%></td> -->
+                    <!-- 销售参考价-->
+                    <!-- <td>
+                        <p><span><%=formatMoney(each.SalePrice,2)%></span></p>
+                    </td> -->
+                    <!-- 成本参考价 -->
+                    <td>
+                        <p><span><%=formatMoney(each.CostReferencePrice,2)%></span></p>
+                    </td>
+                    <!-- 原创参考价 -->
+                    <td>
+                        <%if(each.CreateType == '原创+发布'){%>
+                        <%}else{%>
+                            <%if(each.OriginalReferencePrice && each.EnableOriginPrice){%>
+                                <p class="pt30"><%=formatMoney(each.OriginalReferencePrice,2)%></p>
+                            <%}%>
+                        <%}%>
+                    </td>
+                </tr>
+                <%})%>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                   <!--  <td><%= formatMoney(saleCount) %></td> -->
+                    <td><%= formatMoney(costCount) %></td>
+                    <td><%= formatMoney(originalCount)%></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <%}%>
+    <%})%>
+    <%}%>
+</script>
+</html>

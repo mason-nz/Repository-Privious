@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
+    <style type="text/css">
+        /*.install ul{
+            font-size:16px;
+        }*/
+        .personal_news {
+            width: 100%;
+            margin-top: 20px;
+            padding-left: 30px;
+            margin-bottom: 40px;
+
+        }
+
+        .personal_news li {
+            width: 100%;
+            /*background: url(icon1.png) no-repeat 60px center;*/
+        }
+
+        .personal_news li .personal_type {
+            float: left;
+            margin-right: 35px;
+        }
+
+        .personal_news li .personal_time {
+            float: right;
+            color: #959595;
+            margin-right: 60px;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <ul class="personal_news">
+            </ul>
+            <div id="pageContainer" class="green-black"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="personal_list">
+    <%for(var i=0; i<data.length; i++){%>
+        <!--<a href=<%=data[i].MsgUrl%>>-->
+        <li>
+        <!-- <div> -->
+          <span class="personal_type"><%-data[i].Msg%></span>
+          <span class="personal_time"><%=data[i].CreateTime%></span>
+          <!-- <br/> -->
+        <!-- </div> -->
+        <!--</a>-->
+    </li>
+    <%}%>
+</script>
+<script type="text/javascript">
+    var set = {
+        url: '/api/ADOrderInfo/QuerytAuditInfo?v=1_1',
+        data: {
+            PageIndex: 1,
+            PageSize: 20
+        }
+    }
+    $(function () {
+        // $("#pageContainer").pagination(3);
+        setAjax({
+            url: set.url,
+            type: 'GET',
+            data: set.data,
+            dataType: 'json'
+        }, function (data) {
+            if (data.Status == 0) {
+                if (data.Result.List.length < 1) {
+                    $(".personal_news").html('<div class="no_data"><img src="../ImagesNew/no_data.png"></div>')
+                    $("#pageContainer").hide();
+                } else {
+                    $(".personal_news").html(ejs.render($("#personal_list").html(), {data: data.Result.List}));
+                    $("#pageContainer").pagination(
+                        data.Result.TotalCount,
+                        {
+                            // items_per_page: 2, //每页显示多少条记录（默认为20条）
+                            callback: function (currPage, jg) {
+                                set.data.PageIndex=currPage;
+                                setAjax({url: set.url, type: 'get', data: set.data},
+                                    function (data) {  //成功
+                                        if (data.Result.List != null) {
+                                            $(".personal_news").html(ejs.render($("#personal_list").html(), {data: data.Result.List}));
+                                        }
+                                    });
+                            }
+                        }
+                    );
+
+                }
+
+            }
+//            已读
+            setAjax({
+                url: '/api/ADOrderInfo/UpdateAuditInfo?v=1_1',
+                type: 'GET',
+                data: {},
+                dataType: 'json'
+            }, function (data) {
+
+            })
+        })
+
+    })
+</script>
+
+</body>
+</html>

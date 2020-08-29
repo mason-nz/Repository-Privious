@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="赤兔联盟,个人中心,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content=" 赤兔联盟,个人中心">
+	<title>个人中心-赤兔联盟</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+	<script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/Area2.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/personalCenter.js"></script>
+    <style type="text/css">
+        .Personal_table ul.table_head li:first {
+          line-height: 18px;
+          margin-bottom: 10px;
+        }
+        .main_right ul.Personal_massage li{
+            width: 25%;
+            text-align: center;
+        }
+        .main_right ul.Personal_massage li:first-child{
+            padding: 0 5px 0 20px;
+            width: 30%;
+            text-align: left;
+        }
+        .save_info{
+            margin-left: 28px;
+        }
+    </style>
+</head>
+<body>
+	
+<!--顶部logo 导航-->
+<!--#include virtual="/base/header.html" -->
+<!-- 主体部分 -->
+<div class="contaner_body">
+    <!--左侧菜单-->
+    <!--#include virtual="/base/Menu.html" -->
+
+    <div class="main_right">
+		<ul class="Personal_massage">
+			<li>
+				<img src="/images/headImg.png" class="person_img">
+				<strong id="user_name"></strong>
+				<a href="javascript:;" class="btn_price save_info" id="perfect_Info">完善信息</a>
+			</li>
+			<li>
+				<p>累计收益 <strong class="pink font16" id="EarningsPrice">0.00</strong>元
+                    <!-- <a href="javascript:;" class="btn_price save_info" id="getIncome">提现</a> -->
+                </p>
+			</li>
+			<li>
+				<p>任务数量 
+                    <strong class="blue font16" id="OrderCount">0</strong>个
+                    <!-- <a href="javascript:;" class="btn_price save_info" id="go_task">抢任务</a> -->
+                </p>
+			</li>
+		</ul>
+        <div style="margin: 10px 0 0 20px">
+            <a href="/static/media/contentDistribution.html">
+                <img src="/images/adv.png">
+            </a>
+        </div>
+    	<div class="Personal_table">
+            <div class="wx_type fl" style="width: 80%;">
+                <ul>
+                    <li class="selected" value="14001">
+                        微信公众号
+                        <span id="media_num"></span>
+                        <i class="greyBg"></i>
+                    </li>
+                    <!-- <li>
+                        微博
+                        <i class="greyDarkBg"></i>
+                    </li> -->
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <ul class="table_head">
+                <li class="extension add_authorization" style="display: none;"><img src="/images/extension.png"><span class="blue">授权绑定</span></li>
+            </ul>
+    		<table border="0" cellspacing="1" cellpadding="0" class="media_table">
+    			
+    		</table>
+            <div class="green-black hide" id="pageContainer"></div> 
+            <div id="no_data" class="hide" style="height: 300px;line-height: 300px;">
+                <div class="tc">
+                    <span class="button_gradient add_authorization">授权绑定</span>
+                </div>
+            </div>
+            <form id="form" action="" method='post' class="hide">
+                <input type="hidden" name="ct-uinfo" class="ctuinfo">
+                <input type="hidden" name="Type" value="38001">
+                <input type="submit" id="shouquan" value="授权"/>
+            </form>
+    	</div>
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+<!-- 维信 -->
+<script type="text/template" id="listTemp">
+    <thead>
+        <tr>
+            <th style='width: 25%;'>&nbsp</th>
+            <th style='width: 10%;'>&nbsp</th>
+            <th style='width: 15%;'>单图文</th>
+            <th style='width: 15%;'>多图文头条</th>
+            <th style='width: 15%;'>多图文头条</th>
+            <th style='width: 15%;'>多图文3-N条</th>
+            <th style='width: 10%;'>&nbsp</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%if(list.length){%>
+            <%list.forEach(function(item){%>
+                <tr style="cursor: default;">
+                    <td>
+                        <%if(item.HeadImg){%>
+                            <img src="<%= item.HeadImg %>" class="head_img">
+                        <%}else{%>
+                            <img src="/images/default_headimg.png" class="head_img">
+                        <%}%>
+                        
+                        <div class="head_tit">
+                            <p>
+                                <%if(item.NickName){%>
+                                    <%= item.NickName %>
+                                <%}else{%>
+                                    --
+                                <%}%>
+                            </p>
+                            <p>
+                                <%if(item.WxNumber){%>
+                                    <%= item.WxNumber %>
+                                <%}else{%>
+                                    --
+                                <%}%>
+                            </p>
+                        </div>
+                    </td>
+                    <td>转发<br>原创+发布</td>
+                    <td>
+                        <%if(item.First){%>
+                            <p>
+                                <%if(item.First.Forward){%>
+                                <%= formatMoney(item.First.Forward,0,'')%>
+                                <%}else{%>
+                                --
+                                <%}%>
+                            </p>
+                            <p>
+                                <%if(item.First.OriginalPublish){%>
+                                    <%= formatMoney(item.First.OriginalPublish,0,'')%>
+                                <%}else{%>
+                                    --
+                                <%}%>
+                            </p>
+                            
+                        <%}else{%>
+                            --
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(item.Second){%>
+                            
+                            <p>
+                                <%if(item.Second.Forward){%>
+                                <%= formatMoney(item.Second.Forward,0,'')%>
+                                <%}else{%>
+                                --
+                                <%}%>
+                            </p>
+                            <p>
+                                <%if(item.Second.OriginalPublish){%>
+                                <%= formatMoney(item.Second.OriginalPublish,0,'')%>
+                                <%}else{%>
+                                --
+                                <%}%>
+                            </p>
+                        <%}else{%>
+                            --
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(item.Third){%>
+                            
+                            <p>
+                                <%if(item.Third.Forward){%>
+                                <%= formatMoney(item.Third.Forward,0,'')%>
+                                <%}else{%>
+                                --
+                                <%}%>
+                            </p>
+                            <p>
+                                <%if(item.Third.OriginalPublish){%>
+                                <%= formatMoney(item.Third.OriginalPublish,0,'')%>
+                                <%}else{%>
+                                --
+                                <%}%>
+                            </p>
+                        <%}else{%>
+                            --
+                        <%}%>
+                    </td>
+                    <td>
+                        <%if(item.Fourth){%>
+                            
+                            <p>
+                                <%if(item.Fourth.Forward){%>
+                                <%= formatMoney(item.Fourth.Forward,0,'')%>
+                                <%}else{%>
+                                --
+                                <%}%>
+                            </p>
+                            <p>
+                                <%if(item.Fourth.OriginalPublish){%>
+                                <%= formatMoney(item.Fourth.OriginalPublish,0,'')%>
+                                <%}else{%>
+                                --
+                                <%}%>
+                            </p>
+                        <%}else{%>
+                            --
+                        <%}%>
+                    </td>
+                    <td><a href="javascript:;" class="btn_price price_layer" MediaId="<%= item.MediaId %>">报价信息</a></td>
+                </tr>
+            <%})%>
+        <%}%>
+    </tbody>
+</script>
+<!-- 微博 -->
+<script type="text/template" id="listTemp1">
+    <thead>
+        <tr>
+            <th style='width: 25%;'>&nbsp</th>
+            <th style='width: 10%;'>&nbsp</th>
+            <th style='width: 15%;'>粉丝数</th>
+            <th style='width: 15%;'>行业分类</th>
+            <th style='width: 15%;'>直发</th>
+            <th style='width: 15%;'>转发</th>
+            <th style='width: 10%;'>&nbsp</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%if(list.length){%>
+            <%list.forEach(function(item){%>
+                <tr>
+                    <td>
+                        <div class="portrait">
+                            <img src="<%= item.HeadImg %>" class="head_img">
+                            <img src="/images/icon6.png" class="addV">
+                        </div>
+                        <div class="head_tit">
+                            <p><%= item.Name %></p>
+                            <p>
+                                <%if(item.Sex == '男'){%>
+                                    <img src="/images/icon1.png">
+                                <%}else if(item.Sex == '女'){%>
+                                    <img src="/images/girl.png">
+                                <%}%>
+                                <%= item.Number%>
+                            </p>
+                        </div>
+                    </td>
+                    <td>转发<br>原创+发布</td>
+                    <td>
+                        <%= item.FansCount %>
+                    </td>
+                    <td>
+                        <%= item.CategoryName %>
+                    </td>
+                    <td>
+                        <%= item.Direct?item.Direct:'--'%>
+                    </td>
+                    <td>
+                        <%= item.Forward?item.Forward:'--'%>
+                    </td>
+                    <td><a href="javascript:;" class="btn_price price_layer" MediaId="<%= item.MediaId %>">报价信息</a></td>
+                </tr>
+            <%})%>
+        <%}%>
+    </tbody>
+</script>
+</body>
+</html>

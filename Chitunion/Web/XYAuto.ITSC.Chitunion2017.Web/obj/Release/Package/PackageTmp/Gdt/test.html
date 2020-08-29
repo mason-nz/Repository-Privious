@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<script src="../js/jquery.1.11.3.min.js" type="text/javascript"></script>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+	<label>client_id:</label><input type="text" id="clientId" value="1106267651" /><br />
+	<label>回调地址：</label><input type="text" style="width: 450px" id="url" value="http://www.chitunion.com/test.aspx" />
+	<button id="btnGoAuth">去授权验证</button>
+	<br />
+	<label>
+		授权地址：https://developers.e.qq.com/oauth/authorize?client_id={client_id}&redirect_uri=http://www.chitunion.com/gdt/test.html&state=xy
+	</label>
+	<p>====================================</p>
+	<label>获取 Access Token </label><br />
+	<label>authorization_code:</label><input style="width: 450px" type="text" id="authorization_code" value="" /><br />
+	<label>client_secret:</label><input type="text" style="width: 450px" id="client_secret" value="0e26d8cd94ca6e2f9b4745aec0cffdff" /><br />
+	<label>获取 Access Token回调地址：</label><input type="text" style="width: 450px" id="getAccessTokenUrl" value="http://www.chitunion.com/test.aspx" />
+	<button id="btnGetAccessToken">获取 Access Token </button>
+	<br />
+	<label>
+		授权地址：https://api.e.qq.com/oauth/token?client_id={client_id}&client_secret={client_secret}&grant_type=authorization_code
+		&authorization_code={authorization_code}&redirect_uri=http://www.chitunion.com/gdt/test.html
+	</label>
+	<script type="text/javascript">
+		$(function () {
+			var gdtUrl = "https://developers.e.qq.com/oauth/authorize?client_id=";
+			var gdtGetAccessTokenUrl = "https://api.e.qq.com/oauth/token?client_id=";
+			$("#btnGoAuth").on("click", function () {
+
+				window.location.href = gdtUrl + $("#clientId").val() + "&redirect_uri=" + encodeURIComponent($("#url").val()) + "&state=xy";
+			});
+
+			$("#btnGetAccessToken").on("click", function () {
+
+				gdtGetAccessTokenUrl = gdtGetAccessTokenUrl + $("#clientId").val()
+					+ "&client_secret=" + $("#client_secret").val() + "&grant_type=authorization_code"
+					+ "&authorization_code=" + $("#authorization_code").val()
+					+ "&redirect_uri=" + encodeURIComponent($("#getAccessTokenUrl").val());
+				console.log(gdtGetAccessTokenUrl);
+				//return;
+				window.location.href = gdtGetAccessTokenUrl;
+			});
+		});
+	</script>
+</body>
+</html>

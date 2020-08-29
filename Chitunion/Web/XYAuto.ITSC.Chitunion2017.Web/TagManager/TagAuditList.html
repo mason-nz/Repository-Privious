@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>标签管理--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/TagAuditList.js"></script>
+    <style type="text/css">
+        table a {
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+                    
+                </h2>
+            </div>
+            <div id="list_switching">
+                <ul class="tab_menu">
+                    <li value="63005" class="selected">待审标签</li>
+                    <li value="63006">已审标签</li>
+                </ul>
+                <div class="clear"></div>
+                <ul class="state" id="search" style="display: none;">
+                    <li>
+                        类型：
+                        <select name="" id="projectType" style="width:100px;">
+                            <option value="-2">全部</option>
+                            <option value="61002">文章</option>
+                            <option value="61001">媒体</option>
+                        </select>
+                    </li>
+                    <li>
+                        <input class="keyWord" name="Username" type="text" style="width:150px;" placeholder="请输入关键词">
+                    </li>
+                    <li>
+                        审核人：
+                        <select id="AuditPerson"></select>
+                    </li>
+                    <li>
+                        审核日期：
+                        <input name="Username" id="createDate" type="text"   style="width:120px;"  class="laydate-iconNew"> 至 <input  name="Username" id="createDate1" type="text" style="width:120px;"   class="laydate-iconNew">
+                    </li>
+                    <li class="but_query" id="searchList" style="width:70px;;margin:0 0 0 50px;">搜索</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="ad_table">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+<!-- 待审核 -->
+<script type="text/template" id="tagList">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th width="30%">标题/媒体名称</th>
+                <th width="12%">提交时间</th>
+                <th width="10%">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%list.forEach(function(item){%>
+                <tr>
+                    <td>
+                        <%=item.MediaName%>
+                        <!-- 文章需要加文章标题 -->
+                        <%if(item.ProjectType == '61002' && item.ArticleTitle){%>
+                            <%=item.ArticleTitle%>
+                        <%}%>
+                        <!-- 媒体需要加媒体账号 -->
+                        <%if(item.ProjectType == '61001'){%>
+                            <%if(item.MediaNum){%>
+                                [ <%=item.MediaNum%> ]
+                            <%}%>
+                            <%if(item.MediaType){%>
+                                <%if(item.MediaType == '14001'){%>
+                                    [ 微信 ]
+                                <%}else if(item.MediaType == '14002'){%>
+                                    [ APP ]
+                                <%}else if(item.MediaType == '14003'){%>
+                                    [ 微博 ]
+                                <%}else if(item.MediaType == '14004'){%>
+                                    [ 视频 ]
+                                <%}else if(item.MediaType == '14005'){%>
+                                    [ 直播 ]
+                                <%}else if(item.MediaType == '14006'){%>
+                                    [ 头条 ]
+                                <%}%>
+                            <%}%>
+                        <%}%>
+                    </td>
+                    <td><%=item.SubmitTime%></td>
+                    <td>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT6000601') != -1){%>
+                        <a href="javascript:void(0)" ProjectType="<%= item.ProjectType%>" TaskID="<%= item.TaskID%>" class="AuditTask">
+                            <img src="/ImagesNew/audit.png" title="审核">
+                        </a>
+                        <%}%>
+                    </td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+</script>
+<!-- 已审核 -->
+<script type="text/template" id="tagList1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <thead>
+            <tr>
+                <th width="30%">标题/媒体名称</th>
+                <th width="10%">提交时间</th>
+                <th width="10%">审核时间</th>
+                <th width="8%">审核人</th>
+                <th width="8%">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%list.forEach(function(item,i){%>
+                <tr>
+                    <td>
+                        <!-- 媒体 -->
+                        <%if(item.ProjectType == '61001'){%>
+                            <a href="/TagManager/ViewMedia.html?TaskID=<%= item.TaskID %>&SelectType=2" target="_blank">
+                                <%=item.MediaName%>
+                                <%if(item.MediaNum){%>
+                                    [ <%=item.MediaNum%> ]
+                                <%}%>
+                                <%if(item.MediaType){%>
+                                    <%if(item.MediaType == '14001'){%>
+                                        [ 微信 ]
+                                    <%}else if(item.MediaType == '14002'){%>
+                                        [ APP ]
+                                    <%}else if(item.MediaType == '14003'){%>
+                                        [ 微博 ]
+                                    <%}else if(item.MediaType == '14004'){%>
+                                        [ 视频 ]
+                                    <%}else if(item.MediaType == '14005'){%>
+                                        [ 直播 ]
+                                    <%}else if(item.MediaType == '14006'){%>
+                                        [ 头条 ]
+                                    <%}%>
+
+                                <%}%>
+                            </a>
+                        <!-- 文章 -->
+                        <%}else{%>
+                            <a href="/TagManager/ViewArticle.html?TaskID=<%= item.TaskID %>&SelectType=2" target="_blank">
+                                <%=item.MediaName%>
+                                <%if(item.ArticleTitle){%>
+                                    <%=item.ArticleTitle%>
+                                <%}%>
+                            </a>
+                        <%}%>
+                    </td>
+                    <td><%=item.SubmitTime%></td>
+                    <td><%=item.AuditTime%></td>
+                    <td><%=item.AuditUserName%></td>
+                    <td>
+                        <!-- 媒体 -->
+                        <%if(item.ProjectType == '61001'){%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT6000602') != -1){%>
+                            <a href="/TagManager/ModifyMedia.html?TaskID=<%= item.TaskID %>&SelectType=2">
+                                <img src="../ImagesNew/edit.png" title="修改">
+                            </a>
+                            <%}%>
+                            <a href="/TagManager/ViewMedia.html?TaskID=<%= item.TaskID %>&SelectType=2" target="_blank">
+                                <img src="../ImagesNew/view.png" title="查看">
+                            </a>
+                        <!-- 文章 -->
+                        <%}else{%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT6000602') != -1){%>
+                            <a href="/TagManager/ModifyArticle.html?TaskID=<%= item.TaskID %>&SelectType=2">
+                                <img src="../ImagesNew/edit.png" title="修改">
+                            </a>
+                            <%}%>
+                            <a href="/TagManager/ViewArticle.html?TaskID=<%= item.TaskID %>&SelectType=2" target="_blank">
+                                <img src="../ImagesNew/view.png" title="查看">
+                            </a>
+                        <%}%>
+                    </td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+    <!--分页-->
+    <div class="green-black" id="pageContainer" class="display:none;">
+        <span class="disabled">上一页</span>
+        <span class="current">1</span>
+        <a href="#?page=2">2</a>
+        <a href="#?page=3">3</a>...
+        <a href="#?page=200">100</a>
+        <a href="#?page=2">下一页</a>
+        <span class="NormalText">共有3条数据</span>
+    </div>
+</script>
+</body>
+</html>

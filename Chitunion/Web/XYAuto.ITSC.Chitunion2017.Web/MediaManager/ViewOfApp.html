@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <!--luq add 2017-3-3-->
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="js/ListManager.js"></script>
+    <script type="text/javascript" src="js/ViewOfApp.js"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<div class="list_main">
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <!--刊例审核总模板，这里会包含很多内容，可以根据传参的某个值的不同来控制是否显示。理论上来说刊例的审核和查看都可以用着一个模板（除平台媒体以及app）-->
+    <script type="text/template" id="CheckTemplate">
+        <div class="journal mb15">
+            <ul>
+                <li>媒体名称：<%= MediaInfo.Name%></li>
+                <li>刊例执行期：<%= time.BeginTime.split(' ')[0]%> 至 <%= time.EndTime.split(' ')[0]%></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="install">
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td width="10">广告位置：</td>
+                        <td width="90"><%= Kanli.AdPosition%></td>
+                    </tr>
+                    <tr>
+                        <td>广告形式：</td>
+                        <td>
+                            <%= Kanli.AdForm%> <div><a href="javascript:void(0)" class="blue3 picDemo" picurl='<%= Kanli.AdLegendURL%>'>查看图例</a></div>
+                        </td>
+                    </tr>
+                    <%if(Kanli.Style){%>
+                    <tr>
+                        <td>样式：</td>
+                        <td><%= Kanli.Style%></td>
+                        
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.DisplayLength){%>
+                    <tr>
+                        <td>显示时长：</td>
+                        <td><%= Kanli.DisplayLength%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.CanClick.split('天')[0]){%>
+                    <tr>
+                        <td>点击：</td>
+                        <td><%= Kanli.CanClick%></td>
+                    </tr>
+                    <%}%>
+                     <%if(Kanli.CarouselCount.split('轮播')[0] !=0){%>
+                    <tr>
+                        <td>轮播数：</td>
+                        <td><%= Kanli.CarouselCount%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.SysPlatform){%>
+                    <tr>
+                        <td>系统平台：</td>
+                        <td><%= Kanli.SysPlatform%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.DailyExposureCount.split('万')[0] !=0){%>
+                    <tr>
+                        <td>日均曝光量：</td>
+                        <td><%= Kanli.DailyExposureCount%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.DailyExposureCount.split('万')[0] !=0){%>
+                    <tr>
+                        <td>日均点击量：</td>
+                        <td><%= Kanli.DailyClickCount%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.ThrMonitor){%>
+                    <tr>
+                        <td>第三方监测：</td>
+                        <td><%= Kanli.ThrMonitor%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.SaleWay){%>
+                    <tr>
+                        <td>售卖方式：</td>
+                        <td><%= Kanli.SaleWay%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.BeginPlayDays.split('天')[0] !=0){%>
+                    <tr>
+                        <td>起投天数：</td>
+                        <td><%= Kanli.BeginPlayDays%></td>
+                    </tr>
+                    <%}%>
+                    <tr>
+                        <td>配送：</td>
+                        <td><%= Kanli.IsDispatching%></td>
+                    </tr>
+                    <tr>
+                        <td><%= Kanli.SaleWay%>：</td>
+                        <td><%= Kanli.Price%></td>
+                    </tr>
+                    <%if(Kanli.AcceptBusinessIDs){%>
+                    <tr>
+                        <td>接受行业：</td>
+                        <td><%= Kanli.AcceptBusinessIDs%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.NotAcceptBusinessIDs){%>
+                    <tr>
+                        <td>不接受行业：</td>
+                        <td><%= Kanli.NotAcceptBusinessIDs%></td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.ADShow){%>
+                    <tr>
+                        <td>广告展示逻辑：</td>
+                        <td>
+                            <textarea name="" cols="" rows="5" style="width:315px;height:50px;resize:none;" disabled><%= Kanli.ADShow%></textarea>
+                            </td>
+                    </tr>
+                    <%}%>
+                    <%if(Kanli.ADRemark){%>
+                    <tr>
+                        <td>广告位说明：</td>
+                        <td>
+                            <textarea name="" cols="" rows="5" style="width:315px;height:50px;resize:none;" disabled><%= Kanli.ADRemark%></textarea>
+                        </td>
+                    </tr>
+                    <%}%>
+                </table>
+            </div>
+
+
+        <% if(CTLogin.RoleIDs!='SYS001RL00003' && CTLogin.RoleIDs!='SYS001RL00005' ){ %>
+            <h3 class="mt20 blue">媒体主信息</h3>
+            <div class="clear"></div>
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td>手机号：<%= UserInfo.Mobile%></td>
+                    </tr>
+                    <% if(UserInfo.Type == 1002){ %>
+                    <%if(UserInfo.TrueName){%>
+                    <tr>
+                        <td>姓名：<%= UserInfo.TrueName%></td>
+                    </tr>
+                    <%}%>
+                    <% }else if( UserInfo.Type == 1001){ %>
+                    <%if(UserInfo.TrueName){%>
+                    <tr>
+                        <td>公司名称：<%= UserInfo.TrueName%></td>
+                    </tr>
+                    <% }} %>
+                </table>
+            </div>
+        <%}%>
+        </div>
+    </script>
+    <div class="order_r" id="CheckView"></div>
+    <div class="clear"></div>
+</div>
+
+</div>
+
+
+
+<!--底部-->
+
+<!--#include file="../Base/footer.html" -->
+
+</body>
+</html>

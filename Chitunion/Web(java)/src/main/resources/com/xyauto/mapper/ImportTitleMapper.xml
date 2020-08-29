@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.ImportTitleMapper">
+<resultMap id="BaseResultMap" type="com.xyauto.domain.TitleBasicInfo">
+    <id column="TitleID" jdbcType="INTEGER" property="titleid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="INTEGER" property="type" />
+    <result column="Status" jdbcType="INTEGER" property="status" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="CreateUserID" jdbcType="INTEGER" property="createuserid" />
+ </resultMap>
+ 
+   <insert id="insertIntoBasicTitleDB" parameterType="com.xyauto.domain.TitleBasicInfo" useGeneratedKeys="true"  keyProperty="titleid">
+ 	 insert into TitleBasicInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="titleid != null" >
+        TitleID,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="type != null" >
+        Type,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+       <if test="createtime != null" >
+        CreateTime,
+      </if>
+       <if test="createuserid != null" >
+        CreateUserID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+     
+      <if test="titleid != null" >
+        #{titleid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuserid != null" >
+        #{createuserid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectTitleIdByName" parameterType="java.lang.String" resultType="java.lang.Integer" >
+  	select tb.TitleID from TitleBasicInfo tb where tb.Name  = #{titleName}
+  </select>
+  
+  <select id="selectRelationByKidAndbasicId" resultType="java.lang.Integer">
+  	select count(1) from IPTitleInfo ip where ip.PIP = #{pTitleId} and ip.SubIP = #{kidTitleId}
+  </select>
+  
+  <select id="selectRelationByPidAndKidAndbasicId" resultType="java.lang.Integer">
+  		select count(1) from IPTitleInfo ip where ip.PIP = #{pTitleId} and ip.SubIP = #{kidTitleId} and ip.TitleID = #{titleid}
+  </select>
+  
+  <insert id="insertIntoRelationDB" parameterType="com.xyauto.domain.IpTitleInfo" >
+  	 insert into IPTitleInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pIp != null" >
+        PIP,
+      </if>
+      <if test="subIp != null" >
+        SubIP,
+      </if>
+      <if test="relation != null" >
+        Relation,
+      </if>
+      <if test="titleId != null" >
+        TitleID,
+      </if>
+       <if test="status != null" >
+        Status,
+      </if>
+       <if test="createTime != null" >
+        CreateTime,
+      </if>
+       <if test="createUserId != null" >
+        CreateUserID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+     
+      <if test="pIp != null" >
+        #{pIp,jdbcType=INTEGER},
+      </if>
+      <if test="subIp != null" >
+        #{subIp,jdbcType=VARCHAR},
+      </if>
+      <if test="relation != null" >
+        #{relation,jdbcType=INTEGER},
+      </if>
+      <if test="titleId != null" >
+        #{titleId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+  </mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.LogInfoMapper">
+	<resultMap id="BaseResultMap" type="com.xyauto.domain.LogInfo">
+		<id column="Module" jdbcType="INTEGER" property="module" />
+		<result column="ActionType" jdbcType="INTEGER" property="actionType" />
+		<result column="Content" jdbcType="VARCHAR" property="content" />
+		<result column="IP" jdbcType="VARCHAR" property="IP" />
+		<result column="UserID" jdbcType="INTEGER" property="userID" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+	</resultMap>
+	<insert id="insertUserLog" parameterType="com.xyauto.domain.LogInfo">
+		insert into LogInfo (Module, ActionType, Content,
+		IP, UserID, CreateTime
+		)
+		values (#{module,jdbcType=INTEGER}, #{actionType,jdbcType=INTEGER},
+		#{content,jdbcType=VARCHAR},
+		#{IP,jdbcType=VARCHAR}, #{userID,jdbcType=INTEGER},#{createTime,jdbcType=TIMESTAMP}
+		)
+	</insert>
+</mapper>

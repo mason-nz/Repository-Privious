@@ -1,0 +1,232 @@
+ <!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>查看媒体</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="js/commonMethod.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/ViewFinalMedia.js"></script>
+    <style type="text/css">
+        .detail_mark li{
+            cursor: auto;
+        }
+        .frame_n{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="install" style="padding: 15px 15px 0 15px;">
+                <h2 style="margin-bottom: 0" class="menu_nav">
+                </h2>
+                <div class="container" style="max-width:800px;margin: 0">
+                    
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="../Base/footer.html" -->
+
+</body>
+<script type="text/template" id="temp">
+    <ul style="margin: 15px 0 0 0">
+        <li class="ins_a"  style="width: 123px;">
+            <div class="frame_n">
+                <%if(data.HeadImg){%>
+                    <img src="<%=data.HeadImg%>" width="80" height="80"/>
+                <%}else{%>
+                    <img src="../images/default_touxiang.png" width="80" height="80"/>
+                <%}%>
+            </div>
+        </li>
+        <li class="wechat_name">
+            <div><%=data.Name%></div>
+            <div>
+                <%if(data.Number){%>
+                    <%= data.Number%>
+                <%}%>
+                <%if(data.MediaType == '14001'){%>
+                    [微信]
+                <%}else if(data.MediaType == '14002'){%>
+                    [APP]
+                <%}else if(data.MediaType == '14003'){%>
+                    [微博]
+                <%}else if(data.MediaType == '14004'){%>
+                    [视频]
+                <%}else if(data.MediaType == '14005'){%>
+                    [直播]
+                <%}else if(data.MediaType == '14006'){%>
+                    [头条]
+                <%}else if(data.MediaType == '14007'){%>
+                    [搜狐]
+                <%}%>
+            </div>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <div class="mark_right" style="max-width:800px;margin-top:0;padding: 0 0 10px 0">
+        <% if(data.MarketScene){%>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category6.png" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                市场场景
+            </div>
+            <ul class="detail_mark">
+                <% if(data.MarketScene){%>
+                    <% data.MarketScene.Audit.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <%}%>
+        <% if(data.DistributeScene){%>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category5.png" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                分发场景
+            </div>
+            <ul class="detail_mark">
+                <% if(data.DistributeScene){%>
+                    <% data.DistributeScene.Audit.forEach(function(item){%>
+                        <li>
+                            <span><%= item.DictName %></span>
+                        </li>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <%}%>
+        <% if(data.IPLabel){%>
+        <div class="single_mark">
+            <div class="title">
+                <img src="../images/category3.jpg" alt="" style="width: 20px;height:20px;margin-right: 11px;">
+                IP标签
+            </div>
+            <ul class="detail_mark">
+                <% if(data.IPLabel){%>
+                    <% data.IPLabel.Audit.forEach(function(item){%> 
+                        <div>
+                            <li>
+                                <span><%= item.DictName %></span>
+                            </li>
+                            <div class="clear"></div>
+                        </div>
+                        <% item.SubIP.forEach(function(single){%>
+                        <div class="SonIP" style="overflow: hidden;">
+                            <li class="sonip">
+                                <span><%= single.DictName %></span>
+                                <i class="add_ear"></i>
+                            </li>
+                            <% single.Label.forEach(function(one){ %>
+                                <li>
+                                    <span><%= one.DictName %></span>
+                                </li>
+                            <%})%>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                        <%})%>
+                        <div style="height:2px;border-bottom:1px dashed #eee;margin: 0 0 12px 0"></div>
+                    <%})%>
+                <%}%>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <%}%>
+    </div>
+    <!-- <div style="height:2px;border-bottom:1px dashed #eee;margin: 0 0 15px 0"></div> -->
+    <div class="info" style="padding: 0 20px">
+        <%if(data.UpdateInfo){%>
+        <ul>
+            <li class="ins_a" style="width:105px;">修改信息：</li>
+            <li><%=data.UpdateInfo.UserName%>  &nbsp;&nbsp;<%= data.UpdateInfo.CreateTime%></li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <% if(data.MarketScene.OldInfo && data.MarketScene.NewInfo != data.MarketScene.OldInfo) {%>
+        <ul>
+            <li style="padding: 0 0 0 56px;">[市场场景]：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 104px;">原有内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.MarketScene.OldInfo%>
+            </li>
+            <div class="clear"></div>
+            <li  style="padding: 0 0 0 104px;">改后内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.MarketScene.NewInfo %>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <% if(data.DistributeScene.OldInfo && data.DistributeScene.NewInfo != data.DistributeScene.OldInfo) {%>
+        <ul>
+            <li style="padding: 0 0 0 56px;">[分发场景]：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 104px;">原有内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.DistributeScene.OldInfo%>
+            </li>
+            <div class="clear"></div>
+            <li  style="padding: 0 0 0 104px;">改后内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.DistributeScene.NewInfo %>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+        <% if(data.IPLabel.OldInfo && data.IPLabel.OldInfo != data.IPLabel.NewInfo) {%>
+        <ul>
+            <li style="padding: 0 0 0 56px;">[IP标签]：</li>
+            <div class="clear"></div>
+           <li style="padding: 0 0 0 104px;">原有内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.IPLabel.OldInfo%>
+            </li>
+            <div class="clear"></div>
+            <li  style="padding: 0 0 0 104px;">改后内容：</li>
+            <div class="clear"></div>
+            <li style="padding: 0 0 0 172px;">
+                <%= data.IPLabel.NewInfo %>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <%}%>
+    </div>
+</script>
+</html>
+

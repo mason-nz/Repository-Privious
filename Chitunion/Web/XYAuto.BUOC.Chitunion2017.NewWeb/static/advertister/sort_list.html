@@ -1,0 +1,636 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="赤兔联盟,智能匹配,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,智能匹配">
+    <title>智能匹配-赤兔联盟</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true"></script> 
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src='/js/Common_chitu.js'></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/Area2.js"></script>
+    <script type="text/javascript" src="/js/Common_area.js"></script>
+    <script type="text/javascript" src="./js/sort-list.js"></script>
+</head>
+<body>
+
+<!--#include virtual="/base/top.html" -->
+<!--#include virtual="/base/nav.html" -->
+
+
+<!--中间内容-->
+<div class="wx_box big_box">
+    <div class="search-form">
+        <div id="search-hd" class="search-hd">
+            <div class="search-bg"></div>
+            <input type="text" class="search-input" id='search-input' placeholder="请输入关键字或品牌">
+            <!-- <span class="pholder">请输入关键字或品牌</span> -->
+            <button id="submit" class="btn-search" value="搜索">搜索</button>
+        </div>
+    </div>
+    <div class="selectMedia" id='MediaChange'>
+        <ul>
+            <li class="selected">
+                <img src="/images/icons/wx.png">微信
+            </li>
+            <li>
+                <img src="/images/icons/wb1.png">微博
+            </li>
+            <li>
+                <img src="/images/icons/app1.png">APP
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wx_odds">
+        <div class="wx_wrap">
+            <div class="wx_key">常见分类：</div>
+            <div class="wx_value">
+                <ul id='CategoryID' sort='常见分类' class="ChangeOptions">
+                    <li><a href="javascript:;" class="active">不限</a></li>
+                    <li><a href="javascript:;">新闻市政</a></li>
+                    <li><a href="javascript:;">金融理财</a></li>
+                    <li><a href="javascript:;">互联网</a></li>
+                    <li><a href="javascript:;">创意/生活</a></li>
+                    <li><a href="javascript:;">美食</a></li>
+                    <li><a href="javascript:;">时尚搭配</a></li>
+                    <li><a href="javascript:;">个人媒体</a></li>
+                    <li><a href="javascript:;">汽车</a></li>
+                    <li><a href="javascript:;">美妆媒体</a></li>
+                    <li><a href="javascript:;">健康养生</a></li>
+                    <li><a href="javascript:;">星座命里</a></li>
+                    <li><a href="javascript:;">创意/生活</a></li>
+                    <li><a href="javascript:;">美食</a></li>
+                    <li><a href="javascript:;">时尚搭配</a></li>
+                    <li><a href="javascript:;">个人媒体</a></li>
+                    <li><a href="javascript:;">汽车</a></li>
+                    <li><a href="javascript:;">美妆媒体</a></li>
+                    <li><a href="javascript:;">健康养生</a></li>
+                    <li><a href="javascript:;">星座命里</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="wx_ext">展开 <img src="/images/arrow_01.png"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_wrap">
+            <div class="wx_key">粉丝数量：</div>
+            <div class="wx_value" style="width: 640px;">
+                <ul id='FansCount' sort='粉丝数量'  class="ChangeOptions" minId='-1' maxId='-1'>
+                    <li><a href="javascript:;" class="active" minId='-1' maxId='-1'>不限</a></li>
+                    <li><a href="javascript:;" minId='0' maxId='50000'>5W以下</a></li>
+                    <li><a href="javascript:;" minId='50000' maxId='100000'>5W-10W</a></li>
+                    <li><a href="javascript:;" minId='100000' maxId='200000'>10W-20W</a></li>
+                    <li><a href="javascript:;" minId='200000' maxId='500000'>20W-50W</a></li>
+                    <li><a href="javascript:;" minId='500000' maxId='1000000'>50W-100W</a></li>
+                    <li><a href="javascript:;" minId='1000000' maxId='0'>100W以上</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="price-set">
+                <input type="text" name="fan" maxlength="8" class="input">
+                —
+                <input type="text" name="fan" maxlength="8" class="input">
+                <span class="button_blue_sure" id='FanSure' sort='2'>确定</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_wrap">
+            <div class="wx_key">价格：</div>
+            <div class="wx_value" style="width: 600px;">
+                <ul id='Price' sort='价格' class="ChangeOptions" minId='-1' maxId='-1'>
+                    <li><a href="javascript:;" class="active" minId='-1' maxId='-1'>不限</a></li>
+                    <li><a href="javascript:;" minId='1000' maxId='3000'>1000元-3000元</a></li>
+                    <li><a href="javascript:;" minId='3000' maxId='10000'>3000元-10000元</a></li>
+                    <li><a href="javascript:;" minId='10000' maxId='50000'>10000元-50000元</a></li>
+                    <li><a href="javascript:;" minId='50000' maxId='0'>50000元以上</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="price-set">
+                <select id='ADPositionID'>
+                    <option value="11">单图文</option>
+                    <option value="12">多图文头条</option>
+                    <option value="13">多图文第二条</option>
+                    <option value="14">多图文3-N条</option> 
+                </select>
+                <select id='ReferenceType' style='display: none;'>
+                    <option DictId="1">直发参考价</option>
+                    <option DictId="2">转发参考价</option>
+                </select>
+                <input type="text" name="price" maxlength="8" class="input">
+                —
+                <input type="text" name="price" maxlength="8" class="input">
+                <span class="button_blue_sure" id='PriceSure' sort='3'>确定</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_wrap">
+            <div class="wx_key">覆盖地区：</div>
+            <div class="wx_value" style="width:500px;">
+                <ul id='City' sort='覆盖地区' class="ChangeOptions" ProvinceID='-1' CityID='-1'>
+                    <li><a href="javascript:;" class="active" ProvinceID='-1' CityID='-1'>不限</a></li>
+                    <li><a href="javascript:;" ProvinceID='0' CityID='0'>全国</a></li>
+                    <li><a href="javascript:;" ProvinceID='-1' CityID='2'>北京</a></li>
+                    <li><a href="javascript:;" ProvinceID='-1' CityID='24'>上海</a></li>
+                    <li><a href="javascript:;" ProvinceID='5' CityID='501'>广州</a></li>
+                    <li><a href="javascript:;" ProvinceID='5' CityID='502'>深圳</a></li>
+                    <li><a href="javascript:;" ProvinceID='30' CityID='3001'>杭州</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="price-set">
+                <select id='ProvinceID'>
+                    <option value="-1">请选择省份</option>
+                </select>
+                <select id='CityID'>
+                    <option value="-1">请选择城市</option>
+                </select>
+                <span class="button_blue_sure" id='CitySure' sort='4'>确定</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wx_already_wrap" style='display: none;'>
+            <div class="wx_already_key">已选择：</div>
+            <div class="wx_already_value">
+                <ul id='CheckedOption'></ul>                    
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="wx_box">
+        <div class="wx_form" style="padding: 10px 10px;">
+            
+            <div class="ListDetail"></div>
+                        
+            <p id='listLoading'></p>
+
+            <!--分页-->
+            <div class="tottom_tips">
+                <div class="tit">当前最多显示前15页搜索结果，若需更多请<a href="javascript:;" class="getToUs">联络我们</a> ！</div>
+                <div class="green-black" id='pageContainer'></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+
+
+<!-- 微信列表 -->
+<script type="text/template" id="WeiXinList">
+    <div class="wx_table3">
+        <div class="wx_check"><input name="check_all" type="checkbox"></div>
+        <div class="wechat_list3">
+            <div class="wx_content7">全选</div>
+            <a href="javascript:;" class="AddToCar" name='total'>加入选号车</a>
+            共计<span class="TotalCount">0</span>个
+        </div>
+        <div class="wechat_list2">
+            行业分类
+        </div>
+        <div class="wechat_list2">
+            粉丝数
+            <!-- <a href="javascript:void(0)">
+                <img src="/images/bottom_red.png">
+            </a> -->
+        </div>
+        <div class="wechat_list2">
+            平均阅读数
+           <!--  <a href="javascript:void(0)">
+               <img src="/images/bottom_grey.png">
+           </a> -->
+        </div>
+        <div class="wechat_list2">
+            位置
+        </div>
+        <div class="wechat_list2">
+            发布参考价
+        </div>
+        <div class="wechat_list2">
+            原创+发布参考价
+        </div>
+        <div class="wechat_list2">
+            操作
+        </div>
+        <div class="clear"></div>
+    </div>
+    <% List.forEach(function(item){%>
+        <div class="wx_table2" MediaType='14001' MediaID='<%= item.RecID %>'>
+            <div class="wx_check">
+                <input type="checkbox" name='check_single'  class="one_check">
+            </div>
+            <div class="wechat_list3">
+                <div class="portrait">
+                    <%if(item.HeadImg && item.HeadImg !='None'){%>
+                        <img src="<%= item.HeadImg %>" class='headImg'>
+                    <%}else{%>
+                        <img src="/images/default1.png" class='headImg'>
+                    <%}%>
+                </div>
+                <div class="content">
+                    <h2><span class="wx_name"><%= item.NickName %></span>
+                        <% if(item.IsOriginal){%>
+                        <span class="Original">原创</span>
+                        <%} %>
+
+                        <% if(item.QrCodeUrl != ''){%>
+                        <a href="javascript:void(0)" class="noBigPic">
+                            <img class="viewBigpic" src="/images/icon80.png">
+                            <img class="Bigpic" src="<%= item.QrCodeUrl %>">
+                        </a>
+                        <%}  %>
+                    </h2>
+                    <p><%= item.WxNumber %></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wechat_list2">
+                <p><%= item.CategoryName?item.CategoryName:"一" %></p>
+            </div>
+            <div class="wechat_list2">
+                <p>
+                    <% if(item.FansCount){%>
+                        <%if(item.FansCount < 10000){%>
+                            <%= removePoint0(formatMoney(item.FansCount,2,''),2)%>
+                        <%}else{%>
+                            <%= removePoint0(formatMoney(item.FansCount/10000,1,''),1)%>万
+                        <%}%>
+                    <%}else{%>
+                        一
+                    <%} %>
+                </p>
+            </div>
+            <div class="wechat_list2">
+                <p>
+                    <% if(item.ReadNum == 0){%>
+                        一
+                    <%}else if(item.ReadNum > 100000){%>
+                        10万+
+                    <%}else{%>
+                        <%= removePoint0(formatMoney(item.ReadNum,2,''),2)%>
+                    <%} 
+                    %>
+                </p>
+            </div>
+
+            <div class="wechat_list2">
+            <%if(item.Position.length){%>
+                <% item.Position.forEach(function(each){%>
+                    <p><%= each.PositionName?each.PositionName:'一' %></p>
+                <%}) %>
+            <%}else{%>
+                <p>一</p>
+            <%} %>
+            </div>
+
+            <div class="wechat_list2">
+            <%if(item.Position.length){%>
+                <%item.Position.forEach(function(single){%>
+                    <%if(single.IssuePrice){%>
+                        <p><%= removePoint0(formatMoney(single.IssuePrice,2,''),2)%>元</p>
+                    <%}else{%>
+                        <p>一<p>
+                    <%}%>
+                <%})%>
+            <%}else{%>
+                <p>一<p>
+            <%}%>
+            </div>
+
+            <div class="wechat_list2">
+            <%if(item.Position.length){%>
+                <%item.Position.forEach(function(single){%>
+                    <%if(single.TotalPrice){%>
+                        <p><%= removePoint0(formatMoney(single.TotalPrice,2,''),2)%>元</p>
+                    <%}else{%>
+                        <p>一</p>
+                    <%}%>
+                <%})%>
+            <%}else{%>
+                <p>一</p>
+            <%}%>
+            </div>
+
+            <div class="wechat_list2">
+                <span class="cart AddToCar" name='single'></span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <%}) %>
+</script>
+
+
+<!-- 微博列表 -->
+<script type="text/template" id="WeiBoList">
+    <div class="wx_table3">
+        <div class="wx_check"><input name="check_all" type="checkbox"></div>
+        <div class="wechat_list3">
+            <div class="wx_content7">全选</div>
+            <a href="javascript:;" class="AddToCar" name='total'>加入选号车</a>
+            共计<span class="TotalCount">0</span>个
+        </div>
+        <div class="wechat_list7">
+            行业分类
+        </div>
+        <div class="wechat_list7">
+            粉丝数
+           <!--  <a href="javascript:void(0)">
+               <img src="/images/bottom_red.png">
+           </a> -->
+        </div>
+        <div class="wechat_list7">
+            平均转发数
+            <!-- <a href="javascript:void(0)">
+                <img src="/images/bottom_grey.png">
+            </a> -->
+        </div>
+        <div class="wechat_list7">
+            平均评论数
+            <!-- <a href="javascript:void(0)">
+                <img src="/images/bottom_grey.png">
+            </a> -->
+        </div>
+        <div class="wechat_list7">
+            平均点赞数
+           <!--  <a href="javascript:void(0)">
+               <img src="/images/bottom_grey.png">
+           </a> -->
+        </div>
+        <div class="wechat_list7">
+            直发参考价
+        </div>
+        <div class="wechat_list7">
+            转发参考价
+        </div>
+        <div class="wechat_list7">
+            操作
+        </div>
+        <div class="clear"></div>
+    </div>
+    <% List.forEach(function(item){%>
+        <div class="wx_table2"  MediaType='14003' MediaID='<%= item.RecID %>'>
+            <div class="wx_check">
+                <input type="checkbox" name='check_single'  class="one_check">
+            </div>
+            <div class="wechat_list3">
+                <div class="portrait">
+                <%if(item.HeadIconURL && item.HeadIconURL !='None'){%>
+                    <img src="<%= item.HeadIconURL %>" class='headImg'>
+                <%}else{%>
+                    <img src="/images/default1.png" class='headImg'>
+                <%}%>    
+                </div>
+                <div class="content">
+                    <h2><span class="wx_name"><%= item.Name %></span></h2>
+                    <p><%= item.Summary?item.Summary:'' %></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wechat_list7">
+                <p><%= item.CategoryName?item.CategoryName:"一" %></p>
+            </div>
+            <div class="wechat_list7">
+                <p>
+                    <% if(item.FansCount){%>
+                        <%if(item.FansCount < 10000){%>
+                            <%= removePoint0(formatMoney(item.FansCount,2,''),2)%>
+                        <%}else{%>
+                            <%= removePoint0(formatMoney(item.FansCount/10000,1,''),1)%>万
+                        <%}%>
+                    <%}else{%>
+                        一
+                    <%} %>
+                </p>
+            </div>
+            <div class="wechat_list7">
+                <p><%= item.ForwardAvg?item.ForwardAvg:'一' %></p>
+            </div>
+            <div class="wechat_list7">
+                <p><%= item.CommentAvg?item.CommentAvg:'一' %></p>
+            </div>
+            <div class="wechat_list7">
+                <p><%= item.LikeAvg?item.LikeAvg:'一' %></p>
+            </div>
+            <div class="wechat_list7">
+                <% if(item.DirectPrice){%>
+                    <p><%= removePoint0(formatMoney(item.DirectPrice,2,''),2)%>元</p>
+                <%}else{%>
+                    <p>一</p>
+                <%} %>
+            </div>
+            <div class="wechat_list7">
+                 <% if(item.ForwardPrice){%>
+                    <p><%= removePoint0(formatMoney(item.ForwardPrice,2,''),2)%>元</p>
+                <%}else{%>
+                    <p>一</p>
+                <%} %>
+            </div>
+            <div class="wechat_list7">
+                <span class="cart AddToCar" name='single'></span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <%}) %>
+</script>
+
+
+<!-- app列表 -->
+<script type="text/template" id="AppList">
+    <div class="wx_table3">
+        <div class="wx_check"><input name="check_all" type="checkbox"></div>
+        <div class="wechat_list4">
+            <div class="wx_content7">全选</div>
+            <a href="javascript:;" class="AddToCar" name='total'>加入选号车</a>
+            共计<span class="TotalCount">0</span>个
+        </div>
+        <div class="wechat_list4">
+            媒体介绍
+        </div>
+        <div class="wechat_list8">
+            行业分类
+        </div>
+        <div class="wechat_list8">
+            日活
+            <!-- <a href="javascript:void(0)">
+                <img src="/images/bottom_red.png">
+            </a> -->
+        </div>
+        <div class="wechat_list8">
+            用户总量
+        </div>
+        <div class="wechat_list8">
+            操作
+        </div>
+        <div class="clear"></div>
+    </div>
+    <% List.forEach(function(item){%>
+        <div class="wx_table2"  MediaType='14002' MediaID='<%= item.RecID %>'>
+            <div class="wx_check">
+                <input type="checkbox" name='check_single'  class="one_check">
+            </div>
+            <div class="wechat_list4">
+                <div class="portrait">
+                <%if(item.HeadIconURL && item.HeadIconURL !='None'){%>
+                    <img src="<%= item.HeadIconURL %>" class='headImg'>
+                <%}else{%>
+                    <img src="/images/default1.png" class='headImg'>
+                <%}%> 
+                </div>
+                <div class="content">
+                    <h2><span class="wx_name"><%= item.Name %></span> </h2>
+                    <% if(item.IsMonitor){%>
+                        <span class="Original">可监测</span>
+                    <%} %>
+                    <% if(item.IsLocate){%>
+                        <span class="Original">可定向</span>
+                    <%} %>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wechat_list4">
+                <p class="content_height"><%= item.Remark?item.Remark:'一' %></p>
+            </div>
+            <div class="wechat_list8">
+                <p><%= item.CategoryName?item.CategoryName:'一' %></p>
+            </div>
+            <div class="wechat_list8">
+                <p>
+                    <% if(item.DailyLive){%>
+                        <%if(item.DailyLive < 10000){%>
+                            <%= removePoint0(formatMoney(item.DailyLive,2,''),2)%>
+                        <%}else{%>
+                            <%= removePoint0(formatMoney(item.DailyLive/10000,1,''),1)%>万
+                        <%}%>
+                    <%}else{%>
+                        一
+                    <%} %>
+                </p>
+            </div>
+            <div class="wechat_list8">
+                <p>
+                    <% if(item.TotalUser){%>
+                        <%if(item.TotalUser < 10000){%>
+                            <%= removePoint0(formatMoney(item.TotalUser,2,''),2)%>
+                        <%}else{%>
+                            <%= removePoint0(formatMoney(item.TotalUser/10000,1,''),1)%>万
+                        <%}%>
+                    <%}else{%>
+                        一
+                    <%} %>
+                </p>
+            </div>
+            <div class="wechat_list8">
+                <span class="cart AddToCar" name='single'></span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <%}) %>
+</script>
+
+
+<!-- 选号车 -->
+<div class="mui-mbar-tabs" style='z-index: 999;'>
+    
+    <div class="quick_links_panel">
+        <ul id="quick_links" class="quick_links">
+            <li id="shopCart">
+                <a href="javascript:void(0)" class="message_list">
+                    <div class="span">选号车</div>
+                    <span class="cart_num">0</span>
+                </a>
+            </li>
+            <!-- <li class="go_back" id='go_back'> <label></label> top <li>    -->
+        </ul>
+    </div>
+
+    <div id="quick_links_pop" class="quick_links_pop quick_message_list" style="left: 280px;">
+        <a href="javascript:;" class="ibar_closebtn" title="关闭"></a>
+        <div class="ibar_plugin_content">
+            <div class="ibar_cart_group_header">
+                <span class="ibar_cart_group_title"><a href="javascript:;" class="go_detail">全屏查看</a></span>                            
+            </div>
+            <!-- 列表开始 style='margin-bottom: 190px;'-->
+            <div class="car_list">
+                <img src="/images/shop_car.png" style="display: block;margin: 140px auto;">
+            </div> 
+            <!-- 列表结束 -->                   
+        </div>
+        <div class="cart_handler">
+            <ul>
+                <li>
+                    <img src="/images/s_wx1.png">
+                    <p class="wx_total">0</p>
+                </li>
+                <li>
+                    <img src="/images/s_wb1.png">
+                    <p class="wb_total">0</p>
+                </li>
+                <li>
+                    <img src="/images/s_app1.png">
+                    <p class="ap_total">0</p>
+                </li>
+            </ul>
+            <div class="cart_handler_header">
+                <p class="cart_handler_top">共：
+                    <span class="cart_num"> 0个 </span>
+                    <a class="importNumber button_import" id='CartExportExcel' target="_blank">导出账号</a>
+                </p>
+                <p>
+                    <a class="allDel" id='delete_all'>全部删除</a>
+                    <a class="button_extension go_detail" id='extension'>立即推广</a>                        
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 选号车 -->
+<script type="text/template" id="detail-shopcar">
+    <% CartList.forEach(function(item){%>
+        <div class="cart_shop" MediaID='<%= item.MediaID %>' MediaType='<%= item.MediaType %>'>
+            <div class="ping02">
+                <div class="img">
+                    <img src="<%= item.LogUrl?item.LogUrl:'/images/default1.png' %>" width="42" height="42">
+                    <% if(item.MediaType == 14001){%>
+                    <img src="/images/s_wx.png" class="mediaImg">
+                    <%}else if(item.MediaType == 14003){%>
+                    <img src="/images/s_wb.png" class="mediaImg">
+                    <%}else if(item.MediaType == 14002){%>
+                    <img src="/images/s_app.png" class="mediaImg">
+                    <%} %>
+                </div>
+                <div class="h2"><%= item.Name %></div>
+                <div class="p">
+                    <% if(item.MediaType == 14001){%>
+                        微信号：
+                    <%}else if(item.MediaType == 14002){%>
+                        日活：
+                    <%}else if(item.MediaType == 14003){%>
+                        粉丝数：
+                    <%} %>
+                    <%= item.MediaText %>
+                </div>
+            </div>
+            <div class="ping03">
+                <a href="javascript:;" class="delete_car">×</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <%})  %>
+</script>
+
+</body>
+</html>

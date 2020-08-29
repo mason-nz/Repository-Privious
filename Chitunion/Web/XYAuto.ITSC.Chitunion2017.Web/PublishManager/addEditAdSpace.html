@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <!--#include file="/Base/js.html" -->
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script src="/js/jquery.uploadify.v3.2.min.js"></script>
+    <script src="/js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script src="/js/layer/layer.js"></script>
+    <script src="/PublishManager/js/publishAddEdit.js"></script>
+</head>
+
+<body>
+<!--头部-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="list_main">
+    <div class="order">
+        <!--#include file="/Base/Menu.html" -->
+        <div class="order_r" id="content">
+            <div class="install">
+                <div class="parameter blue3">
+                    <ul>
+                        <li class="blue3">媒体名称：</li>
+                        <li id="MediaName">高唐信息港cc</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul >
+                        <li class="blue3"  >刊例类型：</li>
+                        <li>APP</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="blue3">刊例执行期：</li>
+                        <li id="BeginTime">2017-01-01</li>
+                        <li>至</li>
+                        <li id="EndTime">2017-01-05</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <h2>基本信息</h2>
+                <div class="clear"></div>
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 广告位图例：</li>
+                    <li class="frame" >
+                        <img id="imgShow" src="/ImagesNew/uploadimg.png" width="80" height="80"/>
+                        <span style="width: 200px;height: 200px;position:absolute;top:0;left:81px;display:none;z-index: 999;" class="bigImgshow" id="BigImg">
+                            <img src="" alt=""  style="width: 200px;height: 200px;">
+                        </span>
+                        <span class="set"><input type="file" name="file_upload" id="file_upload" accept="image/jpeg,image/jpg,image/png" class="file-prew but_upload"/></span>
+                    </li>
+                    <li id="imgErr" class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 广告位位置：</li>
+                    <li><input name="AdPosition" type="text"  style="width:315px;"></li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 广告形式：</li>
+                    <li><input name="AdForm" type="text"  style="width:315px;"></li>
+                    <li  class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">样式：</li>
+                    <li><input name="Style" type="text"  style="width:315px;"></li>
+                    <li class="red" ></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">显示时长：</li>
+                    <li><input name="DisplayLength" type="text"  style="width:100px;"> 秒</li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">轮播数：</li>
+                    <li><input name="CarouselCount" type="text"  style="width:100px;"></li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">位置：</li>
+                    <li><input name="PlayPosition" type="text"  style="width:100px;"></li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">日均曝光量：</li>
+                    <li><input name="DailyExposureCount" type="text"  style="width:100px;"> /天</li>
+                    <li><input name="CPM" type="checkbox" value="true" /> /CPM</li>
+                    <li><input name="CarouselPlay" type="checkbox" value="true" /> /轮播</li>
+                    <li id="DailyExposureCountErr" class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red f12">* </span>点击：</li>
+                    <li><input name="CanClick" type="radio" value="true" /> 可点击</li>
+                    <li><input name="CanClick" type="radio" value="false" /> 不可点击</li>
+                    <div class="clear"></div>
+                </ul>
+
+                <ul id="showCanClick" style="display:none">
+                    <li class="ins_a">日均点击量：</li>
+                    <li><input name="DailyClickCount" type="text"  style="width:100px;"> /天</li>
+                    <li><input name="CPM2" type="checkbox" value="true" /> /CPM</li>
+                    <li><input name="CarouselPlay2" type="checkbox" value="true" /> /轮播</li>
+                    <li id="DailyClickCountErr" class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red f12">* </span>系统平台：</li>
+                    <li><input name="SysPlatform01" type="checkbox" value="12001" /> Android</li>
+                    <li><input name="SysPlatform02" type="checkbox" value="12002" /> IOS</li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">第三方监测：</li>
+                    <li><input name="ThrMonitor01" type="checkbox" value="13001" /> 曝光监测</li>
+                    <li><input name="ThrMonitor02" type="checkbox" value="13002" /> 点击监测</li>
+                    <div class="clear"></div>
+                </ul>
+
+                <h3>刊例信息</h3>
+                <ul>
+                    <li class="ins_a"><span class="red f12">* </span>售卖方式：</li>
+                    <li><input name="SaleType" type="radio" value="11001"  /> CPD</li>
+                    <li><input name="SaleType" type="radio" value="11002" /> CPM</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">&nbsp;</li>
+                    <li><input name="Price" type="text"  style="width:100px;"> 元</li>
+                    <li id="isCPD" >/天</li>
+                    <li><input name="IsCarousel" type="checkbox" value="" /> /轮播</li>
+                    <li class="red" id="priceErr"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">起投天数：</li>
+                    <li><input name="BeginPlayDays" type="text"  style="width:100px;"> 天</li>
+                    <li></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">配送：</li>
+                    <li><input name="IsDispatching" type="radio" value='true' /> 可配送</li>
+                    <li><input name="IsDispatching" type="radio" value="false"  /> 不可配送</li>
+                    <div class="clear"></div>
+                </ul>
+                <ul style="position: relative">
+                    <li class="ins_a">接受行业：</li>
+                    <li style="position: relative">
+                        <ul id="addIndustry" style="width:740px;margin-bottom: 0"></ul>
+                        <a href="" id="AcceptBusinessIDs" class="yellow"> 添加</a>
+                    </li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">不接受行业：</li>
+                    <li style="position: relative">
+                        <ul id="addUnIndustry" style="width:740px;margin-bottom: 0"></ul>
+                        <a href="" id="NotAcceptBusinessIDs" class="yellow"> 添加</a>
+                    </li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">广告展示逻辑：</li>
+                    <li><textarea name="ADShow" cols="" rows="5" style="width:315px;height:50px;resize:none;"></textarea></li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">广告位说明：</li>
+                    <li><textarea name="ADRemark" cols="" rows="5" style="width:315px;height:50px;resize:none;"></textarea></li>
+                    <li class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+
+                <div class="clear"></div>
+
+                <div class="keep">
+                    <span><a href="" class="button" id="submit" style="width:150px;margin-left:150px">保存</a></span>
+                    <span><a href="" class="button" id="cancel" style="width:150px;margin-left:30px">返回</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+<script>
+    $(document).ready(function(){
+        adSpace.init();
+    });
+</script>
+</body>
+</html>

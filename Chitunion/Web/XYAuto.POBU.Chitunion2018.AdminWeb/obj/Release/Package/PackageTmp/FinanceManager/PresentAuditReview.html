@@ -1,0 +1,40 @@
+<div class="layer">
+    <div class="title">
+        <div class="fl" style="margin-left: 200px;">提现审核</div>
+        <div class="fr"><a href="javascript:void(0)" class="closebt"><img src="/ImagesNew/close_x.jpg" width="16" height="16"></a></div>
+        <div class="clear"></div>
+    </div>
+    <div style="margin-left: 70px;margin-top: 30px;" class="auditreview">
+
+    </div>
+    <div class="layer_con2">
+        <div class="keep" style="text-align: center;">
+            <span><a href="javascript:void(0)" class="button" style="width:100px" id="headWaist">确认支付</a></span>
+        </div>
+    </div>
+</div>
+<script>
+    setAjax({
+        url:public_url+'/api/Withdrawals/GetInfo',
+        type:'get',
+        data:{
+            WithdrawalsId:localStorage.getItem('recid')
+        }
+    },function (data) {
+        if(data.Status==0){
+            $('.auditreview').html(ejs.render($('#auditreview').html(), data));
+        }else {
+            layer.msg(data.Message)
+        }
+    })
+
+</script>
+<script type="text/template" id="auditreview">
+
+    <p><span style="width: 90px;text-align: right;display: inline-block">申请人：</span><%=Result.WithdrawalsInfo.UserName%> <a href="/FinanceManager/IncomeManagement.html?TrueName=<%=Result.WithdrawalsInfo.UserName%>" target="_blank" style="margin-left: 20px">收入记录</a> <a href="/FinanceManager/presentmanagement-1.html?finish=1&UserName=<%=Result.WithdrawalsInfo.UserName%>" style="margin-left: 10px" target="_blank">提现记录</a></p>
+        <p><span style="width: 90px;text-align: right;display: inline-block">真实姓名：</span><%=Result.WithdrawalsInfo.TrueName%></p>
+    <!--<p><span style="width: 90px;text-align: right;display: inline-block">可提现金额：</span>6,000元</p>-->
+    <p><span style="width: 90px;text-align: right;display: inline-block">申请金额：</span><%=formatMoney(Result.WithdrawalsInfo.WithdrawalsPrice,1,'').replace(".0","")+'元'%></p>
+    <p><span style="width: 90px;text-align: right;display: inline-block">代扣个税：</span><%=formatMoney(Result.WithdrawalsInfo.IndividualTaxPeice,1,'').replace(".0","")+'元'%></p>
+    <p><span style="width: 90px;text-align: right;display: inline-block">实付金额：</span><%=formatMoney(Result.WithdrawalsInfo.PracticalPrice,1,'').replace(".0","")+'元'%></p>
+</script>

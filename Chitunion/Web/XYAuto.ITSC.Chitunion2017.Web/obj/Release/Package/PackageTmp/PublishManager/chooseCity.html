@@ -1,0 +1,141 @@
+﻿<div style="height:50px"></div>
+<!--添加售卖区域城市开始-->
+<div class="layer" style="position: relative;">
+    <div class="title_new">
+        添加售卖区域城市
+        <div class="notes_n">（您可以把同一级别的地区放在一组，方便维护广告价格）</div>
+        <div class="close"><a href="#"><img src="../ImagesNew/closebt.png" ></a></div>
+    </div>
+    <div class="layer_con3">
+        <div class="tc">
+            <div class="mt10"><input name="Username" id="name" type="text"  placeholder="请给城市组命名" style="width:450px;text-align: center"></div>
+            <div class="add_sell_l sort_box">
+                <h2 style="position: absolute;left:22px;width: 200px;border-radius: 5px 0 0 0">城市列表</h2>
+                <h2 style="height: 25px;"></h2>
+                <h3 class="always">常用城市</h3>
+                <div class="sort_list" title="点击添加">
+                    <div class="num_name" id="201">北京市</div>
+                </div>
+                <div class="sort_list" title="点击添加">
+                    <div class="num_name" id="2401">上海市</div>
+                </div>
+                <div class="sort_list" title="点击添加">
+                    <div class="num_name" id="501">广州市</div>
+                </div>
+                <div class="sort_list" title="点击添加">
+                    <div class="num_name" id="502">深圳市</div>
+                </div>
+                <h3 class="sort_letter A">A</h3>
+                <h3 class="sort_letter B">B</h3>
+                <h3 class="sort_letter C">C</h3>
+                <h3 class="sort_letter D">D</h3>
+                <h3 class="sort_letter E">E</h3>
+                <h3 class="sort_letter F">F</h3>
+                <h3 class="sort_letter G">G</h3>
+                <h3 class="sort_letter H">H</h3>
+                <h3 class="sort_letter I">I</h3>
+                <h3 class="sort_letter J">J</h3>
+                <h3 class="sort_letter K">K</h3>
+                <h3 class="sort_letter L">L</h3>
+                <h3 class="sort_letter M">M</h3>
+                <h3 class="sort_letter N">N</h3>
+                <h3 class="sort_letter O">O</h3>
+                <h3 class="sort_letter P">P</h3>
+                <h3 class="sort_letter Q">Q</h3>
+                <h3 class="sort_letter R">R</h3>
+                <h3 class="sort_letter S">S</h3>
+                <h3 class="sort_letter T">T</h3>
+                <h3 class="sort_letter U">U</h3>
+                <h3 class="sort_letter V">V</h3>
+                <h3 class="sort_letter W">W</h3>
+                <h3 class="sort_letter X">X</h3>
+                <h3 class="sort_letter Y">Y</h3>
+                <h3 class="sort_letter Z">Z</h3>
+                <!-- 右侧选择栏 -->
+                <div class="sort_ew">
+                   <ol>
+                       <li class="word" id="always"><img src="../ImagesNew/star_new.png" title="常用城市"></li>
+                       <li class="word" id="A">A</li>
+                       <li class="word" id="B">B</li>
+                       <li class="word" id="C">C</li>
+                       <li class="word" id="D">D</li>
+                       <li class="word" id="E">E</li>
+                       <li class="word" id="F">F</li>
+                       <li class="word" id="G">G</li>
+                       <li class="word" id="H">H</li>
+                       <li class="word" id="I">I</li>
+                       <li class="word" id="J">J</li>
+                       <li class="word" id="K">K</li>
+                       <li class="word" id="L">L</li>
+                       <li class="word" id="M">M</li>
+                       <li class="word" id="N">N</li>
+                       <li class="word" id="O">O</li>
+                       <li class="word" id="P">P</li>
+                       <li class="word" id="Q">Q</li>
+                       <li class="word" id="R">R</li>
+                       <li class="word" id="S">S</li>
+                       <li class="word" id="T">T</li>
+                       <li class="word" id="U">U</li>
+                       <li class="word" id="V">V</li>
+                       <li class="word" id="W">W</li>
+                       <li class="word" id="X">X</li>
+                       <li class="word" id="Y">Y</li>
+                       <li class="word" id="Z">Z</ul>
+                   </ol>
+                </div>
+            </div>
+            <div class="add_sell_c">
+                <img src="../ImagesNew/arrow_left.png">
+                <img src="../ImagesNew/arrow_right_h.png">
+                <!-- <a href="javascript:void(0)"><img src="../ImagesNew/arrow_left.png"></a>
+                <a href="javascript:void(0)"><img src="../ImagesNew/arrow_right_h.png"></a> -->
+            </div>
+            <div class="add_sell_r selectdCity" style="overflow: auto;">
+                <h2>已选城市</h2>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+           <div class="keep" style="margin-bottom:70px"><a href="javascript:void(0)" class="but_data" style="width:160px;margin-left:10px">保存</a></div>
+        </div>
+    </div>
+</div>
+<!--添加售卖区域城市结束-->
+<script type="text/javascript">
+    var arr = [];
+    for(var i=0;i<JSonData.masterArea.length;i++){
+        for(var j=0;j<JSonData.masterArea[i].subArea.length;j++){
+            var str = '<div class="sort_list" title="点击添加" szm="'+JSonData.masterArea[i].subArea[j].szm+'">'+'<div class="num_name" id="'+JSonData.masterArea[i].subArea[j].id+'">'+JSonData.masterArea[i].subArea[j].name+'</div>'+'</div>';
+            $('.'+JSonData.masterArea[i].subArea[j].szm).after(str);
+        }
+    }
+    
+   
+    //点击左侧城市逻辑
+    $('.sort_box').off('click').on('click','.num_name',function () {
+        var that = $(this);
+        that.addClass('red');
+        var content = $.trim(that.html());
+        var cityArr = [],cityStr = '';
+        $('.selectdCity .num_name').each(function () {
+            cityArr.push($.trim($(this).html()));
+        });
+        cityStr = cityArr.toString();
+        if(cityStr.indexOf(content) == -1){
+            $('.selectdCity ul').append('<li class="num_name" city_id="'+that.attr('id')+'" IsPublic=0 title="点击移除">'+content+'</li>')
+        }
+    });
+    //点击右侧城市删除
+    $('.selectdCity').off('click').on('click','.num_name',function () {
+        if($(this).attr('title') == '点击移除'){
+            var cityName = $.trim($(this).html());
+            $(this).remove();
+            $('.sort_box .num_name').each(function () {
+                if($.trim($(this).html()) == cityName){
+                    $(this).removeClass('red');
+                }
+            });
+        }
+    })
+</script>

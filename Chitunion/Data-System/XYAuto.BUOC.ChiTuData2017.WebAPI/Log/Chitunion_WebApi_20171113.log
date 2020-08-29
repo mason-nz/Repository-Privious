@@ -1,0 +1,654 @@
+2017-11-13 14:07:36,449 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/CarSerial/QueryBrand,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:36,906 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/CarSerial/QueryBrand
+执行的时间:112.2987ms
+请求的参数:{"CheckLogin":true,"request":{"MasterBrandId":0,"BrandId":0}}
+返回的结果:
+
+2017-11-13 14:07:37,716 [6] ERROR BaseLog [(null)] - ChiTuData2017_WebApi——异常
+System.ArgumentException: 不支持关键字: “192.168.3.152,6000;uid”。
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.<>c.<GetMasterBrandList>b__1_1()
+   在 XYAuto.BUOC.ChiTuData2017.Infrastruction.CaChe.CacheHelper`1.Get(Cache cache, Func`1 cacheKey, Func`1 getData, Func`1 setDependency, Int32 cacheminute)
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.WebAPI.Controllers.CarSerialController.QueryBrand(RequestCarBrandDto request) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.WebAPI\Controllers\CarSerialController.cs:行号 33
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-11-13 14:07:38,609 [6] INFO  BaseLog [(null)] - 发邮件开始：
+2017-11-13 14:07:38,610 [6] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2017-11-13 14:07:38,610 [6] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2017-11-13 14:07:38,610 [6] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2017-11-13 14:07:38,610 [6] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2017-11-13 14:07:38,610 [6] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2017-11-13 14:07:39,948 [6] INFO  BaseLog [(null)] - 发邮件结束！
+2017-11-13 14:07:40,069 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:40,186 [15] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:80.2133ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:07:40,287 [11] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:40,321 [11] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:07:40,324 [15] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:40,547 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:221.59ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-13 14:07:46,156 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/CarSerial/QueryBrand,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:46,167 [8] ERROR BaseLog [(null)] - ChiTuData2017_WebApi——异常
+System.ArgumentException: 不支持关键字: “192.168.3.152,6000;uid”。
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.<>c.<GetMasterBrandList>b__1_1()
+   在 XYAuto.BUOC.ChiTuData2017.Infrastruction.CaChe.CacheHelper`1.Get(Cache cache, Func`1 cacheKey, Func`1 getData, Func`1 setDependency, Int32 cacheminute)
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.WebAPI.Controllers.CarSerialController.QueryBrand(RequestCarBrandDto request) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.WebAPI\Controllers\CarSerialController.cs:行号 33
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-11-13 14:07:46,170 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/CarSerial/QueryBrand
+执行的时间:1.0028ms
+请求的参数:{"CheckLogin":true,"request":{"MasterBrandId":0,"BrandId":0}}
+返回的结果:
+
+2017-11-13 14:07:46,810 [8] INFO  BaseLog [(null)] - 发邮件开始：
+2017-11-13 14:07:46,810 [8] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2017-11-13 14:07:46,810 [8] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2017-11-13 14:07:46,810 [8] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2017-11-13 14:07:46,810 [8] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2017-11-13 14:07:46,810 [8] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2017-11-13 14:07:48,591 [8] INFO  BaseLog [(null)] - 发邮件结束！
+2017-11-13 14:07:48,632 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:48,641 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:2.0054ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:07:48,837 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:48,848 [6] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:07:48,854 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:07:48,861 [11] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:14.0377ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-13 14:09:01,821 [15] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/CarSerial/QueryBrand,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:09:01,832 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/CarSerial/QueryBrand
+执行的时间:1.0024ms
+请求的参数:{"CheckLogin":true,"request":{"MasterBrandId":0,"BrandId":0}}
+返回的结果:
+
+2017-11-13 14:09:01,833 [15] ERROR BaseLog [(null)] - ChiTuData2017_WebApi——异常
+System.ArgumentException: 不支持关键字: “192.168.3.152,6000;uid”。
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.<>c.<GetMasterBrandList>b__1_1()
+   在 XYAuto.BUOC.ChiTuData2017.Infrastruction.CaChe.CacheHelper`1.Get(Cache cache, Func`1 cacheKey, Func`1 getData, Func`1 setDependency, Int32 cacheminute)
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.WebAPI.Controllers.CarSerialController.QueryBrand(RequestCarBrandDto request) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.WebAPI\Controllers\CarSerialController.cs:行号 33
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-11-13 14:09:02,512 [15] INFO  BaseLog [(null)] - 发邮件开始：
+2017-11-13 14:09:02,512 [15] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2017-11-13 14:09:02,512 [15] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2017-11-13 14:09:02,512 [15] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2017-11-13 14:09:02,512 [15] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2017-11-13 14:09:02,512 [15] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2017-11-13 14:09:03,691 [15] INFO  BaseLog [(null)] - 发邮件结束！
+2017-11-13 14:09:03,725 [15] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:09:03,734 [11] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:2.0054ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:09:03,959 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:09:03,965 [11] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:09:03,970 [6] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:09:03,989 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:18.0444ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-13 14:09:23,789 [10] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-10-14&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:09:23,796 [10] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-10-14","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-10-14' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-10-14' AND '2017-11-12'"}
+2017-11-13 14:09:29,206 [5] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-10-14&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:5398.3607ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-10-14","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[{"Title":"摩拜独立出行服务部门，专门做网约车","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-09 03:32:21","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9318,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"我遇见你，也许是注定的！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9283,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":1},{"Title":"我遇见你，也许是注定的！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9283,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":3,"UV":2,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.330,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":1},{"Title":"绿萝叶子各种发黄？大概就因为这些了","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9295,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"绿萝叶子各种发黄？大概就因为这些了","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9295,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":5,"UV":3,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.800,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":2,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.500,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"腿不够长？那快试试牛仔外套啊！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"chendj","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9298,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"腿不够长？那快试试牛仔外套啊！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"chendj","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9298,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":3,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":3,"InquiryNumber":0,"JumpProportion":0.670,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4}],"TotleCount":12773,"Extend":{"TotalSessionNumber":0,"TotalInquiryNumber":187,"TotalTelConnectNumber":20,"TotalForwardNumber":184912,"TotalMateriel":5908,"TotalDistribute":5426,"TotalClue":207}},"IsOverdue":null}
+
+2017-11-13 14:28:19,973 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/CarSerial/QueryBrand,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:19,982 [39] ERROR BaseLog [(null)] - ChiTuData2017_WebApi——异常
+System.ArgumentException: 不支持关键字: “192.168.3.152,6000;uid”。
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.<>c.<GetMasterBrandList>b__1_1()
+   在 XYAuto.BUOC.ChiTuData2017.Infrastruction.CaChe.CacheHelper`1.Get(Cache cache, Func`1 cacheKey, Func`1 getData, Func`1 setDependency, Int32 cacheminute)
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.WebAPI.Controllers.CarSerialController.QueryBrand(RequestCarBrandDto request) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.WebAPI\Controllers\CarSerialController.cs:行号 33
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-11-13 14:28:19,983 [31] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/CarSerial/QueryBrand
+执行的时间:1.0036ms
+请求的参数:{"CheckLogin":true,"request":{"MasterBrandId":0,"BrandId":0}}
+返回的结果:
+
+2017-11-13 14:28:20,715 [39] INFO  BaseLog [(null)] - 发邮件开始：
+2017-11-13 14:28:20,715 [39] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2017-11-13 14:28:20,715 [39] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2017-11-13 14:28:20,715 [39] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2017-11-13 14:28:20,715 [39] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2017-11-13 14:28:20,715 [39] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2017-11-13 14:28:21,968 [39] INFO  BaseLog [(null)] - 发邮件结束！
+2017-11-13 14:28:22,009 [53] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:22,038 [31] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:20.0533ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:28:22,314 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:22,317 [53] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:22,324 [38] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:28:22,363 [52] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:39.1042ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-13 14:28:24,728 [52] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/CarSerial/QueryBrand,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:24,739 [49] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/CarSerial/QueryBrand
+执行的时间:0ms
+请求的参数:{"CheckLogin":true,"request":{"MasterBrandId":0,"BrandId":0}}
+返回的结果:
+
+2017-11-13 14:28:24,740 [52] ERROR BaseLog [(null)] - ChiTuData2017_WebApi——异常
+System.ArgumentException: 不支持关键字: “192.168.3.152,6000;uid”。
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.<>c.<GetMasterBrandList>b__1_1()
+   在 XYAuto.BUOC.ChiTuData2017.Infrastruction.CaChe.CacheHelper`1.Get(Cache cache, Func`1 cacheKey, Func`1 getData, Func`1 setDependency, Int32 cacheminute)
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.WebAPI.Controllers.CarSerialController.QueryBrand(RequestCarBrandDto request) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.WebAPI\Controllers\CarSerialController.cs:行号 33
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-11-13 14:28:25,454 [52] INFO  BaseLog [(null)] - 发邮件开始：
+2017-11-13 14:28:25,455 [52] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2017-11-13 14:28:25,455 [52] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2017-11-13 14:28:25,455 [52] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2017-11-13 14:28:25,455 [52] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2017-11-13 14:28:25,455 [52] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2017-11-13 14:28:27,375 [52] INFO  BaseLog [(null)] - 发邮件结束！
+2017-11-13 14:28:27,401 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:27,411 [50] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:4.0125ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:28:27,615 [52] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:27,623 [52] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:28:27,627 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:28:27,641 [31] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:18.0484ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-13 14:29:44,915 [26] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:29:44,928 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:6.016ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:29:44,942 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:29:44,950 [39] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:29:44,975 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:24.064ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-13 14:29:56,892 [55] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:29:56,906 [54] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:3.0042ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:29:56,944 [31] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:29:56,951 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:29:56,953 [31] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:29:56,972 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-11-12&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:19.0501ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-13 14:30:10,031 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-10-14&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:30:10,041 [38] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-10-14","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-10-14' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-10-14' AND '2017-11-12'"}
+2017-11-13 14:30:14,476 [55] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-10-14&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:4433.7936ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-10-14","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[{"Title":"摩拜独立出行服务部门，专门做网约车","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-09 03:32:21","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9318,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"我遇见你，也许是注定的！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9283,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":1},{"Title":"我遇见你，也许是注定的！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9283,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":3,"UV":2,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.330,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":1},{"Title":"绿萝叶子各种发黄？大概就因为这些了","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9295,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"绿萝叶子各种发黄？大概就因为这些了","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9295,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":5,"UV":3,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.800,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":2,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.500,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"腿不够长？那快试试牛仔外套啊！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"chendj","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9298,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"腿不够长？那快试试牛仔外套啊！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"chendj","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9298,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":3,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":3,"InquiryNumber":0,"JumpProportion":0.670,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4}],"TotleCount":12773,"Extend":{"TotalSessionNumber":0,"TotalInquiryNumber":187,"TotalTelConnectNumber":20,"TotalForwardNumber":184912,"TotalMateriel":5908,"TotalDistribute":5426,"TotalClue":207}},"IsOverdue":null}
+
+2017-11-13 14:30:55,186 [39] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-10-14&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:30:55,193 [39] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-10-14","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-10-14' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-10-14' AND '2017-11-12'"}
+2017-11-13 14:30:59,620 [54] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&StartDate=2017-10-14&EndDate=2017-11-12&Source=-2&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:4426.8131ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-10-14","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[{"Title":"摩拜独立出行服务部门，专门做网约车","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-09 03:32:21","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9318,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"我遇见你，也许是注定的！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9283,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":1},{"Title":"我遇见你，也许是注定的！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9283,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":3,"UV":2,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.330,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":1},{"Title":"绿萝叶子各种发黄？大概就因为这些了","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9295,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"绿萝叶子各种发黄？大概就因为这些了","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9295,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":5,"UV":3,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.800,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"这就是我们每个人的故事，这棵树就是我们的父母。","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"wangsf","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9296,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":2,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":2,"InquiryNumber":0,"JumpProportion":0.500,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":2},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"放下孩子，来场清迈之旅","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"liuh","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9297,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"腿不够长？那快试试牛仔外套啊！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"chendj","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9298,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"腿不够长？那快试试牛仔外套啊！","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"chendj","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9298,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":0},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"家长喊话幼儿园：能不能别老让我们做手工？","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"yinx","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9299,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":3,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":3,"InquiryNumber":0,"JumpProportion":0.670,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":0,"UV":0,"OnLineAvgTimeFormt":"一","BrowsePageAvg":0,"InquiryNumber":0,"JumpProportion":0.0,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4},{"Title":"“我换了4个手机，依然保存着这张照片”","DistributeType":73002,"DistributeTypeName":"经纪人","AssembleUser":"qish","AssembleTime":"2017-11-06 00:00:00","DistributeUser":"经纪人系统","DistributeDate":"2017-11-08 03:31:56","DistributeUrl":null,"TotalDistribute":1,"TotalBrowsePageAvg":0,"TotalInquiryNumber":0,"TotalTelConnectNumber":0,"MaterielId":9300,"DistributeId":0,"Date":"0001-01-01 00:00:00","PV":1,"UV":1,"OnLineAvgTimeFormt":"一","BrowsePageAvg":1,"InquiryNumber":0,"JumpProportion":1.000,"SessionNumber":0,"TelConnectNumber":0,"ForwardNumber":4}],"TotleCount":12773,"Extend":{"TotalSessionNumber":0,"TotalInquiryNumber":187,"TotalTelConnectNumber":20,"TotalForwardNumber":184912,"TotalMateriel":5908,"TotalDistribute":5426,"TotalClue":207}},"IsOverdue":null}
+
+2017-11-13 14:32:00,096 [54] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/CarSerial/QueryBrand,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:32:00,106 [59] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/CarSerial/QueryBrand
+执行的时间:0ms
+请求的参数:{"CheckLogin":true,"request":{"MasterBrandId":0,"BrandId":0}}
+返回的结果:
+
+2017-11-13 14:32:00,107 [54] ERROR BaseLog [(null)] - ChiTuData2017_WebApi——异常
+System.ArgumentException: 不支持关键字: “192.168.3.152,6000;uid”。
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.<>c.<GetMasterBrandList>b__1_1()
+   在 XYAuto.BUOC.ChiTuData2017.Infrastruction.CaChe.CacheHelper`1.Get(Cache cache, Func`1 cacheKey, Func`1 getData, Func`1 setDependency, Int32 cacheminute)
+   在 XYAuto.BUOC.ChiTuData2017.BLL.CarSerialInfo.CarSerial.GetMasterBrandList()
+   在 XYAuto.BUOC.ChiTuData2017.WebAPI.Controllers.CarSerialController.QueryBrand(RequestCarBrandDto request) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.WebAPI\Controllers\CarSerialController.cs:行号 33
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-11-13 14:32:01,527 [54] INFO  BaseLog [(null)] - 发邮件开始：
+2017-11-13 14:32:01,527 [54] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2017-11-13 14:32:01,527 [54] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2017-11-13 14:32:01,527 [54] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2017-11-13 14:32:01,527 [54] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2017-11-13 14:32:01,527 [54] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2017-11-13 14:32:02,925 [54] INFO  BaseLog [(null)] - 发邮件结束！
+2017-11-13 14:32:02,943 [58] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:32:02,956 [38] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/DictInfo/GetBaseLable?typeId=6001
+执行的时间:4.9782ms
+请求的参数:{"CheckLogin":true,"typeId":6001}
+返回的结果:{"Status":0,"Message":null,"Result":[{"TitleId":1,"Name":"萌爱","Type":6001,"TypeName":null},{"TitleId":468,"Name":"修复","Type":6001,"TypeName":null},{"TitleId":936,"Name":"颜值","Type":6001,"TypeName":null},{"TitleId":1637,"Name":"逃离感","Type":6001,"TypeName":null},{"TitleId":1879,"Name":"成就感","Type":6001,"TypeName":null},{"TitleId":2780,"Name":"孤独","Type":6001,"TypeName":null},{"TitleId":3088,"Name":"文化艺术","Type":6001,"TypeName":null},{"TitleId":3424,"Name":"可持续性","Type":6001,"TypeName":null},{"TitleId":3704,"Name":"自由","Type":6001,"TypeName":null},{"TitleId":4129,"Name":"个性化","Type":6001,"TypeName":null},{"TitleId":4331,"Name":"浅薄","Type":6001,"TypeName":null},{"TitleId":4536,"Name":"麻木","Type":6001,"TypeName":null},{"TitleId":4599,"Name":"安全感","Type":6001,"TypeName":null},{"TitleId":5165,"Name":"环保","Type":6001,"TypeName":null},{"TitleId":5304,"Name":"娱乐","Type":6001,"TypeName":null},{"TitleId":5705,"Name":"幸福感","Type":6001,"TypeName":null},{"TitleId":5881,"Name":"焦虑","Type":6001,"TypeName":null}],"IsOverdue":null}
+
+2017-11-13 14:32:02,978 [54] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:32:02,991 [38] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DispenseList.html
+2017-11-13 14:32:02,993 [54] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'# AND ME.CreateTime BETWEEN '2017-11-12' AND '2017-11-12'"}
+2017-11-13 14:32:03,012 [39] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/Materiel/GetDistributeList?PageSize=20&PageIndex=1&AssembleUser=&DistributeUser=&MaterielName=&CarSerialId=-2&BrandId=-2&CarSerialName=&ChannelId=-2&Ip=-2&ChildIp=-2&ExpChannelName=--&ExpCarSerialName=--%2C--%2C--%2C&ExpIpName=--&ExpChildIpName=--
+执行的时间:19.0498ms
+请求的参数:{"CheckLogin":true,"request":{"DistributeType":-2,"DataType":0,"DistributeId":-2,"MaterielId":-2,"StartDate":"2017-11-12","EndDate":"2017-11-12","AssembleUser":null,"DistributeUser":null,"MaterielName":null,"CarSerialId":-2,"BrandId":-2,"CarSerialName":null,"ChannelId":-2,"ChildIp":-2,"Ip":-2,"IsGetResult":true,"ExpChannelName":"--","ExpCarSerialName":"--,--,--,","ExpIpName":"--","ExpChildIpName":"--","OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":"success","Result":{"List":[],"TotleCount":0,"Extend":null},"IsOverdue":null}
+

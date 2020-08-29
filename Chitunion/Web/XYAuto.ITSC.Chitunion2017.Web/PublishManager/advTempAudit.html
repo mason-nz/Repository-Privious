@@ -1,0 +1,1013 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script src="js/swiper.jquery.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script type="text/javascript" src="js/advTempAudit.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2>
+                广告模板审核
+                <div class="ad_emplate mediaName">
+                    <span></span><img src="">
+                </div>
+            </h2>
+            <div class="clear"></div>
+            <div class="macro_box">
+                <div class="emplate_table">
+                    <table border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" id="only_right" style="display: none;">
+                        <tr>
+                            <th width="105px;">模版</th>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">广告名称</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">广告形式</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">广告样式</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">轮播数</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">售卖平台</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">售卖方式</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">售卖区域</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">广告示例图</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">广告展示逻辑</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">素材说明</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">备注</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">起投天/次</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">刊例原件</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f6f6f6">操作</td>
+                        </tr>
+                        </table>
+                </div>
+            </div>
+            <div class="macro_box">
+                <div class="mp_left">
+                    <div class="emplate_table">
+
+                    </div>
+                </div>
+                <div class="mp_right swiper-container">
+                    <!-- Swiper -->
+                    <div class="emplate_table swiper-wrapper">
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="arrow_l" style="z-index: 99;left: 0;">
+                        <img src="../ImagesNew/arrow_l.png">
+                    </div>
+                    <div class="arrow_r" style="z-index: 99;right: 0;">
+                        <img src="../ImagesNew/arrow_r.png">
+                    </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+<script type="text/template" id="parentTemp">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+    <tr BaseMediaID="<%=data.BaseMediaID%>" BaseAdID="<%=data.BaseAdID%>">
+        <th width="30%">模版</th>
+        <th width="70%"><%=data.TrueName%></th>
+    </tr>
+    <tr>
+        <td style="background-color:#f6f6f6">广告名称</td>
+        <td>
+            <div><%=data.AdTemplateName%></div>
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#f6f6f6">广告形式</td>
+        <td>
+            <div><%=data.AdFormName%></div>
+        </td>
+    </tr>
+    <tr class="AdTempStyle" AdTempStyle="<%=data.AdTempStyle%>">
+        <td style="background-color:#f6f6f6">广告样式</td>
+        <td>
+            <%for(var j=0;j<data.AdTempStyle.length;j++){%>
+                <div><%=data.AdTempStyle[j].AdStyle%></div>
+            <%}%>
+        </td>
+    </tr>
+    <tr class="CarouselCount" CarouselCount="<%=data.CarouselCount%>">
+        <td style="background-color:#f6f6f6">轮播数</td>
+        <td>
+            <div><%=data.CarouselCount%></div>
+        </td>
+    </tr>
+    <tr class="SellingPlatform" SellingPlatform="<%=data.SellingPlatform%>">
+        <td style="background-color:#f6f6f6">售卖平台</td>
+        <td>
+            <%if((1 & data.SellingPlatform) >0){%>
+                <div>Android</div>
+            <%}%>
+            <%if((2 & data.SellingPlatform) >0){%>
+                <div>iOS</div>
+            <%}%>
+            <%if((4 & data.SellingPlatform) >0){%>
+                <div>Android & iOS</div>
+            <%}%>
+            <%if((8 & data.SellingPlatform) >0){%>
+                <div>PAD</div>
+            <%}%>
+            <%if((16 & data.SellingPlatform) >0){%>
+                <div>Gphone</div>
+            <%}%>
+            <%if((32 & data.SellingPlatform) >0){%>
+                <div>IPhone</div>
+            <%}%>
+        </td>
+    </tr>
+    <tr class="SellingMode">
+        <td style="background-color:#f6f6f6">售卖方式</td>
+        <td class="show">
+            <%if((1 & data.SellingMode)>0){%>
+                <div>CPD</div>
+            <%}%>
+            <%if((2 & data.SellingMode)>0){%>
+                <div>CPM</div>
+            <%}%>
+        </td>
+    </tr>
+    <tr class="AdSaleAreaGroup" AdSaleAreaGroup="<%=data.AdSaleAreaGroup%>">
+        <td style="background-color:#f6f6f6">售卖区域</td>
+        <td AdSaleAreaGroup="<%=JSON.stringify(data.AdSaleAreaGroup)%>">
+            <%for(var m=0;m<data.AdSaleAreaGroup.length;m++){%>
+                <%if(data.AdSaleAreaGroup[m].GroupType == -1 || data.AdSaleAreaGroup[m].GroupType == 0){%>
+                    <div AdSaleAreaGroup="<%=JSON.stringify(data.AdSaleAreaGroup)%>" style="position: relative;">
+                        <div class="GroupName"><%=data.AdSaleAreaGroup[m].GroupName%></div>
+                   </div>
+                <%}else{%>
+                    <div AdSaleAreaGroup="<%=JSON.stringify(data.AdSaleAreaGroup)%>" style="position: relative;cursor: pointer;">
+                        <div class="GroupName"><%=data.AdSaleAreaGroup[m].GroupName%></div>
+                        <div class="add_city" style="left: -19px;top:20px;display: none;">
+                            <div class="arrow" style="left: 114px;top:-2px;">
+                                <img src="../ImagesNew/arrow_top.png">
+                            </div>
+                            <ul style="display: block;padding: 5px 0" >
+                                <%if(data.AdSaleAreaGroup[m].DetailArea){%>
+                                    <%for(var r=0;r<data.AdSaleAreaGroup[m].DetailArea.length;r++){%>
+                                        <li style="display: inline-block;width:auto;height:26px;float: none;"><%=data.AdSaleAreaGroup[m].DetailArea[r].CityName%></li>
+                                    <%}%>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                <%}%>
+            <%}%>
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#f6f6f6">广告示例图</td>
+        <td>
+            <%if(data.AdLegendURL){%>
+            <%for(var j=0;j<data.AdLegendURL.split(',').length;j++){%>
+            <div class="ad_map">
+                <a href="<%=data.AdLegendURL.split(',')[j]%>" target="_blank">
+                    <img src="<%=data.AdLegendURL.split(',')[j]%>" width="60" height="60">
+                </a>
+            </div>
+            <%}%>
+            <%}%>
+        </td>
+    </tr>
+    <tr class="AdDisplay" AdDisplay="<%=data.AdDisplay%>">
+        <td style="background-color:#f6f6f6">广告展示逻辑</td>
+        <td>
+            <div class="tl">
+                <%if(data.AdDisplay){%>
+                    <%=data.AdDisplay%>
+                <%}%>
+            </div>
+        </td>
+    </tr>
+    <tr class="AdDescription" AdDescription="<%=data.AdDescription%>" >
+        <td style="background-color:#f6f6f6">素材说明</td>
+        <td>
+            <div class="tl">
+                <%if(data.AdDescription){%>
+                    <%=data.AdDescription%>
+                <%}%>
+            </div>
+        </td>
+    </tr>
+    <tr class="Remarks" Remarks="<%=data.Remarks%>">
+        <td style="background-color:#f6f6f6">备注</td>
+        <td>
+            <div class="tl">
+                <%if(data.Remarks){%>
+                    <%=data.Remarks%>
+                <%}%>
+            </div>
+        </td>
+    </tr>
+    <tr class="AdDisplayLength" AdDisplayLength="<%=data.AdDisplayLength%>">
+        <td style="background-color:#f6f6f6">起投天/次</td>
+        <td>
+            <%if(data.AdDisplayLength){%>
+                <%=data.AdDisplayLength%>
+            <%}%>
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#f6f6f6">刊例原件</td>
+        <td>
+            <a href="<%=data.OriginalFile%>" target="_blank" title="点击下载"><%=getFileName(data.OriginalFile)%></a>
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#f6f6f6">操作</td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+</script>
+<script type="text/template" id="childTemp">
+    <%for(var i=0;i<data.length;i++){%>
+    <table class="adv swiper-slide" width="100/3*100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <!-- 媒体名称，取的模板名称 -->
+        <tr class="mediaInfo" BaseMediaID="<%=data[i].BaseMediaID%>" BaseAdID="<%=data[i].BaseAdID%>" RecID="<%=data[i].RecID%>">
+            <th width="33%"><%=data[i].TrueName%></th>
+        </tr>
+        <!-- 广告模板名称不可编辑 -->
+        <tr class="AdTemplateName">
+            <td class="show"><%=data[i].AdTemplateName%></td>
+            <td class="hide"><%=data[i].AdTemplateName%></td>
+        </tr>
+        <!-- 广告形式 -->
+        <tr AdForm="<%=data[i].AdForm%>" class="AdForm">
+            <td AdForm="<%=data[i].AdForm%>"><%=data[i].AdFormName%></td>
+        </tr>
+        <!-- 广告样式 -->
+        <tr class="AdTempStyle">
+            <td class="show">
+                <%for(var j=0;j<data[i].AdTempStyle.length;j++){%>
+                    <div><%=data[i].AdTempStyle[j].AdStyle%></div>
+                <%}%>
+            </td>
+            <td class="hide" style="position:relative;">
+                <%if(data[i].AdTempStyle.length == 1){%>
+                    <%if(data[i].AdTempStyle[0].IsPublic == 0){%>
+                        <div class="styleEach">
+                            <div class="in_left">
+                                <input name="Username" type="text"  value="<%=data[i].AdTempStyle[0].AdStyle%>" style="width:140px;" maxlength="10" AdStyleId="<%=data[i].AdTempStyle[0].AdStyleId%>" disabled="disabled">
+                                <span class="delStyle" style="display: none;"><img src="../ImagesNew/close_h1.png"></span>
+                            </div>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <div class="clear"></div>
+                        </div>
+                    <%}else{%>
+                        <div class="styleEach">
+                            <div class="in_left" style="margin-bottom: 3px;">
+                                <div style="display: inline-block;"><%=data[i].AdTempStyle[0].AdStyle%></div>
+                                <span class="delStyle" style="display: none;"><img src="../ImagesNew/close_h1.png"></span>
+                            </div>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <div class="clear"></div>
+                        </div>
+                    <%}%>
+
+                <%}else if(data[i].AdTempStyle){%>
+                <%for(var j=0;j<data[i].AdTempStyle.length;j++){%>
+                    <%if(data[i].AdTempStyle[j].IsPublic == 0){%>
+                        <div class="styleEach">
+                            <div class="in_left">
+                                <input name="Username" type="text"  value="<%=data[i].AdTempStyle[j].AdStyle%>" style="width:140px;" maxlength="10" AdStyleId="<%=data[i].AdTempStyle[j].AdStyleId%>" disabled="disabled">
+                                <span class="delStyle"><img src="../ImagesNew/close_h1.png"></span>
+                            </div>
+                            <%if(j == data[i].AdTempStyle.length-1){%>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <%}else{%>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;display: none;">添加</div>
+                            <%}%>
+                            <div class="clear"></div>
+                        </div>
+                    <%}else{%>
+                        <div class="styleEach">
+                            <div class="in_left" style="margin-bottom: 3px;">
+                                <%if(j==data[i].AdTempStyle.length-1){%>
+                                    <div style="display: inline-block;"><%=data[i].AdTempStyle[j].AdStyle%></div>
+                                <%}else{%>
+                                    <div><%=data[i].AdTempStyle[j].AdStyle%></div>
+                                <%}%>
+                            </div>
+                            <%if(j == data[i].AdTempStyle.length-1){%>
+                                <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <%}else{%>
+                                <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;display: none;">添加</div>
+                            <%}%>
+                            <div class="clear"></div>
+                        </div>
+                    <%}%>
+                <%}%>
+                <%}%>
+            </td>
+        </tr>
+        <!-- 轮播数 -->
+        <tr class="CarouselCount">
+            <td class="show"><%=data[i].CarouselCount%></td>
+            <td class="hide">
+                <input type="text" name="Username" value="<%=data[i].CarouselCount%>" class="hide" style="width:130px;text-align: center">
+            </td>
+        </tr>
+        <!-- 售卖平台 -->
+        <tr class="SellingPlatform" SellingPlatform="<%=data[i].SellingPlatform%>">
+                <td class="show">
+                    <%if((1 & data[i].SellingPlatform) >0){%>
+                        <div>Android</div>
+                    <%}%>
+                    <%if((2 & data[i].SellingPlatform) >0){%>
+                        <div>iOS</div>
+                    <%}%>
+                    <%if((4 & data[i].SellingPlatform) >0){%>
+                        <div>Android & iOS</div>
+                    <%}%>
+                    <%if((8 & data[i].SellingPlatform) >0){%>
+                        <div>PAD</div>
+                    <%}%>
+                    <%if((16 & data[i].SellingPlatform) >0){%>
+                        <div>Gphone</div>
+                    <%}%>
+                    <%if((32 & data[i].SellingPlatform) >0){%>
+                        <div>IPhone</div>
+                    <%}%>
+
+                </td>
+                <td class="hide">
+                    <%if((1 & data[i].SellingPlatform) >0){%>
+                      <span><input name="" type="checkbox" value="Android" type="checkbox" checked="checked" plNum=1>Android</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Android" type="checkbox"  plNum=1>Android</span>
+                    <%}%>
+                    <%if((2 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="iOS" type="checkbox" checked="checked" plNum=2>iOS</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="iOS" type="checkbox" plNum=2>iOS</span>
+                    <%}%>
+                    <%if((4 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="Android & iOS" type="checkbox" checked="checked" plNum=4>Android & iOS</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Android & iOS" type="checkbox"  plNum=4>Android & iOS</span>
+                    <%}%>
+                    <br>
+                    <%if((8 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="PAD" type="checkbox" checked="checked" plNum=8>PAD</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="PAD" type="checkbox"  plNum=8>PAD</span>
+                    <%}%>
+                    <%if((16 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="Gphone" type="checkbox" checked="checked" plNum=16>Gphone</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Gphone" type="checkbox"  plNum=16>Gphone</span>
+                    <%}%>
+                    <%if((32 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="Gphone" type="checkbox" checked="checked" plNum=32>IPhone</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Gphone" type="checkbox"  plNum=32>IPhone</span>
+                    <%}%>
+                </td>
+        </tr>
+        <!-- 售卖方式 -->
+        <tr class="SellingMode">
+            <td class="show">
+                <%if((1 & data[i].SellingMode)>0){%>
+                    <div>CPD</div>
+                <%}%>
+                <%if((2 & data[i].SellingMode)>0){%>
+                    <div>CPM</div>
+                <%}%>
+            </td>
+            <td class="hide">
+                <%if(data[i].SellingMode == 1){%>
+                    <span><input name="" type="checkbox" value="CPD" type="checkbox" checked="checked" plNum=1>CPD</span>
+                    <span><input name="" type="checkbox" value="CPM" type="checkbox" plNum=2>CPM</span>
+                <%}else if(data[i].SellingMode == 2){%>
+                <span><input name="" type="checkbox" value="CPD" type="checkbox" plNum=1>CPD</span>
+                    <span><input name="" type="checkbox" value="CPM" type="checkbox" checked="checked" plNum=2>CPM</span>
+                <%}else if(data[i].SellingMode == 3){%>
+                    <span><input name="" type="checkbox" value="CPD" type="checkbox" checked="checked" plNum=1>CPD</span>
+                    <span><input name="" type="checkbox" value="CPM" type="checkbox" checked="checked" plNum=2>CPM</span>
+                <%}%>
+
+            </td>
+        </tr>
+        <!-- 售卖区域 -->
+        <tr>
+            <td class="show">
+                <%for(var m=0;m<data[i].AdSaleAreaGroup.length;m++){%>
+                    <%if(data[i].AdSaleAreaGroup[m].GroupType == -1 || data[i].AdSaleAreaGroup[m].GroupType == 0){%>
+                        <div class="AdSaleAreaGroup" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>"  style="position: relative;">
+                            <div class="GroupName"><%=data[i].AdSaleAreaGroup[m].GroupName%></div>
+                        </div>
+                    <%}else{%>
+                    <div class="AdSaleAreaGroup" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>"  style="position: relative;cursor: pointer;">
+                        <div class="GroupName"><%=data[i].AdSaleAreaGroup[m].GroupName%></div>
+                        <div class="add_city" style="left: -4px;top:16px;display: none" >
+                            <div class="arrow" style="left: 114px;top:-2px;">
+                                <img src="../ImagesNew/arrow_top.png">
+                            </div>
+                            <ul style="display: block;padding: 5px 0">
+                                <%for(var r=0;r<data[i].AdSaleAreaGroup[m].DetailArea.length;r++){%>
+                                    <li style="display: inline-block;width:auto;height:26px;float: none;"><%=data[i].AdSaleAreaGroup[m].DetailArea[r].CityName%></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                    <%}%>
+                <%}%>
+            </td>
+            <td class="hide AdSaleAreaGroup" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup)%>">
+                <%for(var m=0;m<data[i].AdSaleAreaGroup.length;m++){%>
+                    <div class="ad_close1 cityList" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>" originalSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>" style="cursor:auto;margin-right: 5px;">
+                        <%if(data[i].AdSaleAreaGroup[m].GroupType == -1 || data[i].AdSaleAreaGroup[m].GroupType == 0){%>
+                            <span class="city_name"><%=data[i].AdSaleAreaGroup[m].GroupName%></span>
+                        <%}else{%>
+                            <span class="city_name" style="cursor: pointer;"><%=data[i].AdSaleAreaGroup[m].GroupName%></span>
+                            <!-- 如果isPublic=0，说明可以删除 -->
+                            <%if(data[i].AdSaleAreaGroup[m].IsPublic == 0){%>
+                            <span class="delCity" style="cursor:pointer">
+                                <img src="/ImagesNew/close_h1.png">
+                            </span>
+                            <%}%>
+                        <%}%>
+                    </div>
+                <%}%>
+                <div class="ad_close1 cityList" adsaleareagroup="{"GroupId":51,"IsPublic":0,"GroupType":-1,"GroupName":"其他城市","DetailArea":[]}" originalSaleAreaGroup="{"GroupId":51,"IsPublic":0,"GroupType":-1,"GroupName":"其他城市","DetailArea":[]}" style="cursor:auto;margin-right: 5px;display: none;">
+                    <span class="city_name">其他城市</span>
+                </div>
+                <span class="button_add addCity" style="width:70px;cursor: pointer;padding: 2px 0;">添加</span>
+            </td>
+        </tr>
+        <!-- 示例图片 -->
+        <tr style="padding: 0 5px;">
+            <td class="show" style="padding: 0 5px;">
+                <%if(data[i].AdLegendURL){%>
+                    <%for(var j=0;j<data[i].AdLegendURL.split(',').length;j++){%>
+                    <div class="ad_map">
+                        <a href="<%=data[i].AdLegendURL.split(',')[j]%>" target="_blank">
+                            <img src="<%=data[i].AdLegendURL.split(',')[j]%>" width="60" height="60" title="点击查看">
+                        </a>
+                    </div>
+                    <%}%>
+                <%}%>
+            </td>
+            <td class="hide" style="padding: 0 5px;">
+                <%if(data[i].AdLegendURL){%>
+                    <%for(var j=0;j<data[i].AdLegendURL.split(',').length;j++){%>
+                    <div class="ad_map">
+                        <img src="<%=data[i].AdLegendURL.split(',')[j]%>" width="60" height="60" class="disPicture">
+                        <span id="imgDefault<%=''+i+''+j%>" style="position: absolute;left:0;top:0;"></span>
+                        <span style="position: absolute;left: 0;top:0;display: inline-block;width: 60px;height: 60px;z-index: 99999">
+                            <a href="javascript:void(0)" style="position: absolute;left: 18px;top:18px;">
+                                <img src="../ImagesNew/icon64.png" class="delPicture" title="删除" >
+                            </a>
+                        </span>
+                    </div>
+                    <%}%>
+                    <%for(var n=0;n<3-(data[i].AdLegendURL.split(',').length);n++){%>
+                    <div class="ad_map">
+                        <img src="../ImagesNew/icon65.png" width="60" height="60" class="disPicture">
+                        <span id="imgAdd<%=''+i+''+n%>" style="position: absolute;left:0;top:0;"></span>
+                        <span style="position: absolute;left: 0;top:0;display: inline-block;width: 60px;height: 60px;">
+                            <a href="javascript:void(0)" style="position: absolute;left: 18px;top:18px;">
+                                <img src="../ImagesNew/icon63.png" class="addPicture" title="添加" >
+                            </a>
+                        </span>
+                    </div>
+                    <%}%>
+                <%}else{%>
+                    <%for(var n=0;n<3;n++){%>
+                    <div class="ad_map">
+                        <img src="../ImagesNew/icon65.png" width="60" height="60" class="disPicture">
+                        <span id="imgAdd<%=''+i+''+n%>" style="position: absolute;left:0;top:0;"></span>
+                        <span style="position: absolute;left: 0;top:0;display: inline-block;width: 60px;height: 60px;">
+                            <a href="javascript:void(0)" style="position: absolute;left: 18px;top:18px;">
+                                <img src="../ImagesNew/icon63.png" class="addPicture" title="添加" >
+                            </a>
+                        </span>
+                    </div>
+                    <%}%>
+                <%}%>
+            </td>
+        </tr>
+        <!-- 广告展示逻辑 -->
+        <tr class="AdDisplay">
+            <td class="show">
+                <div class="tl">
+                    <%if(data[i].AdDisplay){%>
+                        <%=data[i].AdDisplay%>
+                    <%}%>
+                </div>
+            </td>
+            <td class="hide">
+                <div class="tl">
+                    <%if(data[i].AdDisplay){%>
+                        <div class="textarea" contenteditable="true"><%=data[i].AdDisplay%></div>
+                    <%}else{%>
+                        <div class="textarea" contenteditable="true"></div>
+                    <%}%>
+                </div>
+            </td>
+        </tr>
+        <!-- 素材说明 -->
+        <tr class="AdDescription">
+            <td class="show">
+                <div class="tl">
+                    <%if(data[i].AdDescription){%>
+                        <%=data[i].AdDescription%>
+                    <%}%>
+                </div>
+            </td>
+            <td class="hide">
+                <div class="tl">
+                    <%if(data[i].AdDescription){%>
+                        <div class="textarea" contenteditable="true"><%=data[i].AdDescription%></div>
+                    <%}else{%>
+                        <div class="textarea" contenteditable="true"></div>
+                    <%}%>
+                </div>
+            </td>
+        </tr>
+        <!-- 备注 -->
+        <tr class="Remarks">
+            <td class="show">
+                <div class="tl">
+                <%if(data[i].Remarks){%>
+                    <%=data[i].Remarks%>
+                <%}%>
+                </div>
+            </td>
+            <td class="hide">
+                <div class="tl">
+                    <%if(data[i].Remarks){%>
+                        <div class="textarea" contenteditable="true"><%=data[i].Remarks%></div>
+                    <%}else{%>
+                        <div class="textarea" contenteditable="true"></div>
+                    <%}%>
+                </div>
+            </td>
+        </tr>
+        <!-- 起投天次 -->
+        <tr class="AdDisplayLength">
+            <td class="show">
+                <%if(data[i].AdDisplayLength){%>
+                    <%=data[i].AdDisplayLength%>
+                <%}%>
+            </td>
+            <td class="hide">
+                <%if(data[i].AdDisplayLength){%>
+                    <input name="Username" type="text"  value="<%=data[i].AdDisplayLength%>" style="width:130px;text-align: center">
+                <%}else{%>
+                    <input name="Username" type="text"  value="" style="width:130px;text-align: center">
+                <%}%>
+            </td>
+        </tr>
+        <!-- 刊例原件 -->
+        <tr class="OriginalFile" OriginalFile="<%=data[i].OriginalFile%>">
+            <td>
+                <%=getFileName(data[i].OriginalFile)%>
+                <a href="<%=data[i].OriginalFile%>" target="_blank" title="点击下载">
+                    <img src="../ImagesNew/icon19.png">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="show">
+                <div class="but_query modify" style="width: 45px;padding: 0 10px;">修正</div>
+                <div class="but_query pass" style="width: 45px;margin:0 5px;padding: 0 10px;">通过</div>
+                <div class="but_query reject_btn" style="width: 45px;padding: 0 10px;">驳回</div>
+            </td>
+            <td class="hide">
+                <div class="but_query updata" style="width:70px;">更新入库</div>
+                <div class="but_query cancel" style="width:70px;margin-left:5px;">取消</div>
+            </td>
+        </tr>
+    </table>
+    <%}%>
+</script>
+<script type="text/template" id="Temp">
+    <%if(data){%>
+    <%for(var i=0;i<data.length;i++){%>
+    <table class="adv swiper-slide" width="100/3*100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+        <!-- 媒体名称，取的模板名称 -->
+        <tr class="mediaInfo" BaseMediaID="<%=data[i].BaseMediaID%>" BaseAdID="<%=data[i].BaseAdID%>" RecID="<%=data[i].RecID%>">
+            <th width="33%"><%=data[i].AdTemplateName%></th>
+        </tr>
+        <!-- 广告模板名称不可编辑 -->
+        <tr class="AdTemplateName">
+            <td class="show"><%=data[i].AdTemplateName%></td>
+            <td class="hide"><%=data[i].AdTemplateName%></td>
+        </tr>
+        <!-- 广告形式 -->
+        <tr AdForm="<%=data[i].AdForm%>" class="AdForm">
+            <td AdForm="<%=data[i].AdForm%>"><%=data[i].AdFormName%></td>
+        </tr>
+        <!-- 广告样式 -->
+        <tr class="AdTempStyle">
+            <td class="show">
+                <%for(var j=0;j<data[i].AdTempStyle.length;j++){%>
+                    <div><%=data[i].AdTempStyle[j].AdStyle%></div>
+                <%}%>
+            </td>
+            <td class="hide" style="position:relative;">
+                <%if(data[i].AdTempStyle.length == 1){%>
+                    <%if(data[i].AdTempStyle[0].IsPublic == 0){%>
+                        <div class="styleEach">
+                            <div class="in_left">
+                                <input name="Username" type="text"  value="<%=data[i].AdTempStyle[0].AdStyle%>" AdStyleId="<%=data[i].AdTempStyle[0].AdStyleId%>" style="width:140px;" maxlength="10" disabled="disabled">
+                                <span class="delStyle" style="display: none;"><img src="../ImagesNew/close_h1.png"></span>
+                            </div>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <div class="clear"></div>
+                        </div>
+                    <%}else{%>
+                        <div class="styleEach">
+                            <div class="in_left" style="margin-bottom: 3px;">
+                                <div style="display: inline-block;"><%=data[i].AdTempStyle[0].AdStyle%></div>
+                                <span class="delStyle" style="display: none;"><img src="../ImagesNew/close_h1.png"></span>
+                            </div>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <div class="clear"></div>
+                        </div>
+                    <%}%>
+                <%}else if(data[i].AdTempStyle){%>
+                <%for(var j=0;j<data[i].AdTempStyle.length;j++){%>
+                    <%if(data[i].AdTempStyle[j].IsPublic == 0){%>
+                        <div class="styleEach">
+                            <div class="in_left">
+                                <input name="Username" type="text"  value="<%=data[i].AdTempStyle[j].AdStyle%>" AdStyleId="<%=data[i].AdTempStyle[j].AdStyleId%>" style="width:140px;" maxlength="10" disabled="disabled">
+                                <span class="delStyle"><img src="../ImagesNew/close_h1.png"></span>
+                            </div>
+                            <%if(j == data[i].AdTempStyle.length-1){%>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <%}else{%>
+                            <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;display: none;">添加</div>
+                            <%}%>
+                            <div class="clear"></div>
+                        </div>
+                    <%}else{%>
+                        <div class="styleEach">
+                            <div class="in_left" style="margin-bottom: 3px;">
+                                <%if(j==data[i].AdTempStyle.length-1){%>
+                                    <div style="display: inline-block;"><%=data[i].AdTempStyle[j].AdStyle%></div>
+                                <%}else{%>
+                                    <div><%=data[i].AdTempStyle[j].AdStyle%></div>
+                                <%}%>
+                            </div>
+                            <%if(j == data[i].AdTempStyle.length-1){%>
+                                <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;">添加</div>
+                            <%}else{%>
+                                <div class="button_add addAdvStyle" style="width:50px;margin-left:15px;float: left;padding: 0;cursor:pointer;display: none;">添加</div>
+                            <%}%>
+                            <div class="clear"></div>
+                        </div>
+                    <%}%>
+                <%}%>
+                <%}%>
+            </td>
+        </tr>
+        <!-- 轮播数 -->
+        <tr class="CarouselCount">
+            <td class="show"><%=data[i].CarouselCount%></td>
+            <td class="hide">
+                <input type="text" name="Username" value="<%=data[i].CarouselCount%>" class="hide" style="width:130px;text-align: center">
+            </td>
+        </tr>
+        <!-- 售卖平台 -->
+        <tr class="SellingPlatform" SellingPlatform="<%=data[i].SellingPlatform%>">
+                <td class="show">
+                    <%if((1 & data[i].SellingPlatform) >0){%>
+                        <div>Android</div>
+                    <%}%>
+                    <%if((2 & data[i].SellingPlatform) >0){%>
+                        <div>iOS</div>
+                    <%}%>
+                    <%if((4 & data[i].SellingPlatform) >0){%>
+                        <div>Android & iOS</div>
+                    <%}%>
+                    <%if((8 & data[i].SellingPlatform) >0){%>
+                        <div>PAD</div>
+                    <%}%>
+                    <%if((16 & data[i].SellingPlatform) >0){%>
+                        <div>Gphone</div>
+                    <%}%>
+                    <%if((32 & data[i].SellingPlatform) >0){%>
+                        <div>IPhone</div>
+                    <%}%>
+                </td>
+                <td class="hide">
+                    <%if((1 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="Android" type="checkbox" checked="checked" plNum=1>Android</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Android" type="checkbox"  plNum=1>Android</span>
+                    <%}%>
+                    <%if((2 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="iOS" type="checkbox" checked="checked" plNum=2>iOS</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="iOS" type="checkbox" plNum=2>iOS</span>
+                    <%}%>
+                    <%if((4 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="Android & iOS" type="checkbox" checked="checked" plNum=4>Android & iOS</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Android & iOS" type="checkbox"  plNum=4>Android & iOS</span>
+                    <%}%>
+                    <br>
+                    <%if((8 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="PAD" type="checkbox" checked="checked" plNum=8>PAD</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="PAD" type="checkbox"  plNum=8>PAD</span>
+                    <%}%>
+                    <%if((16 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="Gphone" type="checkbox" checked="checked" plNum=16>Gphone</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Gphone" type="checkbox"  plNum=16>Gphone</span>
+                    <%}%>
+                    <%if((32 & data[i].SellingPlatform) >0){%>
+                       <span><input name="" type="checkbox" value="Gphone" type="checkbox" checked="checked" plNum=32>IPhone</span>
+                    <%}else{%>
+                        <span><input name="" type="checkbox" value="Gphone" type="checkbox"  plNum=32>IPhone</span>
+                    <%}%>
+                </td>
+        </tr>
+        <!-- 售卖方式 -->
+        <tr class="SellingMode">
+            <td class="show">
+                <%if((1 & data[i].SellingMode)>0){%>
+                    <div>CPD</div>
+                <%}%>
+                <%if((2 & data[i].SellingMode)>0){%>
+                    <div>CPM</div>
+                <%}%>
+            </td>
+            <td class="hide">
+                <%if(data[i].SellingMode == 1){%>
+                    <span><input name="" type="checkbox" value="CPD" type="checkbox" checked="checked" plNum=1>CPD</span>
+                    <span><input name="" type="checkbox" value="CPM" type="checkbox" plNum=2>CPM</span>
+                <%}else if(data[i].SellingMode == 2){%>
+                <span><input name="" type="checkbox" value="CPD" type="checkbox" plNum=1>CPD</span>
+                    <span><input name="" type="checkbox" value="CPM" type="checkbox" checked="checked" plNum=2>CPM</span>
+                <%}else if(data[i].SellingMode == 3){%>
+                    <span><input name="" type="checkbox" value="CPD" type="checkbox" checked="checked" plNum=1>CPD</span>
+                    <span><input name="" type="checkbox" value="CPM" type="checkbox" checked="checked" plNum=2>CPM</span>
+                <%}%>
+
+            </td>
+        </tr>
+        <!-- 售卖区域 -->
+        <tr>
+            <td class="show">
+                <%for(var m=0;m<data[i].AdSaleAreaGroup.length;m++){%>
+                    <%if(data[i].AdSaleAreaGroup[m].GroupType == -1 || data[i].AdSaleAreaGroup[m].GroupType == 0){%>
+                        <div class="AdSaleAreaGroup" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>" style="position: relative;">
+                            <div class="GroupName"><%=data[i].AdSaleAreaGroup[m].GroupName%></div>
+                        </div>
+                    <%}else{%>
+                        <div class="AdSaleAreaGroup" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>" style="position: relative;cursor: pointer;">
+                            <div class="GroupName"><%=data[i].AdSaleAreaGroup[m].GroupName%></div>
+                            <div class="add_city" style="left: -4px;top:16px;display: none" >
+                                <div class="arrow" style="left: 114px;top:-2px;">
+                                    <img src="../ImagesNew/arrow_top.png">
+                                </div>
+                                <ul style="display: block;padding: 5px 0">
+                                    <%for(var r=0;r<data[i].AdSaleAreaGroup[m].DetailArea.length;r++){%>
+                                        <li style="display: inline-block;width:auto;height:26px;float: none;"><%=data[i].AdSaleAreaGroup[m].DetailArea[r].CityName%></li>
+                                    <%}%>
+                                </ul>
+                            </div>
+                        </div>
+                    <%}%>
+                <%}%>
+            </td>
+            <td class="hide AdSaleAreaGroup" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup)%>" >
+                <%for(var m=0;m<data[i].AdSaleAreaGroup.length;m++){%>
+                     <div class="ad_close1 cityList" AdSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>"  originalSaleAreaGroup="<%=JSON.stringify(data[i].AdSaleAreaGroup[m])%>"  style="cursor:auto;margin-right: 5px;">
+                        <%if(data[i].AdSaleAreaGroup[m].GroupType == -1 || data[i].AdSaleAreaGroup[m].GroupType == 0){%>
+                            <span class="city_name"><%=data[i].AdSaleAreaGroup[m].GroupName%></span>
+                        <%}else{%>
+                            <span class="city_name" style="cursor: pointer;"><%=data[i].AdSaleAreaGroup[m].GroupName%></span>
+                            <%if(data[i].AdSaleAreaGroup[m].IsPublic == 0){%>
+                            <span class="delCity" style="cursor:pointer">
+                                <img src="/ImagesNew/close_h1.png">
+                            </span>
+                            <%}%>
+                        <%}%>
+                    </div>
+                <%}%>
+                <div class="ad_close1 cityList" adsaleareagroup="{"GroupId":51,"IsPublic":0,"GroupType":-1,"GroupName":"其他城市","DetailArea":[]}" originalSaleAreaGroup="{"GroupId":51,"IsPublic":0,"GroupType":-1,"GroupName":"其他城市","DetailArea":[]}" style="cursor:auto;margin-right: 5px;display: none;">
+                    <span class="city_name">其他城市</span>
+                </div>
+                <span class="button_add addCity" style="width:70px;cursor: pointer;padding: 2px 0;">添加</span>
+            </td>
+        </tr>
+        <!-- 示例图片 -->
+        <tr>
+            <td class="show" style="padding: 0 5px;">
+                <%if(data[i].AdLegendURL){%>
+                    <%for(var j=0;j<data[i].AdLegendURL.split(',').length;j++){%>
+                    <div class="ad_map">
+                        <a href="<%=data[i].AdLegendURL.split(',')[j]%>" target="_blank">
+                            <img src="<%=data[i].AdLegendURL.split(',')[j]%>" width="60" height="60" title="点击查看">
+                        </a>
+                    </div>
+                    <%}%>
+                <%}%>
+            </td>
+            <td class="hide" style="padding: 0 5px;">
+                <%if(data[i].AdLegendURL)%>
+                    <%for(var j=0;j<data[i].AdLegendURL.split(',').length;j++){%>
+                    <div class="ad_map">
+                        <img src="<%=data[i].AdLegendURL.split(',')[j]%>" width="60" height="60" class="disPicture">
+                        <span id="imgDefault<%=''+i+''+j+''+count%>" style="position: absolute;left:0;top:0;"></span>
+                        <span style="position: absolute;left: 0;top:0;display: inline-block;width: 60px;height: 60px;z-index: 99999">
+                            <a href="javascript:void(0)" style="position: absolute;left: 18px;top:18px;">
+                                <img src="../ImagesNew/icon64.png" class="delPicture" title="删除" >
+                            </a>
+                        </span>
+                    </div>
+                    <%}%>
+                    <%for(var n=0;n<3-(data[i].AdLegendURL.split(',').length);n++){%>
+                    <div class="ad_map">
+                        <img src="../ImagesNew/icon65.png" width="60" height="60" class="disPicture">
+                        <span id="imgAdd<%=''+i+''+n+''+count%>" style="position: absolute;left:0;top:0;"></span>
+                        <span style="position: absolute;left: 0;top:0;display: inline-block;width: 60px;height: 60px;">
+                            <a href="javascript:void(0)" style="position: absolute;left: 18px;top:18px;">
+                                <img src="../ImagesNew/icon63.png" class="addPicture" title="添加" >
+                            </a>
+                        </span>
+                    </div>
+                    <%}%>
+                <%}else{%>
+                    <%for(var n=0;n<3;n++){%>
+                    <div class="ad_map">
+                        <img src="../ImagesNew/icon65.png" width="60" height="60" class="disPicture">
+                        <span id="imgAdd<%=''+i+''+n+''+count%>" style="position: absolute;left:0;top:0;"></span>
+                        <span style="position: absolute;left: 0;top:0;display: inline-block;width: 60px;height: 60px;">
+                            <a href="javascript:void(0)" style="position: absolute;left: 18px;top:18px;">
+                                <img src="../ImagesNew/icon63.png" class="addPicture" title="添加" >
+                            </a>
+                        </span>
+                    </div>
+                    <%}%>
+                <%}%>
+            </td>
+        </tr>
+        <!-- 广告展示逻辑 -->
+        <tr class="AdDisplay">
+            <td class="show">
+                <div class="tl">
+                    <%if(data[i].AdDisplay){%>
+                        <%=data[i].AdDisplay%>
+                    <%}%>
+                </div>
+            </td>
+            <td class="hide">
+                <div class="tl">
+                    <%if(data[i].AdDisplay){%>
+                        <div class="textarea" contenteditable="true"><%=data[i].AdDisplay%></div>
+                    <%}else{%>
+                        <div class="textarea" contenteditable="true"></div>
+                    <%}%>
+                </div>
+            </td>
+        </tr>
+        <!-- 素材说明 -->
+        <tr class="AdDescription">
+            <td class="show">
+                <div class="tl">
+                    <%if(data[i].AdDescription){%>
+                        <%=data[i].AdDescription%>
+                    <%}%>
+                </div>
+            </td>
+            <td class="hide">
+                <div class="tl">
+                    <%if(data[i].AdDescription){%>
+                        <div class="textarea" contenteditable="true"><%=data[i].AdDescription%></div>
+                    <%}else{%>
+                        <div class="textarea" contenteditable="true"></div>
+                    <%}%>
+                </div>
+            </td>
+        </tr>
+        <!-- 备注 -->
+        <tr class="Remarks">
+            <td class="show">
+                <div class="tl">
+                <%if(data[i].Remarks){%>
+                    <%=data[i].Remarks%>
+                <%}%>
+                </div>
+            </td>
+            <td class="hide">
+                <div class="tl">
+                    <%if(data[i].Remarks){%>
+                        <div class="textarea" contenteditable="true"><%=data[i].Remarks%></div>
+                    <%}else{%>
+                        <div class="textarea" contenteditable="true"></div>
+                    <%}%>
+                </div>
+            </td>
+        </tr>
+        <!-- 起投天次 -->
+        <tr class="AdDisplayLength">
+            <td class="show">
+                <%if(data[i].AdDisplayLength){%>
+                    <%=data[i].AdDisplayLength%>
+                <%}%>
+            </td>
+            <td class="hide">
+                <%if(data[i].AdDisplayLength){%>
+                    <input name="Username" type="text"  value="<%=data[i].AdDisplayLength%>" style="width:130px;text-align: center">
+                <%}else{%>
+                    <input name="Username" type="text"  value="" style="width:130px;text-align: center">
+                <%}%>
+            </td>
+        </tr>
+        <!-- 刊例原件 -->
+        <tr class="OriginalFile" OriginalFile="<%=data[i].OriginalFile%>">
+            <td>
+                <%=getFileName(data[i].OriginalFile)%>
+                <a href="<%=data[i].OriginalFile%>" target="_blank" title="点击下载">
+                    <img src="../ImagesNew/icon19.png">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="show">
+                <div class="but_query modify" style="width: 45px;padding: 0 10px;">修正</div>
+                <div class="but_query pass" style="width: 45px;margin:0 5px;padding: 0 10px;">通过</div>
+                <div class="but_query reject_btn" style="width: 45px;padding: 0 10px;">驳回</div>
+            </td>
+            <td class="hide">
+                <div class="but_query updata" style="width:70px;">更新入库</div>
+                <div class="but_query cancel" style="width:70px;margin-left:5px;">取消</div>
+            </td>
+        </tr>
+    </table>
+    <%}%>
+    <%}%>
+</script>
+</html>

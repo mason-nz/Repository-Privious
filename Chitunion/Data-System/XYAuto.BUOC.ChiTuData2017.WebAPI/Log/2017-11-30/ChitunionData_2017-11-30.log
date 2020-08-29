@@ -1,0 +1,1151 @@
+2017-11-30 14:17:19,318 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://data1.chitunion.com/DispenseManager/DataProfiles.html
+2017-11-30 14:17:27,948 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.6550973922651648,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:27,964 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:27,966 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.8727880765230086,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:28,095 [9] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:17:28,204 [9] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:17:28,977 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.8727880765230086
+执行的时间:880.3391ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:17:36,018 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.9085059531569022,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:36,028 [16] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.2546402594712316,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:36,066 [8] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:36,093 [16] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:17:36,109 [16] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:17:36,715 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.2546402594712316
+执行的时间:621.652ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:17:41,345 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.6784131407362733,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:41,355 [16] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.7430088254157768,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:41,378 [16] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:17:41,438 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.7430088254157768
+执行的时间:51.1354ms
+请求的参数:{"CheckLogin":true,"request":{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"ArticleId":661619,"Title":"如果你是一个女人（句句感人）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 08:00:00","ArticleSpiderTime":"2017-11-17 15:45:47","PrimaryTime":"2017-11-17 17:56:37","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.00,"ConditionName":"可用","Reason":null},{"ArticleId":661037,"Title":"她与幸福永远隔着一座坟——那个男人的爱人的坟！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:40","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661120,"Title":"学做妈妈味道的好吃菠菜卷，好吃到爆哦","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:03","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661045,"Title":"砧板比马桶的细菌还多？！学会这几招，砧板干净又安全","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:25","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":660972,"Title":"风水?▏马桶的朝向有哪些讲究","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 19:30:07","ArticleSpiderTime":"2017-11-17 15:05:32","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661023,"Title":"辣条！辣条！这款国民零食，自己在家就能做！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:31","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661128,"Title":"被惊呆了吗！衣柜这样设计可以收纳27条被子！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:02","PrimaryTime":"2017-11-17 17:47:52","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661111,"Title":"169m2北欧清新，超喜欢她家，满满的文艺范！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:05","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660836,"Title":"把暖黄色搬进117㎡小窝，才是与秋天最美的相遇！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:25","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661016,"Title":"90㎡浓浓的美式休闲风，小资就这么简单！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:46","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660969,"Title":"都喊买不起房，这对90后夫妻回到500岁古村，酿最美的酒，过最诗意的人生","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 00:01:01","ArticleSpiderTime":"2017-11-17 15:26:54","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.40,"ConditionName":"可用","Reason":null},{"ArticleId":660644,"Title":"令人眼花缭乱的创意设计，也是醉了！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:14","ArticleSpiderTime":"2017-11-17 15:25:36","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661523,"Title":"心量（写的真好）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:45","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661538,"Title":"少说话是教养，会说话是修养。","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:34","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660646,"Title":"萌爆了！这些家居创意会不会让你爱到尖叫？","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:13","ArticleSpiderTime":"2017-11-17 15:25:33","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661066,"Title":"这样的设计才是顶级","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:14:52","ArticleSpiderTime":"2017-11-17 15:26:18","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.24,"ConditionName":"可用","Reason":null},{"ArticleId":661125,"Title":"85后小夫妻一见钟情，花4万8改造破农宅，隐居山水男耕女织，神仙生活羡煞旁人","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 23:02:44","ArticleSpiderTime":"2017-11-17 15:06:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.60,"ConditionName":"可用","Reason":null},{"ArticleId":660791,"Title":"德国人的厨房，太牛了!","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:00","ArticleSpiderTime":"2017-11-17 15:28:28","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660821,"Title":"89㎡清新北欧风，光看着就好舒服啊！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:30","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661513,"Title":"我70㎡小家，装现代混搭风，幸福生活的开始~","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 09:00:01","ArticleSpiderTime":"2017-11-17 15:16:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null}],"TotalCount":13892,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:17:44,103 [16] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.8298398182520796,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:44,111 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.7558824815847943,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:17:44,146 [9] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:17:44,162 [9] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:17:44,732 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.7558824815847943
+执行的时间:584.5551ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:18:00,500 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.9668075373910359,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:18:00,549 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:18:00,622 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.8867118957188447,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:18:00,648 [9] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:18:00,664 [9] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:18:01,271 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.8867118957188447
+执行的时间:623.6589ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:18:49,931 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.528369431307038,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:18:49,958 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.8755401296696759,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:18:49,974 [9] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:18:50,013 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.8755401296696759
+执行的时间:38.1414ms
+请求的参数:{"CheckLogin":true,"request":{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"ArticleId":661619,"Title":"如果你是一个女人（句句感人）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 08:00:00","ArticleSpiderTime":"2017-11-17 15:45:47","PrimaryTime":"2017-11-17 17:56:37","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.00,"ConditionName":"可用","Reason":null},{"ArticleId":661037,"Title":"她与幸福永远隔着一座坟——那个男人的爱人的坟！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:40","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661120,"Title":"学做妈妈味道的好吃菠菜卷，好吃到爆哦","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:03","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661045,"Title":"砧板比马桶的细菌还多？！学会这几招，砧板干净又安全","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:25","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":660972,"Title":"风水?▏马桶的朝向有哪些讲究","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 19:30:07","ArticleSpiderTime":"2017-11-17 15:05:32","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661023,"Title":"辣条！辣条！这款国民零食，自己在家就能做！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:31","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661128,"Title":"被惊呆了吗！衣柜这样设计可以收纳27条被子！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:02","PrimaryTime":"2017-11-17 17:47:52","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661111,"Title":"169m2北欧清新，超喜欢她家，满满的文艺范！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:05","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660836,"Title":"把暖黄色搬进117㎡小窝，才是与秋天最美的相遇！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:25","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661016,"Title":"90㎡浓浓的美式休闲风，小资就这么简单！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:46","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660969,"Title":"都喊买不起房，这对90后夫妻回到500岁古村，酿最美的酒，过最诗意的人生","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 00:01:01","ArticleSpiderTime":"2017-11-17 15:26:54","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.40,"ConditionName":"可用","Reason":null},{"ArticleId":660644,"Title":"令人眼花缭乱的创意设计，也是醉了！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:14","ArticleSpiderTime":"2017-11-17 15:25:36","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661523,"Title":"心量（写的真好）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:45","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661538,"Title":"少说话是教养，会说话是修养。","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:34","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660646,"Title":"萌爆了！这些家居创意会不会让你爱到尖叫？","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:13","ArticleSpiderTime":"2017-11-17 15:25:33","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661066,"Title":"这样的设计才是顶级","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:14:52","ArticleSpiderTime":"2017-11-17 15:26:18","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.24,"ConditionName":"可用","Reason":null},{"ArticleId":661125,"Title":"85后小夫妻一见钟情，花4万8改造破农宅，隐居山水男耕女织，神仙生活羡煞旁人","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 23:02:44","ArticleSpiderTime":"2017-11-17 15:06:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.60,"ConditionName":"可用","Reason":null},{"ArticleId":660791,"Title":"德国人的厨房，太牛了!","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:00","ArticleSpiderTime":"2017-11-17 15:28:28","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660821,"Title":"89㎡清新北欧风，光看着就好舒服啊！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:30","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661513,"Title":"我70㎡小家，装现代混搭风，幸福生活的开始~","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 09:00:01","ArticleSpiderTime":"2017-11-17 15:16:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null}],"TotalCount":13892,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:18:52,464 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.048131647086087304,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:18:52,495 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.5021531838356011,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:18:52,508 [9] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:18:52,520 [9] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:18:53,067 [16] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.5021531838356011
+执行的时间:559.4886ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:19:05,094 [16] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.7523723390038786,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:19:05,114 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:19:05,198 [16] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.809060132702464,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:19:05,220 [16] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:19:05,238 [16] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:19:05,880 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.809060132702464
+执行的时间:660.7649ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:19:14,233 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.7651195759301701,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:19:14,242 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.16411405292844372,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:19:14,269 [18] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:19:14,270 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:19:14,283 [18] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:19:15,849 [18] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.16411405292844372
+执行的时间:1580.2016ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:20:04,219 [20] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.4935692757181679,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:04,230 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.07579216884783124,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:04,281 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:04,283 [25] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:20:04,311 [25] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:20:04,975 [16] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.07579216884783124
+执行的时间:691.8715ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:20:06,260 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.7544784145292315,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:06,263 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.3285220010786424,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:06,286 [22] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:20:06,326 [20] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.3285220010786424
+执行的时间:40.1063ms
+请求的参数:{"CheckLogin":true,"request":{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"ArticleId":661619,"Title":"如果你是一个女人（句句感人）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 08:00:00","ArticleSpiderTime":"2017-11-17 15:45:47","PrimaryTime":"2017-11-17 17:56:37","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.00,"ConditionName":"可用","Reason":null},{"ArticleId":661037,"Title":"她与幸福永远隔着一座坟——那个男人的爱人的坟！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:40","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661120,"Title":"学做妈妈味道的好吃菠菜卷，好吃到爆哦","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:03","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661045,"Title":"砧板比马桶的细菌还多？！学会这几招，砧板干净又安全","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:25","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":660972,"Title":"风水?▏马桶的朝向有哪些讲究","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 19:30:07","ArticleSpiderTime":"2017-11-17 15:05:32","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661023,"Title":"辣条！辣条！这款国民零食，自己在家就能做！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:31","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661128,"Title":"被惊呆了吗！衣柜这样设计可以收纳27条被子！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:02","PrimaryTime":"2017-11-17 17:47:52","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661111,"Title":"169m2北欧清新，超喜欢她家，满满的文艺范！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:05","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660836,"Title":"把暖黄色搬进117㎡小窝，才是与秋天最美的相遇！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:25","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661016,"Title":"90㎡浓浓的美式休闲风，小资就这么简单！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:46","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660969,"Title":"都喊买不起房，这对90后夫妻回到500岁古村，酿最美的酒，过最诗意的人生","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 00:01:01","ArticleSpiderTime":"2017-11-17 15:26:54","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.40,"ConditionName":"可用","Reason":null},{"ArticleId":660644,"Title":"令人眼花缭乱的创意设计，也是醉了！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:14","ArticleSpiderTime":"2017-11-17 15:25:36","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661523,"Title":"心量（写的真好）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:45","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661538,"Title":"少说话是教养，会说话是修养。","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:34","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660646,"Title":"萌爆了！这些家居创意会不会让你爱到尖叫？","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:13","ArticleSpiderTime":"2017-11-17 15:25:33","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661066,"Title":"这样的设计才是顶级","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:14:52","ArticleSpiderTime":"2017-11-17 15:26:18","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.24,"ConditionName":"可用","Reason":null},{"ArticleId":661125,"Title":"85后小夫妻一见钟情，花4万8改造破农宅，隐居山水男耕女织，神仙生活羡煞旁人","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 23:02:44","ArticleSpiderTime":"2017-11-17 15:06:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.60,"ConditionName":"可用","Reason":null},{"ArticleId":660791,"Title":"德国人的厨房，太牛了!","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:00","ArticleSpiderTime":"2017-11-17 15:28:28","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660821,"Title":"89㎡清新北欧风，光看着就好舒服啊！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:30","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661513,"Title":"我70㎡小家，装现代混搭风，幸福生活的开始~","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 09:00:01","ArticleSpiderTime":"2017-11-17 15:16:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null}],"TotalCount":13892,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:20:07,865 [22] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.3648529196611443,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:07,870 [16] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.9406314558276468,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:07,889 [16] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:20:07,904 [16] ERROR BaseLog [(null)] - 
+异常信息:.Net SqlClient Data Provider
+System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+无法绑定由多个部分组成的标识符 "SPS.Date"。
+select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+WITH tmp AS (select T.* , ROW_NUMBER() OVER(ORDER BY  Date DESC ) as RowNumber FROM  ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+) 
+					SELECT * FROM tmp WHERE RowNumber BETWEEN 1 AND 20 ORDER BY RowNumber ASC
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.Utils.Data.SqlHelper.ExecuteDataset(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   在 XYAuto.BUOC.ChiTuData2017.Dal.QueryPage.PublicPageQuery.QueryList[T](QueryPageBase`1 query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.Dal\QueryPage\PublicPageQuery.cs:行号 46
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.QueryOperate(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 76
+   在 XYAuto.BUOC.ChiTuData2017.BLL.QueryPage.PublishInfoQueryClient`2.GetQueryList(T query) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔-数据系统\XYAuto.BUOC.ChiTuData2017.BLL\QueryPage\PublishInfoQueryClient.cs:行号 40
+ClientConnectionId:d824b470-1efc-4a1d-bbdd-42664cee0b1c
+Error Number:4104,State:1,Class:16
+Sql语句：select T.* YanFaFROM ( 
+
+                            SELECT  SPS1.ChannelID ,
+                                    SPS1.ChannelName ,
+                                    SPS1.Date ,
+                                    ( SELECT    STUFF(( SELECT  '|'
+                                                                + CAST(SPS2.ConditionId AS VARCHAR(10))+ ',1,'+ ISNULL(CAST(SPS2.ArticleCount AS VARCHAR(10)),0)
+                                                                + '#'
+									                            + CAST(SPS2.ConditionId AS VARCHAR(10)) + ',2,' + ISNULL(CAST(SPS2.AccountCount AS VARCHAR(10)),0)
+                                                        FROM    dbo.Stat_PrimaryStatistics AS SPS2 WITH ( NOLOCK )
+                                                        WHERE   SPS2.ChannelID > 0
+                                                                AND SPS2.ConditionId > 0
+                                                                AND SPS2.Date BETWEEN '2017-11-13' AND '2017-11-19'
+                                                                AND SPS2.ChannelID = SPS1.ChannelID
+                                                                
+                                                      FOR
+                                                        XML PATH('')
+                                                      ), 1, 1, '')
+                                    ) AS StatInfo
+                            FROM    dbo.Stat_PrimaryStatistics AS SPS1 WITH ( NOLOCK )
+                            WHERE   SPS1.ChannelID > 0
+		                            AND SPS1.ConditionId > 0
+                                    AND SPS.Date BETWEEN '2017-11-13' AND '2017-11-19'
+
+                        GROUP BY SPS1.ChannelID ,
+                                          SPS1.ChannelName,SPS1.Date ) T
+
+2017-11-30 14:20:08,746 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDailyList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.9406314558276468
+执行的时间:857.2794ms
+请求的参数:{"CheckLogin":true,"request":{"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[],"TotalCount":0,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:20:08,565 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/DictInfo/GetDictInfoByTypeId?typeId=1&r=0.5495937663420747,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:08,761 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.6793794361206726,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:20:08,785 [9] INFO  BaseLog [(null)] - 
+ 查询条件信息:{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}
+2017-11-30 14:20:08,826 [24] INFO  BaseLog [(null)] - 
+请求的url地址：http://data1.chitunion.com/api/TrendAnalysis/GetDetailsList?TabType=cs&PageSize=20&PageIndex=1&StartDate=2017-11-13&EndDate=2017-11-19&ArticleType=&ChannelId=&SceneId=&AAScoreType=&r=0.6793794361206726
+执行的时间:41.1123ms
+请求的参数:{"CheckLogin":true,"request":{"SceneId":-2,"AAScoreType":-2,"AAScoreTypeAccount":-2,"MatchStatus":-2,"ConditionId":-2,"TabType":"cs","StartDate":"2017-11-13","EndDate":"2017-11-19","ArticleType":-2,"ChannelId":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"ArticleId":661619,"Title":"如果你是一个女人（句句感人）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 08:00:00","ArticleSpiderTime":"2017-11-17 15:45:47","PrimaryTime":"2017-11-17 17:56:37","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.00,"ConditionName":"可用","Reason":null},{"ArticleId":661037,"Title":"她与幸福永远隔着一座坟——那个男人的爱人的坟！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:40","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661120,"Title":"学做妈妈味道的好吃菠菜卷，好吃到爆哦","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:03","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661045,"Title":"砧板比马桶的细菌还多？！学会这几招，砧板干净又安全","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:25","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":660972,"Title":"风水?▏马桶的朝向有哪些讲究","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 19:30:07","ArticleSpiderTime":"2017-11-17 15:05:32","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"作废","Reason":null},{"ArticleId":661023,"Title":"辣条！辣条！这款国民零食，自己在家就能做！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 12:27:41","ArticleSpiderTime":"2017-11-17 15:26:31","PrimaryTime":"2017-11-17 17:50:19","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.76,"ConditionName":"作废","Reason":null},{"ArticleId":661128,"Title":"被惊呆了吗！衣柜这样设计可以收纳27条被子！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:02","PrimaryTime":"2017-11-17 17:47:52","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661111,"Title":"169m2北欧清新，超喜欢她家，满满的文艺范！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:59:53","ArticleSpiderTime":"2017-11-17 15:26:05","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660836,"Title":"把暖黄色搬进117㎡小窝，才是与秋天最美的相遇！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:25","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661016,"Title":"90㎡浓浓的美式休闲风，小资就这么简单！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:01","ArticleSpiderTime":"2017-11-17 15:28:46","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660969,"Title":"都喊买不起房，这对90后夫妻回到500岁古村，酿最美的酒，过最诗意的人生","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 00:01:01","ArticleSpiderTime":"2017-11-17 15:26:54","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.40,"ConditionName":"可用","Reason":null},{"ArticleId":660644,"Title":"令人眼花缭乱的创意设计，也是醉了！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:14","ArticleSpiderTime":"2017-11-17 15:25:36","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661523,"Title":"心量（写的真好）","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:45","PrimaryTime":"2017-11-17 17:47:00","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":661538,"Title":"少说话是教养，会说话是修养。","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 18:20:01","ArticleSpiderTime":"2017-11-17 15:16:34","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null},{"ArticleId":660646,"Title":"萌爆了！这些家居创意会不会让你爱到尖叫？","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 16:24:13","ArticleSpiderTime":"2017-11-17 15:25:33","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.04,"ConditionName":"可用","Reason":null},{"ArticleId":661066,"Title":"这样的设计才是顶级","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 22:14:52","ArticleSpiderTime":"2017-11-17 15:26:18","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.24,"ConditionName":"可用","Reason":null},{"ArticleId":661125,"Title":"85后小夫妻一见钟情，花4万8改造破农宅，隐居山水男耕女织，神仙生活羡煞旁人","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 23:02:44","ArticleSpiderTime":"2017-11-17 15:06:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":7.60,"ConditionName":"可用","Reason":null},{"ArticleId":660791,"Title":"德国人的厨房，太牛了!","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 21:00:00","ArticleSpiderTime":"2017-11-17 15:28:28","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":5.92,"ConditionName":"可用","Reason":null},{"ArticleId":660821,"Title":"89㎡清新北欧风，光看着就好舒服啊！","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 20:00:01","ArticleSpiderTime":"2017-11-17 15:23:30","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.16,"ConditionName":"可用","Reason":null},{"ArticleId":661513,"Title":"我70㎡小家，装现代混搭风，幸福生活的开始~","IsOriginal":false,"ChannelName":"微信公众号","ArticlePublishTime":"2017-11-16 09:00:01","ArticleSpiderTime":"2017-11-17 15:16:50","PrimaryTime":"2017-11-17 17:46:29","SceneName":"购房","AccountName":null,"AccountScore":0.0,"ArticleScore":6.28,"ConditionName":"可用","Reason":null}],"TotalCount":13892,"Extend":null},"IsOverdue":null}
+
+2017-11-30 14:23:56,136 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:24:03,333 [18] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:24:38,838 [29] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:25:00,963 [29] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:26:17,702 [43] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:34:38,396 [50] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:41:58,147 [65] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:53:10,941 [75] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:53:21,506 [81] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:55:26,601 [88] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:55:32,838 [68] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:55:38,594 [83] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:55:53,890 [68] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:56:27,434 [86] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3
+2017-11-30 14:56:28,894 [89] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://client.data1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://client.data1.chitunion.com/DispenseManager/DataListDetail.html?Status=3

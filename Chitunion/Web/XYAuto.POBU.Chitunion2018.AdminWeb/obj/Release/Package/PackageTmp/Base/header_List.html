@@ -1,0 +1,213 @@
+<div id="top">
+    <div class="box">
+        <div class="left">
+            <a href="/"><span style="color: #fff;"><img src="/images/ranking_3.png"> 首页</span></a>
+            <!--<span class="xian">|</span>-->
+            <!--<a href="/ListManager/List.html" target="_blank"><span style="color: #fff;"><img src="/images/ranking_2.png"> 玛丽榜单</span></a>-->
+        </div>
+
+        <ul class="right pr" id="hasLogin">
+            <li class="agentTel"><img src="/imagesNew/agent.png" style="margin-top: -4px;">：010-53942817</li>
+            <li id="userName">
+                <div class="posbox">
+                    Hi， <span><a href="" style="text-decoration:none;" class="yellow"></a></span>&nbsp;
+                    <img src="/images/arrow_03.png">
+                </div>
+                <div class="posiabox" id="seledbox">
+                    <div>
+                        <a  style="display:none;" menuname="mtgl" href="http://www.chitunion.com/mediamanager/mediawechatlist_new.html">媒体管理</a>
+                        <a  style="display:none;" menuname="gggl" href="http://www.chitunion.com/publishmanager/pricelist-wechatnew.html">广告管理</a>
+                        <a  style="display:none;" menuname="ggsh" href="http://www.chitunion.com/publishmanager/newsreview.html">广告审核</a>
+                        <a  style="display:none;" menuname="xmgl" href="http://www.chitunion.com/ordermanager/listofproject.html">项目管理</a>
+                        <a  style="display:none;" menuname="ddgl" href="http://www.chitunion.com/ordermanager/listoforder.html">订单管理</a>
+                        <a  style="display:none;" menuname="wdsc" href="http://www.chitunion.com/accountmanagement/private_favorites.html">我的收藏</a>
+                        <a  style="display:none;" menuname="wdhmd" href="http://www.chitunion.com/accountmanagement/private_hits.html">我的黑名单</a>
+                    </div>
+                </div>
+            </li>
+            <li class="message"><a href="http://www.chitunion.com/PersonalMessage/personalMessage.html"><img src="/images/icon47.png"><em style="display:none;"></em></a></li>
+            <li><a href="http://www.chitunion.com/exit.aspx"><span style="color: #fff">退出</span></a></li>
+            <li id="noLogin" style="display: none"><a href="http://www.chitunion.com/help.html"><span style="color: #fff">帮助中心</span></a></li>
+        </ul>
+        <!--<ul class="right" id="noLogin" style="display: none">
+            <li><a href="/help.html" target="_blank">帮助中心</a></li>
+        </ul>-->
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div class="topBar">
+    <div class="topBox" style="width: 1190px;margin: auto">
+        <div class="rankingLogo"><a href="/"><img src="/images/ranking_logo_2.png"></a></div>
+        <div class="ranking_search">
+            <div class="left" style="width: 319px;"><input name="name" type="text" placeholder="请输入微信公众账号或昵称" autocomplete="off" style="width:320px;" id="List_name"></div>
+            <div class="right" id="List_button">搜索公众账号</div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<script>
+    //头部页面加载后自调
+    $(function () {
+        //购物车相关url
+        var cartSetpUrl = {
+            "Setp1": ["/OrderManager/shopcartForMedia01.html"],
+            "Setp2": ["/OrderManager/shopcartForMedia02.html"],
+            "Setp3": ["/OrderManager/shopcartForWeixin_new03.html"]
+        };
+        if (CTLogin && CTLogin.IsLogin == true) {
+            $('div.logon_sy_r').remove();
+        }
+        var userName = CTLogin.UserName; //用户姓名
+        var userType = CTLogin.Category; //用户类型：媒体主——29002，AE——29001，运营。媒体主没有header的列表
+        //SYS001RL00001 超级管理员
+        //SYS001RL00002 广告主
+        //SYS001RL00003 媒体主
+        //SYS001RL00004 运营
+        //SYS001RL00005 AE
+        //SYS001RL00006 策划
+        var RoleIDs = CTLogin.RoleIDs;
+        if (userName) {//如果用户已登录并获取到，则显示用户姓名
+            if (userType == 29002 && RoleIDs == 'SYS001RL00003') {//判断是否为媒体主
+                $('#topBoxlist').hide();
+                $('#topLogo').attr('href', 'http://j.chitunion.com/userInfo/toUserMediaList')
+            } else {
+                $('#topBoxlist').show();
+                var href = window.location.href.split('/') ? window.location.href.split('/') : null;
+                if (href && href.length > 0) {
+                    var nowHref = href ? href[href.length - 1] : null;
+                    var media = nowHref ? nowHref.split('.')[0].split('_')[0] + '_' : null; //媒体类型 14001-微信 14002-APP 14003-微博 14004-视频 14005-直播
+                    if (media) {//根据页面点击的媒体类型，显示被选中状态，如：wb_或wx_或app_
+                        $('#topBoxlist a').removeClass('active');
+                        $('#topBoxlist a[data-media^=' + media + ']').addClass('active');
+                        var userID = GetQueryString('userID') != 'undefined' && GetQueryString('userID') != null ? GetQueryString('userID') : null;
+
+                        if (userID) {
+                            userID = window.location.href.split('=')[1];
+
+                            $('#topBoxlist a').each(function (i) {
+                                var href = $(this).attr('href');
+                                $(this).attr('href', href + '?userID=' + userID);
+                            });
+                        }
+                    } else {
+                        $('#topBoxlist a').removeClass('active');
+                    }
+                }
+            }
+            $('#userName > div.posbox a').html(userName);
+            $('#hasLogin').show();
+            $('#noLogin').show();
+            //渲染消息呈现逻辑
+            if (CTLogin.HasMsgCount && CTLogin.HasMsgCount > 0) {
+                $('#hasLogin > li.message > a > em').show();
+            }
+            if (RoleIDs) {
+                $('#userName > div.posbox a').click(function (e) {
+                    e.preventDefault();
+                    if (RoleIDs == 'SYS001RL00002' || RoleIDs == 'SYS001RL00004' || RoleIDs == 'SYS001RL00005') {//广告主、AE、运营——项目列表
+                        window.location.href = 'http://www.chitunion.com/OrderManager/ListOfProject.html';
+                    } else if (RoleIDs == 'SYS001RL00003') {//媒体主——个人中心
+                        window.location.href = 'http://j.chitunion.com/userInfo/toUserMediaList';
+                    } else if (RoleIDs == 'SYS001RL00006') {//策划——标签管理页面
+                        window.location.href = 'http://j.chitunion.com/title/mediaNoTitleList';
+                    } else {//其他——项目列表
+                        window.location.href = 'http://www.chitunion.com/OrderManager/ListOfProject.html';
+                    }
+                });
+
+                if (RoleIDs.toUpperCase().indexOf('SYS001RL00003') >= 0) {//媒体主
+                    $('#userName > div[id="seledbox"] a').each(function () {
+                        var obj = $(this).attr('menuname');
+                        if (obj == 'mtgl' || obj == 'gggl' || obj == 'ddgl') {
+                            $(this).show();
+                        }
+                    });
+                }
+                else if (RoleIDs.toUpperCase().indexOf('SYS001RL00005') >= 0) {//AE
+                    $('#userName > div[id="seledbox"] a').each(function () {
+                        var obj = $(this).attr('menuname');
+                        if (obj == 'mtgl' || obj == 'gggl' || obj == 'xmgl' || obj == 'ddgl') {
+                            $(this).show();
+                        }
+                    });
+                }
+                else if (RoleIDs.toUpperCase().indexOf('SYS001RL00010') >= 0) {//广告审核
+                    $('#userName > div[id="seledbox"] a').each(function () {
+                        var obj = $(this).attr('menuname');
+                        if (obj == 'ggsh') {
+                            $(this).show();
+                        }
+                    });
+                }
+                else if (RoleIDs.toUpperCase().indexOf('SYS001RL00002') >= 0) {//广告主
+                    $('#userName > div[id="seledbox"] a').each(function () {
+                        var obj = $(this).attr('menuname');
+                        if (obj == 'xmgl' || obj == 'ddgl' || obj == 'wdsc' || obj == 'wdhmd') {
+                            $(this).show();
+                        }
+                    });
+                }
+                else if (RoleIDs.toUpperCase().indexOf('SYS001RL00004') >= 0 || RoleIDs.toUpperCase().indexOf('SYS001RL00001') >= 0) {//运营，超管
+                    //$('#userName > div[id="seledbox"] a[menuname="mtgl"][menuname="gggl"][menuname="xmgl"][menuname="ddgl"]').show();
+                    $('#userName > div[id="seledbox"] a').each(function () {
+                        var obj = $(this).attr('menuname');
+                        if (obj == 'mtgl' || obj == 'gggl' || obj == 'xmgl' || obj == 'ddgl') {
+                            $(this).show();
+                        }
+                    });
+                }
+            }
+
+            //加载购物车样式
+            var curUrlPathname = window.location.pathname.toLowerCase();
+            var cartSetpFlag = false;
+            $.each(cartSetpUrl.Setp1, function (i, n) {
+                if (curUrlPathname.endsWith(n.toLowerCase())) {
+                    $('#topBoxlist').hide();
+                    $('#ulCartStep > li:eq(0)').addClass('red');
+                    $('#ulCartStep').show();
+                    cartSetpFlag = true;
+                    return false;
+                }
+            });
+            if (!cartSetpFlag) {
+                $.each(cartSetpUrl.Setp2, function (i, n) {
+                    if (curUrlPathname.endsWith(n.toLowerCase())) {
+                        $('#topBoxlist').hide();
+                        $('#ulCartStep > li:eq(1)').addClass('red');
+                        $('#ulCartStep').show();
+                        cartSetpFlag = true;
+                        return false;
+                    }
+                });
+            }
+            if (!cartSetpFlag) {
+                $.each(cartSetpUrl.Setp3, function (i, n) {
+                    if (curUrlPathname.endsWith(n.toLowerCase())) {
+                        $('#topBoxlist').hide();
+                        $('#ulCartStep > li:eq(2)').addClass('red');
+                        $('#ulCartStep').show();
+                        cartSetpFlag = true;
+                        return false;
+                    }
+                });
+            }
+        }
+        else {//如果用户未登录，则显示帮助中心
+            $('#noLogin').hide();
+            $('#hasLogin').hide();
+        }
+        var orderID = GetQueryString("orderID");
+        if (orderID && orderID != 'undefined') {
+            $('#topBoxlist').hide();
+        }
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    });
+</script>

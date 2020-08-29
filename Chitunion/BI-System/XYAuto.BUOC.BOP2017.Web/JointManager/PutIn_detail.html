@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>需求管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/StyleOfAdd.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/Common_IE.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src='js/PubDetail.js'></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <div class="install_box">
+                <div class="Detail_basic"></div>
+
+                <div class="to_b_list">
+                    <ul style="padding: 0">
+                        <h3 style="margin-bottom: 14px;">添加落地页
+                        <li style="float: right;"><a href="javascript:;" class="but_query add_url" style="width:80px;height: 26px;line-height: 26px;">添加落地页</a></li></h3>
+                    </ul>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" style='border-collapse:collapse;'>
+                        <thead>
+                            <tr>
+                                <th width="20%" style="background:#f5f5f5">品牌车型</th>
+                                <th width="20%" style='background:#f5f5f5'>省份城市</th>
+                                <th width="40%" style='background:#f5f5f5'>URL</th>
+                                <th width="20%" style='background:#f5f5f5'>操作</th>
+                            </tr>
+                        </thead>                        
+                        <tbody class="Detail_table"></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 基本信息 -->
+<script type="text/template" id="detail-demand">
+    <div class="react_reason">
+        <span>驳回原因：</span>
+        <p><%= Demand.RejectReason %></p>
+    </div>
+    <ul style="padding-top: 10px;">                
+        <li>需求名称：<%= Demand.Name %></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>状态：<%= Demand.AuditStatusName %></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>需求订单号：<%= Demand.DemandBillNo %></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>品牌/车型：<%= Demand.BrandAndCarSerialList %></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>省份/城市：<%= Demand.ProvinceAndCityList %></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>经销商列表：<%= Demand.DistributorList %> </li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>促销政策：
+        <% if(Demand.PromotionPolicy != null){%>
+            <%= Demand.PromotionPolicy %>
+        <%}else{%>
+            ---
+        <%} %>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>投放预算：<span style="color:red;"><%= formatMoney(Demand.TotalBudget/100,2) %>元</span></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>时间周期：<span style="color:red;"><%= Demand.DuringDate %></span></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>线索数量：<span style="color:red;"><%= Demand.ClueNumberStr %></span></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>                
+        <li>创建人：<%= Demand.CreateUserName?Demand.CreateUserName:'---' %></li> 
+        <div class="clear"></div>
+    </ul>        
+</script>
+
+
+<!-- 表格信息 -->
+<script type="text/template" id="detail-table">
+    <% if(List.length > 0){%>
+        <% List.forEach(function(item){%>
+            <tr GroundId='<%= item.GroundId %>'>
+                <td><%= item.CarInfo[0].BrandName %>-<%= item.CarInfo[0].SerialName %> </td>
+                <td><%= item.AreaInfo[0].ProvinceName %>-<%= item.AreaInfo[0].CityName %> </td>
+                <td> <a href="<%= item.PromotionUrl %>" target="_blank"><%= item.PromotionUrl %></a> </td>
+                <td>
+                    <a href="javascript:;" class="manger_url">URL加参管理（<%= item.DeliveryCount %>）</a>
+                    <a href="javascript:;" class="delete_url">删除</a>
+                </td>
+            </tr>
+        <%}) %>
+    <%}else{%>
+            <tr>
+                <td>一</td>
+                <td>一</td>
+                <td>一</td>
+                <td>一</td>
+            </tr>
+    <%} %>
+</script>
+
+<!-- 落地页URL弹层 -->
+<div class="channel_box" style="display: none">
+    <div class="layer" style='overflow: auto;width: 370px;'>
+        <div class="title">
+            <div class="fl">落地页URL</div>
+            <div class="fr"><a href="javascript:void(0)" id="closebt1"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="layer_con" style='margin: 15px'>
+            <ul>
+                <li>
+                    <span class="ins_c">品牌车型:</span>
+                    <select id="" style="width: 120px;" class="BrandInfos">
+                        <option BrandId='-1'>全部</option>
+                    </select>
+                    <select id="" style="width: 120px;" class="SerieInfos">
+                        <option SerielId='-1'>全部</option>
+                    </select>
+                </li>
+                <li>
+                    <span class="ins_c">省份城市:</span>
+                    <select id="" style="width: 120px;" class="ProvinceInfos">
+                        <option ProvinceId='-1'>全部</option>
+                    </select>
+                    <select id="" style="width: 120px;" class="CitysInfos">
+                        <option CityId='-1'>全部</option>
+                    </select>
+                </li>
+                <li>
+                    <span class="ins_c"><a style="color:#FF4F4F">*</a>链接URL:</span>
+                    <input type="text" style="width: 240px;height: 26px;line-height: 28px;" id='PromotionUrl'>
+                </li>
+                <li style="text-align: right;color: #FF4F4F;font-size: 12px;visibility: hidden;" class="meg_tip">该落地页已被添加</li>
+            </ul>
+            <div class="clear"></div>
+            <div class="keep" style="margin-top: 0">
+                <a href="javascript:;" class="button" style="width:100px" id='submitMessage'>确定</a>
+                <a href="javascript:;" class="button" style="width:100px;margin-left: 30px;margin-right: -10px;"  id='cancleMessage'>取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--#include file="/base/footer.html" -->
+</body>
+</html>

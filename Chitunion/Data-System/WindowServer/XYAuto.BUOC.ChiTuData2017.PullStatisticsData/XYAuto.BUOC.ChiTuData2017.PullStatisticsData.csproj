@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A15CC003-BBDA-4396-9563-52661AB074E6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.ChiTuData2017.PullStatisticsData</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.ChiTuData2017.PullStatisticsData</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\sln\packages\AutoMapper.6.1.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BitAuto.YanFa.SysRightManager.Common">
+      <HintPath>..\..\..\..\Lib\BitAuto.YanFa.SysRightManager.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\..\sln\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\sln\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Topshelf, Version=3.3.154.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+      <HintPath>..\..\sln\packages\Topshelf.3.3.1\lib\net40-full\Topshelf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings\PullDataSettings.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheduler\CurrentRegistryScheduler.cs" />
+    <Compile Include="Scheduler\CurrentSchedulerServer.cs" />
+    <Compile Include="Scheduler\Registry\EmailNotes.cs" />
+    <Compile Include="Scheduler\Registry\QingNiaoPullDataScheduler.cs" />
+    <Compile Include="Scheduler\Registry\ZhyPullDataScheduler.cs" />
+    <Compile Include="Scheduler\Registry\ZhyPullDistributeDetailSchduler.cs" />
+    <Compile Include="Scheduler\Registry\ZhyPullDistributeNoteScheduler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MailTemplat\images\allbg.png" />
+    <Content Include="MailTemplat\images\bot630.png" />
+    <Content Include="MailTemplat\images\bot730.png" />
+    <Content Include="MailTemplat\images\bottom730.png" />
+    <Content Include="MailTemplat\images\lb.png" />
+    <Content Include="MailTemplat\images\logo.png" />
+    <Content Include="MailTemplat\images\logo_old.png" />
+    <Content Include="MailTemplat\images\lt.png" />
+    <Content Include="MailTemplat\images\rb.png" />
+    <Content Include="MailTemplat\images\rt.png" />
+    <Content Include="MailTemplat\images\top630.png" />
+    <Content Include="MailTemplat\images\top730.png" />
+    <Content Include="MailTemplat\mail630.html" />
+    <Content Include="MailTemplat\mailSysError.html" />
+    <Content Include="MailTemplat\mailWorkOrder.html" />
+    <Content Include="MailTemplat\WOrderV2.html" />
+    <None Include="App.config" />
+    <None Include="Bat\install.bat" />
+    <None Include="Bat\start.bat" />
+    <None Include="Bat\uninstall.bat" />
+    <None Include="ConfigFile\appSettings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ConfigFile\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\ZhyApiConfig.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="ConfigFile\OpApiNoteDistributeConfig.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ExternalApi\XYAuto.BUOC.ChiTuData2017.ExternalApi\XYAuto.BUOC.ChiTuData2017.ExternalApi.csproj">
+      <Project>{6a8930e7-edb2-4b5c-bab4-fb7b3e20dab0}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.ExternalApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XYAuto.BUOC.ChiTuData2017.BLL\XYAuto.BUOC.ChiTuData2017.BLL.csproj">
+      <Project>{ea88c0d0-cb5d-47a9-9e07-38fe0531b4ab}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XYAuto.BUOC.ChiTuData2017.Entities\XYAuto.BUOC.ChiTuData2017.Entities.csproj">
+      <Project>{f683d1d7-6463-45e6-9212-7f5cd2d26134}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XYAuto.BUOC.ChiTuData2017.Infrastruction\XYAuto.BUOC.ChiTuData2017.Infrastruction\XYAuto.BUOC.ChiTuData2017.Infrastruction.csproj">
+      <Project>{2c42ecee-79bd-4eae-9c08-488f918b9eeb}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Infrastruction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

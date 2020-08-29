@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>标签管理--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/TaskManageList.js"></script>
+    <style type="text/css">
+        table a {
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+                    <div class="but_query set_project" style="float:right;width:80px;height: 26px;line-height: 26px">创建项目
+                    </div>
+                </h2>
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="ad_table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                            <thead>
+                                <tr>
+                                    <th width="25%">项目名称</th>
+                                    <th width="8%">状态</th>
+                                    <th width="42%">进度</th>
+                                    <th width="15%">创建时间</th>
+                                    <th width="10%">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+<script type="text/template" id="taskList">
+    <%if(list){%>
+    <%list.forEach(function(item){%>
+        <tr ProjectType="<%=item.ProjectType%>" projectID="<%=item.ProjectID%>">
+            <td class="detailSearch" style="cursor: pointer;"><%=item.Name%></td>
+            <td>
+                <%if(item.Status == '62001'){%>
+                    待执行
+                <%}else if(item.Status == '62002'){%>
+                    执行中
+                <%}else if(item.Status == '62003'){%>
+                    执行完毕
+                <%}else if(item.Status == '62004'){%>
+                    已停止
+                <%}%>
+            </td>
+            <td>
+                <!-- 总量：已审：已打；未处理；一人处理；待审和已打是一个状态 -->
+                总量：<%= item.GenerateTaskCount %>；已审：<%= item.ExamineCount %>；待审：<%= item.DealCount %>；未处理：<%=item.NoDealCount %>；一人处理：<%= item.SingleCount%>
+            </td>
+            <td>
+                <%= item.CreateTime%>
+            </td>
+            <td>
+                <a href="javascript:void(0);" class="detailSearch">
+                    <img src="../ImagesNew/view.png" title="查看"/>
+                </a> &nbsp;
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT6000402') != -1){%>
+                    <%if(item.Status == '62004' || item.Status == '62003'){%>
+                        <a href="javascript:void(0);" class="deleteTask">
+                            <img src="../ImagesNew/delete.png" title="删除"/>
+                        </a> &nbsp;
+                    <%}%>
+                <%}%>
+                <%if(CTLogin.BUTIDs.indexOf('SYS001BUT6000403') != -1){%>
+                    <%if(item.Status == '62001' || item.Status == '62002'){%>
+                        <a href="javascript:void(0);" class="stopTask">
+                            <img src="../ImagesNew/end.png" title="停止"/>
+                        </a> &nbsp;
+                    <%}%>
+                <%}%>
+            </td>
+        </tr>
+    <%})%>
+    <%}%>
+</script>
+</body>
+</html>

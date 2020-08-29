@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>修改公众号自定义回复消息及关注回复消息</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css" />
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css" />
+    <script language="javascript" src="/api/check.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/ModifyCustomMsg.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+
+        #Cumulative span {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .Prompt_script {
+            width: 150px;
+            position: absolute;
+            background-color: #e5e5e5;
+            border-radius: 5px;
+            padding: 5px;
+            left: 50%;
+            margin-left: -75px;
+            display: none;
+            z-index: 100;
+            line-height: 12px;
+        }
+
+            .Prompt_script:before {
+                content: '';
+                display: block;
+                background-color: #e5e5e5;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 50%;
+                top: -3px;
+                margin-left: -5px;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+    </style>
+</head>
+<body>
+    <!--顶部logo 导航-->
+    <!-- #include file="/base/header.html"  -->
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!-- #include file="/base/Menu.html"  -->
+
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav"></h2>
+                </div>
+                <div id="list_switching">
+
+                    <div class="clear"></div>
+                    <ul class="state">
+                        <li>
+                            <div class="ins_c" style="width: 100px;">请选择微信号：</div><select id="ddlWxNum" style="width: 150px;"><option selected="selected" value="-1">请选择</option></select>
+                        </li>
+
+
+                        <!--<li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                        <a class="but_query" id='ExportData' style="width:70px;margin-left: 10px">导出数据</a>-->
+                        <div class="clear"></div>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+                        <p class="TotalBar" style="float: right;"></p>
+                        <div class="clear"></div>
+
+                        <label>关注公众号后回复消息：</label>
+                        <textarea id="txtSubscribeMsg" cols="80" rows="5"></textarea>
+                        <br/>
+                        <label>默认自定义回复消息：</label>
+                        <textarea id="txtDefaultCustomMsg" cols="80" rows="5"></textarea>
+                        <br />
+                        <input id="btnAppendCustomItem" type="button" value="添加自定义消息"/>
+                        <br/>
+                        <div id="divCustomData">
+                            <!--<div name="divCustomItem">
+                                <br />
+                                <label>请输入关键词：</label>
+                                <input name="txtCustomKey" type="text" style="width: 100px;" />
+                                类型：<select name="ddlCustomType">
+                                    <option value="-1" selected="selected">请选择</option>
+                                    <option value="msg">文本</option>
+                                    <option value="media">图片</option>
+                                </select>
+                                <label>回复消息内容为：</label>
+                                <textarea name="txtCustomMsg" cols="50" rows="3"></textarea>
+                                <input type="button" value="追加" />
+                                <input type="button" value="删除" />
+                                <br />
+                            </div>
+                            <div name="divCustomItem">
+                                <br />
+                                <label>请输入关键词：</label>
+                                <input name="txtCustomKey" type="text" style="width: 100px;" />
+                                类型：<select name="ddlCustomType">
+                                    <option value="-1" selected="selected">请选择</option>
+                                    <option value="msg">文本</option>
+                                    <option value="media">图片</option>
+                                </select>
+                                <label>回复消息内容为：</label>
+                                <textarea name="txtCustomMsg" cols="50" rows="3"></textarea>
+                                <input type="button" value="追加" />
+                                <input type="button" value="删除" />
+                                <br />
+                            </div>-->
+                            <br />
+                            <br />
+                        </div>
+                        
+                        
+                        <li style="width: 70px; margin-right: 0" id="liSaveCustomMsg" class="but_query">保存</li>
+                    <li style="width: 70px; margin-right: 0" id="liClearCustomMsg" class="but_query">清空</li>
+                        <br /><span id="spanResultMsg"></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="/base/footer.html" -->
+</body>
+</html>

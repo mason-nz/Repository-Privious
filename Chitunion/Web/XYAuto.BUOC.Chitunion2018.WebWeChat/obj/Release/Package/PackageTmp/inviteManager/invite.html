@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>邀请好友赚红包</title>
+    <link rel="stylesheet" type="text/css" href="../css/lauout.css?v=0316"/>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/layer_mobile/layer.js"></script>
+    <script type="text/javascript" src="../dist/dropload.min.js"></script>
+    <script type="text/javascript" src="../js/common_weChat.js?v=20180319"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="js/invite.js?v=20180511"></script>
+    <style type="text/css">
+        .main_container{
+            position: relative;
+        }
+        .layer_pop{
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,.7);
+            display: none;
+            z-index: 999;
+        }
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="main_container" id="app" v-cloak>
+    <div class="invite_new">
+        <div class="top_info">
+            <img src="../images/top_img.png">
+            <span id="invite" baidu_track_name='span' baidu_track_action='click' baidu_track_label="邀请好友领红包" baidu_track_val="">立即邀请</span>
+            <span id="generatePoster" baidu_track_name='div' baidu_track_action='click' baidu_track_label="生成邀请海报" baidu_track_val="">生成邀请海报</span>
+            <img src="../images/icon18.gif" class="guide_desc">
+        </div>
+        <div class="bottom_info">
+            <p class="rule_title">
+                <span>////////////</span>
+                邀请好友规则
+                <span>////////////</span>
+            </p>
+            <ul class="rule_list">
+                <li><span class="number">①</span>用户每完成一次有效邀请即可领取一次红包。</li>
+                <li><span class="number">②</span>受邀请的新用户完成一次分享视为有效邀请。</li>
+                <li><span class="number">③</span>从未关注“赤兔联盟”服务号的用户视为新用户。</li>
+                <li><span class="number">④</span>领取的红包金额将自动转入账号余额内。</li>
+                <li><span class="number">⑤</span>活动最终解释权在法律范畴内归赤兔联盟所有。</li>
+            </ul>
+            <p class="money_detail">
+                <img src="../images/left_img.png">&nbsp;成功邀请好友{{TotalCount}}个，已领取红包{{removePoint0(formatMoney(TotalPrice,2,''),2)}}元&nbsp;<img src="../images/right_img.png">
+                </p>
+            <p class="text_grey tc">信息可能有延迟，请耐心等待</p>
+        </div>
+        <div class="center_info">
+            <div class="center_contain">
+                <div class="content_list">
+                    <div class="single_row border-bottom" v-for="item in list" v-if="TotalCount" v-bind:RecID="item.RecID">
+                        <figure>
+                            <img :src="item.HeadImgurl">
+                            <figcaption>
+                                <p class="pay_status">
+                                   {{item.Nickname}}
+                                </p>
+                                <p class="pay_time">
+                                    {{item.InviteTime.substr(5,11)}} 关注
+                                </p>
+                                <div class="clear"></div>
+                            </figcaption>
+                        </figure>
+                        <div class="money_date">
+                            <p class="receive_money red" v-if="item.RedEvesStatus==104001">
+                                <span class="orange get_money" v-bind:RecID="item.RecID">领红包</span>
+                            </p>
+                            <p class="receive_money red" v-if="item.RedEvesStatus==104002">
+                                {{formatMoney(item.RedEvesPrice,2,'')}}
+                            </p>
+                            <p class="receive_money text_grey" v-if="item.RedEvesStatus==104003">
+                                当日红包已领完
+                            </p>
+                            <p class="receive_money text_grey" v-if="item.RedEvesStatus==104004">
+                                尚未完成分享
+                            </p>
+                        </div>
+                    </div>
+                    <div class="no_data" v-if="!TotalCount">
+                        <div>
+                            <img src="../images/no_person1.png">
+                        </div>
+                        <p class="desc_text">您目前还没邀请到好友，请加油！</p>
+                    </div>
+                </div>
+                <div class="dropload-down" v-if="TotalCount<50 && TotalCount!=0">
+                    <div class="dropload-noData">-- END --</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layer_pop guide">
+        <div class="share_content_center">
+            <img src="../images/share_icon.png" id="share_icon" style="position: fixed;right:10px;top:0">
+        </div>
+    </div>
+    <div class="layer_pop down_img tc">
+        <img src="/images/demoIcon.png" id="down_img">
+    </div>
+</div>
+<div class="main_container netNo">
+    <div class="no_data no_time">
+        <div>
+            <img src="../images/no_time.png">
+        </div>
+        <p class="desc_text" style='color:#959595;font-size:20px;'>活动已结束</p>
+        <p class="desc_text" style="color:#959595;">想获得更多收益<br/>可到<a class="blue" href='/moneyManager/make_money.html?channel=ctlmyqhyqd'>【抢单赚钱】</a>页面参与分享文章</p>
+    </div>
+</div>
+</body>
+</html>

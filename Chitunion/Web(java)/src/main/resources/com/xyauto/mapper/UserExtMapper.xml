@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyauto.mapper.UserExtMapper">
+	<resultMap id="infoAndDetailMap" type="com.xyauto.domain.UserExt">
+		<id column="UserID" jdbcType="INTEGER" property="userID" />
+		<result column="UserName" jdbcType="VARCHAR" property="userName" />
+		<result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+		<result column="Pwd" jdbcType="VARCHAR" property="pwd" />
+		<result column="Email" jdbcType="VARCHAR" property="email" />
+		<result column="Type" jdbcType="INTEGER" property="type" />
+		<result column="Source" jdbcType="INTEGER" property="source" />
+		<result column="IsAuthMTZ" jdbcType="BIT" property="isAuthMTZ" />
+		<result column="AuthAEUserID" jdbcType="INTEGER" property="authAEUserID" />
+		<result column="SysUserID" jdbcType="INTEGER" property="sysUserID" />
+		<result column="EmployeeNumber" jdbcType="VARCHAR" property="employeeNumber" />
+		<result column="Status" jdbcType="INTEGER" property="status" />
+		<result column="TrueName" jdbcType="VARCHAR" property="trueName" />
+		<result column="BusinessID" jdbcType="INTEGER" property="businessID" />
+		<result column="ProvinceID" jdbcType="INTEGER" property="provinceID" />
+		<result column="CityID" jdbcType="INTEGER" property="cityID" />
+		<result column="CounntyID" jdbcType="INTEGER" property="counntyID" />
+		<result column="Contact" jdbcType="VARCHAR" property="contact" />
+		<result column="Address" jdbcType="VARCHAR" property="address" />
+		<result column="BLicenceURL" jdbcType="VARCHAR" property="bLicenceURL" />
+		<result column="OrganizationURL" jdbcType="VARCHAR" property="organizationURL" />
+		<result column="IDCardFrontURL" jdbcType="VARCHAR" property="idCardFrontURL" />
+		<result column="IDCardBackURL" jdbcType="VARCHAR" property="idCardBackURL" />
+	</resultMap>
+	<select id="infoAndDetail" parameterType="java.lang.Integer"
+		resultMap="infoAndDetailMap">
+		select
+		t1.UserID,t1.UserName,t1.Mobile,t1.Pwd,t1.Email,t1.[Type],
+		t1.Source,t1.IsAuthMTZ,t1.AuthAEUserID,t1.SysUserID,
+		t1.EmployeeNumber,t1.Status,t2.TrueName,t2.BusinessID,
+		t2.ProvinceID,t2.CityID,t2.CounntyID,t2.Contact,
+		t2.Address,t2.BLicenceURL,t2.OrganizationURL,
+		t2.IDCardFrontURL,t2.IDCardBackURL,t3.RoleID as role
+		from
+		UserInfo
+		t1
+		inner join UserRole t3 on t1.UserID = t3.UserID
+		left join
+		UserDetailInfo t2 on t1.UserID = t2.UserID
+		where
+		t1.UserID =
+		#{userID,jdbcType=INTEGER}
+	</select>
+	<resultMap id="infoPassAndAENameMap" type="com.xyauto.domain.UserExt">
+		<id column="UserID" jdbcType="INTEGER" property="userID" />
+		<result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+		<result column="IsAuthMTZ" jdbcType="BIT" property="isAuthMTZ" />
+		<result column="IsAuthAE" jdbcType="BIT" property="isAuthAE" />
+		<result column="AuthAETrueName" jdbcType="VARCHAR" property="authAETrueName" />
+	</resultMap>
+	<select id="infoPassAndAEName" parameterType="java.lang.Integer"
+		resultMap="infoPassAndAENameMap">
+		select
+		t1.UserID,t1.Mobile,t1.IsAuthMTZ,t1.IsAuthAE,
+		t2.TrueName
+		as
+		AuthAETrueName
+		from
+		UserInfo t1 left join UserDetailInfo
+		t2
+		on
+		t1.AuthAEUserID = t2.UserID where
+		t1.UserID =
+		#{userID,jdbcType=INTEGER}
+	</select>
+	<select id="countEmployeeNumber" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(1) from UserInfo where EmployeeNumber = #{
+		employeeNumber }
+	</select>
+	<select id="countTrueName" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(1) from UserDetailInfo where TrueName = #{
+		trueName }
+	</select>
+	<select id="countMobile" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(1) from UserInfo where Mobile = #{ mobile }
+	</select>
+	<select id="countMobileAndCategory" parameterType="map"
+		resultType="java.lang.Integer">
+		select count(1) from UserInfo where Mobile = #{ mobile }
+		and Category = #{ category }
+	</select>
+	<select id="countAEUserID" parameterType="map" resultType="java.lang.Integer">
+		select count(1) from UserInfo where AuthAEUserID = #{ userID }
+	</select>
+	<select id="selectUserUpload" parameterType="map"
+		resultType="com.xyauto.domain.UploadFileInfo">
+		select * from UploadFileInfo where [Type] = #{ type } and
+		RelationTableName = #{ tableName } and RelationID = #{ userID }
+	</select>
+	<insert id="userDetailInfoUpdateOrInsert" parameterType="com.xyauto.domain.UserDetailInfo">
+		IF (select count(1) from UserDetailInfo where UserID = #{ userID }) >
+		0
+		update UserDetailInfo
+		set
+		<if test="trueName != null and trueName != ''">
+			TrueName = #{trueName,jdbcType=VARCHAR},
+		</if>
+		<if test="businessID != null and businessID != ''">
+			BusinessID =#{businessID,jdbcType=INTEGER},
+		</if>
+		<if test="provinceID != null and provinceID != ''">
+			ProvinceID =#{provinceID,jdbcType=INTEGER},
+		</if>
+		<if test="cityID != null and cityID != ''">
+			CityID = #{cityID,jdbcType=INTEGER},
+		</if>
+		<if test="counntyID != null and counntyID != ''">
+			CounntyID = #{counntyID,jdbcType=INTEGER},
+		</if>
+		<if test="contact != null and contact != ''">
+			Contact =#{contact,jdbcType=VARCHAR},
+		</if>
+		<if test="address != null and address != ''">
+			Address = #{address,jdbcType=VARCHAR},
+		</if>
+		<if test="bLicenceURL != null and bLicenceURL != ''">
+			BLicenceURL = #{bLicenceURL,jdbcType=VARCHAR},
+		</if>
+		<if test="organizationURL != null and organizationURL != ''">
+			OrganizationURL = #{organizationURL,jdbcType=VARCHAR},
+		</if>
+		<if test="idCardFrontURL != null and idCardFrontURL != ''">
+			IDCardFrontURL =#{idCardFrontURL,jdbcType=VARCHAR},
+		</if>
+		<if test="idCardBackURL != null and idCardBackURL != ''">
+			IDCardBackURL =#{idCardBackURL,jdbcType=VARCHAR},
+		</if>
+		<if test="createUserID != null and createUserID != ''">
+			CreateUserID =#{createUserID,jdbcType=INTEGER},
+		</if>
+		LastUpdateTime =#{lastUpdateTime,jdbcType=TIMESTAMP},
+		LastUpdateUserID
+		=#{lastUpdateUserID,jdbcType=INTEGER}
+		where UserID
+		=#{userID,jdbcType=INTEGER}
+		ELSE
+		insert into UserDetailInfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			UserID,
+			TrueName,
+			<if test="businessID != null and businessID != ''">
+				BusinessID,
+			</if>
+			<if test="provinceID != null and provinceID != ''">
+				ProvinceID,
+			</if>
+			<if test="cityID != null and cityID != ''">
+				CityID,
+			</if>
+			<if test="counntyID != null and counntyID != ''">
+				CounntyID,
+			</if>
+			<if test="contact != null and contact != ''">
+				Contact,
+			</if>
+			<if test="address != null and address != ''">
+				Address,
+			</if>
+			<if test="bLicenceURL != null and bLicenceURL != ''">
+				BLicenceURL,
+			</if>
+			<if test="organizationURL != null and organizationURL != ''">
+				OrganizationURL,
+			</if>
+			<if test="idCardFrontURL != null and idCardFrontURL != ''">
+				IDCardFrontURL,
+			</if>
+			<if test="idCardBackURL != null and idCardBackURL != ''">
+				IDCardBackURL,
+			</if>
+			<if test="createUserID != null and createUserID != ''">
+				CreateUserID,
+			</if>
+			<if test="lastUpdateTime != null">
+				LastUpdateTime,
+			</if>
+			<if test="lastUpdateUserID != null and lastUpdateUserID != ''">
+				LastUpdateUserID,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			#{userID,jdbcType=INTEGER},
+			#{trueName,jdbcType=VARCHAR},
+			<if test="businessID != null and businessID != ''">
+				#{businessID,jdbcType=INTEGER},
+			</if>
+			<if test="provinceID != null and provinceID != ''">
+				#{provinceID,jdbcType=INTEGER},
+			</if>
+			<if test="cityID != null and cityID != ''">
+				#{cityID,jdbcType=INTEGER},
+			</if>
+			<if test="counntyID != null and counntyID != ''">
+				#{counntyID,jdbcType=INTEGER},
+			</if>
+			<if test="contact != null and contact != ''">
+				#{contact,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null and address != ''">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="bLicenceURL != null and bLicenceURL != ''">
+				#{bLicenceURL,jdbcType=VARCHAR},
+			</if>
+			<if test="organizationURL != null and organizationURL != ''">
+				#{organizationURL,jdbcType=VARCHAR},
+			</if>
+			<if test="idCardFrontURL != null and idCardFrontURL != ''">
+				#{idCardFrontURL,jdbcType=VARCHAR},
+			</if>
+			<if test="idCardBackURL != null and idCardBackURL != ''">
+				#{idCardBackURL,jdbcType=VARCHAR},
+			</if>
+			<if test="createUserID != null and createUserID != ''">
+				#{createUserID,jdbcType=INTEGER},
+			</if>
+			<if test="lastUpdateTime != null">
+				#{lastUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastUpdateUserID != null and lastUpdateUserID != ''">
+				#{lastUpdateUserID,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+</mapper>

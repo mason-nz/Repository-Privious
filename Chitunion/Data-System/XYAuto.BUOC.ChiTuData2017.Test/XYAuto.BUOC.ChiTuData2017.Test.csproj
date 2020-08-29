@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{96D9FB3F-516F-4BFB-976A-A5511A6C7F18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.ChiTuData2017.Test</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.ChiTuData2017.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\AutoMapper.6.1.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xy.ImageFastDFS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ImageFastDFS\Xy.ImageFastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ChiTu.Config">
+      <HintPath>..\..\..\Lib\Config\4.5\XYAuto.ChiTu.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.ChiTu.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.ChiTu.Excel\XYAuto.ChiTu.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils, Version=2.0.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChiTu\ChiTuTest.cs" />
+    <Compile Include="DataCenter\ClueTest.cs" />
+    <Compile Include="DataCenter\DataProfilingTest.cs" />
+    <Compile Include="DataCenter\DictInfoTest.cs" />
+    <Compile Include="DataCenter\DistributeTest.cs" />
+    <Compile Include="DataCenter\EncapsulateMaterialTest.cs" />
+    <Compile Include="DataCenter\ForwardTest.cs" />
+    <Compile Include="DataCenter\FunnelTest.cs" />
+    <Compile Include="DataCenter\StatisticsExceTest.cs" />
+    <Compile Include="DataCenter\WorkloadTest.cs" />
+    <Compile Include="ExternalApi\ConfigSectionTest.cs" />
+    <Compile Include="ExternalApi\QingNiao\MaterielStatisticsProviderTest.cs" />
+    <Compile Include="ExternalApi\Zhy\LogicByMaterielStatisticsTempTest.cs" />
+    <Compile Include="ExternalApi\Zhy\LogicByMaterielStatisticsTest.cs" />
+    <Compile Include="HttpClientTest.cs" />
+    <Compile Include="DistributeProviderTest.cs" />
+    <Compile Include="Logging\LogHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\DistributeQueryTest.cs" />
+    <Compile Include="Query\Statistics\StatDailyQueryTest.cs" />
+    <Compile Include="Query\Statistics\StatDetailsQueryTest.cs" />
+    <Compile Include="ReportOperation\ExportCsvHelperTest.cs" />
+    <Compile Include="ReportOperation\ReportOperationTest.cs" />
+    <Compile Include="ReportOperation\Statistics\StatDailyExportProviderTest.cs" />
+    <Compile Include="Statistics\TabProvider\StatTabCarMatchProviderTest.cs" />
+    <Compile Include="Statistics\TabProvider\StatTabGrabProviderTest.cs" />
+    <Compile Include="Statistics\TabProvider\StatTabPrimaryProviderTest.cs" />
+    <Compile Include="TaskInfo\TaskInfoTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalApi\XYAuto.BUOC.ChiTuData2017.ExternalApi\XYAuto.BUOC.ChiTuData2017.ExternalApi.csproj">
+      <Project>{6a8930e7-edb2-4b5c-bab4-fb7b3e20dab0}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.ExternalApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.BLL\XYAuto.BUOC.ChiTuData2017.BLL.csproj">
+      <Project>{ea88c0d0-cb5d-47a9-9e07-38fe0531b4ab}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.Dal\XYAuto.BUOC.ChiTuData2017.Dal.csproj">
+      <Project>{580ca18f-f05a-4d0b-af47-0053ed72702e}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.Entities\XYAuto.BUOC.ChiTuData2017.Entities.csproj">
+      <Project>{f683d1d7-6463-45e6-9212-7f5cd2d26134}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.Infrastruction\XYAuto.BUOC.ChiTuData2017.Infrastruction\XYAuto.BUOC.ChiTuData2017.Infrastruction.csproj">
+      <Project>{2c42ecee-79bd-4eae-9c08-488f918b9eeb}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.Infrastruction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.TaskAPI\XYAuto.BUOC.ChiTuData2017.TaskAPI.csproj">
+      <Project>{5845BC1A-93A3-4F34-A5BB-A2E0F8EDA5DC}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.TaskAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.BUOC.ChiTuData2017.WebAPI\XYAuto.BUOC.ChiTuData2017.WebAPI.csproj">
+      <Project>{8040AE08-5C67-426A-AFC3-46F5FC2655AD}</Project>
+      <Name>XYAuto.BUOC.ChiTuData2017.WebAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="ConfigFile\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\ZhyApiConfig.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="ConfigFile\OpApiNoteDistributeConfig.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Query\Distribute\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

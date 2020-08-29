@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>details</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script type="text/javascript" src="../js/Common_area.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script type="text/javascript" src="../js/jqcloud-1.0.4.js"></script>
+    <script type="text/javascript" src="js/wx_details_charts.js"></script>
+  </head>
+  <body>
+    <!--顶部logo 导航-->
+    <!--#include file="../Base/header_home.html" -->
+
+
+    <!--中间内容-->
+    <div class="details_side">
+        <div class="side">
+            <div class="fl">媒体 > 广告详情</div>
+            <div class="fr">
+                <span class="details_cart"><img src="../images/icon78.png"> 购物车</span>
+                <span>粉丝数：543786</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="wx_box">
+         <div class="wx_odds">
+             <div class="details_text">
+                 <div class="left">
+                     <div class="big_picture"><img src="../images/pic23.jpg"></div>
+                     <ul class="small_picture">
+                         <li><img src="../images/pic23.jpg"></li>
+                         <li class="current"><img src="../images/pic23.jpg"></li>
+                         <li><img src="../images/pic23.jpg"></li>
+                         <li><img src="../images/pic23.jpg"></li>
+                         <li style="margin-right:0"><img src="../images/pic23.jpg"></li>
+                         <div class="clear"></div>
+                     </ul>
+                 </div>
+                 <div class="right">
+                     <h2>AE/媒体主自己编辑的信息，限制字数（若不编辑，则和副标题保持一致）</h2>
+                     <div>最新电影免费看 </div>
+                     <p><span>自营</span><span>服务号</span><span>已认证</span><span>需预约</span></p>
+                     <ul>
+                         <li>广告单价：<em>¥999,000</em></li>
+                         <li>广告位置：<a href="#"  class="active">单图文</a><a href="#">多图文第一条</a><a href="#">多图文第二条</a><a href="#">多图文3-N条</a></li>
+                         <li>创作类型：<a href="#">发布</a><a href="#">原创+发布</a><a href="#">贴片广告</a></li>
+                         <li>推广日期：<input name="Username" type="text" style="width:120px;" class="laydate-icon" onclick="laydate({fixed:false})"> 推广日期至少大于本日；选择15天以内的排期！</li>
+                         <li>下单备注：可接微商、可接保险</li>
+                     </ul>
+                     <div class="box_cart">
+                         <div><span class="button">加入购物车</span><span class="ml10 grey"><img src="../images/icon21.png"> 您的购物车中已有三个该广告位，请前去下单</span></div>
+                         <ul>
+                             <li class="collection">收藏</li>
+                             <li class="pull">拉黑</li>
+                             <div class="clear"></div>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="clear"></div>
+             </div>
+         </div>
+
+         <div class="wx_box">
+             <div class="details_box">
+                 <div class="details_left">
+                     <h2>赤兔指数</h2>
+                     <ul>
+                         <li>媒体名称：美丽时尚俏佳人</li>
+                         <li>响应速度：92m/s</li>
+                         <li>接单率：99%</li>
+                         <li>执行率：100%</li>
+                         <li>拒单率：0%</li>
+                         <li>合格率：100%</li>
+                         <li>成交单数：200</li>
+                     </ul>
+                     <h3>相似推荐</h3>
+                     <!-- 相似推荐的位置 -->
+                     <div class="recommend">
+
+                     </div>
+                 </div>
+                 <div class="details_right">
+                     <div class="switch">
+                         <ul>
+                             <li class="active">基本信息</li>
+                             <li>案例展示</li>
+                             <div class="clear"></div>
+                         </ul>
+                     </div>
+                     <h2><img src="../images/icon74.png"> 基本信息</h2>
+                     <!-- 基本信息插入位置 -->
+                     <div class="details_info">
+
+                     </div>
+                     <div class="line3"></div>
+                     <h2><img src="../images/icon75.png"> 相关数据</h2>
+                     <div class="details_chart">
+                         <ul>
+                             <li id="creat">
+
+                             </li>
+                             <li style="width:440px;height:243px" id="publish_article"></li>
+                             <li style="width:440px;height:275px" id="sex"></li>
+                             <li style="width:440px;height:275px" id="FansCount"></li>
+                             <div class="clear"></div>
+                         </ul>
+                         <h3>阅读数量</h3>
+                         <div style="width:816px;height:376px" id="readcount"></div>
+                         <h3>发文次数</h3>
+                         <div style="width:816px;height:376px" id="publishcount"></div>
+                         <h3>发文时间</h3>
+                         <div style="width:816px;height:376px" id="publishtime"></div>
+                     </div>
+                     <h2><img src="../images/icon76.png"> 文章内容分析</h2>
+                     <div class="details_chart">
+                         <ul>
+                             <li id="hotword"></li>
+                             <li id="brandword"></li>
+                             <div class="clear"></div>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="clear"></div>
+             </div>
+
+         </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="../Base/footer.html" -->
+    <!--右侧贴边导航quick_links.js控制-->
+    <div class="mui-mbar-tabs">
+        <div class="quick_link_mian">
+            <div class="quick_links_panel">
+                <ul id="quick_links" class="quick_links">
+                    <li id="shopCart">
+                        <a href="#" class="message_list" ><i class="message"></i><div class="span">购物车</div><span class="cart_num">0</span></a>
+                    </li>
+                </ul>
+                <ul class="quick_toggle">
+                    <li><a href="#top" class="return_top"><i class="top"></i></a></li>
+                </ul>
+            </div>
+            <div id="quick_links_pop" class="quick_links_pop hide"></div>
+        </div>
+    </div>
+  </body>
+
+  <!-- 相似推荐模板 -->
+  <script type="text/template" id="similar">
+    <%for(var i=0;i<data.length;i++){%>
+      <div>
+          <input class="MediaId" type="hidden" name="" value="<%=data[i].MediaId%>">
+          <%if(data[i].HeadImg){%>
+          <img src="<%=data[i].HeadIconURL%>">
+          <%}else{%>
+          <img src="../images/default_touxiang.png" width="80" height="80">
+          <%}%>
+
+          <p><%=data[i].Name%></p>
+          <p>粉丝数：<%=data[i].FansCount%></p>
+          <p class="red">¥<%=data[i].Price%></p>
+      </div>
+    <%}%>
+  </script>
+  <script type="text/template" id="creattime">
+    <div style="width:373px;height:39px;text-indent:50px"><%=data.RegTime.substring(0,4)%>年<%=data.RegTime.substring(5,7)%>月<%=data.RegTime.substring(8,10)%></div>
+    <img src="../images/pic25_x.jpg">
+  </script>
+
+  <!-- 基本信息插入模板 -->
+  <script type="text/template" id="basicinfo">
+      <ul>
+          <li>微信名称：<%=data.Name%></li>
+          <li>认证分类：<%=data.EnterpriseType%></li>
+          <li>所属分类：<%=data.CommonlyClass%></li>
+          <li>微信号：<%=data.Number%></li>
+          <li>认证主体：<%=data.FullName%></li>
+          <li>所在地：<%=data.Location%></li>
+          <li>微信类型：<%=data.ServiceTypeName%></li>
+          <li>注册时间：<%=data.RegTime.substring(0,4)%>年<%=data.RegTime.substring(5,7)%>月<%=data.RegTime.substring(8,10)%>日</li>
+          <div class="clear"></div>
+      </ul>
+      <div>简介：<%=data.Summary%></div>
+  </script>
+</html>

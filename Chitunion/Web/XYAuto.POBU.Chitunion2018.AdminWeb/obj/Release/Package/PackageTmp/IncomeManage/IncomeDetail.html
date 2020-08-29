@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>收入明细</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css" />
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css" />
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/IncomeDetail.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+
+        #Cumulative span {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .Prompt_script {
+            width: 150px;
+            position: absolute;
+            background-color: #e5e5e5;
+            border-radius: 5px;
+            padding: 5px;
+            left: 50%;
+            margin-left: -75px;
+            display: none;
+            z-index: 100;
+            line-height: 12px;
+        }
+
+            .Prompt_script:before {
+                content: '';
+                display: block;
+                background-color: #e5e5e5;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 50%;
+                top: -3px;
+                margin-left: -5px;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+    </style>
+</head>
+<body>
+    <!--顶部logo 导航-->
+    <!-- #include file="/base/header.html"  -->
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!-- #include file="/base/Menu.html"  -->
+
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav"></h2>
+                </div>
+                <div id="list_switching">
+
+                    <div class="clear"></div>
+                    <ul class="state">
+                        <li>
+                            <div class="ins_c">收益类型：</div><select id="select_IncomeType" name="" style="width:170px">
+                                <option value="-2">全部</option>
+                                <option value="103001">任务收益</option>
+                                <option value="103002">邀请收益</option>
+                                <option value="103003">签到收益</option>
+                            </select>
+                        </li>
+                        <li><div class="ins_c">媒体主：</div><input id="u_name" name="Username" type="text" style="width:160px;"></li>
+                        <li><div class="ins_c">收益日期：</div><input id="txt_IncomeBeginTime" type="text" style="width:160px;" class="laydate-iconNew">至<input id="txt_IncomeEndTime" type="text" style="width:160px;" class="laydate-iconNew"></li>
+                        <li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                        <a class="but_query" id='ExportData' style="width:70px;margin-left: 10px">导出数据</a>
+                        <div class="clear"></div>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+                        <p class="TotalBar" style="float:right;"></p><div class="clear"></div>
+                        <div class="ad_table" id="tableList">
+                            <p style="padding: 0 0 10px 0" id="Cumulative">
+                            </p>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" class="channel">
+                                <tr>
+                                    <th width="20%">收入时间</th>
+                                    <th width="15%">用户名</th>
+                                    <th width="10%">手机号</th>
+                                    <th width="15%">微信昵称</th>
+                                    <th width="15%">收益类型 </th>
+                                    <th width="15%">收益详情</th>
+                                    <th width="10%">金额</th>
+
+                                </tr>
+                                <tbody id="tbd_List"></tbody>
+                            </table>
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="/base/footer.html" -->
+    <script>
+        $('#txt_IncomeBeginTime').off('click').on('click', function () {
+            laydate({
+                fixed: false,
+                elem: '#txt_IncomeBeginTime',
+                choose: function (date) {
+                    if (date > $('#txt_IncomeEndTime').val() && $('#txt_IncomeEndTime').val()) {
+                        layer.alert('起始时间不能大于结束时间！');
+                        $('#txt_IncomeBeginTime').val('')
+                    }
+                }
+            });
+        });
+        $('#txt_IncomeEndTime').off('click').on('click', function () {
+            laydate({
+                fixed: false,
+                elem: '#txt_IncomeEndTime',
+                choose: function (date) {
+                    if (date < $('#txt_IncomeBeginTime').val() && $('#txt_IncomeBeginTime').val()) {
+                        layer.alert('结束时间不能小于起始时间！');
+                        $('#txt_IncomeEndTime').val('')
+                    }
+                }
+            });
+        });
+    </script>
+    <script type="text/template" id="IncomeDetailTotal">
+
+        任务累计收益：
+        <span class="TotalMateriel" style="margin-right:30px;"><%=removePoint0(formatMoney(Result.OrderSum,2,''),2)%>元</span>
+        签到累计收益：
+        <span class="TotalDistribute" style="margin-right:30px;"><%=removePoint0(formatMoney(Result.DaySignSum,2,''),2)%>元</span>
+        邀请好友累计收益：
+        <span class="TotalForwardNumber" style="margin-right:30px;"><%=removePoint0(formatMoney(Result.InciteSum,2,''),2)%>元</span>
+    </script>
+    <script type="text/template" id="IncomeDetailList">
+
+        <%Result.List.forEach(function(e){%>
+        <tr>
+            <td>
+                <%=e.IncomeTime%>
+
+            </td>
+            <td>
+                <%=e.UserName%>
+            </td>
+            <td>
+                <%=e.Mobile%>
+            </td>
+            <td>
+                <%=e.Nickname%>
+            </td>
+            <td>
+                <%=e.CategoryName%>
+            </td>
+            <td>
+                <%=e.DetailDescription%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.IncomePrice,2,''),2)%> 元  <% e.CategoryID!='103001'?'(点击次数：e.ClickCount)':''%>
+            </td>
+        </tr>
+        <%})%>
+    </script>
+</body>
+</html>

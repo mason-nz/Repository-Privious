@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE28C166-020F-41FC-97F4-25DE7B8276C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.ChiTu2018.DAO</RootNamespace>
+    <AssemblyName>XYAuto.ChiTu2018.DAO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XYAuto.CTUtils">
+      <HintPath>..\..\..\..\Lib\XYAuto.CTUtils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Chitunion2017\Android\IAppDevice.cs" />
+    <Compile Include="Chitunion2017\Android\IAppPushMsgSwitchLog.cs" />
+    <Compile Include="Chitunion2017\HD\IHdLuckDrawActivity.cs" />
+    <Compile Include="Chitunion2017\HD\IHdLuckDrawPrize.cs" />
+    <Compile Include="Chitunion2017\HD\IHdLuckDrawRecord.cs" />
+    <Compile Include="Chitunion2017\HD\IHdLuckDrawRecordMoni.cs" />
+    <Compile Include="Chitunion2017\IAccountArticle.cs" />
+    <Compile Include="Chitunion2017\IAuditInfo.cs" />
+    <Compile Include="Chitunion2017\Impl\Android\AppDeviceImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\Android\AppPushMsgSwitchLogImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\HD\HdLuckDrawActivityImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\HD\HdLuckDrawPrizeImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\HD\HdLuckDrawRecordImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\HD\HdLuckDrawRecordMoniImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeFeedbackImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeDisbursementPayImpl.cs" />
+    <Compile Include="Chitunion2017\IDictInfo.cs" />
+    <Compile Include="Chitunion2017\Impl\DictInfoImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeIncomeDetailImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeIncomeStatisticsCategoryImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeIpBlacklistImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeIpRequestLogImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LePromotionChannelDictImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeShareDetailImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeUserBankAccountImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeUserBlacklistImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeWithdrawalsStatisticsImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\User\UserDetailInfoImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\User\VUserInfoImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\View\VLeWeiXinUserImpl.cs" />
+    <Compile Include="Chitunion2017\LE\ILeDisbursementPay.cs" />
+    <Compile Include="Chitunion2017\LE\ILeFeedback.cs" />
+    <Compile Include="Chitunion2017\LE\ILeIncomeDetail.cs" />
+    <Compile Include="Chitunion2017\LE\ILeIncomeStatisticsCategory.cs" />
+    <Compile Include="Chitunion2017\LE\ILeIpBlacklist.cs" />
+    <Compile Include="Chitunion2017\LE\ILeIpRequestLog.cs" />
+    <Compile Include="Chitunion2017\LE\ILePromotionChannelDict.cs" />
+    <Compile Include="Chitunion2017\LE\ILeShareDetail.cs" />
+    <Compile Include="Chitunion2017\LE\ILeUserBankAccount.cs" />
+    <Compile Include="Chitunion2017\LE\ILeUserBlacklist.cs" />
+    <Compile Include="Chitunion2017\LE\ILeWithdrawalsDetail.cs" />
+    <Compile Include="Chitunion2017\Impl\AccountArticleImpl.cs" />
+    <Compile Include="Chitunion2017DbContext.cs" />
+    <Compile Include="Chitunion2017\Impl\AuditInfoImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\LE\LeWithdrawalsDetailImpl.cs" />
+    <Compile Include="Chitunion2017\Impl\User\UserInfoImpl.cs" />
+    <Compile Include="Chitunion2017\LE\ILeWithdrawalsStatistics.cs" />
+    <Compile Include="Chitunion2017\LE\IVUserInfo.cs" />
+    <Compile Include="Chitunion2017\Profit\IIncomeStatistics.cs" />
+    <Compile Include="Chitunion2017\Profit\Impl\IncomeStatisticsImpl.cs" />
+    <Compile Include="Chitunion2017\Profit\Impl\ProfitImpl.cs" />
+    <Compile Include="Chitunion2017\Profit\IProfit.cs" />
+    <Compile Include="Chitunion2017\Task\IDictScene.cs" />
+    <Compile Include="Chitunion2017\Task\Impl\DictSceneImpl.cs" />
+    <Compile Include="Chitunion2017\Msg\Impl\MsgMasterImpl.cs" />
+    <Compile Include="Chitunion2017\Msg\IMsgMaster.cs" />
+    <Compile Include="Chitunion2017\Task\ILEWeiXinUser.cs" />
+    <Compile Include="Chitunion2017\Task\Impl\LEWeiXinUserImpl.cs" />
+    <Compile Include="Chitunion2017\User\IUserDetailInfo.cs" />
+    <Compile Include="Chitunion2017\User\IUserInfo.cs" />
+    <Compile Include="Chitunion2017\View\IVLeWeiXinUser.cs" />
+    <Compile Include="Chitunion2017\Wechat\ILeDaySign.cs" />
+    <Compile Include="Chitunion2017\Wechat\ILeWeiXinVisvitLog.cs" />
+    <Compile Include="Chitunion2017\Wechat\Impl\LeDaySignImpl.cs" />
+    <Compile Include="Chitunion2017\Wechat\Impl\LeWeiXinVisvitLogImpl.cs" />
+    <Compile Include="Chitunion2017\Task\ILEAccountBalance.cs" />
+    <Compile Include="Chitunion2017\Task\ILEADOrderInfo.cs" />
+    <Compile Include="Chitunion2017\Task\ILeTaskInfo.cs" />
+    <Compile Include="Chitunion2017\Task\ILEWXUserScene.cs" />
+    <Compile Include="Chitunion2017\Task\Impl\LEAccountBalanceImpl.cs" />
+    <Compile Include="Chitunion2017\Task\Impl\LEADOrderInfoImpl.cs" />
+    <Compile Include="Chitunion2017\Task\Impl\LeTaskInfoImpl.cs" />
+    <Compile Include="Chitunion2017\Task\Impl\LEWXUserSceneImpl.cs" />
+    <Compile Include="Chitunion2017\Wechat\ILeInviteRecord.cs" />
+    <Compile Include="Chitunion2017\Wechat\Impl\LeInviteRecordImpl.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\Repository.cs" />
+    <Compile Include="Infrastructure\RepositoryImpl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ChiTu2018.Entities\XYAuto.ChiTu2018.Entities.csproj">
+      <Project>{4d08e097-daa0-4a36-9a9f-33156cd82fea}</Project>
+      <Name>XYAuto.ChiTu2018.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="存在sql脚本.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

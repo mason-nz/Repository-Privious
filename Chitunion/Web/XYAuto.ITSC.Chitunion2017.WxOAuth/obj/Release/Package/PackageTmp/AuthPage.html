@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form id="form1" method="post" action="WeChat.ashx?m=oauth">
+        <input type="radio" name="Type" value="38001" />扫码
+        <input type="radio" name="Type" value="38002" />验证码
+        <input type="radio" name="Type" value="38003" />手工
+        <input type="radio" name="Type" value="38004" />资质认证
+        <br/>
+        验证码:<input name="YZM" type="text" />
+        地址:<input name="Url" type="text" />
+        微信号:<input name="WxNumber" type="text" />
+        <div>
+            <input type="submit" value="点我授权" />
+        </div>
+    </form>
+
+</body>
+</html>

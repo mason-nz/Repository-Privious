@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>微信公众号-赤兔联盟广告在线交易平台</title>
+<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+<script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+<script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+<script type="text/javascript" src="../js/laydate.js"></script>
+<script type="text/javascript" src="../js/ejs.min.js"></script>
+<script type="text/javascript" src="../js/Area2.js"></script>
+<script type="text/javascript" src="../js/Common_area.js"></script>
+<script type="text/javascript" src="../js/jquery.pagination.js"></script>
+<script type="text/javascript" src="../js/jquery.browser.js"></script>
+<script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/Common_chitu.js"></script>
+<script type="text/javascript" src="../js/Common_IE.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="js/wx_stagecommon_v1.1.js"></script>
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<script src="../js/jquery-ui.min.js"></script>
+</head>
+<body>
+   <!--顶部logo 导航-->
+   <!--#include file="../Base/header_home.html" -->
+   <!--#include file="wx_con_v1.1.html" -->
+   <!--底部-->
+   <!--#include file="../Base/footer.html" -->
+<!--右侧贴边导航quick_links.js控制-->
+    <div class="mui-mbar-tabs">
+        <div class="quick_link_mian">
+            <div class="quick_links_panel">
+                <ul id="quick_links" class="quick_links">
+                    <li id="shopCart">
+                        <a href="javascript:void(0)" class="message_list" ><i class="message"></i><div class="span">购物车</div><span class="cart_num">0</span></a>
+                    </li>
+                </ul>
+                <ul class="quick_toggle">
+                    <li><a href="#top" class="return_top"><i class="top"></i></a></li>
+                </ul>
+            </div>
+            <div id="quick_links_pop" class="quick_links_pop hide"></div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    // 初始配置参数
+    var set = {
+        url:"http://www.chitunion.com/api/Media/GetMediaListF?v=1_1",
+        data:{
+            pageIndex:1,
+            pageSize : 20,
+            businesstype:14001,
+            CategoryID:-2,
+            FansCount:'',
+            Price:'',
+            IsVerify:-2,
+            CanReceive:false,
+            orderBy:-2,
+            Key:""
+        }
+    }
+    GetDictInfo('.catagory','li');
+    // GetDictInfo(5,'.OrderRemark','option');
+</script>
+
+</body>
+</html>

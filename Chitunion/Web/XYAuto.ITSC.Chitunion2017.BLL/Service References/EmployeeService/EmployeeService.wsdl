@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="domainAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="tns:LoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="LoginResult">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="UserNotExist" />
+          <s:enumeration value="WrongPassword" />
+          <s:enumeration value="Inactive" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetEmployeeByDomainAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeByDomainAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeByDomainAccountResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Employee">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EmployeeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomainAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CnName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NickName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmployeeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="tns:Department" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seat" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TitleRank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManagerNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DimissionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntryDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="OfficePlaceID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficePlace" type="tns:OfficePlace" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceLengthStartTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeriateWorkStartTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegularWorkDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastWorkDimissionDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkCharacter" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDay" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sex" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Department">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullPath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OfficePlace">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlaceName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Level" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateUserID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullPath" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmployeeNumberByDomainAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeNumberByDomainAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeNumberByDomainAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeByEmployeeNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="employeeNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeByEmployeeNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeByEmployeeNumberResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryEmployeeByCnName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keywords" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryEmployeeByCnNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryEmployeeByCnNameResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEmployee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryEmployeeByDept">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deptId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeChildren" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterParttime" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryEmployeeByDeptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryEmployeeByDeptResult" type="tns:ArrayOfEmployee" />
+            <s:element minOccurs="1" maxOccurs="1" name="employeeCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryManagerByDeptName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryManagerByDeptNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryManagerByDeptNameResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeptByEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeptByEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeptByEmployeeResult" type="tns:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryDeptByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryDeptByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryDeptByNameResult" type="tns:ArrayOfDepartment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDepartment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QuerySubDept">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deptId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAll" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySubDeptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySubDeptResult" type="tns:ArrayOfDepartment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEmployeeInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isQueryDB" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEmployeeInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllEmployeeInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEmployeeInfoNotWB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isQueryDB" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEmployeeInfoNotWBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllEmployeeInfoNotWBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeChangeDataByDateByCtrip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeChangeDataByDateByCtripResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeChangeDataByDateByCtripResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeChangeDataByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeChangeDataByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeChangeDataByDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeptChangeDataByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeptChangeDataByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeptChangeDataByDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeByDomainAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByDomainAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeByDomainAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByDomainAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeNumberByDomainAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeNumberByDomainAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeNumberByDomainAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeNumberByDomainAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeByEmployeeNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByEmployeeNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeByEmployeeNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByEmployeeNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryEmployeeByCnNameSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryEmployeeByCnName" />
+  </wsdl:message>
+  <wsdl:message name="QueryEmployeeByCnNameSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryEmployeeByCnNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryEmployeeByDeptSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryEmployeeByDept" />
+  </wsdl:message>
+  <wsdl:message name="QueryEmployeeByDeptSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryEmployeeByDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryManagerByDeptNameSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryManagerByDeptName" />
+  </wsdl:message>
+  <wsdl:message name="QueryManagerByDeptNameSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryManagerByDeptNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptByEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeptByEmployee" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptByEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeptByEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryDeptByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryDeptByName" />
+  </wsdl:message>
+  <wsdl:message name="QueryDeptByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryDeptByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubDeptSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySubDept" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubDeptSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySubDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeeInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeeInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeeInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeeInfoNotWBSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeeInfoNotWB" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeeInfoNotWBSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeeInfoNotWBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeChangeDataByDateByCtripSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeChangeDataByDateByCtrip" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeChangeDataByDateByCtripSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeChangeDataByDateByCtripResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeChangeDataByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeChangeDataByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeChangeDataByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeChangeDataByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptChangeDataByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeptChangeDataByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptChangeDataByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeptChangeDataByDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EmployeeServiceSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByDomainAccount">
+      <wsdl:input message="tns:GetEmployeeByDomainAccountSoapIn" />
+      <wsdl:output message="tns:GetEmployeeByDomainAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeNumberByDomainAccount">
+      <wsdl:input message="tns:GetEmployeeNumberByDomainAccountSoapIn" />
+      <wsdl:output message="tns:GetEmployeeNumberByDomainAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByEmployeeNumber">
+      <wsdl:input message="tns:GetEmployeeByEmployeeNumberSoapIn" />
+      <wsdl:output message="tns:GetEmployeeByEmployeeNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByCnName">
+      <wsdl:input message="tns:QueryEmployeeByCnNameSoapIn" />
+      <wsdl:output message="tns:QueryEmployeeByCnNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByDept">
+      <wsdl:input message="tns:QueryEmployeeByDeptSoapIn" />
+      <wsdl:output message="tns:QueryEmployeeByDeptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryManagerByDeptName">
+      <wsdl:input message="tns:QueryManagerByDeptNameSoapIn" />
+      <wsdl:output message="tns:QueryManagerByDeptNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptByEmployee">
+      <wsdl:input message="tns:GetDeptByEmployeeSoapIn" />
+      <wsdl:output message="tns:GetDeptByEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryDeptByName">
+      <wsdl:input message="tns:QueryDeptByNameSoapIn" />
+      <wsdl:output message="tns:QueryDeptByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubDept">
+      <wsdl:input message="tns:QuerySubDeptSoapIn" />
+      <wsdl:output message="tns:QuerySubDeptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询当前在职人员信息表，不包含“高管”字段</wsdl:documentation>
+      <wsdl:input message="tns:GetAllEmployeeInfoSoapIn" />
+      <wsdl:output message="tns:GetAllEmployeeInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeInfoNotWB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询当前在职人员信息表，不包含外包，不包含“高管”字段</wsdl:documentation>
+      <wsdl:input message="tns:GetAllEmployeeInfoNotWBSoapIn" />
+      <wsdl:output message="tns:GetAllEmployeeInfoNotWBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeChangeDataByDateByCtrip">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">给OA流程系统差旅单需求，调用携程同步人员数据提供接口，获取查询某天增量人员数据</wsdl:documentation>
+      <wsdl:input message="tns:GetEmployeeChangeDataByDateByCtripSoapIn" />
+      <wsdl:output message="tns:GetEmployeeChangeDataByDateByCtripSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeChangeDataByDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">给微信API提供接口，获取查询某天增量人员数据</wsdl:documentation>
+      <wsdl:input message="tns:GetEmployeeChangeDataByDateSoapIn" />
+      <wsdl:output message="tns:GetEmployeeChangeDataByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptChangeDataByDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">给微信API提供接口，获取查询某天增量部门数据</wsdl:documentation>
+      <wsdl:input message="tns:GetDeptChangeDataByDateSoapIn" />
+      <wsdl:output message="tns:GetDeptChangeDataByDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeServiceSoap" type="tns:EmployeeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByDomainAccount">
+      <soap:operation soapAction="http://tempuri.org/GetEmployeeByDomainAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeNumberByDomainAccount">
+      <soap:operation soapAction="http://tempuri.org/GetEmployeeNumberByDomainAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByEmployeeNumber">
+      <soap:operation soapAction="http://tempuri.org/GetEmployeeByEmployeeNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByCnName">
+      <soap:operation soapAction="http://tempuri.org/QueryEmployeeByCnName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByDept">
+      <soap:operation soapAction="http://tempuri.org/QueryEmployeeByDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryManagerByDeptName">
+      <soap:operation soapAction="http://tempuri.org/QueryManagerByDeptName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptByEmployee">
+      <soap:operation soapAction="http://tempuri.org/GetDeptByEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDeptByName">
+      <soap:operation soapAction="http://tempuri.org/QueryDeptByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubDept">
+      <soap:operation soapAction="http://tempuri.org/QuerySubDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeInfo">
+      <soap:operation soapAction="http://tempuri.org/GetAllEmployeeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeInfoNotWB">
+      <soap:operation soapAction="http://tempuri.org/GetAllEmployeeInfoNotWB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeChangeDataByDateByCtrip">
+      <soap:operation soapAction="http://tempuri.org/GetEmployeeChangeDataByDateByCtrip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeChangeDataByDate">
+      <soap:operation soapAction="http://tempuri.org/GetEmployeeChangeDataByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptChangeDataByDate">
+      <soap:operation soapAction="http://tempuri.org/GetDeptChangeDataByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EmployeeServiceSoap12" type="tns:EmployeeServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByDomainAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetEmployeeByDomainAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeNumberByDomainAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetEmployeeNumberByDomainAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByEmployeeNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetEmployeeByEmployeeNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByCnName">
+      <soap12:operation soapAction="http://tempuri.org/QueryEmployeeByCnName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByDept">
+      <soap12:operation soapAction="http://tempuri.org/QueryEmployeeByDept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryManagerByDeptName">
+      <soap12:operation soapAction="http://tempuri.org/QueryManagerByDeptName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptByEmployee">
+      <soap12:operation soapAction="http://tempuri.org/GetDeptByEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDeptByName">
+      <soap12:operation soapAction="http://tempuri.org/QueryDeptByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubDept">
+      <soap12:operation soapAction="http://tempuri.org/QuerySubDept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetAllEmployeeInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeInfoNotWB">
+      <soap12:operation soapAction="http://tempuri.org/GetAllEmployeeInfoNotWB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeChangeDataByDateByCtrip">
+      <soap12:operation soapAction="http://tempuri.org/GetEmployeeChangeDataByDateByCtrip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeChangeDataByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetEmployeeChangeDataByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptChangeDataByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetDeptChangeDataByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeService">
+    <wsdl:port name="EmployeeServiceSoap" binding="tns:EmployeeServiceSoap">
+      <soap:address location="http://hr.oa.xingyuanauto.com/webservice/EmployeeService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EmployeeServiceSoap12" binding="tns:EmployeeServiceSoap12">
+      <soap12:address location="http://hr.oa.xingyuanauto.com/webservice/EmployeeService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

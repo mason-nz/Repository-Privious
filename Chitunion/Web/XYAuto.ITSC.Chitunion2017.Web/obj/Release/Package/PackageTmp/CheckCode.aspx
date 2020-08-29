@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CheckCode.aspx.cs" Inherits="XYAuto.ITSC.Chitunion2017.Web.CheckCode" %>

@@ -1,0 +1,82 @@
+<div class="topBar">
+    <div class="topBox">
+        <a href="/index.html" class="topLogo"></a>
+        <ul id="topBoxlist">
+            <li><a href="/index.html">首页</a></li>
+            <li><a href="/static/info/intelligent_match.html">智能匹配</a></li>
+            <li><a href="/static/info/distribution.html">内容分发</a></li>
+            <li><a href="/static/info/meia_cast.html">媒体智投</a></li>
+            <li><a href="/static/info/media_owner.html">媒体变现</a></li>
+            <li><a href="/static/info/service.html">客户服务</a></li>
+            <div class="clear"></div>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<!--IM浮层href="tencent://message/?uin=3212298083&Site=www.chitunion.com&Menu=yes"-->
+<div id="div_imqq" class="im-container">
+    <ul>
+        <li><a class="btn-qq btn" id="div_a_imqq" ><img src="/images/icons/btn_qq.png"></a></li>
+        <li class="two_code">
+            <a href="javascript:;"><img src="/images/icons/btn_w.png"></a>
+            <span><img src="/images/wechat_code.png"><em></em></span>
+        </li>
+        <li class="go_back"><a href="javascript:;"><img src="/images/icons/btn_up.png"></a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var curUrl = window.location.pathname.toLowerCase();
+        var liTopMenus = $('div.topBar div.topBox ul li');
+        liTopMenus.find('a').removeClass('active');
+
+        if (curUrl.endsWith('/') || curUrl.endsWith('/index.html')) {
+            liTopMenus.eq(0).find('a').addClass('active');
+        }
+        else if (curUrl.endsWith('/static/info/intelligent_match.html')||
+                 curUrl.endsWith('/static/advertister/sort_list.html')) {
+            liTopMenus.eq(1).find('a').addClass('active');
+        }
+        else if (curUrl.endsWith('/static/info/distribution.html')) {
+            liTopMenus.eq(2).find('a').addClass('active');
+        }
+        else if (curUrl.endsWith('/static/info/meia_cast.html')) {
+            liTopMenus.eq(3).find('a').addClass('active');
+        }
+        else if (curUrl.endsWith('/static/info/media_owner.html') ||
+                 curUrl.endsWith('/static/media/contentdistribution.html')) {
+            liTopMenus.eq(4).find('a').addClass('active');
+        }
+        else if (curUrl.endsWith('/static/info/service.html')) {
+            liTopMenus.eq(5).find('a').addClass('active');
+        }
+
+        //qq 微信 返回顶部
+        $('#div_imqq .two_code').on('mouseover',function(){
+            var that = $(this);
+            that.find('span').show();
+        }).on('mouseout',function(){
+            var that = $(this);
+            that.find('span').hide();
+        })
+        var winHeight = $(window).height();
+        var toTopDom = $('.go_back');
+        toTopDom.hide();
+        $(window).scroll(function(){
+            var scrollTop = $(window).scrollTop();
+            if(scrollTop >= winHeight){
+                toTopDom.show();
+            } else {
+                toTopDom.hide();
+            }
+        })
+        $('#div_imqq .go_back').off('click').on('click',function(){
+            $("html,body").animate({scrollTop:0},500);
+        })
+
+
+    });
+</script>

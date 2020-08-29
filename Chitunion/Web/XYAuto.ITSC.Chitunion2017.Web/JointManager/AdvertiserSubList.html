@@ -1,0 +1,203 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script src="../js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script src="../js/jquery.pagination.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script type="text/javascript" src="js/AdvertiserSubList.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2>
+                    <div class="fl">广告主/子客列表</div>
+                    <div class="clear"></div>
+                </h2>
+            </div>
+            <div id="list_switching">
+                <div class="clear"></div>
+                <ul class="state">
+                    <li><div class="ins_c">手机号：</div><input id="phone" name="Username" type="text"  style="width:173px;"></li>
+                    <li class="but_query" style="width:70px;margin-right:0">查询</li>
+                    <div class="clear"></div>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="ad_table">
+                        <div id="Rendering">
+
+                        </div>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span>1/200</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+<!--运营-->
+<script type="text/template" id="Operate">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+
+        <tr>
+            <th width="16%">用户名</th>
+            <th width="12%">手机号</th>
+            <th width="22%">子客账号id/QQ</th>
+            <th width="11%">客户名称</th>
+            <th width="11%">现金余额</th>
+            <th width="13%">虚拟余额</th>
+            <th width="13%">分成余额</th>
+            <th width="13%">银证余额</th>
+            <th width="13%">今日花费</th>
+            <th width="10%">需求个数</th>
+            <th width="12%">操作</th>
+        </tr>
+
+        <%Result.AdvertiserInfo.forEach(function(e){%>
+        <%console.log(e)%>
+        <tr>
+            <td><%=e.UserName?e.UserName:''%></td>
+            <td><%=e.Mobile?e.Mobile:''%></td>
+            <td><%=e.AccountId?e.AccountId:''%></td>
+            <td><%=e.CustomerName?e.CustomerName:''%></td>
+            <td><%=formatMoney(e.CashBalance/100,2,'¥ ')%></td>
+            <td><%=formatMoney(e.VirtualBalance/100,2,'¥ ')%></td>
+            <td><%=formatMoney(e.DividedBalance/100,2,'¥ ')%></td>
+            <td><%=formatMoney(e.SilverCardBalance/100,2,'¥ ')%></td>
+            <td><%=formatMoney(e.TodaySpend/100,2,'¥ ')%></td>
+            <td><%=e.Number%></td>
+            <td>
+
+            </td>
+        </tr>
+        <%})%>
+    </table>
+    <div id="img"></div>
+    <table  width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" style="margin-top: 20px;">
+        <tr>
+            <td width="8%">累计</td>
+            <td><%=Result.TotalCount%>个广告主/子客</td>
+            <td>现金余额：<%=formatMoney(Result.TotalCashBalance/100,2,'¥ ')%></td>
+            <td>虚拟余额：<%=formatMoney(Result.TotalVirtualBalance/100,2,'¥ ')%></td>
+            <td>分成余额：<%=formatMoney(Result.TotalDividedBalance/100,2,'¥ ')%></td>
+            <td>银证余额：<%=formatMoney(Result.TotalSilverCBalance/100,2,'¥ ')%></td>
+            <td>今日花费：<%=formatMoney(Result.TotalTodaySpend/100,2,'¥ ')%></td>
+            <td>需求个数 <%=Result.TotalNumber%>个</td>
+        </tr>
+    </table>
+</script>
+<!--超管-->
+<script type="text/template" id="Supertube">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+
+            <tr>
+                <th width="16%">用户名</th>
+                <th width="12%">手机号</th>
+                <th width="18%">子客账号id/QQ</th>
+                <th width="11%">客户名称</th>
+                <th width="11%">现金余额</th>
+                <th width="13%">虚拟余额</th>
+                <th width="13%">分成余额</th>
+                <th width="13%">银证余额</th>
+                <th width="13%">今日花费</th>
+                <th width="10%">需求个数</th>
+                <th width="10%">所属运营</th>
+                <th width="16%">操作</th>
+            </tr>
+
+            <%Result.AdvertiserInfo.forEach(function(e){%>
+            <tr>
+                <td><%=e.UserName?e.UserName:''%></td>
+                <td><%=e.Mobile?e.Mobile:''%></td>
+                <td><%=e.AccountId?e.AccountId:''%></td>
+                <td><%=e.CustomerName?e.CustomerName:''%></td>
+                <td><%=formatMoney(e.CashBalance/100,2,'¥ ')%></td>
+                <td><%=formatMoney(e.VirtualBalance/100,2,'¥ ')%></td>
+                <td><%=formatMoney(e.DividedBalance/100,2,'¥ ')%></td>
+                <td><%=formatMoney(e.SilverCardBalance/100,2,'¥ ')%></td>
+                <td><%=formatMoney(e.TodaySpend/100,2,'¥ ')%></td>
+                <td><%=e.Number%></td>
+                <td><%=e.Operater?e.Operater:''%></td>
+                <td>
+                    <%if(!e.AccountId){%>
+                    <a href="javascript:;" Username="<%=e.UserName?e.UserName:''%>" Corporatename="<%=e.CompanyName?e.CompanyName:''%>" phone="<%=e.Mobile?e.Mobile:''%>" UserId="<%=e.UserId%>" class="Accountbinding" style="display: inline-block">账号绑定</a>
+                    <a href="javascript:;" UserId="<%=e.UserId%>" class="Unbound" style="display: none">解除绑定</a>
+                    <%}else{%>
+                    <a href="javascript:;" Username="<%=e.UserName?e.UserName:''%>" Corporatename="<%=e.CompanyName?e.CompanyName:''%>" phone="<%=e.Mobile?e.Mobile:''%>" UserId="<%=e.UserId%>" class="Accountbinding" style="display: none">账号绑定</a>
+                    <a href="javascript:;" class="Unbound" UserId="<%=e.UserId%>" style="display: inline-block">解除绑定</a>
+                    <%}%>
+                    <a href="javascript:;" class="Modifyoperation" Username="<%=e.UserName?e.UserName:''%>" Corporatename="<%=e.CompanyName?e.CompanyName:''%>" phone="<%=e.Mobile?e.Mobile:''%>" UserId="<%=e.UserId%>" >修改运营</a>
+                </td>
+            </tr>
+            <%})%>
+        </table>
+        <div id="img"></div>
+        <table  width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" style="margin-top: 20px;">
+            <tr>
+                <td width="8%">累计</td>
+                <td><%=Result.TotalCount%>个广告主/子客</td>
+                <td>现金余额：<%=formatMoney(Result.TotalCashBalance/100,2,'¥ ')%></td>
+                <td>虚拟余额：<%=formatMoney(Result.TotalVirtualBalance/100,2,'¥ ')%></td>
+                <td>分成余额：<%=formatMoney(Result.TotalDividedBalance/100,2,'¥ ')%></td>
+                <td>银证余额：<%=formatMoney(Result.TotalSilverCBalance/100,2,'¥ ')%></td>
+                <td>今日花费：<%=formatMoney(Result.TotalTodaySpend/100,2,'¥ ')%></td>
+                <td>需求个数 <%=Result.TotalNumber%>个</td>
+            </tr>
+        </table>
+</script>
+</body>
+</html>

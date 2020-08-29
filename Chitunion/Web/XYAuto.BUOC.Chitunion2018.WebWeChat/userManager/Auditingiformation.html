@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #f3f3f3;">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/module.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" href="/js/layer_mobile/need/layer.css">
+    <script src="/js/common_weChat.js"></script>
+    <script src="/js/common_share.js"></script>
+    <script src="/js/flexible.js"></script>
+    <script src="js/Auditingiformation.js"></script>
+</head>
+<body id="ElasticLayerStyle">
+<div class="no_data" style="display: none">
+    <div>
+        <img src="../images/no_net.png">
+    </div>
+    <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+</div>
+<div class="container-fluid seePersonalInformation netOk" style="display: none" id="app">
+    <header :class="header_hide">
+    {{header_text}}
+    </header>
+    <main>
+        <article class="personalData">
+            <div class="flex_justify_spaceBetween">
+                微信昵称<input disabled type="text" id="nickname" :placeholder="nickname">
+            </div>
+            <div class="flex_justify_spaceBetween">
+                手机号 <div @click="ModifiedNumber">{{MobilePhone}}</div>
+            </div>
+        </article>
+        <article class="personalSupplement">
+            <div class="flex_justify_spaceBetween">
+                类型
+                <div>
+                    <div class="typeSwitching">
+                        <button :class="typecolourblue">个人</button><button :class="typecolour">企业</button>
+                    </div>
+                </div>
+            </div>
+            <!--个人-->
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                真实姓名 <input type="text" v-model="RealName" placeholder="请输入真实姓名">
+            </div>
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                身份证号 <input type="text" v-model="IdNumber" placeholder="请输入身份证号">
+            </div>
+            <div v-show="personal" class="flex_justify_spaceBetween">
+                手持身份证
+                <div class="img_dag">
+                    <div class="upload_text" @click.self="IDCardUploading"><img id="photoimg" :src="photoimg" alt=""></div>
+                </div>
+            </div>
+            <!--企业-->
+            <div v-show="enterprise" class="flex_justify_spaceBetween">
+                公司名称 <input type="text" v-model="CorporateName" placeholder="请输入公司名称">
+            </div>
+            <div v-show="enterprise" class="flex_justify_spaceBetween">
+                营业执照
+                <div>
+                    <div class="upload_text" @click.self="ClickBLicenceURL"><img id="BLicenceURL" :src="BLicenceURL" alt=""></div>
+                </div>
+            </div>
+        </article>
+        <article class="personalProperty">
+            <div class="flex_justify_spaceBetween">
+                支付宝账号 <div @click="clickAlipay">{{Alipay}}</div>
+            </div>
+        </article>
+        <div class="flex_justify_center">
+            <button @click="Preservation" id="baocun" class="Thegrey">保存</button>
+        </div>
+    </main>
+</div>
+</body>
+</html>

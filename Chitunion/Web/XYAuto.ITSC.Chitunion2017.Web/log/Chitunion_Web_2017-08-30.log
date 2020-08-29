@@ -1,0 +1,7 @@
+2017-08-30 14:11:03,218 [22] ERROR BaseLog [(null)] - 退出赤兔系统时，出错
+System.TypeInitializationException: “XYAuto.ITSC.Chitunion2017.Common.UserInfo”的类型初始值设定项引发异常。 ---> System.ApplicationException: 请在配置文件的appSettings中配置'ThisSysID'的值。
+   在 XYAuto.Utils.Config.ConfigurationUtil.GetAppSettingValue(String configKey, Boolean isThrowExceptionIfNotExist)
+   在 XYAuto.ITSC.Chitunion2017.Common.UserInfo..cctor() 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.Common\UserInfo.cs:行号 21
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 XYAuto.ITSC.Chitunion2017.Common.UserInfo.IsLogin(LoginUser& lu)
+   在 XYAuto.ITSC.Chitunion2017.Web.Exit.Page_Load(Object sender, EventArgs e) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.Web\Exit.aspx.cs:行号 19

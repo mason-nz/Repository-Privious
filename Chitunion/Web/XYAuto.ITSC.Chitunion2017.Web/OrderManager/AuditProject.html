@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/AuditProject.js"></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+    <style>
+        .to_b_list table .date_input{
+            width: 80px;
+            height: 26px;
+            border: none;
+            background: none;
+        }
+        .to_b_list table .holiday_icon{
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            background:  #f77777;
+            border-radius: 4px
+        }
+        .to_b_list table .everyHoliday{
+            font-size: 12px;
+            line-height: 24px
+        }
+        .to_b_list table .appTime,.day_bottom{
+            height: auto;
+            border-bottom: dashed #CBCBCB 1px;
+        }
+        .to_b_list table .look_holidays{
+            font-size: 12px;
+            width: 70px;
+            height: 20px;
+            background: #f77777;
+            color: #fff;
+            display: inline-block;
+            line-height: 20px;
+            border-radius: 3px;
+        }
+        .to_b_list table .appTime:last-of-type,.day_bottom:last-of-type{
+            border:none;
+            margin-bottom: 0;
+        }
+        .to_b_list table .SuspensionElements{
+            position: absolute;
+            width: 200px;
+            height: auto;
+            background: #fff;
+            left: 35px;
+            top: 22px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        .to_b_list .portrait{
+            position: relative;
+        }
+
+        .to_b_list .portrait .xj {
+            background-color: rgba(0,0,0,0.5);
+            background-color: #000;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            color: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .main_message  li{
+            width:30%;
+            float: left;
+            margin-right: 10px;
+            line-height: 35px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .channel_box .layer_con table td{
+            border : 1px solid #E4E4E4;
+            font-size: 12px;
+        }
+        .channel_box .layer_con table td .costing_price{
+            width: 40px;
+            height:28px;
+        }
+    </style>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="install">
+            <h2 class='menu_nav'></h2>
+            <div class="clear"></div>
+            <div class="install_box"></div>
+        </div>
+
+
+         <div class="ad_select" style="margin:20px 0;">
+            <div class="left">
+                <span><input name="sureResult" type="radio" id='auditPass'> 通过</span>
+                <span><input name="sureResult" type="radio" id='auditReject'> 驳回</span>
+            </div>
+            <div class="right">
+                <div class="put_in" id='lastResult'>确 认</div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <script type="text/template" id="AuditProjecrForWeChat">
+    <ul style="padding-left: 24px;" class="main_message">
+    
+        <li>项目编号：<%= data.ADOrderInfo.OrderID %></li>
+        <li>项目状态：<span class="red orderStatus"></span></li>
+        <li>项目类型：<% if(data.ADOrderInfo.OrderType == 1){%> 待客下单 <%}else if(data.ADOrderInfo.OrderType == 2){%> 自助下单  <%}else if(data.ADOrderInfo.OrderType == 3){%> 代客下单-智投 <%} %></li>  
+
+        <!-- 媒体主取CustomerUserName  AE超管销售取CustomerName -->
+        <% if(CTLogin.RoleIDs == "SYS001RL00003"){%>
+            <li>广告主：<%= data.ADOrderInfo.CustomerUserName %></li>
+        <%}else{%>
+            <li>广告主：<%= data.ADOrderInfo.CustomerName %></li>
+        <%} %>  
+
+        <li>下单人：
+        <% if(data.ADOrderInfo.CreatorUserName != ''){%>
+            <%= data.ADOrderInfo.CreatorUserName %>
+        <%}else if(data.ADOrderInfo.CreatorName != ''){%>
+            <%= data.ADOrderInfo.CreatorName %>
+        <%} %></li>    
+        <li>创建时间：<%= data.ADOrderInfo.CreateTime %></li>  
+        <li>销售参考价总价：<%= formatMoney(data.ADOrderInfo.TotalAmount,2) %></li>   
+        
+        <div class="clear"></div>
+
+        <li style="width: 80px;"><span class="red f12">*</span> 项目名称：</li>
+        <li class='AlOrderName' orderName='<%= data.ADOrderInfo.OrderName %>'><input name="Username" type="text" style="width:230px;height: 28px;line-height: 28px;" value='<%= data.ADOrderInfo.OrderName %>' placeholder='请输入项目名称，最多25个汉字' maxlength="25" class='NameOfDemand'><span style='color: red;display: none'>请输入项目名称</span></li>
+        <div class="clear"></div>   
+    </ul>
+    
+    <% data.SubADInfos.forEach(function(items,j){%>
+    <div class="to_b_list" SubOrderID='<%= items.SubOrderID %>'>
+        <% if(data.ADOrderInfo.Status != 16002 && data.ADOrderInfo.Status != 16001){%>
+            <div class="title">
+                <div class="fl">订单编号：<%= items.SubOrderID %></div>
+                <div class="fr red">
+                    <span class='subOrderStatus' status='<%= items.Status %>'></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        <%} %>
+
+        <!-- 自媒体 微信 -->
+        <% if(items.SelfDetails != null){%>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" class="data_table">
+            <thead>
+                <tr>
+                    <th width="22%" style="text-align: left"><span class="self"><%= items.MediaOwner %></span></th>
+                    <th width="19%">&nbsp;</th>
+                    <th width="10%">投放次/天数</th>
+                    <th width="28%">投放时间</th>
+                    <th width="8%">销售参考价</th>
+                    <!-- <th width="8%">成本参考价</th> -->
+                    <th width="8%">总计</th>
+                    <th width="6%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.SelfDetails.forEach(function(item,i){%>
+
+                    <!-- 微信过期或者被删除或者失效 -->
+                    <% if(item.PublishStatus == '42001' || item.PublishStatus == '42003' || item.PublishStatus == '42012' || item.expired == '-1'){%>
+                    <tr class="validAdv tr uselessTr"  expired='<%= item.expired %>' HasOtherPublish='<%= item.HasOtherPublish %>' MediaType='14001'>
+                        <td style="text-align: left;background: #ECECEC">
+                            <div class="portrait"><img src="<%= item.ADMasterImage %>"><div class="xj"><% if(item.PublishStatus == '42001' || item.PublishStatus == '42003' || item.PublishStatus == '42012'){%>已下架<%}else if(item.expired == '1'){%>已失效<%} %></div></div>
+                            <div class="content" style="margin-left: 5px;width: 125px">
+                                <div><a href="javascript:;"><%= item.ADMasterTitle %></a></div>
+                                <% if(item.ADMasterTitle != items.Name){%>
+                                <p><img src="/ImagesNew/collection04.png"><%= items.Name %></p>
+                                <%} %>
+                                <p><img src="/ImagesNew/collection01.png"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td style="text-align: left;background: #ECECEC">
+                            <p>广告位置：<%= item.ADPosition %></p>
+                            <p>创作类型：<%= item.CreateType %></p>
+                        </td>
+                        <td style="background: #ECECEC"><p class='weChat_days'><%= item.ADLaunchDays %>天</p></td>
+                        <!-- 排期展示 -->
+                        <td class="wechat_list5" style="float: none;background: #ECECEC">
+                            <ul BeginTime="<%= item.PubBeginTime %>" EndTime="<%= item.PubEndTime %>" style='width: 65%;margin: 0 auto;margin-right: 10px';>
+                            <%for(var k = 0;k < item.ADSchedules.length;k++){%>
+                                <li class="Time">
+                                    <span  id='pai<%= i %><%= j %><%= k %>'> <%=item.ADSchedules[k].BeginData.substr(0,16) %> </span>
+                                </li>
+                            <%}%>
+                            </ul>
+                        </td>
+                        <td style="background: #ECECEC">
+                            <p class="each_OriginalPrice" OriginalPrice='<%= item.OriginalPrice %>'><%= formatMoney(item.OriginalPrice,2) %></p>
+                        </td>
+                        <!-- <td style="background: #ECECEC">
+                            <p class="each_CostReferencePrice" CostReferencePrice='<%= item.CostReferencePrice %>'><%= formatMoney(item.CostReferencePrice,2) %></p>
+                            【<p><%= item.ChannelName %></p>】
+                        </td> -->
+                        <td style="background: #ECECEC">
+                            <p class="pt30 red totalPrice"><span class='init_total totalPrices'><%= item.AdjustPrice %></span></p>
+                        </td>
+                        <td style="background: #ECECEC"><img src="/ImagesNew/delete.png" class='removePosition'></td>
+                    </tr>
+                    <%}else{%>
+                    <!-- 微信正常 -->
+                    <tr class="validAdv tr usefulTr" scheduleDays="<%= item.ADLaunchDays %>" PubDetailID='<%= item.PublishDetailID %>' beginSchedule='' style='position: relative' OriginalPrice='<%= item.OriginalPrice %>' AdjustPrice='<%= item.AdjustPrice %>'  MediaID='<%= items.MediaID %>' TemplateID='0' expired='<%= item.expired %>' PublishStatus='<%= item.PublishStatus %>' MediaType='14001' SaleAreaID='0' PriceHoliday='0' CostReferencePrice='<%= item.CostReferencePrice %>' ADPositionID='<%= item.ADPositionID %>' CreateTypeID='<%= item.CreateTypeID %>' ChannelID='<%= item.ChannelID %>'>
+                        <td style="text-align: left">
+                            <div class="portrait"><img src="<%= item.ADMasterImage %>"></div>
+                            <div class="content" style="margin-left: 5px;width: 125px">
+                                <div><a href="javascript:;"><%= item.ADMasterTitle %></a></div>
+                                <% if(item.ADMasterTitle != items.Name){%>
+                                <p><img src="/ImagesNew/collection04.png"><%= items.Name %></p>
+                                <%} %>
+                                <p><img src="/ImagesNew/collection01.png"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td style="text-align: left">
+                            <p>广告位置：<%= item.ADPosition %></p>
+                            <p>创作类型：<%= item.CreateType %></p>
+                        </td>
+                        <td><p class='weChat_days'><%= item.ADLaunchDays %>天</p></td>
+                        <!-- 排期展示 -->
+                        <td class="wechat_list5" style="float: none;">
+                            <ul BeginTime="<%= item.PubBeginTime %>" EndTime="<%= item.PubEndTime %>" style='width: 65%;margin: 0 auto;margin-right: 10px';>
+                            <%for(var k = 0;k < item.ADSchedules.length;k++){%>
+                                <li class="Time">
+                                    <span  id='pai<%= i %><%= j %><%= k %>'> <%=item.ADSchedules[k].BeginData.substr(0,16) %> </span>
+                                    <a class="modify">
+                                        <img src="../images/icon54.png">
+                                    </a>
+                                    <a class="delete" style='display: none'>
+                                        <img src="../images/icon57.png">
+                                    </a>
+                                </li>
+                            <%}%>
+                            </ul>
+                        </td>
+                        <td>
+                            <p class="each_OriginalPrice" OriginalPrice='<%= item.OriginalPrice %>'><%= formatMoney(item.OriginalPrice,2) %></p>
+                        </td>
+                       <!--  <td>
+                           <p class="each_CostReferencePrice" CostReferencePrice='<%= item.CostReferencePrice %>'><%= formatMoney(item.CostReferencePrice,2) %></p>
+                           【<p><%= item.ChannelName %></p>】
+                       </td> -->
+                        <td>
+                            <p class="pt30 red totalPrice" totalPrice='<%= item.AdjustPrice %>'><input name="Username" type="text" style="width:60px;height: 28px;line-height: 28px;" value="<%= item.AdjustPrice %>" class='totalPrices'></p>
+                        </td>
+                        <td>
+                            <img src="/ImagesNew/delete.png" class='removePosition'>
+                            <!-- <% if(items.MediaOwner == '赤兔自营'){%>
+                            <a href="javascript:;" class="choose_channel"><img src="/ImagesNew/channel.png"></a>
+                            <%} %> -->
+                        </td>
+                    </tr>
+                    <%} %>
+
+                <%}) %>
+            </tbody>
+        </table>
+        <%} %>
+
+        <!-- 层级   items single each per -->
+        <!-- app -->
+        <% if(items.APPDetails != null){%>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" style="margin-bottom: 10px">
+            <thead>
+                <tr>
+                    <th width="22%" style="text-align: left"><span class="self"><%= items.MediaOwner %></span></th>
+                    <th width="19%">&nbsp;</th>
+                    <th width="10%">投放次/天数</th>
+                    <th width="28%">投放时间</th>
+                    <th width="8%">销售参考价</th>
+                    <!-- <th width="8%">成本参考价</th> -->
+                    <th width="8%">总计</th>
+                    <th width="6%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.APPDetails.forEach(function(single,s){%>
+                <% if(single.CPDCPM == '11001'){%>
+
+                    <!--CPD过期或者被删除或者失效-->
+                    <% if(single.PublishStatus == '49002' || single.PublishStatus == '49003' || single.PublishStatus == '49005' || single.expired == '-1'){%>
+                    <tr class='each_app cpdApp uselessTr tr' expired='<%= single.expired %>' HasOtherPublish='<%= single.HasOtherPublish %>' MediaType='14002'>
+                        <td style="text-align: left;background: #ECECEC">
+                            <div class="portrait"><img src="<%= single.ADMasterImage %>"><div class="xj"><% if(single.PublishStatus == '49002' || single.PublishStatus == '49003' || single.PublishStatus == '49005'){%>已下架<%}else if(single.expired == '-1'){%>已失效<%} %></div></div>
+                            <div class="content" style="margin-left: 5px;width: 125px">
+                                <div><a href="javascript:;"><%= single.ADMasterTitle %></a></div>
+                                <p><img src="/ImagesNew/collection04.png"><%= items.Name %></p>
+                                <p><img src="/ImagesNew/collection10.jpg"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td style="text-align: left;background: #ECECEC">
+                            <p>广告样式：<%= single.ADStyle %></p>
+                            <% if(single.CarouselNumber > 0){%>
+                                <p>轮播位置：<%= single.CarouselNumber %></p>
+                            <%} %>
+                            <p>系统平台：<%= single.SalePlatform %></p>
+                            <p>售卖区域：<%= single.SaleArea %></p>
+                        </td>
+                        <!--投放天数或者次数-->
+                        <td style="background: #ECECEC">
+                            <% single.ADSchedules.forEach(function(each,e){%>
+                            <div class='day_bottom'>
+                                <p style='line-height: 24px'><span><%= each.AllDays %></span>天<br> <% if(each.Holidays >= 1){%> <span style='font-size: 12px'>假期(<label><%= each.Holidays %></label>天)</span> <%} %> </p>
+                            </div>
+                            <%}) %>
+                        </td>
+                        <!-- 投放时间 -->
+                        <td style="background: #ECECEC">
+                            <% single.ADSchedules.forEach(function(each,e){%>
+                                <div class="appTime">
+                                    <p style='font-size: 12px;line-height: 24px' BeginTime='<%=single.PubBeginTime%>' EndTime='<%=single.PubEndTime%>'>
+                                        <span><%= each.BeginData.substr(0,10)%></span>至<span><%= each.EndData.substr(0,10)%></span>
+                                    </p>
+                                    <% if(each.Holidays >= 1){%>
+                                    <p style="width: 90px;" class='look_holidays'>查看节假日</p>
+                                    <div style="display: none">
+                                        <% each.Holiday.forEach(function(per){%>
+                                        <p class='everyHoliday'><span><%= per.BeginData.substr(0,10) %></span>至<span><%= per.EndData.substr(0,10) %></span><span class='holiday_icon'><%= per.Name %> </span> </p>
+                                        <%}) %>
+                                    </div>
+                                    <%} %>
+                                    <div class='SuspensionElements' style='display: none'></div>
+                                </div>
+                            <%}) %>
+                        </td>
+                        <!-- 单价 -->
+                        <!-- <td style="background: #ECECEC">
+                            <% if(single.HasHoliday == 0){%>
+                            <p><span><%= formatMoney(single.OriginalPrice,2) %></span></p>
+                            <%}else{%>
+                            <p><span><%= formatMoney(single.OriginalPrice,2) %></span><br><span style='font-size: 12px'>(<%= formatMoney(single.PriceHoliday,2) %>)</span>
+                            </p>
+                            <%} %>
+                        </td> -->
+                        <td>
+                            <p class="each_OriginalPrice" OriginalPrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td>
+                        <!-- <td>
+                            <p class="each_CostReferencePrice" CostReferencePrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td> -->
+                        <!-- 总价 -->
+                        <td style="background: #ECECEC">
+                            <p class="pt30 red totalPrice" totalPrice='<%= single.AdjustPrice %>'><span class='init_total totalPrices'><%= formatMoney(single.AdjustPrice,2) %></span></p>
+                        </td>
+                        <td style="background: #ECECEC"><img src="/ImagesNew/delete.png" class='removePosition'></td>
+                    </tr>
+                    <%}else{%>
+                    <!--CPD正常-->
+                    <tr class='each_app cpdApp usefulTr cpduseful tr' OriginalPrice='<%= single.OriginalPrice %>' PriceHoliday='<%= single.PriceHoliday %>' PubDetailID='<%= single.PublishDetailID %>'  MediaID='<%= items.MediaID %>' TemplateID='<%= single.TemplateID %>' expired='<%= single.expired %>' PublishStatus='<%= single.PublishStatus %>' MediaType='14002' CPDCPM='<%= single.CPDCPM%>' SaleAreaID='<%= single.SaleAreaID %>' HasHoliday='<%= single.HasHoliday %>' AdjustPrice='<%= single.AdjustPrice %>' CostReferencePrice='<%= single.CostReferencePrice %>'>
+                        <td style="text-align: left">
+                            <div class="portrait"><img src="<%= single.ADMasterImage %>"></div>
+                            <div class="content" style="margin-left: 5px;width: 125px">
+                                <div><a href="javascript:;"><%= single.ADMasterTitle %></a></div>
+                                <p><img src="/ImagesNew/collection04.png"><%= items.Name %></p>
+                                <p><img src="/ImagesNew/collection10.jpg"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td style="text-align: left">
+                            <p>广告样式：<%= single.ADStyle %></p>
+                            <% if(single.CarouselNumber > 0){%>
+                                <p>轮播位置：<%= single.CarouselNumber %></p>
+                            <%} %>
+                            <p>系统平台：<%= single.SalePlatform %></p>
+                            <p>售卖区域：<%= single.SaleArea %></p>
+                        </td>
+                        <!--投放天数或者次数-->
+                        <td>
+                            <% single.ADSchedules.forEach(function(each,e){%>
+                            <div class='day_bottom' alldays='<%= each.AllDays %>' holidays='<%= each.Holidays %>' workingdays='<%= each.AllDays - each.Holidays %>'>
+                                <p style='line-height: 24px'>
+                                    <span><%= each.AllDays %></span>天<br>
+                                    <% if(each.Holidays >= 1){%>
+                                        <span class='look_holidays'>假期(<label><%= each.Holidays %></label>天)</span>
+                                    <%}else{%>
+                                        <span class='look_holidays' style='display: none'>假期(<label></label>天)</span>
+                                    <%} %>
+                                </p>
+                            </div>
+                            <%}) %>
+                        </td>
+                        <!-- 投放时间 -->
+                        <td>
+                            <% single.ADSchedules.forEach(function(each,e){%>
+                            <div class="appTime">
+                                <p style='font-size: 12px;line-height: 24px' BeginTime='<%=single.PubBeginTime%>' EndTime='<%=single.PubEndTime%>'>
+                                    <input type="text" value='<%= each.BeginData.substr(0,10)%>' class='date_input' disabled id='AOne<%=j%><%=s%><%=e%>'>至<input type="text" value='<%= each.EndData.substr(0,10)%>' class='date_input' disabled id='ATwo<%=j%><%=s%><%=e%>'>
+                                    <a class="app_modify">
+                                        <img src="../images/icon54.png">
+                                    </a>
+                                    <% if(single.ADSchedules.length > 1){%>
+                                    <a class="app_delete">
+                                        <img src="../images/icon57.png">
+                                    </a>
+                                    <%} %>
+                                </p>
+                                <% if(each.Holidays >= 1){%>
+                                    <p class='look_holidays' style="width: 90px">查看节假日</p>
+                                    <div style="display: none;">
+                                        <% each.Holiday.forEach(function(per){%>
+                                        <p class='everyHoliday'><span><%= per.BeginData.substr(0,10) %></span>至<span><%= per.EndData.substr(0,10) %></span><span class='holiday_icon'><%= per.Name %> </span> </p>
+                                        <%}) %>
+                                    </div>
+                                <%}else{%>
+                                    <p class='look_holidays' style="width: 90px;display: none">查看节假日</p>
+                                <%} %>
+                                <div class='SuspensionElements' style='display: none'></div>
+                            </div>
+                            <%}) %>
+                        </td>
+                        <!-- 单价 -->
+                        <!-- <td>
+                            <% if(single.HasHoliday == 0){%>
+                            <p><span><%= formatMoney(single.OriginalPrice,2) %></span></p>
+                            <%}else{%>
+                            <p><span><%= formatMoney(single.OriginalPrice,2) %></span><br><span style='font-size: 12px;'>(<%= formatMoney(single.PriceHoliday,2) %>)</span>
+                            </p>
+                            <%} %>
+                        </td> -->
+                        <td>
+                            <p class="each_OriginalPrice" OriginalPrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td>
+                        <!-- <td>
+                            <p class="each_CostReferencePrice" CostReferencePrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td> -->
+                        <!-- 总价 -->
+                        <td>
+                            <p class="pt30 red totalPrice" totalPrice='<%= single.AdjustPrice %>'><input type="text" style="width:60px;height: 28px;line-height: 28px;" class='totalPrices' value="<%= formatMoney(single.AdjustPrice,2,'') %>"></p>
+                        </td>
+                        <td><img src="/ImagesNew/delete.png" class='removePosition'></td>
+                    </tr>
+                    <%} %>
+
+                <%}else{%>
+                    <!--CPM过期或者被删除或者失效-->
+                    <% if(single.PublishStatus == '49005' || single.expired == '-1' || single.expired == '1'){%>
+                    <tr class='each_app cpmApp uselessTr tr' expired='<%= single.expired %>' HasOtherPublish='<%= single.HasOtherPublish %>' MediaType='14002'>
+                        <td style="text-align: left;background: #ECECEC">
+                            <div class="portrait"><img src="<%= single.ADMasterImage %>"><div class="xj"><% if(single.PublishStatus == '49005'){%>下架<%}else if(single.expired == '-1'){%>已删除<%}else if(single.expired == '1'){%>过期<%} %></div></div>
+                            <div class="content" style="margin-left: 5px;width: 125px">
+                                <div><a href="javascript:;"><%= single.ADMasterTitle %></a></div>
+                                <p><img src="/ImagesNew/collection04.png"><%= items.MediaOwner %></p>
+                                <p><img src="/ImagesNew/collection07.png"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td style="text-align: left;background: #ECECEC">
+                            <p>广告样式：<%= single.ADStyle %></p>
+                            <% if(single.CarouselNumber > 0){%>
+                                <p>轮播位置：<%= single.CarouselNumber %></p>
+                            <%} %>
+                            <p>系统平台：<%= single.SalePlatform %></p>
+                            <p>售卖区域：<%= single.SaleArea %></p>
+                        </td>
+                        <!--投放天数或者次数-->
+                        <td style="background: #ECECEC">
+                            <p><span><%= single.ADLaunchDays %></span></p>
+                        </td>
+                        <!-- 投放时间 -->
+                        <td style="background: #ECECEC">
+                            <% single.ADSchedules.forEach(function(each,e){%>
+                            <div class="appTime">
+                                <p style='font-size: 12px;line-height: 24px' BeginTime='<%=single.PubBeginTime%>' EndTime='<%=single.PubEndTime%>'>
+                                    <input type="text" value='<%= each.BeginData.substr(0,10)%>' class='date_input' disabled id='AOne<%=j%><%=s%><%=e%>'>至
+                                    <input type="text" value='<%= each.EndData.substr(0,10)%>' class='date_input' disabled id='ATwo<%=j%><%=s%><%=e%>'>
+                                </p>
+                            </div>
+                            <%}) %>
+                        </td>
+                        <!-- 单价
+                        <td style="background: #ECECEC">
+                            <p><span><%= formatMoney(single.OriginalPrice,2) %></span></p>
+                        </td> -->
+                        <td style="background: #ECECEC">
+                            <p class="each_OriginalPrice" OriginalPrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td>
+                        <!-- <td style="background: #ECECEC">
+                            <p class="each_CostReferencePrice" CostReferencePrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td> -->
+                        <!-- 总价 -->
+                        <td style="background: #ECECEC">
+                            <p class="pt30 red totalPrice" totalPrice='<%= single.AdjustPrice %>'><span class='init_total totalPrices'><%= formatMoney(single.AdjustPrice,2) %></span></p>
+                        </td>
+                        <td style="background: #ECECEC"><img src="/ImagesNew/delete.png" class='removePosition'></td>
+                    </tr>  
+                    <%}else{%>
+
+                    <!--CPM正常-->
+                    <tr class='each_app cpmApp usefulTr tr' OriginalPrice='<%= single.OriginalPrice %>' PriceHoliday='<%= single.PriceHoliday %>' PubDetailID='<%= single.PublishDetailID %>'  MediaID='<%= items.MediaID %>' TemplateID='<%= single.TemplateID %>' expired='<%= single.expired %>' PublishStatus='<%= single.PublishStatus %>' MediaType='14002' CPDCPM='<%= single.CPDCPM%>' SaleAreaID='<%= single.SaleAreaID %>' AdjustPrice='<%= single.AdjustPrice %>' ADLaunchDays='<%= single.ADLaunchDays %>'>
+                        <td style="text-align: left">
+                            <div class="portrait"><img src="<%= single.ADMasterImage %>"></div>
+                            <div class="content" style="margin-left: 5px;width: 125px">
+                                <div><a href="javascript:;"><%= single.ADMasterTitle %></a></div>
+                                <p><img src="/ImagesNew/collection04.png"><%= items.MediaOwner %></p>
+                                <p><img src="/ImagesNew/collection07.png"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td style="text-align: left">
+                            <p>广告样式：<%= single.ADStyle %></p>
+                            <% if(single.CarouselNumber > 0){%>
+                                <p>轮播位置：<%= single.CarouselNumber %></p>
+                            <%} %>
+                            <p>系统平台：<%= single.SalePlatform %></p>
+                            <p>售卖区域：<%= single.SaleArea %></p>
+                        </td>
+                        <!--投放天数或者次数-->
+                        <td><p><input type="text" value='<%= single.ADLaunchDays %>' style='width: 30px;height: 28px;' class='qianCount'>千次</p>
+                        </td>
+                        <!-- 投放时间 -->
+                        <td>
+                            <% single.ADSchedules.forEach(function(each,e){%>
+                            <div class="appTime">
+                                <p style='font-size: 12px;line-height: 24px' BeginTime='<%=single.PubBeginTime%>' EndTime='<%=single.PubEndTime%>'>
+                                    <input type="text" value='<%= each.BeginData.substr(0,10)%>' class='date_input' disabled id='AOne<%=j%><%=s%><%=e%>'>至
+                                    <input type="text" value='<%= each.EndData.substr(0,10)%>' class='date_input' disabled id='ATwo<%=j%><%=s%><%=e%>'>
+                                    <a class="app_modify">
+                                        <img src="../images/icon54.png">
+                                    </a>
+                                    <a class="app_delete" style='display: none'>
+                                        <img src="../images/icon57.png">
+                                    </a>
+                                </p>
+                            </div>
+                            <%}) %>
+                        </td>
+                        <!-- 单价 -->
+                        <!-- <td>
+                            <p><span><%= formatMoney(single.OriginalPrice,2) %></span></p>
+                        </td> -->
+                        <td>
+                            <p class="each_OriginalPrice" OriginalPrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td>
+                        <!-- <td>
+                            <p class="each_CostReferencePrice" CostReferencePrice='<%= single.OriginalPrice %>'><%= formatMoney(single.OriginalPrice,2) %></p>
+                        </td> -->
+                        <!-- 总价 -->
+                        <td>
+                            <p class="pt30 red totalPrice" totalPrice='<%= single.AdjustPrice %>'><input type="text" style="width:60px;height: 28px;line-height: 28px;" value="<%= formatMoney(single.AdjustPrice,2,'') %>" class='totalPrices'> </p>
+                        </td>
+                        <td><img src="/ImagesNew/delete.png" class='removePosition'></td>
+                    </tr>
+                    <%} %>
+                <%} %>
+                <%}) %>
+            </tbody>
+        </table>
+        <%} %>
+
+    </div>
+    <%}) %>
+
+    <div class="to_b_ad">
+        <div class="fl">
+            <a class="put_in" id='goShopCar' style='margin-left: 16px'><img src="/ImagesNew/icon77.png"> 继续选择广告位</a>
+        </div>
+        <div class="fr">
+            <span>共 <em class="allPositionCount"></em> 个广告位</span>
+            <span>销售参考价 <em class='SalePrice'>¥179,000</em></span>
+            <!-- <span>成本参考价 <em class='CostReferencePrice'>¥179,000</em></span> -->
+            <span>总价 <em class="allMoney"></em></span>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="demand">
+    <% data.MediaOrderInfos.forEach(function(single,i){%>
+    <div class='satements' Note='<%= single.Note %>' MediaType='<%= single.MediaType %>'>
+        <% if(single.MediaType == '14001'){%>
+        <h3>微信公众号广告需求</h3>
+        <%}else if(single.MediaType == '14002'){%>
+        <h3>APP广告需求</h3>
+        <%} %>
+        <ul>
+            <li class="ins_a"><span style="color: red">*</span>需求说明：</li>
+            <li><textarea name="" cols="" rows="5" style="width:680px;height:90px;resize:none;" maxlength='500' class='FileInDemand'><%= single.Note %></textarea><span style="color: red;display:none">请填写需求说明</span></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a">上传资料：</li>
+            <li><a href="javascript:;" class="button_add" style="width:80px" id='fileUpload<%=i%>'>上传资料</a></li>
+            <% console.log( single.UploadFileURL) %>
+            <% if(single.UploadFileURL != 'javascript:;'){%>
+            <li class='uploadShow'><img src="/ImagesNew/icon18.png" style='padding-right: 10px'><span style='padding-right: 10px' class='uploadName'><%= single.UploadFileName %></span> <a href="<%= single.UploadFileURL %>" class='uploadFile' target='_blank'><img src="/ImagesNew/icon19.png" alt=""></a></li>
+            <%}else {%>
+            <li class='uploadShow' style="display: none"><img src="/ImagesNew/icon18.png" style='padding-right: 10px'><span style='padding-right: 10px' class='uploadName'><%= single.UploadFileName %></span> <a href="<%= single.UploadFileURL %>" class='uploadFile' target='_blank'><img src="/ImagesNew/icon19.png" alt=""></a></li>
+            <%} %>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <%}) %>
+        
+    </div> 
+    </script>
+
+
+    <!-- 选择渠道弹层 -->
+    <div class="channel_box" style='display: none'>
+        <div class="layer" style='overflow: auto'>
+            <div class="title">
+                <div class="fl">选择渠道</div>
+                <div class="fr"><a href="javascript:void(0)" id="closebt1"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a></div>
+                <div class="clear"></div>
+            </div>
+            <div class="layer_con" style='margin: 15px'>
+                <table width="100%" cellspacing="0" cellpadding="0" style='border-collapse:collapse;'>
+                <thead>
+                    <tr style='background: #F5F5F5'>
+                        <td width="20%">渠道名称</td>
+                        <td width="13%">销售参考价</td>
+                        <td width="13%">成本参考价</td>
+                        <td width="13%">已成交金额</td>
+                        <td width="13%">最终成本</td>
+                        <td width="28%">合作周期</td>
+                        <td width="10%">操作</td>
+                    </tr>
+                </thead>
+                <tbody class="ChooseChannel"></tbody>
+                                    
+                </table>
+                <div class="mb25"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择渠道弹层 -->
+    <script type="text/template" id="choose-channel">
+        <% List.forEach(function(item){%>
+        <tr ChannelName='<%= item.ChannelName %>' CostReferencePrice='<%= item.CostPriceReference %>' ChannelID='<%= item.ChannelID %>'>
+            <td><span><%= item.ChannelName %></span><a href="javascript:;" class='look_channel'>查看政策</a></td>
+            <td><span><%= item.SalePriceReference %></span></td>
+            <td class='tdcosting_price'><input type="text" value='<%= item.CostPriceReference %>' class='costing_price' style='border:none;background: #fff;cursor: pointer' disabled>￥</td>
+            <td><span><%= item.AlreadyPayMoney %></span></td>
+            <td><span><%= item.FinalCostPrice %></span></td>
+            <td><span><%= item.CooperateBeginDate.substr(0,10) %> 至<%= item.CooperateEndDate.substr(0,10) %></span></td>
+            <td><a href="javascript:;" class='choose_btn'>选择</a></td>
+        </tr>
+        <%}) %>
+    </script>
+    
+    <div class="clear"></div>
+</div>
+
+<!--#include file="/base/footer.html" -->
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>我的收益</title>
+    <link rel="stylesheet" type="text/css" href="../css/lauout.css?v=0404"/>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/layer_mobile/layer.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script language="javascript" src="/api/weixincheck.ashx" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="../dist/dropload.min.js"></script>
+    <script type="text/javascript" src="../js/common_weChat.js"></script>
+    <script type="text/javascript" src="../js/common_share.js"></script>
+    <script type="text/javascript" src="js/profitLsit.js?v=0404"></script>
+</head>
+<body>
+<div class="main_container netOk listPos" id="app">
+    <div class="header_tip">
+        由于系统升级，目前可能存在订单统计不到、收益延时的情况<br>由此给您带来不便，敬请谅解！ 
+    </div>
+    <div class="profit_new">
+        <div class="profit_list">
+            <div v-for="(single,i) in list">
+                <div class="year">
+                    <img src="../images/year.png">
+                    <span>{{single.ProfitDate.replace(/-/g,'.')}}</span>
+                </div>
+                <div class="single_row border-bottom profit" v-for="item in single.DateList" v-bind:RowNum="item.RowNum">
+                    <figure>
+                        <figcaption>
+                            <p class="pay_status">
+                                <span v-if="item.ProfitType==103003">签到</span>
+                                <span v-if="item.ProfitType==103002">邀请好友</span>
+                                <span v-if="item.ProfitType==103001">订单收益</span>
+                            </p>
+                            <p class="pay_time" v-if="item.ProfitType == 103002">
+                                <img :src="item.Headimgurl" onerror="this.src='/images/pic_default.png'">
+                                <span>{{item.Nickname}}</span>
+                            </p>
+                            <p class="pay_time" v-if="item.ProfitType != 103002">
+                                {{item.ProfitDescribe}}
+                            </p>
+                            <div class="clear"></div>
+                        </figcaption>
+                    </figure>
+                    <div class="money_date">
+                        <p class="receive_money red">
+                            <span class="money">+{{formatMoney(item.ProfitPrice,2,'')}}</span>元
+                        </p>
+                        <p class="date" v-if="item.ProfitType==103001">阅读次数：{{item.ReadCount}}</p>
+                        <p class="date" v-if="item.ProfitType==103002">领取红包时间：{{item.IncomeTime.substr(11,5)}}</p>
+                        <p class="date" v-if="item.ProfitType==103003">签到时间：{{item.IncomeTime.substr(11,5)}}</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="no_data" v-if="list.length==0" style="display: none;">
+            <div>
+                <img src="../images/no_money.png">
+            </div>
+            <p class="desc_text">您还没有收益哦</p>
+            <p>
+                <a href="javascript:void(0)" class="text_blue">分享赚大钱</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="main_container netNo listPos">
+    <div class="no_data">
+        <div>
+            <img src="../images/no_net.png">
+        </div>
+        <p class="desc_text">您的网络好像被袭击了<br/>快点检查一下</p>
+    </div>
+</div>
+</body>
+</html>

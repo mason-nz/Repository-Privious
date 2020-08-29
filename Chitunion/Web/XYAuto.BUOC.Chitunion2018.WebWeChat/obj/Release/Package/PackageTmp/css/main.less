@@ -1,0 +1,88 @@
+﻿// "out": true
+@charset 'utf-8';
+@import '_common.less';
+
+//订单导航
+.order_nav{
+	width: 100%;
+	height: 90/@r*1rem;
+	line-height: 90/@r*1rem;
+	border-bottom: 1px solid #f3f3f3;
+	position: fixed;
+	background: #fff;
+	z-index: 10;
+	ul{
+		li{
+			float: left;
+			width: 50%;
+			height: 90/@r*1rem;
+			line-height: normal;
+			padding: 20/@r*1rem 0;
+			text-align: center;
+			a{
+				display: inline-block;
+				height: 70/@r*1rem;
+				color: #848484;
+				font-size: 32/@r*1rem;
+			}
+			&.selected{
+				a{
+					color: #333333;
+					border-bottom: 3px solid #1a7bf2;
+				}
+			}
+		}
+	}
+}
+.header_tip{
+	height: 100/@r*1rem;
+	font-size: 24/@r*1rem;
+    line-height: 40/@r*1rem;
+    text-align: center;
+    background-color: #fffbce;
+    color: #FF6600;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: auto;
+	padding-top: 10/@r*1rem;
+}
+//订单列表
+.order_list{
+	width: 100%;
+	position: absolute;
+	top: 190/@r*1rem;// 90/@r*1rem
+	bottom: 0;
+	left: 0;
+	right: 0;
+	.lists{
+		overflow: auto;
+	}
+	ul{
+		margin: auto 30/@r*1rem;
+		border-bottom: 1px solid #f3f3f3;
+		padding: 40/@r*1rem 0 20/@r*1rem 0;
+		li{
+			line-height: 56/@r*1rem;
+			&:nth-child(1){
+				h2{
+					width: 100%;
+					max-height: 106/@r*1rem;
+					line-height: 52/@r*1rem;
+					overflow: hidden;
+					font-weight: 400;
+					font-size: 32/@r*1rem;
+					color: #333;
+				}
+			}
+			&:nth-child(2){
+				span{
+					color: #848484;
+					font-size: 22/@r*1rem;
+					&:last-child{
+						float: right;
+					}
+				}
+			}
+		}
+	}
+}

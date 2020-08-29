@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src='js/shopcartForMedia01.js'></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header_home.html" -->
+<!-- 中间内容 -->
+<div class="wx_box" style="margin-bottom: 62px;">
+     <div class="wx_box">
+        <div class="to_b_list">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd">
+                <tr>
+                    <th width="28%" style="text-align: left"><input name="" type="checkbox" value="" class="allChecked"> 全选 &nbsp;<span id="delCheckedAdv" style="cursor: pointer;">删除选择的广告位</span></th>
+                    <th width="18%">&nbsp;</th>
+                    <th width="9%">投放次/天数</th>
+                    <th width="23%">投放时间</th>
+                    <th width="10%">参考价</th>
+                    <th width="9%">总计</th>
+                    <th width="4%">操作</th>
+                </tr>
+            </table>
+            </div>
+        <div class="orderInfo" style="margin-top:-20px;"></div>
+        <div class="add_project" style="margin-bottom: 80px;">
+             <span><input name="" type="checkbox" value=""> 添加到项目</span>
+             <span>
+                 <select name="" style="width:200px;line-height: 30px">
+                 </select>
+             </span>
+             <span class="grey message" style="display: none"><img src="../images/icon21.png"> 请选择项目</span>
+        </div>
+        <div style="width: 100%">
+            <div class="all_select" style="width: 1188px;position: fixed;left: 50%;bottom: -16px;margin-left: -594px;">
+                 <div class="left" id="goToList">
+                     <a class="put_in" style="width: 140px;" href="javascript:void(0)">
+                         <img src="../images/icon77.png">
+                         继续选择广告位
+                     </a>
+                 </div>
+                 <div class="right">
+                     <div class="left_lh">
+                         <span>已选择 <em class="tableNum">--</em> 个广告位</span>
+                         <span>总价 <em class="OrderPrice">--</em></span>
+                     </div>
+                     <div class="put_in" id="nextBtn">确认投放</div>
+                     <div class="clear"></div>
+                 </div>
+                 <div class="clear"></div>
+            </div>
+        </div>
+     </div>
+<script type="text/template" id="schedule">
+    <%if(data.SelfMedia){%>
+    <%for(var i=0;i<data.SelfMedia.length;i++){%>
+        <div class="to_b_list MediaOwner">
+            <!-- 媒体主名称 -->
+            <div class="title">
+                <input name="" type="checkbox" value="" class="twoCheck"> 
+                <%if(data.SelfMedia[i].MediaOwner == "赤兔自营"){%>
+                    赤兔自营
+                <%}else{%>
+                   <%if( !isNaN(data.SelfMedia[i].MediaOwner) && data.SelfMedia[i].MediaOwner.length == 11){%>
+                        <%=data.SelfMedia[i].MediaOwner.substr(0,3)%>****<%=data.SelfMedia[i].MediaOwner.substr(7,4)%>
+                    <%}else{%>
+                        <%=data.SelfMedia[i].MediaOwner%>
+                    <%}%> 
+                <%}%>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd">
+                <%for(var j=0;j<data.SelfMedia[i].Medias.length;j++){%>
+                    <%if(data.SelfMedia[i].Medias[j].PublishStatus == 42912 || data.SelfMedia[i].Medias[j].expired == 1 || data.SelfMedia[i].Medias[j].expired == -1){%>
+                    <tr class="invalidAdv tr" MediaType="<%=data.SelfMedia[i].Medias[j].MediaType%>" IsSelected=0 CartID="<%=data.SelfMedia[i].Medias[j].CartID%>" MediaID="<%=data.SelfMedia[i].Medias[j].MediaID%>" PublishDetailID="<%=data.SelfMedia[i].Medias[j].PublishDetailID%>" Price="<%=data.SelfMedia[i].Medias[j].Price%>" scheduleDays="<%=data.SelfMedia[i].Medias[j].ADSchedule.length%>" PublishStatus="<%=data.SelfMedia[i].Medias[j].PublishStatus%>" HasOtherPublish="<%=data.SelfMedia[i].Medias[j].HasOtherPublish%>" expired="<%=data.SelfMedia[i].Medias[j].expired%>">
+                        <td width="28%" style="text-align:left;background-color:#ECECEC;">
+                            <div class="left">
+                                <%if(data.SelfMedia[i].Medias[j].PublishStatus == 42912 || data.SelfMedia[i].Medias[j].expired == 1){%>
+                                    <span class="shel">过期</span>
+                                    <br>
+                                <%}%>
+                                <%if(data.SelfMedia[i].Medias[j].expired == -1){%>
+                                    <span class="shel">失效</span>
+                                <%}%>
+                            </div>
+                            <!-- 广告位主图-->
+                            <div class="portrait">
+                                <a href="javascript:;" target="_blank" class="toDetail">
+                                    <img src="<%=data.SelfMedia[i].Medias[j].ADMasterImage%>">
+                                </a>
+                            </div>
+                            <!-- 标题和微信认证 -->
+                            <div class="content"  style="width: 160px;">
+                                <div>
+                                    <%if(data.SelfMedia[i].Medias[j].ADMasterTitle){%>
+                                        <span class="toDetail" style="cursor: pointer;"><%=data.SelfMedia[i].Medias[j].ADMasterTitle%></span>
+                                    <%}%>
+                                </div>
+                                <!-- 媒体主名称 -->
+                                <%if(data.SelfMedia[i].Medias[j].Name != data.SelfMedia[i].Medias[j].ADMasterTitle){%>
+                                <p>
+                                    <img src="../images/collection04.png">&nbsp;
+                                    <%=data.SelfMedia[i].Medias[j].Name%>
+                                </p>
+                                <%}%>
+                                <p><img src="../images/collection01.png"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td width="18%" style="text-align: left;background-color:#ECECEC;">
+                            <p>广告位置 ：<%=data.SelfMedia[i].Medias[j].ADPosition%></p>
+                            <p>广告形式 ：<%=data.SelfMedia[i].Medias[j].CreateType%></p>
+                        </td>
+                        <!-- 投放次数 -->
+                        <td width="9%" style="background-color:#ECECEC;"><%=data.SelfMedia[i].Medias[j].ADSchedule.length%>次</td>
+                        <td width="23%" style="background-color:#ECECEC;">
+                            <ul PubBeginTime="<%=data.SelfMedia[i].Medias[j].PubBeginTime.substr(0,10)%>" PubEndTime="<%=data.SelfMedia[i].Medias[j].PubEndTime.substr(0,10)%>">
+                                <%for(var k=0;k<data.SelfMedia[i].Medias[j].ADSchedule.length;k++){%>
+                                    <%if(data.SelfMedia[i].Medias[j].ADSchedule.length == 1){%>
+                                        <li class="Time" >
+                                            <span id="<%=data.SelfMedia[i].Medias[j].ADSchedule[k].RecID%>">
+                                                <%=data.SelfMedia[i].Medias[j].ADSchedule[k].BeginData.substr(0,16)%>
+                                            </span>
+                                        </li>
+                                    <%}else if(data.SelfMedia[i].Medias[j].ADSchedule.length == 2){%>
+                                        <li class="Time">
+                                            <span id="<%=data.SelfMedia[i].Medias[j].ADSchedule[k].RecID%>">
+                                                <%=data.SelfMedia[i].Medias[j].ADSchedule[k].BeginData.substr(0,16)%>
+                                            </span>
+                                        </li>
+                                    <%}else{%>
+                                        <li class="Time">
+                                            <span id="<%=data.SelfMedia[i].Medias[j].ADSchedule[k].RecID%>">
+                                                <%=data.SelfMedia[i].Medias[j].ADSchedule[k].BeginData.substr(0,16)%>
+                                            </span>
+                                        </li>
+                                    <%}%>
+                                <%}%>
+                            </ul>
+                        </td>
+                        <!-- 单价 -->
+                        <td width="10%" style="background-color:#ECECEC;"><%=formatMoney(data.SelfMedia[i].Medias[j].Price)%></td>
+                        <!-- 总计 -->
+                        <td width="9%" style="background-color:#ECECEC;" class="totalPrice"><%=formatMoney(data.SelfMedia[i].Medias[j].TotalAmmount)%></td>
+                        <!-- 删除 -->
+                        <td width="4%" style="text-align:left;background-color:#ECECEC;"><a href="javascript:void(0)" class="delAdv"><img src="../images/icon57.png"></a></td>
+                    </tr>
+                    <%}else{%>
+                    <tr class="validAdv tr forWeixin" MediaType="<%=data.SelfMedia[i].Medias[j].MediaType%>" IsSelected="<%=data.SelfMedia[i].Medias[j].IsSelected%>" CartID="<%=data.SelfMedia[i].Medias[j].CartID%>" MediaID="<%=data.SelfMedia[i].Medias[j].MediaID%>" PublishDetailID="<%=data.SelfMedia[i].Medias[j].PublishDetailID%>"  Price="<%=data.SelfMedia[i].Medias[j].Price%>" scheduleDays="<%=data.SelfMedia[i].Medias[j].ADSchedule.length%>" TotalAmmount="<%=data.SelfMedia[i].Medias[j].TotalAmmount%>" PublishStatus="<%=data.SelfMedia[i].Medias[j].PublishStatus%>" HasOtherPublish="<%=data.SelfMedia[i].Medias[j].HasOtherPublish%>" expired="<%=data.SelfMedia[i].Medias[j].expired%>">
+                        <td width="28%" style="text-align:left;">
+                            <div class="left">
+                                <%if(data.SelfMedia[i].Medias[j].IsSelected == 1){%>
+                                    <input type="checkbox" class="onecheck" checked="checked" class="onecheck">
+                                <%}else{%>
+                                    <input type="checkbox" class="onecheck" class="onecheck">
+                                <%}%>
+                            </div>
+                            <!-- 广告位主图-->
+                            <div class="portrait">
+                                <a href="javascript:;" target="_blank" class="toDetail">
+                                    <img src="<%=data.SelfMedia[i].Medias[j].ADMasterImage%>">
+                                </a>
+                            </div>
+                            <!-- 标题和微信认证 -->
+                            <div class="content" style="width: 160px;">
+                                <div>
+                                    <%if(data.SelfMedia[i].Medias[j].ADMasterTitle){%>
+                                        <span class="toDetail" style="cursor: pointer;"><%=data.SelfMedia[i].Medias[j].ADMasterTitle%></span>
+                                    <%}%>
+                                </div>
+                                <!-- 媒体主名称 -->
+                                <%if(data.SelfMedia[i].Medias[j].Name != data.SelfMedia[i].Medias[j].ADMasterTitle){%>
+                                <p>
+                                    <img src="../images/collection04.png">&nbsp;
+                                    <%=data.SelfMedia[i].Medias[j].Name%>
+                                </p>
+                                <%}%>
+                                <p><img src="../images/collection01.png"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <td width="18%" style="text-align:left;">
+                            <p>广告位置 ：<%=data.SelfMedia[i].Medias[j].ADPosition%></p>
+                            <p>广告形式 ：<%=data.SelfMedia[i].Medias[j].CreateType%></p>
+                        </td>
+                        <!-- 投放次数 -->
+                        <td width="9%"><%=data.SelfMedia[i].Medias[j].ADSchedule.length%>次</td>
+                        <!-- 排期 -->
+                        <td width="24%">
+                            <ul PubBeginTime="<%=data.SelfMedia[i].Medias[j].PubBeginTime.substr(0,10)%>" PubEndTime="<%=data.SelfMedia[i].Medias[j].PubEndTime.substr(0,10)%>">
+                                <%for(var k=0;k<data.SelfMedia[i].Medias[j].ADSchedule.length;k++){%>
+                                    <%if(data.SelfMedia[i].Medias[j].ADSchedule.length == 1){%>
+                                        <li class="Time">
+                                            <span id="<%=data.SelfMedia[i].Medias[j].ADSchedule[k].RecID%>">
+                                                <%=data.SelfMedia[i].Medias[j].ADSchedule[k].BeginData.substr(0,16)%>
+                                            </span>
+                                            <a class="modify">
+                                                <img src="../images/icon54.png">
+                                            </a>
+                                        </li>
+                                    <%}else if(data.SelfMedia[i].Medias[j].ADSchedule.length == 2){%>
+                                        <li class="Time">
+                                            <span id="<%=data.SelfMedia[i].Medias[j].ADSchedule[k].RecID%>">
+                                                <%=data.SelfMedia[i].Medias[j].ADSchedule[k].BeginData.substr(0,16)%>
+                                            </span>
+                                            <a class="modify">
+                                                <img src="../images/icon54.png"">
+                                            </a>
+                                            <a class="delete">
+                                                <img src="../images/icon57.png">
+                                            </a>
+                                        </li>
+                                    <%}else{%>
+                                        <li class="Time">
+                                            <span id="<%=data.SelfMedia[i].Medias[j].ADSchedule[k].RecID%>">
+                                                <%=data.SelfMedia[i].Medias[j].ADSchedule[k].BeginData.substr(0,16)%>
+                                            </span>
+                                            <a class="modify">
+                                                <img src="../images/icon54.png"">
+                                            </a>
+                                            <a class="delete">
+                                                <img src="../images/icon57.png">
+                                            </a>
+                                        </li>
+                                    <%}%>
+                                <%}%>
+                                    <p class="grey message" style="display: none">
+                                        <img src="../images/icon21.png"> 执行日期至少大于当天
+                                    </p>
+                                    <p class="grey PubDetailVertify" style="display: none">
+                                        <img src="../images/icon21.png"> 该广告位及执行日期已存在，请修改/重新选择
+                                    </p>
+                            </ul>
+                        </td>
+                        <!-- 单价 -->
+                        <td width="10%"><%=formatMoney(data.SelfMedia[i].Medias[j].Price)%></td>
+                        <!-- 总计 -->
+                        <td width="9%" class="red totalPrice"><%=formatMoney(data.SelfMedia[i].Medias[j].TotalAmmount)%></td>
+                        <!-- 删除 -->
+                        <td width="4%">
+                            <a href="javascript:void(0)" class="delAdv">
+                                <img src="../images/icon57.png">
+                            </a>
+                        </td>
+                    </tr>
+                    <%}%>
+                <%}%>
+                <%if(data.APP){%>
+                    <%for(var k=0;k<data.APP.length;k++){%>
+                        <%if(data.SelfMedia[i].MediaOwner == data.APP[k].MediaOwner){%>
+                            <%for(var q=0;q<data.APP[k].Medias.length;q++){%>
+                                <%if(data.APP[k].Medias[q].PublishStatus == 49005 || data.APP[k].Medias[q].PublishStatus == 49002 || data.APP[k].Medias[q].expired == 1 || data.APP[k].Medias[q].expired == -1){%>
+                                <tr class="invalidAdv tr" MediaType="<%=data.APP[k].Medias[q].MediaType%>" IsSelected=0 CartID="<%=data.APP[k].Medias[q].CartID%>" MediaID="<%=data.APP[k].Medias[q].MediaID%>" PublishDetailID="<%=data.APP[k].Medias[q].PublishDetailID%>" Price="<%=data.APP[k].Medias[q].Price%>" scheduleDays="<%=data.APP[k].Medias[q].ADLaunchDays%>" PublishStatus="<%=data.APP[k].Medias[q].PublishStatus%>" HasOtherPublish="<%=data.APP[k].Medias[q].HasOtherPublish%>" expired="<%=data.APP[k].Medias[q].expired%>" TemplateID="<%=data.APP[k].Medias[q].TemplateID%>" SaleAreaID="<%=data.APP[k].Medias[q].SaleAreaID%>" HasHoliday="<%=data.APP[k].Medias[q].HasHoliday%>">
+                                    <td width="28%" style="text-align:left;background-color:#ECECEC;">
+                                        <div class="left">
+                                            <%if(data.APP[k].Medias[q].PublishStatus == 49005 || data.APP[k].Medias[q].PublishStatus == 49002){%>
+                                                <span class="shel">下架</span>
+                                                <br>
+                                            <%}%>
+                                            <%if(data.APP[k].Medias[q].expired == 1){%>
+                                                <span class="shel">过期</span>
+                                                <br>
+                                            <%}%>
+                                            <%if(data.APP[k].Medias[q].expired == -1){%>
+                                                <span class="shel">失效</span>
+                                            <%}%>
+                                        </div>
+                                        <!-- 广告位主图-->
+                                        <div class="portrait">
+                                            <a href="javascript:;" target="_blank" class="toDetail">
+                                                <img src="<%=data.APP[k].Medias[q].ADMasterImage%>">
+                                            </a>
+                                        </div>
+                                        <!-- 标题和微信认证 -->
+                                        <div class="content"  style="width: 160px;">
+                                            <div>
+                                                <%if(data.APP[k].Medias[q].ADMasterTitle){%>
+                                                    <span class="toDetail" style="cursor: pointer;"><%=data.APP[k].Medias[q].ADMasterTitle%></span>
+                                                <%}%>
+                                            </div>
+                                            <!-- 媒体主名称 -->
+                                            <p>
+                                                <img src="../images/collection04.png">&nbsp;
+                                                <%=data.APP[k].Medias[q].Name%>
+                                            </p>
+                                            <!-- 区分CPM和CPD -->
+                                            <p>
+                                                <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                                <img src="../images/collection10.jpg">
+                                                <%}else{%>
+                                                <img src="../images/collection07.png">
+                                                <%}%>
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </td>
+                                    <td width="18%" style="text-align: left;background-color:#ECECEC;">
+                                        <p>广告样式 : <%=data.APP[k].Medias[q].ADStyle%></p>
+                                        <%if(data.APP[k].Medias[q].CarouselNumber){%>
+                                            <p>轮播位置 : <%=data.APP[k].Medias[q].CarouselNumber%></p>
+                                        <%}%>
+                                        <p>系统平台 : <%=data.APP[k].Medias[q].SalePlatform%></p>
+                                        <p>售卖区域 : <%=data.APP[k].Medias[q].SaleArea%></p>
+                                    </td>
+                                    <!-- 投放次数，CPM和CPD不同CPD不可修改，CPM为input -->
+                                    <td width="9%" style="background-color:#ECECEC;">
+                                        <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                            <%for(var p=0;p<data.APP[k].Medias[q].ADSchedule.length;p++){%>
+                                            <div class="addBorder">
+                                                <div class="totalDays" totalDays="<%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>"><%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>天</div>
+                                                <%if(data.APP[k].Medias[q].ADSchedule[p].Holidays>0){%>
+                                                    <div class="Holidays" Holidays="<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>">假期<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>天</div>
+                                                <%}else{%>
+                                                    <div class="Holidays" Holidays style="display: none;"></div>
+                                                <%}%>
+                                            </div>
+                                            <%}%>
+                                        <%}else{%>
+                                            <span class="cpmADLaunchDays"><%=data.APP[k].Medias[q].ADLaunchDays%>千次</span>
+                                        <%}%>
+                                    </td>
+                                    <!-- 排期 -->
+                                    <td width="23%" style="background-color:#ECECEC;">
+                                        <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                            <%for(var x=0;x<data.APP[k].Medias[q].ADSchedule.length;x++){%>
+                                                <div class="addBorder">
+                                                    <div>
+                                                        <span><%=data.APP[k].Medias[q].ADSchedule[x].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[x].EndData.substr(0,10)%></span>
+                                                    </div>
+                                                    <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                        <div class="lookFestival">查看节假日</div>
+                                                    <%}else{%>
+                                                        <div class="lookFestival" style="display: none;">查看节假日</div>
+                                                    <%}%>
+                                                    <ul class="festivals">
+                                                    <!-- 如果有节假日 -->
+                                                    <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                        <%for(var h=0;h<data.APP[k].Medias[q].ADSchedule[x].Holiday.length;h++){%>
+                                                            <li class="festival">
+                                                                <span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].EndData.substr(0,10)%></span>
+                                                                <span class="festivalName">
+                                                                    <%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].Name%>
+                                                                </span>
+                                                            </li>
+                                                        <%}%>
+                                                    <%}%>
+                                                    </ul>
+                                                </div>
+                                            <%}%>
+                                        <%}else{%>
+                                            <div>
+                                                <span><%=data.APP[k].Medias[q].ADSchedule[0].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[0].EndData.substr(0,10)%></span>
+                                            </div>
+                                        <%}%>
+                                    </td>
+                                    <!-- 单价 -->
+                                    <td width="10%" style="background-color:#ECECEC;">
+                                        <div>
+                                            <p><%=formatMoney(data.APP[k].Medias[q].Price)%></p>
+                                            <!-- CPD显示假期价格 -->
+                                            <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001 && data.APP[k].Medias[q].PriceHoliday){%>
+                                            <p style="color:#B3B3B3"><%=formatMoney(data.APP[k].Medias[q].PriceHoliday)%></p>
+                                            <%}%>
+                                        </div>
+                                    </td>
+                                    <!-- 总计 -->
+                                    <td width="9%" class="totalPrice" style="background-color:#ECECEC;"><%=formatMoney(data.APP[k].Medias[q].TotalAmmount)%></td>
+                                    <!-- 删除 -->
+                                    <td width="4%" style="text-align:left;background-color:#ECECEC;"><a href="javascript:void(0)" class="delAdv"><img src="../images/icon57.png"></a></td>
+                                </tr>
+                                <%}else{%>
+                                <tr class="validAdv tr  forAPP" MediaType="<%=data.APP[k].Medias[q].MediaType%>" IsSelected="<%=data.APP[k].Medias[q].IsSelected%>"  CartID="<%=data.APP[k].Medias[q].CartID%>" MediaID="<%=data.APP[k].Medias[q].MediaID%>" PublishDetailID="<%=data.APP[k].Medias[q].PublishDetailID%>" Price="<%=data.APP[k].Medias[q].Price%>" PriceHoliday="<%=data.APP[k].Medias[q].PriceHoliday%>" scheduleDays="<%=data.APP[k].Medias[q].ADLaunchDays%>" TotalAmmount="<%=data.APP[k].Medias[q].TotalAmmount%>" PublishStatus="<%=data.APP[k].Medias[q].PublishStatus%>" HasOtherPublish="<%=data.APP[k].Medias[q].HasOtherPublish%>" expired="<%=data.APP[k].Medias[q].expired%>" TemplateID="<%=data.APP[k].Medias[q].TemplateID%>" SaleAreaID="<%=data.APP[k].Medias[q].SaleAreaID%>" HasHoliday="<%=data.APP[k].Medias[q].HasHoliday%>">
+                                    <td width="28%" style="text-align:left;">
+                                        <div class="left">
+                                            <%if(data.APP[k].Medias[q].IsSelected == 1){%>
+                                                <input type="checkbox"  checked="checked" class="onecheck">
+                                            <%}else{%>
+                                                <input type="checkbox"  class="onecheck">
+                                            <%}%>
+                                        </div>
+                                        <!-- 广告位主图-->
+                                        <div class="portrait">
+                                            <a href="javascript:;" target="_blank" class="toDetail">
+                                                <img src="<%=data.APP[k].Medias[q].ADMasterImage%>">
+                                            </a>
+                                        </div>
+                                        <!-- 标题和微信认证 -->
+                                        <div class="content"  style="width: 160px;">
+                                            <div>
+                                                <%if(data.APP[k].Medias[q].ADMasterTitle){%>
+                                                    <span class="toDetail" style="cursor: pointer;"><%=data.APP[k].Medias[q].ADMasterTitle%></span>
+                                                <%}%>
+                                            </div>
+                                            <!-- 媒体主名称data.SelfMedia[i].Name -->
+                                            <p>
+                                                <img src="../images/collection04.png">&nbsp;
+                                                <%=data.APP[k].Medias[q].Name%>
+                                            </p>
+                                            <!-- 区分CPM和CPD -->
+                                            <p>
+                                                <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                                <img src="../images/collection10.jpg">
+                                                <%}else{%>
+                                                <img src="../images/collection07.png">
+                                                <%}%>
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </td>
+                                    <td width="18%" style="text-align: left;">
+                                        <p>广告样式 : <%=data.APP[k].Medias[q].ADStyle%></p>
+                                        <%if(data.APP[k].Medias[q].CarouselNumber){%>
+                                            <p>轮播位置 : <%=data.APP[k].Medias[q].CarouselNumber%></p>
+                                        <%}%>
+                                        <p>系统平台 : <%=data.APP[k].Medias[q].SalePlatform%></p>
+                                        <p>售卖区域 : <%=data.APP[k].Medias[q].SaleArea%></p>
+                                    </td>
+                                    <!-- 投放次数，CPM和CPD不同 -->
+                                    <td width="9%">
+                                        <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                            <%for(var p=0;p<data.APP[k].Medias[q].ADSchedule.length;p++){%>
+                                            <div class="addBorder">
+                                                <div class="totalDays" totalDays="<%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>"><%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>天</div>
+                                                <%if(data.APP[k].Medias[q].ADSchedule[p].Holidays>0){%>
+                                                    <div class="Holidays" Holidays="<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>">假期<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>天</div>
+                                                <%}else{%>
+                                                    <div class="Holidays" Holidays style="display: none;"></div>
+                                                <%}%>
+                                            </div>
+                                            <%}%>
+                                        <%}else{%>
+                                            <input type="" name="Username" class="cpmADLaunchDays" value="<%=data.APP[k].Medias[q].ADLaunchDays%>" style="width:35px;height: 20px;line-height: 20px">千次
+                                        <%}%>
+                                    </td>
+                                    <!-- 排期 -->
+                                    <td width="23%" isCPD="<%=data.APP[k].Medias[q]['CPDCPM']%>" PubBeginTime="<%=data.APP[k].Medias[q].PubBeginTime.substr(0,10)%>" PubEndTime="<%=data.APP[k].Medias[q].PubEndTime.substr(0,10)%>">
+                                        <!-- CPD -->
+                                        <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                            <%for(var x=0;x<data.APP[k].Medias[q].ADSchedule.length;x++){%>
+                                                <div class="addBorder" RecID="<%=data.APP[k].Medias[q].ADSchedule[x].RecID%>">
+                                                    <div>
+                                                        <input class="date_input" disabled id="cpds<%=k+''+q+''+x%>" value="<%=data.APP[k].Medias[q].ADSchedule[x].BeginData.substr(0,10)%>">至<input class="date_input" disabled id="cpde<%=k+''+q+''+x%>" value="<%=data.APP[k].Medias[q].ADSchedule[x].EndData.substr(0,10)%>">
+                                                        <a href="javascript:;" class="modify"><img src="../images/icon54.png"></a>
+                                                        <%if(data.APP[k].Medias[q].ADSchedule.length > 1){%>
+                                                        <a href="javascript:;" class="delete"><img src="../images/icon57.png"></a>
+                                                        <%}%>
+                                                    </div>
+                                                    <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                        <div class="lookFestival">查看节假日</div>
+                                                    <%}else{%>
+                                                        <div class="lookFestival" style="display: none;">查看节假日</div>
+                                                    <%}%>
+                                                    <ul class="festivals">
+                                                    <!-- 如果有节假日 -->
+                                                    <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                        <%for(var h=0;h<data.APP[k].Medias[q].ADSchedule[x].Holiday.length;h++){%>
+                                                            <li class="festival">
+                                                                <span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].EndData.substr(0,10)%></span>
+                                                                <span class="festivalName">
+                                                                    <%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].Name%>
+                                                                </span>
+                                                            </li>
+                                                        <%}%>
+                                                    <%}%>
+                                                    </ul>
+                                                </div>
+                                            <%}%>
+                                        <%}else{%>
+                                            <div RecID="<%=data.APP[k].Medias[q].ADSchedule[0].RecID%>">
+                                                <input class="date_input" disabled id="cpms<%=k+''+q%>" value="<%=data.APP[k].Medias[q].ADSchedule[0].BeginData.substr(0,10)%>">至<input class="date_input" disabled id="cpme<%=k+''+q%>" value="<%=data.APP[k].Medias[q].ADSchedule[0].EndData.substr(0,10)%>">
+                                                <a href="javascript:;" class="modify"><img src="../images/icon54.png"></a>
+                                            </div>
+                                        <%}%>
+                                            <p class="grey" style="display: none;"><img src="../images/icon21.png"> 执行日期至少大于当天</p>
+                                            <p class="grey PubDetailVertify" style="display: none;"><img src="../images/icon21.png"> 该广告位及执行日期已存在，请修改/重新选择</p>
+                                    </td>
+                                    <!-- 单价 -->
+                                    <td width="10%">
+                                        <div>
+                                            <p><%=formatMoney(data.APP[k].Medias[q].Price)%></p>
+                                            <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001 && data.APP[k].Medias[q].PriceHoliday){%>
+                                            <p style="color:#B3B3B3"><%=formatMoney(data.APP[k].Medias[q].PriceHoliday)%></p>
+                                            <%}%>
+                                        </div>
+                                    </td>
+                                    <!-- 总计 -->
+                                    <td width="9%" class="red totalPrice"><%=formatMoney(data.APP[k].Medias[q].TotalAmmount)%></td>
+                                    <!-- 删除 -->
+                                    <td width="4%">
+                                        <a href="javascript:void(0)" class="delAdv">
+                                            <img src="../images/icon57.png">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                            <%}%>
+                        <%}%>
+                    <%}%>
+                <%}%>
+            </table>
+        </div>
+    <%}%>
+    <%}%>
+
+    <%if(data.APP){%>
+        <%for(var k=0;k<data.APP.length;k++){%>
+            <%var arr = [];for(var m=0;m<data.SelfMedia.length;m++){arr.push(data.SelfMedia[m].MediaOwner)};var str = arr.join(',');%>
+            <%if(str.indexOf(data.APP[k].MediaOwner) == -1){%>
+                <div class="to_b_list MediaOwner">
+                    <!-- 媒体主名称 -->
+                    <div class="title">
+                        <input name="" type="checkbox" value="" class="twoCheck"> 
+                        <%if(data.APP[k].MediaOwner == "赤兔自营"){%>
+                            赤兔自营
+                        <%}else{%>
+                           <%if( !isNaN(data.APP[k].MediaOwner) && data.APP[k].MediaOwner.length == 11){%>
+                                <%=data.APP[k].MediaOwner.substr(0,3)%>****<%=data.APP[k].MediaOwner.substr(7,4)%>
+                            <%}else{%>
+                                <%=data.APP[k].MediaOwner%>
+                            <%}%> 
+                        <%}%>
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd">
+                    <%for(var q=0;q<data.APP[k].Medias.length;q++){%>
+                        <%if(data.APP[k].Medias[q].PublishStatus == 49005  || data.APP[k].Medias[q].PublishStatus == 49002 || data.APP[k].Medias[q].expired == 1 || data.APP[k].Medias[q].expired == -1){%>
+                        <tr class="invalidAdv tr forAPP" MediaType="<%=data.APP[k].Medias[q].MediaType%>" IsSelected=0 CartID="<%=data.APP[k].Medias[q].CartID%>" MediaID="<%=data.APP[k].Medias[q].MediaID%>" PublishDetailID="<%=data.APP[k].Medias[q].PublishDetailID%>" Price="<%=data.APP[k].Medias[q].Price%>" scheduleDays="<%=data.APP[k].Medias[q].ADLaunchDays%>" PublishStatus="<%=data.APP[k].Medias[q].PublishStatus%>" HasOtherPublish="<%=data.APP[k].Medias[q].HasOtherPublish%>" expired="<%=data.APP[k].Medias[q].expired%>" TemplateID="<%=data.APP[k].Medias[q].TemplateID%>" SaleAreaID="<%=data.APP[k].Medias[q].SaleAreaID%>" HasHoliday="<%=data.APP[k].Medias[q].HasHoliday%>">
+                            <td width="28%" style="text-align:left;background-color:#ECECEC;">
+                                <div class="left">
+                                    <%if(data.APP[k].Medias[q].PublishStatus == 49005 || data.APP[k].Medias[q].PublishStatus == 49002){%>
+                                        <span class="shel">下架</span>
+                                        <br>
+                                    <%}%>
+                                    <%if(data.APP[k].Medias[q].expired == 1){%>
+                                        <span class="shel">过期</span>
+                                        <br>
+                                    <%}%>
+                                    <%if(data.APP[k].Medias[q].expired == -1){%>
+                                        <span class="shel">失效</span>
+                                    <%}%>
+                                </div>
+                                <!-- 广告位主图-->
+                                <div class="portrait">
+                                    <a href="javascript:;" target="_blank" class="toDetail">
+                                        <img src="<%=data.APP[k].Medias[q].ADMasterImage%>">
+                                    </a>
+                                </div>
+                                <!-- 标题和微信认证 -->
+                                <div class="content"  style="width: 160px;">
+                                    <div>
+                                        <%if(data.APP[k].Medias[q].ADMasterTitle){%>
+                                            <span class="toDetail" style="cursor: pointer;"><%=data.APP[k].Medias[q].ADMasterTitle%></span>
+                                        <%}%>
+                                    </div>
+                                    <!-- 媒体主名称 -->
+                                    <p>
+                                        <img src="../images/collection04.png">&nbsp;
+                                        <%=data.APP[k].Medias[q].Name%>
+                                    </p> 
+                                    <!-- 区分CPM和CPD -->
+                                    <p>
+                                        <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                        <img src="../images/collection10.jpg">
+                                        <%}else{%>
+                                        <img src="../images/collection07.png">
+                                        <%}%>
+                                    </p>
+                                </div>
+                                <div class="clear"></div>
+                            </td>
+                            <td width="18%" style="text-align: left;background-color:#ECECEC;">
+                                <p>广告样式 : <%=data.APP[k].Medias[q].ADStyle%></p>
+                                <%if(data.APP[k].Medias[q].CarouselNumber){%>
+                                    <p>轮播位置 : <%=data.APP[k].Medias[q].CarouselNumber%></p>
+                                <%}%>
+                                <p>系统平台 : <%=data.APP[k].Medias[q].SalePlatform%></p>
+                                <p>售卖区域 : <%=data.APP[k].Medias[q].SaleArea%></p>
+                            </td>
+                            <!-- 投放次数，CPM和CPD不同 -->
+                            <td width="9%" style="background-color:#ECECEC;">
+                                <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                    <%for(var p=0;p<data.APP[k].Medias[q].ADSchedule.length;p++){%>
+                                    <div class="addBorder">
+                                        <div class="totalDays" totalDays="<%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>"><%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>天</div>
+                                        <%if(data.APP[k].Medias[q].ADSchedule[p].Holidays>0){%>
+                                            <div class="Holidays" Holidays="<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>">假期<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>天</div>
+                                        <%}else{%>
+                                            <div class="Holidays" Holidays style="display: none;"></div>
+                                        <%}%>
+                                    </div>
+                                    <%}%>
+                                <%}else{%>
+                                    <span class="cpmADLaunchDays"><%=data.APP[k].Medias[q].ADLaunchDays%>千次</span>
+                                <%}%>
+                            </td>
+                            <!-- 排期 -->
+                            <td width="23%" style="background-color:#ECECEC;">
+                                <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                    <%for(var x=0;x<data.APP[k].Medias[q].ADSchedule.length;x++){%>
+                                        <div class="addBorder">
+                                            <div>
+                                                <span><%=data.APP[k].Medias[q].ADSchedule[x].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[x].EndData.substr(0,10)%></span>
+                                            </div>
+                                            <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                <div class="lookFestival">查看节假日</div>
+                                            <%}else{%>
+                                                <div class="lookFestival" style="display: none;">查看节假日</div>
+                                            <%}%>
+                                            <ul class="festivals">
+                                            <!-- 如果有节假日 -->
+                                            <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                <%for(var h=0;h<data.APP[k].Medias[q].ADSchedule[x].Holiday.length;h++){%>
+                                                    <li class="festival">
+                                                        <span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].EndData.substr(0,10)%></span>
+                                                        <span class="festivalName">
+                                                            <%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].Name%>
+                                                        </span>
+                                                    </li>
+                                                <%}%>
+                                            <%}%>
+                                            </ul>
+                                        </div>
+                                    <%}%>
+                                <%}else{%>
+                                    <%for(var e=0;e<data.APP[k].Medias[q].ADSchedule.length;e++){%>
+                                    <div RecID="<%=data.APP[k].Medias[q].ADSchedule[e].RecID%>">
+                                        <span><%=data.APP[k].Medias[q].ADSchedule[e].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[e].EndData.substr(0,10)%></span>
+                                    </div>
+                                    <%}%>
+                                <%}%>
+                            </td>
+                            <!-- 单价 -->
+                            <td width="10%" style="background-color:#ECECEC;">
+                                <div>
+                                    <p><%=formatMoney(data.APP[k].Medias[q].Price)%></p>
+                                    <!-- CPD显示假期价格 -->
+                                     <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001 && data.APP[k].Medias[q].PriceHoliday){%>
+                                    <p style="color:#B3B3B3"><%=formatMoney(data.APP[k].Medias[q].PriceHoliday)%></p>
+                                    <%}%>
+                                </div>
+                            </td>
+                            <!-- 总计 -->
+                            <td width="9%" style="background-color:#ECECEC;" class="totalPrice"><%=formatMoney(data.APP[k].Medias[q].TotalAmmount)%></td>
+                            <!-- 删除 -->
+                            <td width="4%" style="text-align:left;background-color:#ECECEC;"><a href="javascript:void(0)" class="delAdv"><img src="../images/icon57.png"></a></td>
+                        </tr>
+                        <%}else{%>
+                        <tr class="validAdv tr forAPP" MediaType="<%=data.APP[k].Medias[q].MediaType%>" IsSelected="<%=data.APP[k].Medias[q].IsSelected%>"  CartID="<%=data.APP[k].Medias[q].CartID%>" MediaID="<%=data.APP[k].Medias[q].MediaID%>" PublishDetailID="<%=data.APP[k].Medias[q].PublishDetailID%>" SaleAreaID="<%=data.APP[k].Medias[q].SaleAreaID%>" Price="<%=data.APP[k].Medias[q].Price%>" PriceHoliday="<%=data.APP[k].Medias[q].PriceHoliday%>" scheduleDays="<%=data.APP[k].Medias[q].ADLaunchDays%>" TotalAmmount="<%=data.APP[k].Medias[q].TotalAmmount%>" PublishStatus="<%=data.APP[k].Medias[q].PublishStatus%>" HasOtherPublish="<%=data.APP[k].Medias[q].HasOtherPublish%>" expired="<%=data.APP[k].Medias[q].expired%>" TemplateID="<%=data.APP[k].Medias[q].TemplateID%>" SaleAreaID="<%=data.APP[k].Medias[q].SaleAreaID%>" HasHoliday="<%=data.APP[k].Medias[q].HasHoliday%>">
+                            <td width="28%" style="text-align:left;">
+                                <div class="left">
+                                    <%if(data.APP[k].Medias[q].IsSelected == 1){%>
+                                        <input type="checkbox" checked="checked" class="onecheck">
+                                    <%}else{%>
+                                        <input type="checkbox" class="onecheck">
+                                    <%}%>
+                                </div>
+                                <!-- 广告位主图-->
+                                <div class="portrait">
+                                    <a href="javascript:;" target="_blank" class="toDetail">
+                                        <img src="<%=data.APP[k].Medias[q].ADMasterImage%>">
+                                    </a>
+                                </div>
+                                <!-- 标题和微信认证 -->
+                                <div class="content"  style="width: 160px;">
+                                    <div>
+                                        <%if(data.APP[k].Medias[q].ADMasterTitle){%>
+                                            <span class="toDetail" style="cursor: pointer;"><%=data.APP[k].Medias[q].ADMasterTitle%></span>
+                                        <%}%>
+                                    </div>
+                                    <!-- 媒体主名称 -->
+                                    <p>
+                                        <img src="../images/collection04.png">&nbsp;
+                                        <%=data.APP[k].Medias[q].Name%>
+                                    </p>
+                                    <!-- 区分CPM和CPD -->
+                                    <p>
+                                        <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                        <img src="../images/collection10.jpg">
+                                        <%}else{%>
+                                        <img src="../images/collection07.png">
+                                        <%}%>
+                                    </p>
+                                </div>
+                                <div class="clear"></div>
+                            </td>
+                            <td width="18%" style="text-align: left;">
+                                <p>广告样式 : <%=data.APP[k].Medias[q].ADStyle%></p>
+                                <%if(data.APP[k].Medias[q].CarouselNumber){%>
+                                    <p>轮播位置 : <%=data.APP[k].Medias[q].CarouselNumber%></p>
+                                <%}%>
+                                <p>系统平台 : <%=data.APP[k].Medias[q].SalePlatform%></p>
+                                <p>售卖区域 : <%=data.APP[k].Medias[q].SaleArea%></p>
+                            </td>
+                            <!-- 投放次数，CPM和CPD不同 -->
+                            <td width="9%">
+                                <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                    <%for(var p=0;p<data.APP[k].Medias[q].ADSchedule.length;p++){%>
+                                    <div class="addBorder">
+                                        <div class="totalDays" totalDays="<%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>"><%=data.APP[k].Medias[q].ADSchedule[p].AllDays%>天</div>
+                                        <%if(data.APP[k].Medias[q].ADSchedule[p].Holidays>0){%>
+                                            <div class="Holidays" Holidays="<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>">假期<%=data.APP[k].Medias[q].ADSchedule[p].Holidays%>天</div>
+                                        <%}else{%>
+                                            <div class="Holidays" Holidays style="display: none;"></div>
+                                        <%}%>
+                                    </div>
+                                    <%}%>
+                                <%}else{%>
+                                    <input type="" name="Username" class="cpmADLaunchDays" value="<%=data.APP[k].Medias[q].ADLaunchDays%>" style="width:35px;height: 20px;line-height: 20px">千次
+                                <%}%>
+                            </td>
+                            <!-- 排期 -->
+                            <td width="23%" isCPD="<%=data.APP[k].Medias[q]['CPDCPM']%>" PubBeginTime="<%=data.APP[k].Medias[q].PubBeginTime.substr(0,10)%>" PubEndTime="<%=data.APP[k].Medias[q].PubEndTime.substr(0,10)%>">
+                                <!-- CPD -->
+                                <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001){%>
+                                    <%for(var x=0;x<data.APP[k].Medias[q].ADSchedule.length;x++){%>
+                                        <div class="addBorder" RecID="<%=data.APP[k].Medias[q].ADSchedule[x].RecID%>">
+                                            <div>
+                                                <input class="date_input" disabled id="cpdsT<%=k+''+q+''+x%>" value="<%=data.APP[k].Medias[q].ADSchedule[x].BeginData.substr(0,10)%>">至<input class="date_input" disabled id="cpdeT<%=k+''+q+''+x%>" value="<%=data.APP[k].Medias[q].ADSchedule[x].EndData.substr(0,10)%>">
+                                                <a href="javascript:;" class="modify"><img src="../images/icon54.png"></a>
+                                                <%if(data.APP[k].Medias[q].ADSchedule.length > 1){%>
+                                                <a href="javascript:;" class="delete"><img src="../images/icon57.png"></a>
+                                                <%}%>
+                                            </div>
+                                            <!-- 如果有节假日 -->
+                                            <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                <div class="lookFestival">查看节假日</div>
+                                            <%}else{%>
+                                                <div class="lookFestival" style="display: none;">查看节假日</div>
+                                            <%}%>
+                                            <ul class="festivals">
+                                            <%if(data.APP[k].Medias[q].ADSchedule[x].Holidays>0){%>
+                                                <%for(var h=0;h<data.APP[k].Medias[q].ADSchedule[x].Holiday.length;h++){%>
+                                                    <li class="festival">
+                                                        <span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].BeginData.substr(0,10)%></span>至<span><%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].EndData.substr(0,10)%></span>
+                                                        <span class="festivalName">
+                                                            <%=data.APP[k].Medias[q].ADSchedule[x].Holiday[h].Name%>
+                                                        </span>
+                                                    </li>
+                                                <%}%>
+                                            <%}%>
+                                            </ul>
+                                        </div>
+                                    <%}%>
+                                <%}else{%>
+                                    <div RecID="<%=data.APP[k].Medias[q].ADSchedule[0].RecID%>">
+                                        <input class="date_input" disabled id="cpmsT<%=k+''+q%>" value="<%=data.APP[k].Medias[q].ADSchedule[0].BeginData.substr(0,10)%>">至<input class="date_input" disabled id="cpmeT<%=k+''+q%>" value="<%=data.APP[k].Medias[q].ADSchedule[0].EndData.substr(0,10)%>">
+                                        <a href="javascript:;" class="modify"><img src="../images/icon54.png"></a>
+                                    </div>
+                                <%}%>
+                                    <p class="grey" style="display: none;"><img src="../images/icon21.png"> 执行日期至少大于当天</p>
+                                    <p class="grey PubDetailVertify" style="display: none;"><img src="../images/icon21.png"> 该广告位及执行日期已存在，请修改/重新选择</p>
+
+                            </td>
+                            <!-- 单价 -->
+                            <td width="10%">
+                                <div>
+                                    <p><%=formatMoney(data.APP[k].Medias[q].Price)%></p>
+                                    <!-- CPD显示假期价格 -->
+                                    <%if(data.APP[k].Medias[q]['CPDCPM'] == 11001 && data.APP[k].Medias[q].PriceHoliday){%>
+                                    <p style="color:#B3B3B3"><%=formatMoney(data.APP[k].Medias[q].PriceHoliday)%></p>
+                                    <%}%>
+                                </div>
+                            </td>
+                            <!-- 总计 -->
+                            <td width="9%" class="red totalPrice"><%=formatMoney(data.APP[k].Medias[q].TotalAmmount)%></td>
+                            <!-- 删除 -->
+                            <td width="4%">
+                                <a href="javascript:void(0)" class="delAdv">
+                                    <img src="../images/icon57.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <%}%>
+                    <%}%>
+                    </table>
+                </div>
+            <%}%>
+        <%}%>
+    <%}%>
+</script>
+</div>
+</body>
+</html>

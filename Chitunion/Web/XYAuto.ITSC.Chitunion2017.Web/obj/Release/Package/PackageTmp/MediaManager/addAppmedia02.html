@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Area2.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="js/addmedia-app02.js"></script>
+    <style>
+        .allBtn_file {
+            display: inline-block;
+            color: #fff;
+            font-size: 26px;
+            font-weight: 500;
+            /*position: absolute;*/
+            /*left:3px;*/
+            /*top:-20px;*/
+            background: #EDEDED;
+            border-bottom: 1px solid #EAEAEA;
+            text-align: center;
+        }
+
+        #SWFUpload_1,#SWFUpload_2,#SWFUpload_3,#SWFUpload_4,#SWFUpload_5 {
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <div class="clear"></div>
+            <div id="essentia"></div>
+            <script type="text/template" id="essentialinformation">
+                <ul>
+                    <li class="ins_a">APP名称：</li>
+                    <li><%=Result.Name%></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a">媒体Logo：</li>
+                    <li>
+                        <div class="frame"><img src="<%=Result.HeadIconURL%>" width="80" height="80"></div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div id="record">
+                    <%if(Result.CommonlyClass!=null){%>
+                    <%if(Result.CommonlyClass.length!=0){%>
+                    <ul>
+                        <li class="ins_a">常见分类：</li>
+                        <%for(var i=0;i<Result.CommonlyClass.length;i++){%>
+                        <li>
+                            <div class="classification">
+                                <%=Result.CommonlyClass[i].CategoryName%>
+                                <%if(Result.CommonlyClass[i].SortNumber==1){%>
+                                <em style="position: absolute;right: 0;top: 3px;bottom: -3px;"><img src="/ImagesNew/icon85.png" /></em>
+                                <%}%>
+                            </div>
+                        </li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+
+                    <%if(Result.CoverageArea!=null){%>
+                    <%if(Result.CoverageArea.length!=0){%>
+                    <ul>
+                        <li class="ins_a">覆盖地区：</li>
+                        <%for(var i=0;i<Result.CoverageArea.length;i++){%>
+                        <li>
+                            <div class="classification">
+                                <%=Result.CoverageArea[i].ProvinceName?Result.CoverageArea[i].ProvinceName:''%> <%=Result.CoverageArea[i].CityName?Result.CoverageArea[i].CityName:''%>
+                            </div>
+                        </li>
+                        <%}%>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+                    <%if(Result.ProvinceName!=null){%>
+                    <ul>
+                        <li class="ins_a">所在地区：</li>
+                        <li><%=Result.ProvinceName?Result.ProvinceName:''%> <%=Result.CityName?Result.CityName:''%></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+
+                    <ul>
+                        <li class="ins_a">APP日活：</li>
+                        <li><%=Result.DailyLive%></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="ins_a">媒体介绍：</li>
+                        <li>
+                            <div class="beyond"><%=Result.Remark%></div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%if(Result.OrderRemark!=null){%>
+                    <%if(Result.OrderRemark.length!=0){%>
+                    <ul>
+                        <li class="ins_a">下单备注：</li>
+                        <li>
+                            <div class="answer">
+                                <%for(var i=0;i<Result.OrderRemark.length;i++){%>
+                                <%if(Result.OrderRemark[i].Id==40009){%>
+                                <span><%=Result.OrderRemark[i].Descript%></span>
+                                <%}else{%>
+                                <span><%=Result.OrderRemark[i].Name%></span>
+                                <%}%>
+                                <%}%>
+                            </div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <%}%>
+                    <%}%>
+                </div>
+            </script>
+            <!--start相关资质-->
+            <div id="Relevantqualifications" style="position: relative">
+                <div id="zedang" style="display: none"></div>
+                <h3>相关资质</h3>
+                <!--媒体关系-->
+                <ul id="Mediarelations">
+                    <li class="ins_a fb">媒体关系：</li>
+                    <li id="Mediarelations_agent">
+                        <div class="current_ifi" MediaRelations="50001">代理</div>
+                    </li>
+                    <li id="Mediarelations_have">
+                        <div class="default_ifi" MediaRelations="50002">自有</div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <!--运营者类型-->
+                <ul id="Operatortype">
+                    <li class="ins_a fb">运营者类型：</li>
+                    <li id="Operatortype_personal">
+                        <div class="default_ifi" OperatingType="1002" style="color: #aaa;">个人</div>
+                    </li>
+                    <li id="Operatortype_enterprise">
+                        <div class="current_ifi" OperatingType="1001">企业</div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+
+                <!--start企业-->
+                <div id="enterprise_information">
+                    <ul>
+                        <li class="ins_a fb">企业名称：</li>
+                        <li><input name="Username" id="enterprise" type="text" style="width:315px;"></li>
+                        <li><span id="enterprise_Prompt" style="color: red;display: none"> 请输入企业名称</span></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="ins_a fb">营业执照：</li>
+                        <li>
+                            <div class="file_upload" style="display: inline-block;width:75px; height:73px;">
+                                <div id="Businesslicense" style="position: relative;background-color:#EDEDED;">
+                                    <img style="" src="/ImagesNew/add2.png" width="75" height="73" id="headimgUploadFile_Businesslicense"
+                                         class='originPhoto'>
+                                    <span id="bigImgshow_Businesslicense"
+                                          style="width:200px;height:200px; position:absolute;z-index: 999;left:75px;top:0;display: none"
+                                          class='bigPhoto'><img src="" width="200" height="200"></span>
+                                    <span style='position:absolute;left:0;top:0'><input type="file" name="file_upload"
+                                                                                        id="headUploadify_Businesslicense"></span>
+                                </div>
+                            </div>
+                            <!--<div id="Businesslicense_Sample"-->
+                                 <!--style="display: inline-block;width:55px;position: absolute;bottom: -10px;left: 80px;">-->
+                                <!--示例 ?-->
+                            <!--</div>-->
+                            <div id="Businesslicense_img"
+                                 style="position: absolute;top:0px;left: 128px;display: none;z-index: 100"><img
+                                    width=150 src="/ImagesNew/营业执照.jpg" alt=""></div>
+                        </li>
+                        <li><span id="Businesslicense_Prompt" style="color: red;display: none"> 请上传营业执照</span></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div id="Certificate">
+                        <ul>
+                            <li class="ins_a fb">代理合同证明：</li>
+                            <li>
+                                <div class="file_upload">
+                                    <div id="Certificate_homepage" style="position: relative;background-color:#EDEDED;">
+                                        <img src="/ImagesNew/add2.png" width="75" height="73" id="headimgUploadFile_homepage"
+                                             class='originPhoto'>
+                                        <span id="bigImgshow_homepage"
+                                              style="width:200px;height:200px; position:absolute;z-index: 999;left:75px;top:0;display: none"
+                                              class='bigPhoto'><img src="" width="200" height="200"></span>
+                                        <span style='position:absolute;left:0;top:0'><input type="file"
+                                                                                            name="file_upload"
+                                                                                            id="headUploadify_homepage"></span>
+                                    </div>
+                                    <div><a href="javascript:;">首页</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="file_upload" style="margin-left:70px">
+                                    <div id="Certificate_Shadowe" style="position: relative;background-color:#EDEDED;">
+                                        <img src="/ImagesNew/add2.png" width="75" height="73" id="headimgUploadFile_Shadowe"
+                                             class='originPhoto'>
+                                        <span id="bigImgshow_Shadowe"
+                                              style="width:200px;height:200px; position:absolute;z-index: 999;left:75px;top:0;display: none"
+                                              class='bigPhoto'><img src="" width="200" height="200"></span>
+                                        <span style='position:absolute;left:0;top:0'><input type="file"
+                                                                                            name="file_upload"
+                                                                                            id="headUploadify_Shadowe"></span>
+                                    </div>
+                                    <div><a href="javascript:;">尾页</a></div>
+                                </div>
+                            </li>
+                            <li><span id="Certificate_Prompt" style="color: red;display: none"> 请上传代理合同证明</span></li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                </div>
+                <!--end企业-->
+
+                <!--start个人-->
+                <div id="personal_information" style="display: none">
+                    <ul>
+                        <li class="ins_a fb">真实姓名：</li>
+                        <li><input name="Username" id="Realname" type="text" style="width:315px;"></li>
+                        <li><span id="Realname_Prompt" style="color: red;display: none"> 请输入真实姓名</span></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li class="ins_a fb">手持身份证：</li>
+                        <li>
+                            <div class="file_upload" style="display: inline-block;width:75px; height:73px;">
+                                <div id="idcardpicture_Positive" style="position: relative;background-color:#EDEDED;">
+                                    <img src="/ImagesNew/add2.png" width="75" height="73" id="headimgUploadFile_Positive"
+                                         class='originPhoto'>
+                                    <span id="bigImgshow_Positive"
+                                          style="width:200px;height:200px; position:absolute;z-index: 999;left:75px;top:0;display: none"
+                                          class='bigPhoto'><img src="" width="200" height="200"></span>
+                                    <span style='position:absolute;left:0;top:0'><input type="file"
+                                                                                        name="file_upload"
+                                                                                        id="headUploadify_Positive"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li><span id="idcardpicture_Prompt" style="color: red;display: none"> 请上传身份证图片</span></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <!--end个人-->
+
+                <ul>
+                    <li class="ins_a">&nbsp;</li>
+                    <li class="grey"><img src="../ImagesNew/icon21.png"> 提示：审核时间通常为1到3个工作日，审核通过即可生效。</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <!--end相关资质-->
+
+
+            <div class="keep">
+                <span><a href="JavaScript:;" id="Submit" class="button" style="width:150px;margin-left: 152px;">提交审核</a></span>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+
+</body>
+</html>

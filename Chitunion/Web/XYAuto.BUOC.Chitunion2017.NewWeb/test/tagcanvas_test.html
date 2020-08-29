@@ -1,0 +1,59 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TagCanvas jQuery example</title>
+    <!--[if lt IE 9]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script src="/js/jquery.1.11.3.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.tagcanvas.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+            textHeight: 14,
+            textColour: '#1b76f0',
+            outlineColour: 'transparent',
+            reverse: true,
+            depth: 0.8,
+            maxSpeed: 0.1,
+            shape: 'vcylinder',
+            initial: [0.1, -0, 1],
+            noMouse: true,
+            zoomMin: 0.4
+        },'tags')) {
+          // something went wrong, hide the canvas container
+          $('#myCanvasContainer').hide();
+        }
+      });
+
+
+      $(function() {
+          $.ajax({
+              url: "http://www1.chitunion.com/api/task/GetDistrbuteList?PageIndex=1&PageSize=20&r=0.6491011156540758",
+              type: "get",
+              dataType:"json",
+              sunccess: function(data) {
+                  console.log(data);
+              }
+          });
+      });
+    </script>
+</head>
+<body>
+    <h1>TagCanvas jQuery example page</h1>
+    <div id="myCanvasContainer">
+        <canvas width="300" height="140" id="myCanvas">
+            <p>Anything in here will be replaced on browsers that support the canvas element</p>
+        </canvas>
+    </div>
+    <div id="tags">
+        <ul>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="/fish">萌爱2</a></li>
+            <li><a href="/chips">萌爱1</a></li>
+            <li><a href="/salt">萌爱3</a></li>
+            <li><a href="/vinegar">萌爱4</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+

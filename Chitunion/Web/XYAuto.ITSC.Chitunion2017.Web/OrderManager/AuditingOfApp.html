@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/AuditOrderAPP.js"></script>
+    <script type="text/javascript" src="js/displaySchedule.js"></script>
+
+</head>
+<script type="text/template" id="appOrderTemplate">
+    <tr  id="CPD">
+        <td><input id="allbox" name="allchenckbox" type="checkbox" value=""></td>
+        <td colspan="11">
+            <div class="tl blue" style="float: left">CPD广告位</div>
+            <a href="javascript:void(0);" class="setAllData" style="float: left; margin-left: 15px">设置排期</a>
+        </td>
+    </tr>
+    <%for(var j=0;j<data.Result.SubADInfos.length;j++){%>
+    <%for(var i=0;i<data.Result.SubADInfos[j].APPDetails.length;i++){%>
+    <%if(data.Result.SubADInfos[j].APPDetails[i].CPDCPM===11001){%>
+    <tr class="tableList CPD"  IsSelected="true"
+        ADScheduleInfos=""
+        ADLaunchDays="<%=data.Result.SubADInfos[j].APPDetails[i].ADLaunchDays%>"
+        ADLaunchIDs="<%=data.Result.SubADInfos[j].APPDetails[i].CPDCPM%>"
+        PublishDetailID="<%=data.Result.SubADInfos[j].APPDetails[i].PublishDetailID%>"
+        MediaID="<%=data.Result.SubADInfos[j].APPDetails[i].MediaID%>">
+        <td><input class="onebox" name="checkbox" type="checkbox" value=""></td>
+        <td Name="<%=data.Result.SubADInfos[j].APPDetails[i].Name%>"><%=data.Result.SubADInfos[j].APPDetails[i].Name%>
+        </td>
+        <td AdPosition="<%=data.Result.SubADInfos[j].APPDetails[i].AdPosition%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].AdPosition%>
+        </td>
+        <td AdForm="<%=data.Result.SubADInfos[j].APPDetails[i].AdForm%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].AdForm%>
+        </td>
+        <td theStyle="<%=data.Result.SubADInfos[j].APPDetails[i].Style%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].Style%>
+        </td>
+        <%if(data.Result.SubADInfos[j].APPDetails[i].CarouselCount=='0'){%>
+        <td CarouselCount=""></td>
+        <%}else{%>
+        <td CarouselCount="<%=data.Result.SubADInfos[j].APPDetails[i].CarouselCount%>"><%=data.Result.SubADInfos[j].APPDetails[i].CarouselCount%></td>
+        <%}%>
+        <td PlayPosition="<%=data.Result.SubADInfos[j].APPDetails[i].PlayPosition%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].PlayPosition%>
+        </td>
+        <td SysPlatform="<%=data.Result.SubADInfos[j].APPDetails[i].SysPlatform%>">
+            <%if(data.Result.SubADInfos[j].APPDetails[i].SysPlatform != null){%>
+                <%=data.Result.SubADInfos[j].APPDetails[i].SysPlatform%>
+            <%}%>
+        </td>
+        <td OriginalPrice="<%=data.Result.SubADInfos[j].APPDetails[i].OriginalPrice%>"  SaleDiscount="<%=data.Result.SubADInfos[j].APPDetails[i].SaleDiscount%>">
+
+        </td>
+        <td ADLaunchDays="<%=data.Result.SubADInfos[j].APPDetails[i].ADLaunchDays%>"><%=data.Result.SubADInfos[j].APPDetails[i].ADLaunchDays%></td>
+        <td AdjustDiscount="<%=data.Result.SubADInfos[j].APPDetails[i].AdjustDiscount%>" AdjustPrice="<%=data.Result.SubADInfos[j].APPDetails[i].AdjustPrice%>">
+            <input type="text" class="accountTest" style="width:60px" name='CPDUsername' value="<%=data.Result.SubADInfos[j].APPDetails[i].AdjustPrice%>">
+        </td>
+        <td>
+            <a href="javascript:;" class="setData">设置排期</a>
+            <a href="javascript:;" class="red delBtn">删除</a>
+            &nbsp;
+        </td>
+    </tr>
+    <%}%>
+    <%}%>
+    <%}%>
+    <tr  id="CPM">
+        <td>&nbsp;</td>
+        <td colspan="11">
+            <div class="tl blue">CPM广告位</div>
+        </td>
+    </tr>
+    <%for(var j=0;j<data.Result.SubADInfos.length;j++){%>
+    <%for(var i=0;i<data.Result.SubADInfos[j].APPDetails.length;i++){%>
+        <%if(data.Result.SubADInfos[j].APPDetails[i].CPDCPM===11002){%>
+        <tr class="tableList CPM"  ADLaunchDays="<%=data.Result.SubADInfos[j].APPDetails[i].ADLaunchDays%>" IsSelected="true" ADScheduleInfos="" ADLaunchIDs="<%=data.Result.SubADInfos[j].APPDetails[i].CPDCPM%>"
+             PublishDetailID="<%=data.Result.SubADInfos[j].APPDetails[i].PublishDetailID%>"
+                MediaID="<%=data.Result.SubADInfos[j].APPDetails[i].MediaID%>">
+             <td>&nbsp;</td>
+             <td Name="<%=data.Result.SubADInfos[j].APPDetails[i].Name%>"><%=data.Result.SubADInfos[j].APPDetails[i].Name%>
+             </td>
+             <td AdPosition="<%=data.Result.SubADInfos[j].APPDetails[i].AdPosition%>">
+                <%=data.Result.SubADInfos[j].APPDetails[i].AdPosition%>
+             </td>
+             <td AdForm="<%=data.Result.SubADInfos[j].APPDetails[i].AdForm%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].AdForm%>
+             </td>
+             <td theStyle="<%=data.Result.SubADInfos[j].APPDetails[i].Style%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].Style%>
+             </td>
+             <td CarouselCount="<%=data.Result.SubADInfos[j].APPDetails[i].CarouselCount%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].CarouselCount%>
+            </td>
+           <td PlayPosition="<%=data.Result.SubADInfos[j].APPDetails[i].PlayPosition%>">
+            <%=data.Result.SubADInfos[j].APPDetails[i].PlayPosition%>
+           </td>
+            <td SysPlatform="<%=data.Result.SubADInfos[j].APPDetails[i].SysPlatform%>">
+                <%if(data.Result.SubADInfos[j].APPDetails[i].SysPlatform != null){%>
+                    <%=data.Result.SubADInfos[j].APPDetails[i].SysPlatform%>
+                <%}%>
+            </td>
+            <td OriginalPrice="<%=data.Result.SubADInfos[j].APPDetails[i].OriginalPrice%>"  SaleDiscount="<%=data.Result.SubADInfos[j].APPDetails[i].SaleDiscount%>">
+            </td>
+            <td ADLaunchDays="<%=data.Result.SubADInfos[j].APPDetails[i].ADLaunchDays%>">
+               <input type="text" style="width:60px"  name='Username' style="width:120px"  value="<%=data.Result.SubADInfos[j].APPDetails[i].ADLaunchDays%>">
+            </td>
+            <td AdjustDiscount="<%=data.Result.SubADInfos[j].APPDetails[i].AdjustDiscount%>"  AdjustPrice="<%=data.Result.SubADInfos[j].APPDetails[i].AdjustPrice%>">
+                <input type="text" class="accountTest" style="width:60px" name='CPMUsername' value="<%=data.Result.SubADInfos[j].APPDetails[i].AdjustPrice%>">
+            </td>
+             <td>
+            <a href="javascript:;" class="red delBtn">删除</a>
+            &nbsp;
+        </td>
+    </tr>
+    <%}%>
+    <%}%>
+    <%}%>
+</script>
+<!--#include file="/Base/header.html" -->
+<body>
+<div class="order">
+    <div class="install">
+        <ul class="advertiser">
+            <li class="ins_a"> 广告主：</li>
+            <li style="width:315px;height: 37px" class="advertiserName"></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a"><span class="red f12">*</span> 需求名称：</li>
+            <li><input name="textUsername" id="text" type="text" placeholder="输入推广需求名称，最多25个汉字"
+                       style="width:315px;"></li>
+            <div class="nameMsg" style="float: left; color: #ff2400;line-height: 40px;"></div>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a"><span class="red f12">*</span> 执行时间：</li>
+            <li><input id="BeginData"   name="beginTime" type="text" style="width:150px;" class="laydate-iconNew"
+            > 至
+                <input id="EndData" name="endTime" type="text" style="width:150px;" class="laydate-iconNew"
+                ></li>
+            <div class="timeMsg" style="float: left; color: #ff2400;line-height: 40px;"></div>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a"><span class="red f12">*</span> 需求说明：</li>
+            <li><textarea name="explain" class="textArea" cols="" rows="5" placeholder="请阐述您的需求细节500个汉字以内"
+                          style="width:438px;height:100px;resize:none;"></textarea></li>
+            <div class="explainMsg" style="float: left; color: #ff2400;line-height: 40px;"></div>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a"><span class="red f12">*</span> 补充附件：</li>
+            <!--<div><input type="file" id="uploadify" name="uploadify"  /></div>-->
+
+            <li>
+                <div class="report-file" style="margin-left: 0">
+                    <input tabindex="3" size="3" name="uploadify" class="file-prew but_upload" type="file"
+                           id="uploadify">
+                </div>
+                附件:支持格式JPG/PNG/PDF/ZIP，不超过5M
+            </li>
+            <img id="imgUploadFile"/>
+            <div class="clear"></div>
+        </ul>
+        <ul   id="ImgUp" >
+            <li class="ins_a">&nbsp;</li>
+            <li><img src="/images/icon18.png"/></li>
+            <li id="imgName"></li>
+            <li><a id="imgDownURL" href="javascript:;" target="_blank"><img src="/images/icon19.png"/></a></li>
+            <div class="clear"></div>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="mb15 f16">
+        <div class="fl mb10">下面是您已选择的媒体，需要您确认具体的投放形式：</div>
+        <div class="fr"><a href="javascript:;" class="but_keep2 getShopCar" style="width: 150px;">保存并继续添加账号</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="table" id="appTable">
+        <table id="tableList" width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff" class="orderTable">
+            <tr>
+                <th width="5%">&nbsp; </th>
+                <th width="7%">媒体</th>
+                <th width="12%">广告位置及形式</th>
+                <th width="9%">广告形式</th>
+                <th width="10%">样式</th>
+                <th width="5%">轮播</th>
+                <th width="5%">位置</th>
+                <th width="9%">操作系统</th>
+                <th width="12%">单价</th>
+                <th width="8%">投放天数/千次</th>
+                <th width="8%">金额</th>
+                <th width="10%">操作</th>
+            </tr>
+        </table>
+    </div>
+
+    <!--http://client.chitunion.com/OrderManager/填写需求-微信02.html-->
+    <div class="tr">共 <span class="red" id="tableNum">--</span> 媒体，订单金额:¥<span class="red" id="OrderPrice">--</span>
+    </div>
+    <div class="tc" id="buttonSwitch1">
+    </div>
+
+    <script type="text/template" id="buttonSwitch2">
+        <%if(data==16002||data==16001){%>
+        <span><a href="javascript:;" id="through" class="but_keep" style="width:150px;margin-top:15px">审核通过</a></span>
+        <span ><a href="javascript:;" id="notThrough" class="but_keep"
+                  style="width:150px;margin-top:15px">审核不通过</a></span>
+        <div class="clear"></div>
+        <%}%>
+    </script>
+</div>
+<div class="clear"></div>
+</div>
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+</body>
+</html>

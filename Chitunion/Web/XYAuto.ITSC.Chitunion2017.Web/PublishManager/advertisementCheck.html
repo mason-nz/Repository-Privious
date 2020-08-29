@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <!--<script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js" ></script>-->
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/advertisementCheck.js"></script>
+    <script>
+        console.log(CTLogin.RoleIDs);
+    </script>
+</head>
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+
+        <div class="install">
+            <h2 class='menu_nav'><a href="javasccript:;"></a> <a href="javascript:;"></a></h2>
+            <div class="install_box">
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/template" id="publishCheckTemplte">
+        <ul>
+            <li class="ins_a">
+                <div class="frame_n"><img src="<%= data.HeadIconURL %>" width="80" height="80"></div>
+            </li>
+            <li class="wechat_name">
+                <div>微信名称：<%= data.Name %></div>
+                <div>微信帐号：<%= data.Number %></div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a">广告名称：</li>
+            <li><%= data.ADName %></li>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a">刊例有效期：</li>
+            <li><%= data.BeginTime %> 至<%= data.EndTime %></li>
+            <% if(data.OldBeginTime == ''){%>
+            <li><span class="earlier">原：--</span></li>
+            <%}else{%>
+                <li><span class="earlier">原：<%= data.OldBeginTime %> 至<%= data.OldEndTime %></span></li>
+            <%} %>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a">采购折扣：</li>
+            <li><%= data.PurchaseDiscount*100 %> %</li>
+            <% if(data.OldBeginTime == ''){%>
+            <li><span class="earlier">原：--</span></li>
+            <%}else{%>
+            <li><span class="earlier">原：<%= data.OldPurchaseDiscount*100 %> %</span></li>
+            <%} %>
+
+            <li class="ml20">销售折扣：</li>
+            <li><%= data.SaleDiscount*100 %> %</li>
+            <% if(data.OldBeginTime == ''){%>
+            <li><span class="earlier">原：--</span></li>
+            <%}else{%>
+            <li><span class="earlier">原：<%= data.OldSaleDiscount*100 %> %</span></li>
+            <%} %>
+            <div class="clear"></div>
+        </ul>
+        <ul>
+            <li class="ins_a">广告：</li>
+            <li class="ad_r">
+                <div class="table">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="javascript:;ddd">
+                        <tbody>
+                        <tr>
+                            <th width="16%">新广告位信息</th>
+                            <th width="16%">原广告位信息
+                            <th width="17%">刊例价</th>
+                            <th width="17%">原刊例价</th>
+                            <th width="17%">销售价</th>
+                            <th width="17%">原销售价</th>
+                        </tr>
+
+                        <% if(data.OldDetail.length > 0){%>
+
+                            <% data.Detail.forEach(function(item){%>
+                                <% if(item.OldPrice == 0 || item.OldSalePrice == 0){%>
+                                <tr>
+                                    <td><%= item.ADPosition1 + item.ADPosition2 %></td>
+                                    <td class="grey"></td>
+                                    <td><span>¥ <%= item.Price %></span></td>
+                                    <td class="grey"></td>
+                                    <td><span >¥ <%= item.SalePrice %></span></td>
+                                    <td class="grey"></td>
+                                </tr>
+                                <%}else{%>
+                                <tr>
+                                    <td><%= item.ADPosition1 + item.ADPosition2 %></td>
+                                    <td class="grey"><%= item.ADPosition1 + item.ADPosition2 %></td>
+                                    <td><span>¥ <%= item.Price %></span></td>
+                                    <td class="grey">¥ <%= item.OldPrice %></td>
+                                    <td><span >¥ <%= item.SalePrice %></span></td>
+                                    <td class="grey">¥ <%= item.OldSalePrice %></td>
+                                </tr>
+                                <%} %>
+                            <%}) %>
+
+                            <% data.OldDetail.forEach(function(items){%>
+                                <tr>
+                                    <td></td>
+                                    <td class="grey"><%= items.CombdimensionName %></td>
+                                    <td><span></span></td>
+                                    <td class="grey">¥ <%= items.Price %></td>
+                                    <td><span ></span></td>
+                                    <td class="grey">¥ <%= items.SalePrice %></td>
+                                </tr>
+                            <%})  %>
+
+                        <%}else{%>
+
+                            <% data.Detail.forEach(function(item){%>
+                                <% if(item.OldPrice == 0 || item.OldSalePrice == 0){%>
+                                    <tr>
+                                        <td><%= item.ADPosition1 + item.ADPosition2 %></td>
+                                        <td class="grey"></td>
+                                        <td><span>¥ <%= item.Price %></span></td>
+                                        <td class="grey"></td>
+                                        <td><span >¥ <%= item.SalePrice %></span></td>
+                                        <td class="grey"></td>
+                                    </tr>
+                                <%}else{%>
+                                    <tr>
+                                        <td><%= item.ADPosition1 + item.ADPosition2 %></td>
+                                        <td class="grey"><%= item.ADPosition1 + item.ADPosition2 %></td>
+                                        <td><span>¥ <%= item.Price %></span></td>
+                                        <td class="grey">¥ <%= item.OldPrice %></td>
+                                        <td><span >¥ <%= item.SalePrice %></span></td>
+                                        <td class="grey">¥ <%= item.OldSalePrice %></td>
+                                    </tr>
+                                <%} %>
+                            <%}) %>
+
+                        <%} %>
+
+                        </tbody></table>
+                </div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+
+        <ul>
+            <li class="ins_a">刊例原稿：</li>
+            <% data.UploadFileList.forEach(function(single){%>
+            <li><a href="<%= single.UploadFile %>" style='color: red'><%= single.UploadFileName %></a></li>
+            <%}) %>
+        </ul>
+        <div class="clear"></div>
+
+        <h3>提交人</h3>
+        <ul>
+            <li class="ins_a">提交人：</li>
+            <li><%= data.TrueName  %></li>
+            <li class="ml20">联系电话：</li>
+            <li><%= data.Mobile %></li>
+            <li class="ml20">来源：</li>
+            <li><%= data.Source %></li>
+            <div class="clear"></div>
+        </ul>
+
+        <h3>审核结果</h3>
+        <ul>
+            <li class="ins_a"><input name="refuseOrPass" type="radio" value="" id='passOrder'> 通过</li>
+            <li><input name="refuseOrPass" type="radio" value="" id='reject'> 驳回</li>
+            <li><textarea name="" id="" cols="40" rows="3" placeholder='请填写驳回原因' style='display: none'></textarea></li>
+            <div class="clear"></div>
+        </ul>
+
+        <div class="keep">
+            <span><a href="javascript:;" class="button" style="width:100px;margin-left:95px;" id='submitMessage'>提交</a></span>
+            <span><a href="javascript:;" class="button" style="width:100px;margin-left:95px;" id='cancleMessage'>取消</a></span>
+        </div>
+    </script>
+
+    <div class="clear"></div>
+</div>
+
+<!--#include file="/base/footer.html" -->
+
+</body>
+</html>

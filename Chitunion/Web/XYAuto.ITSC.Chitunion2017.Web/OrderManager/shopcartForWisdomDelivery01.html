@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能推荐--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src='js/shopcartForWisdomDelivery01.js'></script>
+    <style type="text/css">
+        .ins_e{
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="list_box">
+                <div class="install">
+                    <h2 class="menu_nav">智能推荐</h2>
+                    <ul class="chooseCity">
+                        <li class="ins_e" style="margin-top: 0"> 城市：</li>
+                        <li class="but_query" id="chooseCity" style="height: 28px;line-height: 28px;padding: 0 10px;">选择城市</li>
+                        <li style="display: none;" class="hidden_tip">
+                            <img src="../images/icon21.png"> 请选择城市
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <table class="ad_table checedCity" width="70%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" style="margin: 20px 0 30px 135px;display: none;">
+                        <thead>
+                            <tr>
+                                <th width="20%">城市</th>
+                                <th width="20%">推广预算</th>
+                                <th width="25%">媒体数量</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <ul class="totalBudget">
+                        <li class="ins_e"> 预算总计：</li>
+                        <li id="totalBudget">--</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="promotionPurpose">
+                        <li class="ins_e"> <span class="red f12" style="margin-right: 5px;">*</span>推广目的：</li>
+                        <li>
+                           <input type="checkbox" name="promotionPurpose" value="60001"> 车型促销
+                           <input type="checkbox" name="promotionPurpose" value="60002"> 新车上市
+                           <input type="checkbox" name="promotionPurpose" value="60003"> 车主回馈
+                           <input type="checkbox" name="promotionPurpose" value="60004"> 店庆活动
+                        </li>
+                        <li style="display: none;" class="hidden_tip">
+                            <img src="../images/icon21.png"> 请选择推广目的
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="brands">
+                        <li class="ins_e"><span class="red f12" style="margin-right: 5px;">*</span>推广车型：</li>
+                        <li>
+                            <select class="brand" id="hhh" name="" style="width:120px;line-height: 30px">
+                                <option MasterId="-2">请选择品牌</option>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="series"  name="" style="width:120px;line-height: 30px">
+                                <option BrandId="-2">请选择子品牌</option>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="Models" name="" style="width:120px;line-height: 30px">
+                                <option CarSerialId="-2">请选择车型</option>
+                            </select>
+                        </li>
+                        <li style="display: none;" class="hidden_tip">
+                            <img src="../images/icon21.png"> 请选择推广车型
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="deleverDay">
+                        <li class="ins_e">
+                            <span class="red f12" style="margin-right: 5px;">*</span> 预计投放日期：
+                            
+                        </li>
+                        <li>
+                            <input name="Username" id="deleverDay" type="text"   style="width:120px;height: 28px;"  class="laydate-iconNew">
+                        </li>
+                        <li style="display: none;" class="hidden_tip">
+                            <img src="../images/icon21.png"> 请选择预计投放日期
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="exit">
+                        <li class="ins_e"> <span class="red f12" style="margin-right: 5px;">*</span>集客入口：</li>
+                        <li>
+                           <input type="radio" name="exit" value="1"> 带经销商
+                           <input type="radio" name="exit" value="0"> 不带经销商
+                        </li>
+                        <li style="display: none;" class="hidden_tip">
+                            <img src="../images/icon21.png"> 请选择集客入口
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="keep">
+                        <span><a href="javascript:;" id="intelligentDelivery" class="button" style="width: 100px; margin-left: 155px;">智能投放</a></span>
+                    </div>
+
+                    <!-- 智能推荐结果 -->
+                    <div class="wx_box orderInfo" style="width: auto;min-height: 0;position: relative">
+                        
+                    </div> 
+                    <div class="errorInfo">
+                        <div class="see_now" style="text-align: center;margin: 0 0 5px 0;display: none;">
+                            
+                        </div>
+                        <div class="reChoose no_media" style="text-align: center;margin: 0 0 5px 0;display: none;">
+                            
+                        </div>
+                        <div class="reChoose goToTop" style="text-align: center;display: none;">
+                            您还可以更改条件（如选择更多推广目的、减少媒体数量、增加预算等）扩大媒体范围 ！ <a href="javascript:;" style="color:#FF4F4F;">重新选择</a>
+                        </div>
+                    </div>
+                    <div class="wx_box bottom" style="display: none;width: auto;min-height: 0;position: relative;">
+                        <div style="margin: 20px;">
+                            <div class="all_select">
+                                 <div class="right">
+                                     <div class="left_lh">
+                                         <span>共 <em class="tableNum">--</em> 个媒体</span>
+                                         <!--<span>销售参考价 <em class="SalePrice">&#45;&#45;</em></span>-->
+                                         <span>成本参考价总计 <em class="CostReferencePrice">--</em></span>
+                                         <!-- <span>原创参考价 <em class="OriginaReferencePrice"></em></span> -->
+                                     </div>
+                                     <div class="put_in" id="nextBtn">确认投放</div>
+                                     <div class="clear"></div>
+                                 </div>
+                                 <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+</body>
+<script type="text/template" id="orderInfo">
+    <div class="but_query" id="outPut" style="position: absolute;right: 21px;top: -16px;width: 84px;">导出媒体</div>
+    <%list.forEach(function(item,i){%>
+    <%if(item.PublishDetails){%>
+    <div class="to_b_list recommendCity" isSelected="1" CityID="<%=item.CityID%>" ProvinceID="<%=item.ProvinceID%>">
+        <div class="cityList">
+            <span style="display: inline-block;background-image: url('../images/redBg1.jpg');height: 22px;float: left;color: #fff;padding:0 5px;font-size: 12px;line-height: 22px;">
+                <%if(item.CityID != -2){%>
+                    <%= item.ProvinceName %>-<%= item.CityName %>
+                <%}else{%>
+                    <%= item.ProvinceName %>
+                <%}%>
+            </span>
+            <span style="display: inline-block;background-image: url('../images/redBg2.jpg');width: 12px;height: 22px;float: left;"></span>
+            <div class="clear"></div>
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ddd" style="margin-bottom: 10px">
+            <thead>
+                <tr>
+                    <th width="20%" style="text-align: left"><input name="" type="checkbox" value="" class="twoChecked" checked="checked"> 全选</th>
+                    <th width="12%">广告位信息</th>
+                    <th width="8%">粉丝数</th>
+                    <!-- <th width="8%">平均阅读数</th> -->
+                    <!-- <th width="10%">销售参考价 </th> -->
+                    <th width="10%">成本参考价 </th>
+                    <th width="10%">原创参考价</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% var saleCount=0,costCount=0;%>
+                <% item.PublishDetails.forEach(function(each,j) {%>
+                <% saleCount+=each.SalePrice; costCount+= each.CostReferencePrice;%>
+                <tr class="mediaInfo" SalePrice="<%=each.SalePrice%>" CostReferencePrice="<%=each.CostReferencePrice%>" OriginaReferencePrice="<%=each.OriginalReferencePrice%>" PublishDetailID="<%=each.PublishDetailID%>" MediaID="<%=each.MediaID%>" MediaType="<%=each.MediaType%>" isSelected="1" EnableOriginPrice="false">
+                    <td style="text-align: left">
+                        <div class="left">
+                            <input type="checkbox" checked="checked" class="onecheck">
+                        </div>
+                        <div class="portrait">
+                            <%if(each.HeadIconURL){%>
+                                <img src="<%=each.HeadIconURL%>">
+                            <%}else{%>
+                                <img src="../ImagesNew/default_touxiang.png"/>
+                            <%}%>
+                        </div>
+                        <div class="content" style="margin-left: 5px;width: 125px">
+                            <div><a href="/OrderManager/wx_detail.html?MediaID=<%=each.MediaID%>" target="_blank"><%=each.MediaName%></a></div>
+                            <%if( each.MediaType == '14001'){%>
+                            <p><img src="../images/collection01.png"></p>
+                            <%}%>
+                        </div>
+                        <div class="clear"></div>
+                    </td>
+                    <!-- 广告位信息 -->
+                    <td style="text-align: left">
+                        <p>广告位置：<%=each.ADPosition%></p>
+                        <p>广告样式：<%=each.CreateType%></p>
+                    </td>
+                    <!--粉丝数-->
+                    <td>
+                        <div>
+                            <p style="line-height: 24px">
+                                <%if(each.FansCount<10000){%>
+                                    <span><%=formatMoney(each.FansCount,0,"")%></span><br>
+                                <%}else{%>
+                                    <span><%=(each.FansCount/10000).toFixed(2)%></span>万<br>
+                                <%}%>
+                            </p>
+                        </div>
+                    </td>
+                    <!-- 平均阅读数 -->
+                    <!-- <td><%=each.AverageReadCount%></td> -->
+                    <!-- 销售参考价-->
+                    <!-- <td>
+                        <p><span><%=formatMoney(each.SalePrice,2)%></span></p>
+                    </td> -->
+                    <!-- 成本参考价 -->
+                    <td>
+                        <p><span><%=formatMoney(each.CostReferencePrice,2)%></span></p>
+                    </td>
+                    <!-- 原创参考价 -->
+                    <td>
+                        <%if(each.CreateType == '原创+发布'){%>
+                        <%}else{%>
+                            <%if(each.OriginalReferencePrice){%>
+                                <p class="pt30"><input type="checkbox" style="width:16px;" class="priceChoose"><%=formatMoney(each.OriginalReferencePrice,2)%></p>
+                            <%}%>
+                        <%}%>
+                    </td>
+                </tr>
+                <%})%>
+                <tr class="priceAccount">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <!-- <td><%= formatMoney(saleCount) %></td> -->
+                    <td><%= formatMoney(costCount) %></td>
+                    <td class="originalCount">￥0.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <%}%>
+    <%})%>
+</script>
+</html>

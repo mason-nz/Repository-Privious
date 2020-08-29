@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>需求管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src= "/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/PutList.js"></script> 
+    <style>
+        .channel_box .layer_con table td{
+            border : 1px solid #E4E4E4;
+            font-size: 12px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>                
+                <div class="clear"></div>
+            </div>
+            
+            <div id="list_switching">
+                <ul class="tab_menu">
+                    <li name="89001" id="Pending" class="selected">待审核</li>
+                    <li name="89003" id="wait_put">待投放</li>
+                    <li name="89004">投放中</li>
+                    <li name="89006">已结束</li>
+                    <li name="89005">已终止</li>
+                    <li name="89002" style="border-right:0" name="reject" id="Reject">已驳回</li>
+                    <li name="89007" id='Chexiao'>已撤销</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        
+            <ul class="state">
+                <li>创建人：<input id="CreateUser" name="Username" type="text" style="width:130px;"></li>
+                <li>需求名称：<input id="DemandName" name="Username" type="text" style="width:130px;"></li>
+                <li class="BelongYY">所属运营：<input id="BelongYY" name="Username" type="text" style="width:130px;"></li>
+                <li class="but_query" id='searchBtn' style="width:70px;;margin-right: 0">搜索</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+
+                        </table>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+
+<!-- 列表 -->
+<script type="text/template" id="Pricelist-cc">
+    <thead>
+        <tr>
+            <th width="10%">需求订单号</th>
+            <th width="10%" class="RechargeNumber">充值单号</th>
+            <th width="10%">需求名称</th>
+            <th width="8%">创建人</th>
+            <th width="11%" class="CreateTime">创建时间</th>
+            <th width="11%" class="UpdateTime UpdateTr">同步时间</th>
+            <th width="11%" class="AuditTime">审核时间</th>
+            <th width="11%" class="RevokeTime">撤销时间</th>
+            <th width="8%" class="BelongYY">所属运营</th>
+            <th width="7%" class="ADCount">加参落地页</th>
+            <th width="15%">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% if(Result.TotalCount != 0){%>
+        <% Result.List.forEach(function(item){%>
+            <tr DemandId='<%= item.DemandId %>' DemandBillNo='<%= item.DemandBillNo %>' AuditStatusName='<%= item.AuditStatusName %>'>
+                <td><%= item.DemandBillNo %></td>
+                <% if(item.RechargeNumber){%>  
+                    <td class="RechargeNumber"><%= item.RechargeNumber %></td>
+                <%}else{%>
+                    <td class="RechargeNumber"></td>
+                <%} %>                
+                <td><%= item.Name %></td>
+                <% if(item.CreateUserName == null){%>
+                <td></td>
+                <%}else{%>
+                <td><%= item.CreateUserName %></td>
+                <%} %>
+                <td class="CreateTime"><%= item.CreateTime %></td>
+                <td class="UpdateTime"><%= item.UpdateTime %></td>
+                <td class="AuditTime"><%= item.AuditTime %></td>
+                <td class="RevokeTime"><%= item.RevokeTime %></td>
+                <% if(item.BelongYY == null){%>
+                <td class="BelongYY"></td>
+                <%}else{%>
+                <td class="BelongYY"><%= item.BelongYY %></td>
+                <%} %>
+                <td class="ADCount"><%= item.DeliveryCount %></td>
+                <td>
+                    <a href="javascript:;" class="see_po" style="display: none;">查看</a>
+                    <a href="javascript:;" class="Data_detail" style="display: none;">数据</a>
+                    <a href="javascript:;" class="Url_manger" style="display: none;">落地页管理</a>
+                    <!-- <a href="javascript:;" class="relevance_po" style="display: none;">关联广告</a> -->
+                    <a href="javascript:;" class="forbidden_po" style="display: none;">终止投放</a> 
+                    <a href="javascript:;" class="ending_put" style="display: none;">结束投放</a>
+                    <a href="javascript:;" class="audit_po" style="display: none;">审核</a>
+                </td>
+            </tr>
+        <%}) %>
+    <%} %>
+    </tbody>
+</script>
+
+</body>
+</html>

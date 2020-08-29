@@ -1,0 +1,159 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>添加平台媒体-媒体管理-我的赤兔</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script type="text/javascript" src="../js/Common_area.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="js/mediaCommon.js"></script>
+    <script type="text/javascript" src="js/platform.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<div class="list_main">
+<!--中间内容-->
+ <div class="order" data-operatetype="1">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2>添加平台媒体</h2>
+            <div class="clear"></div>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 媒体名称：</li>
+                <li><input name="Username" class="editText weChatId mediaName mediaName" maxlength="50" type="text"  style="width:315px;"></li>
+                <li style="color: red;display: none" class="mediaNameAlert"><img src="/images/icon21.png" alt=""> 该媒体名称已存在，请核实</li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入媒体名称</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 媒体Logo：</li>
+                <li class="frame"><img src="" class="uploadImg headImg uploadBigimg" id="headimgUploadFile" width="80" height="80"/><span style="width: 200px;height: 200px;display: none;position:absolute;z-index: 999;" class="bigImgshow"><img src="" alt="" id="headBigImg" style="width: 200px;height: 200px;"></span><span class="set"><input type="file" name="file_upload" id="headUploadify" accept="image/jpeg,image/jpg,image/png" class="file-prew but_upload"/></span></li>
+                <li id="headimgErr" style="color: red"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请上传媒体Logo</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 行业分类：</li>
+                <li>
+                    <select name="industryClassify" id="Industry" class="Industry industryEnumType" style="width:315px;line-height: 30px">
+                        <!--<option value="-1">请选择</option>-->
+                    </select>
+                </li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请选择所在行业</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span>覆盖地区：</li>
+                <li>
+                    <select id="ddlProvince" name="ddlProvince"  style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerProvince();">
+                        <option value="-1">省/直辖市</option>
+                        <option>全国</option>
+                    </select>
+                </li>
+                <li>
+                    <select id="ddlCity" name="ddlCity" style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerCity();">
+                        <option value="-1">覆盖区域 -- 市</option>
+                        <option></option>
+                    </select>
+                </li>
+                <li><a href="javascript:;" class="blue3 saveArea">添加</a></li>
+                <li style="color: red;display: none" class="sameArea"><img src="/images/icon21.png" alt=""> 所选区域不能有包含关系</li>
+                <li style="color: red;display: none" id="overlay"><img src="/images/icon21.png" alt=""> 请选择覆盖地区</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="checkArea" style="display: none">
+                <li class="ins_a">&nbsp;</li>
+                <div class="clear area"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">所在地区：</li>
+                <li>
+                    <select id="ddlProvince1" name="ddlProvince1" style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerProvince1();">
+                        <option value="-1">省/直辖市</option>
+                        <option></option>
+                    </select>
+                </li>
+                <li>
+                    <select id="ddlCity1" name="ddlCity1" style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerCity();">
+                        <option value="-1">城市</option>
+                    </select>
+                </li>
+                <li style="color: red;display: none"><!--<img src="/images/icon21.png" alt=""> 请选择所在地区--></li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 广告终端：</li>
+                <li><input class="app" name="adTerminal" type="checkbox" data-id="28001" value="APP" style='margin-top: 0;'/> APP</li>
+                <li><input class="wap" name="adTerminal"  type="checkbox" data-id="28002" value="WAP"/> WAP/PC</li>
+                <li style="color: red;display: none" class="ad"><img src="/images/icon21.png" alt=""> 请选择广告终端</li>
+                <div class="clear"></div>
+            </ul>
+            <ul style="display: none" class="appShow APP">
+                <li class="ins_a"><span class="red f12">*</span> APP日活：</li>
+                <li><input name="Username" class="editText appDailyLive"  type="text"  style="width:315px;" onkeyup="this.value=this.value.replace(/\D/g,'');"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入APP日活</li>
+                <div class="clear"></div>
+            </ul>
+            <ul style="display: none" class="wapShow WAP">
+                <li class="ins_a"><span class="red f12 ">*</span> WAP/PC日均IP：</li>
+                <li><input name="Username" class="editText wapDailyIP" type="text"  style="width:315px;" onkeyup="this.value=this.value.replace(/\D/g,'');" ></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入WAP/PC日均IP</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 网址：</li>
+                <li><input name="Username" class="editText webSite" type="text" maxlength="100" style="width:315px;"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入网址</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 媒体介绍：</li>
+                <li><textarea name="" class="editText remark" cols="" rows="5" maxlength="250" style="width:315px;height:50px;resize:none;"></textarea></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请填写媒体介绍</li>
+                <div class="clear"></div>
+            </ul>
+                    <div class="clear"></div>
+
+                    <div class="keep" style="margin-left: 152px">
+                        <span><a href="javascript:;" class="button save" style="width:150px;">保存</a></span>
+                        <span><a href="javascript:;" class="but_keep but_keep_establish" style="width:150px;">保存并添加刊例</a></span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+</div>
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+<script type="text/javascript">
+    changeType(14002);
+</script>
+
+
+</body>
+</html>

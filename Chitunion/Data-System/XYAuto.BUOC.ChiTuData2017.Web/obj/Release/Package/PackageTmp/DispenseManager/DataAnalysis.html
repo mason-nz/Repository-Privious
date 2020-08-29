@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="描述文字，字数200内？">
+	<meta name="keywords" content="网站相关关键字，字数200内？">
+	<title>趋势分析</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/echarts.common.min.js"></script>
+    <script type="text/javascript" src="js/data-analysis.js"></script>
+</head>
+<body>
+	<!--顶部logo 导航-->
+	<!-- #include file="/base/header.html"  -->
+
+	<!-- 中间部分 -->
+	<div class='order'>
+		<!--左侧菜单-->
+    	<!-- #include file="/base/Menu.html"  -->
+    	<div class="order_r">
+	        <div class="list_box">
+	            <div class="list">
+	                <h2>
+	                    <div class="fl">趋势分析</div>
+	                    <div class="clear"></div>
+	                </h2>
+	            </div>
+	            <div id="list_switching" class="list_switching">
+	                <ul class="tab_menu ">
+	                    <li class="selected" value='1' style="padding:0 32px">抓取</li>
+	                    <li value='2' style="padding:0 32px">机洗入库</li>
+	                    <li value='3' style="padding:0 32px">车型匹配</li>
+	                    <li value='4' style="padding:0 32px">初筛</li>
+	                    <li value='5' style="padding:0 32px">人工清洗</li>
+	                    <li value='6' style="padding:0 32px">封装</li>
+	                    <li value='7' style="padding:0 32px">分发</li>
+	                    <li value='8' style="padding:0 32px">转发</li>
+	                    <li value='9' style="padding:0 32px">线索</li>
+	                </ul>
+	                <div class="clear"></div>
+	                <ul class="echarts_data" style="height: 30px;border:1px solid #eaeaea;margin-bottom: 20px;">
+                        <li class="effect_select special" LatelyDays = "7" DateType="1" >近7天</li>
+                        <li class="special" LatelyDays = "30" DateType="2" style="border-right:1px solid #eaeaea">近30天</li>
+                        <a href="javascript:;" style="float: right;line-height: 30px;padding-right: 10px;box-sizing: border-box;font-size: 12px;" id='goIntoDetail'>查看详细数据&nbsp;></a>
+	                </ul>
+	            </div>
+	            <!--1-6 7-12 13-48 49-53-->
+	            <div class="echarts">
+	           		<!--  抓取 -->
+	            	<ul class="list1">
+	            		<li style="margin-top: 10px;">
+						    <div class="top_element grabHead">
+					           
+					        </div>
+							<div  id="echart1"  class="sizeOption" style="width:100%;height:340px;margin-left:0;padding-top:20px;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right:0;margin-top: 10px;">
+						    <div class="top_element grabBody">
+					           
+					        </div>
+							<div id="echart2" class="sizeOption" style="width:100%;height:340px;margin-left:0;padding-top:20px;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+							<div class="top_element">
+					        	<div class="top_info">
+					        	    <p >抓取的头部文章在渠道上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart7"  class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right:0">
+						    <div class="top_element">
+					            <div class="top_info">
+					        		<p >抓取的腰部文章在渠道上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart8"  class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+						        <div class="top_info" style="background: #f6f6f6;">
+						        	<p style="float: left;">抓取的头部文章在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>
+						        	<div class="clear"></div>
+						        </div>
+					        </div>
+							<div  id="echart13"  class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;" name="1">图表部分</div>
+						</li>
+						<li style="margin-right:0">
+						    <div class="top_element">
+					            <div class="top_info">
+					        	    <p >抓取的腰部文章在文章类别上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>		
+					        	    <div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart14"  class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;" >图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element" style="background: #f6f6f6;">
+						        <div class="top_info">
+						        	<p style="float: left;">抓取的头部账号在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>
+						        	<div class="clear"></div>
+						        </div>
+					        </div>
+							<div  id="echart60" name="2" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            	<!-- 机洗入库 -->
+	            	<ul class="list2">
+	            		<li style="margin-top: 10px;">
+						   	<div class="top_element jxHead">
+					           	
+					         </div>
+							<div  id="echart3"  class="sizeOption" style="width:100%;height:340px;margin-left:0;padding-top:20px;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right:0;margin-top: 10px;">
+						    <div class="top_element jxBody">
+					           
+					        </div>
+							<div  id="echart4"  class="sizeOption" style="width:100%;height:340px;margin-left:0;padding-top:20px;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+							<div class="top_element">
+					        	<div class="top_info">
+					        	    <p >机洗入库的头部文章在渠道上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart9" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info">
+					        		<p >机洗入库的腰部文章在渠道上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart10" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info">
+					        		<p >头部文章机洗入库的转化<span class="space_date">(2017.11.6-2017.11.11)</span></p>			
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div class="jxHeadzh" style="width:100%;height:340px;margin-left:0;">
+							   	
+							</div>
+						</li>
+						<li style="margin-right:0;">
+						    <div class="top_element">
+					            <div class="top_info">
+					        		<p >腰部文章机洗入库的转化<span class="space_date">(2017.11.6-2017.11.11)</span></p>			
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  class="jxBodyzh"	style="width:100%;height:340px;margin-left:0;">
+							   	
+							</div>
+						</li>
+						<li>
+						    <div class="top_element">
+						        <div class="top_info" style="background: #f6f6f6;">
+						        	<p style="float: left;">机洗入库的头部文章在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+						        	<div class="clear"></div>
+						        </div>
+					        </div>
+							<div  id="echart15" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right:0">
+						    <div class="top_element">
+					            <div class="top_info">
+					        	    <p >机洗入库的腰部文章在文章类别上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>		
+					        	    <div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart16" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+						        <div class="top_info" style="background: #f6f6f6;">
+						        	<p style="float: left;">机洗入库的头部账号在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+						        	<div class="clear"></div>
+						        </div>
+					        </div>
+							<div  id="echart61" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right:0">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">机洗入库的头部文章在文章分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart17" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">机洗入库的头部账号在账号分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart18" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            	<!-- 车型匹配 -->
+	            	<ul class="list3">
+	            		<li style="width: 100%;margin-top: 10px;">
+							<div class="top_element cxpp">
+					            <div class="top_info">
+					        		<p >车型匹配<span class="space_date">(2017.11.6-2017.11.11)</span></p>
+					                <ol>
+					                    <li>已匹配车型</li>
+					                    <li><span class="article_data1">126</span>文章</li>
+					                </ol>
+					                <ol style="padding-left: 10%;">
+										<li>未匹配车型</li>
+										<li><span class="article_data2">330</span>文章</li>
+					                </ol>										
+					                <div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart49" class="sizeOption" style="width:100%;height:340px;margin-left:0;float: left;line-height: 340px;text-align:center;">图表部分</div>
+							<!-- <div  id="echart54" class="sizeOption" style="width:50%;height:340px;margin-left:0;float: right;line-height: 340px;text-align:center;">图表部分</div> -->
+						</li> 
+						<li>
+						    <div class="top_element">
+					            <div class="top_info">
+					        	    <p >已匹配车型文章类别分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart19" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right:0">
+						    <div class="top_element">
+					            <div class="top_info">
+					        	    <p >未匹配车型文章类别分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart20" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            	<!-- 初筛 -->
+	            	<ul class="list4">
+						<li style="width: 100%;margin-top: 10px;">
+							<div class="top_element cs">
+					            
+					        </div>
+							<div  id="echart50" class="sizeOption" style="width:100%;height:340px;margin-left:0;float: left;line-height: 340px;text-align:center;">图表部分</div>
+						</li> 
+						<li>
+						    <div class="top_element" style="background: #f6f6f6;">
+					            <div class="top_info">
+					        	    <p style="float: left;">初筛头部文章在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select cs_cj_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  -->               
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart21" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">初筛头部账号在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select cs_zhcj_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  -->               
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart22" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">初筛头部文章在文章分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select cs_wzfz_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  -->               
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart23" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">初筛头部账号在账号分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select cs_zhfz_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  -->                
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart24" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        		<p >文章初筛可用转化<span class="space_date">(2017.11.6-2017.11.11)</span></p>			
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  class="cszh" style="width:100%;height:340px;margin-left:0;">
+
+							</div>
+						</li>
+	            	</ul>
+	            	<!-- 人工清洗 -->
+	            	<ul class="list5">
+						<li style="width: 100%;margin-top: 10px;">
+							<div class="top_element rgqxHead">
+					            
+					        </div>
+							<div  id="echart51" class="sizeOption" style="width:100%;height:340px;margin-left:0;float: left;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="width: 100%;">
+							<div class="top_element rgqxBody">
+					            
+					        </div>
+							<div  id="echart52" class="sizeOption" style="width:100%;height:340px;margin-left:0;float: left;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">清洗头部文章在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select rgqx_cj_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  -->
+					                   <!--  <option value="作废" TypeId = "3">置为腰</option>  -->               
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart27" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">清洗头部账号在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select rgqx_zhcj_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  -->
+					                    <!-- <option value="作废" TypeId = "3">置为腰</option>  -->             
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart28" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">清洗头部文章在文章分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select rgqx_wzfz_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  --> 
+					                    <!-- <option value="作废" TypeId = "3">置为腰</option>  -->             
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart29" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">清洗头部账号在账号分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select rgqx_zhfz_select" name="">
+					                	<!-- <option value="可用" TypeId = "1">可用</option>
+					                    <option value="作废" TypeId = "2">作废</option>  -->
+					                    <!-- <option value="作废" TypeId = "3">置为腰</option>  -->              
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart30" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">清洗腰部文章在文章类别上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart31" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            	<!-- 封装 -->
+	            	<ul class="list6">
+						<li style="width: 100%;margin-top: 10px;">
+							<div class="top_element fz">
+					            <div class="top_info">
+					        		<p >物料封装<span class="space_date">(2017.11.6-2017.11.11)</span></p>
+					                <ol style="padding-left: 25%;">
+					                    <li>累计封装</li>
+					                    <li><span class="article_data1">126</span>文章</li>
+					                </ol>
+					                <ol style="padding-left: 10%;">
+										<li>头腰</li>
+										<li><span class="article_data2">330</span>文章</li>
+					                </ol>	
+					                <ol style="padding-left: 10%;">
+										<li>头腰腿</li>                                       
+					                    <li><span class="article_data3">1127</span>文章</li>          
+					                </ol>									
+					                <div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart11" class="sizeOption" style="width:100%;height:340px;margin-left:0;float: left;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">封装物料在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select fz_wzcj_select" name="">
+					                	<!-- <option value="全部" TypeId = "1">全部</option>
+					                    <option value="头腰" TypeId = "2">头腰</option> 
+					                    <option value="头腰腿" TypeId = "2">头腰腿</option>    -->             
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart34" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">封装物料在账号分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select fz_zhcj_select" name="">
+					                	<!-- <option value="全部" TypeId = "1">全部</option>
+					                    <option value="头腰" TypeId = "2">头腰</option> 
+					                    <option value="头腰腿" TypeId = "2">头腰腿</option>   -->              
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart35" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">封装物料在头部文章分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select fz_wzfz_select" name="">
+					                <!-- 	<option value="全部" TypeId = "1">全部</option>
+					                    <option value="头腰" TypeId = "2">头腰</option> 
+					                    <option value="头腰腿" TypeId = "2">头腰腿</option>  -->               
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart36" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">封装物料在物料状态上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select fz_wlzt_select" name="">
+					                	<!-- <option value="全部" TypeId = "1">全部</option>
+					                    <option value="头腰" TypeId = "2">头腰</option> 
+					                    <option value="头腰腿" TypeId = "2">头腰腿</option> -->                
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart32" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            	<!-- 分发 -->
+	            	<ul class="list7">
+						<li style="width: 100%;margin-top: 10px;">
+							<div class="top_element distribute">
+					            <div class="top_info">
+					        		<p >物料分发<span class="space_date">(2017.11.6-2017.11.11)</span></p>
+					                <ol style="padding-left: 25%;">
+					                    <li>累计分发</li>
+					                    <li><span class="article_data1">126</span></li>
+					                </ol>
+					                <ol style="padding-left: 10%;">
+										<li>经纪人</li>
+										<li><span class="article_data2">330</span></li>
+					                </ol>	
+					                <ol style="padding-left: 10%;">
+										<li>全网域</li>                                       
+					                    <li><span class="article_data3">1127</span></li>          
+					                </ol>
+					                <ol style="padding-left: 10%;">
+										<li>汽车大全</li>                                       
+					                    <li><span class="article_data3">1127</span></li>          
+					                </ol>									
+					                <div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart58" class="sizeOption" style="width:100%;height:340px;margin-left:0;padding-top:20px;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">分发物料在物料类型上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select distribute_wllx_select" name="">
+					                	<!-- <option value="全部" TypeId = "1">累计</option>
+					                    <option value="头腰" TypeId = "2">经纪人</option> 
+					                    <option value="头腰腿" TypeId = "3">全网域</option>
+					                    <option value="汽车大全" TypeId="4">汽车大全</option> -->
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart37" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">分发物料在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select distribute_cj_select" name="">
+					                	<!-- <option value="全部" TypeId = "1">累计</option>
+					                    <option value="头腰" TypeId = "2">经纪人</option> 
+					                    <option value="头腰腿" TypeId = "3">全网域</option>
+					                    <option value="汽车大全" TypeId="4">汽车大全</option> -->
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart38" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">分发物料在账号分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select distribute_zhfz_select" name="">
+					                	<!-- <option value="全部" TypeId = "1">累计</option>
+					                    <option value="头腰" TypeId = "2">经纪人</option> 
+					                    <option value="头腰腿" TypeId = "3">全网域</option>
+					                    <option value="汽车大全" TypeId="4">汽车大全</option> -->
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart39" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">分发物料在头部文章分值的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select distribute_wzfz_select" name="">
+					                	<!-- <option value="全部" TypeId = "1">累计</option>
+					                    <option value="头腰" TypeId = "2">经纪人</option> 
+					                    <option value="头腰腿" TypeId = "3">全网域</option>
+					                    <option value="汽车大全" TypeId="4">汽车大全</option> -->
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart40" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            	<!-- 转发 -->
+	            	<ul class="list8">
+						<li style="width: 100%;position: relative;margin-top: 10px;">
+							<div class="top_element transmit">
+					            <div class="top_info">
+					        		<p >转发<span class="space_date">(2017.11.6-2017.11.11)</span></p>
+					                <ol style="padding-left: 25%;">
+					                    <li>累计转发</li>
+					                    <li><span class="article_data1">126</span>文章</li>
+					                </ol>
+					                <ol style="padding-left: 10%;">
+										<li>经纪人</li>
+										<li><span class="article_data2">330</span>文章</li>
+					                </ol>	
+					                <ol style="padding-left: 10%;">
+										<li>全网域</li>                                       
+					                    <li><span class="article_data3">1127</span>文章</li>          
+					                </ol>
+					                <ol style="padding-left: 10%;">
+										<li>汽车大全</li>                                       
+					                    <li><span class="article_data3">1127</span>文章</li>          
+					                </ol>									
+					                <div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart12" class="sizeOption" style="width:100%;height:340px;margin-left:0;float: left;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">物料的转发在物料类型上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select transmit_wllx_select" name="">
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart41" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">封装转发在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select transmit_cj_select" name="">
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart42" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">物料的转发在账号分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select transmit_zhfz_select" name="">
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart43" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">物料的转发在物料头部文章分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select transmit_wzfz_select" name="">
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart44" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            	<!-- 线索 -->
+	            	<ul class="list9">
+						<li style="width: 100%;margin-top: 10px;">
+							<div class="top_element thread">
+					            <div class="top_info">
+					        		<p >线索<span class="space_date">(2017.11.6-2017.11.11)</span></p>
+					                <ol style="padding-left: 25%;">
+					                    <li>累计线索</li>
+					                    <li><span class="article_data1">126</span>文章</li>
+					                </ol>
+					                <ol style="padding-left: 10%;">
+										<li>经纪人</li>
+										<li><span class="article_data2">330</span>文章</li>
+					                </ol>	
+					                <ol style="padding-left: 10%;">
+										<li>全网域</li>                                       
+					                    <li><span class="article_data3">1127</span>文章</li>          
+					                </ol>									
+					                <div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart53" class="sizeOption" style="width:100%;height:340px;margin-left:0;float: left;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">产生的线索在物料类型上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select xs_wllx_select" name="">
+                
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart45" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">产生的线索在场景上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select xs_cj_select" name="">
+            
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart46" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li>
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">产生的线索在账号分值上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select xs_zhfz_select" name="">
+
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart47" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+						<li style="margin-right: 0;">
+						    <div class="top_element">
+					            <div class="top_info" style="background: #f6f6f6;">
+					        	    <p style="float: left;">产生的线索在头部文章上的分布<span class="space_date">(2017.11.6-2017.11.11)</span></p>	
+					        		<select class="select xs_wzfz_select" name="">
+	           
+					                </select>		
+					        		<div class="clear"></div>
+					            </div>
+					        </div>
+							<div  id="echart48" class="sizeOption" style="width:100%;height:340px;margin-left:0;line-height: 340px;text-align:center;">图表部分</div>
+						</li>
+	            	</ul>
+	            </div>
+	            <div class="clear"></div>
+	        </div>
+        </div>
+	</div>
+	<!--底部-->
+	<!--#include file="/base/footer.html" -->
+
+<script type="text/template" id="grabHead">
+	<div class="top_element">
+		<div class="top_info">
+			<p style="border-bottom: 1px solid #e4e4e4">头部文章抓取<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;"><%=data.Info[i].Name%></li>
+					<li><span"><%=data.Info[i].ArticleCount%></span>文章</li>
+					<li><span"><%=data.Info[i].AccountCount%></span>账号</li>
+				</ol>
+				<%}%>	
+			<div>							
+		<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="grabBody">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4">腰部文章抓取<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;line-height: 40px;margin-top:13px;"><%=data.Info[i].Name%></li>
+					<li style="line-height: 4px;"><span"><%=data.Info[i].ArticleCount%></span>文章</li>
+				</ol>
+				<%}%>	
+			</span">								
+		<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="jxHead">
+	<div class="top_element">
+		<div class="top_info">
+			<p style="border-bottom: 1px solid #e4e4e4">头部文章机洗入库<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;"><%=data.Info[i].Name%></li>
+					<li><span><%=data.Info[i].ArticleCount%></span>文章</li>
+					<li><span><%=data.Info[i].AccountCount%></span>账号</li>
+				</ol>
+				<%}%>
+			</div>								
+		<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="jxBody">
+	<div class="top_element">
+		<div class="top_info">
+			<p style="border-bottom: 1px solid #e4e4e4">腰部文章机洗入库<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;line-height: 40px;margin-top:13px;"><%=data.Info[i].Name%></li>
+					<li style="line-height: 4px;"><span><%=data.Info[i].ArticleCount%></span>文章</li>
+				</ol>
+				<%}%>	
+			</div>							
+		<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="jxHeadzh">
+	<div class="disabled_left" style="float: left;width: 29%;">
+		<table border="1" cellspacing="1" cellpadding="0" class="table table_0" style="margin-top: 30px;margin-left:10px;border: 1px solid #999;border-top:0;width: 96%;">
+			<caption style="border: 1px solid #999;border-bottom: 1px dotted #999;line-height: 22px;">抓取文章数</caption>
+				<tr>
+					<th style="border-bottom: 1px solid #999;">渠道</th>
+					<th style="border-bottom: 1px solid #999;">文章号</th>
+					<th style="border-bottom: 1px solid #999;">账号数</th>
+				</tr>
+				<%for(var i = 0;i < data.Info.length;i++){%>
+					<%if(data.Info[i].TypeId==1){%>
+					<tr>
+						<td style="padding: 0"><%=data.Info[i].Name%></td>
+						<td style="padding: 0"><%=data.Info[i].ArticleCount%></td>
+						<td style="padding: 0"><%=data.Info[i].AccountCount%></td>
+					</tr>
+					<%}%>
+				<%}%>
+		</table>
+	</div>
+	<div class="statistics" style="float: left;width: 40%;box-sizing: border-box;padding-left: 20px;">
+		<div class="trapezoid trapezoid-0" style="position: relative;"><span style="position: absolute;width: 100%;height: 60px;text-align: center;line-height: 60px;top: -62px;">抓取文章<%=data.Data[0].value%></span></div>
+		<div class="probability trapezoid-0" style="position: relative;margin-left: 24%"><span style="position: absolute;width: 100%;height: 40px;text-align: center;line-height: 40px;top: -40px;"><%=data.Data[0].value?((data.Data[1].value/data.Data[0].value)*100).toFixed(2):'--'%>%</span></div>
+		<div class="beput trapezoid-0" style="position: relative;margin-left: 11%;"><span style="position: absolute;width: 100%;height: 60px;text-align: center;line-height: 60px;top: -60px;">机洗入库<%=data.Data[1].value%></span></div>
+		<p style="text-align: center; margin-top: 30px;">机洗入库转化率<%=data.Data[0].value?((data.Data[1].value/data.Data[0].value)*100).toFixed(2):'--'%>%</p>
+	</div>
+	<div class="usable" style="float: right;width: 29%;margin-top: 142px;margin-right: 2%;">
+		<table border="1" cellspacing="1" cellpadding="0" class="table table_0" style="margin-left:10px;border: 1px solid #999;border-top:0;width: 96%;">
+			<caption style="border: 1px solid #999;border-bottom: 1px dotted #999;line-height: 22px;">入库文章数</caption>
+			<tr>
+				<th style="border-bottom: 1px solid #999;">渠道</th>
+				<th style="border-bottom: 1px solid #999;">文章号</th>
+				<th style="border-bottom: 1px solid #999;">账号数</th>
+			</tr>
+			<%for(var i = 0;i < data.Info.length;i++){%>
+					<%if(data.Info[i].TypeId==2){%>
+					<tr>
+						<td style="padding: 0"><%=data.Info[i].Name%></td>
+						<td style="padding: 0"><%=data.Info[i].ArticleCount%></td>
+						<td style="padding: 0"><%=data.Info[i].AccountCount%></td>
+					</tr>
+					<%}%>
+			<%}%>
+		</table>
+	</div>
+</script>
+<script type="text/template" id="jxBodyzh">
+	<div class="disabled_left" style="float: left;width: 29%;">
+		<table border="1" cellspacing="1" cellpadding="0" class="table table_0" style="margin-top: 30px;margin-left:10px;border: 1px solid #999;border-top:0;width: 96%;">
+			<caption style="border: 1px solid #999;border-bottom: 1px dotted #999;line-height: 22px;">抓取文章数</caption>
+				<tr>
+					<th style="border-bottom: 1px solid #999;">渠道</th>
+					<th style="border-bottom: 1px solid #999;">文章号</th>
+				</tr>
+				<%for(var i = 0;i < data.Info.length;i++){%>
+					<%if(data.Info[i].TypeId==1){%>
+					<tr>
+						<td style="padding: 0"><%=data.Info[i].Name%></td>
+						<td style="padding: 0"><%=data.Info[i].ArticleCount%></td>
+					</tr>
+					<%}%>
+				<%}%>
+		</table>
+	</div>
+	<div class="statistics" style="float: left;width: 40%;box-sizing: border-box;padding-left: 20px;">
+		<div class="trapezoid trapezoid-0" style="position: relative;"><span style="position: absolute;width: 100%;height: 60px;text-align: center;line-height: 60px;top: -62px;">抓取文章<%=data.Data[0].value%></span></div>
+		<div class="probability trapezoid-0" style="position: relative;margin-left: 24%"><span style="position: absolute;width: 100%;height: 40px;text-align: center;line-height: 40px;top: -40px;"><%=data.Data[0].value?((data.Data[1].value/data.Data[0].value)*100).toFixed(2):'--'%>%</span></div>
+		<div class="beput trapezoid-0" style="position: relative;margin-left: 11%;"><span style="position: absolute;width: 100%;height: 60px;text-align: center;line-height: 60px;top: -60px;">机洗入库<%=data.Data[1].value%></span></div>
+		<p style="text-align: center; margin-top: 30px;">机洗入库转化率<%=data.Data[0].value?((data.Data[1].value/data.Data[0].value)*100).toFixed(2):'--'%>%</p>
+	</div>
+	<div class="usable" style="float: right;width: 29%;margin-top: 142px;margin-right: 2%;">
+		<table border="1" cellspacing="1" cellpadding="0" class="table table_0" style="margin-left:10px;border: 1px solid #999;border-top:0;width: 96%;">
+			<caption style="border: 1px solid #999;border-bottom: 1px dotted #999;line-height: 22px;">入库文章数</caption>
+			<tr>
+				<th style="border-bottom: 1px solid #999;">渠道</th>
+				<th style="border-bottom: 1px solid #999;">文章号</th>
+			</tr>
+			<%for(var i = 0;i < data.Info.length;i++){%>
+					<%if(data.Info[i].TypeId==2){%>
+					<tr>
+						<td style="padding: 0"><%=data.Info[i].Name%></td>
+						<td style="padding: 0"><%=data.Info[i].ArticleCount%></td>
+					</tr>
+					<%}%>
+			<%}%>
+		</table>
+	</div>
+</script>
+<script type="text/template" id="cxpp">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4">车型匹配<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;margin-top: 16px;"><%=data.Info[i].Name%></li>
+					<li><span><%=data.Info[i].ArticleCount%></span>文章</li>
+				</ol>	
+				<%}%>
+			</div>										
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="cs">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4">头部文章初筛<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;"><%=data.Info[i].Name%></li>
+					<li><span><%=data.Info[i].ArticleCount%></span>文章</li>
+					<li><span><%=data.Info[i].AccountCount%></span>账号</li>
+				</ol>	
+				<%}%>
+			</div>										
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="cszh">
+	<div class="disabled_left" style="float: left;width: 29%;">
+		<table border="1" cellspacing="1" cellpadding="0" class="table table_0" style="margin-top: 30px;margin-left:10px;border: 1px solid #999;border-top:0;width: 96%;">
+			<caption style="border: 1px solid #999;border-bottom: 1px dotted #999;line-height: 22px;">初筛文章数</caption>
+				<tr>
+					<th style="border-bottom: 1px solid #999;">渠道</th>
+					<th style="border-bottom: 1px solid #999;">文章号</th>
+					<th style="border-bottom: 1px solid #999;">账号数</th>
+				</tr>
+				<%for(var i = 0;i < data.Info.length;i++){%>
+					<%if(data.Info[i].TypeId==0){%>
+					<tr>
+						<td style="padding: 0"><%=data.Info[i].Name%></td>
+						<td style="padding: 0"><%=data.Info[i].ArticleCount%></td>
+						<td style="padding: 0"><%=data.Info[i].AccountCount%></td>
+					</tr>
+					<%}%>
+				<%}%>
+		</table>
+	</div>
+	<div class="statistics" style="float: left;width: 40%;box-sizing: border-box;padding-left: 20px;">
+		<div class="trapezoid trapezoid-0" style="position: relative;"><span style="position: absolute;width: 100%;height: 60px;text-align: center;line-height: 60px;top: -62px;">初筛文章<%=data.TotalInfo[0].ArticleCount%></span></div>
+		<div class="probability trapezoid-0" style="position: relative;margin-left: 24%"><span style="position: absolute;width: 100%;height: 40px;text-align: center;line-height: 40px;top: -40px;"><%=data.TotalInfo[0].ArticleCount?((data.TotalInfo[1].ArticleCount/data.TotalInfo[0].ArticleCount)*100).toFixed(2):'--'%>%</span></div>
+		<div class="beput trapezoid-0" style="position: relative;margin-left: 11%;"><span style="position: absolute;width: 100%;height: 60px;text-align: center;line-height: 60px;top: -60px;">可用入库文章数<%=data.TotalInfo[1].ArticleCount%></span></div>
+		<p style="text-align: center; margin-top: 30px;">文章初筛转化率<%=data.TotalInfo[0].ArticleCount?((data.TotalInfo[1].ArticleCount/data.TotalInfo[0].ArticleCount)*100).toFixed(2):'--'%>%</p>
+	</div>
+	<div class="usable" style="float: right;width: 29%;margin-top: 142px;margin-right: 2%;">
+		<table border="1" cellspacing="1" cellpadding="0" class="table table_0" style="margin-left:10px;border: 1px solid #999;border-top:0;width: 96%;">
+			<caption style="border: 1px solid #999;border-bottom: 1px dotted #999;line-height: 22px;">可用入库文章数</caption>
+			<tr>
+				<th style="border-bottom: 1px solid #999;">渠道</th>
+				<th style="border-bottom: 1px solid #999;">文章号</th>
+				<th style="border-bottom: 1px solid #999;">账号数</th>
+			</tr>
+			<%for(var i = 0;i < data.Info.length;i++){%>
+				<%if(data.Info[i].TypeId > 0){%>
+					<tr>
+						<td style="padding: 0"><%=data.Info[i].Name%></td>
+						<td style="padding: 0"><%=data.Info[i].ArticleCount%></td>
+						<td style="padding: 0"><%=data.Info[i].AccountCount%></td>
+					</tr>
+				<%}%>
+			<%}%>
+		</table>
+	</div>
+</script>
+<script type="text/template" id="rgqxHead">
+	<div class="top_element">
+		<div class="top_info">
+			<p style="border-bottom: 1px solid #e4e4e4">头部文章清洗入库<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;"><%=data.Info[i].Name%></li>
+					<li><span><%=data.Info[i].ArticleCount%></span>文章</li>
+					<li><span><%=data.Info[i].AccountCount%></span>账号</li>
+				</ol>
+				<%}%>	
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="rgqxBody">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4">腰部文章清洗入库<span class="space_date">(<%=data.Date.BeginTime.split('-').join('.')%>-<%=data.Date.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.Info.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;line-height: 40px;"><%=data.Info[i].Name%></li>
+					<li style="line-height: 40px;"><span><%=data.Info[i].ArticleCount%></span>文章</li>
+				</ol>
+				<%}%>
+			</div>	
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="fz">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4">物料封装<span class="space_date">(<%=data.TitleDate.BeginTime.split('-').join('.')%>-<%=data.TitleDate.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.DataLegend.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;line-height: 40px;margin-top:13px;"><%=data.DataLegend[i].name%></li>
+					<li style="line-height: 4px;"><span><%=data.DataLegend[i].value%></span>物料</li>
+				</ol>
+				<%}%>
+			</div>	
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="distribute">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4" >物料分发<span class="space_date">(<%=data.TitleDate.BeginTime.split('-').join('.')%>-<%=data.TitleDate.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.DataLegend.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;line-height: 40px;margin-top:13px;"><%=data.DataLegend[i].name%></li>
+					<li style="line-height: 4px;"><span><%=data.DataLegend[i].value%></span>篇</li>
+				</ol>
+				<%}%>	
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="transmit">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4">物料转发<span class="space_date">(<%=data.TitleDate.BeginTime.split('-').join('.')%>-<%=data.TitleDate.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.DataLegend.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;line-height: 40px;margin-top:13px;"><%=data.DataLegend[i].name%></li>
+					<li style="line-height: 4px;"><span><%=data.DataLegend[i].value%></span>次</li>
+				</ol>
+				<%}%>
+			</div>	
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="thread">
+	<div class="top_element">
+		<div class="top_info">
+			<p  style="border-bottom: 1px solid #e4e4e4">线索<span class="space_date">(<%=data.TitleDate.BeginTime.split('-').join('.')%>-<%=data.TitleDate.EndTime.split('-').join('.')%>)</span></p>
+			<div class='hb_tit'>
+				<%for(var i=0;i<data.DataLegend.length;i++){%>
+				<ol>
+					<li style="font-size: 14px;line-height: 40px;margin-top:13px;"><%=data.DataLegend[i].name%></li>
+					<li style="line-height: 4px;"><span><%=data.DataLegend[i].value%></span>条</li>
+				</ol>
+				<%}%>
+			</div>	
+			<div class="clear"></div>
+		</div>
+	</div>
+</script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/vmc.slider.full.min.js"></script>
+    <!--<script type="text/javascript" src="../js/tab.js"></script>-->
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <!--luq add 2017-3-3-->
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src='../js/layer/layer.js'></script>
+    <script type="text/javascript" src="js/ListManager.js"></script>
+    <script type="text/javascript" src="js/CheckOfOnlineVedio.js"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<div class="list_main">
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <!--刊例审核总模板，这里会包含很多内容，可以根据传参的某个值的不同来控制是否显示。理论上来说刊例的审核和查看都可以用着一个模板（除平台媒体以及app）-->
+    <script type="text/template" id="CheckTemplate">
+         <div class="install">
+            <h3 class="blue">媒体信息</h3>
+            <div class="clear"></div>
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td width="10">微博账号：</td>
+                        <td width="90"><%= MediaInfo.Number%></td>
+                    </tr>
+                    <tr>
+                        <td>微博昵称：</td>
+                        <td><%= MediaInfo.Name%></td>
+                    </tr>
+                    <tr>
+                        <td>头像：</td>
+                        <td class="img_tx"><img src="<%= MediaInfo.HeadIconURL%>"></td>
+                    </tr>
+                    <%if(MediaInfo.Sex!=-1 && MediaInfo.Sex){%>
+                    <tr>
+                        <td>性别：</td>
+                        <% if(MediaInfo.Sex == 0){ %>
+                            <td>女</td>
+                        <% }else if(MediaInfo.Sex == 1){ %>
+                            <td>男</td>
+                        <% }%>
+                    </tr>
+                    <%}else if(MediaInfo.Sex ==-1){%>
+                    <tr>
+                        <td>性别：</td>
+                        <td>未知</td>
+                    </tr>
+                    <%}%>
+                    <tr>
+                        <td>粉丝数：</td>
+                        <td><%= MediaInfo.FansCount%>
+                             <%if(MediaInfo.FansCountURL !='-1'){%>
+                                <a href="javascript:void(0)" class="blue3 picDemo" picurl='<%= MediaInfo.FansCountURL%>'> 查看粉丝数截图</a>
+                            <%}%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>粉丝性别：</td>
+                        <%if(MediaInfo.FansSex == 1){%>
+                        <td>男</td>
+                        <%}else if(MediaInfo.FansSex == 0){%>
+                        <td>女</td>
+                        <%}else{%>
+                        <td>泛</td>
+                        <%}%>
+                    </tr>
+                    <tr>
+                        <td>行业分类：</td>
+                        <td><%= MediaInfo.CategoryName%></td>
+                    </tr>
+                    <tr>
+                        <td>媒体领域：</td>
+                        <td><%= MediaInfo.CategoryName%></td>
+                    </tr>
+                     <tr>
+                        <td>职业：</td>
+                        <td><%= MediaInfo.AreaName%></td>
+                    </tr>
+                    <tr>
+                        <td>覆盖区域：</td>
+                        <td><%= MediaInfo.OverlayName%></td>
+                    </tr>
+                    <%if(MediaInfo.AreaName){%>
+                    <tr>
+                        <td>所在地：</td>
+                        <td><%= MediaInfo.AreaName%></td>
+                    </tr>
+                    <%}%>
+                    <tr>
+                        <td>媒体级别：</td>
+                        <td><%= MediaInfo.MediaAreaName%></td>
+                    </tr>
+                    <tr>
+                        <td>微博认证：</td>
+                        <%if(MediaInfo.IsAuth){%>
+                        <td><%=MediaInfo.IsAuth %></td>
+                        <%}else{%>
+                        <td>未认证</td>
+                        <%}%>
+                    </tr>
+                    <tr>
+                        <td>描述/签名：</td>
+                        <td><%= MediaInfo.Sign%></td>
+                    </tr>
+                    <%if(MediaInfo.OrderRemarkName){%>
+                    <tr>
+                        <td>下单备注：</td>
+                        <td><%= MediaInfo.OrderRemarkName%></td>
+                    </tr>
+                    <%}%>
+                    <tr>
+                        <td>预约情况：</td>
+                        <%if(MediaInfo.IsReserve){%>
+                        <td>需预约</td>
+                        <%}else{%>
+                        <td>无需预约</td>
+                        <%}%>
+                    </tr>
+                </table>
+            </div>
+
+
+            <h3  class="blue">互动参数</h3>
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td>平均转发数：</td>
+                        <td><%= InteractionInfo.AverageForwardCount%></td>
+                        <td>平均评论数：</td>
+                        <td><%= InteractionInfo.AverageCommentCount%></td>
+                        <td>平均点赞数：</td>
+                        <td><%= InteractionInfo.AveragePointCount%></td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <h3 class="mt20 blue">刊例信息</h3>
+            <div class="clear"></div>
+            <div class="list_table" style="margin-top:0;">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#fff" >
+                    <tr>
+                        <td colspan="4">
+                            <div class="tr">单位：元／次</div>
+                        </td>
+                    </tr>
+                   <tr>
+                        <th>广告类型</th>
+                        <th>直发报价</th>
+                        <th>原创+直发</th>
+                        <th>转发</th>
+                    </tr>
+                    <tr>
+                        <td>硬广</td>
+                        <% if(BodyData[0]){%>
+                        <%for(var j=0;j<3;j++){%>
+                            <%if(BodyData[0][j]){%>
+                            <td><%= formatMoney(BodyData[0][j].Price)%></td>
+                            <%}else{%>
+                            <td></td>
+                            <%}%>
+                        <%}}else{%>
+                        <td></td><td></td><td></td>
+                        <%}%>
+                    </tr>
+                   <tr>
+                    <td>软广</td>
+                    <% if(BodyData[1]){%>
+                    <%for(var j=0;j<3;j++){%>
+                        <%if(BodyData[1][j]){%>
+                        <td><%= formatMoney(BodyData[1][j].Price)%></td>
+                        <%}else{%>
+                        <td></td>
+                        <%}%>
+                    <%}}else{%>
+                    <td></td><td></td><td></td>
+                    <%}%>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="tl">采购折扣：<%=formatMoney(Kanli.PurchaseDiscount*100,2,' ') %>%  <span class="ml20">销售折扣：<%=formatMoney(Kanli.SaleDiscount*100,2,' ') %>%</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="tl">执行周期： <%= Kanli.BeginTime.split(' ')[0]%> 至 <%= Kanli.EndTime.split(' ')[0]%> </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <%if(CTLogin.RoleIDs!='SYS001RL00003' && CTLogin.RoleIDs!='SYS001RL00005'){%>
+            <h3 class="mt20 blue">媒体主信息</h3>
+            <div class="clear"></div>
+            <div class="see">
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#EDEDED" >
+                    <tr>
+                        <td>手机号：<%= UserInfo.Mobile%></td>
+                    </tr>
+                    <% if(UserInfo.Type == 1002){ %>
+                    <tr>
+                        <td>姓名：<%= UserInfo.TrueName%></td>
+                    </tr>
+                    <% }else if( UserInfo.Type == 1001){ %>
+                   <%if(UserInfo.TrueName){%>
+                    <tr>
+                        <td>公司名称：<%= UserInfo.TrueName%></td>
+                    </tr>
+                    <% }} %>
+                </table>
+            </div>
+            <%}%>
+            <h3 class="mt20 blue">审核</h3>
+             <div class="parameter" id="shenhe">
+                <ul>
+                    <li><input name="shenhe" type="radio" value="" class='shenhe1'/> 通过</li>
+                    <li><input name="shenhe" type="radio" value="" checked="checked" class= "shenhe2"/> 驳回</li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+                <div class='reason'><textarea name="" cols="" rows="5" style="width:900px;height:70px;resize:none;" placeholder="请输入驳回原因"></textarea></div>
+                <div class="tc"><a class="button" style="width: 150px" id="submit">提交</a></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </script>
+    <div class="order_r" id="CheckView"></div>
+    <div class="clear"></div>
+</div>
+
+</div>
+
+
+
+<!--底部-->
+
+<!--#include file="../Base/footer.html" -->
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>直播-赤兔联盟广告在线交易平台</title>
+ <!--#include file="stage_title.html" -->
+</head>
+<body>
+<!--#include file="../Base/header_home.html" -->
+
+
+<!--#include file="zb_con.html" -->
+<!--#include file="shop_cart2.html" -->
+
+<!--#include file="../Base/footer.html" -->
+<script type="text/javascript">
+    // 初始配置参数
+    var set = {
+        url:"/api/Publish/query",
+        data:{
+            pageIndex:1,
+            pageSize :20,
+            businesstype:14005,
+            Profession:-2,
+            Sex:-2,
+            CategoryID:-2,
+            FansCount:'',
+            Price:'',
+            Platform:-2,
+            IsAuth:-2,
+            LevelType:-2,
+            AdForm:-2,
+            orderBy:-2
+        }
+    }
+    GetDictInfo(20,'.catagory','li');
+    GetDictInfo(34,'.Platform','option');
+    GetDictInfo(24,'.Profession','option');
+    GetDictInfo(10,'.AdForm','option');
+</script>
+</body>
+</html>

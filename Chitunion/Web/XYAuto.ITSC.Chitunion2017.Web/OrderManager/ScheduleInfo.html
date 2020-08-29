@@ -1,0 +1,69 @@
+<div class="layer" style="width:1000px;position: fixed;top: 50%;left: 50%;-webkit-transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);margin-left: -435px;">
+    <div class="title">
+        <div class="fl">查看排期</div>
+        <div class="fr"><a href="javascript:void(0)" id="closebt"><img src="/ImagesNew/close_x.jpg" width="16" height="16"></a></div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="ScheduleBox" class="layer_con3" style="max-height: 500px;overflow: auto;">
+            <div class="mb10">
+                <span>广告位数量：4</span>
+                <span class="ml20">投放天数：10</span>
+            </div>
+            <% for(var i in data){ %>
+                <% data[i].forEach(function(item){ %>
+                    <div class="blue"><%= i%>-<%= item.Month%></div>
+                    <div class="order_date">
+                        <ul>
+                            <% for(var j=1; j<= 31; j++){ %>
+                                <% if(j>=item.BeginDay && j<=item.EndDay){ %>
+                                    <% if(j<10){ %>
+                                        <% if(item.Selected.some(function(item){
+                                            return item == j
+                                        })){ %>
+                                            <li class="ENClick" data-id='[<%= i%>,<%= item.Month%>,0<%= j%>]'>
+                                                <span class="select">0<%=j %></span>
+                                            </li>
+                                        <% }else{ %>
+                                            <li class="ENClick" data-id='[<%= i%>,<%= item.Month%>,0<%= j%>]'>
+                                                0<%=j %>
+                                            </li>
+                                        <% } %>
+                                    <% }else{ %>
+                                        <% if(item.Selected.some(function(item){
+                                            return item == j
+                                        })){ %>
+                                            <li class="ENClick" data-id='[<%= i%>,<%= item.Month%>,<%= j%>]'>
+                                                <span class="select"><%=j %></span>
+                                            </li>
+                                        <% }else{ %>
+                                            <li class="ENClick" data-id='[<%= i%>,<%= item.Month%>,<%= j%>]'>
+                                                <%=j %>
+                                            </li>
+                                        <% } %>
+                                    <% } %>
+                                <% }else{ %>
+                                    <% if(j<10){ %>
+                                        <li data-id='[<%= i%>,<%= item.Month%>,0<%= j%>]' class="invalid">0<%=j %></li>
+                                    <% }else{ %>
+                                        <li data-id='[<%= i%>,<%= item.Month%>,<%= j%>]' class="invalid"><%=j %></li>
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                <% }) %>
+            <% } %>
+
+
+
+        <div class="keep" style="text-align: center">
+            <span>
+                <a href="javascript:void(0)" class="but_keep" style="width:100px" id="EnsureBtn">确定</a>
+                <a href="javascript:void(0)" class="but_keep" style="width:100px" id="closeBtn">取消</a>
+            </span>
+        </div>
+    </div>
+</div>
+<!--查看结束-->

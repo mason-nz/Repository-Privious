@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>收入管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css" />
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css" />
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/IncomeList.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+
+        #Cumulative span {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .Prompt_script {
+            width: 150px;
+            position: absolute;
+            background-color: #e5e5e5;
+            border-radius: 5px;
+            padding: 5px;
+            left: 50%;
+            margin-left: -75px;
+            display: none;
+            z-index: 100;
+            line-height: 12px;
+        }
+
+            .Prompt_script:before {
+                content: '';
+                display: block;
+                background-color: #e5e5e5;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 50%;
+                top: -3px;
+                margin-left: -5px;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+    </style>
+</head>
+<body>
+    <!--顶部logo 导航-->
+    <!-- #include file="/base/header.html"  -->
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!-- #include file="/base/Menu.html"  -->
+
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav"></h2>
+                </div>
+                <div id="list_switching">
+
+                    <div class="clear"></div>
+                    <ul class="state">
+                        <li><div class="ins_c">媒体主：</div><input id="u_name" name="Username" type="text" style="width:160px;"></li>
+
+                        <li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                        <a class="but_query" id='ExportData' style="width:70px;margin-left: 10px">导出数据</a>
+                        <div class="clear"></div>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+                        <p class="TotalBar" style="float:right;"></p><div class="clear"></div>
+                        <div class="ad_table" id="tableList">
+                            <p style="padding: 0 0 10px 0" id="Cumulative">
+                            </p>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" class="channel">
+                                <tr>
+                                    <th width="7%">用户ID</th>
+                                    <th width="15%">用户名</th>
+                                    <th width="10%">手机号</th>
+                                    <th width="15%">微信昵称</th>
+                                    <th width="15%">累计收益(单位：元) <a href="javascript:;" class="PV yellow" orderN="1000"><img src="/ImagesNew/icon16_b.png"></a></th>
+                                    <th width="15%">账户余额(单位：元) <a href="javascript:;" class="PV yellow" orderN="1010"><img src="/ImagesNew/icon16_c.png"></a></th>
+                                    <th width="15%">已提现金额(单位：元) <a href="javascript:;" class="PV yellow" orderN="1020"><img src="/ImagesNew/icon16_c.png"></a></th>
+                                    <th width="15%">提现中金额(单位：元) <a href="javascript:;" class="PV yellow" orderN="1030"><img src="/ImagesNew/icon16_c.png"></a></th>
+                                    <th width="8%">操作</th>
+                                </tr>
+                                <tbody id="tbd_List"></tbody>
+                            </table>
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="/base/footer.html" -->
+    <script type="text/template" id="IncomeTotal">
+
+        累计收益：
+        <span class="TotalMateriel" style="margin-right:30px;"><%=removePoint0(formatMoney(Result.AccountBalanceTotal,2,''),2)%>元</span>账户余额：
+        <span class="TotalDistribute" style="margin-right:30px;"><%=removePoint0(formatMoney(Result.RemainingAmountTotal,2,''),2)%>元</span>已提现金额：
+        <span class="TotalForwardNumber" style="margin-right:30px;"><%=removePoint0(formatMoney(Result.HaveWithdrawalsTotal,2,''),2)%>元</span>提现中金额：
+        <span class="TotalClue" style="margin-right:30px;"><%=removePoint0(formatMoney(Result.WithdrawalsProcessTotal,2,''),2)%>元</span>
+    </script>
+    <script type="text/template" id="IncomeList">
+
+        <%Result.List.forEach(function(e){%>
+        <tr>
+            <td>
+                <a href="/UserManager/MediaSee.html?UserID=<%=e.UserID%>" target="_blank"><%=e.UserID%></a>
+
+            </td>
+            <td>
+                <%=e.UserName%>
+            </td>
+            <td>
+                <%=e.Mobile%>
+            </td>
+            <td>
+                <%=e.Nickname%>
+            </td>
+            <td>
+                <% if(e.AccumulatedIncome>0){%>
+                <a href="/IncomeManage/IncomeDetail.html?UserID=<%=e.UserID%>" target="_blank"><%=removePoint0(formatMoney(e.AccumulatedIncome,2,''),2)%></a>
+
+                <%}else{%>
+                <%=e.AccumulatedIncome%>
+
+                <%}%>
+            </td>
+            <td>
+                <%=removePoint0(formatMoney(e.RemainingAmount,2,''),2)%>
+            </td>
+            <td>
+                <% if(e.HaveWithdrawals>0){%>
+                <a href="/FinanceManager/PresentManagement-1.html?UserName=<%=e.UserName%>&AuditStatus=197003&finish=1" target="_blank"><%=removePoint0(formatMoney(e.HaveWithdrawals,2,''),2)%></a>
+
+                <%}else{%>
+                <%=e.HaveWithdrawals%>
+
+                <%}%>
+            </td>
+            <td>
+                <% if(e.WithdrawalsProcess>0){%>
+                <a href="/FinanceManager/PresentManagement-1.html?UserName=<%=e.UserName%>&AuditStatus=197001&finish=1" target="_blank"><%=removePoint0(formatMoney(e.WithdrawalsProcess,2,''),2)%></a>
+
+                <%}else{%>
+                <%=e.WithdrawalsProcess%>
+
+                <%}%>
+            </td>
+            <td style="position: relative">
+                <a href="/IncomeManage/IncomeDetail.html?UserID=<%=e.UserID%>" target="_blank">收入明细</a>
+            </td>
+        </tr>
+        <%})%>
+    </script>
+</body>
+</html>

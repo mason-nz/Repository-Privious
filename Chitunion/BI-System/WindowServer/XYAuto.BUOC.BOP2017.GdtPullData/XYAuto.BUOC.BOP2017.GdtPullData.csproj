@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E103367B-74E3-441A-BD11-867FFEEA26D7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.BOP2017.GdtPullData</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.BOP2017.GdtPullData</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\..\sln\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\sln\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Topshelf, Version=3.3.154.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+      <HintPath>..\..\sln\packages\Topshelf.3.3.1\lib\net40-full\Topshelf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings\PullDataSettings.cs" />
+    <Compile Include="CurrentSchedulerServer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\DemandOverdueNotesSchduler.cs" />
+    <Compile Include="Provider\GdtAccuntScheduler.cs" />
+    <Compile Include="Provider\GdtAdsScheduler.cs" />
+    <Compile Include="Provider\GdtFundScheduler.cs" />
+    <Compile Include="Provider\GdtReportScheduler.cs" />
+    <Compile Include="Provider\GdtTokenScheduler.cs" />
+    <Compile Include="Provider\SchedulerTest.cs" />
+    <Compile Include="Scheduler\CurrentRegistryScheduler.cs" />
+    <Compile Include="Scheduler\ProviderSingleton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Bat\install.bat" />
+    <None Include="Bat\start.bat" />
+    <None Include="Bat\uninstall.bat" />
+    <Content Include="ConfigFile\appSettings.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ExternalApi\XYAuto.BUOC.BOP2017.ExternalApi\XYAuto.BUOC.BOP2017.ExternalApi.csproj">
+      <Project>{b3106eb6-62a3-40b3-8ea0-0517cf3f83a7}</Project>
+      <Name>XYAuto.BUOC.BOP2017.ExternalApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XYAuto.BUOC.BOP2017.BLL\XYAuto.BUOC.BOP2017.BLL.csproj">
+      <Project>{70cd3f41-0d2c-4dd5-8af0-489f1e524f76}</Project>
+      <Name>XYAuto.BUOC.BOP2017.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XYAuto.BUOC.BOP2017.Entities\XYAuto.BUOC.BOP2017.Entities.csproj">
+      <Project>{5f10f95c-9644-47a1-961c-bbb77d709f85}</Project>
+      <Name>XYAuto.BUOC.BOP2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XYAuto.BUOC.BOP2017.Infrastruction\XYAuto.BUOC.BOP2017.Infrastruction.csproj">
+      <Project>{e8922f24-7a3c-4bce-ba80-976ef04dfb63}</Project>
+      <Name>XYAuto.BUOC.BOP2017.Infrastruction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,583 @@
+2018-05-04 16:11:30,495 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/cashDetail.html?WithdrawalsId=25&isauth=1
+2018-05-04 16:11:30,742 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/cashDetail.html?WithdrawalsId=25&isauth=1 OK
+2018-05-04 16:11:38,678 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FcashDetail.html%3FWithdrawalsId%3D25%26isauth%3D1
+执行的时间:562.4947ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/cashDetail.html?WithdrawalsId=25&isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"99239B79D250634EC48C83C943DA20EA","Timestamp":"1525421498","Signature":"9bfc62c45327bff8dab643d2bf3b5fbb0f60ffff"},"IsOverdue":null}
+
+2018-05-04 16:11:38,845 [7] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetInfo?WithdrawalsId=25&r=0.7262697211192284,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/cashDetail.html?WithdrawalsId=25&isauth=1
+2018-05-04 16:11:39,079 [8] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetInfo?WithdrawalsId=25&r=0.7262697211192284
+执行的时间:162.9328ms
+请求的参数:{"CheckLogin":true,"WithdrawalsId":25}
+返回的结果:{"Status":0,"Message":"Success","Result":{"WithdrawalsInfo":{"RecId":25,"TrueName":null,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 16:06:52","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayStatus":195001,"PayStatusName":"支付中","PayDate":"0001-01-01 00:00:00","Reason":null,"OrderNum":null,"RejectMsg":null}},"IsOverdue":null}
+
+2018-05-04 16:54:32,982 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetInfo?WithdrawalsId=25&r=0.21841617694637083,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/cashDetail.html?WithdrawalsId=25&isauth=1
+2018-05-04 16:54:33,726 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetInfo?WithdrawalsId=25&r=0.21841617694637083
+执行的时间:82.2181ms
+请求的参数:{"CheckLogin":true,"WithdrawalsId":25}
+返回的结果:{"Status":0,"Message":"Success","Result":{"WithdrawalsInfo":{"RecId":25,"TrueName":null,"UserName":"masj_024","UserTypeName":"个人","ApplicationDate":"2018-05-04 16:06:52","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayStatus":195001,"PayStatusName":"支付中","PayDate":"0001-01-01 00:00:00","Reason":null,"OrderNum":null,"RejectMsg":null}},"IsOverdue":null}
+
+2018-05-04 17:15:20,367 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.7539590648002572,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:15:20,368 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.3656653308183466,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:15:22,537 [23] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-05-04 17:15:22,548 [13] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-05-04 17:15:28,342 [13] INFO  BaseLog [(null)] - 发邮件开始：
+2018-05-04 17:15:25,686 [23] INFO  BaseLog [(null)] - 发邮件开始：
+2018-05-04 17:15:22,679 [17] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/getCash.html
+2018-05-04 17:15:28,376 [17] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：071Ty1sr1DJ0Sm0qwQtr1g87sr1Ty1s9
+2018-05-04 17:15:28,389 [13] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver)
+2018-05-04 17:15:28,389 [23] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver)
+2018-05-04 17:15:28,655 [17] ERROR BaseLog [(null)] - Chitunion_WebAPIWeChat——异常
+Senparc.Weixin.Exceptions.ErrorJsonResultException: 微信请求发生错误！错误代码：40029，说明：invalid code, hints: [ req_id: mlsCEa0326th56 ]
+   在 Senparc.Weixin.HttpUtility.Get.GetJson[T](String url, Encoding encoding, Nullable`1 maxJsonLength)
+   在 Senparc.Weixin.CommonAPIs.CommonJsonSend.Send[T](String accessToken, String urlFormat, Object data, CommonJsonSendType sendType, Int32 timeOut, Boolean checkValidationResult, JsonSetting jsonSetting)
+   在 Senparc.Weixin.MP.CommonAPIs.CommonJsonSend.Send[T](String accessToken, String urlFormat, Object data, CommonJsonSendType sendType, Int32 timeOut, Boolean checkValidationResult, JsonSetting jsonSetting)
+   在 Senparc.Weixin.MP.AdvancedAPIs.OAuthApi.GetAccessToken(String appId, String secret, String code, String grantType)
+   在 XYAuto.BUOC.Chitunion2017.WebAPIWeChat.Controllers.OAuth2Controller.UserInfoCallback(String code, String state, String returnUrl) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.BUOC.Chitunion2017.WebAPIWeChat\Controllers\OAuth2Controller.cs:行号 80
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClassc.<GetExecutor>b__6(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-05-04 17:15:32,421 [17] INFO  BaseLog [(null)] - 发邮件开始：
+2018-05-04 17:15:29,585 [23] INFO  BaseLog [(null)] - 发邮件结束！
+2018-05-04 17:15:29,033 [13] INFO  BaseLog [(null)] - 发邮件结束！
+2018-05-04 17:15:32,431 [17] ERROR BaseLog [(null)] - 发邮件失败: 
+System.ArgumentNullException: 值不能为 null。
+参数名: address
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName, Encoding displayNameEncoding)
+   在 System.Net.Mail.MailAddress..ctor(String address, String displayName)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail..ctor()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver)
+2018-05-04 17:15:33,373 [17] INFO  BaseLog [(null)] - 发邮件结束！
+2018-05-04 17:15:35,621 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.8517007665943639,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:15:35,780 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.8517007665943639
+执行的时间:128.3403ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:15:36,129 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.01130710994020423,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:15:36,189 [17] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.01130710994020423
+执行的时间:43.1074ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":100.00,"EarningsPrice":100.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":0.00},"IsOverdue":null}
+
+2018-05-04 17:15:40,825 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:15:40,890 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1 OK
+2018-05-04 17:15:41,164 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fisauth%3D1
+执行的时间:244.6491ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"39D57BBE59E2D50FC73F47BBA037E4C1","Timestamp":"1525425340","Signature":"3df0e8cca4f9029d41d4665ab445bce59d0c1e68"},"IsOverdue":null}
+
+2018-05-04 17:15:41,461 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.35759394153763435,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:15:41,623 [17] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.35759394153763435
+执行的时间:144.3834ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:15:41,972 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.0798980515033616,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:15:41,998 [23] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.0798980515033616
+执行的时间:14.0377ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":100.00,"EarningsPrice":100.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":0.00},"IsOverdue":null}
+
+2018-05-04 17:15:42,244 [17] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:15:42,322 [17] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:15:42,331 [17] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:15:42,338 [17] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:15:42,404 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick
+执行的时间:148.3944ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":1016,"Message":"每天只能提现1次，请明天再试！","Result":null,"IsOverdue":null}
+
+2018-05-04 17:15:45,120 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:15:45,152 [13] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:15:45,159 [13] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:15:45,165 [13] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:15:45,202 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick
+执行的时间:61.1631ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":1016,"Message":"每天只能提现1次，请明天再试！","Result":null,"IsOverdue":null}
+
+2018-05-04 17:16:56,810 [17] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:16:56,991 [17] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1 OK
+2018-05-04 17:16:57,401 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fisauth%3D1
+执行的时间:0ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"4B571B2B41911BA1B6514195339FCD89","Timestamp":"1525425417","Signature":"3ce77eafb719c50bbccef387e241ec0c5fa8775e"},"IsOverdue":null}
+
+2018-05-04 17:16:57,848 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.6718079184133314,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:16:57,961 [17] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.6718079184133314
+执行的时间:10.0259ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":100.00,"EarningsPrice":100.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":0.00},"IsOverdue":null}
+
+2018-05-04 17:16:58,350 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.21227561848081566,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:16:58,387 [24] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.21227561848081566
+执行的时间:22.059ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:17:18,834 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:17:18,856 [23] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:17:18,862 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:17:18,869 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:17:18,903 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick
+执行的时间:55.1464ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"操作成功","Result":null,"IsOverdue":null}
+
+2018-05-04 17:17:18,967 [13] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FgetCash.html&response_type=code&scope=snsapi_userinfo&state=ChiTu914&connect_redirect=1#wechat_redirect
+2018-05-04 17:17:21,556 [17] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/getCash.html
+2018-05-04 17:17:21,568 [17] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：071eSkWg0ROhpx13hLVg09O4Wg0eSkWo
+2018-05-04 17:17:21,757 [17] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：071eSkWg0ROhpx13hLVg09O4Wg0eSkWo
+2018-05-04 17:17:21,863 [17] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=9_I9fkuPM042gQMgSCUnSaI0zK-uVt_CI2ynIoiphTyAmU3w1kH0CknZnGBafzFbD9o935DqI1pqFveoj-TZSWxg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-05-04 17:17:21,976 [17] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=9_I9fkuPM042gQMgSCUnSaI0zK-uVt_CI2ynIoiphTyAmU3w1kH0CknZnGBafzFbD9o935DqI1pqFveoj-TZSWxg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-05-04 17:17:22,121 [17] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-05-04 17:17:22,154 [17] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1613}
+2018-05-04 17:17:22,240 [17] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1613,结果=vodr21Z4spsx3vJKIqss+WmynOA27fWQdp0fvg/yLI9GGh+skn5i5q/ZAxusT/zhJ9uIjsEmO/paLmMu+aBc6ZmsOAii6SbpILP9bl263jZL1mfVzSHhVozwEdOSedrXw1uCJ280Gj8+Ef/jZ02mkjGfxzAX2q7D0PN7TVRUSOE=,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html
+2018-05-04 17:17:22,248 [17] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html
+2018-05-04 17:17:22,267 [17] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html OK
+2018-05-04 17:17:22,399 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:22,426 [13] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1 OK
+2018-05-04 17:17:22,491 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FgetCash.html%3Fisauth%3D1
+执行的时间:0ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"E77586BFA753EC1E005D517C5EABF3F1","Timestamp":"1525425442","Signature":"efd9ebb26267e79db2979288beb306b362793abe"},"IsOverdue":null}
+
+2018-05-04 17:17:22,502 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.12784319757693607,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:22,547 [23] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.12784319757693607
+执行的时间:21.0557ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:17:23,017 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.45116271466586877,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:23,043 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.45116271466586877
+执行的时间:10.0267ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":100.00,"EarningsPrice":100.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":0.00},"IsOverdue":null}
+
+2018-05-04 17:17:31,676 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:31,862 [23] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:52.1429ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":5.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":5.0,"IndividualTaxPeice":0.0,"PracticalPrice":5.0},"IsOverdue":null}
+
+2018-05-04 17:17:32,244 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:32,269 [17] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:9.0245ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":50.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":50.0,"IndividualTaxPeice":0.0,"PracticalPrice":50.0},"IsOverdue":null}
+
+2018-05-04 17:17:32,655 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:32,701 [25] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:17:32,709 [25] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:17:32,715 [25] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:17:32,730 [23] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt
+执行的时间:62.1656ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":50.0}}
+返回的结果:{"Status":3020,"Message":"可提现金额不足100元，无法提现！","Result":null,"IsOverdue":null}
+
+2018-05-04 17:17:49,748 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:49,778 [23] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:17:49,786 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:17:49,793 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:17:49,808 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt
+执行的时间:41.1087ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":50.0}}
+返回的结果:{"Status":3020,"Message":"可提现金额不足100元，无法提现！","Result":null,"IsOverdue":null}
+
+2018-05-04 17:17:53,729 [12] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:53,762 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:19.0508ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:17:55,660 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:55,692 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:20.0529ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:17:55,850 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:55,882 [17] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:17.0473ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:17:55,959 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:55,983 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:10.0252ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:17:56,054 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:56,074 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:8.0213ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:17:56,174 [13] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:56,196 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:10.0263ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:17:56,622 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:56,646 [23] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:10.0267ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":10.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":10.0,"IndividualTaxPeice":0.0,"PracticalPrice":10.0},"IsOverdue":null}
+
+2018-05-04 17:17:56,758 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:56,780 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:10.0277ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":1.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":1.0,"IndividualTaxPeice":0.0,"PracticalPrice":1.0},"IsOverdue":null}
+
+2018-05-04 17:17:57,849 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:57,873 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:10.0274ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":5.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":5.0,"IndividualTaxPeice":0.0,"PracticalPrice":5.0},"IsOverdue":null}
+
+2018-05-04 17:17:58,040 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:58,070 [17] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:12.0338ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":51.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":51.0,"IndividualTaxPeice":0.0,"PracticalPrice":51.0},"IsOverdue":null}
+
+2018-05-04 17:17:58,950 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:17:58,972 [23] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:17:58,979 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:17:58,984 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:17:58,996 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt
+执行的时间:33.1227ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":51.0}}
+返回的结果:{"Status":3020,"Message":"可提现金额不足100元，无法提现！","Result":null,"IsOverdue":null}
+
+2018-05-04 17:18:06,870 [17] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:18:06,897 [13] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:12.0334ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:18:07,934 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:18:07,957 [23] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:18:07,962 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:18:07,968 [23] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:18:08,107 [27] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt
+执行的时间:159.4359ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":"操作成功","Result":26,"IsOverdue":null}
+
+2018-05-04 17:18:09,403 [17] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FwithdrawalsList.html&response_type=code&scope=snsapi_userinfo&state=ChiTu403&connect_redirect=1#wechat_redirect
+2018-05-04 17:18:11,933 [23] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html
+2018-05-04 17:18:11,944 [23] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：081SAQdG07KLal2ew2gG0PTUdG0SAQdT
+2018-05-04 17:18:12,101 [23] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：081SAQdG07KLal2ew2gG0PTUdG0SAQdT
+2018-05-04 17:18:12,255 [23] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=9_bLyUy4lh1CE2rvmEm316WeDIoEMU0VgCX1cGU_WrEBxoY5akbDn4s31T0fzI7gGsgJ-Nvxqk2p4kAGWSmi111w,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-05-04 17:18:12,425 [23] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=9_bLyUy4lh1CE2rvmEm316WeDIoEMU0VgCX1cGU_WrEBxoY5akbDn4s31T0fzI7gGsgJ-Nvxqk2p4kAGWSmi111w,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-05-04 17:18:12,545 [23] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-05-04 17:18:12,559 [23] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1613}
+2018-05-04 17:18:12,590 [23] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1613,结果=vodr21Z4spsx3vJKIqss+WmynOA27fWQdp0fvg/yLI9GGh+skn5i5q/ZAxusT/zhJ9uIjsEmO/paLmMu+aBc6ZmsOAii6SbpILP9bl263jZL1mfVzSHhVozwEdOSedrX121sZPYhJ/W8mzlLAAHpGTHWjTOEnw9QcNB7m7BIGHs=,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html
+2018-05-04 17:18:12,602 [23] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html
+2018-05-04 17:18:12,622 [23] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html OK
+2018-05-04 17:18:12,791 [27] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html?isauth=1
+2018-05-04 17:18:12,820 [27] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html?isauth=1 OK
+2018-05-04 17:18:12,929 [25] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FwithdrawalsList.html%3Fisauth%3D1
+执行的时间:1.0021ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"7C2862D22BD9BB01402504665752098B","Timestamp":"1525425492","Signature":"d81f777124d27977cb87285a4684ebe29c4eff3c"},"IsOverdue":null}
+
+2018-05-04 17:18:13,045 [23] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetWithdrawalsList?PageIndex=1&PageSize=20&r=0.21594867414234153,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html?isauth=1
+2018-05-04 17:18:13,162 [23] INFO  BaseLog [(null)] - 
+当前操作类型:WeiXin
+ 查询条件信息:{"StartDate":null,"EndDate":null,"OrderType":-2,"PayType":-2,"BusinessType":0,"Number":null,"Name":null,"Status":-2,"PublishStatus":-2,"EndTime":-2,"Source":-2,"OrderBy":0,"PageIndex":1,"PageSize":20,"SqlWhere":" AND WD.PayeeID = 1613\r\n                            ","UserId":1613}
+2018-05-04 17:18:13,227 [12] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetWithdrawalsList?PageIndex=1&PageSize=20&r=0.21594867414234153
+执行的时间:135.3581ms
+请求的参数:{"CheckLogin":true,"PageIndex":1,"PageSize":20}
+返回的结果:{"Status":0,"Message":null,"Result":{"List":[{"Id":26,"RecId":26,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-05-04 17:18:08","WithdrawalsPrice":100.00,"IndividualTaxPeice":0.00,"PracticalPrice":100.00,"PayeeAccount":"13240110346","PayDate":null,"Reason":null,"PayStatus":195001,"PayStatusName":"支付中","TrueName":null,"AuditTime":"0001-01-01 00:00:00","AuditStatus":0,"AuditStatusName":null,"RejectMsg":null}],"TotleCount":1,"Extend":{"TotalMoney":100.00}},"IsOverdue":null}
+
+2018-05-04 17:39:49,838 [6] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:39:49,873 [6] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1 OK
+2018-05-04 17:39:50,003 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.1784493243564933,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:39:50,050 [12] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.8029917888987201,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:39:50,306 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.1784493243564933
+执行的时间:61.1576ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.00,"EarningsPrice":100.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":100.00},"IsOverdue":null}
+
+2018-05-04 17:39:50,665 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fisauth%3D1
+执行的时间:447.1884ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"6BD63E464EC64E55E3A62A08E920E3B6","Timestamp":"1525426790","Signature":"507bc5627182ab867dc598a4ae911943d40b422d"},"IsOverdue":null}
+
+2018-05-04 17:39:52,421 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.8029917888987201
+执行的时间:2208.9051ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:40:32,267 [15] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html&response_type=code&scope=snsapi_userinfo&state=ChiTu267&connect_redirect=1#wechat_redirect
+2018-05-04 17:40:33,826 [14] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html
+2018-05-04 17:40:33,833 [14] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：071KCXxb0V6vIt1hbnyb0hrLxb0KCXx1
+2018-05-04 17:40:34,005 [14] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：071KCXxb0V6vIt1hbnyb0hrLxb0KCXx1
+2018-05-04 17:40:34,105 [14] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=9_sIqqzFWTPr0DQYi1wA4Iz-NdY4GkbQYeeLSvkskosDISSYUVYt9Bc3VjC-s5G3c2z9hxI6GSjobDmp4iE4tbYg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-05-04 17:40:34,251 [14] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=9_sIqqzFWTPr0DQYi1wA4Iz-NdY4GkbQYeeLSvkskosDISSYUVYt9Bc3VjC-s5G3c2z9hxI6GSjobDmp4iE4tbYg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-05-04 17:40:34,455 [14] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-05-04 17:40:34,469 [14] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1613}
+2018-05-04 17:40:34,497 [14] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1613,结果=vodr21Z4spsx3vJKIqss+WmynOA27fWQdp0fvg/yLI9GGh+skn5i5q/ZAxusT/zhJ9uIjsEmO/paLmMu+aBc6ZmsOAii6SbpILP9bl263jZL1mfVzSHhVozwEdOSedrXp3dRNoH2sAvsgqacsYQDLBLX42wE/9mpGzfkjxQiiIs=,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html
+2018-05-04 17:40:34,503 [14] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html
+2018-05-04 17:40:34,518 [14] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html OK
+2018-05-04 17:40:34,625 [6] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:40:34,647 [6] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1 OK
+2018-05-04 17:40:34,711 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fisauth%3D1
+执行的时间:0ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"FF8BDF2D4B1856E593A7F0C55E95E7CA","Timestamp":"1525426834","Signature":"1cde266358a465c330288ff3b047b2b53119da80"},"IsOverdue":null}
+
+2018-05-04 17:40:34,740 [14] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.4197323761558627,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:40:34,750 [15] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.04919318671724171,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:40:34,805 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.4197323761558627
+执行的时间:12.032ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":0.00,"EarningsPrice":100.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":100.00},"IsOverdue":null}
+
+2018-05-04 17:40:34,813 [15] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.04919318671724171
+执行的时间:20.0533ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:42:11,870 [17] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:42:11,895 [17] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1 OK
+2018-05-04 17:42:11,947 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FaccountInfo.html%3Fisauth%3D1
+执行的时间:1.0029ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"2FC32DAF5DC2B5C052329543B797F030","Timestamp":"1525426931","Signature":"b553ea25fd2f22f42513615b531c99b9a28030fd"},"IsOverdue":null}
+
+2018-05-04 17:42:11,969 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.4581037794060494,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:42:11,970 [17] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.25800207477393666,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:42:12,016 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.4581037794060494
+执行的时间:21.0558ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:42:12,028 [17] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.25800207477393666
+执行的时间:11.0284ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":900.00,"EarningsPrice":1000.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":100.00},"IsOverdue":null}
+
+2018-05-04 17:42:15,053 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:42:15,083 [9] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:42:15,091 [9] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:42:15,098 [9] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:42:15,153 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick
+执行的时间:87.2327ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":1016,"Message":"每天只能提现1次，请明天再试！","Result":null,"IsOverdue":null}
+
+2018-05-04 17:42:27,362 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?isauth=1
+2018-05-04 17:42:27,412 [6] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:42:27,421 [6] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:42:27,429 [6] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:42:27,525 [14] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/VerifyWithdrawalsClick
+执行的时间:137.366ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"操作成功","Result":null,"IsOverdue":null}
+
+2018-05-04 17:42:27,544 [17] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FgetCash.html&response_type=code&scope=snsapi_userinfo&state=ChiTu544&connect_redirect=1#wechat_redirect
+2018-05-04 17:42:30,207 [15] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/getCash.html
+2018-05-04 17:42:30,218 [15] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：021CGLDk0BKRBk1GmzAk0kR0Ek0CGLDp
+2018-05-04 17:42:30,381 [15] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：021CGLDk0BKRBk1GmzAk0kR0Ek0CGLDp
+2018-05-04 17:42:30,470 [15] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=9_Gsw5I17GRxzu-hUrO0lLPVm3TdKyNXNEybfATbI6hToWS4Zr3zBKxG68k0Apmo6EGOnJ35YsNaXywVAGFHQKwg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-05-04 17:42:30,589 [15] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=9_Gsw5I17GRxzu-hUrO0lLPVm3TdKyNXNEybfATbI6hToWS4Zr3zBKxG68k0Apmo6EGOnJ35YsNaXywVAGFHQKwg,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-05-04 17:42:30,715 [15] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-05-04 17:42:30,744 [15] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1613}
+2018-05-04 17:42:30,859 [15] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1613,结果=vodr21Z4spsx3vJKIqss+WmynOA27fWQdp0fvg/yLI9GGh+skn5i5q/ZAxusT/zhJ9uIjsEmO/paLmMu+aBc6ZmsOAii6SbpILP9bl263jZL1mfVzSHhVozwEdOSedrXaAHSL99l1cGxyGClPtDffkONopSpcOwVOD3BclqmOe4=,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html
+2018-05-04 17:42:30,865 [15] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html
+2018-05-04 17:42:30,893 [15] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html OK
+2018-05-04 17:42:31,099 [14] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:42:31,129 [14] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1 OK
+2018-05-04 17:42:31,162 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/WeixinJSSDK/GetInfo?url=http:%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FgetCash.html%3Fisauth%3D1
+执行的时间:0ms
+请求的参数:{"url":"http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1"}
+返回的结果:{"Status":0,"Message":"Success","Result":{"AppId":"wxf0eea6fec2756b45","NonceStr":"3F788DA186300EE7EF17DBEE9E034CBE","Timestamp":"1525426951","Signature":"f42a5550a8301a1598b8d188a6cd7f995c4603f5"},"IsOverdue":null}
+
+2018-05-04 17:42:31,172 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.7753079606062299,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:42:31,172 [9] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.9398964511089809,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:42:31,262 [15] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/GetIncomeInfo?r=0.7753079606062299
+执行的时间:42.1105ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":null,"Result":{"CanWithdrawalsMoney":900.00,"EarningsPrice":1000.00,"AlreadyWithdrawalsMoney":0.00,"WithdrawalsMoneyIng":100.00},"IsOverdue":null}
+
+2018-05-04 17:42:31,313 [24] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/UserManage/QueryUserBasicInfo?r=0.9398964511089809
+执行的时间:71.1882ms
+请求的参数:{"CheckLogin":true}
+返回的结果:{"Status":0,"Message":"OK","Result":{"BasicInfo":{"UserName":"masj_024","Mobile":"13240110346"},"AuthenticationInfo":{"Type":1002,"Status":2,"TrueName":"吗双君","IdentityNo":"12010419831107001x","IDCardFrontURL":"","IDCardBackURL":"","BLicenceURL":"","Reason":""},"BankAccountInfo":{"AccountName":"13240110346","AccountType":96001}},"IsOverdue":null}
+
+2018-05-04 17:42:33,474 [17] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:42:33,564 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:19.0508ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":1.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":1.0,"IndividualTaxPeice":0.0,"PracticalPrice":1.0},"IsOverdue":null}
+
+2018-05-04 17:42:34,091 [24] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:42:34,120 [15] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:14.0388ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":10.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":10.0,"IndividualTaxPeice":0.0,"PracticalPrice":10.0},"IsOverdue":null}
+
+2018-05-04 17:42:34,207 [25] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:42:34,231 [26] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsPriceCalc
+执行的时间:10.0281ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":null,"Result":{"WithdrawalsPrice":100.0,"IndividualTaxPeice":0.0,"PracticalPrice":100.0},"IsOverdue":null}
+
+2018-05-04 17:42:35,197 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt,UrlRefer=http://wxtest-ct.qichedaquan.com/cashManager/getCash.html?isauth=1
+2018-05-04 17:42:35,225 [6] INFO  BaseLog [(null)] - 提现申请获取IP:
+2018-05-04 17:42:35,232 [6] INFO  BaseLog [(null)] - 获取当前客户端ID：REMOTE_ADDR=127.0.0.1
+2018-05-04 17:42:35,238 [6] INFO  BaseLog [(null)] - 获取当前客户端ID：UserHostAddress=127.0.0.1
+2018-05-04 17:42:35,353 [9] INFO  BaseLog [(null)] - 
+请求的url地址：http://wxtest-ct.qichedaquan.com/api/Withdrawals/WithdrawalsOpt
+执行的时间:140.4128ms
+请求的参数:{"CheckLogin":true,"DTO":{"WithdrawalsPrice":100.0}}
+返回的结果:{"Status":0,"Message":"操作成功","Result":27,"IsOverdue":null}
+
+2018-05-04 17:42:36,813 [14] INFO  BaseLog [(null)] - OAuth2Controller>Index :https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0eea6fec2756b45&redirect_uri=http%3A%2F%2Fwxtest-ct.qichedaquan.com%2Fapi%2FOAuth2%2FUserInfoCallback%3FreturnUrl%3Dhttp%3A%2F%2Fwxtest-ct.qichedaquan.com%2FcashManager%2FwithdrawalsList.html&response_type=code&scope=snsapi_userinfo&state=ChiTu813&connect_redirect=1#wechat_redirect
+2018-05-04 17:42:39,264 [25] INFO  BaseLog [(null)] - UserInfoCallback :http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html
+2018-05-04 17:42:39,270 [25] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken开始，Code：071zAEt60x7VfK1E56v60Z8Wt60zAEtk
+2018-05-04 17:42:39,355 [25] INFO  BaseLog [(null)] - UserInfoCallback :GetAccessToken结束，Code：071zAEt60x7VfK1E56v60Z8Wt60zAEtk
+2018-05-04 17:42:39,424 [25] INFO  BaseLog [(null)] - 调用OAuthApi.Auth方法，参数access_token=9_KPKO7H0epusin3KJZy33i0qKbf8zbitzNKq2RucjuT_Z2prQL2dffTVkes33Sd8aR3iLXge42CaULEUWXKdumQ,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果=ok
+2018-05-04 17:42:39,506 [25] INFO  BaseLog [(null)] - 调用OAuthApi.GetUserInfo方法，参数access_token=9_KPKO7H0epusin3KJZy33i0qKbf8zbitzNKq2RucjuT_Z2prQL2dffTVkes33Sd8aR3iLXge42CaULEUWXKdumQ,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"province":"奥克兰","city":"","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ4TM16lK1RM4GbPuOD8jRyic0YE8kdWAAZI9feWTDfjtOBhfG6CNvNuLmwS5g2yjwIwm5DEVxafmg/132","privilege":["chinaunicom"],"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A"}
+2018-05-04 17:42:39,629 [25] INFO  BaseLog [(null)] - 调用Senparc.Weixin.MP.AdvancedAPIs.UserApi.Info方法，参数appId=wxf0eea6fec2756b45,openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"subscribe":1,"openid":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","nickname":"seay","sex":1,"language":"zh_CN","city":"","province":"奥克兰","country":"新西兰","headimgurl":"http://thirdwx.qlogo.cn/mmopen/5pxmIbNO8heardmiaZ0saeaueGEyKnpWWIFkvqOS0nwxdHSq6qASxIcIn3jT5y13hP3Wy0UQDJib1FrELiapV456Y4M4vmBk3Js/132","subscribe_time":1521020314,"unionid":"o_J_G0_aJx27xTqZeOGzunN1JB5A","remark":"","groupid":0,"tagid_list":[],"errcode":0,"ErrorCodeValue":0,"errmsg":null,"P2PData":null}
+2018-05-04 17:42:39,643 [25] INFO  BaseLog [(null)] - 调用 XYAuto.ITSC.Chitunion2017.BLL.WeChat.WeiXinUser.Instance.GetUnionAndUserId方法，参数openid=ohvZzwIpMW_ROfDf7N9IvbdNrpHg,结果={"OpenID":"ohvZzwIpMW_ROfDf7N9IvbdNrpHg","UnionID":"o_J_G0_aJx27xTqZeOGzunN1JB5A","UserID":1613}
+2018-05-04 17:42:39,705 [25] INFO  BaseLog [(null)] - 调用XYAuto.ITSC.Chitunion2017.Common.UserInfo.Instance.Passport方法，参数UserID=1613,结果=vodr21Z4spsx3vJKIqss+WmynOA27fWQdp0fvg/yLI9GGh+skn5i5q/ZAxusT/zhJ9uIjsEmO/paLmMu+aBc6ZmsOAii6SbpILP9bl263jZL1mfVzSHhVozwEdOSedrXaAHSL99l1cGxyGClPtDffh37htqZ0VbcGQmrpC/F+/4=,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html
+2018-05-04 17:42:39,715 [25] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html
+2018-05-04 17:42:39,731 [25] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html OK
+2018-05-04 17:42:39,862 [24] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo 开始 UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html?isauth=1
+2018-05-04 17:42:39,887 [24] INFO  BaseLog [(null)] - WeiXinVisvitBll AddWeiXinVisvitInfo UserID: 1613,URL=http://wxtest-ct.qichedaquan.com/cashManager/withdrawalsList.html?isauth=1 OK

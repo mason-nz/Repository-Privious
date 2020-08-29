@@ -1,0 +1,159 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>提现详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script src="js/proposedetails.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!-- #include file="/base/header.html"  -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!-- #include file="/base/Menu.html"  -->
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav"></h2>
+            <div class="clear"></div>
+            <div class="aud">
+
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="aud">
+<h3>申请信息</h3>
+<div style="float: left;width: 40%">
+    <ul>
+        <li class="ins_a">申请ID：</li>
+        <li><%=Result.WithdrawalsInfo.RecId%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">申请人类型：</li>
+        <li><%=Result.WithdrawalsInfo.UserTypeName%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">申请提现金额：</li>
+        <li><%=removePoint0(formatMoney(Result.WithdrawalsInfo.WithdrawalsPrice,2,''),2)+'元'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">实付金额：</li>
+        <li><%=removePoint0(formatMoney(Result.WithdrawalsInfo.PracticalPrice,2,''),2)+'元'%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">申请时间：</li>
+        <li><%=Result.WithdrawalsInfo.ApplicationDate%></li></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">锁定状态：</li>
+        <li>
+            <%if(Result.WithdrawalsInfo.IsLock == true){%>
+            <a style="color:red" href="javascript:;">已锁定</a>
+            <%}%>
+
+        </li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div style="float: left;width: 50%">
+    <ul>
+        <li class="ins_a">申请人：</li>
+        <li><%=Result.WithdrawalsInfo.UserName%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a"><%=Result.WithdrawalsInfo.UserTypeName=='个人'?'真实姓名':'公司名称'%>：</li>
+        <li><%=Result.WithdrawalsInfo.TrueName%></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">代扣个税：</li>
+        <li><%=removePoint0(formatMoney(Result.WithdrawalsInfo.IndividualTaxPeice,2,''),2)+'元'%></li></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">支付账号：</li>
+        <li><%=Result.WithdrawalsInfo.PayeeAccount%></li></li>
+        <div class="clear"></div>
+    </ul>
+    <ul>
+        <li class="ins_a">申请状态：</li>
+        <li><%=Result.WithdrawalsInfo.PayStatusName%></li></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div class="clear"></div>
+<h3>审核信息</h3>
+<div style="float: left;width: 40%">
+    <ul>
+        <li class="ins_a">审核人：</li>
+        <li><%=Result.AuditInfo.AuditUser%></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div style="float: left;width: 50%">
+    <ul>
+        <li class="ins_a">审核时间：</li>
+        <li><%=Result.AuditInfo.AuditTime%></li></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div class="clear"></div>
+<h3>支付结果</h3>
+<div style="float: left;width: 40%">
+    <ul>
+        <li class="ins_a">支付结果：</li>
+        <li><%=Result.WithdrawalsInfo.PayStatusName%></li>
+        <div class="clear"></div>
+    </ul>
+    <%if(Result.WithdrawalsInfo.PayStatus==195002){%>
+    <ul>
+        <li class="ins_a">失败原因：</li>
+        <li><%=Result.WithdrawalsInfo.Reason%></li>
+        <div class="clear"></div>
+    </ul>
+    <%}%>
+</div>
+<div style="float: left;width: 50%">
+    <ul>
+        <li class="ins_a">支付时间：</li>
+        <li><%=Result.WithdrawalsInfo.PayDate%></li></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div class="clear"></div>
+</script>
+</body>
+</html>

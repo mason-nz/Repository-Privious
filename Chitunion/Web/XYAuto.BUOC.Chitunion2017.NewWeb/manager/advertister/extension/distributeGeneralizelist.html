@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="赤兔联盟,推广管理,内容分发,微播易,新榜,蜂传,疯传,Robin8">
+    <meta name="keywords" content="赤兔联盟,推广管理,内容分发">
+    <title>内容分发-推广管理-赤兔联盟</title>
+    <link rel="stylesheet" type="text/css" href="/css/movie_adverts.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true&NotRedirectURL=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/distributeGeneralizelist.js"></script>
+</head>
+<body>
+
+<!--顶部logo 导航-->
+<!--#include virtual="/base/header.html" -->
+<div class="contaner_body">
+<!--左边菜单 导航-->
+<!--#include virtual="/base/Menu.html" -->
+    <div class="main_right">  
+        <ul class="search_box">
+            <li>推广名称：<input type="text" placeholder="请输入推广名称查询" id="generalizename"></li>
+            <li>状态：
+                <select name="" id="" class="state_sel">
+                    <option value="0">全部</option>
+                    <option value="100001">待审核</option>
+                    <option value="100002">进行中</option>
+                    <option value="100003">已完成</option>
+                    <option value="100004">驳回</option>
+                </select>
+            </li>
+            <li><a href="javascript:;" class="but_global btn_price"  id="searchList">搜索</a></li>
+        </ul>
+
+        <div class="Personal_table">
+            <span class="extension"><img src="/images/extension.png" alt="">添加内容分发推广</span>
+            <table border="0" cellspacing="1" cellpadding="0" class="table_a">
+                <thead>
+                    <tr>
+                        <th style='width: 10%;'>推广ID</th>
+                        <th style='width: 10%;'>推广名称</th>
+                        <th style='width: 15%;'>推广时间</th>
+                        <th style='width: 10%;'>推广预算</th>
+                        <th style='width: 10%;'>计费模式</th>
+                        <th style='width: 10%;'>创建时间</th>
+                        <th style='width: 10%;'>状态</th>
+                        <th style='width: 10%;'>操作</th>
+                    </tr>
+                </thead>
+                <tbody class="data_body">
+                </tbody>
+            </table>
+
+            <!--分页-->
+            <div class="green-black" id="pageContainer" style="display: none;">
+                <span class="disabled">上一页</span>
+                <span class="current">1</span>
+                <a href="#?page=2">2</a>
+                <a href="#?page=3">3</a>...
+                <a href="#?page=200">100</a>
+                <a href="#?page=2">下一页</a>
+                <span>1/200</span>
+            </div>
+            <div id="no_data" class="hide">
+                <div class="tc">
+                    <img src="/images/no_data.png" style="margin:30px auto;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--底部-->
+<!--#include virtual="/base/footer.html" -->
+<script  type="text/template" id="distribute_generalize">
+    
+ 
+       <%data.List.forEach(function(e){%>
+        <tr RecID="<%=e.RecID%>" style="cursor: pointer;">
+            <td><%=e.RecID?e.RecID:''%></td>
+            <td class="slh" style="text-align: left;"><%=e.Name?e.Name:''%></td>
+            <td><%=e.BeginTime?e.BeginTime:'--'%>至<%=e.EndTime?e.EndTime:'--'%></td>
+            <td><%= formatMoney(e.BudgetPrice,0,'')%>元</td>
+            <td><%=e.BillingModeName?e.BillingModeName:''%></td>
+            <td><%=e.CreateTime%></td>
+            <td><%=e.StatusName?e.StatusName:''%>
+                <%if(e.StatusName=='驳回'){%><img src="/images/bangzhu_08.jpg" alt="" style="padding-bottom: 3px;">
+                    
+                <%}%>     
+            </td>
+            <td><a href="\manager\advertister\extension\distributeGeneralizeDetail.html?RecID=<%=e.RecID%>" class="examine" target="_blank" RecID="<%=e.RecID%>">查看</a>  <%if(e.StatusName=='驳回'){%><a href="javascript:;" class="delete">删除</a><%}%></td>
+        </tr>
+        <%})%>
+</script>
+</body>
+</html>

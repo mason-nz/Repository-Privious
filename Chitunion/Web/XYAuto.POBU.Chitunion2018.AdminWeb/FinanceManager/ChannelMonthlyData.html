@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渠道月结数据</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="js/ChannelMonthlyData.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!-- #include file="/base/header.html"  -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!-- #include file="/base/Menu.html"  -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+
+                </h2>
+            </div>
+            <div id="list_switching">
+                <div class="clear"></div>
+                <ul class="state">
+                    <li><div class="ins_c">汇总年月：</div><select name="" id="SummaryYear" style="width:170px">
+
+                    </select>
+                    </li>
+                    <li><div class="ins_c">订单渠道：</div><select id="OrderChannel" name="" style="width:170px">
+                        <option value="-2">全部</option>
+                        <option value="101001">赤兔联盟</option>
+                        <option value="101002">微播易</option>
+                    </select>
+                    </li>
+                    <li><div class="ins_c">支付状态：</div><select name="" id="PayStatus" style="width:170px">
+                        <option value="-2">全部</option>
+                        <option value="102002">已支付</option>
+                        <option value="102001">未支付</option>
+                    </select>
+                    </li>
+                    <li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                    <div class="clear"></div>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+
+                    <div class="ad_table">
+                        <p style="padding: 0 0 10px 0" id="Cumulative">
+                            累计金额：8,000元
+                        </p>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" class="Settlement">
+
+                        </table>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span>1/200</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="Settlement">
+    <tr>
+        <th width="14%">月汇总ID</th>
+        <th width="14%">月份</th>
+        <th width="20%">汇总日期(次自然月第一周)</th>
+        <th width="14%">渠道</th>
+        <th width="14%">订单笔数</th>
+        <th width="20%">订单金额总计</th>
+        <th width="19%">支付状态</th>
+        <th width="20%">付款时间</th>
+        <th width="14%">操作</th>
+    </tr>
+    <%Result.List.forEach(function(e){%>
+    <tr>
+        <td>
+            <%=e.StatisticsId%>
+        </td>
+        <td>
+            <%=e.Month%>
+        </td>
+        <td>
+            <%=e.SummaryDate%>
+        </td>
+        <td>
+            <%=e.ChannelName%>
+        </td>
+        <td>
+            <%=e.OrderNumber%>
+        </td>
+        <td>
+            <%=removePoint0(formatMoney(e.TotalAmount,2,''),2)+'元'%>
+        </td>
+        <td>
+            <%=e.PayStatusName%>
+        </td>
+        <td>
+            <%=e.PayTime?e.PayTime:''%>
+        </td>
+        <td>
+            <%if(CTLogin.BUTIDs.indexOf('SYS008BUT100301')!=-1){%>
+            <%-e.PayStatus==102001?'<a href="javascript:;" class="payment" statisticsid="'+e.StatisticsId+'">付款</a>':''%>
+            <%}%>
+        </td>
+    </tr>
+    <%})%>
+</script>
+</body>
+</html>

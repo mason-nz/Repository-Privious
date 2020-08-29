@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <style type="text/css">
+        a{
+            text-decoration: none !important;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+      <div class="new_box">
+          <div class="mt20">① 复制验证码</div>
+          <div class="mt10 ml15"><input disabled  name="Username" type="text"  placeholder="WOhUPw4g" style="width:300px;text-align: center;background-color: #fff;"></div>
+          <!--<div class="verification" style="margin-left:15px">WOhUPw4g</div>-->
+          <div class="mt20">② 登录微信公众平台：在素材管理中编辑或新建图文消息</div>
+          <div class="mt10 ml15">
+              <div>点击链接登录：<a href="https://mp.weixin.qq.com/cgi-bin/loginpage?t=wxm2-login&lang=zh_CN" class="blue">https://mp.weixin.qq.com/cgi-bin/loginpage?t=wxm2-login&lang=zh_CN</a></div>
+              <div class="mt10"><img src="/images/pic18.jpg"></div>
+          </div>
+          <div class="mt20">③ 将验证码粘贴在正文中并保存,其它内容随意填写</div>
+          <div class="mt10 ml15"><img src="/images/pic19.jpg"></div>
+          <div class="mt20">④ 将验证码粘贴复制图文信息链接地址</div>
+          <div class="mt10 ml15"><img src="/images/pic20.jpg"></div>
+          <div class="mt20">⑤ 粘贴链接地址到输入框中；然后点击添加</div>
+          <div class="mt10 ml15"><input name="Username" type="text" disabled  placeholder="https://mp.weixin.qq.com/s?__biz=MzUzOTAwOTkyOQ==&mid=2247483659&idx=1&sn=524410f57cede5cbe731d06744f271d9&chksm=facfb7edcdb83efb94684419abb399ce4b4ef6a0a010a7637f56cf6b0828880f54e1b9997e9f#rd" style="width:300px;text-align: center;background-color: #fff;"></div>
+          <!--<div class="verification" style="margin-left:15px">请输入从后台获取的文章链接</div>-->
+      </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+
+</body>
+</html>

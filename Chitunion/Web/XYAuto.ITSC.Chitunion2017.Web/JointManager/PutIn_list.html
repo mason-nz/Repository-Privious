@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script src="../js/jquery.pagination.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/PaginationController.js"></script>
+    <script type="text/javascript" src="js/PutList.js"></script> 
+    <style>
+        .channel_box .layer_con table td{
+            border : 1px solid #E4E4E4;
+            font-size: 12px;
+            line-height: 40px;
+        }
+    </style>
+    <script type="text/javascript">
+        console.log(CTLogin.RoleIDs)
+    </script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>                
+                <div class="clear"></div>
+            </div>
+            
+            <div id="list_switching">
+                <ul class="tab_menu">
+                    <li class="selected" name="pass">已通过</li>
+                    <li name="wait" id="Pending">待审核</li>
+                    <li style="border-right:0" name="reject" id="Reject">已驳回</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        
+            <ul class="state">
+                <li>创建人：<input id="CreateUser" name="Username" type="text" style="width:130px;"></li>
+                <li>需求名称：<input id="DemandName" name="Username" type="text" style="width:130px;"></li>
+                <li class="BelongYY">所属运营：<input id="BelongYY" name="Username" type="text" style="width:130px;"></li>
+                <li class='adStatus'>需求状态：
+                    <select id="AuditStatus" name="" style="width:130px;line-height:26px">
+                        <option value='-2'>全部</option>
+                        <option value='89003'>待投放</option>
+                        <option value='89004'>投放中</option>
+                        <option value='89005'>已终止</option>
+                        <option value='89006'>已结束</option>
+                    </select>
+                </li>
+                <li class="but_query" id='searchBtn' style="width:70px;;margin-right: 0">搜索</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div class="table">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+
+                        </table>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+
+<!-- 超管 -->
+<script type="text/template" id="Pricelist-cc">
+    <thead>
+        <tr>
+            <th width="10%">需求订单号</th>
+            <th width="10%">需求名称</th>
+            <th width="10%">创建人</th>
+            <th width="13%" class="CreateTime">创建时间</th>
+            <th width="11%" class="UpdateTime">同步时间</th>
+            <th width="13%" class="AuditTime">审核时间</th>
+            <th width="8%" class="BelongYY">所属运营</th>
+            <th width="10%" class="ADCount">关联广告个数</th>
+            <th width="8%" class="AuditStatusName">需求状态</th>
+            <th width="14%">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% if(Result.TotalCount != 0){%>
+        <% Result.List.forEach(function(item){%>
+            <tr DemandId='<%= item.DemandId %>' DemandBillNo='<%= item.DemandBillNo %>' AuditStatusName='<%= item.AuditStatusName %>'>
+                <td><%= item.DemandBillNo %></td>
+                <td><%= item.Name %></td>
+                <td><%= item.CreateUserName %></td>
+                <td class="CreateTime"><%= item.CreateTime %></td>
+                <td class="UpdateTime"><%= item.UpdateTime %></td>
+                <td class="AuditTime"><%= item.AuditTime %></td>
+                <td class="BelongYY"><%= item.BelongYY %></td>
+                <td class="ADCount"><%= item.ADCount %></td>
+                <td class="AuditStatusName"><%= item.AuditStatusName %></td>
+                <td>
+                    <a href="javascript:;" class="see_po">查看</a>
+                    <% if(item.AuditStatusName == '待投放' || item.AuditStatusName == '投放中'){%>
+                    <a href="javascript:;" class="relevance_po">关联广告</a>
+                    <a href="javascript:;" class="forbidden_po">终止投放</a>
+                    <%} %>
+                    <a href="javascript:;" class="audit_po">审核</a>
+                </td>
+            </tr>
+        <%}) %>
+    <%} %>
+    </tbody>
+</script>
+
+
+<!-- 广告运营 -->
+<script type="text/template" id="Pricelist-yy">
+    <thead>
+        <tr>
+            <th width="9%">需求订单号</th>
+            <th width="9%">需求名称</th>
+            <th width="9%">创建人</th>
+            <th width="13%">创建时间</th>
+            <th width="13%">同步时间</th>
+            <th width="8%">关联广告个数</th>
+            <th width="8%">需求状态</th>
+            <th width="18%">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% if(Result.TotalCount != 0){%>
+        <% Result.List.forEach(function(item){%>
+            <tr DemandId='<%= item.DemandId %>' DemandBillNo='<%= item.DemandBillNo %>' AuditStatusName='<%= item.AuditStatusName %>'>
+                <td><%= item.DemandBillNo %></td>
+                <td><%= item.Name %></td>
+                <td><%= item.CreateUserName %></td>
+                <td><%= item.CreateTime %></td>
+                <td><%= item.UpdateTime %></td>
+                <td><%= item.ADCount %></td>
+                <td><%= item.AuditStatusName %></td>
+                <td>
+                    <a href="javascript:;" class="see_po">查看</a>
+                    <a href="http://e.qq.com/atlas/ad/create" target="_blank">创建广告</a>
+                    <% if(item.AuditStatusName == '待投放' || item.AuditStatusName == '投放中'){%>
+                    <a href="javascript:;" class="relevance_po">关联广告</a>
+                    <a href="javascript:;" class="forbidden_po">终止投放</a>
+                    <%} %>
+                </td>
+            </tr>
+        <%}) %>
+    <%} %>
+    </tbody>
+</script>
+
+
+<!-- 关联广告的弹层 -->
+<div class="channel_box" style="display: none">
+    <div class="layer" style='overflow: auto;width: 500px;'>
+        <div class="title">
+            <div class="fl">选择要关联的广告</div>
+            <div class="fr"><a href="javascript:void(0)" id="closebt1"><img src="../images/icon13.png" width="16" height="16" onmouseover="this.src='../images/icon14.png'" onmouseout="this.src='../images/icon13.png'"></a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="layer_con" style='margin: 15px'>
+            <table width="100%" cellspacing="0" cellpadding="0" style='border-collapse:collapse;'>
+            <thead>
+                <tr style='background: #F5F5F5'>
+                    <td width="15%"><input type="checkbox" id="selectAll">&nbsp全选</td>
+                    <td width="25%">广告ID</td>
+                    <td width="30%">广告名称</td>
+                    <td width="30%">所属推广计划</td>
+                </tr>
+            </thead>
+            <tbody class="ChooseChannel"></tbody>
+                                
+            </table>
+
+            <div class="keep">
+                <span><a href="javascript:;" class="button" style="width:150px" id='submitMessage'>确定</a></span>
+                <span><a href="javascript:;" class="button" style="width:150px"  id='cancleMessage'>取消</a></span>
+            </div>
+            <div class="mb25"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 关联广告 -->
+<script type="text/template" id="choose-channel">
+    <% data.forEach(function(item){%>
+    <tr AdgroupId='<%= item.AdgroupId %>'>
+        <td>
+            <% if(item.IsChecked == true){%>
+                <input type="checkbox" name='PitchUp' class='onebox' checked="checked">
+            <%}else{%>
+                <input type="checkbox" name='PitchUp' class='onebox'>
+            <%} %>
+        </td>
+        <td><%= item.AdgroupId %></td>
+        <td><%= item.AdgroupName %></td>
+        <td><%= item.CampaignName %></td>
+    </tr>
+    <%})  %>
+</script>
+
+</body>
+</html>

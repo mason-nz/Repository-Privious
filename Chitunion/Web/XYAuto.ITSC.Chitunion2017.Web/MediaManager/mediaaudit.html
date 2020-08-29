@@ -1,0 +1,270 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(CTLogin);//返回登陆Json对象
+    </script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="js/mediaaudit.js"></script>
+    <style>
+        .classification {
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r" style="margin-left: 140px">
+        <div class="install">
+            <h2 class="menu_nav">
+
+            </h2>
+            <div class="clear"></div>
+            <div id="information">
+                <script type="text/template" id="information1">
+
+                    <ul>
+                        <li class="ins_a">
+                            <div class="frame_n"><img src="<%=Result.HeadIconURL%>" width="80" height="80"/></div>
+                        </li>
+                        <li class="wechat_name">
+                            <div>微信名称：<%=Result.Name%></div>
+                            <div>微信帐号：<%=Result.Number%></div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="switch" style="display: none">
+                        <span class="current">基本信息</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div id="Mediacomparison">
+                        <%if(Result.FansCount!=0){%>
+                        <ul>
+                            <li class="ins_a"> 粉丝数：</li>
+                            <li><%=Result.FansCount%></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%if(!(!Result.FansCountURL)){%>
+                        <ul>
+                            <li class="ins_a"> 粉丝数截图：</li>
+                            <li>
+                                <div class="frame"><a href="<%=Result.FansCountURL%>" target=_blank><img
+                                        src="<%=Result.FansCountURL%>" width="80" height="80"/></a></div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%if(Result.CommonlyClassStr.length){%>
+                        <ul>
+                            <li class="ins_a"> 常见分类：</li>
+                            <%for(var i=0;i
+                            <Result.CommonlyClassStr.length
+                            ;i++){%>
+                            <li>
+                                <div class="classification">
+                                    <%=Result.CommonlyClassStr[i]%>
+                                    <%if(i==0){%>
+                                    <em><img src="../ImagesNew/icon85.png"></em>
+                                    <%}%>
+                                </div>
+                            </li>
+                            <%}%>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <ul>
+                            <li class="ins_a">区域媒体：</li>
+                            <%if(Result.IsAreaMedia){%>
+                            <li>是</li>
+                            <%}else{%>
+                            <li>否</li>
+                            <%}%>
+                            <div class="clear"></div>
+                        </ul>
+                        <%if(!Result.IsAreaMedia){%>
+                        <%if(Result.FansArea.length!=0){%>
+                        <ul>
+                            <li class="ins_a">粉丝分布区域：</li>
+                            <%for(var i=0;i
+                            <Result.FansArea.length
+                            ;i++){%>
+                            <li>
+                                <div class="classification">
+                                    <%=Result.FansArea[i].ProvinceName%> <%=Result.FansArea[i].UserScale%>%
+                                </div>
+                            </li>
+                            <%}%>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%if(!(!Result.FansAreaShotUrl)){%>
+                        <ul>
+                            <li class="ins_a">分布区域截图：</li>
+                            <li>
+                                <div class="frame"><a href="<%=Result.FansAreaShotUrl%>" target=_blank><img
+                                        src="<%=Result.FansAreaShotUrl%>" width="80" height="80"/></a></div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%}else{%>
+                        <%if(Result.AreaMedia.length>0){%>
+                        <ul>
+                            <li class="ins_a">覆盖地区：</li>
+                            <li>
+                                <%=Result.AreaMedia[0].ProvinceName?Result.AreaMedia[0].ProvinceName:''%>
+                            </li>
+                            <li>
+                                <%=Result.AreaMedia[0].CityName?Result.AreaMedia[0].CityName:''%>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%}%>
+
+                        <%if(Result.FansMalePer!=0||Result.FansFemalePer!=0){%>
+                        <ul>
+                            <li class="ins_a">粉丝性别比例：</li>
+                            <%if(Result.FansMalePer!=0){%>
+                            <li>男 <%=Result.FansMalePer%>%</li>
+                            <%}%>
+                            <%if(Result.FansMalePer!=0 && Result.FansFemalePer!=0){%>
+                            <li class="grey">|</li>
+                            <%}%>
+                            <%if(Result.FansFemalePer!=0){%>
+                            <li>女 <%=Result.FansFemalePer%>%</li>
+                            <%}%>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%if(!(!Result.FansSexScaleUrl)){%>
+                        <ul>
+                            <li class="ins_a">性别比例截图：</li>
+                            <li>
+                                <div class="frame"><a href="<%=Result.FansSexScaleUrl%>" target="_blank"><img
+                                        src="<%=Result.FansSexScaleUrl%>" width="80" height="80"/></a></div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%if(Result.ProvinceName||Result.ProvinceName){%>
+                        <ul>
+                            <li class="ins_a">所在地区：</li>
+                            <li>
+                                <%=Result.ProvinceName?Result.ProvinceName:''%>
+                            </li>
+                            <li>
+                                <%=Result.CityName?Result.CityName:''%>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                        <%if(Result.OrderRemark.length!=0){%>
+                        <ul>
+                            <li class="ins_a">下单备注：</li>
+                            <li>
+                                <div class="answer">
+                                    <%for(var i=0;i
+                                    <Result.OrderRemark.length
+                                    ;i++){%>
+                                    <%if(Result.OrderRemark[i].Id==40009){%>
+                                    <span><%=Result.OrderRemark[i].Descript%></span>
+                                    <%}else{%>
+                                    <span><%=Result.OrderRemark[i].Name%></span>
+                                    <%}%>
+                                    <%}%>
+                                </div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <%}%>
+                    </div>
+                    <div id='Relevantqualifications'>
+                        <h3>相关资质</h3>
+                        <ul>
+                            <li class="ins_a">企业全称：</li>
+                            <li id="enterpriseName"></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <ul>
+                            <li class="ins_a">营业执照：</li>
+                            <li id="businessLicense">
+                                <div class="frame Qualificationsimg">
+                                    <img src="" width="80" height="80"/>
+                                </div>
+                                <div style="display: none">
+                                    <img src="" alt="" width="200px" height="200px">
+                                </div>
+                            </li>
+                            <li class="ins_a" style="margin-left: 170px;">授权资质：</li>
+                            <li id="licenseQualification">
+                                <div class="frame fl Qualificationsimg" style="margin-right: 20px;">
+                                    <img id='license1' src="" width="80" height="80"/>
+                                </div>
+                                <div style="display: none">
+                                    <img src="" alt="" width="200px" height="200px">
+                                </div>
+                                <div class="frame fl Qualificationsimg1" style="margin-right: 20px;">
+                                    <img id='license2' src="" width="80" height="80"/>
+                                </div>
+                                <div style="display: none">
+                                    <img src="" alt="" width="200px" height="200px">
+                                </div>
+                                <div class="clear"></div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                    <h3>审核结果 </h3>
+                    <div class="clear"></div>
+                    <ul style="margin-left: 50px">
+                        <li><input name="shenhe" i="43002" type="radio" value="" checked="checked" class='shenhe1'/> 通过
+                        </li>
+                        <li><input name="shenhe" i="43003" type="radio" value="" class="shenhe2"/> 驳回</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div id="parameter" style="margin-left: 50px;display: none">
+                        <textarea name="" cols="" rows="5" style="width:900px;height:70px;resize:none;"
+                                  placeholder="请输入驳回原因"></textarea>
+                    </div>
+                    <div class="keep" style="text-align: center">
+                        <span><a href="javascript:;" class="button" id="Submit1" style="width:150px;">提交</a></span>
+                        <!--<span><a href="javascript:;" class="button" id="Submit2" style="width:150px;margin-left: 20px">取消</a></span>-->
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+
+</body>
+</html>

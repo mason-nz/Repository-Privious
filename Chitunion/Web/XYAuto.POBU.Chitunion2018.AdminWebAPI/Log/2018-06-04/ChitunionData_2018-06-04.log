@@ -1,0 +1,96 @@
+2018-06-04 10:41:57,231 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/WeChatManage/test
+执行的时间:115.6932ms
+请求的参数:{}
+返回的结果:
+
+2018-06-04 10:41:57,966 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/WeChatManage/GetMenuData?appid=wxf0eea6fec2756b45
+执行的时间:794.5116ms
+请求的参数:{"appid":"wxf0eea6fec2756b45"}
+返回的结果:{"Status":0,"Message":"","Result":[{"key":"[1]??抢单赚钱22","type":"click","name":"??抢单赚钱22"},{"sub_button":[{"url":"http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=h5ctlmcaidan","type":"view","name":"余额提现4"},{"url":"http://wxtest-ct.qichedaquan.com/accountManager/order_list.html?channel=h5ctlmcaidan","type":"view","name":"我的订单"},{"url":"http://wxtest-ct.qichedaquan.com/cashManager/profitList.html?channel=h5ctlmcaidan","type":"view","name":"收益明细"},{"url":"http://wxtest-ct.qichedaquan.com/userManager/userinfo.html?channel=h5ctlmcaidan","type":"view","name":"个人信息"}],"name":"我的收益3"},{"sub_button":[{"url":"https://www.wjx.cn/jq/23812303.aspx","type":"view","name":"有奖问卷"},{"url":"https://mp.weixin.qq.com/s/Mqb8Va7uTBds44fWY_YFtA","type":"view","name":"签到有礼"},{"url":"http://wxtest-ct.qichedaquan.com/inviteManager/invite.html?channel=h5ctlmcaidan","type":"view","name":"邀请有礼"},{"key":"[2]社群福利","type":"click","name":"社群福利"},{"url":"http://wxtest-ct.qichedaquan.com/cashManager/rule.html?channel=h5ctlmcaidan","type":"view","name":"帮助中心"}],"name":"活动·服务"}],"IsOverdue":null}
+
+2018-06-04 10:41:58,484 [9] ERROR BaseLog [(null)] - Chitunion_WebApi——异常
+System.Exception: 读出文件'D:\wwwroot\XYAuto.POBU.Chitunion2018.AdminWebAPI\ConfigFile\WxMenuData.config'失败。错误信息：未能找到路径“D:\wwwroot\XYAuto.POBU.Chitunion2018.AdminWebAPI\ConfigFile\WxMenuData.config”的一部分。
+   在 XYAuto.Utils.FileHelper.ReadFile(String __ModelPath, Encoding encoding)
+   在 XYAuto.ITSC.Chitunion2017.BLL.WeChat.MenuHelper.GetWxMenuConfigData(String filePath)
+   在 XYAuto.POBU.Chitunion2018.AdminWebAPI.Controllers.WeChatManageController.test() 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.POBU.Chitunion2018.AdminWebAPI\Controllers\WeChatManageController.cs:行号 206
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-06-04 10:41:59,548 [10] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/wechatmanager/ModifyMenu.html
+2018-06-04 10:41:59,558 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/WeChatManage/GetMenuData
+执行的时间:2.0141ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":[{"WxNum":"赤兔联盟","AppId":"wxf0eea6fec2756b45","AppSecret":null,"MenuClickList":[{"EventKey":"[1]??抢单赚钱2","MediaId":"BLxr7-UOUkKkshFulOTTGVC2I4SzEhmn5WYn7Ggchxo","Desc":"[1]??抢单赚钱2"},{"EventKey":"[2]社群福利","MediaId":"BLxr7-UOUkKkshFulOTTGVC2I4SzEhmn5WYn7Ggchxo","Desc":"[2]社群福利"}]}],"IsOverdue":null}
+
+2018-06-04 10:41:59,711 [9] INFO  BaseLog [(null)] - 发邮件开始：
+2018-06-04 10:41:59,746 [9] INFO  BaseLog [(null)] - 发送邮件给谁:masj@xingyuanauto.com
+2018-06-04 10:41:59,756 [9] INFO  BaseLog [(null)] - 发送邮件给谁:lix@xingyuanauto.com
+2018-06-04 10:41:59,769 [9] INFO  BaseLog [(null)] - 发送邮件给谁:hant@xingyuanauto.com
+2018-06-04 10:41:59,779 [9] INFO  BaseLog [(null)] - 发送邮件给谁:lihf@xingyuanauto.com
+2018-06-04 10:41:59,797 [9] INFO  BaseLog [(null)] - 发送邮件给谁:zhanglb@xingyuanauto.com
+2018-06-04 10:41:59,811 [9] INFO  BaseLog [(null)] - 发送邮件给谁:zhangjl@xingyuanauto.com
+2018-06-04 10:42:00,700 [6] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/WeChatManage/GetMenuData?appid=wxf0eea6fec2756b45
+执行的时间:179.9782ms
+请求的参数:{"appid":"wxf0eea6fec2756b45"}
+返回的结果:{"Status":0,"Message":"","Result":[{"key":"[1]??抢单赚钱22","type":"click","name":"??抢单赚钱22"},{"sub_button":[{"url":"http://wxtest-ct.qichedaquan.com/cashManager/accountInfo.html?channel=h5ctlmcaidan","type":"view","name":"余额提现4"},{"url":"http://wxtest-ct.qichedaquan.com/accountManager/order_list.html?channel=h5ctlmcaidan","type":"view","name":"我的订单"},{"url":"http://wxtest-ct.qichedaquan.com/cashManager/profitList.html?channel=h5ctlmcaidan","type":"view","name":"收益明细"},{"url":"http://wxtest-ct.qichedaquan.com/userManager/userinfo.html?channel=h5ctlmcaidan","type":"view","name":"个人信息"}],"name":"我的收益3"},{"sub_button":[{"url":"https://www.wjx.cn/jq/23812303.aspx","type":"view","name":"有奖问卷"},{"url":"https://mp.weixin.qq.com/s/Mqb8Va7uTBds44fWY_YFtA","type":"view","name":"签到有礼"},{"url":"http://wxtest-ct.qichedaquan.com/inviteManager/invite.html?channel=h5ctlmcaidan","type":"view","name":"邀请有礼"},{"key":"[2]社群福利","type":"click","name":"社群福利"},{"url":"http://wxtest-ct.qichedaquan.com/cashManager/rule.html?channel=h5ctlmcaidan","type":"view","name":"帮助中心"}],"name":"活动·服务"}],"IsOverdue":null}
+
+2018-06-04 10:42:00,715 [10] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/WeChatManage/GetMenuData
+执行的时间:0.5018ms
+请求的参数:{}
+返回的结果:{"Status":0,"Message":"OK","Result":[{"WxNum":"赤兔联盟","AppId":"wxf0eea6fec2756b45","AppSecret":null,"MenuClickList":[{"EventKey":"[1]??抢单赚钱2","MediaId":"BLxr7-UOUkKkshFulOTTGVC2I4SzEhmn5WYn7Ggchxo","Desc":"[1]??抢单赚钱2"},{"EventKey":"[2]社群福利","MediaId":"BLxr7-UOUkKkshFulOTTGVC2I4SzEhmn5WYn7Ggchxo","Desc":"[2]社群福利"}]}],"IsOverdue":null}
+
+2018-06-04 10:42:00,839 [9] ERROR BaseLog [(null)] - 发邮件失败: 
+System.Net.Mail.SmtpException: 事务失败。 服务器响应为:RCPT (hant@xingyuanauto.com) dosn't exist
+   在 System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   在 System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   在 System.Net.Mail.SmtpClient.Send(MailMessage message)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail.Send(String host, String userName, String password)
+   在 XYAuto.YanFa.SysRightManager.Common.IsdcMail.Send()
+   在 XYAuto.ITSC.Chitunion2017.BLL.EmailHelper.SendMailByTemplate(String templateName, String[] mailBody, String subject, String[] reciver)
+2018-06-04 10:42:01,413 [9] INFO  BaseLog [(null)] - 发邮件结束！
+2018-06-04 18:42:08,110 [6] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Authorize/GetMenuInfo,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-06-04 18:42:08,110 [12] INFO  BaseLog [(null)] - [IsAuthorized]IsCheckIP=False,IsCheckLogin=True,CheckModuleRight=,用户请求的地址=http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.6345057861457986,UrlRefer=http://admin1.chitunion.com/FinanceManager/AuditDetails.html?recid=22
+2018-06-04 18:42:08,499 [7] INFO  BaseLog [(null)] - 
+请求的url地址：http://admin1.chitunion.com/api/Withdrawals/GetAuditDetails?WithdrawalsId=22&r=0.6345057861457986
+执行的时间:187.4992ms
+请求的参数:{"CheckLogin":true,"request":{"WithdrawalsId":22,"AuditStatus":0,"RejectMsg":null}}
+返回的结果:{"Status":0,"Message":null,"Result":{"RecId":22,"TrueName":null,"UserName":null,"UserTypeName":null,"ApplicationDate":"2018-01-30 17:10:49","PayeeAccount":"13717519733","AccumulatedIncome":5000.00,"HaveWithdrawals":0.00,"WithdrawalsPrice":800.00,"IndividualTaxPeice":0.00,"PracticalPrice":800.00,"PayeeID":1552,"AuditStatus":197003,"IsInsideEmployee":false},"IsOverdue":null}
+

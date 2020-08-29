@@ -1,0 +1,817 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: Arial, Helvetica;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+input,
+button {
+  background: none;
+  outline: none;
+  border: 0px;
+}
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  zoom: 1;
+}
+.font-arial {
+  font-family: Arial, Helvetica;
+}
+.lt {
+  float: left;
+}
+.rt {
+  float: right;
+}
+.relative {
+  position: relative;
+}
+.blue {
+  color: #1b78f0;
+}
+.no_data,
+.mescroll-empty {
+  padding: 4.21333333rem 0;
+  text-align: center;
+}
+.no_data img,
+.mescroll-empty img {
+  width: 3.73333333rem;
+  height: auto;
+}
+.no_data p,
+.mescroll-empty p {
+  font-size: 0.4rem;
+  line-height: 0.64rem;
+}
+.mescroll-empty .empty-btn {
+  color: #2f72e2;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+}
+.dropload-up,
+.dropload-down {
+  position: relative;
+  height: 0;
+  /*overflow: hidden;*/
+  font-size: 12px;
+  /* 开启硬件加速 */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.dropload-down {
+  height: 50px;
+}
+.dropload-refresh,
+.dropload-update,
+.dropload-load,
+.dropload-noData {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.dropload-load .loading {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  margin: 6px;
+  border: 2px solid #666;
+  border-bottom-color: transparent;
+  vertical-align: middle;
+  -webkit-animation: rotate 0.75s linear infinite;
+  animation: rotate 0.75s linear infinite;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.container-fluid {
+  width: 100%;
+  font-size: 0.4rem;
+}
+.flex_justify_flexStart {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+.flex_justify_spaceBetween {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.flex_justify_center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.OrderDetails > div {
+  padding: 0.4rem 0.4rem 0;
+}
+.OrderDetails > div > section {
+  font-size: 0.4rem;
+}
+.OrderDetails > div > section > div:first-child > p {
+  margin: 0.17333333rem 0;
+  position: relative;
+  padding-left: 2rem;
+}
+.OrderDetails > div > section > div:first-child > p > label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333;
+  line-height: 0.4rem;
+}
+.OrderDetails > div > section > div:first-child > p > span {
+  vertical-align: top;
+  line-height: 0.4rem;
+  color: #333333;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: inline-block;
+}
+.OrderDetails > div > section > div:first-child > p > .OrderUrl_a a {
+  color: #333333;
+  width: 100%;
+  display: inline-block;
+  background: url("/images/Arrow.png") no-repeat right center;
+  background-size: 0.18666667rem 0.33333333rem;
+}
+.OrderDetails > div > table {
+  width: 100%;
+}
+.OrderDetails > div > table thead > tr {
+  background-color: #eeeeee;
+  height: 1.33333333rem;
+  text-align: center;
+  color: #333;
+}
+.OrderDetails > div > table thead > tr > td:first-child {
+  border-top-left-radius: 0.08rem;
+  border-bottom-left-radius: 0.08rem;
+}
+.OrderDetails > div > table thead > tr > td:last-child {
+  border-top-right-radius: 0.08rem;
+  border-bottom-right-radius: 0.08rem;
+}
+.OrderDetails > div > table tbody > tr,
+.OrderDetails > div > table tfoot > tr {
+  height: 1.05333333rem;
+  text-align: center;
+}
+.OrderDetails > div > table tbody > tr > td,
+.OrderDetails > div > table tfoot > tr > td {
+  border-bottom: 0.01333333rem solid #eeeeee;
+}
+.OrderDetails > div > table tfoot > tr > td:last-child {
+  color: #ff5050;
+  font-size: 0.42666667rem;
+}
+.OrderDetails > div .Nodata {
+  margin: 0.66666667rem auto;
+  text-align: center;
+  color: #999;
+}
+.OrderDetails > div .Nodata > img {
+  width: 4.48rem;
+}
+.OrderDetails > div .Nodata > p:first-child {
+  cursor: pointer;
+}
+.OrderDetails > div .Nodata > p:last-child {
+  color: #999;
+  cursor: pointer;
+}
+.OrderDetails > footer {
+  width: 100%;
+  height: 1.33333333rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+.OrderDetails > footer > div {
+  flex: 1;
+}
+.OrderDetails > footer > div:first-child {
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  text-align: center;
+  box-shadow: 0 -0.08rem rgba(39, 103, 246, 0.1);
+}
+.OrderDetails > footer > div:first-child > span > a {
+  color: #ffffff;
+}
+.OrderDetails > footer > div:last-child {
+  padding: 0;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  text-align: center;
+  background: url("/images/btn_bg.png");
+  background-size: contain;
+  box-shadow: 0 -0.08rem rgba(39, 103, 246, 0.1);
+  color: #fff;
+}
+.PersonalInformation > main {
+  width: 100%;
+}
+.PersonalInformation > main .personalData,
+.PersonalInformation > main .personalSupplement,
+.PersonalInformation > main .personalProperty {
+  background-color: #fff;
+}
+.PersonalInformation > main .personalData > div,
+.PersonalInformation > main .personalSupplement > div,
+.PersonalInformation > main .personalProperty > div {
+  padding: 0 0.4rem 0 0;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  margin-left: 0.4rem;
+}
+.PersonalInformation > main .personalData > div:last-child > div {
+  display: flex;
+  text-align: right;
+  flex: 2;
+}
+.PersonalInformation > main .personalData > div:last-child > div > button {
+  border: 1px solid #b7b7b7;
+  border-radius: 0.08rem;
+  height: 0.64rem;
+  line-height: 0.37333333rem;
+  padding: 0.13333333rem 0.2rem;
+  margin: 0.33333333rem 0;
+  color: #b7b7b7;
+  font-size: 0.4rem !important;
+}
+.PersonalInformation > main .personalData > div:last-child > div > button.ntifyingCode {
+  color: #1b78f0;
+  border: 1px solid #1b78f0;
+}
+.PersonalInformation > main .personalData > div:first-child {
+  color: #adadad;
+}
+.PersonalInformation > main .personalData > div:first-child input {
+  color: #adadad;
+}
+.PersonalInformation > main .personalProperty {
+  margin-top: 0.26666667rem;
+}
+.PersonalInformation > main .personalSupplement {
+  position: relative;
+}
+.PersonalInformation > main .personalSupplement > div > div > .typeSwitching {
+  width: 2.42666667rem;
+  height: 0.66666667rem;
+  margin: 0.33333333rem 0;
+  line-height: 0.66666667rem;
+  background-color: #eee;
+  border-radius: 0.08rem;
+}
+.PersonalInformation > main .personalSupplement > div > div > .typeSwitching > button {
+  color: #b7b7b7;
+  width: 50%;
+  border-radius: 0.08rem;
+  height: 0.66666667rem;
+}
+.PersonalInformation > main .personalSupplement > div > div > .typeSwitching > button.blue {
+  background-color: #1b78f0;
+  color: #fff;
+}
+.PersonalInformation > main .personalSupplement > div > div > .upload_text:first-child {
+  color: #b7b7b7;
+  padding-right: 0.4rem;
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+}
+.PersonalInformation > main .personalSupplement > div > div #photoimg,
+.PersonalInformation > main .personalSupplement > div > div #BLicenceURL {
+  width: 1.2rem;
+  height: 0.8rem;
+  vertical-align: middle;
+  display: none;
+}
+.PersonalInformation > main .personalSupplement > div > div > .upload_hide:last-child {
+  display: none;
+}
+.PersonalInformation > main .personalSupplement > div > .img_dag {
+  flex: 2;
+  text-align: right;
+}
+.PersonalInformation > main .personalSupplement > #Mask {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(250, 250, 250, 0.5);
+  left: 0;
+  top: 0;
+}
+.PersonalInformation > main > article > div {
+  border-bottom: 1px solid #f3f3f3;
+}
+.PersonalInformation .baseOnInput::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.PersonalInformation > header,
+.seePersonalInformation > header,
+.RejectInformation > header {
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  text-align: center;
+  background-color: #f15959;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: auto;
+}
+.PersonalInformation > .header_hide,
+.seePersonalInformation > .header_hide,
+.RejectInformation > .header_hide {
+  display: none;
+}
+.PersonalInformation input,
+.seePersonalInformation input,
+.RejectInformation input {
+  text-align: right;
+  flex: 2;
+  padding: 0 0.06666667rem;
+}
+.PersonalInformation *,
+.seePersonalInformation *,
+.RejectInformation * {
+  font-size: 0.4rem;
+  font-family: Simsun, '宋体', 'Microsoft YaHei', '微软雅黑', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.PersonalInformation input::-webkit-input-placeholder,
+.seePersonalInformation input::-webkit-input-placeholder,
+.RejectInformation input::-webkit-input-placeholder,
+.PersonalInformation textarea::-webkit-input-placeholder,
+.seePersonalInformation textarea::-webkit-input-placeholder,
+.RejectInformation textarea::-webkit-input-placeholder {
+  color: #b7b7b7;
+}
+.PersonalInformation input:-moz-placeholder,
+.seePersonalInformation input:-moz-placeholder,
+.RejectInformation input:-moz-placeholder,
+.PersonalInformation textarea:-moz-placeholder,
+.seePersonalInformation textarea:-moz-placeholder,
+.RejectInformation textarea:-moz-placeholder {
+  color: #b7b7b7;
+}
+.PersonalInformation input::-moz-placeholder,
+.seePersonalInformation input::-moz-placeholder,
+.RejectInformation input::-moz-placeholder,
+.PersonalInformation textarea::-moz-placeholder,
+.seePersonalInformation textarea::-moz-placeholder,
+.RejectInformation textarea::-moz-placeholder {
+  color: #b7b7b7;
+}
+.PersonalInformation input:-ms-input-placeholder,
+.seePersonalInformation input:-ms-input-placeholder,
+.RejectInformation input:-ms-input-placeholder,
+.PersonalInformation textarea:-ms-input-placeholder,
+.seePersonalInformation textarea:-ms-input-placeholder,
+.RejectInformation textarea:-ms-input-placeholder {
+  color: #b7b7b7;
+}
+.PersonalInformation > main > div > .btn_bg,
+.seePersonalInformation > main > div > .btn_bg,
+.RejectInformation > main > div > .btn_bg {
+  width: 9.2rem;
+  border-radius: 0.08rem;
+  height: 1.2rem;
+  background: url("/images/btn_bg.png");
+  background-size: contain;
+  color: #fff;
+  margin-top: 0.66666667rem;
+  font-size: 0.45333333rem;
+}
+.PersonalInformation > main > div > .Thegrey,
+.seePersonalInformation > main > div > .Thegrey,
+.RejectInformation > main > div > .Thegrey {
+  width: 9.2rem;
+  border-radius: 0.08rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  background: url(../images/btn_bg_grey.jpg) repeat-x;
+  background-size: contain;
+  color: #fff;
+  margin-top: 0.66666667rem;
+  font-size: 0.45333333rem;
+}
+.seePersonalInformation > main {
+  width: 100%;
+}
+.seePersonalInformation > main .personalData,
+.seePersonalInformation > main .personalSupplement,
+.seePersonalInformation > main .personalProperty {
+  background-color: #fff;
+}
+.seePersonalInformation > main .personalData > div,
+.seePersonalInformation > main .personalSupplement > div,
+.seePersonalInformation > main .personalProperty > div {
+  padding: 0 0.4rem 0 0;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  margin-left: 0.4rem;
+}
+.seePersonalInformation > main .personalData > div:first-child {
+  color: #adadad;
+}
+.seePersonalInformation > main .personalData > div:first-child input {
+  color: #adadad;
+}
+.seePersonalInformation > main .personalData > div:nth-child(2) > div {
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+  padding-right: 0.4rem;
+  flex: 2;
+  text-align: right;
+}
+.seePersonalInformation > main .personalSupplement,
+.seePersonalInformation > main .personalProperty {
+  margin-top: 0.26666667rem;
+}
+.seePersonalInformation > main .personalSupplement {
+  position: relative;
+}
+.seePersonalInformation > main .personalSupplement > div > div > .typeSwitching {
+  width: 2.42666667rem;
+  height: 0.66666667rem;
+  margin: 0.33333333rem 0;
+  line-height: 0.66666667rem;
+  background-color: #eee;
+  border-radius: 0.08rem;
+}
+.seePersonalInformation > main .personalSupplement > div > div > .typeSwitching > button {
+  color: #b7b7b7;
+  width: 50%;
+  border-radius: 0.08rem;
+  height: 0.66666667rem;
+}
+.seePersonalInformation > main .personalSupplement > div > div > .typeSwitching > button.blue {
+  background-color: #1b78f0;
+  color: #fff;
+}
+.seePersonalInformation > main .personalSupplement > div > div > .upload_text:first-child {
+  color: #b7b7b7;
+  padding-right: 0.4rem;
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+}
+.seePersonalInformation > main .personalSupplement > div > div #photoimg,
+.seePersonalInformation > main .personalSupplement > div > div #BLicenceURL {
+  width: 1.2rem;
+  height: 0.8rem;
+  vertical-align: middle;
+}
+.seePersonalInformation > main .personalSupplement > div > div > .upload_hide:last-child {
+  display: none;
+}
+.seePersonalInformation > main .personalSupplement > div > .identity {
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+  padding-right: 0.4rem;
+  text-align: right;
+}
+.seePersonalInformation > main .personalSupplement > div > .identity > img {
+  height: 0.8rem;
+  width: 1.2rem;
+  margin: 0.26666667rem 0;
+}
+.seePersonalInformation > main .personalSupplement::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.seePersonalInformation > main .personalProperty > div:first-child > div {
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+  padding-right: 0.4rem;
+  flex: 2;
+  text-align: right;
+}
+.seePersonalInformation > main > article > div {
+  border-bottom: 1px solid #f3f3f3;
+}
+.RejectInformation > main {
+  width: 100%;
+}
+.RejectInformation > main .personalData,
+.RejectInformation > main .personalSupplement,
+.RejectInformation > main .personalProperty {
+  background-color: #fff;
+}
+.RejectInformation > main .personalData > div,
+.RejectInformation > main .personalSupplement > div,
+.RejectInformation > main .personalProperty > div {
+  padding: 0 0.4rem 0 0;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  margin-left: 0.4rem;
+}
+.RejectInformation > main .personalData > div:first-child {
+  color: #adadad;
+}
+.RejectInformation > main .personalData > div:first-child input {
+  color: #adadad;
+}
+.RejectInformation > main .personalData > div:nth-child(2) > div {
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+  padding-right: 0.4rem;
+  flex: 2;
+  text-align: right;
+}
+.RejectInformation > main .personalSupplement,
+.RejectInformation > main .personalProperty {
+  margin-top: 0.26666667rem;
+}
+.RejectInformation > main .personalSupplement > div > div > .typeSwitching {
+  width: 2.42666667rem;
+  height: 0.66666667rem;
+  margin: 0.33333333rem 0;
+  line-height: 0.66666667rem;
+  background-color: #eee;
+  border-radius: 0.08rem;
+}
+.RejectInformation > main .personalSupplement > div > div > .typeSwitching > button {
+  color: #b7b7b7;
+  width: 50%;
+  border-radius: 0.08rem;
+  height: 0.66666667rem;
+}
+.RejectInformation > main .personalSupplement > div > div > .typeSwitching > button.blue {
+  background-color: #1b78f0;
+  color: #fff;
+}
+.RejectInformation > main .personalSupplement > div > div > .upload_text:first-child {
+  color: #b7b7b7;
+  padding-right: 0.4rem;
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+}
+.RejectInformation > main .personalSupplement > div > div #photoimg,
+.RejectInformation > main .personalSupplement > div > div #BLicenceURL {
+  width: 1.2rem;
+  height: 0.8rem;
+  vertical-align: middle;
+  display: none;
+}
+.RejectInformation > main .personalSupplement > div > div > .upload_hide:last-child {
+  display: none;
+}
+.RejectInformation > main .personalSupplement > div > .img_dag {
+  flex: 2;
+  text-align: right;
+}
+.RejectInformation > main .personalProperty > div:first-child > div {
+  background: url("/images/chevon_right@2x.png") center right no-repeat;
+  background-size: 0.2rem 0.34666667rem;
+  padding-right: 0.4rem;
+  flex: 2;
+  text-align: right;
+}
+.RejectInformation > main > article > div {
+  border-bottom: 1px solid #f3f3f3;
+}
+#ElasticLayerStyle .ElasticLayeriWidth {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.13333333rem;
+  padding-right: 0;
+  margin-right: 0;
+}
+#ElasticLayerStyle .ElasticLayeriWidth input {
+  font-size: 0.4rem !important;
+  height: 0.66666667rem;
+  border-bottom: 0.01333333rem solid #e0e0e0;
+  border-radius: 0;
+}
+#ElasticLayerStyle .ElasticLayeriWidth button {
+  font-size: 0.4rem !important;
+  height: 0.50666667rem;
+  line-height: 0.50666667rem;
+  border: 0.01333333rem solid #e0e0e0;
+  border-radius: 0.08rem;
+  text-align: center;
+  color: #b7b7b7;
+  padding: 0.06666667rem;
+}
+#ElasticLayerStyle .ElasticLayeriWidth #getyzm {
+  border-color: #1b78f0 !important;
+  color: #1b78f0 !important;
+}
+#ElasticLayerStyle .layui-m-layerchild h3 {
+  height: 1.17333333rem !important;
+  line-height: 1.17333333rem !important;
+}
+.detailsArticle > .flex_justify_spaceBetween {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 1.2rem;
+  background: url("/images/btn_bg.png");
+  background-size: contain;
+}
+.detailsArticle > .flex_justify_spaceBetween > button {
+  width: 50%;
+  text-align: center;
+  color: #fff;
+}
+.detailsArticle > .flex_justify_spaceBetween > button:first-child {
+  background: #fff;
+  color: #333333;
+}
+.detailsArticle > .flex_justify_spaceBetween > button:first-child span {
+  color: #ff5050;
+}
+.detailsArticle > .flex_justify_spaceBetween > button:last-child span {
+  background: url("/images/share-5@2x.png") no-repeat center left;
+  background-size: contain;
+  padding-left: 0.6rem;
+}
+.webuploader-pick-hover {
+  background-color: #f3f3f3 !important;
+}
+.webuploader-pick {
+  color: #fff !important;
+  background-color: #1b7df3 !important;
+  overflow: inherit !important;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#picker .webuploader-pick {
+  color: #ababab !important;
+  background: #fff !important;
+  text-align: right;
+}
+#picker div:last-child {
+  display: none;
+}
+#js_licence_picker .webuploader-pick {
+  color: #ababab !important;
+  background: #fff !important;
+  text-align: right;
+}
+#js_licence_picker div:last-child {
+  display: none;
+}
+.upload_id_wrap {
+  position: relative;
+}
+.upload_id_wrap .upload_hide_btn {
+  position: absolute;
+  right: -0.4rem;
+  top: 0;
+  z-index: 3;
+  width: 0.6rem;
+  height: 100%;
+}
+.webuploader-container div:last-child {
+  width: 100% !important;
+  height: 100% !important;
+  text-align: left;
+  opacity: 0;
+}
+.certificationWrap {
+  position: relative;
+}
+.big_bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+.big_bg .pop_opa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 10;
+}
+.big_bg .IdCardBg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 11;
+  margin-left: -3.33333333rem;
+  margin-top: -4.26666667rem;
+  width: 6.66666667rem;
+  border-radius: 4px;
+  padding: 0.8rem 0.8rem 0.53333333rem 0.8rem;
+  background: #fff;
+  text-align: center;
+}
+.big_bg .IdCardBg img {
+  width: 4.26666667rem;
+  height: 5.2rem;
+}
+.big_bg .IdCardBg p {
+  text-align: center;
+  font-size: 0.32rem;
+  line-height: 0.53333333rem;
+}
+.big_bg .IdCardBg p:nth-child(3) {
+  padding-bottom: .18rem;
+}
+.big_bg .IdCardBg p:last-child {
+  padding-top: .2rem;
+  color: #adadad;
+}
+.big_bg .IdCardBg span {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.26666667rem;
+  cursor: pointer;
+  z-index: 99;
+}
+.big_bg .IdCardBg button {
+  cursor: pointer;
+  width: 100%;
+  height: 0.93333333rem;
+  background: #1b7df3;
+  text-align: center;
+  color: #fff;
+  line-height: 0.93333333rem;
+  border-radius: 4px;
+}
+.big_bg .preview_image_wrap {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  z-index: 11;
+  text-align: center;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.big_bg .preview_image_wrap image {
+  width: 100%;
+}
+#js_upload_yyzz_btn input,
+#js_upload_sfz_btn input {
+  width: 100%;
+  height: 100%;
+}
+#js_preview_image {
+  width: 100%;
+}

@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F20F3D07-E2EF-4A26-BE5E-93E99E70C018}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.Chitunion2017.NewWeb</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.Chitunion2017.NewWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastDFS, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ImageFastDFS\FastDFS.dll</HintPath>
+    </Reference>
+    <Reference Include="GeetestSDK">
+      <HintPath>..\..\..\Lib\GeetestSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="XYAuto.ITSC.Chitunion2017.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.ITSC.Chitunion2017.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="XYAuto.Utils, Version=2.0.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\XYAuto.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Base\statistics.html" />
+    <Content Include="Base\Menu.html" />
+    <Content Include="Base\header.html" />
+    <Content Include="Base\footer.html" />
+    <Content Include="Base\nav.html" />
+    <Content Include="Base\top.html" />
+    <Content Include="checkcode.aspx" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="css\common.css" />
+    <Content Include="css\layout_w.css" />
+    <Content Include="css\movie_adverts.css" />
+    <Content Include="css\personal.css" />
+    <Content Include="css\swiper-3.4.2.min.css" />
+    <Content Include="css\uploadify.css" />
+    <Content Include="css\webuploader.css" />
+    <Content Include="css\_distribution.css" />
+    <Content Include="css\_veriables.css" />
+    <Content Include="images\3bg1.png" />
+    <Content Include="images\3bg2.png" />
+    <Content Include="images\add_mtz.png" />
+    <Content Include="images\add_mtz1.png" />
+    <Content Include="images\add_mtz2.png" />
+    <Content Include="images\adv.png" />
+    <Content Include="images\app1.png" />
+    <Content Include="images\app_b.png" />
+    <Content Include="images\app_b1.png" />
+    <Content Include="images\banner_bg.jpg" />
+    <Content Include="images\banner_bg.png" />
+    <Content Include="images\bg0.png" />
+    <Content Include="images\bg1.png" />
+    <Content Include="images\bg_mtz.png" />
+    <Content Include="images\bg_s.png" />
+    <Content Include="images\boy.png" />
+    <Content Include="images\checkadd.png" />
+    <Content Include="images\checkedadd.png" />
+    <Content Include="images\close_x.png" />
+    <Content Include="images\code.png" />
+    <Content Include="images\c_01.png" />
+    <Content Include="images\c_02.png" />
+    <Content Include="images\c_03.png" />
+    <Content Include="images\c_04.png" />
+    <Content Include="images\c_05.png" />
+    <Content Include="images\c_06.png" />
+    <Content Include="images\c_07.png" />
+    <Content Include="images\c_08.png" />
+    <Content Include="images\c_09.png" />
+    <Content Include="images\c_10.png" />
+    <Content Include="images\c_11.png" />
+    <Content Include="images\c_12.png" />
+    <Content Include="images\c_13.png" />
+    <Content Include="images\c_14.png" />
+    <Content Include="images\c_15.jpg" />
+    <Content Include="images\c_15.png" />
+    <Content Include="images\c_16.png" />
+    <Content Include="images\c_17.png" />
+    <Content Include="images\c_18.png" />
+    <Content Include="images\c_19.png" />
+    <Content Include="images\c_20.png" />
+    <Content Include="images\c_21.png" />
+    <Content Include="images\c_22.png" />
+    <Content Include="images\c_23.png" />
+    <Content Include="images\default1.png" />
+    <Content Include="images\default2.png" />
+    <Content Include="images\default_headimg.png" />
+    <Content Include="images\default_touxiang.png" />
+    <Content Include="images\dianshi_25_1.png" />
+    <Content Include="images\dis\dis_arr_down_grey.png" />
+    <Content Include="images\dis\dis_arr_lt_white.png" />
+    <Content Include="images\dis\dis_banner.jpg" />
+    <Content Include="images\dis\dis_help.png" />
+    <Content Include="images\dis\er_code.jpg" />
+    <Content Include="images\dis\l_copy_30px.png" />
+    <Content Include="images\dis\l_qq_30px.png" />
+    <Content Include="images\dis\l_qzone_30px.png" />
+    <Content Include="images\dis\l_wx_30px.png" />
+    <Content Include="images\dis\l_xl_30px.png" />
+    <Content Include="images\dis\s_qq.png" />
+    <Content Include="images\dis\s_to_top.png" />
+    <Content Include="images\dis\s_wx.png" />
+    <Content Include="images\dis\tab_icon1.png" />
+    <Content Include="images\dis\tab_icon2.png" />
+    <Content Include="images\down_icon.png" />
+    <Content Include="images\get.png" />
+    <Content Include="images\guangao1.png" />
+    <Content Include="images\guanggao2.png" />
+    <Content Include="images\guanggao3.png" />
+    <Content Include="images\guanggao4.png" />
+    <Content Include="images\guanggao5.png" />
+    <Content Include="images\guanggao6.png" />
+    <Content Include="images\guanggaoche.png" />
+    <Content Include="images\headImg.png" />
+    <Content Include="images\icon-qq-white-small.png" />
+    <Content Include="images\icon-qq-white.png" />
+    <Content Include="images\icon10.png" />
+    <Content Include="images\icon11.png" />
+    <Content Include="images\icon12.png" />
+    <Content Include="images\icon13.png" />
+    <Content Include="images\icon14.png" />
+    <Content Include="images\icon15.png" />
+    <Content Include="images\icon16.png" />
+    <Content Include="images\icon17.png" />
+    <Content Include="images\icon8.png" />
+    <Content Include="images\icon9.png" />
+    <Content Include="images\icons\app.png" />
+    <Content Include="images\icons\app1.png" />
+    <Content Include="images\icons\icon_app.png" />
+    <Content Include="images\icons\icon_app1.png" />
+    <Content Include="images\icons\icon_wb.png" />
+    <Content Include="images\icons\icon_wb1.png" />
+    <Content Include="images\icons\icon_wx.png" />
+    <Content Include="images\icons\icon_wx1.png" />
+    <Content Include="images\icons\wb.png" />
+    <Content Include="images\icons\wb1.png" />
+    <Content Include="images\icons\wx.png" />
+    <Content Include="images\icons\wx1.png" />
+    <Content Include="images\im-bubble-pc-white.png" />
+    <Content Include="images\index\banner.gif" />
+    <Content Include="images\index\banner2.png" />
+    <Content Include="images\index\banner3.png" />
+    <Content Include="images\index\bg6.png" />
+    <Content Include="images\index\car\DS.png" />
+    <Content Include="images\index\car\三菱.png" />
+    <Content Include="images\index\car\东南.png" />
+    <Content Include="images\index\car\中兴.png" />
+    <Content Include="images\index\car\丰田.png" />
+    <Content Include="images\index\car\保时捷.png" />
+    <Content Include="images\index\car\凯迪拉克.png" />
+    <Content Include="images\index\car\别克.png" />
+    <Content Include="images\index\car\北京汽车.png" />
+    <Content Include="images\index\car\北汽威旺.png" />
+    <Content Include="images\index\car\华泰.png" />
+    <Content Include="images\index\car\双龙.png" />
+    <Content Include="images\index\car\名爵.png" />
+    <Content Include="images\index\car\大众.png" />
+    <Content Include="images\index\car\奇瑞.png" />
+    <Content Include="images\index\car\奔腾.png" />
+    <Content Include="images\index\car\奔驰.png" />
+    <Content Include="images\index\car\奥迪.png" />
+    <Content Include="images\index\car\宝沃.png" />
+    <Content Include="images\index\car\宝马.png" />
+    <Content Include="images\index\car\宾利.png" />
+    <Content Include="images\index\car\巴博斯.png" />
+    <Content Include="images\index\car\广汽本田.png" />
+    <Content Include="images\index\car\广汽菲克.png" />
+    <Content Include="images\index\car\广汽讴歌.png" />
+    <Content Include="images\index\car\斯巴鲁.png" />
+    <Content Include="images\index\car\昌河.png" />
+    <Content Include="images\index\car\标致.png" />
+    <Content Include="images\index\car\比亚迪.png" />
+    <Content Include="images\index\car\海马.png" />
+    <Content Include="images\index\car\特斯拉.png" />
+    <Content Include="images\index\car\现代.png" />
+    <Content Include="images\index\car\福特.png" />
+    <Content Include="images\index\car\福田.png" />
+    <Content Include="images\index\car\红旗.png" />
+    <Content Include="images\index\car\英菲尼迪.png" />
+    <Content Include="images\index\car\荣威.png" />
+    <Content Include="images\index\car\路虎.png" />
+    <Content Include="images\index\car\长城.png" />
+    <Content Include="images\index\car\长安商用.png" />
+    <Content Include="images\index\car\陆风.png" />
+    <Content Include="images\index\car\雪佛兰.png" />
+    <Content Include="images\index\car\雷克萨斯.png" />
+    <Content Include="images\index\car\雷诺.png" />
+    <Content Include="images\index\car\马自达.png" />
+    <Content Include="images\index\icon12.png" />
+    <Content Include="images\index\icon13.png" />
+    <Content Include="images\index\icon20.png" />
+    <Content Include="images\little_app.png" />
+    <Content Include="images\little_weibo.png" />
+    <Content Include="images\little_wx.png" />
+    <Content Include="images\login\alreday.png" />
+    <Content Include="images\login\bg.png" />
+    <Content Include="images\login\btn_wechat.png" />
+    <Content Include="images\login\close.png" />
+    <Content Include="images\login\code.png" />
+    <Content Include="images\login\error.png" />
+    <Content Include="images\login\logo.png" />
+    <Content Include="images\login\open.png" />
+    <Content Include="images\login\right.png" />
+    <Content Include="images\login\shape.png" />
+    <Content Include="images\match1.png" />
+    <Content Include="images\match2.png" />
+    <Content Include="images\match3.png" />
+    <Content Include="images\match4.png" />
+    <Content Include="images\match5.png" />
+    <Content Include="images\match6.png" />
+    <Content Include="images\match7.png" />
+    <Content Include="images\mediabianxian.png" />
+    <Content Include="images\meitib_03.png" />
+    <Content Include="images\meitizhitou\3正向图.png" />
+    <Content Include="images\meitizhitou\4合作平台.png" />
+    <Content Include="images\meitizhitou\4效果转化.png" />
+    <Content Include="images\meitizhitou\baidu.png" />
+    <Content Include="images\meitizhitou\bannercast.png" />
+    <Content Include="images\meitizhitou\broadcasting.png" />
+    <Content Include="images\meitizhitou\chart.png" />
+    <Content Include="images\meitizhitou\creat.png" />
+    <Content Include="images\meitizhitou\data.png" />
+    <Content Include="images\meitizhitou\dian.png" />
+    <Content Include="images\meitizhitou\effect.png" />
+    <Content Include="images\meitizhitou\headline.png" />
+    <Content Include="images\meitizhitou\market.png" />
+    <Content Include="images\meitizhitou\platform.png" />
+    <Content Include="images\meitizhitou\strategy.png" />
+    <Content Include="images\meitizhitou\weibo.png" />
+    <Content Include="images\meitizhu\banner.png" />
+    <Content Include="images\menu\menu_ico01_h.png" />
+    <Content Include="images\menu\menu_SYS007MOD0001_h.png" />
+    <Content Include="images\menu\menu_SYS007MOD0002.png" />
+    <Content Include="images\menu\menu_SYS007MOD0002_h.png" />
+    <Content Include="images\menu\menu_SYS007MOD0003.png" />
+    <Content Include="images\menu\menu_SYS007MOD0003_h.png" />
+    <Content Include="images\menu\menu_SYS007MOD0004.png" />
+    <Content Include="images\menu\menu_SYS007MOD0004_h.png" />
+    <Content Include="images\menu\menu_SYS007MOD0005.png" />
+    <Content Include="images\menu\menu_SYS007MOD0005_h.png" />
+    <Content Include="images\m_banner_03.png" />
+    <Content Include="images\neirongfenfa.png" />
+    <Content Include="images\qq.png" />
+    <Content Include="images\rule1.png" />
+    <Content Include="images\rule2.png" />
+    <Content Include="images\rule3.png" />
+    <Content Include="images\rule4.png" />
+    <Content Include="images\rule5.png" />
+    <Content Include="images\rule6.png" />
+    <Content Include="images\rule7.png" />
+    <Content Include="images\rule8.png" />
+    <Content Include="images\search.png" />
+    <Content Include="images\shop_car.png" />
+    <Content Include="images\s_app.png" />
+    <Content Include="images\s_app1.png" />
+    <Content Include="images\s_wb.png" />
+    <Content Include="images\s_wb1.png" />
+    <Content Include="images\s_wx.png" />
+    <Content Include="images\s_wx1.png" />
+    <Content Include="images\task_test.jpg" />
+    <Content Include="images\third_login.png" />
+    <Content Include="images\title_line.png" />
+    <Content Include="images\title_line1.png" />
+    <Content Include="images\title_line2.png" />
+    <Content Include="images\wb.png" />
+    <Content Include="images\wb1.png" />
+    <Content Include="images\wb_b.png" />
+    <Content Include="images\wb_b1.png" />
+    <Content Include="images\wechat_code.png" />
+    <Content Include="images\weib.png" />
+    <Content Include="images\weix.png" />
+    <Content Include="images\wx.png" />
+    <Content Include="images\wx1.png" />
+    <Content Include="images\wx1_b.png" />
+    <Content Include="images\wx_b.png" />
+    <Content Include="images\zero.png" />
+    <Content Include="js\clipboard.min.js" />
+    <Content Include="js\Common_chitu.js" />
+    <Content Include="js\gt.js" />
+    <Content Include="js\jquery.tagcanvas.min.js" />
+    <Content Include="js\swiper-3.4.2.jquery.min.js" />
+    <Content Include="js\tags.js" />
+    <Content Include="js\uploader.swf" />
+    <Content Include="js\webuploader.min.js" />
+    <Content Include="login.aspx" />
+    <Content Include="manager\advertister\extension\cityLayer.html" />
+    <Content Include="manager\advertister\extension\demandLayer.html" />
+    <Content Include="manager\advertister\extension\distributeGeneralizeCreate.html" />
+    <Content Include="manager\advertister\extension\distributeGeneralizeDetail.html" />
+    <Content Include="manager\advertister\extension\distributeGeneralizelist.html" />
+    <Content Include="manager\advertister\extension\js\distributeGeneralizeCreate.js" />
+    <Content Include="manager\advertister\extension\js\distributeGeneralizedetail.js" />
+    <Content Include="manager\advertister\extension\js\distributeGeneralizelist.js" />
+    <Content Include="manager\advertister\extension\js\mediaRealizationCreate.js" />
+    <Content Include="manager\advertister\extension\js\mediaRealizationDetail.js" />
+    <Content Include="manager\advertister\extension\js\mediaRealizationlist.js" />
+    <Content Include="manager\advertister\extension\js\shoppingCart01.js" />
+    <Content Include="manager\advertister\extension\js\shoppingCart02.js" />
+    <Content Include="manager\advertister\extension\js\shoppingCart03.js" />
+    <Content Include="manager\advertister\extension\js\viewOrderDetail.js" />
+    <Content Include="manager\advertister\extension\mediaRealizationCreate.html" />
+    <Content Include="manager\advertister\extension\mediaRealizationDetail.html" />
+    <Content Include="manager\advertister\extension\mediaRealizationList.html" />
+    <Content Include="manager\advertister\extension\motorcycletype.html" />
+    <Content Include="manager\advertister\extension\shoppingCart01.html" />
+    <Content Include="manager\advertister\extension\shoppingCart02.html" />
+    <Content Include="manager\advertister\extension\shoppingCart03.html" />
+    <Content Include="manager\advertister\extension\viewOrderDetail.html" />
+    <Content Include="manager\media\income\income.html" />
+    <Content Include="manager\media\income\js\income.js" />
+    <Content Include="manager\media\income\layerIncome.html" />
+    <Content Include="manager\media\order\auto-order.html" />
+    <Content Include="manager\media\order\content-detail.html" />
+    <Content Include="manager\media\order\content-order.html" />
+    <Content Include="manager\media\order\js\content-list.js" />
+    <Content Include="manager\media\order\js\patch-list.js" />
+    <Content Include="manager\media\order\patch-detail.html" />
+    <Content Include="manager\media\order\patch-order.html" />
+    <Content Include="static\advertister\js\sort-list.js" />
+    <Content Include="static\advertister\sort_list.html" />
+    <Content Include="static\info\aboutus.html" />
+    <Content Include="static\info\distribution.html" />
+    <Content Include="static\info\intelligent_match.html" />
+    <Content Include="static\info\js\match.js" />
+    <Content Include="static\info\js\PagePading.js" />
+    <Content Include="static\info\js\tasklistinfo.js" />
+    <Content Include="static\info\media_owner.html" />
+    <Content Include="static\info\meia_cast.html" />
+    <Content Include="static\info\service.html" />
+    <Content Include="static\info\tasklistinfo.html" />
+    <Content Include="static\media\contentDistribution.html" />
+    <Content Include="static\media\js\contentDistributionList.js" />
+    <Content Include="static\media\operation_rule.html" />
+    <Content Include="static\media\wechatofficialaccount.html" />
+    <None Include="test\login-wx.html" />
+    <None Include="test\main.html" />
+    <None Include="test\main2-1.html" />
+    <None Include="test\main2-2.html" />
+    <None Include="test\tagcanvas_test.html" />
+    <None Include="test\test_uploadfile.html" />
+    <Content Include="usermanager\ForgetPwd.html" />
+    <Content Include="usermanager\js\wx_login.js" />
+    <Content Include="usermanager\NotAccessMsgPage.html" />
+    <Content Include="exit.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="images\add.png" />
+    <Content Include="images\app.png" />
+    <Content Include="images\arrow_01.png" />
+    <Content Include="images\arrow_02.png" />
+    <Content Include="images\bangzhu_08.jpg" />
+    <Content Include="images\bottom_grey.png" />
+    <Content Include="images\bottom_red.png" />
+    <Content Include="images\car1.png" />
+    <Content Include="images\cart_01.png" />
+    <Content Include="images\cart_02.png" />
+    <Content Include="images\closebt.png" />
+    <Content Include="images\close_x.jpg" />
+    <Content Include="images\date.png" />
+    <Content Include="images\dateNew.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\dianshi_25.png" />
+    <Content Include="images\erweima.png" />
+    <Content Include="images\extension.png" />
+    <Content Include="images\girl.png" />
+    <Content Include="images\help.png" />
+    <Content Include="images\house.png" />
+    <Content Include="images\ibar_sprites.png" />
+    <Content Include="images\icon.png" />
+    <Content Include="images\icon1.png" />
+    <Content Include="images\icon2.png" />
+    <Content Include="images\icon3.png" />
+    <Content Include="images\icon4.png" />
+    <Content Include="images\icon5.png" />
+    <Content Include="images\icon6.png" />
+    <Content Include="images\icon7.png" />
+    <Content Include="images\icon80.png" />
+    <Content Include="images\iconNew.png" />
+    <Content Include="images\index\banner1.png" />
+    <Content Include="images\index\bg1.png" />
+    <Content Include="images\index\bg2.png" />
+    <Content Include="images\index\bg3.png" />
+    <Content Include="images\index\bg4.png" />
+    <Content Include="images\index\bg5.png" />
+    <Content Include="images\index\icon1.png" />
+    <Content Include="images\index\icon10.png" />
+    <Content Include="images\index\icon11.png" />
+    <Content Include="images\index\icon2.png" />
+    <Content Include="images\index\icon3.png" />
+    <Content Include="images\index\icon4.png" />
+    <Content Include="images\index\icon5.png" />
+    <Content Include="images\index\icon6.png" />
+    <Content Include="images\index\icon7.png" />
+    <Content Include="images\index\icon8.png" />
+    <Content Include="images\index\icon9.png" />
+    <Content Include="images\index\ip标签1.png" />
+    <Content Include="images\index\ip标签2.png" />
+    <Content Include="images\index\ip标签3.png" />
+    <Content Include="images\index\left.png" />
+    <Content Include="images\index\map.png" />
+    <Content Include="images\index\right.png" />
+    <Content Include="images\labelIcon.png" />
+    <Content Include="images\line1.png" />
+    <Content Include="images\line2.png" />
+    <Content Include="images\line_02.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_03.png" />
+    <Content Include="images\logo白.png" />
+    <Content Include="images\meiti.png" />
+    <Content Include="images\meitizhu\bg.png" />
+    <Content Include="images\meitizhu\brand.png" />
+    <Content Include="images\meitizhu\platform.png" />
+    <Content Include="images\meitizhu\realization.png" />
+    <Content Include="images\meitizhu\report.png" />
+    <Content Include="images\menu\menu_ico01.png" />
+    <Content Include="images\menu\menu_SYS007MOD0001.png" />
+    <Content Include="images\more_07.png" />
+    <Content Include="images\nav_bg.png" />
+    <Content Include="images\neirong_03.jpg" />
+    <Content Include="images\no_data.png" />
+    <Content Include="images\person.png" />
+    <Content Include="images\person2.png" />
+    <Content Include="images\person3.png" />
+    <Content Include="images\phone_14.png" />
+    <Content Include="images\pic08.jpg" />
+    <Content Include="images\quit.png" />
+    <Content Include="images\registered_01.png" />
+    <Content Include="images\rightTrangle.png" />
+    <Content Include="images\task_14.jpg" />
+    <Content Include="images\tiepian_05.jpg" />
+    <Content Include="images\weibo.png" />
+    <Content Include="images\yong_03.png" />
+    <Content Include="index.html" />
+    <Content Include="js\Area2.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\Common_area.js" />
+    <Content Include="js\ejs.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery.1.11.3.min.js" />
+    <Content Include="js\jquery.browser.js" />
+    <Content Include="js\jquery.jmpopups-0.5.1.pack.js" />
+    <Content Include="js\jquery.jqzoom.js" />
+    <Content Include="js\jquery.jqzoom.v2.2.min.js" />
+    <Content Include="js\jquery.pagination.js" />
+    <Content Include="js\jquery.uploadify.v3.2.min.js" />
+    <Content Include="js\json2.js" />
+    <Content Include="js\laydate.dev.js" />
+    <Content Include="js\laydate.js" />
+    <Content Include="js\layer\layer.js" />
+    <Content Include="js\layer\mobile\layer.js" />
+    <Content Include="js\layer\mobile\need\layer.css" />
+    <Content Include="js\layer\skin\default\icon-ext.png" />
+    <Content Include="js\layer\skin\default\icon.png" />
+    <Content Include="js\layer\skin\default\layer.css" />
+    <Content Include="js\layer\skin\default\loading-0.gif" />
+    <Content Include="js\layer\skin\default\loading-1.gif" />
+    <Content Include="js\layer\skin\default\loading-2.gif" />
+    <Content Include="js\login.js" />
+    <Content Include="js\login_new.js" />
+    <Content Include="js\need\laydate.css" />
+    <Content Include="js\skins\default\icon.png" />
+    <Content Include="js\skins\default\iconNew.png" />
+    <Content Include="js\skins\default\laydate.css" />
+    <Content Include="js\tab.js" />
+    <Content Include="js\uploadify.swf" />
+    <Content Include="manager\advertister\account\accountManage.html" />
+    <Content Include="manager\advertister\account\js\accountManage.js" />
+    <Content Include="manager\advertister\account\modifyPhoneLayer.html" />
+    <Content Include="manager\advertister\extension\IntelligentSearchList.html" />
+    <Content Include="manager\advertister\extension\js\IntelligentSearchList.js" />
+    <Content Include="manager\advertister\personal\js\person-center.js" />
+    <Content Include="manager\advertister\personal\PersonCenter.html" />
+    <Content Include="manager\media\order\js\detail-order.js" />
+    <Content Include="manager\media\personal\js\personalCenter.js" />
+    <Content Include="manager\media\personal\personalCenter.html" />
+    <Content Include="manager\media\personal\priceInfoLayer.html" />
+    <Content Include="usermanager\js\forgetpwd.js" />
+    <Content Include="usermanager\js\register.js" />
+    <Content Include="usermanager\Register.html" />
+    <Content Include="usermanager\TermsService.html" />
+    <None Include="静态页面\1.1微信公众号-列表.html" />
+    <Content Include="css\_veriables.less" />
+    <None Include="静态页面\3.2选号车.html" />
+    <None Include="静态页面\3.3提交需求.html" />
+    <None Include="静态页面\3.4提交成功.html" />
+    <None Include="静态页面\mTemolate.html" />
+    <None Include="静态页面\pcTemolate.html" />
+    <None Include="静态页面\个人中心.html" />
+    <None Include="静态页面\二级页面内容分发.html" />
+    <None Include="静态页面\二级页面客服体系.html" />
+    <None Include="静态页面\关于我们.html" />
+    <None Include="静态页面\内容分发.html" />
+    <None Include="静态页面\内容分发推广-创建内容分发推广.html" />
+    <None Include="静态页面\创建媒体智投推广.html" />
+    <None Include="静态页面\媒体个人中心.html" />
+    <None Include="静态页面\媒体主.html" />
+    <None Include="静态页面\媒体主账号管理.html" />
+    <None Include="静态页面\媒体智投推广-创建媒体智投推广.html" />
+    <None Include="静态页面\找回密码.html" />
+    <None Include="静态页面\报价信息.html" />
+    <None Include="静态页面\收益管理新.html" />
+    <None Include="静态页面\新版忘记密码.html" />
+    <None Include="静态页面\新版注册页面.html" />
+    <None Include="静态页面\新版登录页面.html" />
+    <None Include="静态页面\查看推广.html" />
+    <None Include="静态页面\注册.html" />
+    <Content Include="css\common.less" />
+    <Content Include="css\layout_w.less" />
+    <None Include="静态页面\登录.html" />
+    <Content Include="css\movie_adverts.less" />
+    <Content Include="ajaxservers\LoginManager.ashx" />
+    <None Include="静态页面\订单列表.html" />
+    <None Include="静态页面\首页.html" />
+    <Content Include="css\personal.less" />
+    <Content Include="ajaxservers\UploadFile.ashx" />
+    <Content Include="ConfigFile\StorageGroupConfig.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ajaxservers\geetest\getcaptcha.ashx" />
+    <Content Include="ajaxservers\geetest\verifyrequest.ashx" />
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ajaxservers\geetest\getcaptcha.ashx.cs">
+      <DependentUpon>getcaptcha.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajaxservers\geetest\verifyrequest.ashx.cs">
+      <DependentUpon>verifyrequest.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajaxservers\LoginManager.ashx.cs">
+      <DependentUpon>LoginManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajaxservers\UploadFile.ashx.cs">
+      <DependentUpon>UploadFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="checkcode.aspx.cs">
+      <DependentUpon>checkcode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkcode.aspx.designer.cs">
+      <DependentUpon>checkcode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajaxservers\ValidateCode.cs" />
+    <Compile Include="exit.aspx.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exit.aspx.designer.cs">
+      <DependentUpon>exit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\banner\" />
+    <Folder Include="images\images\" />
+    <Folder Include="manager\advertister\account\json\" />
+    <Folder Include="manager\advertister\extension\json\" />
+    <Folder Include="manager\advertister\personal\json\" />
+    <Folder Include="manager\media\income\json\" />
+    <Folder Include="manager\media\order\json\" />
+    <Folder Include="manager\media\personal\json\" />
+    <Folder Include="static\advertister\json\" />
+    <Folder Include="static\media\json\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.BLL\XYAuto.ITSC.Chitunion2017.BLL.csproj">
+      <Project>{b31bb524-1886-4f97-8871-7b517f1b27d4}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Dal\XYAuto.ITSC.Chitunion2017.Dal.csproj">
+      <Project>{0971ea85-1cc7-4289-b99b-adc03d47f02f}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.Entities\XYAuto.ITSC.Chitunion2017.Entities.csproj">
+      <Project>{97c0aba4-8a8f-41a2-a28f-eb470ddbcbb1}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XYAuto.ITSC.Chitunion2017.WebService\XYAuto.ITSC.Chitunion2017.WebService.csproj">
+      <Project>{64399042-f595-43a8-8d11-8713b871d01b}</Project>
+      <Name>XYAuto.ITSC.Chitunion2017.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20586</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20319/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>数据概况</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/echarts.common.min.js"></script>
+    <script src="js/data-profiles.js"></script>
+</head>
+
+<body>
+
+<!--#include file="/base/header.html" -->
+
+
+<!--中间内容-->
+ <div class="order">
+     
+    <!--左侧菜单-->
+    <!--#include file="/base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>                    
+            </div>
+            <div class="data_files">
+                <h2>昨日数据统计</h2>
+                <div class="ad_table">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                        <thead>
+                            <tr>
+                                <th width="12%">头部文章抓取 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="12%">头部文章机洗入库 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="12%">腰部文章抓取 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="12%">腰部文章机洗入库 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="14%">腰部文章匹配车型 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="9%">物料封装 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="9%">物料分发 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="9%">物料转发 <img src="/ImagesNew/tip2.png"></th>
+                                <th width="9%">获取线索 <img src="/ImagesNew/tip2.png"></th>
+                            </tr>
+                        </thead>
+                        <tbody id='HistoryCon'>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="data_tab">
+                    <span LatelyDays='7'>近7天</span><span LatelyDays='30'>近30天</span>
+                </div>   
+                <!-- 头部文章抓取 -->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>头部文章抓取</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort0"></ul>                              
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=0" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="echartsCon_0" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption0" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div> 
+                
+                <!-- 头部文章机洗入库 -->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>头部文章机洗入库</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort1"></ul>                             
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=1" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="echartsCon_1" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption1" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div>
+                <!-- 腰部文章抓取 -->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>腰部文章抓取</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort2">  </ul>                             
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=0" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="echartsCon_2" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption2" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div>
+                <!-- 腰部文章机洗入库 -->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>腰部文章机洗入库</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort3"> </ul>                           
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=1" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="echartsCon_3" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption3" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div>
+                <!-- 腰部文章车型匹配 -->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>腰部文章车型匹配</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort4"></ul>                                  
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=2" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="echartsCon_4" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption4" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div>
+                <!-- 物料封装 -->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>物料封装</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort5"></ul>    
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=5" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>                          
+                        <div id="echartsCon_5" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption5" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div>
+                <!-- 物料分发-->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>物料分发</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort6"></ul>                              
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=6" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>     
+                        <div id="echartsCon_6" class="con_middle"></div>
+                    </div>
+                </div>
+                <!-- 转发-->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>转发</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort7"></ul>                       
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=7" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>     
+                        <div id="echartsCon_7" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption7" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div>
+                <!-- 线索获取-->
+                <div class="data_item">
+                    <div class="main_con" style="position: relative;">
+                        <div class="top">
+                            <p class="tit"><label>线索获取</label> <span class="item_date">（2017.11.6-2017.11.11）</span></p>
+                            <ul class="sort sort8"></ul>
+                            <a href="/DispenseManager/DataAnalysis.html?Tab=8" target="_blank"  style="position: absolute;right:8px;top:8px;">></a>
+                        </div>
+                        <div class="clear"></div>     
+                        <div id="echartsCon_8" class="con_middle"></div>
+                    </div>
+                    <select id="ChangeOption8" class="_option">
+                        <option value="">全渠道</option>
+                        <option value="">微信号</option>
+                        <option value="">搜狐号</option>
+                        <option value="">百家号</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!-- tit -->
+<script type="text/template" id="EachTit">
+    <% List.forEach(function(item){%>
+        <li><%= item.Name %>：<%= item.ArticleCount %></li>
+    <%}) %>
+</script>
+
+<!-- 历史数据 -->
+<script type="text/template" id="History">
+    <tr>
+        <td> 
+            <p class="fb"><span><%= HeadArticle %></span>篇文章</p>
+            <p>覆盖<span><%= HeadArticleAccount %></span>个账号</p>
+            <div class="tip"><span></span>指昨天抓取的所有渠道的头部文章数，及这些文章覆盖的账号数</div>
+        </td>
+        <td>
+            <p class="fb"><span><%= HeadAutoClean %></span>篇文章</p>
+            <p>覆盖<span><%= HeadAutoCleanAccount %></span>个账号</p>
+            <div class="tip"><span></span>指昨天机洗入库的所有头部文章数，及这些文章覆盖的账号数，不区分渠道</div>
+        </td>
+        <td>
+            <p class="fb"><span><%= WaistArticle %></span>篇文章</p>
+            <div class="tip"><span></span>指昨天抓取的所有渠道的腰部文章数</div>
+        </td>
+        <td>
+            <p class="fb"><span><%= WaistArticleClean %></span>篇文章</p>
+            <div class="tip"><span></span>指昨天机洗入库的所有腰部文章数</div>
+        </td>
+        <td>
+            <p class="fb">匹配到车型<span><%= WaistArticleMatched %></span>篇文章</p>
+            <p>未匹配车型<span><%= WaistArticleUnmatched %></span>篇文章</p>
+            <div class="tip"><span></span>匹配到车型：指昨天成功匹配上车型的文章数未匹配到车型：指昨天未匹配上车型的文章数</div>
+        </td>
+        <td>
+            <p class="fb"><span><%= MaterialPackaged %></span>篇</p>
+            <div class="tip"><span></span>指昨天封装的所有类型的物料数</div>
+        </td>
+        <td>
+            <p class="fb"><span><%= MaterialDistribute %></span>篇</p>
+            <div class="tip"><span></span>指昨天分发的物料数</div>
+        </td>
+        <td>
+            <p class="fb"><span><%= MaterialForward %></span>次</p>
+            <div class="tip"><span></span>指昨天产生的转发次数</div>
+        </td>
+        <td>
+            <p class="fb"><span><%= Clues %></span>条</p>
+            <div class="tip"><span></span>指昨天产生的线索总量</div>
+        </td>
+    </tr>
+</script>
+
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+</body>
+</html>

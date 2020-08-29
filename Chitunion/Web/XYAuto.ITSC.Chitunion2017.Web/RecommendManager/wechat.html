@@ -1,0 +1,126 @@
+<style>
+    .release_wechat {
+        display: inline-block;
+        padding: 5px 30px;
+        margin: 5px auto 0;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #E9E9E9;
+        color: #fff;
+        background-color: #FF9100;
+        cursor:pointer;
+    }
+    .release_wechat:hover {
+        -webkit-box-shadow: 0 0 10px #ccc;
+        -moz-box-shadow: 0 0 10px #ccc;
+        box-shadow: 0 0 10px #ccc;
+    }
+</style>
+<div style="background-color: #f7f7f7; padding: 5px 10px; border: 1px solid #888; border-radius: 8px">
+    <div><h3 style="float: left;">&nbsp;&nbsp;预览</h3><span id="z_Close" style="cursor:pointer;float: right; color: blue; margin-right: 10px">关闭</span></div>
+    <div style="clear: both"></div>
+    <!--微信公众号-->
+    <div class="wechat" style="margin: 10px auto 0 auto;">
+        <div class="wechat_title"><h2>微信公众号</h2></div>
+        <div class="nav">
+        </div>
+        <div class="wechat_more"><a href="javascript:void(0)" style="outline:none;">更多推荐></a></div>
+    </div>
+    <div class="wechat_nr">
+        <div class="wechat_nr_left">
+        </div>
+        <div class="wechat_nr_line">&nbsp;</div>
+        <div class="wechat_nr_left">
+        </div>
+        <div class="clear"></div>
+
+        <div class="wechat_box">
+
+        </div>
+    </div>
+    <div style="text-align: center">
+        <span class="release_wechat">发布</span>
+    </div>
+    <!--微信公众号-->
+    <script type="text/template" id="nav_list">
+        <% for(var i = 0; i < data.length; i++) {%>
+        <li><a href="javascript:void(0)"  name="<%=data[i].CategoryID%>">
+            <%= data[i].CategoryName %>
+            <!-- <%=data[i].CategroryCount*1000 %>
+            <em>+</em> -->
+        </a></li>
+        <%}%>
+        <div class="clear"></div>
+    </script>
+    <!-- 微信渲染上部分 -->
+    <script type="text/template" id="wechat_list">
+        <ul class="dope">
+            <%if(data!=undefined){%>
+            <li>
+                <%if(data.HeadIconURL==""){%>
+                <img class="portrait" src="images/default_touxiang.png"/>
+                <%}else{%>
+                <img class="portrait" src="<%= data.HeadIconURL%>"/>
+                <%}%>
+                <%if(data.IsAuth){%>
+                <span class="tag">&nbsp;</span>
+                <%}%>
+            </li>
+            <li>
+                <div class="info">
+                    <h2><%= data.Name%></h2>
+                    <p><%= data.Sign%></p>
+                    <div>
+                        <%if( data.IsReserve){%>
+                        <span>可预约</span>
+                        <%}else{%>
+                        <span>需预约</span>
+                        <%}%>
+                        <!-- <span>可原创</span> -->
+                    </div>
+                </div>
+            </li>
+            <li class="fr"><a href="javascript:void(0)" class="wechat_see">查看报价</a></li>
+            <div class="clear"></div>
+            <%}%>
+        </ul>
+        <div class="tc">
+            <div class="echarts_img" style="width: 361px;height:225px;"></div>
+        </div>
+    </script>
+    <!-- 微信渲染下部分 -->
+    <script type="text/template" id="wechat_list2">
+        <% for(var i = 2; i < data.length; i++) {%>
+        <%if(i<5){%>
+        <div class="content">
+            <%if(i==2){%>
+            <div class="one_bg">
+                <%}else if(i==3){%>
+                <div class="two_bg">
+                    <%}else if(i==4){%>
+                    <div class="three_bg">
+                        <%}%>
+                        <%}else{%>
+                        <div class="content" style="margin-right: 0">
+                            <div class="four_bg">
+                                <%}%>
+                                <%if(data.HeadIconURL==""){%>
+                                <div class="portrait"><img src="images/default_touxiang.png"/></div>
+                                <%}else{%>
+                                <div class="portrait"><img src="<%= data[i].HeadIconURL%>"></div>
+                                <%}%>
+                                <h2><%= data[i].Name%></h2>
+                                <p><%=data[i].Sign%></p>
+                                <ul>
+                                    <li>粉丝数 <span><%=formatMoney(data[i].FansCount/10000+0.1,1,"") %></span>万</li>
+                                    <li>|</li>
+                                    <li><a class="wechat_see1" href="#">查看报价</a></li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <%}%>
+                        <div class="clear"></div>
+    </script>
+</div>

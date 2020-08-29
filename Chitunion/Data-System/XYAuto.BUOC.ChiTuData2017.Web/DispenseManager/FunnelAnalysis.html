@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>漏斗分析</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src= "/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="js/funnel-analysis.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="/Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav"></h2>                
+                <div class="clear"></div>
+            </div>
+            
+            <div id="list_switching">
+                <ul class="tab_menu">
+                    <li name="89001" class="selected">头部文章</li>
+                    <li name="89003">腰部文章</li>
+                    <li name="89004">物料</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+
+            <div class="data_files">
+                <!-- 日期切换 -->
+                <div class="data_tab" id="LatelyDays">
+                    <span class="selected" name='7'>近7天</span><span name='30'>近30天</span>
+                </div>
+            
+                <!-- 大漏斗 -->
+                <div class="analysis_con">                    
+                </div>
+
+                <!-- 物料小漏斗 -->
+                <div class="material_con" style="display: none;">
+                    
+                </div>
+                <div class="clear"></div>
+                
+
+                <!-- 头部文章场景 渠道 分值 -->
+                <div class="HeadCon TabBox">
+                    <div class="data_tab" id='Head'>
+                        <span class="selected" name='1'>场景</span><span name='2'>渠道</span><span name='3'>分值</span>
+                        
+                    </div>
+                    <div class="ad_table">
+                        <a href="javascript:;" style="float: right;margin-bottom: 6px;font-size: 12px;" id='HeadDownload'> <img src="/ImagesNew/icon19.png" style="margin-right: 10px;">导出数据</a>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                            <thead>
+                                <tr>
+                                    <th width="9%" class="SceneName">场景</th>
+                                    <th width="9%" class="ChannelName">渠道</th>
+                                    <th width="9%" class="AAScoreTypeName">文章分值</th>
+                                    <th width="9%">抓取文章</th>
+                                    <th width="9%">抓取账号</th>
+                                    <th width="9%">机洗入库文章</th>
+                                    <th width="9%">机洗入库账号</th>
+                                    <th width="9%">初筛保留文章</th>
+                                    <th width="9%">初筛保留账号</th>
+                                    <th width="9%">清洗保留文章</th>
+                                    <th width="9%">清洗保留账号</th>
+                                    <th width="9%">封装使用文章</th>
+                                    <th width="9%">封装使用账号</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>                                
+                        </table>
+                        <!-- loading -->
+                        <p class="listLoading"></p>
+                    </div>
+                </div>
+                
+                <!-- 腰部文章 文章类别  渠道 -->
+                <div class="WaistCon TabBox" style="display: none;">
+                    <div class="data_tab" id='Waist'>
+                        <span class="selected" name='1'>文章类别</span><span name='2'>渠道</span>
+                    </div>
+                    <div class="ad_table">
+                        <a href="javascript:;" style="float: right;margin-bottom: 6px;font-size: 12px;" id='WaistDownload'> <img src="/ImagesNew/icon19.png" style="margin-right: 10px;">导出数据</a>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                            <thead>
+                                <tr>
+                                    <th width="9%" class="ArticleTypeName">文章类别</th>
+                                    <th width="9%" class="ChannelName">渠道</th>
+                                    <th width="9%">抓取</th>
+                                    <th width="9%">机洗</th>
+                                    <th width="9%">匹配车型</th>
+                                    <th width="9%">清洗保留</th>
+                                    <th width="9%">封装使用</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                        <!-- loading -->
+                        <p class="listLoading"></p>
+                    </div>
+                </div>
+                
+                
+                <!-- 物料 文章类别  渠道 -->
+                <div class="MaterialCon TabBox" style="display: none;">
+                    <div class="data_tab" id="Material">
+                        <span class="selected" name='1'>场景</span><span name='2'>渠道</span><span name='3'>分值</span>
+                    </div>
+                    <div class="ad_table">
+                        <a href="javascript:;" style="float: right;margin-bottom: 6px;font-size: 12px;" id='MaterialDownload'> <img src="/ImagesNew/icon19.png" style="margin-right:10px;">导出数据</a>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                            <thead>
+                                <tr>
+                                    <th width="9%" class="SceneName">场景</th>
+                                    <th width="9%" class="ChannelName">渠道</th>
+                                    <th width="9%" class="AAScoreTypeName">头部文章分值</th>
+                                    <th width="9%">封装物料</th>
+                                    <th width="9%">分发物料</th>
+                                    <th width="9%">转发次数</th>
+                                    <th width="9%">线索数量</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>                                
+                        </table>
+                        <!-- loading -->
+                        <p class="listLoading"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 头腰的漏斗 -->
+<script type="text/template" id="ArticleChart">
+    <div class="analysis_tit">
+        <p class="tit">头部文章封装流程转化</p>
+        <span>(<%= Date.BeginTime.split('-').join('.') %>- <%= Date.EndTime.split('-').join('.') %>)</span>
+    </div> 
+
+    <% Info.forEach(function(item,i){%>
+        <div class="analysis_item">
+            <div class="dgt-left dlft<%=i+1%>">
+                <span class="tag1"></span>
+                <span class="tag2"></span>
+                <span class="tag3"></span>
+                <p class="dgt_txt"><%= item.Name %>  |  <%= item.ArticleCount %>文章  <span class="AccountCount">| <%= item.AccountCount %>账号</span>  </p>
+            </div>
+
+            <div class="dgt-right dgt<%=i+1%>">
+                <div class="funnel-title">
+                    <%= item.Name %> <span><%= item.ArticleCount %></span>
+                </div>
+            </div>
+            <div class="clear"></div>
+            
+            <% if(i != Info.length - 1){%>
+            <div class="dgt-right-link lin<%=i+1%>">
+                <div class="funnel-num"> <%= formatMoney(Info[i+1].ArticleCount/Info[i].ArticleCount*100,2,'') %>% </div>
+            </div>
+            <%} %>
+
+            <div class="arrows ar<%=i+1%>">
+                <% if(i != Info.length - 1){%>
+                    <div class="t"><b></b> <%= formatMoney(Info[i+1].ArticleCount/item.ArticleCount*100,2,'') %>% <small></small></div>
+                    <p class="b"></p>
+                <%} %>
+            </div> 
+        </div>
+    <%}) %>
+</script>
+
+<!-- 物料的小漏斗 -->
+<script type="text/template" id="MaterielChart">
+    <% List.forEach(function(item,i){%>
+        <% if(i == 0){%>
+        <div class="mat_left">
+            <div class="top_element" style="margin-bottom: 26px;">
+                <div class="top_info" style="border-bottom: 0;">
+                    <p>分发转化<span class="space_date"></span></p>                         
+                </div>
+            </div>
+        <%}else{%>
+        <div class="mat_right">
+            <div class="top_element" style="margin-bottom: 26px;">
+                <div class="top_info">
+                    <p>线索转化<span class="space_date"></span></p>                         
+                </div>
+            </div>
+        <%} %>
+            
+            <% for(var j = 0;j<= item.length - 1;j ++){%>
+                <div class="analysis_item" style="margin-left: 14%;">
+                    <% if(j == 0){%>
+                    <div class="dgt-left dlft1" style="width: 40%;left: -7%;">
+                    <%}else if(j == 1){%>
+                    <div class="dgt-left dlft2" style="width: 34%;left: 3%;">
+                    <%} %>
+                        <span class="tag1"></span>
+                        <span class="tag2"></span>
+                        <span class="tag3"></span>
+                        <p class="dgt_txt"><%= item[j].Name %>   <%= item[j].ArticleCount %>个</p>   
+                    </div>
+                    <% if(j == 0){%>
+                    <div class="dgt-right dgt1" style='width: 45%;'>
+                    <%}else if(j == 1){%>
+                    <div class="dgt-right dgt2">
+                    <%} %>
+                        <div class="funnel-title">
+                            <%= item[j].Name %> <span><%= item[j].ArticleCount %></span>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    
+                    <% if(j == 0){%>
+                    <div class="dgt-right-link lin<%=j+1%>" style='width: 23%;'><div class="funnel-num"> <%= formatMoney(item[1].ArticleCount/item[0].ArticleCount*100,2,'') %>% </div></div>
+                    <%} %>
+
+                    <% if(j == 0){%>
+                    <div class="arrows ar1" style="left: 9%;">
+                        <div class="t"><b></b> <%= formatMoney(item[1].ArticleCount/item[0].ArticleCount*100,2,'') %>% <small></small></div>
+                        <p class="b"></p>
+                    </div>
+                    <%} %>
+                </div>
+            <%} %>
+        </div>
+    <%}) %>
+</script>
+
+<!-- 头 -->
+<script type="text/template" id="HeadDetailList">
+    <% List.forEach(function(item){%>
+        <tr>
+            <td class="SceneName"><%= item.SceneName %></td>
+            <td class="ChannelName"><%= item.ChannelName %></td>
+            <td class="AAScoreTypeName"><%= item.AAScoreTypeName %></td>
+            <td><%= item.SpiderArticleCount %></td>
+            <td><%= item.SpiderAccountCount %></td>
+            <td><%= item.AutoArticleCount %></td>
+            <td><%= item.AutoAccountCount %></td>
+            <td><%= item.PrimaryArticleCount %></td>
+            <td><%= item.PrimaryAccountCount %></td>
+            <td><%= item.ArtificialArticleCount %></td>
+            <td><%= item.ArtificialAccountCount %></td>
+            <td><%= item.EncapsulateArticleCount %></td>
+            <td><%= item.EncapsulateAccountCount %></td>
+        </tr>
+    <%}) %>
+</script>
+
+<!-- 腰 -->
+<script type="text/template" id="WaistDetailList">
+    <% List.forEach(function(item){%>
+        <tr>
+            <td class="ArticleTypeName"><%= item.Category %></td>
+            <td class="ChannelName"><%= item.ChannelName %></td>
+            <td><%= item.SpiderCount %></td>
+            <td><%= item.AutoCleanCount %></td>
+            <td><%= item.MatchedCount %></td>
+            <td><%= item.ArtificialCount %></td>
+            <td><%= item.EncapsulateCount %></td>
+        </tr>
+    <%}) %>
+</script>
+
+<!-- 物料 -->
+<script type="text/template" id="MaterialDetailList">
+    <% List.forEach(function(item){%>
+        <tr>
+            <td class="SceneName"><%= item._scenename %></td>
+            <td class="ChannelName"><%= item._channelname %></td>
+            <td class="AAScoreTypeName"><%= item._aascoretypename %></td>
+            <td><%= item._encapsulate %></td>
+            <td><%= item._distribute %></td>
+            <td><%= item._forward %></td>
+            <td><%= item._clue %></td>
+        </tr>
+    <%}) %>
+</script>
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+</body>
+</html>

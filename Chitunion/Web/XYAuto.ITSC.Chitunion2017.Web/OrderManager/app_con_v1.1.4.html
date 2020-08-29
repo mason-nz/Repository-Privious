@@ -1,0 +1,323 @@
+<!-- 中间内容 -->
+<div class="wx_box">
+    <div class="search-form" >
+        <div id="search-hd" class="search-hd">
+            <div class="search-bg"></div>
+            <input type="text" class="search-input">
+            <input type="hidden" name="rpId" id="rpId" />
+            <span class="pholder">请输入APP名称</span>
+            <button id="submit" class="btn-search" value="搜索">搜APP</button>
+        </div>
+    </div>
+
+    <div class="wx_odds">
+
+         <div class="wx_wrap"  style='height:35px;'>
+             <div class="wx_key" data-name='CategoryID'>常见分类：</div>
+             <div class="wx_value catagory">
+                <ul></ul>
+             </div>
+             <div class="wx_ext" data-open=''>展开 <img src="../images/arrow_01.png"></div>
+             <div class="clear"></div>
+         </div>
+         <div class="wx_wrap">
+            <div class="wx_key" data-name='Price'>价格：</div>
+            <div class="wx_value">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" class="active">不限</a>
+                        <input type="hidden" name="" value=''>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">1万以下</a>
+                        <input type="hidden" name="" value='-10000'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">1-5万</a>
+                        <input type="hidden" name="" value='10000-50000'>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">5-10万</a>
+                        <input type="hidden" name="" value='50000-100000'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">10-20万</a>
+                        <input type="hidden" name="" value='100000-200000'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">20-40万</a>
+                        <input type="hidden" name="" value='200000-400000'>
+                    </li>
+                     <li>
+                        <a href="javascript:void(0)">40-80万</a>
+                        <input type="hidden" name="" value='400000-800000'>
+                    </li>
+                    <li>
+                       <a href="javascript:void(0)">80-120万</a>
+                       <input type="hidden" name="" value='800000-1200000'>
+                   </li>
+                   <li>
+                      <a href="javascript:void(0)">120-200万</a>
+                      <input type="hidden" name="" value='1200000-2000000'>
+                  </li>
+                     <li>
+                        <a href="javascript:void(0)">200万以上</a>
+                        <input type="hidden" name="" value='2000000-'>
+                    </li>
+                     <div class="clear"></div>
+                </ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+         <div class="wx_wrap" style="display:none">
+             <div class="wx_key" data-name='SaleType'>售卖方式：</div>
+             <div class="wx_value">
+                 <ul>
+                     <li>
+                         <a href="javascript:void(0)" class="active">不限</a>
+                         <input type="hidden" name="" value='-2'>
+                     </li>
+                      <li>
+                         <a href="javascript:void(0)">CPM</a>
+                         <input type="hidden" name="" value='11001'>
+                     </li>
+                      <li>
+                         <a href="javascript:void(0)">CPD</a>
+                         <input type="hidden" name="" value='11002'>
+                     </li>
+                     <div class="clear"></div>
+                 </ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+         <div class="wx_wrap">
+             <div class="wx_key" data-name='CityID' city="city">定向投放：</div>
+             <div class="wx_value" city="city">
+                 <ul>
+                     <li><a href="#" class="active">不限</a></li>
+                     <input type="hidden" name="" value='-2'>
+                     <li style="width:925px;">
+                         <div class="etter">
+                             <span id="common">常用</span>
+                             <!-- <span>A</span>
+                             <span>B</span>
+                             <span>C</span>
+                             <span>D</span>
+                             <span>E</span>
+                             <span>F</span>
+                             <span>G</span>
+                             <span>H</span>
+                             <span>I</span>
+                             <span>J</span>
+                             <span>K</span>
+                             <span>L</span>
+                             <span>M</span>
+                             <span>N</span>
+                             <span>O</span>
+                             <span>P</span>
+                             <span>Q</span>
+                             <span>R</span>
+                             <span>S</span>
+                             <span>T</span>
+                             <span>U</span>
+                             <span>V</span>
+                             <span>W</span>
+                             <span>X</span>
+                             <span>Y</span>
+                             <span>Z</span> -->
+                         </div>
+                         <div class="city " style="display:none">
+                             <!-- <span>北京</span>
+                             <span class="current">上海</span>
+                             <span>深圳</span>
+                             <span>青岛</span>
+                             <span>福州</span>
+                             <span>苏州</span>
+                             <span>广州</span>
+                             <span>杭州</span>
+                             <span>深圳</span>
+                             <span>青岛</span>
+                             <span>福州</span>
+                             <span>苏州</span>
+                             <span>广州</span>
+                             <span>杭州</span>
+                             <span>深圳</span>
+                             <span>青岛</span>
+                             <span>福州</span>
+                             <span>苏州</span>
+                             <span>广州</span>
+                             <span>杭州</span>
+                             <span>广州</span>
+                             <span>杭州</span>
+                             <span>深圳</span>
+                             <span>青岛</span>
+                             <span>福州</span>
+                             <span>苏州</span>
+                             <span>广州</span>
+                             <span>杭州</span> -->
+                         </div>
+                     </li>
+                     <div class="clear"></div>
+                 </ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+           <div class="wx_already_wrap"  style='display: none;'>
+             <div class="wx_already_key">已选择：</div>
+             <div class="wx_already_value">
+                 <ul></ul>
+             </div>
+             <div class="clear"></div>
+         </div>
+     </div>
+    <div class="wx_box">
+        <div class="wx_form">
+            <div class="wx_table3">
+                <div class="wx_content1" style="margin-left:30px">共计<span class='totalCount'>0</span>个</div>
+                <div class="sorting" style="margin-right:40px">
+                    <ul>
+                       <li><a href="javascript:void(0)" id="grid"><img src="../images/icon69.png"></a></li>
+                       <li><a href="javascript:void(0)" id="list"><img src="../images/icon71.png"></a></li>
+                       <li class="red">|</li>
+                       <li><a href="javascript:void(0)" class="active" data-orderBy='-2'>默认排序</a></li>
+                       <li class="red">|</li>
+                       <li><a href="javascript:void(0)" data-orderBy='-2' is_click=''>参考价 <img src="../images/icon16_c.png"></a></li>
+                       <div class="clear"></div>
+                    </ul>
+                 </div>
+                 <div class="clear"></div>
+            </div>
+            <!-- 插入模板位置 -->
+            <div class="data"></div>
+       </div>
+        <div id="pageContainer" class="green-black"></div>
+    </div>
+</div>
+<!-- 列表模板 -->
+<script type="text/template" id="wx_list">
+    <div class="wx_table1">
+        <div class="wechat_list1">&nbsp;</div>
+        <div class="wechat_list2">
+        <h2>广告形式</h2>
+        </div>
+
+        <div class="wechat_list2" style="margin-left:260px">
+        <h2>参考价</h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <%for(var i=0;i<data.length;i++){%>
+    <div class="wx_table2" style="cursor:pointer">
+        <!-- 隐藏信息 -->
+        <div class="hideinfo">
+             <input class='TemplateID' type="hidden" name="" value='<%=data[i].TemplateID%>'>
+             <input class='MediaID' type="hidden" name="" value='<%=data[i].MediaID%>'>
+        </div>
+        <div class="wechat_list1">
+            <div class="portrait">
+                <%if(data[i].HeadIconURL){%>
+                <img src="<%=data[i].HeadIconURL%>" width="80" height="80">
+                <%}else{%>
+                <img src="/images/default_touxiang.png" width="80" height="80">
+                <%}%>
+            </div>
+            <div class="content">
+                <div><%=data[i].ADName%></div>
+                <p>
+                <ul>
+                    <li style="float:left"><img src="/images/collection04.png"> <%=data[i].MediaName%></li>
+                    <li style="float:left">
+                      <%if(data[i].IsAE==false){%>
+                        <img src="/images/collection06.png"> <%=data[i].OwnerName%>
+                      <%}else{%>
+                        <img src="/images/chutu.png"> 赤兔自营
+                      <%}%>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                </p>
+                <p>
+                    <%if(data[i].CategoryNames){%>
+                      <%for(var j=0;j<data[i].CategoryNames.split(",").length;j++){%>
+                          <span style="white-space:nowrap"><%=data[i].CategoryNames.split(",")[j]%></span>
+                      <%}%>
+                    <%}%>
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="wechat_list2">
+            <p>
+              <%=data[i].ADFormName%>
+            </p>
+        </div>
+        <div class="wechat_list2" style="margin-left:260px">
+            <p class="red">¥
+              <%if(data[i].Price!="--"){%>
+                <%=(data[i].Price/1).toFixed(2)%>
+              <%}else{%>
+                <%=data[i].Price%>
+              <%}%>
+            </p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <%}%>
+</script>
+<!-- 宫格模板 -->
+<script type="text/template" id='wx_grid'>
+ <div class="grid" style="cursor:pointer">
+    <%for(var i=0;i<data.length;i++){%>
+        <div class="box" style="height:285px">
+            <!-- 隐藏信息 -->
+            <div class="hideinfo">
+                 <input class='TemplateID' type="hidden" name="" value='<%=data[i].TemplateID%>'>
+                 <input class='MediaID' type="hidden" name="" value='<%=data[i].MediaID%>'>
+            </div>
+            <div class="portrait" style="width:100px;height:100px;text-align:center;">
+                <%if(data[i].HeadIconURL){%>
+                <img src="<%=data[i].HeadIconURL%>" style="width:80px;height:80px;border-radius:50%">
+                <%}else{%>
+                <img src="../images/default_touxiang.png" style="width:80px;height:80px;border-radius:50%">
+                <%}%>
+            </div>
+            <h2 style="text-align:center;line-height:30px">
+              <span class="fr red" style="float:none;">¥
+                <%if(data[i].Price!="--"){%>
+                  <%=(data[i].Price/1).toFixed(2)%>
+                  <%}else{%>
+                    <%=data[i].Price%>
+                    <%}%>
+                  </span>
+                <div class="clear"></div>
+            </h2>
+            <ul>
+                <li style="text-align:center">
+                    <%=data[i].ADName%>
+                </li>
+                <li style="text-align:center">
+                    <img src="/images/collection04.png"> <%=data[i].MediaName%>
+                </li>
+                <li style="text-align:center">
+                    <span class="fl" style="float:none">
+                      <%if(data[i].IsAE==false){%>
+                        <img src="/images/collection06.png"> <%=data[i].OwnerName%>
+                      <%}else{%>
+                        <img src="/images/chutu.png"> 赤兔自营
+                      <%}%>
+                    </span>
+                    <div class="clear"></div>
+                </li>
+            </ul>
+            <p style="text-align:center">
+                <%if(data[i].CategoryNames){%>
+                  <%for(var j=0;j<data[i].CategoryNames.split(",").length;j++){%>
+                      <span style="white-space:nowrap"><%=data[i].CategoryNames.split(",")[j]%></span>
+                  <%}%>
+                <%}%>
+            </p>
+        </div>
+    <%}%>
+     <div class="clear"></div>
+ </div>
+</script>

@@ -1,0 +1,116 @@
+2017-07-26 15:00:43,533 [8] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 15:01:04,353 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 15:01:05,380 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 15:01:08,920 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 15:01:46,013 [6] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据，出错;
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.105.9:22122
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 FastDFS.Client.Pool.GetPooldConncetion()
+   在 FastDFS.Client.Pool.GetConnection()
+   在 FastDFS.Client.ConnectionManager.GetTrackerConnection()
+   在 FastDFS.Client.FDFSRequest.GetResponse()
+   在 FastDFS.Client.FastDFSClient.GetStorageNode(String groupName)
+   在 Xy.ImageFastDFS.FastDFSStorage..ctor()
+   在 Xy.ImageFastDFS.FastDFSStorage.get_GetInstance()
+   在 Xy.ImageFastDFS.StreamFastDFSAdapter..ctor()
+   在 Xy.ImageFastDFS.StreamFastDFSAdapter..ctor(Byte[] imgContent, String extName)
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(Image img) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 270
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(String url) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 286
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.BusinessLL.ArticleInfo.SyncDataByJinRiTouTiao(Int32 topNum) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\BusinessLL\ArticleInfo.cs:行号 144
+2017-07-26 15:01:46,031 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----结束
+2017-07-26 15:01:46,033 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----结束
+2017-07-26 15:02:06,587 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 15:02:07,615 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 15:02:10,555 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 15:13:44,402 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 15:13:45,451 [12] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 15:13:46,594 [12] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 15:14:22,088 [12] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据，出错;
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.105.12:23000
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 FastDFS.Client.Pool.GetPooldConncetion()
+   在 FastDFS.Client.Pool.GetConnection()
+   在 FastDFS.Client.ConnectionManager.GetStorageConnection(IPEndPoint endPoint)
+   在 FastDFS.Client.UPLOAD_FILE.GetRequest(Object[] paramList)
+   在 FastDFS.Client.FastDFSClient.UploadFile(StorageNode storageNode, Byte[] contentByte, String fileExt)
+   在 Xy.ImageFastDFS.StreamFastDFSAdapter.Upload()
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(Image img) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 271
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(String url) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 289
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.BusinessLL.ArticleInfo.SyncDataByJinRiTouTiao(Int32 topNum) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\BusinessLL\ArticleInfo.cs:行号 144
+2017-07-26 15:14:22,095 [12] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----结束
+2017-07-26 15:14:22,095 [12] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----结束
+2017-07-26 15:17:15,382 [8] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 15:17:16,427 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 15:17:19,147 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 15:17:51,340 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 15:17:52,408 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 15:17:53,432 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 16:01:32,246 [9] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 16:01:33,343 [11] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 16:01:36,396 [11] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 16:05:24,322 [10] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 16:05:25,355 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 16:05:28,090 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 16:06:02,784 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4225中,共有3个img标签
+2017-07-26 16:06:02,875 [6] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - GetImageByURL-Error
+System.UriFormatException: 无效的 URI: 此 URI 为空。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 System.Net.WebRequest.Create(String requestUriString)
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.GetImageByURL(String imgUrl) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 397
+2017-07-26 16:06:02,891 [6] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - GetImageByURL-Error
+System.UriFormatException: 无效的 URI: 此 URI 为空。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 System.Net.WebRequest.Create(String requestUriString)
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.GetImageByURL(String imgUrl) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 397
+2017-07-26 16:06:02,911 [6] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - GetImageByURL-Error
+System.UriFormatException: 无效的 URI: 此 URI 为空。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 System.Net.WebRequest.Create(String requestUriString)
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.GetImageByURL(String imgUrl) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 397
+2017-07-26 16:06:02,914 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4225中,共有3个img标签，其中移除二维码图片的标签共有0个,高度小于175的图片有0个
+2017-07-26 16:06:06,417 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4224中,共有1个img标签
+2017-07-26 16:06:06,444 [6] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - GetImageByURL-Error
+System.UriFormatException: 无效的 URI: 此 URI 为空。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 System.Net.WebRequest.Create(String requestUriString)
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.GetImageByURL(String imgUrl) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 397
+2017-07-26 16:06:06,447 [6] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4224中,共有1个img标签，其中移除二维码图片的标签共有0个,高度小于175的图片有0个
+2017-07-26 16:09:38,753 [1] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 16:09:39,773 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 16:09:39,783 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 16:10:00,985 [4] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据，出错;
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.105.11:23000
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 FastDFS.Client.Pool.GetPooldConncetion()
+   在 FastDFS.Client.Pool.GetConnection()
+   在 FastDFS.Client.ConnectionManager.GetStorageConnection(IPEndPoint endPoint)
+   在 FastDFS.Client.UPLOAD_FILE.GetRequest(Object[] paramList)
+   在 FastDFS.Client.FastDFSClient.UploadFile(StorageNode storageNode, Byte[] contentByte, String fileExt)
+   在 Xy.ImageFastDFS.StreamFastDFSAdapter.Upload()
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(Image img) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 275
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.CleanImg(String url) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 293
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.BusinessLL.ArticleInfo.SyncDataByJinRiTouTiao(Int32 topNum) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\BusinessLL\ArticleInfo.cs:行号 144
+2017-07-26 16:10:00,994 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----结束
+2017-07-26 16:10:00,994 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----结束
+2017-07-26 16:12:54,539 [1] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章明细数据-----服务开始
+2017-07-26 16:12:55,561 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步微信文章及头条号数据-----开始
+2017-07-26 16:12:55,568 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 同步今日头条文章数据-----开始
+2017-07-26 16:12:55,813 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4225中,共有3个img标签
+2017-07-26 16:12:56,321 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4225中,共有3个img标签，其中移除二维码图片的标签共有0个,高度小于175的图片有0个
+2017-07-26 16:12:56,424 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4224中,共有1个img标签
+2017-07-26 16:12:56,576 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4224中,共有1个img标签，其中移除二维码图片的标签共有0个,高度小于175的图片有0个
+2017-07-26 16:14:36,582 [4] ERROR XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - GetImageByURL-Error
+System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 XYAuto.ITSC.Chitunion2017.HBaseDataSync.Util.GetImageByURL(String imgUrl) 位置 D:\GitRoot（C）\A5信息系统研发\销售业务管理平台\赤兔联盟系统\XYAuto.ITSC.Chitunion2017.HBaseDataSync\Util.cs:行号 407
+2017-07-26 16:14:36,649 [4] INFO  XYAuto.ITSC.Chitunion2017.BLL.Loger [(null)] - 文章ID为4223中,共有3个img标签

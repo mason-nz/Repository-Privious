@@ -1,0 +1,40 @@
+﻿@using XYAuto.ITSC.Chitunion2017.Entities.ChituMedia;
+@{
+    ViewBag.Title = "Index";
+    List<TaskListModel> TaskListInfo = ViewData["TaskList"] as List<TaskListModel>;
+    int? totalCount = ViewData["TotalCount"] as int?;
+    int? pagetindex = ViewData["TaskPageIndex"] as int?;
+}
+<div>
+    <table class="zscul clearfix mt20">
+        @if (TaskListInfo != null && TaskListInfo.Count > 0)
+        {
+            foreach (TaskListModel item in TaskListInfo)
+            {
+
+                <tr><td><a title="@item.TaskName" href="@item.MaterialUrl">@item.TaskName</a></td><td><a title="@item.TaskName" href="@item.MaterialUrl"><img src="@item.ImgUrl" /></a></td></tr>
+            }
+        }
+    </table>
+
+    @if (totalCount > 0)
+    {
+        int totalPage = 0;
+        if (totalCount % 20 > 0)
+        {
+            totalPage = (int)(totalCount / 20) + 1;
+        }
+        else
+        {
+            totalPage = (int)(totalCount / 20);
+        }
+        <div>
+
+			<p style="float:left;"><a style="margin-right:5px;" class="uppage" href="@Url.Action("Index/"+(@pagetindex-1==0?1:@pagetindex-1)+"")">上一页</a></p>
+            <p style="float:left;"><a style="margin-right:5px;" class="uppage" href="@Url.Action("Index/"+(@pagetindex+1>@totalPage?@totalPage:@pagetindex+1)+"")">下一页</a></p>
+            <p style="float:left;">共 @totalPage 页</p>
+        </div>
+    }
+
+</div>
+

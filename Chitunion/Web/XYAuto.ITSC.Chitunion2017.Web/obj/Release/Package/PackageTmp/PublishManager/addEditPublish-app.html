@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <!--#include file="/Base/js.html" -->
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script src="/js/layer/layer.js"></script>
+    <script src="/PublishManager/js/publishAddEdit.js"></script>
+</head>
+
+<body>
+<!--头部-->
+<!--#include file="/Base/header.html" -->
+<!--中间内容-->
+<div class="list_main">
+    <div class="order">
+        <!--#include file="/Base/Menu.html" -->
+        <div class="order_r" id="content">
+            <div class="install mt20">
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 媒体名称：</li>
+                    <li id="MediaName" style="position: relative">
+                        <input name="MediaName"  type="text"  style="width:315px;">
+                        <!--调整-->
+                        <ul id="searchName" style="display:none;overflow:auto;border-radius:3px;position: absolute;top:38px;left:0;width:315px;max-height:180px;border:1px solid #d9dee0;background:#fff;padding:5px;">
+                        </ul>
+                    </li>
+                    <li id="NameErr" class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 执行周期：</li>
+                    <li><input  type="text" id="BeginTime" name="BeginTime" style="width:125px;" class="laydate-icon" />
+                        至
+                        <input id="EndTime" name="EndTime" type="text"  style="width:125px;" class="laydate-icon" /></li>
+                    <li id="timeErr" class="red"> </li>
+                    <div class="clear"></div>
+                </ul>
+                <ul id="isAE">
+                    <li class="ins_a"><span class="red f12">*</span> 采购折扣：</li>
+                    <li><input id="PurchaseDiscount" name="Discount" type="text"  style="width:140px;"> %</li>
+                    <li id="PurchaseDiscountErr" class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red f12">*</span> 销售折扣：</li>
+                    <li><input id="SaleDiscount" name="Discount" type="text"  style="width:140px;"> %</li>
+                    <li id="SaleDiscountErr" class="red"></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul style="margin-top:0px;">
+                    <li class="ins_a">&nbsp;</li>
+                    <li><a href="" class="button" id="submit" style="width: 150px">保存并添加广告位</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include file="/Base/footer.html" -->
+<script>
+    $(document).ready(function(){
+        publish.MediaType=14002;
+        publish.init();
+
+    });
+</script>
+</body>
+</html>

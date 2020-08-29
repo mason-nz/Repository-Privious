@@ -1,0 +1,612 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/Common_IE.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="js/ListManager.js"></script>
+    <script type="text/javascript" src="js/ListDetailOfOrder.js"></script>
+    <script type="text/javascript" src="js/displaySchedule.js"></script>
+    <script type="text/javascript">
+    var RoleID = CTLogin.RoleIDs;
+    </script>
+</head>
+
+<body>
+
+<!--#include file="/base/header.html" -->
+
+<div class="list_main">
+<!--中间内容-->
+ <div class="order">
+
+     <!--左侧菜单-->
+     <!--#include file="/base/Menu.html" -->
+
+     <div class="order_r">
+         <div class="install">
+             <h2 class='menu_nav'></h2>
+             <div class="install_box">
+                <div id="OrderInfo"></div>
+                <div id="tab">
+                    <ul class="tab_menu">
+                        <li class="selected">广告位列表</li>
+                        <li>查看数据</li>
+                    </ul>
+                     <!--广告位列表-->
+                    <div class="tab_box">
+                        <div class="box" id="ADInfo"></div>
+                        <div class="box hide" id="FeedBackData"></div>
+                    </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!--基本信息-->
+     <script type="text/template" id="OrderInfoTemplate">
+         <ul>
+             <li class="ins_a">订单名称：</li>
+             <li><%= ADOrderInfo.OrderName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%if(ADOrderInfo.MediaType == 14002){%>
+         <ul class='appointmentTime'>
+             <li class="ins_a">预约执行时间：</li>
+             <li><span class="startTime"><%= ADOrderInfo.BeginTime.split(" ")[0] %></span> 至 <span  class="endTime"><%= ADOrderInfo.EndTime.split(" ")[0] %></span></li>
+             <div class="clear"></div>
+         </ul>
+         <%}else{%>
+         <ul class='appointmentTime'>
+             <li class="ins_a">预约执行时间：</li>
+             <li><%= ADOrderInfo.BeginTime %></li>
+             <div class="clear"></div>
+         </ul>
+         <%}%>
+         <ul>
+             <li class="ins_a">需求说明：</li>
+             <li><%= ADOrderInfo.Note%></li>
+             <div class="clear"></div>
+         </ul>
+         <ul>
+             <li class="ins_a">附件：</li>
+             <li><%= ADOrderInfo.UploadFileName%> <a href="<%= ADOrderInfo.UploadFileURL %>" target="_blank">下载</a></li>
+             <div class="clear"></div>
+         </ul>
+         <div class="line3"></div>
+         <ul>
+             <li class="ins_a">订单状态：</li>
+             <li class="project-status"><%= Status%></li>
+             <div class="clear"></div>
+         </ul>
+         <% if(ADOrderInfo.RejectMsg){ %>
+         <ul>
+             <li class="ins_a">驳回原因：</li>
+             <li><%= ADOrderInfo.RejectMsg%></li>
+             <div class="clear"></div>
+         </ul>
+         <% } %>
+
+         <%if(RoleID=='SYS001RL00005'){%>
+         <%if(ADOrderInfo.CustomerName!=''){%>
+         <ul>
+             <li class="ins_a">广告主名称：</li>
+             <li><%=ADOrderInfo.CustomerName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%}else if(ADOrderInfo.CustomerUserName!=''){%>
+         <ul>
+             <li class="ins_a">广告主名称：</li>
+             <li><%=ADOrderInfo.CustomerUserName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%}%>
+
+         <%if(ADOrderInfo.CreatorName!=''){%>
+         <ul>
+             <li class="ins_a">创建人：</li>
+             <li><%=ADOrderInfo.CreatorName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%}else if(ADOrderInfo.CreatorUserName!=''){%>
+         <ul>
+             <li class="ins_a">创建人：</li>
+             <li><%=ADOrderInfo.CreatorUserName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%} %>
+         <%} %>
+
+         <%if(RoleID=='SYS001RL00004'){%>
+         <%if(ADOrderInfo.CustomerName!=''){%>
+         <ul>
+             <li class="ins_a">广告主名称：</li>
+             <li>
+                 <%=ADOrderInfo.CustomerName%>
+             </li>
+             <div class="clear"></div>
+         </ul>
+         <%}else if(ADOrderInfo.CustomerUserName!=''){%>
+         <ul>
+             <li class="ins_a">广告主名称：</li>
+             <li>
+                 <%=ADOrderInfo.CustomerUserName%>
+             </li>
+             <div class="clear"></div>
+         </ul>
+         <%} %>
+         <%if(ADOrderInfo.CreatorName!=''){%>
+         <ul>
+             <li class="ins_a">创建人：</li>
+             <li><%=ADOrderInfo.CreatorName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%}else if(ADOrderInfo.CreatorUserName!=''){%>
+         <ul>
+             <li class="ins_a">创建人：</li>
+             <li><%=ADOrderInfo.CreatorUserName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%} %>
+         <%} %>
+
+
+         <%if(RoleID=='SYS001RL00001'){%>
+         <%if(ADOrderInfo.CustomerName!=''){%>
+         <ul>
+             <li class="ins_a">广告主名称：</li>
+             <li><%=ADOrderInfo.CustomerName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%}else if(ADOrderInfo.CustomerUserName!=''){%>
+         <ul>
+             <li class="ins_a">广告主名称：</li>
+             <li><%=ADOrderInfo.CustomerUserName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%} %>
+         <%if(ADOrderInfo.CreatorName!=''){%>
+         <ul>
+             <li class="ins_a">创建人：</li>
+             <li><%=ADOrderInfo.CreatorName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%}else if(ADOrderInfo.CreatorUserName!=''){%>
+         <ul>
+             <li class="ins_a">创建人：</li>
+             <li><%=ADOrderInfo.CreatorUserName%></li>
+             <div class="clear"></div>
+         </ul>
+         <%} %>
+         <%}%>
+
+         <ul>
+             <li class="ins_a">创建时间：</li>
+             <li><%= ADOrderInfo.CreateTime%></li>
+             <div class="clear"></div>
+         </ul>
+         <div class="line3"></div>
+     </script>
+
+     <!--app广告位模板-->
+     <script type="text/template" id="ADInfoTemplate-app">
+         <div class="table">
+             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+                 <tr>
+                     <th width="8%">媒体</th>
+                     <th width="10%">广告位置</th>
+                     <th width="10%">广告形式</th>
+                     <th width="8%">样式</th>
+                     <!-- <th width="6%">轮播</th>
+                     <th width="6%">位置</th> -->
+                     <th width="10%">操作系统</th>
+                     <th width="13%">单价</th>
+                     <th width="14%">投放天数/千次</th>
+                     <th width="10%">价格</th>
+                     <th width="10%">成交价</th>
+                     <th width="8%">操作</th>
+                 </tr>
+
+                 <%if(ADOrderInfo.CPDArray.length > 0){%>
+                 <tr>
+                     <td colspan="12" style="text-align:left;">CPD广告位</td>
+                 </tr>
+                 <% ADOrderInfo.CPDArray.forEach(function(item){%>
+                 <tr addDetailId="<%= item.ADDetailID %>"  class="cpd_item" adscheduleinfos>
+                     <td><%= item.Name%></td>
+                     <td><%= item.AdPosition%></td>
+                     <td><%= item.AdForm%></td>
+                     <td><%= item.Style%></td>
+                     <!-- <% if(item.CarouselCount == 0){%>
+                         <td></td>
+                     <%}else{%>
+                         <td><%= item.CarouselCount%></td>
+                     <%} %>
+                     <td><%= item.PlayPosition%></td> -->
+                     <% if(item.SysPlatform == null){%>
+                     <td></td>
+                     <%}else{%>
+                     <td><%= item.SysPlatform%></td>
+                     <%} %>
+                     <td><%= formatMoney(item.OriginalPrice*item.SaleDiscount,2)%>/天/轮播</td>
+                     <td><%= item.ADLaunchDays%>天</td>
+                     <td><%= formatMoney(item.OriginalPrice*item.SaleDiscount*item.ADLaunchDays,2)%></td>
+                     <td><%= formatMoney(item.AdjustPrice,2)%></td>
+                     <td><a data-id=<%= item.PubID%> class="selectDate">查看排期</a></td>
+                 </tr>
+                 <%}) %>
+                 <%}else{%>
+                 <!-- <tr>
+                     <td colspan="10">
+                         <img src="../images/no_data.png" alt="">
+                     </td>
+                 </tr> -->
+                 <%} %>
+
+
+                 <%if(ADOrderInfo.CPMArray.length > 0){%>
+                 <tr>
+                     <td colspan="12" style="text-align:left;">CPM广告位</td>
+                 </tr>
+                 <% ADOrderInfo.CPMArray.forEach(function(item){%>
+                 <tr>
+                     <td><%= item.Name%></td>
+                     <td><%= item.AdPosition%></td>
+                     <td><%= item.AdForm%></td>
+                     <td><%= item.Style%></td>
+                     <!-- <% if(item.CarouselCount == 0){%>
+                         <td></td>
+                     <%}else{%>
+                         <td><%= item.CarouselCount%></td>
+                     <%} %>
+                     <td><%= item.PlayPosition%></td> -->
+                     <% if(item.SysPlatform == null){%>
+                     <td></td>
+                     <%}else{%>
+                     <td><%= item.SysPlatform%></td>
+                     <%} %>
+                     <td><%= formatMoney(item.OriginalPrice*item.SaleDiscount,2)%>/CPM</td>
+                     <td><%= item.ADLaunchDays%></td>
+                     <td><%= formatMoney(item.OriginalPrice*item.SaleDiscount*item.ADLaunchDays,2)%></td>
+                     <td><%= formatMoney(item.AdjustPrice,2)%></td>
+                     <td><a data-id=<%= item.PubID%> ></a></td>
+                 </tr>
+                 <%}) %>
+                 <%} %>
+             </table></div>
+         <div class="tr mt10">总额：<span class="red"><%= formatMoney(AllMoney,2)%></span></div>
+     </script>
+     <!--其他模板，自媒体，直播、视频等-->
+     <script type="text/template" id="ADInfoTemplate-other">
+         <div class="table">
+             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                 <tr>
+                     <th width="15%">媒体</th>
+                     <th width="15%">广告类型</th>
+                     <th width="15%">广告位置</th>
+                     <th width="15%">广告形式</th>
+                     <th width="15%">价格</th>
+                     <th width="15%">成交价</th>
+                 </tr>
+                 <% SubADInfos.forEach(function(item){ %>
+                 <% if(item.SelfDetails.length > 0){ %>
+                 <% item.SelfDetails.forEach(function(data){ %>
+                 <tr>
+                     <td><%= data.Name%></td>
+                     <td><%= data.ADType%></td>
+                     <td><%= data.AdPosition%></td>
+                     <td><%= data.AdForm%></td>
+                     <td><%= formatMoney(data.OriginalPrice*data.SaleDiscount,2)%></td>
+                     <td><%= formatMoney(data.AdjustPrice,2)%></td>
+                 </tr>
+                 <% }) %>
+                 <% }else{ %>
+                 <tr>
+                     <td colspan="6">
+                         <img src="../images/no_data.png" alt="">
+                     </td>
+                 </tr>
+                 <% } %>
+                 <% }) %>
+             </table></div>
+         <div class="tr mt10">总额：<span class="red"><%= formatMoney(AllMoney,2)%></span></div>
+     </script>
+
+
+     <!--app反馈数据模板-->
+     <script type="text/template" id="FeedBackDataTemplate-app">
+         <% if(FeedBackData.length > 0){ %>
+         <% FeedBackData.forEach(function(item){ %>
+         <div class="mb15 mt10"><img src="../../images/line_01.png"> <%= item.Describe %></div>
+         <div class="table">
+             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                 <tr>
+                     <th width="20%">数据日期</th>
+                     <th width="16%">PV(次)</th>
+                     <th width="16%">UV(人)</th>
+                     <th width="18%">点击数(次)</th>
+                     <th width="18%">点击率</th>
+                     <th width="13%">操作</th>
+                 </tr>
+                 <% if(item.DataList.length > 0){ %>
+                 <% item.DataList.forEach(function(data){%>
+                 <tr>
+                     <%if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+                     <td><%= data.FeedbackEndDate%></td>
+                     <%}else{%>
+                     <td><%= data.FeedbackBeginDate%>至<%= data.FeedbackEndDate%></td>
+                     <%}%>
+                     <td><%= data.PVCount%></td>
+                     <td><%= data.UVCount%></td>
+                     <td><%= data.LinkCount%></td>
+                     <td><%= data.ClickRate%>%</td>
+                     <% if(data.FeedbackBeginDate == "总计"){%>
+                     <td></td>
+                     <% }else{ %>
+                     <td><a href="<%= data.FilePath %>">下载数据</a></td>
+                     <% } %>
+                 </tr>
+                 <% }) %>
+                 <% }else{ %>
+                 <tr>
+                     <td colspan="6">
+                         <img src="../images/no_data.png" alt="">
+                     </td>
+                 </tr>
+                 <% } %>
+             </table>
+         </div>
+         <% }) %>
+         <% }else{ %>
+         <div style="text-align:center;">
+             <img src="../images/no_data.png" alt="">
+         </div>
+         <% } %>
+     </script>
+     <!--视频反馈数据模板-->
+     <script type="text/template" id="FeedBackDataTemplate-shipin">
+         <% if(FeedBackData.length > 0){ %>
+         <% FeedBackData.forEach(function(item){ %>
+         <div class="mb15 mt10"><img src="../images/line_01.png"> <%= item.Describe %></div>
+         <div class="table">
+             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                 <tr>
+                     <th width="25%">数据日期</th>
+                     <th width="25%">曝光数</th>
+                     <th width="25%">观看数</th>
+                     <th width="25%">操作</th>
+                 </tr>
+                 <% if(item.DataList.length > 0){ %>
+                 <% item.DataList.forEach(function(data){%>
+                 <tr>
+                     <%if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+                     <td><%= data.FeedbackEndDate%></td>
+                     <%}else{%>
+                     <td><%= data.FeedbackBeginDate%>至<%= data.FeedbackEndDate%></td>
+                     <%}%>
+                     <td><%= data.TransmitCount%></td>
+                     <td><%= data.ReadCount%></td>
+                     <% if(data.FeedbackBeginDate == "总计"){%>
+                     <td></td>
+                     <% }else{ %>
+                     <td><a href="<%= data.FilePath %>">下载数据</a></td>
+                     <% } %>
+                 </tr>
+                 <% }) %>
+                 <% }else{ %>
+                 <tr>
+                     <td colspan="4">
+                         <img src="../images/no_data.png" alt="">
+                     </td>
+                 </tr>
+                 <% } %>
+             </table>
+         </div>
+         <% }) %>
+         <% }else{ %>
+         <div style="text-align:center;">
+             <img src="../images/no_data.png" alt="">
+         </div>
+         <% } %>
+     </script>
+     <!--微博反馈数据模板-->
+     <script type="text/template" id="FeedBackDataTemplate-weibo">
+         <% if(FeedBackData.length > 0){ %>
+         <% FeedBackData.forEach(function(item){ %>
+         <div class="mb15 mt10"><img src="../images/line_01.png"> <%= item.Describe %></div>
+         <div class="table">
+             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                 <tr>
+                     <th width="17%" rowspan="2">数据日期</th>
+                     <th colspan="5">微博原文数据</th>
+                     <th colspan="3">外链页面(Landing Page)数据</th>
+                     <th>&nbsp;</th>
+                 </tr>
+                 <tr>
+                     <th width="7%">阅读数</th>
+                     <th width="7%">点赞数</th>
+                     <th width="7%">评论数</th>
+                     <th width="6%">转发数</th>
+                     <th width="8%">链接点击数</th>
+                     <th width="8%">PV数</th>
+                     <th width="8%">UV数</th>
+                     <th width="8%">订单数</th>
+                     <th width="10%">操作</th>
+                 </tr>
+                 <% if(item.DataList.length > 0){ %>
+                 <% item.DataList.forEach(function(data){%>
+                 <tr>
+                     <%if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+                     <td><%= data.FeedbackEndDate%></td>
+                     <%}else{%>
+                     <td><%= data.FeedbackBeginDate%>至<%= data.FeedbackEndDate%></td>
+                     <%}%>
+                     <td><%= data.ReadCount%></td>
+                     <td><%= data.ClickCount%></td>
+                     <td><%= data.CommentCount%></td>
+                     <td><%= data.TransmitCount%></td>
+                     <td><%= data.LinkCount%></td>
+                     <td><%= data.PVCount%></td>
+                     <td><%= data.UVCount%></td>
+                     <td><%= data.OrderCount%></td>
+                     <% if(data.FeedbackBeginDate == "总计"){%>
+                     <td></td>
+                     <% }else{ %>
+                     <td><a href="<%= data.FilePath %>">下载数据</a></td>
+                     <% } %>
+                 </tr>
+                 <% }) %>
+                 <% }else{ %>
+                 <tr>
+                     <td colspan="10">
+                         <img src="../images/no_data.png" alt="">
+                     </td>
+                 </tr>
+                 <% } %>
+             </table>
+         </div>
+         <% }) %>
+         <% }else{ %>
+         <div style="text-align:center;">
+             <img src="../images/no_data.png" alt="">
+         </div>
+         <% } %>
+     </script>
+     <!--微信公众号反馈数据模板-->
+     <script type="text/template" id="FeedBackDataTemplate-weixin">
+         <% if(FeedBackData.length > 0){ %>
+         <% FeedBackData.forEach(function(item){ %>
+         <div class="mb15 mt10"><img src="../images/line_01.png"> <%= item.Describe %></div>
+         <div class="table">
+             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                 <tr>
+                     <th width="17%" rowspan="2">数据日期</th>
+                     <th colspan="4">微信文章数据</th>
+                     <th colspan="4">原文阅读页(Landing Page)数据</th>
+                     <th>&nbsp;</th>
+                 </tr>
+                 <tr>
+                     <th width="8%">阅读数</th>
+                     <th width="8%">点赞数</th>
+                     <th width="8%">送达数</th>
+                     <th width="10%">转发数</th>
+                     <th width="15%">原文阅读点击数</th>
+                     <th width="8%">PV数</th>
+                     <th width="8%">UV数</th>
+                     <th width="8%">订单数</th>
+                     <th width="10%">&nbsp;</th>
+                 </tr>
+                 <% if(item.DataList.length > 0){ %>
+                 <% item.DataList.forEach(function(data){%>
+                 <tr>
+                     <%if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+                     <td><%= data.FeedbackEndDate%></td>
+                     <%}else{%>
+                     <td><%= data.FeedbackBeginDate%>至<%= data.FeedbackEndDate%></td>
+                     <%}%>
+                     <td><%= data.ReadCount%></td>
+                     <td><%= data.ClickCount%></td>
+                     <td><%= data.DeliveredCount%></td>
+                     <td><%= data.TransmitCount%></td>
+                     <td><%= data.LinkCount%></td>
+                     <td><%= data.PVCount%></td>
+                     <td><%= data.UVCount%></td>
+                     <td><%= data.OrderCount%></td>
+                     <% if(data.FeedbackBeginDate == "总计"){%>
+                     <td></td>
+                     <% }else{ %>
+                     <td><a href="<%= data.FilePath %>">下载数据</a></td>
+                     <% } %>
+                 </tr>
+                 <% }) %>
+                 <% }else{ %>
+                 <tr>
+                     <td colspan="10">
+                         <img src="../images/no_data.png" alt="">
+                     </td>
+                 </tr>
+                 <% } %>
+             </table>
+         </div>
+         <% }) %>
+         <% }else{ %>
+         <div style="text-align:center;">
+             <img src="../images/no_data.png" alt="">
+         </div>
+         <% } %>
+     </script>
+     <!--直播反馈数据模板-->
+     <script type="text/template" id="FeedBackDataTemplate-zhibo">
+         <% if(FeedBackData.length > 0){ %>
+         <% FeedBackData.forEach(function(item){ %>
+         <div class="mb15 mt10"><img src="../images/line_01.png"> <%= item.Describe %></div>
+         <div class="table">
+             <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                 <tr>
+                     <th width="20%">数据日期</th>
+                     <th width="14%">总观看人数</th>
+                     <th width="20%">峰值(最高同时在线人数)</th>
+                     <th width="17%">虚拟礼物价值</th>
+                     <th width="20%">提及数(eg.厂商品牌提及数)</th>
+                     <th width="10%">操作</th>
+                 </tr>
+                 <% if(item.DataList.length > 0){ %>
+                 <% item.DataList.forEach(function(data){%>
+                 <tr>
+                     <%if(data.FeedbackBeginDate == data.FeedbackEndDate){%>
+                     <td><%= data.FeedbackEndDate%></td>
+                     <%}else{%>
+                     <td><%= data.FeedbackBeginDate%>至<%= data.FeedbackEndDate%></td>
+                     <%}%>
+                     <td><%= data.ReadCount%></td>
+                     <td><%= data.TransmitCount%></td>
+                     <td><%= data.Value%></td>
+                     <td><%= data.ClickCount%></td>
+                     <% if(data.FeedbackBeginDate == "总计"){%>
+                     <td></td>
+                     <% }else{ %>
+                     <td><a href="<%= data.FilePath %>">下载数据</a></td>
+                     <% } %>
+                 </tr>
+                 <% }) %>
+                 <% }else{ %>
+                 <tr>
+                     <td colspan="6">
+                         <img src="../images/no_data.png" alt="">
+                     </td>
+                 </tr>
+                 <% } %>
+             </table>
+
+         </div>
+         <% }) %>
+         <% }else{ %>
+         <div style="text-align:center;">
+             <img src="../images/no_data.png" alt="">
+         </div>
+         <% } %>
+     </script>
+
+</div>
+
+</div>
+
+
+<!--#include file="/base/footer.html" -->
+
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>微信公众号-媒体管理-我的赤兔</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script src="../js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/mediaAPP.js"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <style type="text/css">
+        a{
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+<div class="list_main">
+    <!--中间内容-->
+    <div class="order">
+        <!--左侧菜单-->
+        <!--#include file="../Base/Menu.html" -->
+        <div class="order_r">
+            <div class="list_box">
+                <div class="list">
+                    <h2 class="menu_nav">
+                        <div id="addAppMedia" class="but_add media_add_btn but_query"
+                             style="float:right;width:100px;height: 26px;line-height: 26px" type-id="14001">添加APP媒体
+                        </div>
+                    </h2>
+                    <div class="clear"></div>
+                </div>
+                <div id="list_switching">
+                    <ul class="tab_menu media_show">
+                        <li dictid="43002" class="selected">已通过&nbsp;
+                            <span id="through_num"></span>
+                        </li>
+                        </li>
+                        <li dictid="43001">待审核&nbsp;
+                            <span id="waitAudit_num"></span>
+                        </li>
+                        <li style="border-right:0" dictid="43003">已驳回&nbsp;
+                            <span id="reject_num"></span>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                    <!-- 媒体主显示查询条件如下：媒体名称、媒体关系 -->
+                    <ul class="state query_MediaOwner" style="display: none">
+                        <li>
+                            <div class="ins_c">媒体名称：</div><input name="Username" type="text" id="MediaName"  style="width:173px;">
+                        </li>
+                        <li>
+                            <div class="ins_c">媒体关系：</div>
+                            <select name="" style="width:185px;line-height: 30px" class="MediaRelations">
+                                <option value="-2">不限</option>
+                                <option value="50002">自有</option>
+                                <option value="50001">代理</option>
+                                <option value="50003">自营</option>
+                            </select>
+                        </li>
+                        <li class="but_query" id="searchList" style="width:70px;margin-right:0" >查询</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <!-- AE显示查询条件如下：媒体名称 -->
+                    <ul class="state query_AE">
+                        <li><div class="ins_c">媒体名称：</div><input name="Username" type="text"  style="width:173px;" id="MediaName"></li>
+                        <li class="but_query" id="searchList" style="width:70px;margin-right:0">查询</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <!-- 运营显示查询条件如下：媒体名称、添加人角色、添加人 -->
+                    <ul class="state query_operate" style="display: none">
+                        <li>
+                            <div class="ins_d">媒体名称：</div>
+                            <input name="Username" type="text"  id="MediaName" style="width:173px;"/>
+                        </li>
+                        <li>
+                            <div class="ins_d">添加人角色：</div>
+                            <select name="" style="width:185px;line-height: 30px" id="AddRole">
+                                <option value="">全部</option>
+                                <option value="SYS001RL00001">超级管理员</option>
+                                <option value="SYS001RL00002 ">广告主</option>
+                                <option value="SYS001RL00003">媒体主</option>
+                                <option value="SYS001RL00004">运营</option>
+                                <option value="SYS001RL00005">AE</option>
+                            </select>
+                        </li>
+                        <!-- 添加人到底是文本框还是选择框 -->
+                        <li>
+                            <div class="ins_c">添加人：</div>
+                            <input name="Username" type="text"  id="addPerson" style="width:173px;"/>
+                        </li>
+                        <li class="but_query" id="searchList" style="width:70px;margin-right:0">查询</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="list_box mt20">
+                <div class="tab_box">
+                    <div class="box">
+                        <div class="ad_table">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" >
+                            </table>
+                            <!--分页-->
+                            <div class="green-black" id="pageContainer" class="display:none;">
+                                <span class="disabled">上一页</span>
+                                <span class="current">1</span>
+                                <a href="#?page=2">2</a>
+                                <a href="#?page=3">3</a>...
+                                <a href="#?page=200">100</a>
+                                <a href="#?page=2">下一页</a>
+                                <span class="NormalText">共有3条数据</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div class="clear"></div>
+    </div>
+    <!-- 媒体主、AE模板-->
+    <script type="text/template" id="tmp_mediaAE">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="22%">媒体名称</th>
+                <th width="10%">APP日活</th>
+                <th width="25%">行业分类</th>
+                <!-- 媒体关系媒体主显示，AE不显示 -->
+                <%if(CTLogin.RoleIDs == 'SYS001RL00003'){%>
+                    <th width="8%" class="relation">
+                        媒体关系
+                    </th>
+                <%}%>
+                <th width="11%">上架/其余广告</th>
+                <th width="13%">添加时间</th>
+                <th width="12%">操作</th>
+            </tr>
+            <%if(list){%>
+                <%for(var i=0;i<list.length;i++){%>
+                <tr AuditStatus="<%=list[i].AuditStatus%>" HasOnPub="<%=list[i].HasOnPub%>">
+                    <!-- 媒体 -->
+                    <td mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" class="detailSearch" style="cursor:pointer;">
+                        <div class="portrait" data-id="<%=list[i].MediaID%>">
+                            <%if(!list[i].HeadIconURL){%>
+                            <img src="../ImagesNew/default_touxiang.png"/>
+                            <%}else{%>
+                            <img src="<%=list[i].HeadIconURL%>"/>
+                            <%}%>
+                        </div>
+                        <div class="public" style="width:140px;">
+                            <h3><%=list[i].Name%></h3>
+                        </div>
+                        <div class="clear"></div>
+                    </td>
+                    <!-- 日活 -->
+                    <td><%=formatMoney(list[i].DailyLive,0,' ')%></td>
+                    <!-- 常见分类 -->
+                    <td>
+                        <%if(list[i].CommonlyClass){%>
+                            <%if(list[i].CommonlyClass.length == 1){%>
+                                <%=list[i].CommonlyClass[0].CategoryName%><span style="color: #FF4F4F">[主]</span>
+                            <%}else{%>
+                                <%=list[i].CommonlyClass[0].CategoryName%><span style="color: #FF4F4F">[主]</span>
+                                <%for(var j=1;j<list[i].CommonlyClass.length-1;j++){%>
+                                    <%=list[i].CommonlyClass[j].CategoryName%>,
+                                <%}%>
+                                <%=list[i].CommonlyClass[list[i].CommonlyClass.length-1].CategoryName%>
+                            <%}%>
+                        <%}%>
+                    </td>
+                    <!-- 媒体关系，媒体主显示，AE不显示-->
+                    <%if(CTLogin.RoleIDs == 'SYS001RL00003'){%>
+                        <td>
+                            <%if(list[i].MediaRelationsName){%>
+                                <%=list[i].MediaRelationsName%>
+                            <%}%>
+                        </td>
+                    <%}%>
+                    <!-- 上架、下架广告 -->
+                    <%if((CTLogin.RoleIDs == 'SYS001RL00003' && $('.tab_menu .selected').attr('dictid') == 43002) || CTLogin.RoleIDs == 'SYS001RL00005'){%>
+                        <td>
+                            <a href="/publishmanager/advertisinglist_app.html?mediaName=<%=list[i].Name%>" target="_blank">
+                                <%=list[i].UpShelfAdCount%>/<%=list[i].OtherAdCount%>
+                            </a>
+                        </td>
+                    <%}%>
+                    <!-- 添加时间 -->
+                    <td CreateTime="<%=list[i].CreateTime%>"><%=list[i].CreateTime%></td>
+                    <!-- 操作 -->
+                    <td>
+                        <a href="javascript:;" mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" class="detailSearch" >
+                            <img src="/ImagesNew/view.png" mediaID="<%=list[i].MediaID%>" title="查看"/>
+                        </a>&nbsp;
+                        <!-- 待审核时，仅可查看 -->
+                        <%if(list[i].AuditStatus == '43001'){%>
+                            
+                        <!-- 已通过时，可添加广告、编辑案例、删除，也可以查看
+                        -->
+                        <%}else if(list[i].AuditStatus == '43002'){%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400504') != -1){%>
+                            <a href="javascript:void(0);" class="media_addAdv_btn"
+                               mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" AdTemplateId="<%=list[i].AdTemplateId%>" Name="<%=list[i].Name%>">
+                                <img src="../ImagesNew/add.png" title="添加广告"/>
+                            </a>&nbsp;
+                            <%}%>
+                            <!-- 创建刊例和编辑案例是一个码 -->
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400503') != -1){%>
+                            <a href="javascript:void(0);" class=" media_editCase_btn"
+                               mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>">
+                                <img src="../ImagesNew/editcase.png" title="编辑案例"/>
+                            </a> &nbsp;
+                            <%}%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400505') != -1){%>
+                            <a href="javascript:void(0);" class="media_delete_btn" mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" HasOnPub="<%=list[i].HasOnPub%>">
+                                <%if(list[i].HasOnPub){%>
+                                <img src="../ImagesNew/delete.png" title="媒体下有启用的刊例，不能被删除"/>
+                                <%}else{%>
+                                <img src="../ImagesNew/delete.png" title="删除"/>
+                                <%}%>
+                            </a> &nbsp;
+                            <%}%>
+                         <!-- 驳回时，可查看，修改，删除-->
+                        <%}else if(list[i].AuditStatus == '43003'){%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400502') != -1){%>
+                            <a href="javascript:void(0);" class="media_edit_btn"
+                               mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>">
+                                <img src="../ImagesNew/edit.png" title="编辑"/>
+                            </a> &nbsp;
+                            <%}%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400505') != -1){%>
+                            <a href="javascript:void(0);" class="media_delete_btn" mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" HasOnPub="<%=list[i].HasOnPub%>">
+                                <%if(list[i].HasOnPub){%>
+                                <img src="../ImagesNew/delete.png" title="媒体下有启用的刊例，不能被删除"/>
+                                <%}else{%>
+                                <img src="../ImagesNew/delete.png" title="删除"/>
+                                <%}%>
+                            </a> &nbsp;
+                            <%}%>
+                        <%}%>
+                    </td>
+                </tr>
+                <%}%>
+            <%}%>
+        </table>
+    </script>
+    <!-- 运营 -->
+    <script type="text/template" id="tmp_opt">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="16%">媒体名称</th>
+                <th width="10%">APP日活</th>
+                <th width="13%">行业分类</th>
+                <th width="8%">所在地区</th>
+                <th width="10%">添加人</th>
+                <th width="8%">添加角色</th>
+                <th width="13%">添加时间</th>
+                <th width="15%">操作</th>
+            </tr>
+            <%if(list){%>
+                <%for(var i=0;i<list.length;i++){%>
+                <tr AuditStatus="<%=list[i].AuditStatus%>" HasOnPub="<%=list[i].HasOnPub%>">
+                        <!-- 媒体 -->
+                        <td mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" class="detailSearch" style="cursor:pointer;">
+                            <div class="portrait">
+                                <%if(!list[i].HeadIconURL){%>
+                                <img src="../ImagesNew/default_touxiang.png"/>
+                                <%}else{%>
+                                <img src="<%=list[i].HeadIconURL%>"/>
+                                <%}%>
+                            </div>
+                            <div class="public" style="width:95px;">
+                                <h3><%=list[i].Name%></h3>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                        <!-- 日活 -->
+                        <td><%=formatMoney(list[i].DailyLive,0,' ')%></td>
+                        <!-- 常见分类 -->
+                        <td>
+                            <%if(list[i].CommonlyClass){%>
+                                <%if(list[i].CommonlyClass.length == 1){%>
+                                    <%=list[i].CommonlyClass[0].CategoryName%><span style="color: #FF4F4F">[主]</span>
+                                <%}else{%>
+                                    <%=list[i].CommonlyClass[0].CategoryName%><span style="color: #FF4F4F">[主]</span>
+                                    <%for(var j=1;j<list[i].CommonlyClass.length-1;j++){%>
+                                        <%=list[i].CommonlyClass[j].CategoryName%>,
+                                    <%}%>
+                                    <%=list[i].CommonlyClass[list[i].CommonlyClass.length-1].CategoryName%>
+                                <%}%>
+                            <%}%>
+                        </td>
+                        <!-- 所在地区 -->
+                        <td>
+                            <%if(list[i].ProvinceName){%>
+                                <%=list[i].ProvinceName%>
+                            <%}%>
+                            <%if(list[i].CityName){%>
+                                <%=list[i].CityName%>
+                            <%}%>
+                        </td>
+                        <!-- 添加人-->
+                        <td><%=list[i].TrueName%></td>
+                        <!-- 添加角色 -->
+                        <td><%=list[i].CreateUserRole%></td>
+                        <!-- 添加时间 -->
+                        <td CreateTime="<%=list[i].CreateTime%>"><%=list[i].CreateTime%></td>
+                        <!-- 操作 -->
+                        <td>
+                            <a href="javascript:;" mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" class="detailSearch">
+                                <img src="/ImagesNew/view.png" title="查看"/>
+                            </a> &nbsp;
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400504') != -1){%>
+                            <a href="javascript:void(0);" class="media_addAdv_btn"
+                               mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" AdTemplateId="<%=list[i].AdTemplateId%>" Name="<%=list[i].Name%>">
+                                <img src="../ImagesNew/add.png" title="添加广告"/>
+                            </a>&nbsp;
+                            <%}%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400502') != -1){%>
+                            <a href="javascript:void(0);" class="media_edit_btn"
+                               mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>">
+                                <img src="../ImagesNew/edit.png" title="编辑"/>
+                            </a> &nbsp;
+                            <%}%>
+                            <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400505') != -1){%>
+                            <a href="javascript:void(0);" class="media_delete_btn" mediaID="<%=list[i].MediaID%>" BaseMediaID="<%=list[i].BaseMediaID%>" HasOnPub="<%=list[i].HasOnPub%>">
+                                <%if(list[i].HasOnPub){%>
+                                <img src="../ImagesNew/delete.png" title="媒体下有启用的刊例，不能被删除"/>
+                                <%}else{%>
+                                <img src="../ImagesNew/delete.png" title="删除"/>
+                                <%}%>
+                            </a> &nbsp;
+                            <%}%>
+                        </td>
+                </tr>
+                <%}%>
+            <%}%>
+        </table>
+    </script>
+</div>
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+</body>
+</html>
+

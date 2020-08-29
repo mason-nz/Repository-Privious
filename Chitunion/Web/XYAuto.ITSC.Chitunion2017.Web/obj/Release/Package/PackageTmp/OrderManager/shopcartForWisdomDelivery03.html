@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header_home.html" -->
+<!--中间内容-->
+<div class="wx_box">
+    <div class="wx_box">
+        <div class="wx_form">
+            <div class="submitting">
+                <div class="tc">
+                    <div><img src="../images/point_2.png"></div>
+                    <div class="f16 mt20">提交完成</div>
+                    <div class="mt20">
+                        <p class="mb10">项目号：<span id="projectNum"></span></p>
+                        <p class="grey">待客服审核，可在【项目管理】列表中查看</p>
+                        <p class="f12 mt10 grey"><span class="red" id="downTime">3</span>s后跳转到项目列表页</p>
+                    </div>
+                    <div class="keep">
+                        <span><a href="/OrderManager/ListOfProject.html?&state=16002" class="but_data viewProject" style="width:100px;margin-left:10px">查看项目</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<!--#include file="../Base/footer.html" -->
+</body>
+<script type="text/javascript">
+    //头部页面加载后自调
+    $(function () {
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        $('#projectNum').html(GetRequest().orderID);
+        setInterval(function(){
+            $("#downTime").html($("#downTime").html()-1);
+        },1000);
+        setTimeout(function(){
+            window.location = "/ordermanager/listofproject.html?state=16002"
+        },2000);
+
+        });
+</script>
+</html>

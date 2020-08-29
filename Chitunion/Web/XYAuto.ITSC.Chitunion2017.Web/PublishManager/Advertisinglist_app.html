@@ -1,0 +1,569 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/laydate.js"></script>
+    <script type="text/javascript" src="../js/common_authority.js"></script>
+    <script src="../js/jquery.jmpopups-0.5.1.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/Advertisinglist_app.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+                    <div class="but_query" id="addAppAdverty"
+                         style="float:right;width:100px;height: 26px;line-height: 26px">添加APP广告
+                    </div>
+
+                </h2>
+                <div class="clear"></div>
+            </div>
+            <div id="list_switching">
+                <div class="clear"></div>
+                <ul class="state">
+                    <li>
+                        <div class="ins_d">媒体名称：</div>
+                        <input id="MediaName" name="Username" type="text" style="width:100px;"></li>
+                    <li>
+                        <div class="ins_d">广告名称：</div>
+                        <input id="ADName" name="Username" type="text" style="width:100px;"></li>
+                    <li>
+                        <div class="ins_d" style="width: 140px">媒体主用户名：</div>
+                        <input name="Username" type="text" id="UserName" style="width:100px;"></li>
+                    <li id="validity">
+                        <div class="ins_c" style="width: 87px;">价格有效期：</div>
+                        <input id="BeginTime" name="Username" type="text" style="width:90px;" class="laydate-iconNew"
+                               onclick="laydate({fixed:false})"> 至 <input name="Username" id="EndTime" type="text"
+                                                                          style="width:90px;" class="laydate-iconNew"
+                                                                          onclick="laydate({fixed:false})"></li>
+
+                    <li>
+                        <div class="ins_c">广告状态：</div>
+                        <select name="" id="Searchstatus" style="width:85px;line-height: 30px">
+
+                        </select></li>
+                    <li class="but_query" id="search" style="width:70px;margin-right:0">查询</li>
+                    <div class="clear"></div>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+                    <div id="box"></div>
+                    <!--分页-->
+                    <div class="green-black" id="pageContainer">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="#?page=2">2</a>
+                        <a href="#?page=3">3</a>...
+                        <a href="#?page=200">100</a>
+                        <a href="#?page=2">下一页</a>
+                        <span>1/200</span>
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+<!--运营-->
+<script type="text/template" id="yunying">
+    <div class="ad_table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="17%">广告名称</th>
+                <th width="10%">媒体主用户名</th>
+                <th width="7.5%">广告来源</th>
+                <th width="8%">广告单元</th>
+                <th width="16%">价格</th>
+                <th width="18%">价格有效期</th>
+                <th width="9%">广告状态</th>
+                <th width="13%">操作</th>
+            </tr>
+            <%for(var i=0;i<Result.List.length;i++){%>
+            <tr>
+                <td>
+                    <div class="ad_name">
+                        <h3><a href="javascript:;"  TemplateID="<%=Result.List[i].TemplateID%>"  class="Adview"><%=Result.List[i].ADName?Result.List[i].ADName:''%></a></h3>
+                        <p><%=Result.List[i].MediaName?Result.List[i].MediaName:''%></p>
+                    </div>
+                </td>
+                <td>
+                    <div><%=Result.List[i].CreateUserName?Result.List[i].CreateUserName:''%></div>
+                </td>
+                <td>
+                    <div><%=Result.List[i].CreateUserRole?Result.List[i].CreateUserRole:''%></div>
+                </td>
+                <td>
+                    <div><%=Result.List[i].PriceCount%>个</div>
+                </td>
+                <td>
+                    <div>
+                        <%=formatMoney(Result.List[i].MinPrice,2,'¥')%>～<%=formatMoney(Result.List[i].MaxPrice,2,'¥')%>
+                    </div>
+                </td>
+                <td>
+                    <div><%=Result.List[i].BeginDate.split(' ')[0]%>〜<%=Result.List[i].EndDate.split(' ')[0]%></div>
+                </td>
+                <td>
+                    <div><%=Result.List[i].PubStatusName%></div>
+                </td>
+                <!--待审核-->
+                <%if(Result.List[i].PubStatus==49002){%>
+                <td>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PubID%>" CreateUserRole="<%=Result.List[i].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+<%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400104')!=-1 && Result.List[i].CanAddToRecommend &&Result.List[i].IsRange&&Result.List[i].PubStatus == 49004){%>
+                    <a href="javascript:;" class="recommend" name="<%=Result.List[i].PubID%>" templateid="<%=Result.List[i].TemplateID%>" style="position: static;border:none;">
+                        <img src="/ImagesNew/recommend.png" title="推荐到首页">
+                    </a>
+                    <%}%>
+                </td>
+                <%}%>
+                <!--已上架-->
+                <%if(Result.List[i].PubStatus==49004){%>
+                <td>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500504')!=-1){%>
+                    <a href="javascript:;" class="Upanddown"><img PubIDs="<%=Result.List[i].PubID%>" src="/ImagesNew/down.png" name="4" title="下架" BeginDate="<%=Result.List[i].BeginDate%>" EndDate="<%=Result.List[i].EndDate%>"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                    <a href="javascript:;" class="show" style="display: none"><img src="/ImagesNew/edit.png" class="Advertisingeditor" PubIDs="<%=Result.List[i].PubID%>" title="编辑"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                    <a href="javascript:;" class="show" style="display: none"><img class="delete" PubIDs="<%=Result.List[i].PubID%>"
+                                                src="/ImagesNew/delete.png" title="删除"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PubID%>" CreateUserRole="<%=Result.List[i].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                    <%}console.log(CTLogin.BUTIDs.indexOf('SYS001BUT400104')!=-1,Result.List[i].CanAddToRecommend,Result.List[i].IsRange&&Result.List[i].PubStatus)%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400104')!=-1 && Result.List[i].CanAddToRecommend &&Result.List[i].IsRange&&Result.List[i].PubStatus == 49004){%>
+                    <a href="javascript:;" class="recommend" name="<%=Result.List[i].PubID%>" templateid="<%=Result.List[i].TemplateID%>" style="position: static;border:none;">
+                        <img src="/ImagesNew/recommend.png" title="推荐到首页">
+                    </a>
+                    <%}%>
+                </td>
+                <%}%>
+                <!--待提交-->
+                <%if(Result.List[i].PubStatus==49001){%>
+                <td>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                    <a href="javascript:;"><img src="/ImagesNew/edit.png" class="Advertisingeditor" PubIDs="<%=Result.List[i].PubID%>" title="编辑"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                    <a href="javascript:;"><img class="delete" PubIDs="<%=Result.List[i].PubID%>"
+                                                src="/ImagesNew/delete.png" title="删除"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PubID%>" CreateUserRole="<%=Result.List[i].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400104')!=-1 && Result.List[i].CanAddToRecommend &&Result.List[i].IsRange&&Result.List[i].PubStatus == 49004){%>
+                    <a href="javascript:;" class="recommend" name="<%=Result.List[i].PubID%>" templateid="<%=Result.List[i].TemplateID%>" style="position: static;border:none;">
+                        <img src="/ImagesNew/recommend.png" title="推荐到首页">
+                    </a>
+                    <%}%>
+                </td>
+                <%}%>
+                <!--已下架-->
+                <%if(Result.List[i].PubStatus==49005){%>
+                <td>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500504')!=-1){%>
+                    <a href="javascript:;" class="Upanddown"><img PubIDs="<%=Result.List[i].PubID%>" src="/ImagesNew/up.png" name="3" title="上架" BeginDate="<%=Result.List[i].BeginDate%>" EndDate="<%=Result.List[i].EndDate%>"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                    <a href="javascript:;" class="show"><img class="Advertisingeditor" src="/ImagesNew/edit.png" PubIDs="<%=Result.List[i].PubID%>" title="编辑"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                    <a href="javascript:;" class="show"><img class="delete" PubIDs="<%=Result.List[i].PubID%>"
+                                                src="/ImagesNew/delete.png" title="删除"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PubID%>" CreateUserRole="<%=Result.List[i].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                    <%}%>
+                </td>
+                <%}%>
+                <!--已驳回-->
+                <%if(Result.List[i].PubStatus==49003){%>
+                <td>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                    <a href="javascript:;"><img src="/ImagesNew/edit.png" class="Advertisingeditor" PubIDs="<%=Result.List[i].PubID%>" title="编辑"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                    <a href="javascript:;"><img class="delete" PubIDs="<%=Result.List[i].PubID%>"
+                                                src="/ImagesNew/delete.png" title="删除"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PubID%>" CreateUserRole="<%=Result.List[i].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400104')!=-1 && Result.List[i].CanAddToRecommend &&Result.List[i].IsRange&&Result.List[i].PubStatus == 49004){%>
+                    <a href="javascript:;" class="recommend" name="<%=Result.List[i].PubID%>" templateid="<%=Result.List[i].TemplateID%>" style="position: static;border:none;">
+                        <img src="/ImagesNew/recommend.png" title="推荐到首页">
+                    </a>
+                    <%}%>
+                </td>
+                <%}%>
+                <!--未上架-->
+                <%if(Result.List[i].PubStatus==49006){%>
+                <td>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                    <a href="javascript:;"><img src="/ImagesNew/edit.png" class="Advertisingeditor" PubIDs="<%=Result.List[i].PubID%>" title="编辑"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                    <a href="javascript:;"><img class="delete" PubIDs="<%=Result.List[i].PubID%>"
+                                                src="/ImagesNew/delete.png" title="删除"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PubID%>" CreateUserRole="<%=Result.List[i].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                    <%}%>
+                    <%if(CTLogin.BUTIDs.indexOf('SYS001BUT400104')!=-1 && Result.List[i].CanAddToRecommend &&Result.List[i].IsRange&&Result.List[i].PubStatus == 49004){%>
+                    <a href="javascript:;" class="recommend" name="<%=Result.List[i].PubID%>" templateid="<%=Result.List[i].TemplateID%>" style="position: static;border:none;">
+                        <img src="/ImagesNew/recommend.png" title="推荐到首页">
+                    </a>
+                    <%}%>
+                </td>
+                <%}%>
+            </tr>
+            <%}%>
+        </table>
+
+
+
+    </div>
+</script>
+<!--媒体主-->
+<script type="text/template" id="meiti">
+    <div>
+        <div class="fl"><input id="Select" type="checkbox" value=""> 全选</div>
+        <div class="fr" style="margin-bottom: 10px;">
+            <span class="but_query" id="batchUp" style="width:50px;height: 26px;line-height: 26px">上架</span>
+            <span class="but_query" id="batchdown" style="width:50px;height: 26px;line-height: 26px;margin-left:5px">下架</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="ad_table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="17%">广告名称</th>
+                <th width="10%">模板状态</th>
+                <th width="8%">选择</th>
+                <th width="8%">广告单元</th>
+                <th width="15%">价格</th>
+                <th width="15%">价格有效期</th>
+                <th width="10%">广告状态</th>
+                <th width="13%">操作</th>
+            </tr>
+            <%for(var i=0;i<Result.List.length;i++){%>
+            <tr>
+                <td style="position: relative">
+                    <div class="ad_name">
+                        <h3><a href="javascript:;" TemplateID="<%=Result.List[i].TemplateID%>" class="Adview"><%=Result.List[i].ADName?Result.List[i].ADName:''%></a></h3>
+                        <p><%=Result.List[i].MediaName?Result.List[i].MediaName:''%></p>
+                    </div>
+                    <%if(Result.List[i].ADStatus==48002||Result.List[i].ADStatus==48003){%>
+                    <div class="increase_price" name="<%=Result.List[i].TemplateID%>" MediaID='<%=Result.List[i].MediaID%>' style="display: none;position: absolute;bottom: 0;left: 0;height: 24px;"><%if(Result.List[i].ADStatus==48002){%><label style="cursor: pointer;display: inline-block;width:100%;float: left;text-align: center">+ 增加价格</label>
+                        <%}%>
+                        <%if(Result.List[i].ADStatus==48003){%><span style="cursor: pointer;display: inline-block;width:50%;float: left;text-align: center" name="<%=Result.List[i].TemplateID%>">删除广告模板</span><div style="display: inline;cursor: pointer;display: inline-block;width:50%;float: left;text-align: center" name="<%=Result.List[i].TemplateID%>" MediaID='<%=Result.List[i].MediaID%>'>修改广告模板</div><%}%>
+                    </div>
+                    <%}%>
+                </td>
+                <td name="<%=Result.List[i].ADStatus%>"><%=Result.List[i].ADStatusName%></td>
+
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>" style="height: 30px"> <input  name="<%=Result.List[i].PublishList[j].PubStatus%>" class="Radio" type="checkbox" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" value=""></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>" style="height: 30px"><%=Result.List[i].PublishList[j].PriceCount%>个</div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>" style="height: 30px"> <%=formatMoney(Result.List[i].PublishList[j].MinPrice,2,'¥')%>～<%=formatMoney(Result.List[i].PublishList[j].MaxPrice,2,'¥')%></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>"><%=Result.List[i].PublishList[j].BeginDate.split(' ')[0]%>〜<%=Result.List[i].PublishList[j].EndDate.split(' ')[0]%></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>" style="height: 30px"><%=Result.List[i].PublishList[j].PubStatusName%></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>" style="height: 30px">
+                        <!--已上架-->
+                        <%if(Result.List[i].PublishList[j].PubStatus==49004){%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500504')!=-1){%>
+                    <a href="javascript:;" class="Upanddown"><img PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/down.png" i="<%=j%>" name="4" title="下架" BeginDate="<%=Result.List[i].PublishList[j].BeginDate%>" EndDate="<%=Result.List[i].PublishList[j].EndDate%>"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                        <a href="javascript:;" class='show' style="display: none"><img src="/ImagesNew/edit.png" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" class="Advertisingeditor" title="编辑"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                        <a href="javascript:;" class='show' style="display: none"><img class="delete" i="<%=j%>" pubidleng="<%=i%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/delete.png" title="删除"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" CreateUserRole="<%=Result.List[i].PublishList[j].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                        <%}%>
+                        <%}%>
+                        <!--已下架-->
+                        <%if(Result.List[i].PublishList[j].PubStatus==49005){%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500504')!=-1){%>
+                    <a href="javascript:;" class="Upanddown"><img PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/up.png" name="3" i="<%=j%>" title="上架" BeginDate="<%=Result.List[i].PublishList[j].BeginDate%>" EndDate="<%=Result.List[i].PublishList[j].EndDate%>"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                    <a href="javascript:;" class='show'><img PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/edit.png" title="编辑" class="Advertisingeditor"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                    <a href="javascript:;" class='show'><img class="delete" i="<%=j%>" pubidleng="<%=i%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/delete.png" title="删除"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                    <a href="javascript:;" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" TemplateID="<%=Result.List[i].TemplateID%>" CreateUserRole="<%=Result.List[i].PublishList[j].CreateUserRole%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                <%}%>
+                <%}%>
+                        <!--未上架-->
+                        <%if(Result.List[i].PublishList[j].PubStatus==49006){%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                        <a href="javascript:;"><img src="/ImagesNew/edit.png" class="Advertisingeditor" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" title="编辑"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                        <a href="javascript:;"><img class="delete" i="<%=j%>" pubidleng="<%=i%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/delete.png" title="删除"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                        <a href="javascript:;" CreateUserRole="<%=Result.List[i].PublishList[j].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                        <%}%>
+                        <%}%>
+                    </div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+            </tr>
+            <%}%>
+        </table>
+
+
+    </div>
+</script>
+<!--ae-->
+<script type="text/template" id="ae">
+    <div>
+        <div class="fl"><input id="Select" type="checkbox" value=""> 全选</div>
+        <div class="fr" style="margin-bottom: 10px;">
+            <span class="but_query" id="batchUp" style="width:50px;height: 26px;line-height: 26px">上架</span>
+            <span class="but_query" id="batchdown" style="width:50px;height: 26px;line-height: 26px;margin-left:5px">下架</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="ad_table">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd">
+            <tr>
+                <th width="17%">广告名称</th>
+                <th width="10%">模板状态</th>
+                <th width="8%">选择</th>
+                <th width="8%">广告单元</th>
+                <th width="15%">价格</th>
+                <th width="15%">价格有效期</th>
+                <th width="10%">广告状态</th>
+                <th width="13%">操作</th>
+            </tr>
+            <%console.log(Result)%>
+            <%for(var i=0;i<Result.List.length;i++){%>
+            <tr>
+                <td style="position: relative">
+                    <div class="ad_name">
+                        <h3><a href="javascript:;"  TemplateID="<%=Result.List[i].TemplateID%>"  class="Adview"><%=Result.List[i].ADName?Result.List[i].ADName:''%></a></h3>
+                        <p><%=Result.List[i].MediaName?Result.List[i].MediaName:''%></p>
+                    </div>
+                    <%if(Result.List[i].ADStatus==48002||Result.List[i].ADStatus==48003){%>
+                    <div class="increase_price" name="<%=Result.List[i].TemplateID%>" MediaID='<%=Result.List[i].MediaID%>' style="display: none;position: absolute;bottom: 0;left: 0;height: 24px;"><%if(Result.List[i].ADStatus==48002){%><label style="cursor: pointer;display: inline-block;width:100%;float: left;text-align: center">+ 增加价格</label>
+                        <%}%>
+                        <%if(Result.List[i].ADStatus==48003){%><span style="cursor: pointer;display: inline-block;width:50%;float: left;text-align: center" name="<%=Result.List[i].TemplateID%>">删除广告模板</span><div style="display: inline;cursor: pointer;display: inline-block;width:50%;float: left;text-align: center" name="<%=Result.List[i].TemplateID%>" MediaID='<%=Result.List[i].MediaID%>'>修改广告模板</div><%}%>
+                    </div>
+                    <%}%>
+                </td>
+                <td name="<%=Result.List[i].ADStatus%>"><%=Result.List[i].ADStatusName%></td>
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>" style="height: 30px"> <input  name="<%=Result.List[i].PublishList[j].PubStatus%>" class="Radio" type="checkbox" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" value=""></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>"><%=Result.List[i].PublishList[j].PriceCount%>个</div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>"> <%=formatMoney(Result.List[i].PublishList[j].MinPrice,2,'¥')%>～<%=formatMoney(Result.List[i].PublishList[j].MaxPrice,2,'¥')%></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>"><%=Result.List[i].PublishList[j].BeginDate.split(' ')[0]%>〜<%=Result.List[i].PublishList[j].EndDate.split(' ')[0]%></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>"><%=Result.List[i].PublishList[j].PubStatusName%></div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+                <td class="removeor<%=i%>">
+                    <%if(Result.List[i].PublishList){%>
+                    <%for(var j=0;j<Result.List[i].PublishList.length;j++){%>
+                    <div i="<%=j%>">
+                        <!--已上架-->
+                        <%if(Result.List[i].PublishList[j].PubStatus==49004){%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500504')!=-1){%>
+                        <a href="javascript:;" class="Upanddown"><img PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/down.png" i="<%=j%>" name="4" title="下架" BeginDate="<%=Result.List[i].PublishList[j].BeginDate%>" EndDate="<%=Result.List[i].PublishList[j].EndDate%>"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                        <a href="javascript:;" class='show' style="display: none"><img src="/ImagesNew/edit.png"  PubIDs="<%=Result.List[i].PublishList[j].PubID%>" class="Advertisingeditor" title="编辑"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                        <a href="javascript:;" class='show' style="display: none"><img class="delete" i="<%=j%>" pubidleng="<%=i%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/delete.png" title="删除"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                        <a href="javascript:;" CreateUserRole="<%=Result.List[i].PublishList[j].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                        <%}%>
+                        <%}%>
+                        <!--已下架-->
+                        <%if(Result.List[i].PublishList[j].PubStatus==49005){%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500504')!=-1){%>
+                        <a href="javascript:;" class="Upanddown"><img PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/up.png" name="3" i="<%=j%>" title="上架" BeginDate="<%=Result.List[i].PublishList[j].BeginDate%>" EndDate="<%=Result.List[i].PublishList[j].EndDate%>"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                        <a href="javascript:;" class='show'><img class="Advertisingeditor" src="/ImagesNew/edit.png" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" title="编辑"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                        <a href="javascript:;" class='show'><img class="delete" i="<%=j%>" pubidleng="<%=i%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/delete.png" title="删除"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                        <a href="javascript:;" CreateUserRole="<%=Result.List[i].PublishList[j].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                        <%}%>
+                        <%}%>
+                        <!--待提交-->
+                        <%if(Result.List[i].PublishList[j].PubStatus==49001||Result.List[i].PublishList[j].PubStatus==49003){%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500503')!=-1){%>
+                        <a href="javascript:;"><img class="Advertisingeditor" src="/ImagesNew/edit.png" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" title="编辑"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500508')!=-1){%>
+                        <a href="javascript:;"><img class="delete" i="<%=j%>" pubidleng="<%=i%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" src="/ImagesNew/delete.png" title="删除"/></a>
+                        <%}%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                        <a href="javascript:;" CreateUserRole="<%=Result.List[i].PublishList[j].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                        <%}%>
+                        <%}%>
+                        <!--待审核-->
+                        <%if(Result.List[i].PublishList[j].PubStatus==49002){%>
+                        <%if(CTLogin.BUTIDs.indexOf('SYS001BUT500501')!=-1){%>
+                        <a href="javascript:;" CreateUserRole="<%=Result.List[i].PublishList[j].CreateUserRole%>" TemplateID="<%=Result.List[i].TemplateID%>" PubIDs="<%=Result.List[i].PublishList[j].PubID%>" class="Priceview"><img src="/ImagesNew/view.png" title="查看"/></a>
+                        <%}%>
+                        <%}%>
+                    </div>
+                    <%}%>
+                    <%}else{%>
+                    <div style="height: 30px">--</div>
+                    <%}%>
+                </td>
+            </tr>
+            <%}%>
+        </table>
+
+
+    </div>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+
+<div id='divMenu' class="order_l">
+    <div><a id="menuflag"><img src="/imagesNew/icon49.png"></a></div>
+    <ul class="menu">
+        <!--<li>
+            <a href="#">
+                <img src="/imagesNew/menu_ico01.png">
+            </a>
+
+        </li>
+        <li><a href="#"><img src="/imagesNew/menu_ico02.png"></a></li>
+        <li><a href="#" class="active"><img src="/imagesNew/menu_ico03_h.png"></a></li>
+        <li><a href="#"><img src="/imagesNew/menu_ico04.png"></a></li>
+        <li><a href="#"><img src="/imagesNew/menu_ico05.png"></a></li>-->
+    </ul>
+</div>
+
+<!--<div class="vtitle" data-num="0">
+    <em class="v v02"></em>
+    <img src="/images/ico04.png">
+    订单管理</div>
+<div class="vcon" style="display: none;">
+    <ul class="vconlist clearfix">
+        <li class="select"><a href="javascript:;">订单管理</a></li>
+        <li><a href="javascript:;">订单管理</a></li>
+    </ul>
+</div>
+<div class="vtitle" data-num="1">
+    <em class="v"></em>
+    <img src="/images/ico05.png">
+    媒体刊例管理</div>
+<div class="vcon" style="display: none;">
+    <ul class="vconlist clearfix">
+        <li><a href="javascript:;">媒体刊例管理</a></li>
+        <li><a href="javascript:;">媒体刊例管理</a></li>
+        <li><a href="javascript:;">媒体刊例管理</a></li>
+    </ul>
+</div>
+<div class="vtitle" data-num="2">
+    <em class="v"></em>
+    <img src="images/ico06.png">
+    账号管理</div>
+<div class="vcon" style="display: none;">
+    <ul class="vconlist clearfix">
+        <li><a href="javascript:;">个人信息</a></li>
+        <li><a href="javascript:;">账户安全</a></li>
+    </ul>
+</div>
+<div class="clear">
+</div>-->
+<!--<script type="text/javascript">
+    leftNav();
+</script>-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        MenuHelper.init(function () {
+            var MenuFlag = MenuHelper.getMenuFlag();
+            if (MenuFlag == 'big') {
+                //绑定右侧导航菜单
+                if ($('div.order > div.order_r div > h2').hasClass('menu_nav')) {
+                    //var objOne = $('<label>').attr('href', 'javascript:void(0);');
+                    var objTwo = $('<label>');
+                    var h2Obj = $('div.order > div.order_r div h2.menu_nav');
+                    h2Obj.find('label').remove();
+                    //var menuOne = $('#divMenu ul.menu > li > a[class="active"]');
+                    //if (menuOne.size() == 1) {
+                    //    objOne.text(menuOne.find('span').text())
+                    //          .attr('href', menuOne.attr('src'));
+                    //}
+
+                    //h2Obj.append(objOne);//绑定一级菜单
+
+                    var menuTwo = $('#divMenu ul.menu > li a[class="active"]:last');
+                    if (menuTwo.size() == 1) {
+                        objTwo.text(menuTwo.text());
+                              //.attr('href', menuTwo.attr('href'));
+                        //h2Obj.append(' > ');
+                    }
+                    h2Obj.append(objTwo);//绑定二级菜单
+                }
+            }
+            else if (MenuFlag == 'small') {
+                //绑定右侧导航菜单
+                if ($('div.order > div.order_r div h2').hasClass('menu_nav')) {
+                    //var objOne = $('<a>').attr('href', 'javascript:void(0);');
+                    var objTwo = $('<label>');
+                    var h2Obj = $('div.order > div.order_r div h2.menu_nav');
+                    h2Obj.find('label').remove();
+                    //var menuOne = $('#divMenu ul.menu > li > a[class="active"]');
+                    //if (menuOne.size() == 1) {
+                    //    objOne.text(menuOne.find('img').attr('title'))
+                    //          .attr('href', menuOne.attr('href'));
+                    //}
+
+                    //h2Obj.append(objOne);//绑定一级菜单
+
+                    var menuTwo = $('#divMenu ul.menu > li span a[class="current"]:last');
+                    var menuTwoText = '';
+                    if (menuTwo.size() == 1) {
+                        menuTwoText = menuTwo.text();
+                    }
+                    else {
+                        menuTwo = $('#divMenu ul.menu > li a[class="active"]:last');
+                        if (menuTwo.size() == 1) {
+                            menuTwoText = menuTwo.find('img').attr('title');
+                        }
+                    }
+                    if (menuTwoText !='') {
+                        objTwo.text(menuTwoText);
+                    }
+                    h2Obj.append(objTwo);//绑定二级菜单
+                }
+
+            }
+        });
+    });
+
+    var MenuHelper = (function () {
+        var menuJsonData = {};//接收菜单数据对象
+        var menuIcon = {};//菜单图标对于关系
+        //var curUrlPathname = '/MediaManager/ViewOfMediaPlateform.html';//window.location.pathname.toLowerCase();//获取当前页面url参数之前的部分（不包含域名）
+        //var curUrl = '/MediaManager/ViewOfMediaPlateform.html';//window.location.href.split('?')[0].toLowerCase();////获取当前页面url参数之前的部分（包含域名）
+        var curUrlPathname = window.location.pathname.toLowerCase();;//window.location.pathname.toLowerCase();//获取当前页面url参数之前的部分（不包含域名）
+        var curUrl = window.location.href.split('?')[0].toLowerCase();
+        var init = function (callback) {
+            initMenuIcon();
+            initMenuFlag();
+            getData(callback);
+        },
+
+        //初始化菜单图标对于关系
+        initMenuIcon = function () {
+            menuIcon["财务管理"] = 'SYS008MOD0001';
+            menuIcon["用户管理"] = 'SYS008MOD0002';
+        },
+
+        //渲染菜单
+        bindMenu = function () {
+            if (menuJsonData) {
+                var menuflag = getMenuFlag();
+                $('#divMenu ul.menu').html('');//清空菜单数据
+                //若为“展开”状态时，
+                if (menuflag == 'big') {
+                    for (var i = 0; i < menuJsonData.length; i++) {//遍历一级菜单
+                        var liOne = $('<li>');
+                        var a = $('<a>');
+                        if (menuJsonData[i].Url == '') {
+                            a.attr('href', 'javascript:void(0);');
+                        }
+                        else {
+                            a.attr('href', menuJsonData[i].Url.toLowerCase());
+                        }
+                        var menuIconName = (menuIcon[menuJsonData[i].ModuleName] ? menuIcon[menuJsonData[i].ModuleName] : 'ico01');
+                        a.append($('<em>').addClass('s'))
+                         .append($('<img>').attr('src', '/imagesNew/menu_' + menuIconName + '.png'))
+                         .append($('<span>').text(menuJsonData[i].ModuleName));
+                        //设置绑定样式
+                        if (menuJsonData[i].Url.toLowerCase().endsWith(curUrl) ||
+                            menuJsonData[i].Links.toLowerCase().indexOf(curUrlPathname) > 0) {
+                            a.addClass('active').find('img').attr('src', '/imagesNew/menu_' + menuIconName + '_h.png');
+                        }
+
+                        liOne.append(a);
+
+                        if (menuJsonData[i].SubModule && menuJsonData[i].SubModule.length > 0) {
+                            var ol = $('<ol>').hide();
+                            var active = false;
+                            liOne.find('a:first em').removeClass().addClass('s01');
+                            for (var j = 0; j < menuJsonData[i].SubModule.length; j++) {//遍历二级菜单
+                                var aTwo = $('<a>');
+                                var liTwo = $('<li>').append(
+                                    aTwo.attr('href', menuJsonData[i].SubModule[j].Url.toLowerCase())
+                                        .text(menuJsonData[i].SubModule[j].ModuleName)
+                                    );
+                                //设置绑定样式
+                                if (menuJsonData[i].SubModule[j].Url.toLowerCase().endsWith(curUrl) ||
+                                    menuJsonData[i].SubModule[j].Links.toLowerCase().indexOf(curUrlPathname) > 0) {
+                                    aTwo.addClass('active');
+                                    var liOenAObj = liOne.find('a:first').addClass('active');
+                                    liOenAObj.find('img').attr('src', function () {
+                                        var url = $(this).attr('src');
+                                        var arrUrl = url.split("/");
+                                        var imgName = arrUrl[arrUrl.length - 1];
+                                        return url.replace(imgName, imgName.split('.')[0] + '_h.' + imgName.split('.')[1]);
+                                    });
+                                    liOne.find('a:first em').removeClass().addClass('s02');
+                                    active = true;
+                                }
+                                ol.append(liTwo);
+                            }
+                            //二级菜单有匹配项时，把一级菜单的样式选定上
+                            if (active) {
+                                ol.show();
+                            }
+                            liOne.append(ol);
+                        }
+                        $('#divMenu ul.menu').append(liOne);
+                    }
+                    //$('#divMenu ul.menu li a[herf!="javascript:void(0);"]').attr('href', function (index, attr) {
+                    //    var twoObj = $(this).next('ol').find('li a[href!=""]:eq(0)');
+                    //    if (twoObj && twoObj.size() == 1) {
+                    //        return twoObj.attr('href');
+                    //    }
+                    //    return attr;
+                    //});
+                    //绑定二级菜单展开、关闭事件
+                    $('#divMenu ul.menu li a em').unbind('click').bind('click', function () {
+
+                        if ($(this).hasClass('s02')) {
+                            $(this).removeClass().addClass('s01');
+                            $(this).parent().next('ol').slideUp();
+                        }
+                        else if ($(this).hasClass('s01')) {
+
+                            $('#divMenu ul.menu li a em.s02').parent().next('ol').slideUp();
+                            $('#divMenu ul.menu li a em.s02').removeClass().addClass('s01');
+                            $(this).removeClass().addClass('s02');
+                            $(this).parent().next('ol').slideDown();
+                        }
+                    });
+
+                }
+                    //若为“收缩”状态时，
+                else if (menuflag == 'small') {
+                    for (var i = 0; i < menuJsonData.length; i++) {//遍历一级菜单
+                        var liOne = $('<li>');
+                        var a = $('<a>');
+                        //if (menuJsonData[i].Url == '') {
+                        //    a.attr('href', 'javascript:void(0);');
+                        //}
+                        //else {
+                        a.attr('href', menuJsonData[i].Url.toLowerCase());
+                        //}
+                        var menuIconName = (menuIcon[menuJsonData[i].ModuleName] ? menuIcon[menuJsonData[i].ModuleName] : 'ico01');
+                        a.append($('<img>').attr('src', '/imagesNew/menu_' + menuIconName + '.png')
+                                           .attr('title', menuJsonData[i].ModuleName));
+                        //设置绑定样式
+                        if (menuJsonData[i].Url.toLowerCase().endsWith(curUrl) ||
+                            menuJsonData[i].Links.toLowerCase().indexOf(curUrlPathname) > 0) {
+                            a.addClass('active').find('img').attr('src', '/imagesNew/menu_' + menuIconName + '_h.png');
+                            //liOne.css('position', 'relative');
+                        }
+                        liOne.append(a);
+
+                        if (menuJsonData[i].SubModule && menuJsonData[i].SubModule.length > 0) {
+                            var spanTwo = $('<span>').hide();
+                            spanTwo.append($('<div>').append($('<em>').addClass('s02')).append(menuJsonData[i].ModuleName));
+                            //var active = false;
+                            //liOne.find('a:first em').removeClass().addClass('s01');
+                            for (var j = 0; j < menuJsonData[i].SubModule.length; j++) {//遍历二级菜单
+                                var aTwo = $('<a>');
+                                aTwo.attr('href', menuJsonData[i].SubModule[j].Url.toLowerCase())
+                                    .text(menuJsonData[i].SubModule[j].ModuleName);
+                                if (j == 0) {
+                                    a.attr('href', menuJsonData[i].SubModule[j].Url.toLowerCase());
+                                }
+                                //设置绑定样式
+                                if (menuJsonData[i].SubModule[j].Url.toLowerCase().endsWith(curUrl) ||
+                                    menuJsonData[i].SubModule[j].Links.toLowerCase().indexOf(curUrlPathname) > 0) {
+                                    aTwo.addClass('current');
+                                    liOne.css('position', 'relative');
+                                    var liOenAObj = liOne.find('a:first').addClass('active');
+                                    liOenAObj.find('img').attr('src', function () {
+                                        var url = $(this).attr('src');
+                                        var arrUrl = url.split("/");
+                                        var imgName = arrUrl[arrUrl.length - 1];
+                                        return url.replace(imgName, imgName.split('.')[0] + '_h.' + imgName.split('.')[1]);
+                                    });
+                                    //active = true;
+                                }
+                                spanTwo.append(aTwo);
+                            }
+                            liOne.append(spanTwo);
+                        }
+                        $('#divMenu ul.menu').append(liOne);
+                    }
+
+                    //一级菜单，鼠标进入事件
+                    $('#divMenu ul.menu li').unbind('mouseover').bind('mouseover', function () {
+                        $('#divMenu ul.menu li > span').hide();
+                        $(this).find('span:hidden:first').show();
+                        $(this).removeAttr('style').css('position', 'relative');
+                    });
+                    //二级菜单，鼠标移出事件
+                    $('#divMenu ul.menu li > span').unbind('mouseout').bind('mouseout', function () {
+                        $(this).hide();
+                    });
+                }
+            }
+        },
+
+        //当前菜单标识（big和small）
+        getMenuFlag = function () {
+            return ds.getCookie('MenuFlag');
+        },
+
+        //调用接口获取菜单数据
+        getData = function (callback) {
+            setAjax({
+                url: '/api/Authorize/GetMenuInfo',
+                type: 'get'
+            }, function (data) {
+                var status = data.Status;
+                /*判断图片类型*/
+                if (status == 0) {
+                    menuJsonData = data.Result;
+                    if (bindMenu) {
+                        bindMenu();//渲染菜单
+                        if (callback) {
+                            callback();//执行回调操作
+                        }
+                    }
+                }
+            });
+        },
+
+        //初始化菜单标志事件
+        initMenuFlag = function () {
+            var menuflagObj = $('#menuflag');
+            var divMenuObj = $('#divMenu');
+            var menuFlag = ds.getCookie('MenuFlag');
+            if (menuFlag == 'big') {
+                menuflagObj.attr('title', '收缩');
+                divMenuObj.removeClass().addClass('order_l_spread');
+                menuflagObj.parent('div').removeClass().addClass('pl12');
+                $('div.order > div.order_r').css({ 'margin-left': '140px' });
+            }
+            else {
+                menuflagObj.attr('title', '展开');
+                divMenuObj.removeClass().addClass('order_l');
+                menuflagObj.parent('div').removeClass();
+                $('div.order > div.order_r').removeAttr('style');
+                ds.setCookie('MenuFlag', 'small');
+            }
+            menuflagObj.unbind('click').bind('click', function () {
+
+                var menuFlag = ds.getCookie('MenuFlag');
+                if (menuFlag == 'big') {
+                    menuflagObj.attr('title', '展开');
+                    divMenuObj.removeClass().addClass('order_l');
+                    $(this).parent('div').removeClass();
+                    $('div.order > div.order_r').removeAttr('style');
+                    ds.setCookie('MenuFlag', 'small');
+                }
+                else {
+                    menuflagObj.attr('title', '收缩');
+                    divMenuObj.removeClass().addClass('order_l_spread');
+                    $(this).parent('div').removeClass().addClass('pl12');
+                    $('div.order > div.order_r').css('margin-left', '140px');
+                    ds.setCookie('MenuFlag', 'big');
+                }
+                bindMenu();
+            });
+        };
+
+
+        return {
+            init: init,
+            getMenuFlag: getMenuFlag
+        };
+    })();
+</script>

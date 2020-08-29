@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F683D1D7-6463-45E6-9212-7F5CD2D26134}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XYAuto.BUOC.ChiTuData2017.Entities</RootNamespace>
+    <AssemblyName>XYAuto.BUOC.ChiTuData2017.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CarSerialInfo\RespCarBrandDto.cs" />
+    <Compile Include="Chitu\ChannelList.cs" />
+    <Compile Include="Chitu\DataStatistics.cs" />
+    <Compile Include="Chitu\DataStatisticsByDate.cs" />
+    <Compile Include="Chitu\DataStatisticsByMonth.cs" />
+    <Compile Include="CommonFunction.cs" />
+    <Compile Include="Constants\Constant.cs" />
+    <Compile Include="DataCenter\BasicQueryArgs.cs" />
+    <Compile Include="DataCenter\Clue\ClueDataInfo.cs" />
+    <Compile Include="DataCenter\Distribute\DistributeDetailInfo.cs" />
+    <Compile Include="DataCenter\Encapsulate\EncapsulateDetailInfo.cs" />
+    <Compile Include="DataCenter\EnumData.cs" />
+    <Compile Include="DataCenter\Forward\ForwardDetailInfo.cs" />
+    <Compile Include="DataCenter\Funnel\FunnelMaterialDetailInfo.cs" />
+    <Compile Include="DataCenter\Funnel\FunnelWaistDetailInfo.cs" />
+    <Compile Include="DataCenter\Funnel\FunnelHeadDetailInfo.cs" />
+    <Compile Include="DataCenter\ListQueryArgs.cs" />
+    <Compile Include="DataCenter\Pagination.cs" />
+    <Compile Include="DataCenter\ResultExcelInfo.cs" />
+    <Compile Include="DataCenter\Workload\WorkloadListInfo.cs" />
+    <Compile Include="DataCenter\Workload\WorkloadStatisticsInfo.cs" />
+    <Compile Include="DictInfo\DictInfo.cs" />
+    <Compile Include="Distribute\MaterielDistributeQingNiaoAgent.cs" />
+    <Compile Include="Distribute\MaterielDistributeTotal.cs" />
+    <Compile Include="Distribute\MaterielExtend.cs" />
+    <Compile Include="Distribute\MaterielInfo.cs" />
+    <Compile Include="Distribute\MaterielTemp.cs" />
+    <Compile Include="Enum\DistributeTypeEnum.cs" />
+    <Compile Include="Distribute\MaterielChannelDetailed.cs" />
+    <Compile Include="Distribute\MaterielDetailedStatistics.cs" />
+    <Compile Include="Distribute\MaterielDistributeDetailed.cs" />
+    <Compile Include="Distribute\MaterielOperateDetailed.cs" />
+    <Compile Include="Enum\LableTypeEnum.cs" />
+    <Compile Include="Enum\MaterielClickDetailsEnum.cs" />
+    <Compile Include="Enum\MaterielClickTypeEnum.cs" />
+    <Compile Include="Enum\MaterielConentTypeEnum.cs" />
+    <Compile Include="Enum\MaterielCreateTypeEnum.cs" />
+    <Compile Include="Enum\MaterielShareTypeEnum.cs" />
+    <Compile Include="Enum\MaterielTypeEnum.cs" />
+    <Compile Include="Enum\Statistics\ConditionTypeEnum.cs" />
+    <Compile Include="Enum\Statistics\OperatorEnum.cs" />
+    <Compile Include="Enum\Statistics\ScoreTypeEnum.cs" />
+    <Compile Include="Enum\Statistics\StatArticleTypeEnum.cs" />
+    <Compile Include="Enum\XyAttrTypeEnum.cs" />
+    <Compile Include="Lable\TitleBasicInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QingNiao\ChituChannelStat.cs" />
+    <Compile Include="QingNiao\ChituClickStat.cs" />
+    <Compile Include="QingNiao\ChituMaterialStat.cs" />
+    <Compile Include="Query\DistributeQuery.cs" />
+    <Compile Include="Query\QueryPageBase.cs" />
+    <Compile Include="Query\Statistics\StatSpiderQuery.cs" />
+    <Compile Include="Statistics\StatArtificialData.cs" />
+    <Compile Include="Statistics\StatArtificialStatistics.cs" />
+    <Compile Include="Statistics\StatArtificialSummary.cs" />
+    <Compile Include="Statistics\StatAutoData.cs" />
+    <Compile Include="Statistics\StatAutoStatistics.cs" />
+    <Compile Include="Statistics\StatAutoSummary.cs" />
+    <Compile Include="Statistics\StatCarMatchData.cs" />
+    <Compile Include="Statistics\StatCarMatchStatistics.cs" />
+    <Compile Include="Statistics\StatCarMatchSummary.cs" />
+    <Compile Include="Statistics\StatClueData.cs" />
+    <Compile Include="Statistics\StatClueStatistics.cs" />
+    <Compile Include="Statistics\StatClueSummary.cs" />
+    <Compile Include="Statistics\StatDataProfiling.cs" />
+    <Compile Include="Statistics\StatDistributeData.cs" />
+    <Compile Include="Statistics\StatDistributeStatistics.cs" />
+    <Compile Include="Statistics\StatDistributeSummary.cs" />
+    <Compile Include="Statistics\StatEncapsulateData.cs" />
+    <Compile Include="Statistics\StatEncapsulateStatistics.cs" />
+    <Compile Include="Statistics\StatEncapsulateSummary.cs" />
+    <Compile Include="Statistics\StatForwardData.cs" />
+    <Compile Include="Statistics\StatForwardStatistics.cs" />
+    <Compile Include="Statistics\StatForwardSummary.cs" />
+    <Compile Include="Statistics\StatFunnelHead.cs" />
+    <Compile Include="Statistics\StatFunnelMaterial.cs" />
+    <Compile Include="Statistics\StatFunnelWaist.cs" />
+    <Compile Include="Statistics\StatPrimaryData.cs" />
+    <Compile Include="Statistics\StatPrimaryStatistics.cs" />
+    <Compile Include="Statistics\StatPrimarySummary.cs" />
+    <Compile Include="Statistics\StatSpiderData.cs" />
+    <Compile Include="Statistics\StatSpiderStatistics.cs" />
+    <Compile Include="Statistics\StatSpiderSummary.cs" />
+    <Compile Include="Statistics\StatWorkloadStatistics.cs" />
+    <Compile Include="Task\AppInfo.cs" />
+    <Compile Include="Task\AppInfoUser.cs" />
+    <Compile Include="Task\MediaChannel.cs" />
+    <Compile Include="Task\OrderUrl.cs" />
+    <Compile Include="Task\TaskList.cs" />
+    <Compile Include="Task\TaskMaterialListWaist.cs" />
+    <Compile Include="Task\TaskStatistics.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MaterielInfo\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

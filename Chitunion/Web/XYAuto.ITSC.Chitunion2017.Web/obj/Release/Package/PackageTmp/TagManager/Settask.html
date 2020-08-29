@@ -1,0 +1,101 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="描述文字，字数200内？">
+    <meta name="keywords" content="网站相关关键字，字数200内？">
+    <title>标签管理--赤兔联盟平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script language="javascript" src="http://www.chitunion.com/api/check.ashx?NotCheckModule=true"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="../js/ejs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/SetTask.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2 class="menu_nav">
+                
+            </h2>
+            <div>
+                <ul>
+                    <li class="ins_a"><span class="red">*</span>项目名称：</li>
+                    <li><input type="text" id="Name" maxlength="40" style="height: 30px;"></li>
+                    <div class="tipInfo grey" style="float: left;line-height: 40px;display: none;"><img src='../images/icon21.png'> 请输入项目名称</div>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red">*</span>项目类型设置：</li>
+                    <li id="projectType">
+                        <input type="radio" name="taskType" checked value="61001">媒体
+                        <input type="radio" name="taskType" value="61002">文章
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <ul>
+                    <li class="ins_a"><span class="red">*</span> 设置账号：</li>
+                    <li>
+                        <div class="report-file" style="margin-left: 0">
+                            <input tabindex="3" size="3" name="uploadify" class="file-prew but_upload" type="file" id="uploadify"  >
+                        </div>
+                        附件:支持格式 XLSX，不超过5M
+                    </li>
+                    <img id="imgUploadFile"/>
+                    <div class="tipInfo grey" style="float: left;line-height: 40px;display: none;"><img src='../images/icon21.png'> 请上传账号文件</div>
+                    <div class="imgMsg" style="float: left; color: #ff2400;line-height: 40px;"></div>
+                    <div class="clear"></div>
+                </ul>
+                <ul id="ImgUp" style="display: none">
+                    <li class="ins_a">&nbsp;</li>
+                    <li><img src="/images/icon18.png"/></li>
+                    <li id="imgName"></li>
+                    <li><a id="imgDownURL" href="javascript:;" target="_blank"><img src="/images/icon19.png"/></a></li>
+                    <div class="clear"></div>
+                </ul>
+                <ul style="display: none;" id="StatisticResult">
+                    <li class="ins_a">统计结果：</li>
+                    <li>
+                        当前条件下未打标签数量：<span id="count"></span>（含1人已处理数量）
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+                <ul>
+                    <li class="ins_a"><span class="red">*</span>本次任务数量：</li>
+                    <li><input type="text" id="TaskCount" style="width: 60px;height: 30px;">  &nbsp;&nbsp;最多可输入10000</li>
+                    <div class="tipInfo grey" style="float: left;line-height: 40px;display: none;"><img src='../images/icon21.png'> 本次任务数据量不能为空</div>
+                    <div class="clear"></div>
+                </ul>
+                <div class="keep" style="padding: 0 0 0 70px;">
+                    <span>
+                        <a href="javascript:void(0)" class="button" style="width:150px;margin-left: 20px" id="submit">提交</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="描述文字，字数200内？">
+<meta name="keywords" content="网站相关关键字，字数200内？">
+<title>添加直播账号-媒体管理-我的赤兔</title>
+    <!--<link rel="stylesheet" type="text/css" href="../css/reset.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/layout.css"/>-->
+    <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.uploadify.v3.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.jmpopups-0.5.1.pack.js"></script>
+    <script type="text/javascript" src="../js/jquery.browser.js"></script>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layoutNew.css"/>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/tabNew.js"></script>
+    <script type="text/javascript" src="../js/Area2.js"></script>
+    <script type="text/javascript" src="../js/Common_area.js"></script>
+    <script type="text/javascript" src="../js/Common_chitu.js"></script>
+    <script type="text/javascript" src="js/mediaCommon.js"></script>
+    <script type="text/javascript" src="js/zhibo.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+</head>
+
+<body>
+<!--顶部logo 导航-->
+<!--#include file="../Base/header.html" -->
+
+<div class="list_main">
+<!--中间内容-->
+ <div class="order">
+     <!--左侧菜单-->
+     <!--#include file="../Base/Menu.html" -->
+    <div class="order_r">
+        <div class="install">
+            <h2>添加直播媒体</h2>
+            <h3>第一步： 填写媒体基本信息</h3>
+            <div class="clear"></div>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span>所属平台：</li>
+                <li>
+                    <select name="plateForm" id="plateForm" class="platFormEnumType" style="width:315px;line-height: 30px">
+                        <option value="-1">请选择视频平台</option>
+                    </select>
+                </li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请选择所属平台</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 平台账号：</li>
+                <li><input name="Username" class="editText plateFormID mediaId" type="text"  style="width:315px;"></li>
+                <li style="color: red;display: none" class="mediaIDAlert"><img src="/images/icon21.png" alt=""> 该媒体已存在，请不要重复添加</li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入平台账号</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 昵称：</li>
+                <li><input name="Username"  class="editText plateFormName mediaName" type="text" maxlength="50"  style="width:315px;"></li>
+                <li style="color: red;display: none" class="mediaNameAlert"><img src="/images/icon21.png" alt=""> 该媒体名称已存在，请核实</li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入昵称</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 头像：</li>
+                <li class="frame"><img src="" class="uploadImg headImg uploadBigimg" id="headimgUploadFile" width="80" height="80"/><span style="width: 200px;height: 200px;display: none;position:absolute;z-index: 999;" class="bigImgshow"><img src="" alt="" id="headBigImg" style="width: 200px;height: 200px;"></span><span class="set"><input type="file" name="file_upload" id="headUploadify" accept="image/jpeg,image/jpg,image/png" class="file-prew but_upload"/></span></li>
+                <li id="headimgErr" style="color: red"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请上传头像</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 性别：</li>
+                <li><input name="sex" data-id="0" type="radio" value="F" /> 男</li>
+                <li><input name="sex" data-id="1" type="radio" value="M" /> 女</li>
+                <li><input name="sex" data-id="-1" type="radio" value=null /> 未知</li>
+                <li style="color: red;display: none" class="sex"><img src="/images/icon21.png" alt=""> 请选择性别</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 粉丝数：</li>
+                <li><input name="Username"  class="editText fansCount" type="text"  style="width:315px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                <li class="red FansCount" style="display: none"><img src="/images/icon21.png" /> 只能填写大于0的整数</li>
+                <li class="red FansCountControl" style="display: none"><img src="/images/icon21.png" /> 粉丝数必须大于500</li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请输入粉丝数</li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="fansCountImg">
+                <li class="ins_a"><span class="red f12">*</span> 粉丝数截图：</li>
+                <li class="frame"><img class="uploadImg fansImg uploadBigimg" id="fansimgUploadify" src="" width="80" height="80"/><span style="width: 200px;height: 200px;display: none;position:absolute;z-index: 999;" class="bigImgshow"><img src="" alt="" id="fansBigImg" style="width: 200px;height: 200px;"></span><span class="set"><input type="file" name="file_upload" id="fansUploadify" accept="image/jpeg,image/jpg,image/png" class="file-prew but_upload"/></span></li>
+                <li id="fansimgErr" style="color: red"></li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请上传粉丝截图</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 行业分类：</li>
+                <li>
+                    <select name="industryClassify" id="industryClassify" class="Industry industryEnumType" style="width:315px;line-height: 30px">
+                    </select>
+                </li>
+                <li style="color: red;display: none" class="classifiy"><img src="/images/icon21.png" alt=""> 请选择行业分类</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 职业：</li>
+                <li>
+                    <select name="profession" id="profession" class="Profession professionEnumType" style="width:315px;line-height: 30px">
+                    </select>
+                </li>
+                <li style="color: red;display: none"><img src="/images/icon21.png" alt=""> 请选择职业</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span>覆盖区域：</li>
+                <li>
+                    <select id="ddlProvince" name="ddlProvince"  style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerProvince();">
+                        <option value="-1">省/直辖市</option>
+                        <option>全国</option>
+                    </select>
+                </li>
+                <li>
+                    <select id="ddlCity" name="ddlCity" style="width:120px;line-height: 30px" onchange="crmCustCheckHelper.triggerCity();">
+                        <option value="-1">覆盖区域--市</option>
+                        <option></option>
+                    </select>
+                </li>
+                <li><a href="javascript:;" class="yellow saveArea" >添加</a></li>
+                <li style="color: red;display: none" class="sameArea"><img src="/images/icon21.png" alt=""> 所选区域不能有包含关系</li>
+                <li style="color: red;display: none" id="overlay"><img src="/images/icon21.png" alt=""> 请选择覆盖区域</li>
+                <div class="clear"></div>
+            </ul>
+            <ul id="checkArea" style="display: none">
+                <li class="ins_a">&nbsp;</li>
+                <div class="clear area"></div>
+            </ul>
+            <ul>
+                <li class="ins_a">所在地区：</li>
+                <li>
+                    <select id="ddlProvince1" name="ddlProvince1" style="width:120px;line-height: 30px" class="w50" onchange="crmCustCheckHelper.triggerProvince1();">
+                        <option value="-1">省/直辖市</option>
+                    </select>
+                </li>
+                <li>
+                    <select id="ddlCity1" name="ddlCity1" class="w50" onchange="crmCustCheckHelper.triggerCity();" style="width:120px;line-height: 30px">
+                        <option value="-1">城市</option>
+                    </select>
+                </li>
+                <li style="color: red;display: none" class="Area"><!--<img src="/images/icon21.png" alt=""> 请选择所在地区--></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="radioValue mediaLevel">
+                <li class="ins_a"><span class="red f12">*</span> 媒体级别：</li>
+                <li><input name="level" value="4001" type="radio" /> 名人</li>
+                <li><input name="level" value="4002" type="radio" /> 普通</li>
+                <li style="color: red;display: none" class="level"><img src="/images/icon21.png" alt=""> 请选择媒体级别</li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="radioValue weChatConfirm">
+                <li class="ins_a"><span class="red f12">*</span> 是否认证：</li>
+                <li><input name="identification" type="radio" data-id="1" value="是" /> 是</li>
+                <li><input name="identification" type="radio" data-id="0" value="否"/> 否</li>
+                <li style="color: red;display: none" class="identification"><img src="/images/icon21.png" alt=""> 请选择认证情况</li>
+                <div class="clear"></div>
+            </ul>
+            <ul>
+                <li class="ins_a"><span class="red f12">*</span> 预约情况：</li>
+                <li><input name="appointment" type="radio" value="无需" data-id="0"/> 无需预约</li>
+                <li><input name="appointment" type="radio" value="需" data-id="1"/> 需预约</li>
+                <li style="color: red;display: none" class="appointment"><img src="/images/icon21.png" alt=""> 请选择预约情况</li>
+                <div class="clear"></div>
+            </ul>
+
+            <h3 class="mt20">互动参数</h3>
+            <div class="clear"></div>
+            <div class="binary">
+                <div class="parameter">
+                    <ul>
+                        <li><span style="color: red;">*</span> 直播观众数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">截止更新日期，所有直播的总直播观众数÷总直播次数,平均直播观众数越高，代表主播的人 气越高<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="audienceCount" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 最高观众数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">截止更新日期，所有直播的最高观众数<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="maximumAudience" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 平均观众数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">截止更新日期，所有直播的总直播观众数÷总直播次数,平均直播观众数越高，代表主播的人 气越高<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="averageAudience" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                    <ul>
+                        <li><span style="color: red;">*</span> 累计打赏数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">指账号累计收到的打赏数,例:映票、金币、花椒币、魅力值<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="cumulateReward" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 累计收入</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;width: 400px" class="annotation">截止更新日期，被打赏的总虚拟币换算为主播人民币收入
+                                参照对应平台算法，主播收入计算如下(不考虑充值优惠及个别主播特殊分成): 映客:主播人民币收入=映票数/32;
+                                花椒:主播人民币收入=花椒币*0.07; 一直播:主播人民币收入=金币数*0.003;<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="cumulateIncome" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul>
+                        <li><span style="color: red;">*</span> 累计点赞数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">截止更新日期，主播的直播总点赞次数<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="cumulatePoints" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                    <ul>
+                        <li><span style="color: red;">*</span> 累计送出数</li>
+                        <li style="position: relative;">
+                            <img src="/images/icon25.png">
+                            <div style="display: none;z-index: 100;" class="annotation">截止更新日期，主播在对应平台累计送出数<span><img src="/images/ico25.png"></span></div>
+                        </li>
+                        <li><input name="Username" class="cumulateSendCount" type="text"  style="width:80px;height:24px;" onkeyup="this.value=this.value.replace(/\D/g, '')" onafterpaste="this.value=this.value.replace(/\D/g, '')"></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                    <div style="color: red;display: none" class="parameterInfo"><img src="/images/icon21.png" alt=""><!--请填写直播观众数／最高观众数／平均观众数／累计打赏数／累计收入／累计点赞数/累计送出数--></div>
+                    <div class="clear"></div>
+
+                    <div class="keep">
+                        <span><a href="javascript:;" class="button save" style="width:150px">保存</a></span>
+                        <span><a href="javascript:;" class="but_keep but_keep_add" style="width:150px">保存并新增</a></span>
+                        <span><a href="javascript:;" class="but_keep but_keep_establish" style="width:150px">保存并创建刊例</a></span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+</div>
+
+
+<!--底部-->
+<!--#include file="../Base/footer.html" -->
+<script type="text/javascript">
+    changeType(14005);
+</script>
+
+
+</body>
+</html>

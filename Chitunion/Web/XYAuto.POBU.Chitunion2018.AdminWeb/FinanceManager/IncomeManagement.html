@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收入管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/resetNew.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layoutNew.css"/>
+    <script language="javascript" src="/api/check.ashx?NotCheckModule=true" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/js/ejs.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/Common_chitu.js"></script>
+    <script type="text/javascript" src="/js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="js/IncomeManagement.js"></script>
+    <style>
+        table a:hover {
+            color: #FF4F4F;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<!--顶部logo 导航-->
+<!-- #include file="/base/header.html"  -->
+
+
+<!--中间内容-->
+<div class="order">
+    <!--左侧菜单-->
+    <!-- #include file="/base/Menu.html"  -->
+    <div class="order_r">
+        <div class="list_box">
+            <div class="list">
+                <h2 class="menu_nav">
+
+                </h2>
+            </div>
+            <div id="list_switching">
+                <div class="clear"></div>
+                <ul class="state">
+                    <li><div class="ins_c">订单类型：</div><select name="" id="OrderType" style="width:170px">
+                        <option value="-2">全部</option>
+                        <option value="192002">贴片广告</option>
+                        <option value="192001">内容分发</option>
+                    </select>
+                    </li>
+                    <li><div class="ins_c">订单ID：</div><input id="OrderId" name="Username" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  style="width:160px;"></li>
+                    <li><div class="ins_c">任务ID：</div><input id="TaskId" name="Username" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  style="width:160px;"></li>
+                    <li><div class="ins_c">物料ID：</div><input id="MaterielId" name="Username" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  style="width:160px;"></li>
+                    <li><div class="ins_c">渠道：</div><select id="OrderChannel" name="" style="width:170px">
+                        <option value="-2">全部</option>
+                        <option value="101001">赤兔联盟</option>
+                        <option value="101002">微播易</option>
+                    </select>
+                    </li>
+                    <li><div class="ins_c">媒体主：</div><input id="UserName" name="Username" type="text"  style="width:160px;"></li>
+                    <li><div class="ins_c">产生时间：</div>
+                        <input id="CreateTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                        至 <input id="endTime" name="Username" type="text" style="width:100px;" class="laydate-iconNew">
+                    </li>
+                    <li class="but_query" id="Inquiry" style="width:70px;margin-right:0">查询</li>
+                    <div class="clear"></div>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="list_box mt20">
+            <div class="tab_box">
+                <div class="box">
+
+                    <div class="ad_table">
+                        <p style="padding: 0 0 10px 0" id="Cumulative">
+
+                        </p>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#ddd" class="Settlement">
+
+                        </table>
+
+                        <!--分页-->
+                        <div class="green-black" id="pageContainer">
+                            <span class="disabled">上一页</span>
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>...
+                            <a href="#?page=200">100</a>
+                            <a href="#?page=2">下一页</a>
+                            <span>1/200</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--底部-->
+<!--#include file="/base/footer.html" -->
+<script type="text/template" id="Settlement">
+    <tr>
+        <th width="14%">订单类型</th>
+        <th width="14%">订单ID</th>
+        <th width="14%">任务ID</th>
+        <th width="14%">物料ID</th>
+        <th width="20%">媒体主</th>
+        <th width="19%">订单金额</th>
+        <th width="20%">产生时间</th>
+    </tr>
+    <%Result.List.forEach(function(e){%>
+    <tr>
+        <td>
+            <%=e.OrderTypeName%>
+        </td>
+        <td>
+            <%=e.OrderId%>
+        </td>
+        <td>
+            <%=e.TaskId%>
+        </td>
+        <td>
+            <a href="<%=e.MaterialUrl%>" target="_blank"><%=e.MaterielId%></a>
+        </td>
+        <td>
+            <%=e.UserName%>
+        </td>
+        <td>
+            <%=removePoint0(formatMoney(e.TotalAmount,2,''),2)+'元'%>
+        </td>
+        <td>
+            <%=new Date(Date.parse(e.IncomeTime.replace(/-/g,  "/"))).Format('yyyy-MM-dd')%>
+        </td>
+    </tr>
+    <%})%>
+</script>
+<script>
+    $('#CreateTime').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#CreateTime',
+            choose: function (date) {
+                if (date > $('#endTime').val() && $('#endTime').val()) {
+                    layer.alert('起始时间不能大于结束时间！');
+                    $('#CreateTime').val('')
+                }
+            }
+        });
+    });
+    $('#endTime').off('click').on('click', function () {
+        laydate({
+            fixed: false,
+            elem: '#endTime',
+            choose: function (date) {
+                if (date < $('#CreateTime').val() && $('#CreateTime').val()) {
+                    layer.alert('结束时间不能小于起始时间！');
+                    $('#endTime').val('')
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
